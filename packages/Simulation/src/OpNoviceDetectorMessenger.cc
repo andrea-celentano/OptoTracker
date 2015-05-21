@@ -74,11 +74,6 @@ OpNoviceDetectorMessenger::OpNoviceDetectorMessenger(OpNoviceDetectorConstructio
 	fScintFastDecayTime->AvailableForStates(G4State_PreInit,G4State_Idle);
 	fScintFastDecayTime->SetToBeBroadcasted(false);
 		
-	
-	fReflectivityCmd = new G4UIcmdWithADouble("/OpNovice/detector/reflectivity",this);
-	fReflectivityCmd->SetGuidance("Set the reflectivity of the wrapping.");
-	fReflectivityCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
-	fReflectivityCmd->SetToBeBroadcasted(false);
 
 	
 	fStepLimitCmd = new G4UIcmdWithADoubleAndUnit("/OpNovice/detector/stepLimit",this);
@@ -87,33 +82,42 @@ OpNoviceDetectorMessenger::OpNoviceDetectorMessenger(OpNoviceDetectorConstructio
 	fStepLimitCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
 	fStepLimitCmd->SetToBeBroadcasted(false);
 	
-	
+
+
+
+
+G4UIcmdWith3Vector*               fRCmd[6];	
+G4UIcmdWith3Vector*               fQECmd[6];
+
+
+
+
 	//The 6 surfaces
 	for (int ii=0;ii<6;ii++){
 		fSurfDir[ii] = new G4UIdirectory(Form("/OpNovice/detector/surface%i/",ii+1));
 	
-		fPhotoDetDimension[ii] =new G4UIcmdWith3VectorAndUnit(Form("/OpNovice/detector/surface%i/PhotoDetectorDimensions",ii+1),this);
-		fPhotoDetDimension[ii]->SetGuidance("Set the dimensions of the photo-detector, use only x and y");
+		
+
+		fNdetCmd[ii]=new G4UIcmdWithAnIngeger(Form("/OpNovice/detector/surface%i/Ndet",ii+1),this);
+		fNdetCmd[ii]->SetGuidance("Set the number of photo-detectors on surface %i",ii); 
+		fNdetCmd[ii]->SetParameterName("Ndet",false);
+		fNdetCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
+		fNdetCmd[ii]->SetToBeBroadcasted(false);
+		
+		fPhotoDetDimension[ii] = new G4UIcmdWith3VectorAndUnit(Form("/OpNovice/detector/surface%i/PhotoDetectorDimensions",ii+1),this);
+		fPhotoDetDimension[ii]->SetGuidance("Set the dimensions of the photo-detector: Specify det-ID / x and y");
 		fPhotoDetDimension[ii]->SetParameterName("scint_x","scint_y","scint_z",false);
 		fPhotoDetDimension[ii]->SetDefaultUnit("cm");
 		fPhotoDetDimension[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
 		fPhotoDetDimension[ii]->SetToBeBroadcasted(false);
-
-		
-		fNpixelsXCmd[ii]=new G4UIcmdWithADouble(Form("/OpNovice/detector/surface%i/NpixelsX",ii+1),this);
-		fNpixelsXCmd[ii]->SetGuidance("Set N pixels X");
-		fNpixelsXCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
-		fNpixelsXCmd[ii]->SetToBeBroadcasted(false);
-		
-		fNpixelsYCmd[ii]=new G4UIcmdWithADouble(Form("/OpNovice/detector/surface%i/NpixelsY",ii+1),this);
-		fNpixelsYCmd[ii]->SetGuidance("Set N pixels X");
-		fNpixelsYCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
-		fNpixelsYCmd[ii]->SetToBeBroadcasted(false);
 		
 		
+		fNpixelsCmd[ii]=new G4UIcmdWith3Vector(Form("/OpNovice/detector/surface%i/Npixels",ii+1),this);
+		fNpixelsCmd[ii]->SetGuidance("Set N pixels: Specify det-ID / x and y");
+		fNpixelsCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
+		fNpixelsCmd[ii]->SetToBeBroadcasted(false);
 		
-		
-		
+			
 		fQECmd[ii] = new G4UIcmdWithADouble(Form("/OpNovice/detector/surface%i/PhotoDetectorQE",ii+1),this);
 		fQECmd[ii]->SetGuidance("Set the quantum efficiency.");
 		fQECmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
@@ -124,6 +128,10 @@ OpNoviceDetectorMessenger::OpNoviceDetectorMessenger(OpNoviceDetectorConstructio
 		fRCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
 		fRCmd[ii]->SetToBeBroadcasted(false);
 
+		
+		
+		
+		
 		fCouplingThicknessCmd[ii] = new G4UIcmdWithADoubleAndUnit(Form("/OpNovice/detector/surface%i/CouplingThickness",ii+1),this);
 		fCouplingThicknessCmd[ii]->SetGuidance("Set the coupling thickness");
 		fCouplingThicknessCmd[ii]->SetDefaultUnit("mm");
@@ -131,10 +139,15 @@ OpNoviceDetectorMessenger::OpNoviceDetectorMessenger(OpNoviceDetectorConstructio
 		fCouplingThicknessCmd[ii]->SetToBeBroadcasted(false);
 
 		fCouplingNCmd[ii] = new G4UIcmdWithADouble(Form("/OpNovice/detector/surface%i/CouplingN",ii+1),this);
-		fCouplingNCmd[ii]->SetGuidance("Set the refractive index");
+		fCouplingNCmd[ii]->SetGuidance("Set the refractive index of the coupling of face %i",ii+1);
 		fCouplingNCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
 		fCouplingNCmd[ii]->SetToBeBroadcasted(false);
 
+	
+		fReflectivityCmd[ii] = new G4UIcmdWithADouble(Form("/OpNovice/detector/surface%i/Reflectivity",ii+1),this);
+		fReflectivityCmd[ii]->SetGuidance("Set the reflectivity of the wrapping for face %i",ii+1);
+		fReflectivityCmd[ii]->AvailableForStates(G4State_PreInit,G4State_Idle);
+		fReflectivityCmd[ii]->SetToBeBroadcasted(false);
 
 	}	
 	

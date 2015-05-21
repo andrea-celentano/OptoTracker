@@ -144,7 +144,7 @@ G4bool OpNovicePMTSD::ProcessHits_constStep(const G4Step* aStep,G4TouchableHisto
 	G4ThreeVector localPosition=preStepPoint->GetTouchableHandle()->GetHistory()->GetTopTransform().TransformPoint(globalPosition);
 	
 	//wrt the local coordinates.
-	//for reference, as seen from the photon side, the center is at (0,0) and the marker is at (-49,-49)mm, pointing toward positive X
+	//for reference, as seen from the photon side, the center is at (0,0) and the marker is at (-,-), pointing toward positive X
 	G4double x=localPosition.x();
 	G4double y=localPosition.y();
 	

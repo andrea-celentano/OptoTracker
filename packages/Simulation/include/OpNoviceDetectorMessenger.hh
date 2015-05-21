@@ -61,19 +61,26 @@ G4UIcmdWithADouble*               fScintYield;
 G4UIcmdWithADouble*  	          fScintFastDecayTime;
 
 
-G4UIcmdWithADouble*               fReflectivityCmd;
-G4UIcmdWithADoubleAndUnit*               fStepLimitCmd;
-
+/*SURFACES*/
+//photo-detectors
 G4UIdirectory*                    fSurfDir[6];
+G4UIcmdWithAnInteger*             fNdetCmd[6];
 G4UIcmdWith3VectorAndUnit*        fPhotoDetDimension[6];	
+G4UIcmdWith3Vector*               fNpixelsCmd[6];
 
-//photo-detector and coupling
-G4UIcmdWithADouble*               fNpixelsXCmd[6];
-G4UIcmdWithADouble*               fNpixelsYCmd[6];
-G4UIcmdWithADouble*               fQECmd[6];
-G4UIcmdWithADouble*               fRCmd[6];	
+G4UIcmdWith3Vector*               fRCmd[6];	
+G4UIcmdWith3Vector*               fQECmd[6];
+
+
+//coupling
 G4UIcmdWithADoubleAndUnit*        fCouplingThicknessCmd[6];		
 G4UIcmdWithADouble*               fCouplingNCmd[6];		
+G4UIcmdWithADouble*               fReflectivityCmd[6];
+
+
+
+
+G4UIcmdWithADoubleAndUnit*        fStepLimitCmd;
 
 
 

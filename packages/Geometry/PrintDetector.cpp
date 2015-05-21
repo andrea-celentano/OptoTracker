@@ -39,67 +39,79 @@ string fName,detName;
 double timeRes=-1;
 
 
-//detector. Keep it global for "print" functions
-TOpNoviceDetectorLight *detector;
+
 
 int main(int argc,char **argv){
-	//Load Cintex and the shared library
-	ROOT::Cintex::Cintex::Enable();
-	gSystem->Load("libGeometryClassesDict.so");
-	
-	
+  //Load Cintex and the shared library
+  ROOT::Cintex::Cintex::Enable();
+  gSystem->Load("libGeometryClassesDict.so");
+  
+  
+  
+  
+  //Input file
+  TFile *fin;
+  //detector	
+  TOpNoviceDetectorLight *detector;
+  
+  //Parse the command line, open the input file
+  ParseCommandLine(argc,argv);
+  
+  std::size_t found = fName.find(".root");
+  if (found!=std::string::npos){
+    
+    cout<<"ROOT mode"<<endl;
+    fin=new TFile(fName.c_str()); 		
+    //Check if we have detector info in the ROOT file. 
+    if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
+      detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
+      cout<<"Detector found:"<<detector->getName()<<endl;
+    }
+    else{
+      cout<<"Detector not found"<<endl;
+      exit(1);
+    }
+  }
+  else{
+    cout<<"TXT mode"<<endl;
+    detector=new TOpNoviceDetectorLight(fName); 
+  }
+  
+  //OWR time resolution
+  if (timeRes>0){
+    for (int ii=0;ii<6;ii++){
+      for (int jj=0;jj<detector->getNdet(ii);jj++){
+      if (detector->isDetPresent(ii,jj)) detector->setDetTimeRes(ii,jj,timeRes);
+      }
+    }
+  }
+  
+  
+  //Print detector information  
+  
+  detector->printPixels();
+  detector->printDet();
+  
+}
 
-	
-	//Input file
-	TFile *fin;
 
-        
-        //Parse the command line, open the input file
-	ParseCommandLine(argc,argv);
-	fin=new TFile(fName.c_str()); 
-	//Check if we have detector info in the ROOT file. 
-	if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
-		detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
-		cout<<"Detector found:"<<detector->getName()<<endl;
-	}
-	else{
-		cout<<"Detector not found"<<endl;
-		exit(1);
-	}
-	
-	//OWR time resolution
-	if (timeRes>0){
-	  for (int ii=0;ii<6;ii++){
-	    if (detector->isDetPresent(ii)) detector->setTimeRes(ii,timeRes);
-	  }
-	}
-	
-	
-	//Print detector information  
-	
-	detector->printPixels();
-	detector->printDet();
-	
-	}
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
 
 void ParseCommandLine(int argc,char **argv){
-	for (int ii=0;ii<argc;ii++){
-		if ((strcmp(argv[ii],"-f")==0)||(strcmp(argv[ii],"-fname")==0)){
-			fName=string(argv[ii+1]);
-		}
-		
-	
-		
-		
-	}
-	
+  for (int ii=0;ii<argc;ii++){
+    if ((strcmp(argv[ii],"-f")==0)||(strcmp(argv[ii],"-fname")==0)){
+      fName=string(argv[ii+1]);
+    }
+    
+    
+    
+    
+  }
+  
 }
 
 
@@ -111,7 +123,7 @@ void ParseCommandLine(int argc,char **argv){
 
 
 
-	
-	
-	
-	
+
+
+
+

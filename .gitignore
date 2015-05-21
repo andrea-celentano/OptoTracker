@@ -1,0 +1,8 @@
+#Ignore root files
+*.root
+#ignore binaries
+lib/*
+bin/*
+
+#local backups
+*~
