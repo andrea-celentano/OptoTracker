@@ -42,7 +42,7 @@ class G4SubtractionSolid;
 
 #include "G4Material.hh"
 #include "G4ThreeVector.hh"
-#include "OpNoviceDetectorMessenger.hh"
+//#include "OpNoviceDetectorMessenger.hh"
 #include "OpNovicePMTSD.hh"
 #include "TOpNoviceDetectorLight.hh"
 
@@ -55,7 +55,7 @@ class OpNovicePMTSD;
 class OpNoviceDetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
-	OpNoviceDetectorConstruction();
+	OpNoviceDetectorConstruction(TOpNoviceDetectorLight *mDetectorLight);
 	virtual ~OpNoviceDetectorConstruction();
 
 public:
@@ -107,7 +107,7 @@ private:
 	G4Material* fVacuum;
 	G4Material* fAir;
 	G4Material* fEJ230;
-	G4Material* fCoupling[6];
+	G4Material* fCoupling[6][MAX_DETECTORS];
 	
 	G4double fEJ230_LY;
 	G4double fEJ230_FastTimeConstant;
@@ -126,10 +126,13 @@ private:
 	
 	
 	G4Box* fFace_box[6];	
-	G4Box* fCoupling_box[6];
-	G4Box* fDetector_box[6];
-	G4Box* fPixel_box[6];
 	G4Box* fMarker_box[6];	
+	
+	G4Box* fDetector_box[6][MAX_DETECTORS];
+	G4Box* fCoupling_box[6][MAX_DETECTORS];
+	
+	G4Box* fPixel_box[6][MAX_DETECTORS];
+	
 	G4Box* fAround_box_a[6];	
 	G4Box* fAround_box_b[6];	
 	G4SubtractionSolid* fAround[6];	
@@ -148,46 +151,22 @@ private:
 	G4double fExpHall_y;
 	G4double fExpHall_z;
 	
-	
-	/*The scintillator dimensions*/
-	G4double fScint_x;
-	G4double fScint_y;
-	G4double fScint_z;
-	
-	/*The photo-detectors sizes*/
-	/*If any of them is <=0, there's no photo-detector on that face*/
-	G4double fPhotoDetectorSizeX[6];
-	G4double fPhotoDetectorSizeY[6];
-	
-	G4double fPixelSizeX[6];
-	G4double fPixelSizeY[6];
-
-	G4int fNPixelsX[6];
-	G4int fNPixelsY[6];
-	
-	/*The quantum efficiency of the 6 detectors*/
-	G4double fPhotoQE[6];
-	/*The reflectivity of the "metal" of the 6 detectors*/
-	G4double fPhotoR[6];
-	
-	/*The thickness of the coupling material between scintillator and photo-detectors*/
-	/*If <=0, direct coupling*/
-	G4double fCouplingThickness[6];
-	/*The refractive index*/
-	G4double fCouplingN[6]; 
-	
+	G4double fScint_x,fScint_y,fScint_z;
+	G4double fPhotoDetectorSizeX[6][MAX_DETECTORS];
+	G4double fPhotoDetectorSizeY[6][MAX_DETECTORS];
+	G4double fPixelSizeX[6][MAX_DETECTORS];
+	G4double fPixelSizeY[6][MAX_DETECTORS];
+	G4double fCouplingThickness[6][MAX_DETECTORS];
 	/*The reflectivity of the wrapping surface (where no photo-detectors are)*/
 	G4double fWrappingR;
 	
-		
-	G4bool fPmtPlaced;
 	
 	
 	//member functions
 		
 	void makeEJ230();
 	
-	OpNoviceDetectorMessenger*  fDetectorMessenger; 
+	TOpNoviceDetectorLight*  fDetectorLight; 
 	
 	//Sensitive Detectors
 	G4Cache<OpNovicePMTSD*> fPmt_SD;
@@ -196,72 +175,7 @@ private:
 	G4double fMaxStep;
 	
 public:	
-	//Functions to modify the geometry
-	void SetScintillatorDimensions(G4ThreeVector dims ){
-		this->fScint_x=dims[0];
-		this->fScint_y=dims[1];
-		this->fScint_z=dims[2];
-		G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-	}
-	
-	void SetPhotoDimensions(int idx,G4ThreeVector dims){
-		if ((idx>=0)&&(idx<6)){
-			this->fPhotoDetectorSizeX[idx]=dims[0];
-			this->fPhotoDetectorSizeY[idx]=dims[1];
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-	
-	void SetNPixelsX(int idx,G4int n){
-		if ((idx>=0)&&(idx<6)){
-			this->fNPixelsX[idx]=n;
-			this->fPixelSizeX[idx]=(this->fPhotoDetectorSizeX[idx])/n;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-	
-	void SetNPixelsY(int idx,G4int n){
-		if ((idx>=0)&&(idx<6)){
-			this->fNPixelsY[idx]=n;
-			this->fPixelSizeY[idx]=(this->fPhotoDetectorSizeY[idx])/n;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-		
-	void SetPhotoQE(int idx,G4double QE){
-		if ((idx>=0)&&(idx<6)){
-			this->fPhotoQE[idx]=QE;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-	double GetPhotoQE(int idx){
-	  return (this->fPhotoQE[idx]);
-	}
-	void SetPhotoR(int idx,G4double R){
-		if ((idx>=0)&&(idx<6)){
-			this->fPhotoR[idx]=R;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-	
-	void SetCouplingThickness(int idx,G4double t){
-		if ((idx>=0)&&(idx<6)){
-			this->fCouplingThickness[idx]=t;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}
-	
-	void SetCouplingN(int idx,G4double n){
-		if ((idx>=0)&&(idx<6)){
-			this->fCouplingN[idx]=n;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-		}
-	}//
-	
-	void SetWrappingR(G4double r){
-			this->fWrappingR=r;
-			G4RunManager::GetRunManager()->ReinitializeGeometry(true);
-	}
+
 	
 	void SetDefaults();
 };

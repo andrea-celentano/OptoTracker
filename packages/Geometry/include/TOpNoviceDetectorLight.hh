@@ -67,6 +67,9 @@ class TOpNoviceDetectorLight : public TObject
 		int getNPixelsX(int iface,int idetector){return detNpixelsX[iface][idetector];}
 		int getNPixelsY(int iface,int idetector){return detNpixelsY[iface][idetector];}
 		int getNPixels(int iface,int idetector){return ((this->getNPixelsX(iface,idetector))*(this->getNPixelsY(iface,idetector)));}
+		
+		double getCouplingThickness(int iface, int idetector){return detCouplingThickness[iface][idetector];}
+		double getCouplingRIndex(int iface, int idetector){return detCouplingRIndex[iface][idetector];}
 	
 		void setDetTimeRes(int iface,int idetector,double t){detTimeRes[iface][idetector]=t;}
 		double getDetTimeRes(int iface,int idetector){return detTimeRes[iface][idetector];}
