@@ -1,2 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/build/CMakeFiles/GeometryClassesDict.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/build/CMakeFiles/PrintDetector.dir
