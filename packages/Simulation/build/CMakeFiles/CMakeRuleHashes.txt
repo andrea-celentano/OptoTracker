@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+1052af0484166d244c6e59d45b924e23 CMakeFiles/OpNovice
+7648a477952ab81c4803ad485dc7b840 OpNoviceClasses.cpp

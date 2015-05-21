@@ -1,0 +1,46 @@
+#Configure a detector
+
+/OpNovice/detector/dimensions 6 6 6 cm
+/OpNovice/detector/reflectivity 0.02
+
+#First surface, xy +z
+/OpNovice/detector/surface1/PhotoDetectorDimension 5 5 0 cm
+/OpNovice/detector/surface1/PhotoDetectorQE 0.2
+/OpNovide/detector/surface1/PhotoDetectorReflectivity 0.1
+/OpNovice/detector/surface1/CouplingThickness 0.2 mm
+/OpNovice/detector/surface1/CouplingN 1.5
+
+#Third surface, xy -z
+/OpNovice/detector/surface3/PhotoDetectorDimension 5 5 0 cm
+/OpNovice/detector/surface3/PhotoDetectorQE 0.2
+/OpNovide/detector/surface3/PhotoDetectorReflectivity 0.1
+/OpNovice/detector/surface3/CouplingThickness 0.2 mm
+/OpNovice/detector/surface3/CouplingN 1.5
+
+#Second surface, yz +x
+/OpNovice/detector/surface2/PhotoDetectorDimension 5 5 0 cm
+/OpNovice/detector/surface2/PhotoDetectorQE 0.2
+/OpNovide/detector/surface2/PhotoDetectorReflectivity 0.1
+/OpNovice/detector/surface2/CouplingThickness 0.2 mm
+/OpNovice/detector/surface2/CouplingN 1.5
+
+#Fourth surface, yz -x
+/OpNovice/detector/surface4/PhotoDetectorDimension 5 5 0 cm
+/OpNovice/detector/surface4/PhotoDetectorQE 0.2
+/OpNovide/detector/surface4/PhotoDetectorReflectivity 0.1
+/OpNovice/detector/surface4/CouplingThickness 0.2 mm
+/OpNovice/detector/surface4/CouplingN 1.5
+
+#Fifth surface, xz +y
+/OpNovice/detector/surface5/PhotoDetectorDimension 0 0 0 cm
+#/OpNovice/detector/surface5/PhotoDetectorQE 0.2
+#/OpNovide/detector/surface5/PhotoDetectorReflectivity 0.1
+#/OpNovice/detector/surface5/CouplingThickness 0.2 mm
+#/OpNovice/detector/surface5/CouplingN 1.5
+
+#Sixth surface, xz -y
+/OpNovice/detector/surface6/PhotoDetectorDimension 0 0 0 cm
+#/OpNovice/detector/surface6/PhotoDetectorQE 0.2
+#/OpNovide/detector/surface6/PhotoDetectorReflectivity 0.1
+#/OpNovice/detector/surface6/CouplingThickness 0.2 mm
+#/OpNovice/detector/surface6/CouplingN 1.5

@@ -1,0 +1,12 @@
+/control/execute detector.mac
+
+/OpNovice/run/setRunName alpha
+
+/gps/particle alpha
+/gps/energy 10 MeV
+/gps/position 0.5 2.1 -1.6 cm
+/gps/direction 0 -1 0.1
+
+/OpNovice/forceDrawNoPhotons 1
+/run/beamOn 100
+

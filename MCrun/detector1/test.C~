@@ -1,0 +1,12 @@
+Double_t
+poissonf(Double_t*x,Double_t*par)                                         
+{                                                                              
+  return par[0]*TMath::Poisson(x[0],par[1]);
+}      
+
+
+test(){
+
+
+
+}

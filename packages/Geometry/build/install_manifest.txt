@@ -1,0 +1,2 @@
+/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libGeometryClassesDict.so
+/project/Gruppo3/fiber5/celentano/OptoTracker/bin/PrintDetector

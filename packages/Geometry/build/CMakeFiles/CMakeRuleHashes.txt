@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+2b3c3ca3c59d68d363a11b8b9ba48e68 GeometryClasses.cpp

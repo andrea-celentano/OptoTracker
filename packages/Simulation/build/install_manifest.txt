@@ -1,0 +1,2 @@
+/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libOpNoviceClassesDict.so
+/project/Gruppo3/fiber5/celentano/OptoTracker/bin/OpNoviceExe

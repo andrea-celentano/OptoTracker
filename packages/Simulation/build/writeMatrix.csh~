@@ -1,0 +1,13 @@
+#!/bin/tcsh -f
+
+
+set file=pixels/run0.out
+cat $file > matrix.dat
+echo " " >> matrix.dat
+foreach x(`seq 1 1 99999999999`)
+    set file=pixels/run$x.out
+    if [ -f $file ] then 
+	cat $file >> matrix.dat
+	echo " " >> matrix.dat
+    fi
+end

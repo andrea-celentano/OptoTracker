@@ -1,0 +1,4 @@
+/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libReconstructionClassesDict.so
+/project/Gruppo3/fiber5/celentano/OptoTracker/bin/Reconstruction.single
+/project/Gruppo3/fiber5/celentano/OptoTracker/bin/Reconstruction.proof
+/project/Gruppo3/fiber5/celentano/OptoTracker/bin/VerifyChargeFunction
