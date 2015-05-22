@@ -32,7 +32,7 @@
 #ifndef OpNoviceEventAction_h
 #define OpNoviceEventAction_h 1
 
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 #include "OpNoviceMessenger.hh"
 #include "G4UserEventAction.hh"
@@ -80,9 +80,8 @@ private:
 	G4int              fSaveThreshold;
 	
 
-	G4int              fPMTCollID;
-	G4int              fPMTDigiCollID;
 	
+
 	G4int              fVerbose;
 	
 	G4int              fPMTThreshold;
@@ -93,12 +92,15 @@ private:
 	G4bool fSaveRaw;
 	G4bool fDoDigi;
 	
-	OpNovicePMTHitsCollection* pmtHC;
-	OpNoviceDigitsCollection* pmtDigiHC;
+	G4int              fDetectorCollID;
+	G4int              fDetectorDigiCollID;
+
+	OpNoviceDetectorHitsCollection* detectorHC;
+	OpNoviceDigitsCollection* detectorDigiHC;
 	
 	/*To save data*/
 	RootIO *fRootIO;
-	std::vector<OpNovicePMTHit*> *fRootCollectionRaw;
+	std::vector<OpNoviceDetectorHit*> *fRootCollectionRaw;
 	std::vector<OpNoviceDigi*> *fRootCollectionDigi;
 	
 };

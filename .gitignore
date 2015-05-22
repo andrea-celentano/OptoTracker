@@ -8,7 +8,7 @@ bin/*
 *~
 
 #build
-packages/Geometry/build/
-packages/Reconstruction/build/
-packages/Simulation/build/
-packages/MarocAnalysis/build/
+packages/Geometry/build/*
+packages/Reconstruction/build/*
+packages/Simulation/build/*
+packages/MarocAnalysis/build/*

@@ -30,7 +30,7 @@
 //
 //
 #include "OpNoviceEventAction.hh"
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 #include "OpNoviceDigitizer.hh"
 #include "OpNoviceUserEventInformation.hh"
@@ -54,7 +54,7 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceEventAction::OpNoviceEventAction(OpNoviceRecorderBase* r)
-: fRecorder(r),fSaveThreshold(0),fPMTCollID(-1),fPMTDigiCollID(-1),fVerbose(0),
+: fRecorder(r),fSaveThreshold(0),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
 fPMTThreshold(1),fForcedrawphotons(false),fForcenophotons(false)
 {
 	G4cout<<"OpNoviceEventAction::creator"<<G4endl;
@@ -87,13 +87,13 @@ void OpNoviceEventAction::BeginOfEventAction(const G4Event* anEvent){
 	
 	G4SDManager* SDman = G4SDManager::GetSDMpointer();
 	//  if(fScintCollID<0)    fScintCollID=SDman->GetCollectionID("scintCollection");
-	if(fPMTCollID<0)     fPMTCollID=SDman->GetCollectionID("pmtHitCollection");
+	if(fDetectorCollID<0)     fDetectorCollID=SDman->GetCollectionID("DetectorHitCollection");
 	
 	
 	
 	if(fRecorder)fRecorder->RecordBeginOfEvent(anEvent);
 	
-	((OpNoviceDigitizer*)(G4DigiManager::GetDMpointer()->FindDigitizerModule("OpNovicePMTDigitizer")))->SetDoDigi(fDoDigi);
+	((OpNoviceDigitizer*)(G4DigiManager::GetDMpointer()->FindDigitizerModule("OpNoviceDetectorDigitizer")))->SetDoDigi(fDoDigi);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -125,64 +125,66 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	fRootCollectionDigi=fRootIO->GetRootCollectionDigi();
 	
 	//TClonesArray &mRootCollectionRaw=*fRootCollectionRaw;
-	std::vector<OpNovicePMTHit*> &mRootCollectionRaw=*fRootCollectionRaw;	
+	std::vector<OpNoviceDetectorHit*> &mRootCollectionRaw=*fRootCollectionRaw;
 	std::vector<OpNoviceDigi*> &mRootCollectionDigi=*fRootCollectionDigi;	
 	mRootCollectionRaw.clear();
 	mRootCollectionDigi.clear();
 	
-	pmtHC = 0;
+	detectorHC = 0;
 	G4HCofThisEvent* hitsCE = anEvent->GetHCofThisEvent(); //hits
         //Get the hit collections
 	if(hitsCE){
-		if(fPMTCollID>=0) pmtHC=(OpNovicePMTHitsCollection*)(hitsCE->GetHC(fPMTCollID));
+		if(fDetectorCollID>=0) detectorHC=(OpNoviceDetectorHitsCollection*)(hitsCE->GetHC(fDetectorCollID));
 	 }	
 	//hits in PMT
-	if(pmtHC){
-		G4int pmts=pmtHC->entries();
-		//Gather info from all PMTs
-		for(G4int i=0;i<pmts;i++){
-			eventInformation->IncHitCount((*pmtHC)[i]->GetPheCount());
-			if((*pmtHC)[i]->GetPheCount()>=fPMTThreshold){
+	if(detectorHC){
+		G4int detectorN=detectorHC->entries();
+		//Gather info from all detectors
+		for(G4int i=0;i<detectorN;i++){
+
+			/*eventInformation->IncHitCount((*detectorHC)[i]->GetPheCount());
+			if((*detectorHC)[i]->GetPheCount()>=fPMTThreshold){
 				eventInformation->IncPMTSAboveThreshold();
 			}
 			else{//wasnt above the threshold, turn it back off
-				(*pmtHC)[i]->SetDrawit(false);
-			}
-			if (fSaveRaw) mRootCollectionRaw.push_back((*pmtHC)[i]);
+				(*detectorHC)[i]->SetDrawit(false);
+			}*/
+
+			if (fSaveRaw) mRootCollectionRaw.push_back((*detectorHC)[i]);
 		}
 		/*Scala di colore qui*/
 		/*for(G4int i=0;i<pmts;i++){
 			(*pmtHC)[i]->SetDrawScaleMax(eventInformation->GetHitCount());
 		}*/
 		if (G4VVisManager::GetConcreteInstance()!=0){
-			pmtHC->DrawAllHits();
+		//	detectorHC->DrawAllHits();
 		}
 	}
 	/*Root Save*/
 	if (fSaveRaw) fRootIO->FillRaw();
 	
-	//digi hits in PMT
+	//digi hits in detector
 	if (fDoDigi){
-		pmtDigiHC = 0;
+		detectorDigiHC = 0;
 		G4DCofThisEvent* hitsDC = anEvent->GetDCofThisEvent(); //all digits
-		if (fPMTDigiCollID<0){ //1: get the collection ID
+		if (fDetectorDigiCollID<0){ //1: get the collection ID
 			G4DigiManager* Digiman = G4DigiManager::GetDMpointer();
-			fPMTDigiCollID=Digiman->GetDigiCollectionID("pmtDigiHitCollection");
+			fDetectorDigiCollID=Digiman->GetDigiCollectionID("detectorDigiHitCollection");
 		}
 		if (hitsDC){ //2: Get the collection
-			if(fPMTDigiCollID>=0) pmtDigiHC = (OpNoviceDigitsCollection*)(hitsDC->GetDC(fPMTCollID));
+			if(fDetectorDigiCollID>=0) detectorDigiHC = (OpNoviceDigitsCollection*)(hitsDC->GetDC(fDetectorCollID));
 		}	
-		if(pmtDigiHC){//3: Use it
-			G4int pmtsdigi=pmtDigiHC->entries();
+		if(detectorDigiHC){//3: Use it
+			G4int DetectorDigiN=detectorDigiHC->entries();
 			//Gather info from all DigiPMTs
-			for(G4int i=0;i<pmtsdigi;i++){
+			for(G4int i=0;i<DetectorDigiN;i++){
 				//	G4cout<<"Digi hits "<<(*pmtDigiHC)[i]->GetEnergy()<<G4endl;
 				if (fSaveDigi){
-					mRootCollectionDigi.push_back((*pmtDigiHC)[i]);
+					mRootCollectionDigi.push_back((*detectorDigiHC)[i]);
 				}
 			}
 			if (G4VVisManager::GetConcreteInstance()!=0){
-				pmtDigiHC->DrawAllDigi();
+				//detectorDigiHC->DrawAllDigi();
 			}
 		}
 	}

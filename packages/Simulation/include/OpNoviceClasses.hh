@@ -28,15 +28,15 @@
 //
 // $Id: ExP01Classes.hh 68025 2013-03-13 13:43:46Z gcosmo $
 //
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "G4VHit.hh"
 
 #include "G4VDigi.hh"
 #include "OpNoviceDigi.hh"
 
-OpNovicePMTHit object1;
+OpNoviceDetectorHit object1;
 G4VHit object2;
-std::vector<OpNovicePMTHit*> object3;
+std::vector<OpNoviceDetectorHit*> object3;
 
 OpNoviceDigi object4;
 G4VDigi object5;

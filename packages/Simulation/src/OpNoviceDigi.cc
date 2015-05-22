@@ -45,8 +45,10 @@ G4ThreadLocal G4Allocator<OpNoviceDigi> *OpNoviceDigiAllocator = 0;
 
 OpNoviceDigi::OpNoviceDigi()
 {
-	fPmtNumber=0;	
-	fPixelNumber=0;
+	fDetectorNumber=-1;
+	fPixelNumber=-1;
+	fFaceNumber=-1;
+	fUniqueNumber=-1;
 	fFirstHitTime=99999.;
 	fNPhe=0;
 	fName="";
@@ -55,8 +57,13 @@ OpNoviceDigi::OpNoviceDigi()
 OpNoviceDigi::OpNoviceDigi(G4String name):
 fName(name)
 {
-	fPmtNumber=0;	
-	fPixelNumber=0;
+
+	fDetectorNumber=0;
+	fPixelNumber=-1;
+	fFaceNumber=-1;
+	fUniqueNumber=-1;
+
+
 	fFirstHitTime=99999.;
 	fNPhe=0;
 	fName="";
@@ -72,8 +79,13 @@ OpNoviceDigi::~OpNoviceDigi()
 OpNoviceDigi::OpNoviceDigi(const OpNoviceDigi& right)
   :G4VDigi()
 {
-	fPmtNumber=right.fPmtNumber;
+	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
+	fFaceNumber=right.fFaceNumber;
+	fUniqueNumber=right.fUniqueNumber;
+	fName=right.fName;
+
+
 	fNPhe=right.fNPhe;
 	fFirstHitTime=right.fFirstHitTime;
 }
@@ -82,8 +94,13 @@ OpNoviceDigi::OpNoviceDigi(const OpNoviceDigi& right)
 
 const OpNoviceDigi& OpNoviceDigi::operator=(const OpNoviceDigi& right)
 {
-	fPmtNumber=right.fPmtNumber;
+
+	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
+	fFaceNumber=right.fFaceNumber;
+	fUniqueNumber=right.fUniqueNumber;
+	fName=right.fName;
+
 	fNPhe=right.fNPhe;
 	fFirstHitTime=right.fFirstHitTime;
 	return *this;

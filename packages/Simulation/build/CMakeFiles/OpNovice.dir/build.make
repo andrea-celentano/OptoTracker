@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTrackerSoftware/packages/Simulation
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTrackerSoftware/packages/Simulation/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build
 
 # Utility rule file for OpNovice.
 
@@ -63,6 +63,6 @@ CMakeFiles/OpNovice.dir/clean:
 .PHONY : CMakeFiles/OpNovice.dir/clean
 
 CMakeFiles/OpNovice.dir/depend:
-	cd /work/OptoTrackerSoftware/packages/Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTrackerSoftware/packages/Simulation /work/OptoTrackerSoftware/packages/Simulation /work/OptoTrackerSoftware/packages/Simulation/build /work/OptoTrackerSoftware/packages/Simulation/build /work/OptoTrackerSoftware/packages/Simulation/build/CMakeFiles/OpNovice.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build/CMakeFiles/OpNovice.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OpNovice.dir/depend
 

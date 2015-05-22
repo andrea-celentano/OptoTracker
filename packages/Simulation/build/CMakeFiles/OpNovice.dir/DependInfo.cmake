@@ -24,12 +24,12 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4"
-  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include"
-  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include"
+  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4"
+  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include"
+  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include"
   "../include"
-  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root"
-  "/work/OptoTrackerSoftware/packages/Geometry/include"
+  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root"
+  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

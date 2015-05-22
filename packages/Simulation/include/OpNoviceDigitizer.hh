@@ -48,6 +48,7 @@
 //#include "g4std/vector"
 
 class OpNoviceDigitizerMessenger;
+class OpNoviceDetectorConstruction;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 

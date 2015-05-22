@@ -33,23 +33,29 @@
 
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
+#include "G4Material.hh"
+#include "G4ThreeVector.hh"
+
+#include "G4Cache.hh"
+#include "G4RunManager.hh"
+#include "OpNoviceDetectorSD.hh"
+#include "TOpNoviceDetectorLight.hh"
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4UserLimits;
 class G4Box;
 class G4SubtractionSolid;
+class G4OpticalSurface;
+class G4LogicalSkinSurface;
+class G4LogicalBorderSurface;
 
-#include "G4Material.hh"
-#include "G4ThreeVector.hh"
+
 //#include "OpNoviceDetectorMessenger.hh"
-#include "OpNovicePMTSD.hh"
-#include "TOpNoviceDetectorLight.hh"
 
-#include "G4Cache.hh"
-#include "G4RunManager.hh"
 
-class OpNovicePMTSD;
+
+class OpNoviceDetectorSD;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class OpNoviceDetectorConstruction : public G4VUserDetectorConstruction
@@ -63,31 +69,34 @@ public:
 	virtual void ConstructSDandField();
 
 	static OpNoviceDetectorConstruction* GetInstance();
-		
+
 	void SetStepLimit(G4double step){fMaxStep=step;G4RunManager::GetRunManager()->ReinitializeGeometry(true);}
 
 
 	//materials
 	void DefineMaterials();
-			
+
 	void SetScintYield(G4double d){fEJ230_LY=d;G4RunManager::GetRunManager()->ReinitializeGeometry(true);}	
 	void SetScintFastTimeConstant(G4double d){fEJ230_FastTimeConstant=d;G4RunManager::GetRunManager()->ReinitializeGeometry(true);}
-	
-	
+
+
 	//Get values
-	inline G4double GetScintX(){return fScint_x;}
-	inline G4double GetScintY(){return fScint_y;}
-	inline G4double GetScintZ(){return fScint_z;}
-	
-	inline G4double getDetSizeX(int ii){return fPhotoDetectorSizeX[ii];}
-	inline G4double getDetSizeY(int ii){return fPhotoDetectorSizeY[ii];}
-	
-	inline G4int getNPixelsX(int ii){return fNPixelsX[ii];}
-	inline G4int getNPixelsY(int ii){return fNPixelsY[ii];}
-	inline G4int getNPixels(int ii){return fNPixelsX[ii]*fNPixelsY[ii];}
-	
-	G4bool isDetPresent(int ii);
-	
+	inline G4double GetScintX(){return fDetectorLight->getScintSizeX();}
+	inline G4double GetScintY(){return fDetectorLight->getScintSizeY();}
+	inline G4double GetScintZ(){return fDetectorLight->getScintSizeZ();}
+
+	inline G4double getDetSizeX(int ii,int jj){return fDetectorLight->getDetSizeX(ii,jj);}
+	inline G4double getDetSizeY(int ii,int jj){return fDetectorLight->getDetSizeY(ii,jj);}
+
+	inline G4int getNPixelsX(int ii,int jj){return fDetectorLight->getNPixelsX(ii,jj);}
+	inline G4int getNPixelsY(int ii,int jj){return fDetectorLight->getNPixelsY(ii,jj);}
+	inline G4int getNPixels(int ii,int jj){return fDetectorLight->getNPixels(ii,jj);}
+
+	inline G4int getNdet(int ii){return fDetectorLight->getNdet(ii);}
+
+	G4bool isDetPresent(int ii,int jj){return fDetectorLight->isDetPresent(ii,jj);}
+
+
 	G4double GetLY(){return fEJ230_LY;}
 	G4double GetScintFastTimeConstant(){return fEJ230_FastTimeConstant;}
 private:    
@@ -102,81 +111,112 @@ private:
 	G4Element* fSi;
 	G4Element* fAl;
 
-	
+
 	//Materials and their properties
 	G4Material* fVacuum;
 	G4Material* fAir;
 	G4Material* fEJ230;
 	G4Material* fCoupling[6][MAX_DETECTORS];
-	
+	G4MaterialPropertiesTable* fCouplingMT[6][MAX_DETECTORS];
+	G4MaterialPropertiesTable *vacuumMT;
+
 	G4double fEJ230_LY;
 	G4double fEJ230_FastTimeConstant;
-	
-	
-	
-	
+
+
+
+
 	//geometry	
 	G4Box* fExperimentalHall_box;
 	G4LogicalVolume* fExperimentalHall_log;
 	G4VPhysicalVolume* fExperimentalHall_phys;
-	
+
 	G4Box* fDummy_box;
 	G4LogicalVolume* fDummy_log;
 	G4VPhysicalVolume* fDummy_phys;
-	
-	
+
+
 	G4Box* fFace_box[6];	
 	G4Box* fMarker_box[6];	
-	
+
 	G4Box* fDetector_box[6][MAX_DETECTORS];
 	G4Box* fCoupling_box[6][MAX_DETECTORS];
-	
+
 	G4Box* fPixel_box[6][MAX_DETECTORS];
-	
+
 	G4Box* fAround_box_a[6];	
-	G4Box* fAround_box_b[6];	
+	G4Box* fAround_box_b[6][MAX_DETECTORS];	
 	G4SubtractionSolid* fAround[6];	
-	 
-	
+	G4SubtractionSolid *previousSubtraction,*currentSubtraction;
+
 	G4LogicalVolume* fFace_log[6];
-	G4LogicalVolume* fCoupling_log[6];
-	G4LogicalVolume* fDetector_log[6];
-	G4LogicalVolume* fPixel_log[6];
 	G4LogicalVolume* fMarker_log[6];
 	G4LogicalVolume* fAround_log[6];
-	
+	G4LogicalVolume* fCoupling_log[6][MAX_DETECTORS];
+	G4LogicalVolume* fDetector_log[6][MAX_DETECTORS];
+	G4LogicalVolume* fPixel_log[6][MAX_DETECTORS];
+
 	G4VPhysicalVolume* fAround_phys[6];
-	
+
 	G4double fExpHall_x;
 	G4double fExpHall_y;
 	G4double fExpHall_z;
-	
+
 	G4double fScint_x,fScint_y,fScint_z;
+
+
 	G4double fPhotoDetectorSizeX[6][MAX_DETECTORS];
 	G4double fPhotoDetectorSizeY[6][MAX_DETECTORS];
+	G4double fPhotoDetectorCenterX[6][MAX_DETECTORS];
+	G4double fPhotoDetectorCenterY[6][MAX_DETECTORS];
+	G4double fPhotoDetectorRotation[6][MAX_DETECTORS];
+
 	G4double fPixelSizeX[6][MAX_DETECTORS];
 	G4double fPixelSizeY[6][MAX_DETECTORS];
+
+	G4int fNPixelsX[6][MAX_DETECTORS];
+	G4int fNPixelsY[6][MAX_DETECTORS];
+
+
+	G4double fPhotoReflectivity[6][MAX_DETECTORS];
+	G4double fPhotoQE[6][MAX_DETECTORS];
+
+	G4Transform3D transformDet[6][MAX_DETECTORS];
+
+
+	/*The reflectivity of the wrapping surfaces*/
+	G4double fFaceReflectivity[6];
+
+	/*The coupling*/
 	G4double fCouplingThickness[6][MAX_DETECTORS];
-	/*The reflectivity of the wrapping surface (where no photo-detectors are)*/
-	G4double fWrappingR;
-	
-	
-	
+	G4double fCouplingN[6][MAX_DETECTORS];
+
+	/*Optical surfaces*/
+	G4OpticalSurface* fDetectorOpsurf[6][MAX_DETECTORS];
+	G4MaterialPropertiesTable* fDetectorOpsurfMT[6][MAX_DETECTORS];
+	G4LogicalSkinSurface* fDetectorSkin[6][MAX_DETECTORS];
+
+	G4OpticalSurface* fFaceOpsurf[6];
+	G4MaterialPropertiesTable* fFaceOpsurfMT[6];
+	G4LogicalBorderSurface* fFaceBorder[6];
+
 	//member functions
-		
+
 	void makeEJ230();
-	
+
 	TOpNoviceDetectorLight*  fDetectorLight; 
-	
+
 	//Sensitive Detectors
-	G4Cache<OpNovicePMTSD*> fPmt_SD;
-	
+	G4Cache<OpNoviceDetectorSD*> fDetectorSD;
+
 	G4UserLimits* fStepLimit;
 	G4double fMaxStep;
-	
+
+	G4bool fPmtPlaced;
+
 public:	
 
-	
+
 	void SetDefaults();
 };
 

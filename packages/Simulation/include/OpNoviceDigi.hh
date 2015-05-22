@@ -71,9 +71,10 @@ public:
 
 private:
 	
+
+	/*identifiers*/
+	G4int fDetectorNumber,fPixelNumber,fFaceNumber,fUniqueNumber;
 	G4String fName;
-	/*properties*/
-	G4int fPmtNumber,fPixelNumber;
 	
 	/*Semi-raw variables*/
 	G4int fNPhe;	 //total phe
@@ -88,8 +89,18 @@ private:
 
 public:
 	
-	inline void SetPMTNumber(G4int n) { fPmtNumber = n; }
-	inline G4int GetPMTNumber() { return fPmtNumber; }
+	inline void SetDetectorNumber(G4int n) { fDetectorNumber = n; }
+	inline G4int GetDetectorNumber() { return fDetectorNumber; }
+
+	inline void SetFaceNumber(G4int n) { fFaceNumber = n; }
+	inline G4int GetFaceNumber() { return fFaceNumber; }
+
+	inline void SetUniqueNumber(G4int n) { fUniqueNumber = n; }
+	inline G4int GetUniqueNumber() { return fUniqueNumber; }
+
+
+
+
 	inline void SetPixelNumber(G4int n) { fPixelNumber = n; }
 	inline G4int GetPixelNumber() { return fPixelNumber; }
 	

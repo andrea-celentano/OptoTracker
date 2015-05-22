@@ -1,3 +1,3 @@
-/work/OptoTrackerSoftware/packages/Simulation/build/CMakeFiles/OpNovice.dir
-/work/OptoTrackerSoftware/packages/Simulation/build/CMakeFiles/OpNoviceClassesDict.dir
-/work/OptoTrackerSoftware/packages/Simulation/build/CMakeFiles/OpNoviceExe.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build/CMakeFiles/OpNovice.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build/CMakeFiles/OpNoviceClassesDict.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/build/CMakeFiles/OpNoviceExe.dir

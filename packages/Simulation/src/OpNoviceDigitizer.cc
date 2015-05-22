@@ -42,7 +42,7 @@
 #include "OpNoviceDigitizerMessenger.hh"
 
 /*Here goes the input collections*/
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 
 #include "G4SystemOfUnits.hh"
 #include "G4EventManager.hh"
@@ -59,16 +59,16 @@
 OpNoviceDigitizer::OpNoviceDigitizer(G4String name)
 :G4VDigitizerModule(name)
 {
-	G4String colName = "pmtDigiHitCollection";
+	G4String colName = "detectorDigiHitCollection";
 	collectionName.push_back(colName);
-	
-	
-//create a messenger for this class
+
+
+	//create a messenger for this class
 	digiMessenger = new OpNoviceDigitizerMessenger(this);
 	fDoDigi=true;
-	
+
 	fDetector=OpNoviceDetectorConstruction::GetInstance();
-	
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -82,12 +82,12 @@ OpNoviceDigitizer::~OpNoviceDigitizer()
 
 void OpNoviceDigitizer::Digitize() // at each event
 {
-	
+
 	G4int nPhe;
 	G4double e,t,x,y,n; 
-	G4int pixelNumber;
-	G4int pmtNumber;
-	OpNovicePMTHit* Hit;
+	G4int pixelNumber,detectorNumber,kk;
+	G4int faceNumber,uniqueNumber;
+	OpNoviceDetectorHit* Hit;
 	OpNoviceDigi* Digi ;
 
 	if (fDoDigi){
@@ -95,88 +95,92 @@ void OpNoviceDigitizer::Digitize() // at each event
 		DigitsCollection = new OpNoviceDigitsCollection("OpNoviceDigitizer",collectionName[0]);
 		//init all the digits at 0
 		for (int ii=0;ii<6;ii++){
-		 if (fDetector->isDetPresent(ii)==false) continue;
-		 for (int id=0;id<fDetector->getNPixels(ii);id++){
-		   Digi = new OpNoviceDigi("");
-		   Digi->SetPMTNumber(ii);			
-		   Digi->SetPixelNumber(id);
-		   DigitsCollection->insert(Digi);	
-		 }		  
+			for (int jj=0;jj<fDetector->getNdet(ii);jj++){
+
+				if (fDetector->isDetPresent(ii,jj)==false) continue;
+				for (int id=0;id<fDetector->getNPixels(ii,jj);id++){
+					Digi = new OpNoviceDigi("");
+					Digi->SetFaceNumber(ii);
+					Digi->SetDetectorNumber(jj);
+					Digi->SetUniqueNumber(kk);
+					Digi->SetPixelNumber(id);
+					DigitsCollection->insert(Digi);
+				}
+				kk++;
+			}
 		}
-		
+
 		//get the raw collection
 		G4DigiManager* DigiMan = G4DigiManager::GetDMpointer();
 		static G4int hitCID = -1;
 		if(hitCID<0){
-			hitCID = DigiMan->GetHitsCollectionID("pmtHitCollection"); 
+			hitCID = DigiMan->GetHitsCollectionID("detectorHitCollection");
 		}	
-		OpNovicePMTHitsCollection* THC = 0; 
-		THC = (OpNovicePMTHitsCollection*)DigiMan->GetHitsCollection(hitCID); 
-			
+		OpNoviceDetectorHitsCollection* THC = 0;
+		THC = (OpNoviceDetectorHitsCollection*)DigiMan->GetHitsCollection(hitCID);
+
 		if (THC){
-			for (G4int ii=0;ii<THC->entries();ii++){ //1 "hit": 1 PMT
+			for (G4int ii=0;ii<THC->entries();ii++){ //1 "hit": 1 detector
 				Hit =(*THC)[ii];				
 				nPhe=Hit->GetPheCount();
-				pmtNumber=Hit->GetPMTNumber();
+				detectorNumber=Hit->GetDetectorNumber();
+				faceNumber=Hit->GetFaceNumber();
+				uniqueNumber=Hit->GetInFaceNumber();
+
 				for (int qq=0;qq<nPhe;qq++){				
-					
+
 					pixelNumber=Hit->GetPixel(qq);			
 					e=Hit->GetE(qq);
 					t=Hit->GetT(qq);
 					x=Hit->GetX(qq);
 					y=Hit->GetY(qq);	
-					
+
 					/*The time resolution*/
-					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[pmtNumber]);
-					
-					
-				     //   G4cout<<pmtNumber<<" "<<x<<" "<<y<<" "<<pixelNumber<<" "<<fDetector->getPixelID(pmtNumber,x,y)<<G4endl;
-					
-					
+					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[detectorNumber]);
+
+
+					//   G4cout<<pmtNumber<<" "<<x<<" "<<y<<" "<<pixelNumber<<" "<<fDetector->getPixelID(pmtNumber,x,y)<<G4endl;
+
+
 					Digi=NULL;
-					/*Check if this hit already exists*/
+					/*Check if this hit already exists. It should, we created all of them!*/
 					n=DigitsCollection->entries();
 					for(G4int jj=0;jj<n;jj++){
-						if ( ((*DigitsCollection)[jj]->GetPMTNumber()==pmtNumber) && ((*DigitsCollection)[jj]->GetPixelNumber()==pixelNumber)  ) {
+						if ( ((*DigitsCollection)[jj]->GetFaceNumber()==faceNumber) && ((*DigitsCollection)[jj]->GetDetectorNumber()==detectorNumber) && ((*DigitsCollection)[jj]->GetPixelNumber()==pixelNumber)  ) {
 							Digi=(*DigitsCollection)[jj];
 							break;
 						}
 					}
-					if(Digi==NULL){ //Very strange we go here.
-						Digi = new OpNoviceDigi(Hit->GetName());
-						Digi->SetPMTNumber(Hit->GetPMTNumber());			
-						Digi->SetPixelNumber(pixelNumber);
-						Digi->SetPMTPhysVol(Hit->GetPMTPhysVol()); //photocathode
-						Digi->SetPMTPhysVolMother(Hit->GetPMTPhysVolMother()); //box	
-						DigitsCollection->insert(Digi);	
+					if(Digi==NULL){
+						G4cout<<"Probable error in OpNoviceDigitizer: digi not found "<<detectorNumber<<" "<<pixelNumber<<endl;
 					}
 					Digi->IncrementPheCount();
 					if ( t< Digi->GetFirstHitTime() ) Digi->SetFirstHitTime(t);
-					
-					
-					
+
+
+
 				}			
 				/*Here starts the real loop on the number of phe that hit the PMT*/
-				
-			
-			
+
+
+
 			}
 		}
-			
+
 		if (THC){
 			G4cout << "Number of digits in this event =  " 
-				<< DigitsCollection->entries()  
-	// << " " << DigitsCollection->GetName()  
-	// << " " << DigitsCollection->GetDMname() 
-				<< G4endl;
+					<< DigitsCollection->entries()
+					// << " " << DigitsCollection->GetName()
+					// << " " << DigitsCollection->GetDMname()
+					<< G4endl;
 		}
 		StoreDigiCollection(DigitsCollection); //This is also storing the collection in the DCoFThisEvent
 	}
 }
-	
 
-	
-	//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
+
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 
 

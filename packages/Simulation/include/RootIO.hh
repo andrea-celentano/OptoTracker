@@ -39,7 +39,7 @@
 #include "TSystem.h"
 #include "TClonesArray.h"
 
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 
 #include "TOpNoviceDetectorLight.hh"
@@ -71,7 +71,7 @@ public:
 	inline TString GetName(){return fName;}
 	
 	//inline TClonesArray* GetRootCollectionRaw(){return fRootCollectionRaw;}
-	inline std::vector<OpNovicePMTHit*>* GetRootCollectionRaw(){return fRootCollectionRaw;}
+	inline std::vector<OpNoviceDetectorHit*>* GetRootCollectionRaw(){return fRootCollectionRaw;}
 	inline std::vector<OpNoviceDigi*>* GetRootCollectionDigi(){return fRootCollectionDigi;}
 	
 	inline TFile* getFile(){return fFile;}
@@ -97,7 +97,7 @@ private:
 	
 	std::vector< TH1* > *fHistograms1D;
 	std::vector< TH2* > *fHistograms2D;
-	std::vector<OpNovicePMTHit*> *fRootCollectionRaw;
+	std::vector<OpNoviceDetectorHit*> *fRootCollectionRaw;
 	std::vector<OpNoviceDigi*> *fRootCollectionDigi;
 };
 #endif // INCLUDE_ROOTIO_HH

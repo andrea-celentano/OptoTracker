@@ -65,7 +65,7 @@ RootIO::RootIO():fNevents(0),fTreeRaw(NULL),fFile(NULL),fName("")
 	fSaveRaw=true;
 	fSaveDigi=true;
 	
-	fRootCollectionRaw=new std::vector<OpNovicePMTHit*>;
+	fRootCollectionRaw=new std::vector<OpNoviceDetectorHit*>;
 	fRootCollectionDigi=new std::vector<OpNoviceDigi*>;
 	
 	fHistograms1D=NULL;
