@@ -125,6 +125,7 @@ public:
 	TVector3 getFaceT1(int iface);
 	TVector3 getFaceT2(int iface);
 
+	TVector3 getDetectorNormal(int iface,int idetector){return this->getFaceNormal(iface);}
 	TVector3 getDetectorT1(int iface,int idetector);
 	TVector3 getDetectorT2(int iface,int idetector);
 	/*

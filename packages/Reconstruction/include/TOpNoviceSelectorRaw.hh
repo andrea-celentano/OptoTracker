@@ -29,7 +29,7 @@
 #include <TMath.h>
 // Header file for the classes stored in the TTree if any.
 
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
 
@@ -43,7 +43,7 @@ class TOpNoviceSelectorRaw : public TSelector {
     TTree          *fChain;   //!pointer to the analyzed TTree or TChain
     
     // Declaration of leaf types
-    vector<OpNovicePMTHit*> *raw;
+    vector<OpNoviceDetectorHit*> *raw;
     
     // List of branches
     TBranch        *b_raw;   //!
@@ -76,20 +76,20 @@ class TOpNoviceSelectorRaw : public TSelector {
     TRandom3		   *m_rand;
     int 		    m_seed;
  
-    double **q;
-    double **tFirst;
-    int **N;
+    double ***q;
+    double ***tFirst;
+    int ***N;
     
     //histograms
     TH1D *hX,*hY,*hZ,*hX_1,*hY_1,*hZ_1,*hX_2,*hY_2,*hZ_2;
     TH2D *hXY,*hXZ,*hYZ,*hXY_1,*hXZ_1,*hYZ_1,*hXY_2,*hXZ_2,*hYZ_2;
-    TH2D *hPixel0[6];
+    TH2D *hPixel0[6][MAX_DETECTORS];
     TH1D *hTheta,*hPhi;
     TH1D *hNPhotons,*hT0,*hTau;
     
-    vector < TH1D* > hCharge[6];
-    vector < TH1D* > hTime[6];
-    vector < TH2D* > hTimeVsCharge[6];
+    vector < TH1D* > hCharge[6][MAX_DETECTORS];
+    vector < TH1D* > hTime[6][MAX_DETECTORS];
+    vector < TH2D* > hTimeVsCharge[6][MAX_DETECTORS];
     string hPixel0Title[6];
     
  //   ClassDef(TOpNoviceSelectorRaw,0);

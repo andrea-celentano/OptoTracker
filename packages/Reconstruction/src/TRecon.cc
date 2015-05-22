@@ -30,7 +30,7 @@ m_SinglePhotonTimeProbKernel(NULL)
 	
 	double tau=m_detector->getFastScintTime();
 	m_SinglePhotonTimeProbKernel=new TF1("SinglePhotonTimeProbIntegral",this,&TRecon::SinglePhotonTimeProbKernel,-3*tau,10*tau,2);
-	m_TrackLikelihoodChargeKernel=new TF1("TrackLikelihoodChargeKernel",this,&TRecon::TrackLikelihoodChargeKernel,0.,1.,8); //8 fixed parameters: x0(3x), x1(3x), face, pixel
+	m_TrackLikelihoodChargeKernel=new TF1("TrackLikelihoodChargeKernel",this,&TRecon::TrackLikelihoodChargeKernel,0.,1.,9); //9 fixed parameters: x0(3x), x1(3x), face, detector, pixel
 	
 }
 
@@ -266,13 +266,13 @@ double TRecon::SinglePhotonTimeProb(double t,double tau,double sigma) const{
 returns the average number of photons on the pixel iPMT, id,
 assuming a unitary excitation at the source.
 */
-double TRecon::SinglePixelAverageCharge(const TVector3 &x0,int iPMT,int id) const{
+double TRecon::SinglePixelAverageCharge(const TVector3 &x0,int iface,int idetector,int id) const{
 	double ret;
 	double solidAngle;
-	TVector3 xp=m_detector->getPosPixel(iPMT,id);
+	TVector3 xp=m_detector->getPosPixel(iface,idetector,id);
 	
 	/*First account for the solid angle*/
-	solidAngle=this->GetSolidAngle(x0,iPMT,id);
+	solidAngle=this->GetSolidAngle(x0,iface,idetector,id);
 	solidAngle /= ( 4 * TMath::Pi() );
 	
 	/*Then, at large angles there may be other effects*/
@@ -285,22 +285,22 @@ double TRecon::SinglePixelAverageCharge(const TVector3 &x0,int iPMT,int id) cons
 }
 
 
-/*This is the method that returns the solid angle of a given pixel (for detector iPMT)
+/*This is the method that returns the solid angle of a given face/detector/pixel
 from the point x0*/
-double TRecon::GetSolidAngle(const TVector3 &x0,int iPMT,int id) const{
+double TRecon::GetSolidAngle(const TVector3 &x0,int iface,int idetector,int id) const{
 	
-	TVector3 xp=m_detector->getPosPixel(iPMT,id);
+	TVector3 xp=m_detector->getPosPixel(iface,idetector,id);
 	TVector3 r=(x0-xp);
 	
 	double a,b,c,Lx,Ly,r2,ret;
 	
-	c=fabs(r*m_detector->getPixelNormal(iPMT,id));
-	a=r*m_detector->getPixelT1(iPMT,id);
-	b=r*m_detector->getPixelT2(iPMT,id);
+	c=fabs(r*m_detector->getDetectorNormal(iface,idetector));
+	a=r*m_detector->getDetectorT1(iface,idetector);
+	b=r*m_detector->getDetectorT2(iface,idetector);
 	
 	
-	Lx=m_detector->getPixelSizeX(iPMT);
-	Ly=m_detector->getPixelSizeY(iPMT);
+	Lx=m_detector->getPixelSizeX(iface,idetector);
+	Ly=m_detector->getPixelSizeY(iface,idetector);
 	
 	
 	r2=r.Mag2();
@@ -322,16 +322,18 @@ TVector3 TRecon::computeCOG(){
 	double qTotNew=0;
 	TVector3 cog(0.,0.,0.);
 	for (int ii=0;ii<6;ii++){
-		if (m_detector->isDetPresent(ii)==0) continue;
-		for (int iy=0;iy<m_detector->getNPixelsY(ii);iy++){
-			for (int ix=0;ix<m_detector->getNPixelsX(ii);ix++){
-				ipixel=ix+iy*m_detector->getNPixelsX(ii);
-				qNew=1.*m_N[ii][ipixel];
+		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+		if (m_detector->isDetPresent(ii,jj)==0) continue;
+		for (int iy=0;iy<m_detector->getNPixelsY(ii,jj);iy++){
+			for (int ix=0;ix<m_detector->getNPixelsX(ii,jj);ix++){
+				ipixel=ix+iy*m_detector->getNPixelsX(ii,jj);
+				qNew=1.*m_N[ii][jj][ipixel];
 				qNew=pow(qNew,1.5);			
-				cog=cog+qNew*(m_detector->getPosPixel(ii,ipixel));
+				cog=cog+qNew*(m_detector->getPosPixel(ii,jj,ipixel));
 				qTotNew+=qNew;
 			}
 		}
+	}
 	}
 	cog=cog*(1./qTotNew);
 	return cog;

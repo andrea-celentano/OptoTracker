@@ -22,7 +22,7 @@
 #include <vector>
 #include <string>
 
-#include "OpNovicePMTHit.hh"
+#include "OpNoviceDetectorHit.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
@@ -57,29 +57,29 @@ TApplication gui("gui",0,NULL);
 
 int main(int argc, char **argv){
 
-  
-     
-	
+
+
+
 	//Load Cintex and the shared library
 	ROOT::Cintex::Cintex::Enable();
 	gSystem->Load("libOpNoviceClassesDict.so");
 	gSystem->Load("libGeometryClassesDict.so");
 	gSystem->Load("libReconstructionClassesDict.so");
-	
+
 	int Nevents;
 	TRandom3 rand(0);
-	
-	
+
+
 	//Input file and output file
 	TFile *fin,*fout;
 	//Input chain 
 	TChain *ch;
-        //Selector
+	//Selector
 	TOpNoviceSelectorRaw *selectorRaw;
-	
+
 	TProof *pf;
-		
-        //Parse the command line, open the input file
+
+	//Parse the command line, open the input file
 	ParseCommandLine(argc,argv);
 	fin=new TFile(fName.c_str()); 
 	//Check if we have detector info in the ROOT file. 
@@ -91,88 +91,90 @@ int main(int argc, char **argv){
 		cout<<"Detector not found"<<endl;
 		exit(1);
 	}
-	
+
 	//OWR time resolution
 	if (timeRes>=0){
-	  for (int ii=0;ii<6;ii++){
-	    if (detector->isDetPresent(ii)) detector->setTimeRes(ii,timeRes);
-	  }
+		for (int ii=0;ii<6;ii++){
+			for (int jj=0;jj<detector->getNdet(ii);jj++){
+				if (detector->isDetPresent(ii,jj)) detector->setDetTimeRes(ii,jj,timeRes);
+			}
+		}
 	}
-	
-	
+
+
 	//Print detector information  
-	
+
 	detector->printPixels();
 	detector->printDet();
-	
+
 	//Create the TChain, fill it
 	ch=new TChain("raw"); //must have the TTree name I am going to read
 	ch->Add(fName.c_str());	
 	Nevents=ch->GetEntries(); //1 entry=1 event
 	cout<<"There are: "<<Nevents<<" events"<<endl;
-	
-	
-	
-     
 
-	
+
+
+
+
+
 	if (doProof){
-	  pf=TProof::Open("");
-	  pf->Exec("gSystem->Load(\"libCintex\")");
-	  pf->Exec("ROOT::Cintex::Cintex::Enable()");
-	  pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libGeometryClassesDict.so\")");
-          pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libOpNoviceClassesDict.so\")");
-	  pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libReconstructionClassesDict.so\")");
-	  //	pf->Load("/auto_data/fiber5/celentano/OptoTracker/sim/OpNovice/build/libOpNoviceClassesDict.so");
-	  pf->SetLogLevel(1, TProofDebug::kPacketizer);
-	  pf->SetParameter("PROOF_Packetizer", "TPacketizer");  
-	  pf->AddInput(detector);
-          ch->SetProof();    //Enable proof @TODO: Only if requested by the user via command line
+		pf=TProof::Open("");
+		pf->Exec("gSystem->Load(\"libCintex\")");
+		pf->Exec("ROOT::Cintex::Cintex::Enable()");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libGeometryClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libOpNoviceClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libReconstructionClassesDict.so\")");
+		//	pf->Load("/auto_data/fiber5/celentano/OptoTracker/sim/OpNovice/build/libOpNoviceClassesDict.so");
+		pf->SetLogLevel(1, TProofDebug::kPacketizer);
+		pf->SetParameter("PROOF_Packetizer", "TPacketizer");
+		pf->AddInput(detector);
+		ch->SetProof();    //Enable proof @TODO: Only if requested by the user via command line
 	}
 	else{
-	//Create the Selector-derived class
-	  selectorRaw=new TOpNoviceSelectorRaw();
-	  selectorRaw->setDetector(detector);
-	  //selectorRaw->setSeed(0);
+		//Create the Selector-derived class
+		selectorRaw=new TOpNoviceSelectorRaw();
+		selectorRaw->setDetector(detector);
+		//selectorRaw->setSeed(0);
 	}
 
-		
+
 	if (doProof){
-	  if (doProofDiag){
-		pf->SetProgressDialog(kTRUE);
-	  }	
-	  else{
-		pf->SetProgressDialog(kFALSE);
-	  }
-	  ch->Process("TOpNoviceSelectorRaw");
+		if (doProofDiag){
+			pf->SetProgressDialog(kTRUE);
+		}
+		else{
+			pf->SetProgressDialog(kFALSE);
+		}
+		ch->Process("TOpNoviceSelectorRaw");
 	}
 	else{
-	  ch->Process(selectorRaw);
+		ch->Process(selectorRaw);
 	}
 	cout<<"Process done"<<endl;
-	
+
 	if (doProof){
-	  pf->Print();
+		pf->Print();
 	}
 	if (interactive){
-	  gui.Run(1);
+		gui.Run(1);
 	}
-	
+
 	cout<<"Save"<<endl;
 	fout=new TFile((fName+".recon.root").c_str(),"recreate");
 	fout->cd();
 	if (doProof){
-	    pf->GetOutputList()->Write();
+		pf->GetOutputList()->Write();
 	}
 	else{
-	    selectorRaw->GetOutputList()->Write();
+		selectorRaw->GetOutputList()->Write();
 	}
-	
+
 	/*Also save the detector used for the analysis*/
 	fout->WriteTObject(detector);
-	
+
 	gSystem->Exit(0);
-	
+
 }
 
 
@@ -314,7 +316,7 @@ void ReadDetFile(string fname){
     }
   }
 }
-*/
+ */
 
 
 
@@ -323,13 +325,13 @@ void ParseCommandLine(int argc,char **argv){
 		if ((strcmp(argv[ii],"-f")==0)||(strcmp(argv[ii],"-fname")==0)){
 			fName=string(argv[ii+1]);
 		}
-		
+
 		else if ((strcmp(argv[ii],"-det")==0)||(strcmp(argv[ii],"-detname")==0)){
 			detName=string(argv[ii+1]);
 		}
-		
+
 		else if ((strcmp(argv[ii],"-timeRes")==0)){ //owr the time resolution found in the detector object within the ROOT file
-			  timeRes=atof(argv[ii+1]);
+			timeRes=atof(argv[ii+1]);
 		}
 		else if ((strcmp(argv[ii],"-int")==0)||(strcmp(argv[ii],"-interactive")==0)){
 			interactive=1;
@@ -340,9 +342,9 @@ void ParseCommandLine(int argc,char **argv){
 		else if ((strcmp(argv[ii],"-proofDiag")==0)){
 			doProofDiag=1;
 		}		
-		
+
 	}
-	
+
 }
 
 
@@ -449,4 +451,4 @@ void ConfigPixels(){
 }
 
 
-*/
+ */

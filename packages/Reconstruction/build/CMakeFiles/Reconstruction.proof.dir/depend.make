@@ -5,7 +5,7 @@ CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: ../include/TOpNo
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: ../include/TRecon.hh
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include/TOpNoviceDetectorLight.hh
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: ../Reconstruction.proof.cpp
-CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNovicePMTHit.hh
+CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/Reconstruction.proof.dir/Reconstruction.proof.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Point3D.h
@@ -237,7 +237,7 @@ CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: ../include/TO
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: ../include/TRecon.hh
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include/TOpNoviceDetectorLight.hh
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: ../src/TOpNoviceSelectorRaw.cc
-CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNovicePMTHit.hh
+CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Normal3D.h
 CMakeFiles/Reconstruction.proof.dir/src/TOpNoviceSelectorRaw.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Point3D.h

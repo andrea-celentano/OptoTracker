@@ -29,30 +29,32 @@ double TRecon::TrackLikelihood(const double *x) const{
 	double pQ=0;
 	double pT=0;
 	int Nphotons;
-	for (int iPMT=0;iPMT<6;iPMT++){
-		if (m_detector->isDetPresent(iPMT)==0) continue;
-		for (int id=0;id<m_detector->getNPixels(iPMT);id++){
-			switch (m_fitLikelihoodMode){
-			case(k_onlyCharge):
-				pQ=TrackLikelihoodCharge(iPMT,id,x);/*This already returns the log of the charge probability*/
+	for (int iface=0;iface<6;iface++){
+		for (int idetector=0;idetector<m_detector->getNdet(iface);idetector++){
+			if (m_detector->isDetPresent(iface,idetector)==0) continue;
+			for (int id=0;id<m_detector->getNPixels(iface,idetector);id++){
+				switch (m_fitLikelihoodMode){
+				case(k_onlyCharge):
+						pQ=TrackLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
 				break;
-			case (k_onlyTime):
-				Nphotons=m_N[iPMT][id]; //measured number of photons in this pixel
-				if (Nphotons==0){
-					pT=0;
+				case (k_onlyTime):
+						Nphotons=m_N[iface][idetector][id]; //measured number of photons in this pixel
+						if (Nphotons==0){
+							pT=0;
+						}
+						else pT=TrackLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
+						break;
+				case (k_both):
+						Nphotons=m_N[iface][idetector][id]; //measured number of photons in this pixel
+						pQ=TrackLikelihoodCharge(iface,idetector,id,x); /*This already returns the log of the charge probability*/
+						if (Nphotons==0){
+							pT=0;
+						}
+						else pT=TrackLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
+						break;
 				}
-				else pT=TrackLikelihoodTime(iPMT,id,x);   /*This already returns the log of the time probability*/
-				break;
-			case (k_both):
-				Nphotons=m_N[iPMT][id]; //measured number of photons in this pixel
-				pQ=TrackLikelihoodCharge(iPMT,id,x); /*This already returns the log of the charge probability*/
-				if (Nphotons==0){
-					pT=0;
-				}
-				else pT=TrackLikelihoodTime(iPMT,id,x);   /*This already returns the log of the time probability*/
-				break;
+				ret+=(-pT-pQ);
 			}
-			ret+=(-pT-pQ);
 		}
 	}
 	/*
@@ -62,7 +64,7 @@ double TRecon::TrackLikelihood(const double *x) const{
 	cout<<" "<<x[0]<<" "<<x[1]<<" "<<x[2]<<endl;
 	cout<<" "<<x[3]<<" "<<x[4]<<" "<<x[5]<<endl;
 	cout<<" "<<x[6]<<" "<<x[7]<<" "<<x[8]<<" "<<x[9]<<endl;
-	*/
+	 */
 	return ret;
 }
 
@@ -91,7 +93,7 @@ where p1 is the single photon probability, and F(t) is the single photon integra
 This accounts for the fact that I measure the FIRST photon, over N
 */
 
-double TRecon::TrackLikelihoodTime(int iPMT,int id,const double *para) const{
+double TRecon::TrackLikelihoodTime(int iface,int idetector,int id,const double *para) const{
 	
 	/*for (int ii=0;ii<10;ii++)cout<<para[ii]<<" "<<m_minimizer->GetParName(ii)<<" "<<m_minimizer->GetParameter(ii)<<endl;
 	cout<<endl;cin.get();*/
@@ -103,19 +105,19 @@ double TRecon::TrackLikelihoodTime(int iPMT,int id,const double *para) const{
 	double N0=para[8];  
 	double tau=para[9]; 
 	
-	TVector3 xp=m_detector->getPosPixel(iPMT,id); //pixel position
+	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
 	TVector3 x=(x1-x0); double xMag=x.Mag();
 	TVector3 k=(xp-x0); double kMag=k.Mag();
 	
 	
-	int Nphe=m_N[iPMT][id]; //hit number of photo-electrons
-	double tmeas=m_t[iPMT][id];     //hit time
+	int Nphe=m_N[iface][idetector][id]; //hit number of photo-electrons
+	double tmeas=m_t[iface][idetector][id];     //hit time
 	double p1,F1,ret;
 	double lambda,cosTheta,sin2Theta;
 	double t,tmin;
 	
 	double sigma,n;	
-	sigma=m_detector->getTimeRes(iPMT);
+	sigma=m_detector->getDetTimeRes(iface,idetector);
 	n=m_detector->getRindex();
 	
 	
@@ -189,7 +191,7 @@ Prob of n photons hit the PMT           --> Poissonian
 Prob (Ne photo-electrons, given n0)     --> Binomial
 
 */
-double TRecon::TrackLikelihoodCharge(int iPMT,int id,const double *para) const{
+double TRecon::TrackLikelihoodCharge(int iface,int idetector,int id,const double *para) const{
 	
 	
 	//Function variables are the parameters we minimize the likelihood wrt
@@ -200,19 +202,19 @@ double TRecon::TrackLikelihoodCharge(int iPMT,int id,const double *para) const{
 	double N0=para[8]; 
 	double tau=para[9]; 
 	
-	TVector3 xp=m_detector->getPosPixel(iPMT,id); //pixel position
+	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
 	TVector3 x=(x1-x0); double xMag=x.Mag();
 	TVector3 k=(xp-x0); double kMag=k.Mag();
 	
 	
-	int Nphe=m_N[iPMT][id]; //hit number of photo-electrons
-	double t=m_t[iPMT][id];     //hit time
+	int Nphe=m_N[iface][idetector][id]; //hit number of photo-electrons
+	double t=m_t[iface][idetector][id];     //hit time
 	
 	double eps,mu0,ret;
 	
 	/*Compute mu, integrating along the trajectory*/
-	eps=m_detector->getQE(iPMT,id);
-	mu0=TrackAverageCharge(x0,x1,iPMT,id);	
+	eps=m_detector->getDetQE(iface,idetector);
+	mu0=TrackAverageCharge(x0,x1,iface,idetector,id);
 	mu0*=N0;
 	
 	
@@ -226,10 +228,10 @@ double TRecon::TrackLikelihoodCharge(int iPMT,int id,const double *para) const{
 
 
 
-double TRecon::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,int iPMT,int id) const{
+double TRecon::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,int iface,int idetector,int id) const{
 	
 	
-	TVector3 xp=m_detector->getPosPixel(iPMT,id); //pixel position
+	//TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
 	double ret;
 	/*Prepare the parameters*/
 	m_TrackLikelihoodChargeKernel->SetRange(0.,1.);
@@ -242,8 +244,9 @@ double TRecon::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,int iPMT
 	m_TrackLikelihoodChargeKernel->SetParameter(5,x1.Z());
 	
 	
-	m_TrackLikelihoodChargeKernel->SetParameter(6,iPMT);
-	m_TrackLikelihoodChargeKernel->SetParameter(7,id);
+	m_TrackLikelihoodChargeKernel->SetParameter(6,iface);
+	m_TrackLikelihoodChargeKernel->SetParameter(7,idetector);
+	m_TrackLikelihoodChargeKernel->SetParameter(8,id);
 	
 	m_TrackLikelihoodChargeKernel->SetNpx(1000);
 	
@@ -260,11 +263,12 @@ double TRecon::TrackLikelihoodChargeKernel(double *x,double *p){
 	TVector3 x0(p[0],p[1],p[2]);
 	TVector3 x1(p[3],p[4],p[5]);
 	
-	int iPMT=(int)(p[6]);
-	int id=(int)(p[7]);
+	int iface=(int)(p[6]);
+	int idetector=(int)(p[7]);
+	int id=(int)(p[8]);
 	
 	TVector3 xPos=x0+lambda*(x1-x0);
-	double ret=SinglePixelAverageCharge(xPos,iPMT,id);
+	double ret=SinglePixelAverageCharge(xPos,iface,idetector,id);
 
 	return ret;	
 }

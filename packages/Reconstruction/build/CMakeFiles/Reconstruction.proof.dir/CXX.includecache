@@ -41,8 +41,8 @@ TSystem.h
 -
 TMath.h
 -
-OpNovicePMTHit.hh
-../include/OpNovicePMTHit.hh
+OpNoviceDetectorHit.hh
+../include/OpNoviceDetectorHit.hh
 TOpNoviceDetectorLight.hh
 ../include/TOpNoviceDetectorLight.hh
 TRecon.hh
@@ -75,9 +75,13 @@ TObject.h
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include/TObject.h
 TVector3.h
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include/TVector3.h
+TMath.h
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include/TMath.h
 string
 -
 vector
+-
+fstream
 -
 
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/Reconstruction.proof.cpp
@@ -121,8 +125,8 @@ vector
 -
 string
 -
-OpNovicePMTHit.hh
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/OpNovicePMTHit.hh
+OpNoviceDetectorHit.hh
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/OpNoviceDetectorHit.hh
 G4SystemOfUnits.hh
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/G4SystemOfUnits.hh
 G4PhysicalConstants.hh
@@ -136,11 +140,7 @@ TOpNoviceDetectorLight.hh
 TRecon.hh
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/TRecon.hh
 
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/src/TOpNoviceSelectorRaw.cc
-TOpNoviceSelectorRaw.hh
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/src/TOpNoviceSelectorRaw.hh
-
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNovicePMTHit.hh
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 G4VHit.hh
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/G4VHit.hh
 G4THitsCollection.hh
