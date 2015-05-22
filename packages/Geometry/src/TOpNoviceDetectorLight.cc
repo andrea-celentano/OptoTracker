@@ -22,6 +22,11 @@ TOpNoviceDetectorLight* TOpNoviceDetectorLight::getInstance(){
  }
  */
 
+TOpNoviceDetectorLight::TOpNoviceDetectorLight(){
+	cout<<"TOpNoviceDetectorLight:: default constructor"<<endl;
+}
+
+
 TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 {	
 	ifstream file(fname.c_str());

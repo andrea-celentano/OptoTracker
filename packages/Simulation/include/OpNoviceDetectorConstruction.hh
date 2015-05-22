@@ -137,7 +137,9 @@ private:
 
 
 	G4Box* fFace_box[6];	
-	G4Box* fMarker_box[6];	
+	G4Box* fFaceMarker_box[6];
+	G4Box* fDetectorMarker_box[6][MAX_DETECTORS];
+
 
 	G4Box* fDetector_box[6][MAX_DETECTORS];
 	G4Box* fCoupling_box[6][MAX_DETECTORS];
@@ -150,10 +152,12 @@ private:
 	G4SubtractionSolid *previousSubtraction,*currentSubtraction;
 
 	G4LogicalVolume* fFace_log[6];
-	G4LogicalVolume* fMarker_log[6];
+	G4LogicalVolume* fFaceMarker_log[6];
+
 	G4LogicalVolume* fAround_log[6];
 	G4LogicalVolume* fCoupling_log[6][MAX_DETECTORS];
 	G4LogicalVolume* fDetector_log[6][MAX_DETECTORS];
+	G4LogicalVolume* fDetectorMarker_log[6][MAX_DETECTORS];
 	G4LogicalVolume* fPixel_log[6][MAX_DETECTORS];
 
 	G4VPhysicalVolume* fAround_phys[6];
@@ -182,6 +186,12 @@ private:
 	G4double fPhotoQE[6][MAX_DETECTORS];
 
 	G4Transform3D transformDet[6][MAX_DETECTORS];
+	G4Transform3D transformCoupling[6][MAX_DETECTORS];
+	G4Transform3D transformAround[6][MAX_DETECTORS];
+	G4RotationMatrix rotDet[6][MAX_DETECTORS];
+	G4ThreeVector translDet[6][MAX_DETECTORS];
+	G4ThreeVector translCoupling[6][MAX_DETECTORS];
+	G4ThreeVector translAround[6][MAX_DETECTORS];
 
 
 	/*The reflectivity of the wrapping surfaces*/

@@ -52,7 +52,7 @@ private:
 
 public:
 	TOpNoviceDetectorLight(string fname);
-
+	TOpNoviceDetectorLight();
 	/*Scintillator*/
 	void setScintSizeX(double s){scintSizeX=s;}
 	void setScintSizeY(double s){scintSizeY=s;}

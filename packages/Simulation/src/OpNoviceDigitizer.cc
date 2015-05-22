@@ -59,7 +59,7 @@
 OpNoviceDigitizer::OpNoviceDigitizer(G4String name)
 :G4VDigitizerModule(name)
 {
-	G4String colName = "detectorDigiHitCollection";
+	G4String colName = "DetectorDigiHitCollection";
 	collectionName.push_back(colName);
 
 
@@ -114,7 +114,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 		G4DigiManager* DigiMan = G4DigiManager::GetDMpointer();
 		static G4int hitCID = -1;
 		if(hitCID<0){
-			hitCID = DigiMan->GetHitsCollectionID("detectorHitCollection");
+			hitCID = DigiMan->GetHitsCollectionID("DetectorHitCollection");
 		}	
 		OpNoviceDetectorHitsCollection* THC = 0;
 		THC = (OpNoviceDetectorHitsCollection*)DigiMan->GetHitsCollection(hitCID);

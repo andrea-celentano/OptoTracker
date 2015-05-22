@@ -136,7 +136,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	if(hitsCE){
 		if(fDetectorCollID>=0) detectorHC=(OpNoviceDetectorHitsCollection*)(hitsCE->GetHC(fDetectorCollID));
 	 }	
-	//hits in PMT
+	//hits in detector
 	if(detectorHC){
 		G4int detectorN=detectorHC->entries();
 		//Gather info from all detectors
@@ -169,7 +169,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 		G4DCofThisEvent* hitsDC = anEvent->GetDCofThisEvent(); //all digits
 		if (fDetectorDigiCollID<0){ //1: get the collection ID
 			G4DigiManager* Digiman = G4DigiManager::GetDMpointer();
-			fDetectorDigiCollID=Digiman->GetDigiCollectionID("detectorDigiHitCollection");
+			fDetectorDigiCollID=Digiman->GetDigiCollectionID("DetectorDigiHitCollection");
 		}
 		if (hitsDC){ //2: Get the collection
 			if(fDetectorDigiCollID>=0) detectorDigiHC = (OpNoviceDigitsCollection*)(hitsDC->GetDC(fDetectorCollID));

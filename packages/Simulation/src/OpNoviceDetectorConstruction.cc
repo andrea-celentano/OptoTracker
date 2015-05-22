@@ -116,8 +116,8 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 	double x,y;
 	double xp,yp;
-	G4double faceThickness=3*mm;
-	G4double detectorThickness=.2*mm;	
+	G4double faceThickness=1*cm;
+	G4double detectorThickness=5*mm;
 	G4double pixelThickness=.1*mm;	
 	G4double aroundThickness=.2*mm;
 	G4ThreeVector fTrans[6];
@@ -212,11 +212,11 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 
 
-		fMarker_box[ii]=new G4Box("Marker",3*mm,.5*mm,.5*mm);
-		fMarker_log[ii]=new G4LogicalVolume(fMarker_box[ii],fAir,"Marker",0,0,0);
-		VisAtt = new G4VisAttributes(G4Colour(0.0,0.0,0.0));
+		fFaceMarker_box[ii]=new G4Box("FaceMarker",3*mm,.2*mm,.2*mm);
+		fFaceMarker_log[ii]=new G4LogicalVolume(fFaceMarker_box[ii],fAir,Form("FaceMarker_%i",ii),0,0,0);
+		VisAtt = new G4VisAttributes(G4Colour(1.0,0.7,0.0));
 		VisAtt->SetForceSolid(true);
-		fMarker_log[ii]->SetVisAttributes(VisAtt);
+		fFaceMarker_log[ii]->SetVisAttributes(VisAtt);
 
 		fAround_box_a[ii]=new G4Box("Around",x/2,y/2,aroundThickness/2);
 
@@ -257,13 +257,13 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 				/*Now place the detector box. First translate wrt the face center, then rotate*/
 				/*With this construction, FIRST Translate in the mother frame, then rotate*/
-				G4RotationMatrix rotDet;
-				rotDet.rotateZ(fPhotoDetectorRotation[ii][jj]);
-				G4ThreeVector traslDet(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],faceThickness/2-fCouplingThickness[ii][jj]-detectorThickness/2);
-				transformDet[ii][jj]=G4Transform3D(rotDet,traslDet);
+
+				rotDet[ii][jj].rotateZ(fPhotoDetectorRotation[ii][jj]);
+				translDet[ii][jj]=G4ThreeVector(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],faceThickness/2-fCouplingThickness[ii][jj]-detectorThickness/2);
+				transformDet[ii][jj]=G4Transform3D(rotDet[ii][jj],translDet[ii][jj]);
 
 				/*Place the detector in the face*/
-				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i_%i",ii,jj,uniqueID),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number
+				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i_Unique:%i",ii,jj,uniqueID),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number
 
 				uniqueID++;
 
@@ -290,27 +290,41 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 					VisAtt->SetForceSolid(true);
 					fCoupling_log[ii][jj]->SetVisAttributes(VisAtt);
 
-					G4ThreeVector traslCoupl(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],faceThickness/2-fCouplingThickness[ii][jj]/2);
-					G4Transform3D transformCoupl(rotDet,traslCoupl);
+					translCoupling[ii][jj]=G4ThreeVector(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],faceThickness/2-fCouplingThickness[ii][jj]/2);
+					transformCoupling[ii][jj]=G4Transform3D(rotDet[ii][jj],translCoupling[ii][jj]);
 
-					new G4PVPlacement(transformCoupl,fCoupling_log[ii][jj],"Coupling",fFace_log[ii],false,0);
+					new G4PVPlacement(transformCoupling[ii][jj],fCoupling_log[ii][jj],"Coupling",fFace_log[ii],false,0);
 				}
 				else{
 					fCouplingThickness[ii][jj]=0;
 				}
 
-				fAround_box_b[ii][jj]=new G4Box("Around",fPhotoDetectorSizeX[ii][jj]/2,fPhotoDetectorSizeY[ii][jj]/2,aroundThickness);
+				fAround_box_b[ii][jj]=new G4Box(Form("AroundBoxB_%i_%i",ii,jj),fPhotoDetectorSizeX[ii][jj]/2,fPhotoDetectorSizeY[ii][jj]/2,aroundThickness);
+				translAround[ii][jj]=G4ThreeVector(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],0);
+				transformAround[ii][jj]=G4Transform3D(rotDet[ii][jj],translAround[ii][jj]);
 
 				if (previousSubtraction==NULL){ //this is the first time we subtract
-					previousSubtraction=new G4SubtractionSolid(Form("previousSubtraction_%i_%i",ii,jj),fAround_box_a[ii],fAround_box_b[ii][jj],transformDet[ii][jj]);
+					G4cout<<"OpNoviceDetectorConstruction:: previous subtraction is NULL "<<ii<<" "<<jj<<G4endl;
+
+
+					previousSubtraction=new G4SubtractionSolid(Form("previousSubtraction_%i_%i",ii,jj),fAround_box_a[ii],fAround_box_b[ii][jj],transformAround[ii][jj]);
 				}
 				else{ //this is not the first subtraction
-					currentSubtraction=new G4SubtractionSolid(Form("currentSubtraction_%i_%i",ii,jj),previousSubtraction,fAround_box_b[ii][jj],transformDet[ii][jj]);
+					G4cout<<"OpNoviceDetectorConstruction:: previous subtraction is NOT NULL "<<ii<<" "<<jj<<G4endl;
+					currentSubtraction=new G4SubtractionSolid(Form("currentSubtraction_%i_%i",ii,jj),previousSubtraction,fAround_box_b[ii][jj],transformAround[ii][jj]);
 					previousSubtraction=currentSubtraction;
 				}
 
+				/*The 0-0 pixel marker
+				 *
+				 */
+				fDetectorMarker_box[ii][jj]=new G4Box("DetectorMarker",1*mm,.2*mm,.2*mm);
+				fDetectorMarker_log[ii][jj]=new G4LogicalVolume(fDetectorMarker_box[ii][jj],fAir,Form("DetectorMarker_%i_%i",ii,jj),0,0,0);
+				VisAtt = new G4VisAttributes(G4Colour(1.0,0.1,1.0));
+				VisAtt->SetForceSolid(true);
+				fDetectorMarker_log[ii][jj]->SetVisAttributes(VisAtt);
 
-
+				new G4PVPlacement(0,G4ThreeVector(-fPhotoDetectorSizeX[ii][jj]/2+1*mm/2,-fPhotoDetectorSizeY[ii][jj]/2+.5*mm/2,-detectorThickness/2+.2*mm/2),fDetectorMarker_log[ii][jj],Form("DetectorMarker_%i",ii),fDetector_log[ii][jj],false,0);
 
 			}//end if isDetPresent(ii,jj)
 
@@ -318,20 +332,22 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		}//loop on detectors(jj) on face ii
 
 		if (previousSubtraction==NULL){ //we never subtracted
-			fAround_log[ii]=new G4LogicalVolume(fAround_box_a[ii],fAir,"Around",0,0,0);
+			G4cout<<"OpNoviceDetectorConstruction:: constructing around WITHOUT subtraction "<<ii<<G4endl;
+			fAround_log[ii]=new G4LogicalVolume(fAround_box_a[ii],fAir,"AroundNotSubtracted",0,0,0);
 		}
 		else{
+			G4cout<<"OpNoviceDetectorConstruction:: constructing around WITH subtraction "<<ii<<G4endl;
 			fAround[ii]=previousSubtraction;
-			fAround_log[ii]=new G4LogicalVolume(fAround[ii],fAir,"Around",0,0,0);
+			fAround_log[ii]=new G4LogicalVolume(fAround[ii],fAir,"AroundSubtracted",0,0,0);
 		}
 
 		VisAtt = new G4VisAttributes(G4Colour(1.,0.,0.,0.8));
 		VisAtt->SetForceSolid(true);
 		fAround_log[ii]->SetVisAttributes(VisAtt);
 
-		fAround_phys[ii]=new G4PVPlacement(0,G4ThreeVector(0,0,faceThickness/2-aroundThickness/2),fAround_log[ii],"Around",fFace_log[ii],false,0);
+		fAround_phys[ii]=new G4PVPlacement(0,G4ThreeVector(0,0,faceThickness/2-aroundThickness/2),fAround_log[ii],Form("Around_%i",ii),fFace_log[ii],false,0);
 
-		new G4PVPlacement(0,G4ThreeVector(-x/2+2*3*mm,-y/2+2*.5*mm,-(faceThickness+.5*mm)/2),fMarker_log[ii],"Marker",fFace_log[ii],false,0);
+		new G4PVPlacement(0,G4ThreeVector(-x/2+2*3*mm,-y/2+2*.5*mm,-faceThickness/2+.2*mm/2),fFaceMarker_log[ii],Form("FaceMarker_%i",ii),fFace_log[ii],false,0);
 
 		new G4PVPlacement(fRot[ii],fTrans[ii],fFace_log[ii],Form("Face%i",ii),fExperimentalHall_log,false,ii); //I use a copy-number to keep the face number
 	}//loop on faces (ii)
@@ -457,7 +473,6 @@ void OpNoviceDetectorConstruction::DefineMaterials(){
 			fCouplingMT[ii][jj] = new G4MaterialPropertiesTable();
 			fCouplingMT[ii][jj]->AddProperty("RINDEX",eCouplingRindex,CouplingRindex,numCouplingRindex);
 			fCoupling[ii][jj]->SetMaterialPropertiesTable(fCouplingMT[ii][jj]);
-
 		}
 	}
 	//Properties tables
@@ -547,21 +562,21 @@ void OpNoviceDetectorConstruction::SetDefaults() {
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<MAX_DETECTORS;jj++){
 
-		fPhotoDetectorSizeX[ii][jj]=5.*cm;
-		fPhotoDetectorSizeY[ii][jj]=5.*cm;
-		fPhotoDetectorCenterX[ii][jj]=0.*cm;
-		fPhotoDetectorCenterY[ii][jj]=0.*cm;
-		fNPixelsX[ii][jj]=1;
-		fNPixelsY[ii][jj]=1;
-		fPixelSizeX[ii][jj]=fPhotoDetectorSizeX[ii][jj];
-		fPixelSizeY[ii][jj]=fPhotoDetectorSizeY[ii][jj];
+			fPhotoDetectorSizeX[ii][jj]=5.*cm;
+			fPhotoDetectorSizeY[ii][jj]=5.*cm;
+			fPhotoDetectorCenterX[ii][jj]=0.*cm;
+			fPhotoDetectorCenterY[ii][jj]=0.*cm;
+			fNPixelsX[ii][jj]=1;
+			fNPixelsY[ii][jj]=1;
+			fPixelSizeX[ii][jj]=fPhotoDetectorSizeX[ii][jj];
+			fPixelSizeY[ii][jj]=fPhotoDetectorSizeY[ii][jj];
 
-		fCouplingThickness[ii][jj]=1.*mm;
-		fCouplingN[ii][jj]=1.5;
+			fCouplingThickness[ii][jj]=1.*mm;
+			fCouplingN[ii][jj]=1.5;
 
-		fPhotoQE[ii][jj]=0.2;
-		fPhotoReflectivity[ii][jj]=0.1;
-	}
+			fPhotoQE[ii][jj]=0.2;
+			fPhotoReflectivity[ii][jj]=0.1;
+		}
 		fFaceReflectivity[ii]=.1;
 	}
 

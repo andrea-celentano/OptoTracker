@@ -27,4 +27,3 @@ setenv G4REALSURFACEDATA    ${G4DATA}/RealSurface1.0
 setenv G4SAIDXSDATA         ${G4DATA}/G4SAIDDATA1.1
 #setenv CLHEP_BASE_DIR       ${APPS}/clhep/$OS_NAME
 #setenv LD_LIBRARY_PATH      ${LD_LIBRARY_PATH}:${CLHEP_BASE_DIR}/lib
-
