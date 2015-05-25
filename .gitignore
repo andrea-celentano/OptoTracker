@@ -1,0 +1,14 @@
+#Ignore root files
+*.root
+#ignore binaries
+lib/*
+bin/*
+
+#local backups
+*~
+
+#build
+packages/Geometry/build
+packages/Reconstruction/build
+packages/Simulation/build
+packages/MarocAnalysis/build
