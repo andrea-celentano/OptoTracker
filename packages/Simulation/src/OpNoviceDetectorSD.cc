@@ -153,8 +153,8 @@ G4bool OpNoviceDetectorSD::ProcessHits_constStep(const G4Step* aStep,G4Touchable
 	G4double y=localPosition.y();
 	
 	
-	G4cout<<"hit: "<<faceNumber<<" "<<detectorNumber<<" "<<pixelNumber<<endl;
-	G4cout<<"coord: "<<x<<" "<<y<<G4endl;
+	//	G4cout<<"hit: "<<faceNumber<<" "<<detectorNumber<<" "<<pixelNumber<<endl;
+	//G4cout<<"coord: "<<x<<" "<<y<<G4endl;
 
 	//create a new hit, always.	                                      
 	G4int n=fDetectorHitCollection->entries();

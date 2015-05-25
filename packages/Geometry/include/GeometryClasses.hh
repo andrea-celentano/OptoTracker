@@ -1,6 +1,6 @@
 
 #include "TOpNoviceDetectorLight.hh"
 
-//TOpNoviceDetectorLight detector;
+TOpNoviceDetectorLight detector;
 
 #undef __G4String
