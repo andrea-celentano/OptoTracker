@@ -81,7 +81,7 @@ int main(int argc,char **argv){
 	TH1D* hChargeF[6][MAX_DETECTORS];
 
 	TH2D* hChargeAll2D[6][MAX_DETECTORS];
-	TH2D* hChargeF2D[6][MAX_DETECTORS];;
+	TH2D* hChargeF2D[6][MAX_DETECTORS];
 	vector < TH1D* > hCharge[6][MAX_DETECTORS];
 
 
@@ -111,7 +111,7 @@ int main(int argc,char **argv){
 
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
-			if (m_detector->isDetPresent(ii)){
+			if (m_detector->isDetPresent(ii,jj)){
 				Nx=m_detector->getNPixelsX(ii,jj);
 				Ny=m_detector->getNPixelsY(ii,jj);
 				hChargeAll[ii][jj]=new TH1D(Form("hChargeDet%i_%i",ii,jj),Form("hChargeDet%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
@@ -166,7 +166,7 @@ int main(int argc,char **argv){
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			id=0;
-			if (m_detector->isDetPresent(ii.jj)){
+			if (m_detector->isDetPresent(ii,jj)){
 				Nx=m_detector->getNPixelsX(ii,jj);
 				Ny=m_detector->getNPixelsY(ii,jj);
 				for (int idy=0;idy<Ny;idy++){
@@ -174,7 +174,7 @@ int main(int argc,char **argv){
 						cout<<"Doing fit "<<id<<" "<<idx<<" "<<idy<<endl;
 						fPoisson->SetParameter(0,hCharge[ii][jj].at(id)->GetEntries());
 						fPoisson->SetParameter(1,hCharge[ii][jj].at(id)->GetMean());
-						hCharge[ii].at(id)->Fit("poisson");
+						hCharge[ii][jj].at(id)->Fit("poisson");
 						qMean=fPoisson->GetParameter(1);
 						hChargeAll[ii][jj]->Fill(id,qMean);
 						hChargeAll2D[ii][jj]->Fill(idx,idy,qMean);
@@ -208,12 +208,12 @@ int main(int argc,char **argv){
 					for (int idx=0;idx<Nx;idx++){
 						if (m_fitObject==k_point){
 							solidAngle=m_recon->SinglePixelAverageCharge(vin,ii,jj,id);
-							eff=m_detector->getDetQE(ii,jj,id);
+							eff=m_detector->getDetQE(ii,jj);
 							qMean=solidAngle*eff*N0;
 						}
 						else if (m_fitObject==k_track){
 							solidAngle=m_recon->TrackAverageCharge(vin,vout,ii,jj,id);
-							eff=m_detector->getQE(ii,jj,id);
+							eff=m_detector->getDetQE(ii,jj);
 							qMean=solidAngle*eff*N0;
 						}
 						hChargeF[ii][jj]->Fill(id,qMean);
@@ -241,22 +241,22 @@ int main(int argc,char **argv){
 
 	TCanvas **c2=new TCanvas*[6];
 	for (int ii=0;ii<6;ii++){
-		if (m_detector->isDetPresent(ii)){
-			c2[ii]=new TCanvas(Form("c2_%i",ii));
-			c2[ii]->Divide(2,2);
-			c2[ii]->cd(1);
-			hChargeAll[ii]->Draw();
-			hChargeF[ii]->SetLineColor(2);
-			hChargeF[ii]->Draw("SAME");
-			c2[ii]->cd(2);
-			hChargeAll2D[ii]->Draw("colz");
-			c2[ii]->cd(3);
-			hChargeF2D[ii]->Draw("colz");
-		}
+		c2[ii]=new TCanvas(Form("c2_%i",ii));
+		c2[ii]->Divide(3,3);
+	  	for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+			if (m_detector->isDetPresent(ii,jj)){
+				c2[ii]->cd(jj*3+1);
+				hChargeAll[ii][jj]->Draw();
+				hChargeF[ii][jj]->SetLineColor(2);
+				hChargeF[ii][jj]->Draw("SAME");
+				c2[ii]->cd(jj*3+2);
+				hChargeAll2D[ii][jj]->Draw("colz");
+				c2[ii]->cd(jj*3+3);
+				hChargeF2D[ii][jj]->Draw("colz");
+			}
+		}	
 	}
-
-
-
+ 
 	gui.Run(1);
 
 
@@ -264,20 +264,21 @@ int main(int argc,char **argv){
 	fout=new TFile((fName+".charge.root").c_str(),"recreate");
 	fout->cd();
 	for (int ii=0;ii<6;ii++){
-		if (m_detector->isDetPresent(ii)){
-			Nx=m_detector->getNPixelsX(ii);
-			Ny=m_detector->getNPixelsY(ii);
-			for (int id=0;id<Nx*Ny;id++){
-				hCharge[ii].at(id)->Write();
-			}
+		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+			if (m_detector->isDetPresent(ii,jj)){
+				Nx=m_detector->getNPixelsX(ii,jj);
+				Ny=m_detector->getNPixelsY(ii,jj);
+				for (int id=0;id<Nx*Ny;id++){
+					hCharge[ii][jj].at(id)->Write();
+				}
 
-			hChargeAll[ii]->Write();
-			hChargeAll2D[ii]->Write();
-			hChargeF[ii]->Write();
-			hChargeF2D[ii]->Write();
+				hChargeAll[ii][jj]->Write();
+				hChargeAll2D[ii][jj]->Write();
+				hChargeF[ii][jj]->Write();
+				hChargeF2D[ii][jj]->Write();
+			}
 		}
 	}
-
 	fout->Write();
 	fout->Close();
 
