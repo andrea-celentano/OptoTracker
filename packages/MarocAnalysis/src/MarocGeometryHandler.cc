@@ -1,11 +1,11 @@
-#include "MarocAnalysisUtils.hh"
+#include "MarocGeometryHandler.hh"
 
 
 
   
 int GetMarocId(int globalId){
   int MarocId;
-  MarocId=globalId%64;
+  MarocId=globalId%nH8500Pixels;
   return MarocId;
 }
 
@@ -160,4 +160,20 @@ double MarocGain(int MarocId){
   if (MarocId<=31) return .5;
   else if (MarocId<=47) return .375;
   else if (MarocId<=63) return .25;
+}
+
+/*This is the method that, given the MarocID, will return the PixelId in the Geometry package convention, simply specifying the FACE id!*/
+int GetGeometryId(int MarocId,int FaceID){
+  int ret=-1;
+  int iX,iY;
+  switch (FaceID){
+    case 0:
+    case 2:
+      iX=MarocId/nH8500PixelsX;
+      iY=MarocId%nH8500PixelsX;
+      iY=nH8500PixelsY-iY-1;
+      ret=iX+nH8500PixelsX*iY;
+      break;
+  }
+  return ret;
 }

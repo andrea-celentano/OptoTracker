@@ -107,6 +107,7 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 		}
 
 	}
+	file.close();
 	init();
 
 }
@@ -210,33 +211,7 @@ void TOpNoviceDetectorLight::init(){
 	}
 	cout<<"TOpNoviceDetectorLight::init() done"<<endl;
 }
-/*
-    int TOpNoviceDetectorLight::getPixelIDx(int iface,double x){
-      int id;
-      id=(int)((x+detSizeX[iface]/2)/(detPixelSizeX[iface]));
-      if (id>=this->getNPixelsX(iface)) id=this->getNPixelsX(iface)-1;
-      return id;	
-    }
-    int TOpNoviceDetectorLight::getPixelIDy(int iface,double y){
-      int id;
-      id=(int)((y+detSizeY[iface]/2)/(detPixelSizeY[iface]));
-      if (id>=this->getNPixelsY(iface)) id=this->getNPixelsY(iface)-1;
-      return id;	
 
-    }
-    int TOpNoviceDetectorLight::getPixelID(int iface,double x,double y){
-      int idx,idy,id;
-      idx=this->getPixelIDx(iface,x);
-      idy=this->getPixelIDy(iface,y);
-
-      id=idx+detNpixelsX[iface]*idy;
-
-      return id;
-
-    }
-
-
- */
 
 void TOpNoviceDetectorLight::printPixels(){
 	int id;

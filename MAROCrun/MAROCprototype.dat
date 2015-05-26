@@ -14,19 +14,19 @@ ScintillatorFastTau 1.8	     		    #Fast tau, ns
 ScintillatorRindex 1.58			    #Refraction index
 
 Face 0 1
-Detector 0 4 4 2 2
+Detector 0 4.9 4.9 8 8
 DetectorProperties 0.3 0.2 0.1
-DetectorPlacement 0 0 90
-DetectorCoupling 1.5 0.01 
+DetectorPlacement 0 0 0
+DetectorCoupling 1 0 
 
-Face 1 1
-Detector 0 4 4 2 2
+Face 2 1
+Detector 0 4.9 4.9 8 8
 DetectorProperties 0.3 0.2 0.1
-DetectorPlacement 0 0 10
-DetectorCoupling 1.5 0.01 
+DetectorPlacement 0 0 0
+DetectorCoupling 1 0 
 
-Face 4 1
-Detector 0 4 4 2 2
-DetectorProperties 0.3 0.2 0.1
-DetectorPlacement 0 0 90
-DetectorCoupling 1.5 0.01 
+#Face 4 1
+#Detector 0 4 4 2 2
+#DetectorProperties 0.3 0.2 0.1
+#DetectorPlacement 0 0 90
+#DetectorCoupling 1.5 0.01 

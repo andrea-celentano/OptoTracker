@@ -42,8 +42,8 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
-add_executable(marocAnalysis marocAnalysis.cpp ${sources} ${headers})
-target_link_libraries(marocAnalysis ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
+add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
+target_link_libraries(MarocAnalysis ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
 
 
@@ -51,5 +51,5 @@ target_link_libraries(marocAnalysis ReconstructionClassesDict GeometryClassesDic
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 
-install(TARGETS marocAnalysis DESTINATION $ENV{OPTO}/bin)
+install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/bin)
 

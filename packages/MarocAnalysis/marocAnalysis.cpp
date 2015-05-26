@@ -9,16 +9,19 @@
 #include "TCanvas.h"
 #include "TLine.h"
 #include "TApplication.h"
+#include "TROOT.h"
 
 #include "MarocAnalysisUtils.hh"
 #include "MarocAnalysisDefs.hh"
 
+#include "TOpNoviceDetectorLight.hh"
 
 using namespace std;
 
 
 /*From the command line*/
-string fSigName,fBckName,fOutName;
+string fSigName,fBckName,fDetName,fOutNameRoot,fOutNamePS,fOutName;
+int fDoBatch=0;
 void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
 TApplication gui("GUI",0,NULL);
@@ -30,6 +33,31 @@ int main(int argc,char **argv){
     exit(1);
   }
   ParseCommandLine(argc,argv);	
+  
+  
+  if (fDoBatch)  gROOT->SetBatch();
+  
+
+  
+  if (fSigName.length()==0){
+   cerr<<"Missing SIGNAL file name!"<<endl;
+   return -1;
+  }
+  if (fBckName.length()==0){
+   cerr<<"Missing BCK file name!"<<endl;
+   return -1;
+  }
+  if (fDetName.length()==0){
+   cerr<<"Missing DET file name"<<endl;
+   return -1;
+  }
+  
+  if (fOutName.length()==0){
+   cout<<"Missing OUT file name, auto-selecting"<<endl;
+   fOutName=fSigName+".out";
+  }
+  fOutNameRoot=fOutName+".root";
+  fOutNamePS=fOutName+".ps";
   TFile *f1=new TFile(fSigName.c_str());
   TFile *f2=new TFile(fBckName.c_str());
   
@@ -52,7 +80,8 @@ int main(int argc,char **argv){
   double MeanSig,MeanBck,MeanDiff;
   double Saturation;
 
-
+  int Nx,Ny;
+  TOpNoviceDetectorLight *m_detector=new TOpNoviceDetectorLight(fDetName);
   /*Define here the histograms*/
 
   TH1D **hChargeSig=new TH1D*[Ntot];  TH1D **hChargeSig2=new TH1D*[Ntot];
@@ -64,8 +93,11 @@ int main(int argc,char **argv){
   TH2D *hMeanSig=new TH2D("hMeanSig","hMeanSig",16,-8.5,7.5,8,-0.5,7.5);
   TH2D *hMeanBck=new TH2D("hMeanBck","hMeanBck",16,-8.5,7.5,8,-0.5,7.5);
   TH2D *hMeanDiff=new TH2D("hMeanDiff","hMeanDiff",16,-8.5,7.5,8,-0.5,7.5);
-  TH2D *hSaturation=new TH2D("hSaturation","hSaturation",16,-8.5,7.5,8,-0.5,7.5);
-
+  
+  
+  TH1D* hChargeExp[6][MAX_DETECTORS];
+  TH1D* hChargeTeo[6][MAX_DETECTORS];
+  
   for (int ii=0;ii<Ntot;ii++){
     iH8500=GetH8500Id(ii+N0);
     
@@ -73,6 +105,20 @@ int main(int argc,char **argv){
     hChargeBck[ii]=new TH1D(Form("hChargeBck%i",ii),Form("hChargeBck%i:H8500_%i",ii,iH8500),4096,-0.5,4095.5);
     hChargeDiff[ii]=new TH1D(Form("hChargeDiff%i",ii),Form("hChargeDiff%i:H8500_%i",ii,iH8500),5000,-1000.5,3999.5);
   }
+  
+  
+  for (int ii=0;ii<6;ii++){
+		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+			if (m_detector->isDetPresent(ii,jj)){
+				Nx=m_detector->getNPixelsX(ii,jj);
+				Ny=m_detector->getNPixelsY(ii,jj);
+				hChargeExp[ii][jj]=new TH1D(Form("hChargeTeo%i_%i",ii,jj),Form("hChargeExo%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+				hChargeTeo[ii][jj]=new TH1D(Form("hChargeExp%i_%i",ii,jj),Form("hChargeTeo%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+			}
+		}
+  }
+  
+  
   /*Process the signal*/
   tSig->SetBranchAddress("ADC",ADC);
   tSig->SetBranchAddress("EvtMultiplicity",&EvtMultiplicity);
@@ -171,8 +217,8 @@ int main(int argc,char **argv){
       ix=-iH8500%8-1;
     }
     iy=7-iH8500/8;
-      MeanSig=hChargeSig[jj]->GetMean();
-      MeanBck=hChargeBck[jj]->GetMean();
+    MeanSig=hChargeSig[jj]->GetMean();
+    MeanBck=hChargeBck[jj]->GetMean();
     MeanDiff=hChargeDiff[jj]->GetMean();
 
     //   MeanSig/=H8500Gain(iH8500,iboard);
@@ -193,16 +239,12 @@ int main(int argc,char **argv){
 
 
     hChargeDiff[jj]->Fit("pol1","LQ","R",0.5E3,.9E3);
-    hChargeDiff[jj]->GetFunction("pol1")->SetLineColor(2);
-    Saturation=hChargeDiff[jj]->Integral(hChargeDiff[jj]->FindBin(1E3),hChargeDiff[jj]->FindBin(1.2E3),"width");
-    cout<<jj<<" "<<Saturation<<" ";
-    Saturation=Saturation-hChargeDiff[jj]->GetFunction("pol1")->Integral(1E3,1.2E3);
-    cout<<Saturation<<endl;
+    hChargeDiff[jj]->GetFunction("pol1")->SetLineColor(2); 
+ 
+    hChargeExp[][0]->Fill(GetMarocId(jj+N0),MeanDiff);
     
-
-
-    hSaturation->Fill(ix,iy,Saturation);
   }
+  
 
   
   /*Plots*/
@@ -237,21 +279,15 @@ int main(int argc,char **argv){
 
     
 
-    if (jj==0) c[jj]->Print("gainStudy.ps(");
-    else  c[jj]->Print("gainStudy.ps");
+    if (jj==0) c[jj]->Print((fOutNamePS+"(").c_str());
+    else  c[jj]->Print(fOutNamePS.c_str());
     fOut->cd();
     c[jj]->Write();
    }
 
   TLine *l=new TLine(-0.5,-0.5,-0.5,7.5);l->SetLineWidth(2);l->SetLineColor(2);
 
-  TCanvas *cb=new TCanvas("cb","cb");
-  hSaturation->SetStats(0);
-  hSaturation->Draw("colz");
- 
-  hGrid->Draw("TEXTSAME");
-  cb->Print("gainStudy.ps");
-  cb->Write();
+  
 
   TCanvas *ca=new TCanvas("ca","ca");
   ca->Divide(2,2);
@@ -279,12 +315,13 @@ int main(int argc,char **argv){
   hMeanDiff->Draw("colz");
   hGrid->Draw("TEXTSAME");
   l->Draw("SAME");
-  ca->Print("gainStudy.ps)");
+  ca->Print((fOutNamePS+")").c_str());
   fOut->cd();
   ca->Write();
 
-
-  gui.Run(1);
+  if (fDoBatch==0){
+    gui.Run(1);
+  }
   cout<<"Done"<<endl;
 }
 
@@ -303,11 +340,15 @@ void ParseCommandLine(int argc,char **argv){
 		else if ((strcmp(argv[ii],"-o")==0)||(strcmp(argv[ii],"-out")==0)){
 			fOutName=string(argv[ii+1]);
 		}
+		else if ((strcmp(argv[ii],"-d")==0)||(strcmp(argv[ii],"-det")==0)){
+			fDetName=string(argv[ii+1]);
+		}
 		else if ((strcmp(argv[ii],"-h")==0)||(strcmp(argv[ii],"-help")==0)){
 			PrintHelp();
 		}
-		
-		
+		else if (strcmp(argv[ii],"-batch")==0){
+			fDoBatch=true;
+		}
 		
 	}
 	
@@ -318,8 +359,9 @@ void ParseCommandLine(int argc,char **argv){
 void PrintHelp(){
     cout<<"-s or -signal: signal file name"<<endl;
     cout<<"-b or -background: bck file name"<<endl;
+    cout<<"-d or -det: detector file name"<<endl;
     cout<<"-o or -out: output file name"<<endl;
-  
+    cout<<"-batch: batch mode"<<endl;
 }
 
 
