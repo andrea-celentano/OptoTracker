@@ -241,7 +241,7 @@ int main(int argc,char **argv){
 
 	TCanvas **c2=new TCanvas*[6];
 	for (int ii=0;ii<6;ii++){
-		c2[ii]=new TCanvas(Form("c2_%i",ii));
+		c2[ii]=new TCanvas(Form("c2_%i",ii),Form("c2_%i",ii));
 		c2[ii]->Divide(3,3);
 	  	for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
