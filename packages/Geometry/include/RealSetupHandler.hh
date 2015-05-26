@@ -35,7 +35,20 @@ class RealSetupHandler
       map < int , double > m_PixelGain2[6][MAX_DETECTORS];
       map < int , double > m_PixelGain3[6][MAX_DETECTORS];
 
+  protected:
       int nRealDet;
+      int m_thisReconFace;
+      int m_thisReconDetID;
+      int m_thisRealDetID;
+      int m_thisPixel;
+      int m_thisPixelFirst;
+      int m_thisPixelLast;
+      
+      int m_thisGainEntry;
+      double m_thisGainVal;
+      
+      void masterProcessLine(string line);
+      
   public:
      RealSetupHandler(string fname);
      RealSetupHandler();

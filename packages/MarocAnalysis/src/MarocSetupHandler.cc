@@ -14,14 +14,14 @@ RealSetupHandler(fname)
   cout<<"RealSetupHandler file constructor"<<endl;
 }
    
-int MarocSetupHandler::GetMarocId(int globalId){
+int MarocSetupHandler::getMarocId(int globalId){
   int MarocId;
-  MarocId=globalId%nH8500Pixels;
+  MarocId=globalId%nH8500pixels;
   return MarocId;
 }
 
 
-int GetH8500Id(int globalId){
+int MarocSetupHandler::getH8500Id(int globalId){
   int MarocId,H8500Id;
   MarocId=GetMarocId(globalId);
   
@@ -155,6 +155,7 @@ int GetH8500Id(int globalId){
   case 63:
     H8500Id=3;break;
   }
+  H8500Id-=1; /*This instruction report the number from 0 to 63*/
   return H8500Id;
 }
 

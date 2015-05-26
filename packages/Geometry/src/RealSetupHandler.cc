@@ -13,14 +13,7 @@ nRealDet(0)
 {
   cout<<"RealSetupHandler::file constructor"<<endl;
   ifstream file;
-  string line,key,data;
-  istringstream parser;
-  int detector,face,id;
-  int pixel,firstpixel,lastpixel;
-  int igain;
-  pair < int , int > facedet;
-  double gain;
-  
+  string line;
   file.open(fname.c_str());
   if (!file){
     cerr<<"RealSetupHandler::file not found "<<fname<<endl;
@@ -29,67 +22,71 @@ nRealDet(0)
     while(!file.eof()){
 		getline (file,line);
 		if (line.size()==0) continue;
-
-		parser.clear();
-		parser.str(line);
-		parser>>key;
-
-		if (key[0]=='#') continue; //comment
-		  
-		if (key=="Detector"){
-			nRealDet++;
-			parser>>data;detector=atoi(data.c_str());
-			parser>>data;face=atoi(data.c_str());
-			parser>>data;id=atoi(data.c_str());
-			m_reconstructionDetFace.insert(pair<int,int>(detector,face));
-			m_reconstructionDetID.insert(pair<int,int>(detector,id));
-			facedet=make_pair(face,id);
-			m_reconstructionRealDet.insert(pair < pair <int,int>, int > (facedet,id));
-		}
-		else if (key=="Pixel"){
-			parser>>data;pixel=atoi(data.c_str());
-			parser>>data;igain=atoi(data.c_str());
-			parser>>data;gain=atof(data.c_str());//gain
-			switch (igain){
-			    case 1:
-			      m_PixelGain1[face][detector].insert(pair<int,double>(pixel,gain));
-			      break;
-			    case 2:
-			      m_PixelGain2[face][detector].insert(pair<int,double>(pixel,gain));
-			      break;
-			    case 3:
-			      m_PixelGain3[face][detector].insert(pair<int,double>(pixel,gain));
-			      break;
-			    default:
-			      cerr<<"Error RealSetupHandler setup, gain id "<<igain<<"is invalid"<<endl;
-			      return;
-			}
-		}
-		else if (key=="Pixels"){
-			parser>>data;firstpixel=atoi(data.c_str());
-			parser>>data;lastpixel=atoi(data.c_str());
-			parser>>data;igain=atoi(data.c_str());
-			parser>>data;gain=atof(data.c_str());
-			for (int ipixel=firstpixel;ipixel<lastpixel;ipixel++){	  
-			  switch (igain){
-			    case 1:
-			      m_PixelGain1[face][detector].insert(pair<int,double>(ipixel,gain));
-			      break;
-			    case 2:
-			      m_PixelGain2[face][detector].insert(pair<int,double>(ipixel,gain));
-			      break;
-			    case 3:
-			      m_PixelGain3[face][detector].insert(pair<int,double>(ipixel,gain));
-			      break;
-			    default:
-			      cerr<<"Error RealSetupHandler setup, gain id "<<igain<<"is invalid"<<endl;
-			      return;
-			  } 
-			}
-		}
+	
+		this->masterProcessLine(line);
 	}
   }
   file.close();
+}
+
+void RealSetupHandler::masterProcessLine(string line){
+    istringstream parser;
+    string key,data;
+    pair < int , int > facedet;
+    parser.str(line);
+    parser>>key;
+    if (key[0]=='#') return; //comment
+    if (key=="Detector"){
+			nRealDet++;
+			parser>>data;m_thisRealDetID=atoi(data.c_str());
+			parser>>data;m_thisReconFace=atoi(data.c_str());
+			parser>>data;m_thisReconDetID=atoi(data.c_str());
+			m_reconstructionDetFace.insert(pair<int,int>(m_thisRealDetID,m_thisReconFace));
+			m_reconstructionDetID.insert(pair<int,int>(m_thisRealDetID,m_thisReconDetID));
+			facedet=make_pair(m_thisReconFace,m_thisReconDetID);
+			m_reconstructionRealDet.insert(pair < pair <int,int>, int > (facedet,m_thisRealDetID));
+   }
+   else if (key=="Pixel"){
+			parser>>data;m_thisPixel=atoi(data.c_str());
+			parser>>data;m_thisGainEntry=atoi(data.c_str());
+			parser>>data;m_thisGainVal=atof(data.c_str());//gain
+			switch (m_thisGainEntry){
+			    case 1:
+			      m_PixelGain1[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));
+			      break;
+			    case 2:
+			      m_PixelGain2[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));
+			      break;
+			    case 3:
+			      m_PixelGain3[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));
+			      break;
+			    default:
+			      cerr<<"Error RealSetupHandler setup, gain id "<<m_thisGainEntry<<"is invalid"<<endl;
+			      return;
+			}
+    }
+    else if (key=="Pixels"){
+			parser>>data;m_thisPixelFirst=atoi(data.c_str());
+			parser>>data;m_thisPixelLast=atoi(data.c_str());
+			parser>>data;m_thisGainEntry=atoi(data.c_str());
+			parser>>data;m_thisGainVal=atof(data.c_str());
+			for (int ipixel=m_thisPixelFirst;ipixel<m_thisPixelLast;ipixel++){	  
+			  switch (m_thisGainEntry){
+			    case 1:
+			      m_PixelGain1[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
+			      break;
+			    case 2:
+			      m_PixelGain2[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
+			      break;
+			    case 3:
+			      m_PixelGain3[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
+			      break;
+			    default:
+			      cerr<<"Error RealSetupHandler setup, gain id "<<m_thisGainEntry<<"is invalid"<<endl;
+			      return;
+			  } 
+			}
+		} 
 }
 
 int    RealSetupHandler::getReconstructionDetectorFace(int idet){

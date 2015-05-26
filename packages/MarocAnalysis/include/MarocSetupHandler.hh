@@ -10,16 +10,19 @@ using namespace std;
 
 class MarocSetupHandler:public RealSetupHandler{
   
+  private:
+     static const int nH8500pixels=64;
   public:
     MarocSetupHandler();
     MarocSetupHandler(string fname);
     
-    int GetMarocId(int globalId);
-    int GetH8500Id(int globalId);
-    double H8500Gain(int H8500Id,int PmtID);
+    int getMarocId(int globalID);  /*This methods returns the MAROC card, from 0 to 31, given the globalID*/
+    int getH8500Id(int globalID);  /*This methods returns the pixel id, in H8500 arrangement, from 0 to 63, given the globalID*/
+    //int getPixelReconId
+   // double H8500Gain(int H8500Id,int PmtID);
 
-    double MarocGain(int MarocId);
-    int GetGeometryId(int MarocId,int faceID);
+    //double MarocGain(int MarocId);
+    //int GetGeometryId(int MarocId,int faceID);
 
 
 };
