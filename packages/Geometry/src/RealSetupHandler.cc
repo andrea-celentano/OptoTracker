@@ -17,6 +17,7 @@ nRealDet(0)
   istringstream parser;
   int detector,face,id;
   int pixel,firstpixel,lastpixel;
+  int igain;
   pair < int , int > facedet;
   double gain;
   
@@ -47,34 +48,43 @@ nRealDet(0)
 		}
 		else if (key=="Pixel"){
 			parser>>data;pixel=atoi(data.c_str());
-			(parser >> data);
-			{
-			  gain=atof(data.c_str());//first gain
-			  m_PixelGain1[face][detector].insert(pair<int,double>(pixel,gain));
-			}
-			if (parser >> data){//second gain
-			  gain=atof(data.c_str());
-			  m_PixelGain2[face][detector].insert(pair<int,double>(pixel,gain));
-			}
-			if (parser >> data){//third gain
-			  gain=atof(data.c_str());
-			  m_PixelGain3[face][detector].insert(pair<int,double>(pixel,gain));
+			parser>>data;igain=atoi(data.c_str());
+			parser>>data;gain=atof(data.c_str());//gain
+			switch (igain){
+			    case 1:
+			      m_PixelGain1[face][detector].insert(pair<int,double>(pixel,gain));
+			      break;
+			    case 2:
+			      m_PixelGain2[face][detector].insert(pair<int,double>(pixel,gain));
+			      break;
+			    case 3:
+			      m_PixelGain3[face][detector].insert(pair<int,double>(pixel,gain));
+			      break;
+			    default:
+			      cerr<<"Error RealSetupHandler setup, gain id "<<igain<<"is invalid"<<endl;
+			      return;
 			}
 		}
 		else if (key=="Pixels"){
-			parser>>data;firstpixel=atoi(data.c_str());lastpixel=atoi(data.c_str());
-			(parser >> data);
-			{
-			  gain=atof(data.c_str());//first gain
-			  for (int ipixel=firstpixel;ipixel<lastpixel;ipixel++)	  m_PixelGain1[face][detector].insert(pair<int,double>(ipixel,gain));
-			}
-			if (parser >> data){//second gain
-			  gain=atof(data.c_str());
-			   for (int ipixel=firstpixel;ipixel<lastpixel;ipixel++)  m_PixelGain2[face][detector].insert(pair<int,double>(ipixel,gain));
-			}
-			if (parser >> data){//third gain
-			  gain=atof(data.c_str());
-			   for (int ipixel=firstpixel;ipixel<lastpixel;ipixel++)  m_PixelGain3[face][detector].insert(pair<int,double>(ipixel,gain));
+			parser>>data;firstpixel=atoi(data.c_str());
+			parser>>data;lastpixel=atoi(data.c_str());
+			parser>>data;igain=atoi(data.c_str());
+			parser>>data;gain=atof(data.c_str());
+			for (int ipixel=firstpixel;ipixel<lastpixel;ipixel++){	  
+			  switch (igain){
+			    case 1:
+			      m_PixelGain1[face][detector].insert(pair<int,double>(ipixel,gain));
+			      break;
+			    case 2:
+			      m_PixelGain2[face][detector].insert(pair<int,double>(ipixel,gain));
+			      break;
+			    case 3:
+			      m_PixelGain3[face][detector].insert(pair<int,double>(ipixel,gain));
+			      break;
+			    default:
+			      cerr<<"Error RealSetupHandler setup, gain id "<<igain<<"is invalid"<<endl;
+			      return;
+			  } 
 			}
 		}
 	}

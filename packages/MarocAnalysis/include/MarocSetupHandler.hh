@@ -19,7 +19,7 @@ class MarocSetupHandler:public RealSetupHandler{
     double H8500Gain(int H8500Id,int PmtID);
 
     double MarocGain(int MarocId);
-    int GetSetupId(int MarocId,int faceID);
+    int GetGeometryId(int MarocId,int faceID);
 
 
 };
