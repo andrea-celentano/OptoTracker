@@ -1,17 +1,17 @@
-#include "RealGeometryHandler.hh"
+#include "RealSetupHandler.hh"
 
 using namespace std;
 
-RealGeometryHandler::RealGeometryHandler():
+RealSetupHandler::RealSetupHandler():
 nRealDet(0)
 {
-  cout<<"RealGeometryHandler::default constructor"<<endl;
+  cout<<"RealSetupHandler::default constructor"<<endl;
 }
 
-RealGeometryHandler::RealGeometryHandler(string fname):
+RealSetupHandler::RealSetupHandler(string fname):
 nRealDet(0)
 {
-  cout<<"RealGeometryHandler::file constructor"<<endl;
+  cout<<"RealSetupHandler::file constructor"<<endl;
   ifstream file;
   string line,key,data;
   istringstream parser;
@@ -22,7 +22,7 @@ nRealDet(0)
   
   file.open(fname.c_str());
   if (!file){
-    cerr<<"RealGeometryHandler::file not found "<<fname<<endl;
+    cerr<<"RealSetupHandler::file not found "<<fname<<endl;
   }
   else{
     while(!file.eof()){
@@ -82,7 +82,7 @@ nRealDet(0)
   file.close();
 }
 
-int    RealGeometryHandler::getReconstructionDetectorFace(int idet){
+int    RealSetupHandler::getReconstructionDetectorFace(int idet){
   int ret=-1;
   std::map<int,int>::iterator it;
   it = m_reconstructionDetFace.find(idet);
@@ -90,12 +90,12 @@ int    RealGeometryHandler::getReconstructionDetectorFace(int idet){
     ret = it->second;
   }
   else{
-    cerr<<"Error RealGeometryHandler::getReconstructionDetectorFace for det id: "<<idet<<endl;
+    cerr<<"Error RealSetupHandler::getReconstructionDetectorFace for det id: "<<idet<<endl;
   }
   return ret;
 }
 
-int     RealGeometryHandler::getReconstructionDetectorID(int idet){  
+int     RealSetupHandler::getReconstructionDetectorID(int idet){  
   int ret=-1;
   std::map<int,int>::iterator it;
   it = m_reconstructionDetID.find(idet);
@@ -103,13 +103,13 @@ int     RealGeometryHandler::getReconstructionDetectorID(int idet){
     ret = it->second;
   }
   else{
-    cerr<<"Error RealGeometryHandler::getReconstructionDetectorID for det id: "<<idet<<endl;
+    cerr<<"Error RealSetupHandler::getReconstructionDetectorID for det id: "<<idet<<endl;
   }
   return ret;
   
 }
 
-int     RealGeometryHandler::getRealDetectorID(int iface,int idet){
+int     RealSetupHandler::getRealDetectorID(int iface,int idet){
   pair <int,int> facedet(iface,idet);
   int ret=-1;
   std::map<pair<int,int>,int>::iterator it;
@@ -118,12 +118,12 @@ int     RealGeometryHandler::getRealDetectorID(int iface,int idet){
     ret=it->second;    
   }
   else{
-    cerr<<"Error RealGeometryHandler::getRealDetectorID for face / id: "<<iface<<" "<<idet<<endl;
+    cerr<<"Error RealSetupHandler::getRealDetectorID for face / id: "<<iface<<" "<<idet<<endl;
   }
 }
 
 
-double RealGeometryHandler::getPixelGain(int iface,int idetector, int ipixel,int igain){
+double RealSetupHandler::getPixelGain(int iface,int idetector, int ipixel,int igain){
   double ret=-1;
   std::map<int,double>::iterator it;
   switch (igain){
@@ -155,7 +155,7 @@ double RealGeometryHandler::getPixelGain(int iface,int idetector, int ipixel,int
   return ret; 
 }
 
-void RealGeometryHandler::setPixelGain(int iface,int idetector, int ipixel,int igain,double val){
+void RealSetupHandler::setPixelGain(int iface,int idetector, int ipixel,int igain,double val){
   
   std::pair <int,double> par(ipixel,val);
   switch (igain){
@@ -170,14 +170,14 @@ void RealGeometryHandler::setPixelGain(int iface,int idetector, int ipixel,int i
       break;
       
     default:
-      cout<<"Error in RealGeometryHandler::setPixelGain. igain must be 1,2,3"<<endl;
+      cout<<"Error in RealSetupHandler::setPixelGain. igain must be 1,2,3"<<endl;
       break;
   }
 }
 
 
 
-void RealGeometryHandler::printRealGeometry(){
+void RealSetupHandler::printRealSetup(){
   
   std::map<int,int>::iterator itDet,itFace;
   int iReconDetID,iReconDetFace,iDet,iDet2;
@@ -188,7 +188,7 @@ void RealGeometryHandler::printRealGeometry(){
   for (itDet;itDet!=m_reconstructionDetID.end();itDet++){
     iDet=itDet->first;
     if (itDet->first != itFace->first){
-     cerr<<"Error in RealGeometryHandler::printRealGeometry, something wrong with the mapping"<<endl;
+     cerr<<"Error in RealSetupHandler::printRealSetup, something wrong with the mapping"<<endl;
      return;
     }
     iReconDetFace=itFace->second;

@@ -1,9 +1,20 @@
-#include "MarocGeometryHandler.hh"
+#include "MarocSetupHandler.hh"
 
 
+MarocSetupHandler::MarocSetupHandler():
+RealSetupHandler()
+{
+ cout<<"MarocSetupHandler default constructor"<<endl; 
+}
 
-  
-int GetMarocId(int globalId){
+
+MarocSetupHandler::MarocSetupHandler(string fname):
+RealSetupHandler(fname)
+{
+  cout<<"RealSetupHandler file constructor"<<endl;
+}
+   
+int MarocSetupHandler::GetMarocId(int globalId){
   int MarocId;
   MarocId=globalId%nH8500Pixels;
   return MarocId;
@@ -162,8 +173,8 @@ double MarocGain(int MarocId){
   else if (MarocId<=63) return .25;
 }
 
-/*This is the method that, given the MarocID, will return the PixelId in the Geometry package convention, simply specifying the FACE id!*/
-int GetGeometryId(int MarocId,int FaceID){
+/*This is the method that, given the MarocID, will return the PixelId in the Setup package convention, simply specifying the FACE id!*/
+int GetSetupId(int MarocId,int FaceID){
   int ret=-1;
   int iX,iY;
   switch (FaceID){

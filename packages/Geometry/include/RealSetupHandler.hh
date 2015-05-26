@@ -17,7 +17,7 @@ and the reconstruction configuration, that is defined in a "universal" way.
 In the "real" analysis, one will derive a concrete instance of this base class
 */
 using namespace std;
-class RealGeometryHandler
+class RealSetupHandler
 {
   private:
     /*
@@ -37,8 +37,8 @@ class RealGeometryHandler
 
       int nRealDet;
   public:
-     RealGeometryHandler(string fname);
-     RealGeometryHandler();
+     RealSetupHandler(string fname);
+     RealSetupHandler();
 
      
      int    getReconstructionDetectorFace(int idet);
@@ -53,7 +53,7 @@ class RealGeometryHandler
      
      double getPixelGain(int iface,int idetector, int ipixel,int igain=0);
      void   setPixelGain(int iface,int idetector, int ipixel,int igain,double val);
-     void   printRealGeometry();
+     void   printRealSetup();
 
 
 };

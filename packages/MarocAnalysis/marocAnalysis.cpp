@@ -11,9 +11,7 @@
 #include "TApplication.h"
 #include "TROOT.h"
 
-#include "MarocAnalysisUtils.hh"
-#include "MarocAnalysisDefs.hh"
-
+#include "MarocSetupHandler.hh"
 #include "TOpNoviceDetectorLight.hh"
 
 using namespace std;
