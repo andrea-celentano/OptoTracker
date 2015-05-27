@@ -4,188 +4,263 @@
 MarocSetupHandler::MarocSetupHandler():
 RealSetupHandler()
 {
- cout<<"MarocSetupHandler default constructor"<<endl; 
+	cout<<"MarocSetupHandler default constructor"<<endl;
+	fillMaps();
 }
 
 
 MarocSetupHandler::MarocSetupHandler(string fname):
-RealSetupHandler(fname)
+				RealSetupHandler(fname)
 {
-  cout<<"RealSetupHandler file constructor"<<endl;
-}
-   
-int MarocSetupHandler::getMarocId(int globalId){
-  int MarocId;
-  MarocId=globalId%nH8500pixels;
-  return MarocId;
-}
-
-
-int MarocSetupHandler::getH8500Id(int globalId){
-  int MarocId,H8500Id;
-  MarocId=GetMarocId(globalId);
-  
-  switch (MarocId){
-  case 0:
-    H8500Id=64;break;
-  case 1:
-    H8500Id=62;break;
-  case 2:
-    H8500Id=58;break;
-  case 3:
-   H8500Id=60;break;
-  case 4:
-    H8500Id=63;break;
-  case 5:
-    H8500Id=61;break;
-  case 6:
-    H8500Id=57;break;
-  case 7:
-    H8500Id=59;break;
-  case 8:
-    H8500Id=56;break;
-  case 9:
-    H8500Id=54;break;
-  case 10:
-    H8500Id=50;break;
-  case 11:
-    H8500Id=52;break;
-  case 12:
-    H8500Id=55;break;
-  case 13:
-    H8500Id=53;break;
-  case 14:
-    H8500Id=49;break;
-  case 15:
-    H8500Id=51;break;
-  case 16:
-    H8500Id=48;break;
-  case 17:
-    H8500Id=46;break;
-  case 18:
-    H8500Id=42;break;
-  case 19:
-    H8500Id=44;break;
-  case 20:
-    H8500Id=47;break;
-  case 21:
-    H8500Id=45;break;
-  case 22:
-    H8500Id=41;break;
-  case 23:
-    H8500Id=43;break;
-  case 24:
-    H8500Id=40;break;
-  case 25:
-    H8500Id=38;break;
-  case 26:
-    H8500Id=34;break;
-  case 27:
-    H8500Id=36;break;
-  case 28:
-    H8500Id=39;break;
-  case 29:
-    H8500Id=37;break;
-  case 30:
-    H8500Id=33;break;
-  case 31:
-    H8500Id=35;break;
-  case 32:
-    H8500Id=32;break;
-  case 33:
-    H8500Id=30;break;
-  case 34:
-    H8500Id=26;break;
-  case 35:
-    H8500Id=28;break;
-  case 36:
-    H8500Id=31;break;
-  case 37:
-    H8500Id=29;break;
-  case 38:
-    H8500Id=25;break;
-  case 39:
-    H8500Id=27;break;
-  case 40:
-    H8500Id=24;break;
-  case 41:
-    H8500Id=22;break;
-  case 42:
-    H8500Id=18;break;
-  case 43:
-    H8500Id=20;break;
-  case 44:
-    H8500Id=23;break;
-  case 45:
-    H8500Id=21;break;
-  case 46:
-    H8500Id=17;break;
-  case 47:
-    H8500Id=19;break;
-  case 48:
-    H8500Id=16;break;
-  case 49:
-    H8500Id=14;break;
-  case 50:
-    H8500Id=10;break;
-  case 51:
-    H8500Id=12;break;
-  case 52:
-    H8500Id=15;break;
-  case 53:
-    H8500Id=13;break;
-  case 54:
-    H8500Id=9;break;
-  case 55:
-    H8500Id=11;break;
-  case 56:
-    H8500Id=8;break;
-  case 57:
-    H8500Id=6;break;
-  case 58:
-    H8500Id=2;break;
-  case 59:
-    H8500Id=4;break;
-  case 60:
-    H8500Id=7;break;
-  case 61:
-    H8500Id=5;break;
-  case 62:
-    H8500Id=1;break;
-  case 63:
-    H8500Id=3;break;
-  }
-  H8500Id-=1; /*This instruction report the number from 0 to 63*/
-  return H8500Id;
+	cout<<"RealSetupHandler file constructor"<<endl;
+	ifstream file;
+	string line;
+	file.open(fname.c_str());
+	if (!file){
+		cerr<<"RealSetupHandler::file not found "<<fname<<endl;
+	}
+	else{
+		while(!file.eof()){
+			getline (file,line);
+			if (line.size()==0) continue;
+			RealSetupHandler::processLine(line);
+			this->processLine(line);
+		}
+	}
+	file.close();
+	fillMaps();
 }
 
+void MarocSetupHandler::fillMaps(){
 
-double H8500Gain(int H8500Id,int PmtID){
-  double PmtDA0359[64]={76,79,86,96,100,95,88,83,76,71,80,89,95,89,87,82,75,68,82,87,92,91,81,77,71,64,79,83,88,88,75,74,69,63,74,79,78,83,73,70,68,61,71,75,76,73,68,65,63,60,65,69,66,62,59,60,61,64,66,70,65,60,56,52};
-  double PmtDA0361[64]={56,71,76,81,89,87,78,82,61,66,72,77,82,78,76,85,60,64,72,74,75,81,80,88,61,65,70,72,73,82,82,93,63,66,71,72,73,85,86,99,68,68,77,75,82,91,89,100,73,75,83,88,95,97,92,99,60,73,80,85,92,99,90,71};
+	int MarocChannel,H8500Id;
+	for (MarocChannel=0;MarocChannel<nH8500Pixels;MarocChannel++){
+		switch (MarocChannel){
+		case 0:
+			H8500Id=64;break;
+		case 1:
+			H8500Id=62;break;
+		case 2:
+			H8500Id=58;break;
+		case 3:
+			H8500Id=60;break;
+		case 4:
+			H8500Id=63;break;
+		case 5:
+			H8500Id=61;break;
+		case 6:
+			H8500Id=57;break;
+		case 7:
+			H8500Id=59;break;
+		case 8:
+			H8500Id=56;break;
+		case 9:
+			H8500Id=54;break;
+		case 10:
+			H8500Id=50;break;
+		case 11:
+			H8500Id=52;break;
+		case 12:
+			H8500Id=55;break;
+		case 13:
+			H8500Id=53;break;
+		case 14:
+			H8500Id=49;break;
+		case 15:
+			H8500Id=51;break;
+		case 16:
+			H8500Id=48;break;
+		case 17:
+			H8500Id=46;break;
+		case 18:
+			H8500Id=42;break;
+		case 19:
+			H8500Id=44;break;
+		case 20:
+			H8500Id=47;break;
+		case 21:
+			H8500Id=45;break;
+		case 22:
+			H8500Id=41;break;
+		case 23:
+			H8500Id=43;break;
+		case 24:
+			H8500Id=40;break;
+		case 25:
+			H8500Id=38;break;
+		case 26:
+			H8500Id=34;break;
+		case 27:
+			H8500Id=36;break;
+		case 28:
+			H8500Id=39;break;
+		case 29:
+			H8500Id=37;break;
+		case 30:
+			H8500Id=33;break;
+		case 31:
+			H8500Id=35;break;
+		case 32:
+			H8500Id=32;break;
+		case 33:
+			H8500Id=30;break;
+		case 34:
+			H8500Id=26;break;
+		case 35:
+			H8500Id=28;break;
+		case 36:
+			H8500Id=31;break;
+		case 37:
+			H8500Id=29;break;
+		case 38:
+			H8500Id=25;break;
+		case 39:
+			H8500Id=27;break;
+		case 40:
+			H8500Id=24;break;
+		case 41:
+			H8500Id=22;break;
+		case 42:
+			H8500Id=18;break;
+		case 43:
+			H8500Id=20;break;
+		case 44:
+			H8500Id=23;break;
+		case 45:
+			H8500Id=21;break;
+		case 46:
+			H8500Id=17;break;
+		case 47:
+			H8500Id=19;break;
+		case 48:
+			H8500Id=16;break;
+		case 49:
+			H8500Id=14;break;
+		case 50:
+			H8500Id=10;break;
+		case 51:
+			H8500Id=12;break;
+		case 52:
+			H8500Id=15;break;
+		case 53:
+			H8500Id=13;break;
+		case 54:
+			H8500Id=9;break;
+		case 55:
+			H8500Id=11;break;
+		case 56:
+			H8500Id=8;break;
+		case 57:
+			H8500Id=6;break;
+		case 58:
+			H8500Id=2;break;
+		case 59:
+			H8500Id=4;break;
+		case 60:
+			H8500Id=7;break;
+		case 61:
+			H8500Id=5;break;
+		case 62:
+			H8500Id=1;break;
+		case 63:
+			H8500Id=3;break;
+		}
+		H8500Id-=1; /*This instruction report the number from 0 to 63*/
 
-  if (PmtID==0) return PmtDA0361[H8500Id]*0.01;
-  if (PmtID==1) return PmtDA0359[H8500Id]*0.01;
+		m_MarocToH8500[MarocChannel]=H8500Id;
+		m_H8500ToMaroc[H8500Id]=MarocChannel;
+
+	} //end for loop
 }
 
-double MarocGain(int MarocId){
-  if (MarocId<=31) return .5;
-  else if (MarocId<=47) return .375;
-  else if (MarocId<=63) return .25;
+void MarocSetupHandler::processLine(string line){
+
+
 }
 
-/*This is the method that, given the MarocID, will return the PixelId in the Setup package convention, simply specifying the FACE id!*/
-int GetSetupId(int MarocId,int FaceID){
-  int ret=-1;
-  int iX,iY;
-  switch (FaceID){
-    case 0:
-    case 2:
-      iX=MarocId/nH8500PixelsX;
-      iY=MarocId%nH8500PixelsX;
-      iY=nH8500PixelsY-iY-1;
-      ret=iX+nH8500PixelsX*iY;
-      break;
-  }
-  return ret;
+
+int MarocSetupHandler::getMarocCard(int globalId){
+	int MarocCard;
+	MarocCard=globalId/nH8500Pixels;
+	return MarocCard;
+}
+
+int MarocSetupHandler::getMarocChannelFromGlobal(int globalId){
+	int MarocChannel;
+	MarocChannel=globalId%nH8500Pixels;
+	return MarocChannel;
+}
+
+int MarocSetupHandler::getMarocChannelFromH8500(int H8500Id){
+	int MarocChannel=-1;
+	map<int,int>::iterator it;
+
+	it=m_H8500ToMaroc.find(H8500Id);
+	if (it==m_H8500ToMaroc.end()){
+		cerr<<"Error in MarocSetupHandler::getMarocChannelFromH8500. The MarocChannel corresponding to H8500ID: "<<H8500Id<<"was not found"<<endl;
+	}
+	else MarocChannel=it->second;
+	return MarocChannel;
+}
+
+int MarocSetupHandler::getH8500IdFromMaroc(int marocChannel){
+	int H8500Id=-1;
+	map<int,int>::iterator it;
+
+	it=m_MarocToH8500.find(marocChannel);
+	if (it==m_MarocToH8500.end()){
+		cerr<<"Error in MarocSetupHandler::getH8500IdFromMaroc. The H8500 corresponding to maroc: "<<marocChannel<<"was not found"<<endl;
+	}
+	else H8500Id=it->second;
+	return H8500Id;
+}
+
+int MarocSetupHandler::getH8500IdFromGlobal(int globalId){
+	int H8500Id;
+	int MarocChannel;
+	MarocChannel=getMarocChannelFromGlobal(globalId);
+
+	H8500Id=getH8500IdFromMaroc(MarocChannel);
+	return H8500Id;
+}
+
+
+int  MarocSetupHandler::getPixelReconId(int globalID){
+	int MarocCard=this->getMarocCard(globalID); /*The CARD id: 0 ... 63. */ /*This is the number to identify the "REAL" detector*/
+	int H8500Id=this->getH8500IdFromGlobal(globalID);     /*The "REAL" pixel id*/
+	int reconFace=this->getReconstructionDetectorFace(MarocCard);
+
+	int ret=-1;
+	int iX,iY;
+	switch(reconFace){
+
+	case 0:
+	case 2:
+		iX=H8500Id%nH8500PixelsX;
+		iY=H8500Id/nH8500PixelsX;
+		iY=nH8500PixelsY-iY-1;
+		ret=iX+nH8500PixelsX*iY;
+		break;
+	}
+	return ret;
+}
+
+int MarocSetupHandler::getPixelReconId(int iRealDet,int iRealPixel){
+	int reconFace=this->getReconstructionDetectorFace(iRealDet);
+	int H8500Id=iRealPixel;
+	int ret=-1;
+	int iX,iY;
+	switch(reconFace){
+
+	case 0:
+	case 2:
+		iX=H8500Id%nH8500PixelsX;
+		iY=H8500Id/nH8500PixelsX;
+		iY=nH8500PixelsY-iY-1;
+		ret=iX+nH8500PixelsX*iY;
+		break;
+	}
+
+	return ret;
+
 }
