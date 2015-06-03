@@ -5,6 +5,7 @@ all: $(packages)
 
 $(packages):
 	echo Doing $@ && \
+	mkdir -p ${OPTO}/packages/$@/build && \
 	cd ${OPTO}/packages/$@/build && cmake ../ && \
 	make -j16 install
 
