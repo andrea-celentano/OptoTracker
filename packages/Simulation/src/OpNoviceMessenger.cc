@@ -46,20 +46,13 @@ OpNoviceMessenger::OpNoviceMessenger()
 	fRunDir=new G4UIdirectory("/OpNovice/run/");
 	fRunDir->SetGuidance("Run control");
 	
-	fSaveThresholdCmd = new G4UIcmdWithAnInteger("/OpNovice/saveThreshold",this);
-	fSaveThresholdCmd->SetGuidance("Set the photon count threshold for saving the random number seed");
-	fSaveThresholdCmd->SetParameterName("photons",true);
-	fSaveThresholdCmd->SetDefaultValue(4500);
-	fSaveThresholdCmd->AvailableForStates(G4State_PreInit,G4State_Idle);
-	
+		
 	fVerboseCmd = new G4UIcmdWithAnInteger("/OpNovice/eventVerbose",this);
 	fVerboseCmd->SetGuidance("Set the verbosity of event data.");
 	fVerboseCmd->SetParameterName("verbose",true);
 	fVerboseCmd->SetDefaultValue(1);
 	
-	fPmtThresholdCmd = new G4UIcmdWithAnInteger("/OpNovice/pmtThreshold",this);
-	fPmtThresholdCmd->SetGuidance("Set the pmtThreshold (in # of photons)");
-	
+
 	fForceDrawPhotonsCmd=new G4UIcmdWithABool("/OpNovice/forceDrawPhotons",this);
 	fForceDrawPhotonsCmd->SetGuidance("Force drawing of photons.");
 	fForceDrawPhotonsCmd->SetGuidance("(Higher priority than /OpNovice/forceDrawNoPhotons)");
@@ -121,14 +114,8 @@ OpNoviceMessenger::~OpNoviceMessenger(){
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void OpNoviceMessenger::SetNewValue(G4UIcommand* command, G4String newValue){
-	if( command == fSaveThresholdCmd ){
-		fOpNoviceEvent->SetSaveThreshold(fSaveThresholdCmd->GetNewIntValue(newValue));
-	}
-	else if( command == fVerboseCmd ){
+	if( command == fVerboseCmd ){
 		fOpNoviceEvent->SetEventVerbose(fVerboseCmd->GetNewIntValue(newValue));
-	}
-	else if( command == fPmtThresholdCmd ){
-		fOpNoviceEvent->SetPMTThreshold(fPmtThresholdCmd->GetNewIntValue(newValue));
 	}
 	else if(command == fForceDrawPhotonsCmd){
 		fOpNoviceEvent->SetForceDrawPhotons(fForceDrawPhotonsCmd->GetNewBoolValue(newValue));

@@ -54,8 +54,8 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceEventAction::OpNoviceEventAction(OpNoviceRecorderBase* r)
-: fRecorder(r),fSaveThreshold(0),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
-fPMTThreshold(1),fForcedrawphotons(false),fForcenophotons(false)
+: fRecorder(r),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
+fForcedrawphotons(false),fForcenophotons(false)
 {
 	G4cout<<"OpNoviceEventAction::creator"<<G4endl;
 	fVerbose=0;
@@ -138,11 +138,12 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	 }	
 	//hits in detector
 	if(detectorHC){
-		G4int detectorN=detectorHC->entries();
+		G4int detectorN=detectorHC->entries(); /*Here 1 hit is "1 detector".*/
 		//Gather info from all detectors
 		for(G4int i=0;i<detectorN;i++){
 
-			/*eventInformation->IncHitCount((*detectorHC)[i]->GetPheCount());
+			eventInformation->IncHitCount((*detectorHC)[i]->GetPheCount());
+			/*
 			if((*detectorHC)[i]->GetPheCount()>=fPMTThreshold){
 				eventInformation->IncPMTSAboveThreshold();
 			}
@@ -193,31 +194,25 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	
 	if(fVerbose>0){
     //End of event output. later to be controlled by a verbose level
-	G4cout << "\tNumber of photons that hit PMTs in this event : "
+	G4cout << "\tNumber of total phe in all detectors in this event : "
 			<< eventInformation->GetHitCount() << G4endl;
-	G4cout << "\tNumber of PMTs above threshold("<<fPMTThreshold<<") : "
-			<< eventInformation->GetPMTSAboveThreshold() << G4endl;
 	G4cout << "\tNumber of photons produced by scintillation in this event : "
 			<< eventInformation->GetPhotonCount_Scint() << G4endl;
-	G4cout << "\tNumber of photons produced by cerenkov in this event : "
-			<< eventInformation->GetPhotonCount_Ceren() << G4endl;
+	G4cout << "\tNumber of photons detected in this event : "
+			<< eventInformation->GetDetectionCount() << G4endl;
 	G4cout << "\tNumber of photons absorbed (OpAbsorption) in this event : "
 			<< eventInformation->GetAbsorptionCount() << G4endl;
 		G4cout << "\tNumber of photons absorbed at boundaries (OpBoundary) in "
 			<< "this event : " << eventInformation->GetBoundaryAbsorptionCount()
 			<< G4endl;
 	G4cout << "Unacounted for photons in this event : "
-			<< (eventInformation->GetPhotonCount_Scint() +
-			    eventInformation->GetPhotonCount_Ceren() -
+			<< (eventInformation->GetPhotonCount_Scint() -		
 			    eventInformation->GetAbsorptionCount() -
-			    eventInformation->GetHitCount() -
+			    eventInformation->GetDetectionCount() -
 			    eventInformation->GetBoundaryAbsorptionCount())
 			<< G4endl;
 	}
-  //If we have set the flag to save 'special' events, save here
-	if(fSaveThreshold&&eventInformation->GetPhotonCount() <= fSaveThreshold)
-		G4RunManager::GetRunManager()->rndmSaveThisEvent();
-	
+ 
 	if(fRecorder)fRecorder->RecordEndOfEvent(anEvent);
 	
 	
@@ -225,13 +220,4 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceEventAction::SetSaveThreshold(G4int save){
-/*Sets the save threshold for the random number seed. If the number of photons
-generated in an event is lower than this, then save the seed for this event
-in a file called run###evt###.rndm
-*/
-	fSaveThreshold=save;
-	G4RunManager::GetRunManager()->SetRandomNumberStore(true);
-	G4RunManager::GetRunManager()->SetRandomNumberStoreDir("random/");
-  //  G4UImanager::GetUIpointer()->ApplyCommand("/random/setSavingFlag 1");
-}
+

@@ -36,6 +36,7 @@
 using namespace std;
 
 void ParseCommandLine(int argc,char **argv);
+void PrintHelp();
 
 /*From the command line*/
 string fName,detName;
@@ -52,7 +53,6 @@ Double_t
 poissonf(Double_t*x,Double_t*par){                                                                              
 	return par[0]*TMath::Poisson(x[0],par[1]);
 }      
-
 
 int main(int argc,char **argv){
 	//Load Cintex and the shared library
@@ -242,7 +242,7 @@ int main(int argc,char **argv){
 	TCanvas **c2=new TCanvas*[6];
 	for (int ii=0;ii<6;ii++){
 		c2[ii]=new TCanvas(Form("c2_%i",ii),Form("c2_%i",ii));
-		c2[ii]->Divide(3,3);
+		c2[ii]->Divide(3,1);
 	  	for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
 				c2[ii]->cd(jj*3+1);
@@ -314,11 +314,22 @@ void ParseCommandLine(int argc,char **argv){
 		else if ((strcmp(argv[ii],"-N0")==0)){
 			N0=atof(argv[ii+1]);
 		}
+		else if ((strcmp(argv[ii],"-h")==0)){
+			PrintHelp();
+			exit(0);
+		}
 	}
 
 }
 
 
+void PrintHelp(){
+    cout<<"-f or -fname <file> : ROOT file with MC results"<<endl;
+    cout<<"-point <px> <py> <pz>: point-like source"<<endl;
+    cout<<"-track <px1> <py1> <pz1> <px2> <py2> <pz2>: track"<<endl;
+    cout<<"N0: normalization"<<endl;
+    cout<<"-h: this help"<<endl;  
+}
 
 
 

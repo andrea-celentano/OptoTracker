@@ -66,8 +66,6 @@ OpNoviceStackingAction::ClassifyNewTrack(const G4Track * aTrack)
     { // particle is secondary
       if(aTrack->GetCreatorProcess()->GetProcessName() == "Scintillation")
 	      eventInformation->IncPhotonCount_Scint();   
-      if(aTrack->GetCreatorProcess()->GetProcessName() == "Cerenkov")
-	      eventInformation->IncPhotonCount_Ceren();
     }
   }
   return fUrgent;

@@ -379,30 +379,26 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 		G4double ScintSurfReflectivity[numScintSurf]={fFaceReflectivity[ii],fFaceReflectivity[ii]};
 
-		fFaceOpsurf[ii]=new G4OpticalSurface("scint_opsurf",glisur,groundfrontpainted,dielectric_dielectric);
+		fFaceOpsurf[ii]=new G4OpticalSurface("scint_opsurf",unified,groundfrontpainted,dielectric_dielectric);
 		fFaceOpsurf[ii]->SetSigmaAlpha(.1);
 		fFaceOpsurfMT[ii] = new G4MaterialPropertiesTable();
-
-
-
 		fFaceOpsurfMT[ii]->AddProperty("REFLECTIVITY",ePhotonScintSurf, ScintSurfReflectivity,numScintSurf);
 		fFaceOpsurfMT[ii]->AddProperty("SPECULARLOBECONSTANT",ePhotonScintSurf,ScintSurfSpecularLobe,numScintSurf);
 		fFaceOpsurfMT[ii]->AddProperty("SPECULARSPIKECONSTANT",ePhotonScintSurf,ScintSurfSpecularSpike,numScintSurf);
 		fFaceOpsurfMT[ii]->AddProperty("BACKSCATTERCONSTANT",ePhotonScintSurf,ScintSurfBackScatter,numScintSurf);
-
 		fFaceOpsurf[ii]->SetMaterialPropertiesTable( fFaceOpsurfMT[ii]);
-		fFaceBorder[ii]=new G4LogicalBorderSurface(Form("scint_surf_%i",ii),Scintillator_phys,fAround_phys[ii],fFaceOpsurf[ii]);
+		fFaceBorder[ii]=new G4LogicalBorderSurface(Form("scint_surf_%i",ii),Scintillator_phys,fAround_phys[ii],fFaceOpsurf[ii]); /*Scintillator - wrapping (i.e. black paint)*/
+		
 		for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
 
 			G4double DetectorSurfReflectivity[numDetSurf]={fPhotoReflectivity[ii][jj],fPhotoReflectivity[ii][jj]};
 			G4double DetectorSurfEfficiency[numDetSurf]={fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj]),fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj])};    //QE=(1-R)*efficiency
-			fDetectorOpsurf[ii][jj]=new G4OpticalSurface(Form("detector_opsurf_%i_%i",ii,jj),glisur,polished,dielectric_metal);
+			fDetectorOpsurf[ii][jj]=new G4OpticalSurface(Form("detector_opsurf_%i_%i",ii,jj),unified,polished,dielectric_metal);
 			fDetectorOpsurfMT[ii][jj] = new G4MaterialPropertiesTable();
 			fDetectorOpsurfMT[ii][jj]->AddProperty("REFLECTIVITY",ePhotonDetSurf,DetectorSurfReflectivity,numDetSurf);
 			fDetectorOpsurfMT[ii][jj]->AddProperty("EFFICIENCY",ePhotonDetSurf,DetectorSurfEfficiency,numDetSurf);
 			fDetectorOpsurf[ii][jj]->SetMaterialPropertiesTable(fDetectorOpsurfMT[ii][jj]);
-			fDetectorSkin[ii][jj]=new G4LogicalSkinSurface(Form("detector_surf_%i_%i",ii,jj),fPixel_log[ii][jj],fDetectorOpsurf[ii][jj]);  //The detector: a skin surface
-
+			fDetectorSkin[ii][jj]=new G4LogicalSkinSurface(Form("detector_surf_%i_%i",ii,jj),fPixel_log[ii][jj],fDetectorOpsurf[ii][jj]);  /*Pixel - coupling material*/
 		}
 
 
@@ -617,7 +613,8 @@ void OpNoviceDetectorConstruction::makeEJ230(){
 
 	const G4int numRI = 2;
 	G4double ePhotonRI[numRI] = {1.*eV,10.*eV};
-	G4double RI[numRI] = {1.58,1.58};
+	G4double RI[numRI] = {fDetectorLight->getRindex(),fDetectorLight->getRindex()};
+	
 	G4double absLength[numRI] = {100.*cm,100.*cm}; //temporary
 
 	const G4int numFastLY = 101;

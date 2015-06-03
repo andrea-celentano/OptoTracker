@@ -194,6 +194,8 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 					/*The PrePoint is in the coupling
 					thePostPoint->GetTouchable->GetVolume(1) is the "face"
 					*/
+					eventInformation->IncDetection();
+					
 					G4int pmtNumber=thePostPoint->GetTouchable()->GetReplicaNumber(1);
 					
 					G4ThreeVector globalPosition=thePrePoint->GetPosition();
