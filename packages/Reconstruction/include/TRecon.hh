@@ -19,17 +19,8 @@
 
 #define clight 299.792  /*in mm/ns*/
 
-
-enum fitObject_t{
-	k_point,
-	k_track
-};
-
-enum fitLikelihoodMode_t{
-	k_onlyCharge,
-	k_onlyTime,
-	k_both	
-};
+#include "TReconInput.hh"
+#include "TReconDefs.hh"
 
 
 
@@ -37,17 +28,20 @@ class TRecon : public ROOT::Math::IBaseFunctionMultiDim{
 	//class TRecon: public ROOT::Minuit2::FCNBase{
 
 public:
-	TRecon(TOpNoviceDetectorLight* detector);
+	TRecon(TOpNoviceDetectorLight* detector, TReconInput* input=0);
 	~TRecon();
 
-	//	TMinuitMinimizer* getMinimizer(){return m_minimizer;}
+	static const int m_nPars = 10;
+
+	
 	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
 	TOpNoviceDetectorLight* getDetector(){return m_detector;}
 	void setDetector(TOpNoviceDetectorLight* detector){m_detector=detector;}
 
+	  
 	void initParameters();
 	void setFitObject(fitObject_t);
-	void setFitLikelihoodMode(fitLikelihoodMode_t);
+	void setFitLikelihoodMode(fitLikelihoodMode_t);	
 	fitObject_t getFitObject(){return m_fitObject;}
 	fitLikelihoodMode_t getFitLikelihoodMode(){return m_fitLikelihoodMode;}
 
@@ -59,6 +53,9 @@ public:
 
 	void setPrintLevel(int level){m_minimizer->SetPrintLevel(level);}
 	int  getPrintLevel(){return m_minimizer->PrintLevel();}
+	
+	
+	void initFit();
 	void doFit();
 
 	TVector3 computeCOG();
@@ -70,11 +67,11 @@ public:
 	virtual ROOT::Math::IBaseFunctionMultiDim* Clone() const;
 
 
-
-
+    
 private:
 	ROOT::Math::Minimizer* m_minimizer;
 	TOpNoviceDetectorLight* m_detector;
+	TReconInput* m_reconInput;
 
 	fitObject_t m_fitObject;
 	fitLikelihoodMode_t m_fitLikelihoodMode;
@@ -82,7 +79,8 @@ private:
 	/*These are the arrays used to store the data.Note that the arrays are not filled here, but the user has to point them to a proper mem location*/
 	int *m_N[6][MAX_DETECTORS];
 	double *m_t[6][MAX_DETECTORS];
-
+	
+	string m_parNames[m_nPars];
 	int m_freeFitObject;
 
 

@@ -1,8 +1,10 @@
-//
-#include "TOpNoviceSelectorRaw.hh"
+#include "TReconInput.hh"
+#include "TSelectorRaw.hh"
+#include "TH1D.h"
+#include <vector>
 
-TOpNoviceSelectorRaw object1;
+TSelectorRaw object1;
+TReconInput object2;
 
-//TOpNoviceDetectorLight detector;
 
-#undef __G4String
+//#undef __G4String

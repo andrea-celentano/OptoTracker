@@ -9,8 +9,9 @@
 
 using namespace std;
 
-TRecon::TRecon(TOpNoviceDetectorLight *detector):
+TRecon::TRecon(TOpNoviceDetectorLight *detector,TReconInput *input):
 m_detector(detector),
+m_reconInput(input),
 m_fitObject(k_point),
 m_freeFitObject(1),
 m_fitLikelihoodMode(k_onlyTime),
@@ -32,6 +33,17 @@ m_SinglePhotonTimeProbKernel(NULL)
 	m_SinglePhotonTimeProbKernel=new TF1("SinglePhotonTimeProbIntegral",this,&TRecon::SinglePhotonTimeProbKernel,-3*tau,10*tau,2);
 	m_TrackLikelihoodChargeKernel=new TF1("TrackLikelihoodChargeKernel",this,&TRecon::TrackLikelihoodChargeKernel,0.,1.,9); //9 fixed parameters: x0(3x), x1(3x), face, detector, pixel
 	
+	
+	m_parNames[0]="X0";
+	m_parNames[1]="Y0";
+	m_parNames[2]="Z0";
+	m_parNames[3]="X1";
+	m_parNames[4]="Y1";
+	m_parNames[5]="Z1";
+	m_parNames[6]="beta";
+	m_parNames[7]="T0";
+	m_parNames[8]="N0";
+	m_parNames[9]="tau";
 }
 
 TRecon::~TRecon(){
@@ -63,33 +75,42 @@ void TRecon::doFit(){
 
 void TRecon::initParameters(){
   
-        //SetVariable(ivar,name,val,step)
-	//SetLimitedVariable(ivar,name,val,step,min,max)
-	m_minimizer->SetLimitedVariable(0,"X0",0.,.1,-m_detector->getScintSizeX()*.5,m_detector->getScintSizeX()*.5);	
-	m_minimizer->SetLimitedVariable(1,"Y0",0.,.1,-m_detector->getScintSizeY()*.5,m_detector->getScintSizeY()*.5);
-	m_minimizer->SetLimitedVariable(2,"Z0",0.,.1,-m_detector->getScintSizeZ()*.5,m_detector->getScintSizeZ()*.5);
-	m_minimizer->SetLimitedVariable(3,"X1",0.,.1,-m_detector->getScintSizeX()*.5,m_detector->getScintSizeX()*.5);		
-	m_minimizer->SetLimitedVariable(4,"Y1",0.,.1,-m_detector->getScintSizeY()*.5,m_detector->getScintSizeY()*.5);
-	m_minimizer->SetLimitedVariable(5,"Z1",0.,.1,-m_detector->getScintSizeZ()*.5,m_detector->getScintSizeZ()*.5);
-	m_minimizer->SetLimitedVariable(6,"b",0.999,.1,0.,1.);
-	m_minimizer->SetVariable(7,"t",0.,.1);
-	m_minimizer->SetLowerLimitedVariable(8,"N",1000,0.1,0.); 
-	m_minimizer->SetLowerLimitedVariable(9,"tau",1.5,0.1,0.);
+ 	Info("initParameters","InitParameters start");
+	m_minimizer->SetLimitedVariable(0,"X0",m_reconInput->getParVal(0),.1,-m_detector->getScintSizeX()*.5,m_detector->getScintSizeX()*.5);	
+	m_minimizer->SetLimitedVariable(1,"Y0",m_reconInput->getParVal(1),.1,-m_detector->getScintSizeY()*.5,m_detector->getScintSizeY()*.5);
+	m_minimizer->SetLimitedVariable(2,"Z0",m_reconInput->getParVal(2),.1,-m_detector->getScintSizeZ()*.5,m_detector->getScintSizeZ()*.5);
+	m_minimizer->SetLimitedVariable(3,"X1",m_reconInput->getParVal(3),.1,-m_detector->getScintSizeX()*.5,m_detector->getScintSizeX()*.5);		
+	m_minimizer->SetLimitedVariable(4,"Y1",m_reconInput->getParVal(4),.1,-m_detector->getScintSizeY()*.5,m_detector->getScintSizeY()*.5);
+	m_minimizer->SetLimitedVariable(5,"Z1",m_reconInput->getParVal(5),.1,-m_detector->getScintSizeZ()*.5,m_detector->getScintSizeZ()*.5);
+	m_minimizer->SetLimitedVariable(6,"b",m_reconInput->getParVal(6),.1,0.,1.);
+	m_minimizer->SetVariable(7,"t",m_reconInput->getParVal(7),.1);
+	m_minimizer->SetLowerLimitedVariable(8,"N",m_reconInput->getParVal(8),0.1,0.); 
+	m_minimizer->SetLowerLimitedVariable(9,"tau",m_reconInput->getParVal(9),0.1,0.);
 	
+	/*Then, verify if we need to fix anything*/
+	 for (int ii=0;ii<m_nPars;ii++){
+	  if (m_reconInput->isParFixed(ii)) m_minimizer->FixVariable(ii);
+	 }
+ 	Info("initParameters","InitParameters end");
+	 
+	 /*@TODO: consider par limits in the file*/
+	 
 }
 
 
 void TRecon::setFitObject(fitObject_t type){
+	Info("setFitObject","Set fit Object called with %i",type);
 	m_fitObject=type;
 	if (m_fitObject==k_point){
-		cout<<"Point-like fit, fix parameters"<<endl;
+	        Info("setFitObject","Fixing parameters for point mode");
+
 		
 		m_minimizer->FixVariable(3);	  		
 		m_minimizer->FixVariable(4);	  
 		m_minimizer->FixVariable(5);	  		
 		/*Fix beta*/
 		m_minimizer->FixVariable(6);
-		cout<<"Point-like fit, parameters fixed"<<endl;		
+		 Info("setFitObject","Fixed parameters for point mode");
 	}	
 }
 void TRecon::setFitLikelihoodMode(fitLikelihoodMode_t mode){
@@ -97,12 +118,12 @@ void TRecon::setFitLikelihoodMode(fitLikelihoodMode_t mode){
 
 	/*If we fit only the time info, we can't get N*/
 	if (m_fitLikelihoodMode==k_onlyTime){
-		cout<<"Fixing parameters for onlyTime mode"<<endl;
+		Info("setFitLikelihoodMode","Fixing parameters for onlyTime mode");
 		m_minimizer->FixVariable(8);
 	}
 	/*If we fit only the charge info, we can't get t0 and beta and tau*/
 	else if (m_fitLikelihoodMode==k_onlyCharge){
-		cout<<"Fixing parameters for onlyCharge mode"<<endl;
+		Info("setFitLikelihoodMode","Fixing parameters for onlyCharge mode");
 		m_minimizer->FixVariable(6);
 		m_minimizer->FixVariable(7);
 		m_minimizer->FixVariable(9);
@@ -113,7 +134,14 @@ void TRecon::setFitLikelihoodMode(fitLikelihoodMode_t mode){
 }
 
 
-
+void TRecon::initFit(){
+	Info("initFit","InitFit was called");
+  
+	initParameters(); /*Create all the parameters and set them*/
+	
+	setFitObject(m_reconInput->getFitObject()); /*Set the fit object: point or track. Correspondingly, fix the parameters we are not sensitive to*/
+	setFitLikelihoodMode(m_reconInput->getFitLikelihoodMode());/*Set the fit data: charge, time, both. Correspondingly, fix the parameters we are not sensitive to*/
+ }
 
 
 

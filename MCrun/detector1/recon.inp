@@ -1,0 +1,17 @@
+#Every line starting with '#' is a comment
+#
+#
+# FitObject point/track
+# FitMode charge/time/both
+# 
+# Parameter id value isFixed?
+# LowLimit value
+# HighLimit value
+#
+# Parameters: X0 Y0 Z0 X1 Y1 Z1 beta T0 N Tau
+
+FitObject point
+FitMode charge
+Parameter 0 0   0 
+Parameter 1 0.2 0
+Parameter 2 0   0

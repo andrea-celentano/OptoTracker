@@ -24,6 +24,7 @@ TOpNoviceDetectorLight* TOpNoviceDetectorLight::getInstance(){
 
 TOpNoviceDetectorLight::TOpNoviceDetectorLight(){
 	cout<<"TOpNoviceDetectorLight:: default constructor"<<endl;
+	m_name="DefaultDetector";
 }
 
 
@@ -36,6 +37,7 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 	int face,id;
 
 	cout<<"TOpNoviceDetectorLight: init with file "<<fname<<endl;
+	m_name="DefaultDetector";
 	if (!file){
 		cout<<"Error in TOpNoviceDetectorLight, file not found: "<<fname<<endl;
 		exit(1);
@@ -70,8 +72,8 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 			parser>>data;face=atoi(data.c_str());
 			Ndet[face]=0;
 			parser>>data;Ndet[face]=atoi(data.c_str());
-			if (Ndet[face]<=0){
-				cout<<"Error in TOpNoviceDetectorLight, face "<<face+1<<"has <=0 detector"<<endl;
+			if (Ndet[face]<0){
+				cout<<"Error in TOpNoviceDetectorLight, face "<<face+1<<"has <0 detector"<<endl;
 			}
 		}
 		else if (key=="FaceProperties"){
@@ -236,6 +238,7 @@ void TOpNoviceDetectorLight::printPixels(){
 
 
 void TOpNoviceDetectorLight::printDet(){
+        printf("Detector :%s \n",m_name.c_str());
 	printf("Scintillator size: \t %f \t %f \t %f \n",this->getScintSizeX(),this->getScintSizeY(),this->getScintSizeZ());
 	printf("Decay time: \t %f \n",this->getFastScintTime());
 	printf("LY: \t %f \n",this->getLY());

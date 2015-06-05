@@ -44,15 +44,16 @@ private:
 
 
 
-	std::vector < double > posPixelX[6][MAX_DETECTORS];
-	std::vector < double > posPixelY[6][MAX_DETECTORS];
-	std::vector < double > posPixelZ[6][MAX_DETECTORS];
+	vector < double > posPixelX[6][MAX_DETECTORS];
+	vector < double > posPixelY[6][MAX_DETECTORS];
+	vector < double > posPixelZ[6][MAX_DETECTORS];
 
-
-
+	std::string m_name;
+    
 public:
 	TOpNoviceDetectorLight(string fname);
 	TOpNoviceDetectorLight();
+	virtual ~TOpNoviceDetectorLight(){printf("TOpNoviceDetectorLight deconstructor\n");}
 	/*Scintillator*/
 	void setScintSizeX(double s){scintSizeX=s;}
 	void setScintSizeY(double s){scintSizeY=s;}
@@ -115,8 +116,8 @@ public:
 	int isDetPresent(int iface,int idetector){return detPresent[iface][idetector];}
 
 
-
-	std::string getName(){return "detector";}
+	void setName(std::string name){m_name=name;}
+	std::string getName(){return m_name;}
 
 	TVector3 getPosPixel(int iface,int idetector,int ipixel){return  TVector3(posPixelX[iface][idetector].at(ipixel),posPixelY[iface][idetector].at(ipixel),posPixelZ[iface][idetector].at(ipixel));}
 

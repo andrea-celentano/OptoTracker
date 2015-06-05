@@ -53,7 +53,7 @@ class OpNoviceDetectorHit :  public G4VHit //, public TObject
 {
 public:    
 	OpNoviceDetectorHit();
-	virtual ~OpNoviceDetectorHit();
+	~OpNoviceDetectorHit();
 	OpNoviceDetectorHit(const OpNoviceDetectorHit &right);
 	
 	const OpNoviceDetectorHit& operator=(const OpNoviceDetectorHit &right);

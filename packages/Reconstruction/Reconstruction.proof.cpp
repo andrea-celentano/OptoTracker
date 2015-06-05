@@ -16,27 +16,29 @@
 #include "TGraph2D.h"
 #include "Cintex/Cintex.h"
 
-
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
+#include <stdlib.h>
 
 #include "OpNoviceDetectorHit.hh"
+#include "OpNoviceDigi.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
-#include "TOpNoviceSelectorRaw.hh"
+#include "TSelectorRaw.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
 
+#include "TReconInput.hh"
 using namespace std;
 
 
 
 /*From the command line*/
-string fName,detName;
+string fName,detName,reconName;
 int interactive=0;
 int detNameCommandLine=0;
 int doProof=0;
@@ -46,24 +48,27 @@ double timeRes=-1;
 
 
 //detector. Keep it global for "print" functions
-TOpNoviceDetectorLight *detector;
+
 
 void ParseCommandLine(int argc,char **argv);
+void PrintHelp();
 void PrintDet();
-
-
 
 TApplication gui("gui",0,NULL);
 
+//Recon input
+TReconInput *m_reconInput=0;
+//Detector
+TOpNoviceDetectorLight *m_detector=0;	
+
 int main(int argc, char **argv){
-
-
-
+     
+	TH1::AddDirectory(kFALSE); 
 
 	//Load Cintex and the shared library
 	ROOT::Cintex::Cintex::Enable();
-	gSystem->Load("libOpNoviceClassesDict.so");
 	gSystem->Load("libGeometryClassesDict.so");
+	gSystem->Load("libOpNoviceClassesDict.so");
 	gSystem->Load("libReconstructionClassesDict.so");
 
 	int Nevents;
@@ -75,8 +80,9 @@ int main(int argc, char **argv){
 	//Input chain 
 	TChain *ch;
 	//Selector
-	TOpNoviceSelectorRaw *selectorRaw;
-
+	TSelectorRaw *selectorRaw;
+	
+	//PROOF
 	TProof *pf;
 
 	//Parse the command line, open the input file
@@ -84,10 +90,10 @@ int main(int argc, char **argv){
 	fin=new TFile(fName.c_str()); 
 	//Check if we have detector info in the ROOT file. 
 	if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
-		detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
-		cout<<"Detector found:"<<detector->getName()<<endl;
+		m_detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
+		cout<<"Detector found:"<<m_detector->getName()<<endl;
 	}
-	else{
+	else {
 		cout<<"Detector not found"<<endl;
 		exit(1);
 	}
@@ -95,8 +101,8 @@ int main(int argc, char **argv){
 	//OWR time resolution
 	if (timeRes>=0){
 		for (int ii=0;ii<6;ii++){
-			for (int jj=0;jj<detector->getNdet(ii);jj++){
-				if (detector->isDetPresent(ii,jj)) detector->setDetTimeRes(ii,jj,timeRes);
+			for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+				if (m_detector->isDetPresent(ii,jj)) m_detector->setDetTimeRes(ii,jj,timeRes);
 			}
 		}
 	}
@@ -104,8 +110,8 @@ int main(int argc, char **argv){
 
 	//Print detector information  
 
-	detector->printPixels();
-	detector->printDet();
+	m_detector->printPixels();
+	m_detector->printDet();
 
 	//Create the TChain, fill it
 	ch=new TChain("raw"); //must have the TTree name I am going to read
@@ -113,28 +119,37 @@ int main(int argc, char **argv){
 	Nevents=ch->GetEntries(); //1 entry=1 event
 	cout<<"There are: "<<Nevents<<" events"<<endl;
 
-
-
-
-
+	//Create the TReconInput
+	m_reconInput=new TReconInput(reconName);
+       // TReconInput m_reconInput(reconName);
+	m_reconInput->print();
+	
+	  m_reconInput->setName("minchia rec");
+	  m_detector->setName("minchia det");
+	  
 
 	if (doProof){
 		pf=TProof::Open("");
 		pf->Exec("gSystem->Load(\"libCintex\")");
 		pf->Exec("ROOT::Cintex::Cintex::Enable()");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libGeometryClassesDict.so\")");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libOpNoviceClassesDict.so\")");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libReconstructionClassesDict.so\")");
-		//	pf->Load("/auto_data/fiber5/celentano/OptoTracker/sim/OpNovice/build/libOpNoviceClassesDict.so");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libGeometryClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libOpNoviceClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libReconstructionClassesDict.so\")");
 		pf->SetLogLevel(1, TProofDebug::kPacketizer);
 		pf->SetParameter("PROOF_Packetizer", "TPacketizer");
-		pf->AddInput(detector);
-		ch->SetProof();    //Enable proof @TODO: Only if requested by the user via command line
+		//This is the way to do when using PROOF,
+		//since we can't use a concrete instance of a selector, only the "class"
+		
+		
+		pf->AddInput(m_detector);
+		pf->AddInput(m_reconInput);
+		ch->SetProof();   
 	}
 	else{
 		//Create the Selector-derived class
-		selectorRaw=new TOpNoviceSelectorRaw();
-		selectorRaw->setDetector(detector);
+		selectorRaw=new TSelectorRaw();
+		selectorRaw->setDetector(m_detector);
+		selectorRaw->setReconInput(m_reconInput);
 		//selectorRaw->setSeed(0);
 	}
 
@@ -146,7 +161,7 @@ int main(int argc, char **argv){
 		else{
 			pf->SetProgressDialog(kFALSE);
 		}
-		ch->Process("TOpNoviceSelectorRaw");
+		ch->Process("TSelectorRaw");
 	}
 	else{
 		ch->Process(selectorRaw);
@@ -170,153 +185,13 @@ int main(int argc, char **argv){
 		selectorRaw->GetOutputList()->Write();
 	}
 
-	/*Also save the detector used for the analysis*/
-	fout->WriteTObject(detector);
+	//Also save the detector used for the analysis
+	fout->WriteTObject(m_detector);
+	fout->WriteTObject(m_reconInput);
 
 	gSystem->Exit(0);
 
 }
-
-
-
-
-
-
-/*
-
-
-void ReadDetFile(string fname){
-
-  ifstream file(fname.c_str());
-
-  string line; vector < string > lines;
-  string word; vector < string > words;
-  string keyword;
-  std::size_t found;
-
-  double x,y,z;
-  int N;
-  while (!file.eof()){
-    getline(file,line);
-    lines.push_back(line);	
-  }
-  file.close();
-
-  for (int ii=0;ii<lines.size();ii++){
-	line=lines[ii];
-	words.clear();
-	word="";
-
-	for (int jj=0;jj<line.size();jj++){
-	  if (!isspace(line[jj])){
-	    word += line[jj];
-	    if ((jj == (line.size()-1))&&(!word.empty())){
-	      words.push_back(word);
-	      word = "";
-	    }
-	  }
-	  else if (!word.empty()){
-	    words.push_back(word);
-	    word = "";
-	  }
-	}//end line-jj cicle
-	//now we have words
-	if (words.size() > 0) keyword = words[0];	
-	if (keyword.empty()) continue;
-	if (keyword[0]=='#') continue;
-
-
-	keyword.find("/detector/dimensions");
-	if (found!=std::string::npos){
-	  x=atof(words[1].c_str());
-	  y=atof(words[2].c_str());
-	  z=atof(words[3].c_str());
-	  if (words.size()==5){
-	    if (words[4]=="cm"){
-		x*=cm;
-		y*=cm;
-		z*=cm;
-	      }
-	    else if (words[4]=="mm"){
-		x*=mm;
-		y*=mm;
-		z*=mm;
-	    }
-
-	    scintSizeX=x;
-	    scintSizeY=y;
-	    detector->getScintSizeZ()=z;
-	  }	  
-	}
-
-	//the Dimensions
-	for (int qq=0;qq<6;qq++){
-	  x=y=0;
-	  N=0;
-
-	  found = keyword.find(Form("/detector/surface%i/PhotoDetectorDimensions",qq+1));
-	  if (found!=std::string::npos){
-	    x=atof(words[1].c_str());
-	    y=atof(words[2].c_str());
-	    if (words.size()==5){
-	      if (words[4]=="cm"){
-		x*=cm;
-		y*=cm;
-	      }
-	      else if (words[4]=="mm"){
-		x*=mm;
-		y*=mm;
-	      }
-	      if ((x<=0)||(y<=0)){
-		detPresent[qq]=0;
-		x=0;
-		y=0;
-	      }
-	      else detPresent[qq]=1;
-
-	      detSizeX[qq]=x;
-	      detSizeY[qq]=y;
-	    }	    
-	  }
-
-
-	  found = keyword.find(Form("/digitizer/detector%i/NpixelsX",qq+1));
-	  if (found!=std::string::npos){
-	     N=atoi(words[1].c_str());
-	     detNpixelsX[qq]=N;
-	  }
-
-
-	  found = keyword.find(Form("/digitizer/detector%i/NpixelsY",qq+1));
-	  if (found!=std::string::npos){
-	     N=atoi(words[1].c_str());
-	     detNpixelsY[qq]=N;
-	  }
-
-	  found = keyword.find(Form("/digitizer/detector%i/TimeResolution",qq+1));
-	  if (found!=std::string::npos){
-	    x=atof(words[1].c_str());
-	    if (words.size()==3){
-	      if (words[2]=="ps"){
-		x*=picosecond;
-	      }
-	      else if (words[2]=="ns"){
-		x*=ns;
-	      }
-	      detTimeRes[qq]=x;
-	    }
-	  }
-       	}	
-  }
-
-  for (int ii=0;ii<6;ii++){
-    if (detPresent[ii]){
-      detPixelSizeX[ii]=detSizeX[ii]/detNpixelsX[ii];
-      detPixelSizeY[ii]=detSizeY[ii]/detNpixelsY[ii];
-    }
-  }
-}
- */
 
 
 
@@ -328,6 +203,9 @@ void ParseCommandLine(int argc,char **argv){
 
 		else if ((strcmp(argv[ii],"-det")==0)||(strcmp(argv[ii],"-detname")==0)){
 			detName=string(argv[ii+1]);
+		}
+		else if ((strcmp(argv[ii],"-recon")==0)||(strcmp(argv[ii],"-reconInput")==0)){
+			reconName=string(argv[ii+1]);
 		}
 
 		else if ((strcmp(argv[ii],"-timeRes")==0)){ //owr the time resolution found in the detector object within the ROOT file
@@ -342,113 +220,51 @@ void ParseCommandLine(int argc,char **argv){
 		else if ((strcmp(argv[ii],"-proofDiag")==0)){
 			doProofDiag=1;
 		}		
+		else if ((strcmp(argv[ii],"-h")==0)){
+			PrintHelp();
+			exit(1);
+		}		
 
 	}
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*This is a very important method, that, for each detector pixel, associates it to the ABSOLUTE position in the detector.*/
-/*Note that, within a detector face, x and y axis are oriented in a given way, not equal to the absolute xyz coordinate system*/
-/*Ipixel=Ix+Iy*Nx;*/
-/*
-void ConfigPixels(){
-
-
-
-  double x,y,z,xs,ys,zs;
-  int ipixel;
-  for (int ii=0;ii<6;ii++){
-    if (detPresent[ii]==0) continue;
-    for (int iy=0;iy<detNpixelsY[ii];iy++){
-        for (int ix=0;ix<detNpixelsX[ii];ix++){
-	  ipixel=ix+detNpixelsY[ii]*iy;	  
-
-	  switch (ii){
-	  case 0: //faccia 1:yx, +z
-	    z=+scintSizeZ/2;
-	    x=-(-detSizeX[ii]/2+ix*detPixelSizeX[ii]+detPixelSizeX[ii]/2);
-	    y=(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2); 
-	    xs=x*scintSizeX/detSizeX[ii];
-	    ys=y*scintSizeY/detSizeY[ii];
-	    zs=z;
-	    break;
-	  case 2: //faccia 3: yx, -z
-	    z=-scintSizeZ/2;
-	    x=(-detSizeX[ii]/2+ix*detPixelSizeX[ii]+detPixelSizeX[ii]/2);
-	    y=(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2);
-	    xs=x*scintSizeX/detSizeX[ii];
-	    ys=y*scintSizeY/detSizeY[ii];
-	    zs=z;
-	    break;
-	  case 1: //faccia 2: yz, +x
-	    x=+scintSizeX/2;
-	    y=(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2);
-	    z=(-detSizeX[ii]/2+ix*detPixelSizeX[ii]+detPixelSizeX[ii]/2);
-	    xs=x;
-	    ys=y*scintSizeY/detSizeY[ii];
-	    zs=z*scintSizeZ/detSizeX[ii];
-	    break;
-	  case 3: //faccia 4: yz, -x
-	    x=-scintSizeX/2;
-	    y=(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2);
-	    z=-(-detSizeX[ii]/2+ix*detPixelSizeY[ii]+detPixelSizeX[ii]/2);
-	    xs=x;
-	    ys=y*scintSizeY/detSizeY[ii];
-	    zs=z*scintSizeZ/detSizeX[ii];
-	    break;
-	  case 4: //faccia 5, xz, +y
-	    y=scintSizeY/2;
-	    x=(-detSizeX[ii]/2+ix*detPixelSizeX[ii]+detPixelSizeX[ii]/2);
-	    z=(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2);
-	    ys=y;
-	    xs=x*scintSizeX/detSizeX[ii];
-	    zs=z*scintSizeZ/detSizeY[ii];
-	    break;
-	  case 5: //faccia 6, xz, -y
-	    y=-scintSizeY/2;
-	    x=(-detSizeX[ii]/2+ix*detPixelSizeX[ii]+detPixelSizeX[ii]/2);
-	    z=-(-detSizeY[ii]/2+iy*detPixelSizeY[ii]+detPixelSizeY[ii]/2);
-	    ys=y;
-	    xs=x*scintSizeX/detSizeX[ii];
-	    zs=z*scintSizeZ/detSizeY[ii];
-	    break;
-	  } 	  
-	  posPixel[ii].push_back(new TVector3(x,y,z));
-	  posPixelScaled[ii].push_back(new TVector3(xs,ys,zs));
-	}    
-    }
-  }
+void PrintHelp(){
+    cout<<"-f or -fname: file name"<<endl;
+    cout<<"-det or -detname: detector file name, if not already in fname"<<endl;
+    cout<<"-recon or -reconInput: recon input file name"<<endl;
+    cout<<"-timeRes : owr the detector time resoluiton"<<endl;
+    cout<<"-int: interactive, i.e. draw plots at end"<<endl;
+    cout<<"-proof: use PROOF"<<endl;
+    cout<<"-proofDiag: show proof dialog"<<endl;
+  
+  
 }
 
 
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

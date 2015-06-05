@@ -29,7 +29,7 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
-#include "TOpNoviceSelectorRaw.hh"
+#include "TSelectorRaw.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
 
@@ -57,8 +57,8 @@ poissonf(Double_t*x,Double_t*par){
 int main(int argc,char **argv){
 	//Load Cintex and the shared library
 	ROOT::Cintex::Cintex::Enable();
-	gSystem->Load("libOpNoviceClassesDict.so");
 	gSystem->Load("libGeometryClassesDict.so");
+	gSystem->Load("libOpNoviceClassesDict.so");	
 	gSystem->Load("libReconstructionClassesDict.so");
 
 
@@ -327,7 +327,7 @@ void PrintHelp(){
     cout<<"-f or -fname <file> : ROOT file with MC results"<<endl;
     cout<<"-point <px> <py> <pz>: point-like source"<<endl;
     cout<<"-track <px1> <py1> <pz1> <px2> <py2> <pz2>: track"<<endl;
-    cout<<"N0: normalization"<<endl;
+    cout<<"-N0: normalization of the analytic model"<<endl;
     cout<<"-h: this help"<<endl;  
 }
 

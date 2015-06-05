@@ -56,6 +56,7 @@ target_link_libraries(ReconstructionClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRA
 
 
 
+
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
@@ -78,6 +79,5 @@ target_link_libraries(VerifyChargeFunction ReconstructionClassesDict OpNoviceCla
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS ReconstructionClassesDict DESTINATION $ENV{OPTO}/lib)
-#install(TARGETS Reconstruction.single DESTINATION $ENV{OPTO}/bin)
 install(TARGETS Reconstruction.proof DESTINATION $ENV{OPTO}/bin)
 install(TARGETS VerifyChargeFunction DESTINATION $ENV{OPTO}/bin)
