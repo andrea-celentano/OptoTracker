@@ -132,9 +132,9 @@ int main(int argc, char **argv){
 		pf=TProof::Open("");
 		pf->Exec("gSystem->Load(\"libCintex\")");
 		pf->Exec("ROOT::Cintex::Cintex::Enable()");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libGeometryClassesDict.so\")");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libOpNoviceClassesDict.so\")");
-		pf->Exec("gSystem->Load(\"/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libReconstructionClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"${OPTO}/lib/libGeometryClassesDict.so\")");		
+		pf->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionClassesDict.so\")");
+		pf->Exec("gSystem->Load(\"${OPTO}/lib/libOpNoviceClassesDict.so\")");
 		pf->SetLogLevel(1, TProofDebug::kPacketizer);
 		pf->SetParameter("PROOF_Packetizer", "TPacketizer");
 		//This is the way to do when using PROOF,

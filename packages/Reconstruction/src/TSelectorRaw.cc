@@ -6,12 +6,19 @@
 TSelectorRaw::TSelectorRaw(TTree* /*tree*/) : 
 fChain(0),mm_recon(0),mm_detector(0),mm_reconInput(0),mm_rand(0)
 { 
+	hPixel0Title=new string[6];
+	
 	hPixel0Title[0]="hPixel0_0;-x;y";
 	hPixel0Title[1]="hPixel0_0;+z;+y";
 	hPixel0Title[2]="hPixel0_0;+x;+y";
 	hPixel0Title[3]="hPixel0_0;-z;+y";
 	hPixel0Title[4]="hPixel0_0;+x;+z";
 	hPixel0Title[5]="hPixel0_0;+x;-z";
+	
+	hX=hY=hZ=hX_1=hY_1=hZ_1=hX_2=hY_2=hZ_2=0;
+	hXY=hXZ=hYZ=hXY_1=hXZ_1=hYZ_1=hXY_2=hXZ_2=hYZ_2=0;
+	hTheta=hPhi=0;
+	hNPhotons=hT0=hTau=0;
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<MAX_DETECTORS;jj++){
 			hPixel0[ii][jj]=0;
@@ -111,10 +118,15 @@ void TSelectorRaw::SlaveBegin(TTree * /*tree*/)
 
 				int Nx=mm_detector->getNPixelsX(ii,jj);
 				int Ny=mm_detector->getNPixelsY(ii,jj);
+				
+				hCharge[ii+jj*6]=new vector <TH1D*>;
+				hTime[ii+jj*6]=new vector <TH1D*>;
+				hTimeVsCharge[ii+jj*6]=new vector <TH2D*>;
+				
 				for (int id=0;id<Nx*Ny;id++){ /*indexed in this way: ID=6*idetector + iface*/
-					hhCharge[ii+jj*6].push_back(new TH1D(Form("hCharge_%i_%i_%i",ii,jj,id),Form("hCharge_%i_%i_%i",ii,jj,id),100,-0.5,99.5));fOutput->Add(hhCharge[ii+jj*6].at(id));
-					hhTime[ii+jj*6].push_back(new TH1D(Form("hTime_%i_%i_%i",ii,jj,id),Form("hTime_%i_%i_%i",ii,jj,id),400,-2.5,17.5));fOutput->Add(hhTime[ii+jj*6].at(id));
-					hhTimeVsCharge[ii+jj*6].push_back(new TH2D(Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),Form("hTimeVsCharge_%i_%i_%i",ii,id),100,-0.5,99.5,400,-2.5,17.5));fOutput->Add(hhTimeVsCharge[ii+jj*6].at(id));
+					hCharge[ii+jj*6]->push_back(new TH1D(Form("hCharge_%i_%i_%i",ii,jj,id),Form("hCharge_%i_%i_%i",ii,jj,id),200,-0.5,199.5));fOutput->Add(hCharge[ii+jj*6]->at(id));
+					hTime[ii+jj*6]->push_back(new TH1D(Form("hTime_%i_%i_%i",ii,jj,id),Form("hTime_%i_%i_%i",ii,jj,id),400,-2.5,17.5));fOutput->Add(hTime[ii+jj*6]->at(id));
+					hTimeVsCharge[ii+jj*6]->push_back(new TH2D(Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),200,-0.5,199.5,400,-2.5,17.5));fOutput->Add(hTimeVsCharge[ii+jj*6]->at(id));
 				}
 			}
 		}
@@ -236,9 +248,9 @@ Bool_t TSelectorRaw::Process(Long64_t entry)
 		for (int jj=0;jj<mm_detector->getNdet(ii);jj++){
 			if (mm_detector->isDetPresent(ii,jj)==0) continue;
 			for (int id=0;id<mm_detector->getNPixels(ii,jj);id++){
-				hhCharge[ii+jj*6].at(id)->Fill(N[ii][jj][id]);
-				hhTime[ii+jj*6].at(id)->Fill(tFirst[ii][jj][id]);
-				hhTimeVsCharge[ii+jj*6].at(id)->Fill(N[ii][jj][id],tFirst[ii][jj][id]);
+				hCharge[ii+jj*6]->at(id)->Fill(N[ii][jj][id]);
+				hTime[ii+jj*6]->at(id)->Fill(tFirst[ii][jj][id]);
+				hTimeVsCharge[ii+jj*6]->at(id)->Fill(N[ii][jj][id],tFirst[ii][jj][id]);
 			}
 		}
 	}

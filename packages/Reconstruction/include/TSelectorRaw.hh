@@ -16,6 +16,7 @@
 #include <TH2D.h>
 #include <TStyle.h>
 #include <TCanvas.h>
+#include <TString.h>
 
 #include "Cintex/Cintex.h"
 #include <TSystem.h>
@@ -92,10 +93,10 @@ class TSelectorRaw : public TSelector {
     idetector = ID /6
     */
     
-    vector < TH1D* > hhCharge[6*MAX_DETECTORS];
-    vector < TH1D* > hhTime[6*MAX_DETECTORS];
-    vector < TH2D* > hhTimeVsCharge[6*MAX_DETECTORS];
-    string hPixel0Title[6];
+    vector < TH1D* > *hCharge[6*MAX_DETECTORS];
+    vector < TH1D* > *hTime[6*MAX_DETECTORS];
+    vector < TH2D* > *hTimeVsCharge[6*MAX_DETECTORS];
+    string *hPixel0Title;
     
     ClassDef(TSelectorRaw,1);
 };
