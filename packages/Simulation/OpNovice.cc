@@ -113,6 +113,7 @@ int main(int argc,char** argv)
 		else if ( G4String(argv[i]) == "-t" ) {
 #ifdef G4MULTITHREADED
 			nThreads = G4UIcommand::ConvertToInt(argv[i+1]);
+			G4cout<<"Workign with "<<nThreads<<" threads "<<G4endl;
 #else
 			G4cout<<"This is not compiled with G4Multithread on, ignoring"<<G4endl;
 #endif

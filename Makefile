@@ -7,7 +7,7 @@ $(packages):
 	echo Doing $@ && \
 	mkdir -p ${OPTO}/packages/$@/build && \
 	cd ${OPTO}/packages/$@/build && cmake ../ && \
-	cmake-DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/ -DCMAKE_BUILD_TYPE=Release  ../ ; \
+	cmake -DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/ -DCMAKE_BUILD_TYPE=Release  ../ ; \
 	make -j16 install
 
 clean:
