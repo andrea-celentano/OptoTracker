@@ -125,10 +125,10 @@ int main(int argc,char** argv)
 		}
 	}
 
-if (detFileName.length()==0){
-	G4cerr<<"Error, you need to specify detector file name with -det "<<G4endl;
-	return 1;
-}
+	if (detFileName.length()==0){
+	    G4cerr<<"Error, you need to specify detector file name with -det "<<G4endl;
+	    return 1;
+	}	
 
 	/*Create the detectorLight*/
 	TOpNoviceDetectorLight *detectorLight=new TOpNoviceDetectorLight(detFileName);
