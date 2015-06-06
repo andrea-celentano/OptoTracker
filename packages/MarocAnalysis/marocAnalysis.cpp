@@ -67,7 +67,7 @@ int main(int argc,char **argv){
 	TFile *f1=new TFile(fSigName.c_str());
 	TFile *f2=new TFile(fBckName.c_str());
 
-	TFile *fOut=new TFile(fOutName.c_str(),"recreate");
+	TFile *fOut=new TFile(fOutNameRoot.c_str(),"recreate");
 
 
 	TTree *tSig=(TTree*)f1->Get("fTdata");
