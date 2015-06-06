@@ -5,7 +5,7 @@ project(Geometry)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
 SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
-
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 #----------------------------------------------------------------------------
 # Find ROOT (required package)

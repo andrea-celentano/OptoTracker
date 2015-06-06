@@ -4,8 +4,8 @@
 #setenv APPS /project/Gruppo3/fiber6/apps
 setenv GEANT4_VERSION       4.10.01
 setenv G4SYSTEM             Linux-g++
-setenv G4ROOT               ${OPTOAPPS}/geant4/4.10.01/SL6/multithread
-setenv G4INSTALL            ${OPTOAPPS}/geant4/4.10.01/SL6/multithread
+setenv G4ROOT               ${OPTOAPPS}/geant4/4.10.01/SL6/no_multithread
+setenv G4INSTALL            ${OPTOAPPS}/geant4/4.10.01/SL6/no_multithread
 setenv G4INCLUDE            ${G4INSTALL}/include/Geant4
 setenv G4LIB                ${G4INSTALL}/lib64
 setenv G4WORKDIR            ${G4INSTALL}
