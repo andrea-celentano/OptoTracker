@@ -5,6 +5,7 @@ all: $(packages)
 
 $(packages):
 	echo Doing $@ && \
+	mkdir -p ${OPTO}/packages/$@/build && \
 	cd ${OPTO}/packages/$@/build && cmake ../ && \
 	cmake -DCMAKE_BUILD_TYPE=Release ../ ; \
 	make -j16 install
@@ -22,4 +23,3 @@ debug:
                 cmake -DCMAKE_BUILD_TYPE=Debug ../ ; \
 		make -j16 install ; \
         done
-
