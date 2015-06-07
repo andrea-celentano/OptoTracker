@@ -438,7 +438,8 @@ int main(int argc,char **argv){
 
 
 	cRecon01->Print((fOutNamePS+")").c_str());
-
+	fOut->cd();
+	cRecon01->Write();
 	if (fDoBatch==0){
 		gui.Run(1);
 	}
