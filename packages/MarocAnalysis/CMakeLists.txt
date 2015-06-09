@@ -53,10 +53,12 @@ target_link_libraries(PrintMaroc ReconstructionClassesDict GeometryClassesDict $
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
 target_link_libraries(MarocAnalysis ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
+add_executable(MarocComparison marocComparison.cpp ${sources} ${headers})
+target_link_libraries(MarocComparison ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/bin)
 install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/bin)
-
+install(TARGETS MarocComparison DESTINATION $ENV{OPTO}/bin)

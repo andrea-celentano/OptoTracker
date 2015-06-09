@@ -185,12 +185,16 @@ int MarocSetupHandler::getMarocCard(int globalId){
 	return MarocCard;
 }
 
+
+ /*This methods returns the MAROC CHANNEL, from 0 to 63, given the globalID*/
 int MarocSetupHandler::getMarocChannelFromGlobal(int globalId){
 	int MarocChannel;
 	MarocChannel=globalId%nH8500Pixels;
 	return MarocChannel;
 }
 
+
+ /*This methods returns the MAROC CHANNEL, from 0 to 63, given the H8500ID*/
 int MarocSetupHandler::getMarocChannelFromH8500(int H8500Id){
 	int MarocChannel=-1;
 	map<int,int>::iterator it;
@@ -202,7 +206,7 @@ int MarocSetupHandler::getMarocChannelFromH8500(int H8500Id){
 	else MarocChannel=it->second;
 	return MarocChannel;
 }
-
+ /*This methods returns the pixel id, in H8500 arrangement, from 0 to 63, given the MAROCId (from 0 to 63)*/
 int MarocSetupHandler::getH8500IdFromMaroc(int marocChannel){
 	int H8500Id=-1;
 	map<int,int>::iterator it;
@@ -215,6 +219,7 @@ int MarocSetupHandler::getH8500IdFromMaroc(int marocChannel){
 	return H8500Id;
 }
 
+ /*This methods returns the pixel id, in H8500 arrangement, from 0 to 63, given the globalID (from 0 to 4095)*/
 int MarocSetupHandler::getH8500IdFromGlobal(int globalId){
 	int H8500Id;
 	int MarocChannel;
@@ -226,22 +231,12 @@ int MarocSetupHandler::getH8500IdFromGlobal(int globalId){
 
 
 int  MarocSetupHandler::getPixelReconId(int globalID){
-	int MarocCard=this->getMarocCard(globalID); /*The CARD id: 0 ... 63. */ /*This is the number to identify the "REAL" detector*/
-	int H8500Id=this->getH8500IdFromGlobal(globalID);     /*The "REAL" pixel id*/
-	int reconFace=this->getReconstructionDetectorFace(MarocCard);
+	int MarocCard=this->getMarocCard(globalID);           /*The CARD id: 0 ... 63. */ /*This is the number to identify the "REAL" detector*/
+	int H8500Id=this->getH8500IdFromGlobal(globalID);     /*The H8500 pixel id*/
+	
 
 	int ret=-1;
-	int iX,iY;
-	switch(reconFace){
-
-	case 0:
-	case 2:
-		iX=H8500Id%nH8500PixelsX;
-		iY=H8500Id/nH8500PixelsX;
-		iY=nH8500PixelsY-iY-1;
-		ret=iX+nH8500PixelsX*iY;
-		break;
-	}
+	ret=this->getPixelReconId(MarocCard,H8500Id);
 	return ret;
 }
 
@@ -260,7 +255,25 @@ int MarocSetupHandler::getPixelReconId(int iRealDet,int iRealPixel){
 		ret=iX+nH8500PixelsX*iY;
 		break;
 	}
-
+///Todo: complete with other faces
 	return ret;
 
 }
+
+/*Given the globalID (0..4095) it retuns the pixel gain*/
+double MarocSetupHandler::getPixelGainFromGlobal(int globalID,int igain){
+    int MarocCard=this->getMarocCard(globalID);           /*The CARD id: 0 ... 63. */ /*This is the number to identify the "REAL" detector*/
+    int H8500Id=this->getH8500IdFromGlobal(globalID);     /*The H8500 pixel id*/
+
+    int reconFace=this->getReconstructionDetectorFace(MarocCard);
+    int reconDetector=this->getReconstructionDetectorID(MarocCard);
+    int reconPixel=this->getPixelReconId(MarocCard,H8500Id);
+		
+     double gain=this->getPixelGain(reconFace,reconDetector,reconPixel,igain);
+  
+ 
+     return gain;
+  
+}
+
+
