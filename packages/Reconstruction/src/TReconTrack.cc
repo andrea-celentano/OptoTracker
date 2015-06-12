@@ -166,7 +166,7 @@ double TRecon::TrackLikelihoodTime(int iface,int idetector,int id,const double *
 	p1=SinglePhotonTimeProb(t,tau,sigma); /*This is already the natural logarithm, log(p) */
 	F1=SinglePhotonIntegratedTimeProb(t,tau,sigma); /*This is already the natural logarithm, log(1-F1)*/
 	ret=p1+(Nphe-1)*F1;
-	//}
+
 	return ret;
 }
 

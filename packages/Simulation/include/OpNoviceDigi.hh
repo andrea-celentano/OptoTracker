@@ -56,8 +56,8 @@ class OpNoviceDigi : public G4VDigi
 
 public:
   
-  OpNoviceDigi();
-  OpNoviceDigi(G4String name);
+ // OpNoviceDigi();
+  OpNoviceDigi(G4String name="");
   ~OpNoviceDigi();
   OpNoviceDigi(const OpNoviceDigi&);
   const OpNoviceDigi& operator=(const OpNoviceDigi&);
@@ -105,7 +105,7 @@ public:
 	inline G4int GetPixelNumber() { return fPixelNumber; }
 	
 	inline void SetFirstHitTime(G4double t) { fFirstHitTime = t; }
-	inline G4int GetFirstHitTime() { return fFirstHitTime; }
+	inline G4double GetFirstHitTime() { return fFirstHitTime; }
 	
 	inline void SetPheCount(G4int n){fNPhe=n;}
 	inline void IncrementPheCount(){fNPhe++;}

@@ -104,6 +104,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 					Digi->SetDetectorNumber(jj);
 					Digi->SetUniqueNumber(kk);
 					Digi->SetPixelNumber(id);
+
 					DigitsCollection->insert(Digi);
 				}
 				kk++;
@@ -139,7 +140,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[detectorNumber]);
 
 
-					//   G4cout<<pmtNumber<<" "<<x<<" "<<y<<" "<<pixelNumber<<" "<<fDetector->getPixelID(pmtNumber,x,y)<<G4endl;
+					//G4cout<<" "<<x<<" "<<y<<" "<<t<<G4endl;
 
 
 					Digi=NULL;
@@ -154,16 +155,10 @@ void OpNoviceDigitizer::Digitize() // at each event
 					if(Digi==NULL){
 						G4cout<<"Probable error in OpNoviceDigitizer: digi not found "<<detectorNumber<<" "<<pixelNumber<<endl;
 					}
+
 					Digi->IncrementPheCount();
-					if ( t< Digi->GetFirstHitTime() ) Digi->SetFirstHitTime(t);
-
-
-
-				}			
-				/*Here starts the real loop on the number of phe that hit the PMT*/
-
-
-
+					if ( t < Digi->GetFirstHitTime() ) Digi->SetFirstHitTime(t);
+				}
 			}
 		}
 

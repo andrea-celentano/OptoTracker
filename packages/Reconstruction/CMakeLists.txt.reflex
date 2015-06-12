@@ -72,6 +72,10 @@ target_link_libraries(Reconstruction.proof ReconstructionClassesDict OpNoviceCla
 add_executable(VerifyChargeFunction VerifyChargeFunction.cpp ${sources} ${headers})
 target_link_libraries(VerifyChargeFunction ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
+add_executable(VerifyTimeFunction VerifyTimeFunction.cpp ${sources} ${headers})
+target_link_libraries(VerifyTimeFunction ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+
+
 
 
 
@@ -81,3 +85,4 @@ target_link_libraries(VerifyChargeFunction ReconstructionClassesDict OpNoviceCla
 install(TARGETS ReconstructionClassesDict DESTINATION $ENV{OPTO}/lib)
 install(TARGETS Reconstruction.proof DESTINATION $ENV{OPTO}/bin)
 install(TARGETS VerifyChargeFunction DESTINATION $ENV{OPTO}/bin)
+install(TARGETS VerifyTimeFunction DESTINATION $ENV{OPTO}/bin)
