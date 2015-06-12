@@ -51,15 +51,12 @@ void RealSetupHandler::processLine(string line){
 		parser>>data;m_thisGainVal=atof(data.c_str());//gain
 		switch (m_thisGainEntry){
 		case 1:
-//			m_PixelGain1[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));  //bad way, since it does not owr
 			m_PixelGain1[m_thisReconFace][m_thisReconDetID][m_thisPixel]=m_thisGainVal;
 			break;
 		case 2:
-//			m_PixelGain2[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));
 			m_PixelGain2[m_thisReconFace][m_thisReconDetID][m_thisPixel]=m_thisGainVal;
 			break;
 		case 3:
-//			m_PixelGain3[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(m_thisPixel,m_thisGainVal));
 			m_PixelGain3[m_thisReconFace][m_thisReconDetID][m_thisPixel]=m_thisGainVal;
 			break;
 		default:
@@ -75,15 +72,12 @@ void RealSetupHandler::processLine(string line){
 		for (int ipixel=m_thisPixelFirst;ipixel<=m_thisPixelLast;ipixel++){
 			switch (m_thisGainEntry){
 			case 1:
-//				m_PixelGain1[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
 				m_PixelGain1[m_thisReconFace][m_thisReconDetID][ipixel]=m_thisGainVal;
 				break;
 			case 2:
-//				m_PixelGain2[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
 				m_PixelGain2[m_thisReconFace][m_thisReconDetID][ipixel]=m_thisGainVal;
 				break;
 			case 3:
-//				m_PixelGain3[m_thisReconFace][m_thisReconDetID].insert(pair<int,double>(ipixel,m_thisGainVal));
 				m_PixelGain3[m_thisReconFace][m_thisReconDetID][ipixel]=m_thisGainVal;
 				break;
 			default:
@@ -132,6 +126,7 @@ int     RealSetupHandler::getRealDetectorID(int iface,int idet){
 	else{
 		cerr<<"Error RealSetupHandler::getRealDetectorID for face / id: "<<iface<<" "<<idet<<endl;
 	}
+	return ret;
 }
 
 
@@ -193,6 +188,10 @@ void RealSetupHandler::Print(int printPixels){
 
 	std::map<int,int>::iterator itDet,itFace;
 	int iReconDetID,iReconDetFace,iDet,iDet2;
+
+
+
+
 
 	const char separator    = ' ';
 	const int Width     = 20;

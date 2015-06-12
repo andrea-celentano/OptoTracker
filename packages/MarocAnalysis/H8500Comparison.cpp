@@ -25,7 +25,7 @@ using namespace std;
 
 
 /*From the command line*/
-string fSetupName;
+string fSetupName,fFileName1,fFileName2;
 string fOutNameRoot,fOutNamePS,fOutName;
 int fDoBatch=0;
 void ParseCommandLine(int argc,char **argv);
@@ -42,8 +42,17 @@ int main(int argc,char **argv){
   
   
   if (fDoBatch)  gROOT->SetBatch();
-  
-  
+  if (fFileName1.length()==0){
+    cerr<<"Missing data file name 1"<<endl;
+    return -1;
+  }
+
+  if (fFileName2.length()==0){
+    cerr<<"Missing data file name 2"<<endl;
+    return -1;
+  }
+
+
   if (fSetupName.length()==0){
     cerr<<"Missing Setup file name"<<endl;
     return -1;
@@ -64,7 +73,7 @@ int main(int argc,char **argv){
  
   double ped1[Ntot],ped2[Ntot];
   double mean1[Ntot],mean2[Ntot];
-  
+    double min,max;
   string dataFolder="/work/apcx4/celentano/OptoTracker/hardware/Maroc/data/parsed/";
   
   int id,iGlobal;
@@ -147,27 +156,8 @@ int main(int argc,char **argv){
   
   /*Process*/
   
-  /*Pedestal1*/
-  f=new TFile((dataFolder+"comparison3_00001.root").c_str());
-  t=(TTree*)f->Get("fTdata");
-  t->SetBranchAddress("ADC",ADC);
-  N=t->GetEntries(); 
-  for (int ii=0;ii<N;ii++){
-      t->GetEntry(ii);
-      for (int jj=0;jj<Ntot;jj++){
-	id=jj+N0+Ntot;
-	Q=ADC[id];
-	
-	hPed1[jj]->Fill(Q);     
-    }
-  }
-  /*Compute pedestal*/
-  for (int jj=0;jj<Ntot;jj++){
-	ped1[jj]=hPed1[jj]->GetMean();     
-  }
-  
-  /*Data1*/
-  f=new TFile((dataFolder+"comparison3_00002.root").c_str());
+ /*Charge1*/
+  f=new TFile(fFileName1.c_str());
   t=(TTree*)f->Get("fTdata");
   t->SetBranchAddress("ADC",ADC);
   N=t->GetEntries(); 
@@ -175,48 +165,74 @@ int main(int argc,char **argv){
       t->GetEntry(ii);
       for (int jj=0;jj<Ntot;jj++){
 	id=jj+N0;
-	Q=ADC[id];	
+	Q=ADC[id];
 	hCharge1[jj]->Fill(Q);     
-	hChargeCorr1[jj]->Fill(Q-ped1[jj]);
-      }
+    }
   }
-  
-  
-  /*Pedestal2*/
-  f=new TFile((dataFolder+"comparison3_00003.root").c_str());
+   /*Charge2*/
+  f=new TFile(fFileName2.c_str());
   t=(TTree*)f->Get("fTdata");
   t->SetBranchAddress("ADC",ADC);
   N=t->GetEntries(); 
   for (int ii=0;ii<N;ii++){
       t->GetEntry(ii);
       for (int jj=0;jj<Ntot;jj++){
-	id=jj+N0; 
+	id=jj+N0;
 	Q=ADC[id];
-	
-	hPed2[jj]->Fill(Q);     
+	hCharge2[jj]->Fill(Q);     
     }
   }
   
-   /*Compute pedestal*/
+  
+  
+  /*Compute pedestal1*/
   for (int jj=0;jj<Ntot;jj++){
-	ped2[jj]=hPed2[jj]->GetMean();     
+    
+    
+
+		min=hCharge1[jj]->GetBinCenter(hCharge1[jj]->GetMaximumBin());
+		max=min;
+		min-=15;
+		max+=15;
+		hCharge1[jj]->Fit("gaus","RL","",min,max);
+		ped1[jj]=hCharge1[jj]->GetFunction("gaus")->GetParameter(1);	     
+  
+		min=hCharge2[jj]->GetBinCenter(hCharge2[jj]->GetMaximumBin());
+		max=min;
+		min-=15;
+		max+=15;
+		hCharge2[jj]->Fit("gaus","RL","",min,max);
+		ped2[jj]=hCharge2[jj]->GetFunction("gaus")->GetParameter(1);	     
   }
   
-  
-  /*Data1*/
-  f=new TFile((dataFolder+"comparison3_00004.root").c_str());
+ /*Process again and do ped-subtr*/
+  /*Charge1*/
+  f=new TFile(fFileName1.c_str());
   t=(TTree*)f->Get("fTdata");
   t->SetBranchAddress("ADC",ADC);
   N=t->GetEntries(); 
   for (int ii=0;ii<N;ii++){
       t->GetEntry(ii);
       for (int jj=0;jj<Ntot;jj++){
-	id=jj+N0+Ntot; //no +Ntot here since we used same MAROC
-	Q=ADC[id];	
-	hCharge2[jj]->Fill(Q);     
-	hChargeCorr2[jj]->Fill(Q-ped2[jj]);
-      }
+	id=jj+N0;
+	Q=ADC[id];
+	hChargeCorr1[jj]->Fill(Q-ped1[jj]);     
+    }
   }
+   /*Charge2*/
+  f=new TFile(fFileName2.c_str());
+  t=(TTree*)f->Get("fTdata");
+  t->SetBranchAddress("ADC",ADC);
+  N=t->GetEntries(); 
+  for (int ii=0;ii<N;ii++){
+      t->GetEntry(ii);
+      for (int jj=0;jj<Ntot;jj++){
+	id=jj+N0;
+	Q=ADC[id];
+	hChargeCorr2[jj]->Fill(Q-ped2[jj]);     
+    }
+  }
+  
   
   
   
@@ -234,13 +250,14 @@ int main(int argc,char **argv){
    iy=7-iH8500/8;
    
    gain=m_setup->getPixelGainFromGlobal(iGlobal);
-   hMean1->Fill(ix,iy,gain);
+   cout<<ix<<" "<<iy<<" "<<gain<<endl;
+   hGain1->Fill(ix,iy,gain);
    mean1[jj]=hChargeCorr1[jj]->GetMean()/gain;
 
     iGlobal=jj+N0+Ntot;
     gain=m_setup->getPixelGainFromGlobal(iGlobal);
     mean2[jj]=hChargeCorr2[jj]->GetMean()/gain;
-    hMean2->Fill(ix,iy,gain);
+    hGain2->Fill(ix,iy,gain);
       
  
    
@@ -272,13 +289,14 @@ int main(int argc,char **argv){
     c[iGlobal-N0]=new TCanvas(Form("c%i",(iGlobal-N0)),Form("c:H8500_%i",iH8500));
     c[iGlobal-N0]->Divide(2,2);
     c[iGlobal-N0]->cd(1)->SetLogy();
-    hPed1[iGlobal-N0]->Draw();
-    hPed2[iGlobal-N0]->SetLineColor(2);hPed2[iGlobal-N0]->Draw("SAME");
+      hCharge1[iGlobal-N0]->Draw();
+    //hPed1[iGlobal-N0]->Draw();
+ //   hPed2[iGlobal-N0]->SetLineColor(2);hPed2[iGlobal-N0]->Draw("SAME");
  
     
     c[iGlobal-N0]->cd(2)->SetLogy();
-    hCharge1[iGlobal-N0]->Draw();
-    hCharge2[iGlobal-N0]->SetLineColor(2);hCharge2[iGlobal-N0]->Draw("SAME");
+    hCharge2[iGlobal-N0]->Draw();
+  //  hCharge2[iGlobal-N0]->SetLineColor(2);hCharge2[iGlobal-N0]->Draw("SAME");
     
     c[iGlobal-N0]->cd(3)->SetLogy();
     hChargeCorr1[iGlobal-N0]->Draw();
@@ -325,7 +343,17 @@ int main(int argc,char **argv){
 
 void ParseCommandLine(int argc,char **argv){
   for (int ii=0;ii<argc;ii++){
-    if ((strcmp(argv[ii],"-o")==0)||(strcmp(argv[ii],"-out")==0)){
+    
+    if ((strcmp(argv[ii],"-f1")==0)||(strcmp(argv[ii],"-file1")==0)){
+      fFileName1=string(argv[ii+1]);
+    }
+    
+    else  if ((strcmp(argv[ii],"-f2")==0)||(strcmp(argv[ii],"-file2")==0)){
+      fFileName2=string(argv[ii+1]);
+    }
+    
+    
+    else if ((strcmp(argv[ii],"-o")==0)||(strcmp(argv[ii],"-out")==0)){
       fOutName=string(argv[ii+1]);
     }
     else if ((strcmp(argv[ii],"-ss")==0)||(strcmp(argv[ii],"-setup")==0)){
@@ -345,6 +373,8 @@ void ParseCommandLine(int argc,char **argv){
 
 
 void PrintHelp(){
+  cout<<"-f1 or -file1: file name1"<<endl;
+  cout<<"-f2 or -file2: file name2"<<endl;
   cout<<"-ss or -setup: setup file name"<<endl;
   cout<<"-o or -out: output file name"<<endl;
   cout<<"-batch: batch mode"<<endl;

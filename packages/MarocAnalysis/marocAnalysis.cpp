@@ -77,6 +77,9 @@ int main(int argc,char **argv){
 	Bool_t hit[4096];
 	double PedSig[4096],PedBck[4096];
 
+	double fExp[6][MAX_DETECTORS][64];double fNormExp;
+	double fTeo[6][MAX_DETECTORS][64];double fNormTeo;
+
 	Int_t EvtMultiplicity;
 	int Nb,Ns,Nped;
 	int id;
@@ -87,7 +90,7 @@ int main(int argc,char **argv){
 	double Scale;
 	double MeanSig,MeanBck,MeanDiff,MeanDiffCorrected;
 	double Gain,Saturation,F;
-
+	double min,max;
 	TVector3 vin;
 	vin.SetXYZ(0,3,0);
 
@@ -106,6 +109,8 @@ int main(int argc,char **argv){
 		iReconFace=m_setup->getReconstructionDetectorFace(32);
 		iReconDet=m_setup->getReconstructionDetectorID(32);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0359[ii]/100.);
+		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.718); /*This is the gain configuration PMT359 vs PMT361*/
+
 
 		if (iMarocChannel<=31)			m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 		else if (iMarocChannel<=47)		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.375);
@@ -118,6 +123,8 @@ int main(int argc,char **argv){
 		iReconFace=m_setup->getReconstructionDetectorFace(33);
 		iReconDet=m_setup->getReconstructionDetectorID(33);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0361[ii]/100.);
+		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
+
 
 		if (iMarocChannel<=31)			m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 		else if (iMarocChannel<=47)		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.375);
@@ -205,7 +212,7 @@ int main(int argc,char **argv){
 	}
 	/*Compute the pedestals*/
 	for (int jj=0;jj<Ntot;jj++){
-		double min,max;
+
 
 		min=hChargeSig[jj]->GetBinCenter(hChargeSig[jj]->GetMaximumBin());
 		max=min;
@@ -292,7 +299,8 @@ int main(int argc,char **argv){
 		hChargeDiff[iGlobal-N0]->Fit("pol1","LQ","R",0.5E3,.9E3);
 		hChargeDiff[iGlobal-N0]->GetFunction("pol1")->SetLineColor(2);
 
-		hChargeExp[iReconFace][iReconDet]->Fill(iReconPixel,MeanDiffCorrected);
+		fExp[iReconFace][iReconDet][iReconPixel]=MeanDiffCorrected;
+		//		hChargeExp[iReconFace][iReconDet]->Fill(iReconPixel,MeanDiffCorrected);
 
 	}
 
@@ -303,33 +311,35 @@ int main(int argc,char **argv){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
 				for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
-					F=m_recon->SinglePixelAverageCharge(vin,ii,jj,kk);
-					hChargeTeo[ii][jj]->Fill(kk,F);
+					F=m_recon->SinglePixelAverageCharge(vin,ii,jj,kk);					
+					fTeo[ii][jj][kk]=F;
 				}
 			}
 		}
 	}
 
+	/*Now compute normalization and fill histograms*/
+	fNormTeo=fNormExp=0;
+	for (int iface=0;iface<6;iface++){
+		for (int idetector=0;idetector<m_detector->getNdet(iface);idetector++){
+			if (m_detector->isDetPresent(iface,idetector)){
+				for (int ipixel=0;ipixel<m_detector->getNPixels(iface,idetector);ipixel++){
+					fNormTeo+=fTeo[iface][idetector][ipixel];
+					fNormExp+=fExp[iface][idetector][ipixel];
+					hChargeTeo[iface][idetector]->Fill(ipixel,fTeo[iface][idetector][ipixel]);
+					hChargeExp[iface][idetector]->Fill(ipixel,fExp[iface][idetector][ipixel]);
+				}
+			}
+		}
+	}
+
+
 	/*Histograms have been filled. Scale them to compare*/
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
-
-				int ifirst,ilast;
-				ifirst=56;
-				ilast=64;
-				//Scale=hChargeExp[ii][jj]->GetBinContent(hChargeExp[ii][jj]->FindBin(59))+hChargeExp[ii][jj]->GetBinContent(hChargeExp[ii][jj]->FindBin(60));
-				//Scale/=2;
-
-				Scale=hChargeExp[ii][jj]->Integral(ifirst,ilast)/(ilast-ifirst+1);
-				hChargeExp[ii][jj]->Scale(1./Scale);
-
-				//Scale=hChargeTeo[ii][jj]->GetBinContent(hChargeTeo[ii][jj]->FindBin(59))+hChargeTeo[ii][jj]->GetBinContent(hChargeTeo[ii][jj]->FindBin(60));
-				//Scale/=2;
-
-				Scale=hChargeTeo[ii][jj]->Integral(ifirst,ilast)/(ilast-ifirst+1);
-				hChargeTeo[ii][jj]->Scale(1./Scale);
-
+				hChargeExp[ii][jj]->Scale(1./fNormExp);
+				hChargeTeo[ii][jj]->Scale(1./fNormTeo);
 			}
 		}
 	}
