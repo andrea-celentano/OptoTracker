@@ -54,6 +54,11 @@ TRecon::~TRecon(){
 
 void TRecon::doFit(){
 	
+	if (m_fitObject==k_null){
+		return;
+	}
+
+
 	//m_minimizer->SetMinuitFCN(this);
 	
 	ROOT::Fit::ParameterSettings parSettings;
@@ -74,6 +79,9 @@ void TRecon::doFit(){
 }
 
 void TRecon::initParameters(){
+	if (m_fitObject==k_null){
+			return;
+		}
   
  	Info("initParameters","InitParameters start");
 	m_minimizer->SetLimitedVariable(0,"X0",m_reconInput->getParVal(0),.1,-m_detector->getScintSizeX()*.5,m_detector->getScintSizeX()*.5);	
@@ -101,8 +109,11 @@ void TRecon::initParameters(){
 void TRecon::setFitObject(fitObject_t type){
 	Info("setFitObject","Set fit Object called with %i",type);
 	m_fitObject=type;
-	if (m_fitObject==k_point){
-	        Info("setFitObject","Fixing parameters for point mode");
+	if (m_fitObject==k_null){
+			return;
+	}
+	else if (m_fitObject==k_point){
+	    Info("setFitObject","Fixing parameters for point mode");
 
 		
 		m_minimizer->FixVariable(3);	  		
@@ -153,6 +164,9 @@ void TRecon::initFit(){
 double TRecon::DoEval(const double *x) const{
 	double ret;
 	switch (m_fitObject){
+	case (k_null):
+		ret=0;
+		break;
 	case (k_point):
 		ret=PointLikelihood(x);
 		break;
@@ -161,8 +175,6 @@ double TRecon::DoEval(const double *x) const{
 		break;		
 	}
 	
-	
-
 	return ret; 
 }
 
@@ -224,16 +236,6 @@ double TRecon::SinglePhotonIntegratedTimeProb(double t,double tau,double sigma) 
 	ret=ret-exp(-uu)*exp((vv*vv)/2)*GaussianCDF(uu,vv*vv,vv);
 	ret=1-ret;
 	
-	/*Prepare the parameters*/
-	/*
-	m_SinglePhotonTimeProbKernel->SetRange(-3*tau,10*tau);
-	m_SinglePhotonTimeProbKernel->SetParameter(0,tau);
-	m_SinglePhotonTimeProbKernel->SetParameter(1,sigma);
-	m_SinglePhotonTimeProbKernel->SetNpx(1000);
-	//I have to compute int(t...+inf)p(q)dq, trough the above int. kernel. For large q, p(q)-->0, as exponential, so It is fine to integrate up to a "large" number
-	ret1=m_SinglePhotonTimeProbKernel->Integral(t,10*tau);
-	if (ret1<=0) ret = 0.00000001; //very bad work-around
-	*/
 	
 	
 	  

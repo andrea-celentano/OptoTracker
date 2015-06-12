@@ -1,5 +1,5 @@
-#ifndef TSelectorRaw_h
-#define TSelectorRaw_h
+#ifndef TOptoSelector_h
+#define TOptoSelector_h
 
 #include <vector>
 #include <string>
@@ -32,33 +32,35 @@ using namespace std;
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
 
-class TSelectorRaw : public TSelector {
+class TOptoSelector : public TSelector {
   public :
     TTree          *fChain;   //!pointer to the analyzed TTree or TChain
     
-    // Declaration of leaf types
-    vector<OpNoviceDetectorHit*> *raw;
+    // Declaration of leaf types ->in the derived classes
     
-    // List of branches
-    TBranch        *b_raw;   //!
+    // List of branches -> in the derived classes!
+
     
-    TSelectorRaw(TTree * t=0);
+    TOptoSelector(TTree * t=0);
     
-    virtual ~TSelectorRaw() { }
+
     virtual Int_t   Version() const { return 2; }
-    virtual void    Begin(TTree *tree);
-    virtual void    SlaveBegin(TTree *tree);
-    virtual void    Init(TTree *tree);
+    virtual void    Begin(TTree *tree);      /*All the same*/
+    virtual void    SlaveBegin(TTree *tree); /*All the same*/
+
     virtual Bool_t  Notify();
-    virtual Bool_t  Process(Long64_t entry);
     virtual Int_t   GetEntry(Long64_t entry, Int_t getall = 0) { return fChain ? fChain->GetTree()->GetEntry(entry, getall) : 0; }
-    virtual void    SetOption(const char *option) { fOption = option; }
-    virtual void    SetObject(TObject *obj) { fObject = obj; }
-    virtual void    SetInputList(TList *input) { fInput = input; }
-    virtual TList  *GetOutputList() const { return fOutput; }
-    virtual void    SlaveTerminate();
-    virtual void    Terminate();
+    virtual void    SetOption(const char *option) { fOption = option; } /*All the same*/
+    virtual void    SetObject(TObject *obj) { fObject = obj; } /*All the same*/
+    virtual void    SetInputList(TList *input) { fInput = input; } /*All the same*/
+    virtual TList  *GetOutputList() const { return fOutput; } /*All the same*/
+    virtual void    SlaveTerminate(); /*All the same*/
+    virtual void    Terminate(); /*All the same*/
     
+
+
+
+
     TOpNoviceDetectorLight* getDetector(){return mm_detector;}
     void setDetector(TOpNoviceDetectorLight* detector){mm_detector=detector;}
     
@@ -68,12 +70,20 @@ class TSelectorRaw : public TSelector {
     void setSeed(int seed){mm_seed=seed;}   
     
     
-  private:
+
+    /*These are the pure virtual methods*/
+      virtual ~TOptoSelector(){};
+      virtual void    Init(TTree *tree)=0;       /*Specific to the selector*/
+      virtual Bool_t  Process(Long64_t entry)=0; /*Specific to the selector*/
+
+      virtual const char*	ClassName() const{return "TOptoSelector";} /*Stupid root.. as to be here otherwise crashes*/
+
+  protected:
     TOpNoviceDetectorLight *mm_detector;
     TRecon                 *mm_recon;
-    TReconInput 	   *mm_reconInput;
-    TRandom3		   *mm_rand;
-    int 		    mm_seed;
+    TReconInput 	       *mm_reconInput;
+    TRandom3		       *mm_rand;
+    int 		            mm_seed;
  
     double ***q;
     double ***tFirst;
@@ -98,33 +108,15 @@ class TSelectorRaw : public TSelector {
     vector < TH2D* > *hTimeVsCharge[6*MAX_DETECTORS];
     string *hPixel0Title;
     
-    ClassDef(TSelectorRaw,1);
+    ClassDef(TOptoSelector,1);
 };
 
 
 #endif
-#ifdef TSelectorRaw_cxx
-void TSelectorRaw::Init(TTree *tree)
-{
-  // The Init() function is called when the selector needs to initialize
-  // a new tree or chain. Typically here the branch addresses and branch
-  // pointers of the tree will be set.
-  // It is normally not necessary to make changes to the generated
-  // code, but the routine can be extended by the user if needed.
-  // Init() will be called many times when running on PROOF
-  // (once per file to be processed).
-  
-  // Set object pointer
-  raw = 0;
-  // Set branch addresses and branch pointers
-  if (!tree) return;
-  fChain = tree;
-  fChain->SetMakeClass(1);
-  
-  fChain->SetBranchAddress("raw", &raw, &b_raw);
-}
+#ifdef TOptoSelector_cxx
 
-Bool_t TSelectorRaw::Notify()
+
+Bool_t TOptoSelector::Notify()
 {
   // The Notify() function is called when a new file is opened. This
   // can be either for a new TTree in a TChain or when when a new TTree
@@ -135,4 +127,4 @@ Bool_t TSelectorRaw::Notify()
   return kTRUE;
 }
 
-#endif // #ifdef TSelectorRaw_cxx
+#endif // #ifdef TOptoSelector_cxx

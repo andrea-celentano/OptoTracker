@@ -33,7 +33,8 @@ TReconInput::TReconInput(string fname){
 
 		if ((key=="FitObject")||(key=="fitObject")){
 		    parser>>key;
-		    if ((key == "point") || (key=="Point")) m_fitObject=k_point;
+		    if ((key == "null") || (key=="Null")) m_fitObject=k_null;
+		    else if ((key == "point") || (key=="Point")) m_fitObject=k_point;
 		    else if ((key == "track") || (key=="Track")) m_fitObject=k_track;
 		    else {
 		     cerr<<"Error, FitObject "<<key<<" not recognized. Use point or track"<<endl;

@@ -1,9 +1,10 @@
 #include "TReconInput.hh"
-#include "TSelectorRaw.hh"
+#include "TOptoSelector.hh"
+#include "TOptoSelectorRaw.hh"
 #include "TH1D.h"
 #include <vector>
 
-TSelectorRaw object1;
+TOptoSelectorRaw object1;
 TReconInput object2;
 
 

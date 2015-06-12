@@ -93,6 +93,8 @@ public:
 	double SinglePixelAverageCharge(const TVector3 &x0,int iface,int idetector,int id) const;
 	double GetSolidAngle(const TVector3 &x0,int iface,int idetector,int id) const;
 
+	double GetMinimalDelay(const TVector3 &x0,const TVector3 &x1,double beta,int iface,int idetector,int id) const;
+
 	double GaussianCDF(const double &x,const double &mean,const double &sigma) const;
 	/*Point likelihood*/
 	double PointLikelihood(const double *x) const;

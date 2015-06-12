@@ -29,7 +29,6 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
-#include "TSelectorRaw.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
 

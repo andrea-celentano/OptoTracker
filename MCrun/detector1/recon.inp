@@ -1,7 +1,7 @@
 #Every line starting with '#' is a comment
 #
 #
-# FitObject point/track
+# FitObject none/point/track --> none is to fill histograms only
 # FitMode charge/time/both
 # 
 # Parameter id value isFixed?
@@ -10,11 +10,11 @@
 #
 # Parameters: X0 Y0 Z0 X1 Y1 Z1 beta T0 N Tau
 
-FitObject track
+FitObject point
 FitMode charge
 Parameter 0 0   0 
-Parameter 1 3   1
+Parameter 1 3   0
 Parameter 2 0   0
 Parameter 3 0   0
-Parameter 4 -3  1
-Parameter 5 0   0
+Parameter 4 -3  0
+#Parameter 5 0   0

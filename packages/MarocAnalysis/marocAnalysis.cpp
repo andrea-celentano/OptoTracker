@@ -431,9 +431,9 @@ int main(int argc,char **argv){
 				cRecon01->cd(1+iPad);
 
 				hChargeExp[ii][jj]->SetStats(0);
-				hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
+				//hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
 				hChargeExp[ii][jj]->Draw();
-				hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
+				//hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
 
 
 

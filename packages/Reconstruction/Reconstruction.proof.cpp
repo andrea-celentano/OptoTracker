@@ -20,7 +20,10 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+
 
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
@@ -28,11 +31,14 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
-#include "TSelectorRaw.hh"
+
+
+#include "TOptoSelector.hh"
+#include "TOptoSelectorRaw.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
-
 #include "TReconInput.hh"
+
 using namespace std;
 
 
@@ -59,10 +65,15 @@ TApplication gui("gui",0,NULL);
 //Recon input
 TReconInput *m_reconInput=0;
 //Detector
-TOpNoviceDetectorLight *m_detector=0;	
+TOpNoviceDetectorLight *m_detector=0;
 
 int main(int argc, char **argv){
      
+	//Parse the command line
+	ParseCommandLine(argc,argv);
+
+
+
 	TH1::AddDirectory(kFALSE); 
 
 	//Load Cintex and the shared library
@@ -80,13 +91,13 @@ int main(int argc, char **argv){
 	//Input chain 
 	TChain *ch;
 	//Selector
-	TSelectorRaw *selectorRaw;
+	TOptoSelector *selector;
 	
 	//PROOF
 	TProof *pf;
 
-	//Parse the command line, open the input file
-	ParseCommandLine(argc,argv);
+	//open the input file
+
 	fin=new TFile(fName.c_str()); 
 	//Check if we have detector info in the ROOT file. 
 	if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
@@ -147,9 +158,9 @@ int main(int argc, char **argv){
 	}
 	else{
 		//Create the Selector-derived class
-		selectorRaw=new TSelectorRaw();
-		selectorRaw->setDetector(m_detector);
-		selectorRaw->setReconInput(m_reconInput);
+		selector=new TOptoSelectorRaw();
+		selector->setDetector(m_detector);
+		selector->setReconInput(m_reconInput);
 		//selectorRaw->setSeed(0);
 	}
 
@@ -161,10 +172,10 @@ int main(int argc, char **argv){
 		else{
 			pf->SetProgressDialog(kFALSE);
 		}
-		ch->Process("TSelectorRaw");
+		ch->Process("TOptoSelectorRaw");
 	}
 	else{
-		ch->Process(selectorRaw);
+		ch->Process(selector);
 	}
 	cout<<"Process done"<<endl;
 
@@ -182,7 +193,7 @@ int main(int argc, char **argv){
 		pf->GetOutputList()->Write();
 	}
 	else{
-		selectorRaw->GetOutputList()->Write();
+		selector->GetOutputList()->Write();
 	}
 
 	//Also save the detector used for the analysis

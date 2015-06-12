@@ -1,6 +1,5 @@
 <lcgdict>
-<class name="std::basic_string<char>" />
 <class name="TReconInput"/>
-<class name="std::vector<TH1D*>"/>
-<class name="TSelectorRaw"/>
+<class name="TOptoSelector"/>
+<class name="TOptoSelectorRaw"/>
 </lcgdict>
