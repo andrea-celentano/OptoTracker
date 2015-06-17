@@ -248,7 +248,9 @@ int MarocSetupHandler::getPixelReconId(int iRealDet,int iRealPixel){
 	switch(reconFace){
 
 	case 0:
+	case 1:   //check me
 	case 2:
+	case 3:  //check me
 		iX=H8500Id%nH8500PixelsX;
 		iY=H8500Id/nH8500PixelsX;
 		iY=nH8500PixelsY-iY-1;
