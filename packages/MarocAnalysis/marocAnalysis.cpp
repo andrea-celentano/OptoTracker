@@ -100,8 +100,7 @@ int main(int argc,char **argv){
 	TRecon *m_recon=new TRecon(m_detector);
 
 
-	m_setup->Print(1);cin.get();
-
+	m_setup->Print(1);
 
 	/*Set the first gain, i.e. the Hamamatsu one. The index is the H8500ID!!!*/
 	double PmtDA0359[MarocSetupHandler::nH8500Pixels]={76,79,86,96,100,95,88,83,76,71,80,89,95,89,87,82,75,68,82,87,92,91,81,77,71,64,79,83,88,88,75,74,69,63,74,79,78,83,73,70,68,61,71,75,76,73,68,65,63,60,65,69,66,62,59,60,61,64,66,70,65,60,56,52};
