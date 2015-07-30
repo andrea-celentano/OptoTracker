@@ -236,10 +236,8 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 				fNPixelsX[ii][jj]=fDetectorLight->getNPixelsX(ii,jj);
 				fNPixelsY[ii][jj]=fDetectorLight->getNPixelsY(ii,jj);
+
 				fCouplingThickness[ii][jj]=fDetectorLight->getCouplingThickness(ii,jj)*cm;
-
-
-
 				fPhotoReflectivity[ii][jj]=fDetectorLight->getDetReflectivity(ii,jj);
 				fPhotoQE[ii][jj]=fDetectorLight->getDetQE(ii,jj);
 
@@ -305,8 +303,6 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 				if (previousSubtraction==NULL){ //this is the first time we subtract
 					G4cout<<"OpNoviceDetectorConstruction:: previous subtraction is NULL "<<ii<<" "<<jj<<G4endl;
-
-
 					previousSubtraction=new G4SubtractionSolid(Form("previousSubtraction_%i_%i",ii,jj),fAround_box_a[ii],fAround_box_b[ii][jj],transformAround[ii][jj]);
 				}
 				else{ //this is not the first subtraction
@@ -316,7 +312,6 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 				}
 
 				/*The 0-0 pixel marker
-				 *
 				 */
 				fDetectorMarker_box[ii][jj]=new G4Box("DetectorMarker",1*mm,.2*mm,.2*mm);
 				fDetectorMarker_log[ii][jj]=new G4LogicalVolume(fDetectorMarker_box[ii][jj],fAir,Form("DetectorMarker_%i_%i",ii,jj),0,0,0);
@@ -379,6 +374,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 		G4double ScintSurfReflectivity[numScintSurf]={fFaceReflectivity[ii],fFaceReflectivity[ii]};
 
+		/*This is the part of the face NOT in contact to the detector*/
 		fFaceOpsurf[ii]=new G4OpticalSurface("scint_opsurf",unified,groundfrontpainted,dielectric_dielectric);
 		fFaceOpsurf[ii]->SetSigmaAlpha(.1);
 		fFaceOpsurfMT[ii] = new G4MaterialPropertiesTable();
@@ -386,9 +382,16 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		fFaceOpsurfMT[ii]->AddProperty("SPECULARLOBECONSTANT",ePhotonScintSurf,ScintSurfSpecularLobe,numScintSurf);
 		fFaceOpsurfMT[ii]->AddProperty("SPECULARSPIKECONSTANT",ePhotonScintSurf,ScintSurfSpecularSpike,numScintSurf);
 		fFaceOpsurfMT[ii]->AddProperty("BACKSCATTERCONSTANT",ePhotonScintSurf,ScintSurfBackScatter,numScintSurf);
-		fFaceOpsurf[ii]->SetMaterialPropertiesTable( fFaceOpsurfMT[ii]);
-		fFaceBorder[ii]=new G4LogicalBorderSurface(Form("scint_surf_%i",ii),Scintillator_phys,fAround_phys[ii],fFaceOpsurf[ii]); /*Scintillator - wrapping (i.e. black paint)*/
-		
+		fFaceOpsurf[ii]->SetMaterialPropertiesTable(fFaceOpsurfMT[ii]);
+
+		if (fFaceReflectivity[ii]>=0){ /*with this, if I enter a negative reflectivity, the logical border surface is NOT created, and around we have air*/
+			G4cout<<"Reflectivity specified ( "<<fFaceReflectivity[ii]<<" ) for face "<<ii<<" create opt surface "<<G4endl;
+			fFaceBorder[ii]=new G4LogicalBorderSurface(Form("scint_surf_%i",ii),Scintillator_phys,fAround_phys[ii],fFaceOpsurf[ii]);
+		}
+		else{
+			G4cout<<"Reflectivity NOT specified for face "<<ii<<" use AIR around"<<G4endl;
+		}
+
 		for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
 
 			G4double DetectorSurfReflectivity[numDetSurf]={fPhotoReflectivity[ii][jj],fPhotoReflectivity[ii][jj]};
@@ -449,6 +452,7 @@ void OpNoviceDetectorConstruction::DefineMaterials(){
 	fAir->AddElement(fO, 30*perCent);
 
 
+
 	//The coupling material.
 	//Note that the critical properties of this material are mainly "collapsed" in the refraction index...
 	//so I put it as "water", with density=1.
@@ -483,7 +487,7 @@ void OpNoviceDetectorConstruction::DefineMaterials(){
 	fVacuum->SetMaterialPropertiesTable(vacuumMT);
 
 	//air
-	fAir->SetMaterialPropertiesTable(vacuumMT);//Give air the same rindex
+	fAir->SetMaterialPropertiesTable(vacuumMT);//Give air the same rindex as vacuum
 
 
 

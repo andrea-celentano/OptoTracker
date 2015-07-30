@@ -58,7 +58,6 @@ double timeRes=-1;
 
 void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
-void PrintDet();
 
 TApplication gui("gui",0,NULL);
 
@@ -121,8 +120,8 @@ int main(int argc, char **argv){
 
 	//Print detector information  
 
-	m_detector->printPixels();
-	m_detector->printDet();
+	m_detector->PrintPixels();
+	m_detector->Print();
 
 	//Create the TChain, fill it
 	ch=new TChain("raw"); //must have the TTree name I am going to read
@@ -133,7 +132,7 @@ int main(int argc, char **argv){
 	//Create the TReconInput
 	m_reconInput=new TReconInput(reconName);
        // TReconInput m_reconInput(reconName);
-	m_reconInput->print();
+	m_reconInput->Print();
 	
 	  m_reconInput->setName("minchia rec");
 	  m_detector->setName("minchia det");

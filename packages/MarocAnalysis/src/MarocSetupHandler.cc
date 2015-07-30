@@ -219,7 +219,7 @@ int MarocSetupHandler::getH8500IdFromMaroc(int marocChannel){
 	return H8500Id;
 }
 
- /*This methods returns the pixel id, in H8500 arrangement, from 0 to 63, given the globalID (from 0 to 4095)*/
+ /*This methods returns the pixel id, in H8500 arrangement, from 0 to 63, given the global DAQ ID (from 0 to 4095)*/
 int MarocSetupHandler::getH8500IdFromGlobal(int globalId){
 	int H8500Id;
 	int MarocChannel;

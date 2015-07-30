@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 #include "TFile.h"
 #include "TTree.h"
@@ -15,6 +16,8 @@
 #include "MarocSetupHandler.hh"
 #include "TOpNoviceDetectorLight.hh"
 #include "TRecon.hh"
+#include "TReconInput.hh"
+#include "TReconDefs.hh"
 
 using namespace std;
 
@@ -22,12 +25,14 @@ using namespace std;
 #define Ntot 128
 
 /*From the command line*/
-string fSigName,fBckName,fDetName,fSetupName;
+string fSigName,fBckName,fDetName,fSetupName,fReconName;
 string fOutNameRoot,fOutNamePS,fOutName;
 int fDoBatch=0;
 void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
 TApplication gui("GUI",0,NULL);
+
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TOpNoviceDetectorLight *m_detector);
 
 
 int main(int argc,char **argv){
@@ -58,6 +63,10 @@ int main(int argc,char **argv){
 		cerr<<"Missing Setup file name"<<endl;
 		return -1;
 	}
+	if (fReconName.length()==0){
+		cerr<<"Missing Recon file name"<<endl;
+		return -1;
+	}
 	if (fOutName.length()==0){
 		cout<<"Missing OUT file name, auto-selecting"<<endl;
 		fOutName=fSigName+".out";
@@ -85,22 +94,25 @@ int main(int argc,char **argv){
 	int id;
 	int ix,iy,iH8500,iMarocChannel,iMarocCard,iRealDet,iReconDet,iReconFace,iReconPixel;
 	int iPad;
-	double Q;
+	double Q,QSigTot,QBckTot;
 
 	double Scale;
 	double MeanSig,MeanBck,MeanDiff,MeanDiffCorrected;
-	double Gain,Saturation,F;
+	double Gain,F,Corr;
 	double min,max;
 	TVector3 vin;
-	vin.SetXYZ(0,3,0);
+
 
 	int Nx,Ny;
 	TOpNoviceDetectorLight *m_detector=new TOpNoviceDetectorLight(fDetName);
 	MarocSetupHandler *m_setup=new MarocSetupHandler(fSetupName);
-	TRecon *m_recon=new TRecon(m_detector);
+	TReconInput *m_reconInput=new TReconInput(fReconName);
+	TRecon *m_recon=new TRecon(m_detector,m_reconInput);
 
 
 	m_setup->Print(1);
+	m_reconInput->Print();
+	m_detector->Print();
 
 	/*Set the first gain, i.e. the Hamamatsu one. The index is the H8500ID!!!*/
 	double PmtDA0359[MarocSetupHandler::nH8500Pixels]={76,79,86,96,100,95,88,83,76,71,80,89,95,89,87,82,75,68,82,87,92,91,81,77,71,64,79,83,88,88,75,74,69,63,74,79,78,83,73,70,68,61,71,75,76,73,68,65,63,60,65,69,66,62,59,60,61,64,66,70,65,60,56,52};
@@ -156,6 +168,11 @@ int main(int argc,char **argv){
 
 	TH1D* hChargeExp[6][MAX_DETECTORS];
 	TH1D* hChargeTeo[6][MAX_DETECTORS];
+
+	TH1D* hChargeSigTot=new TH1D("hChargeSigTot","hChargeSigTot",10000,0,1000000);
+	TH1D* hChargeBckTot=new TH1D("hChargeBckTot","hChargeBckTot",10000,0,1000000);
+	TH1D* hChargeDiffTot=new TH1D("hChargeDiffTot","hChargeDiffTot",10000,0,1000000);
+
 
 	for (int ii=0;ii<Ntot;ii++){
 		iH8500=m_setup->getH8500IdFromGlobal(ii+N0);
@@ -215,8 +232,6 @@ int main(int argc,char **argv){
 	}
 	/*Compute the pedestals*/
 	for (int jj=0;jj<Ntot;jj++){
-
-
 		min=hChargeSig[jj]->GetBinCenter(hChargeSig[jj]->GetMaximumBin());
 		max=min;
 		min-=15;
@@ -228,10 +243,12 @@ int main(int argc,char **argv){
 		min-=15;
 		max+=15;
 		hChargeBck[jj]->Fit("gaus","RL","",min,max);
-
 		PedSig[jj]=hChargeSig[jj]->GetFunction("gaus")->GetParameter(1);
 		PedBck[jj]=hChargeBck[jj]->GetFunction("gaus")->GetParameter(1);
 	}
+
+
+
 
 	/*Process the signal, again*/
 	tSig->SetBranchAddress("ADC",ADC);
@@ -239,13 +256,26 @@ int main(int argc,char **argv){
 	tSig->SetBranchAddress("hit",hit);
 	Ns=tSig->GetEntries();
 	for (int ii=0;ii<Ns;ii++){
+		QSigTot=0;
 		tSig->GetEntry(ii);
 		for (int jj=0;jj<Ntot;jj++){
 			id=jj+N0;
+
+			iRealDet=m_setup->getMarocCard(id);
+			iH8500=m_setup->getH8500IdFromGlobal(id);
+			iMarocChannel=m_setup->getMarocChannelFromGlobal(id);
+			iReconDet=m_setup->getReconstructionDetectorID(iRealDet);
+			iReconFace=m_setup->getReconstructionDetectorFace(iRealDet);
+			iReconPixel=m_setup->getPixelReconId(id);
+			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
+
 			Q=ADC[id]-PedSig[jj];
-			//      hChargeSig[jj]->Fill(Q);
+			QSigTot+=Q/Gain;
 			hChargeDiff[jj]->Fill(Q,+1);
 		}
+
+		hChargeSigTot->Fill(QSigTot);
+		hChargeDiffTot->Fill(QSigTot);
 	}
 
 
@@ -255,13 +285,28 @@ int main(int argc,char **argv){
 	tBck->SetBranchAddress("hit",hit);
 
 	for (int ii=0;ii<Nb;ii++){
+		QBckTot=0;
 		tBck->GetEntry(ii);
 		for (int jj=0;jj<Ntot;jj++){
 			id=jj+N0;
+
+			iRealDet=m_setup->getMarocCard(id);
+			iH8500=m_setup->getH8500IdFromGlobal(id);
+			iMarocChannel=m_setup->getMarocChannelFromGlobal(id);
+			iReconDet=m_setup->getReconstructionDetectorID(iRealDet);
+			iReconFace=m_setup->getReconstructionDetectorFace(iRealDet);
+			iReconPixel=m_setup->getPixelReconId(id);
+			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
+
 			Q=ADC[id]-PedBck[jj];
+			QBckTot+=Q/Gain;
 			hChargeDiff[jj]->Fill(Q,-1);
 		}
+		hChargeBckTot->Fill(QBckTot);
+		hChargeDiffTot->Fill(QBckTot,-1);
 	}
+
+
 
 
 
@@ -303,19 +348,22 @@ int main(int argc,char **argv){
 		hChargeDiff[iGlobal-N0]->GetFunction("pol1")->SetLineColor(2);
 
 		fExp[iReconFace][iReconDet][iReconPixel]=MeanDiffCorrected;
-		//		hChargeExp[iReconFace][iReconDet]->Fill(iReconPixel,MeanDiffCorrected);
 
 	}
 
 
 
 	/*From reconstruction*/
+	vin.SetXYZ(m_reconInput->getParVal(k_x0),m_reconInput->getParVal(k_y0),m_reconInput->getParVal(k_z0));
+
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
 				for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
-					F=m_recon->SinglePixelAverageCharge(vin,ii,jj,kk);					
-					fTeo[ii][jj][kk]=F;
+					F=m_recon->SinglePixelAverageCharge(vin,ii,jj,kk);
+					Corr=CorrectionPixel(vin,ii,jj,kk,m_detector);
+					//Corr=1;
+					fTeo[ii][jj][kk]=F*Corr;
 				}
 			}
 		}
@@ -422,6 +470,17 @@ int main(int argc,char **argv){
 	fOut->cd();
 	ca->Write();
 
+	TCanvas *ctot=new TCanvas("ctot","ctot");
+	ctot->Divide(2,1);
+	ctot->cd(1);
+	hChargeSigTot->Draw();
+	hChargeBckTot->SetLineColor(2);
+	hChargeBckTot->Draw("SAME");
+	ctot->cd(2);
+	hChargeDiffTot->Draw();
+	ctot->Print(fOutNamePS.c_str());
+	fOut->cd();
+	ctot->Write();
 
 
 
@@ -431,16 +490,18 @@ int main(int argc,char **argv){
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
-				cRecon01->cd(1+iPad);
+				cRecon01->cd(1+iPad)->SetGridx();
+				cRecon01->cd(1+iPad)->SetGridy();
 
 				hChargeExp[ii][jj]->SetStats(0);
+				hChargeExp[ii][jj]->SetLineWidth(2);
 				//hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
 				hChargeExp[ii][jj]->Draw();
 				//hChargeExp[ii][jj]->GetYaxis()->SetRangeUser(0.,2);
 
 
-
 				hChargeTeo[ii][jj]->SetStats(0);
+				hChargeTeo[ii][jj]->SetLineWidth(2);
 				hChargeTeo[ii][jj]->SetLineColor(2);
 				hChargeTeo[ii][jj]->Draw("SAME");
 
@@ -481,6 +542,9 @@ void ParseCommandLine(int argc,char **argv){
 		else if ((strcmp(argv[ii],"-d")==0)||(strcmp(argv[ii],"-det")==0)){
 			fDetName=string(argv[ii+1]);
 		}
+		else if ((strcmp(argv[ii],"-r")==0)){
+			fReconName=string(argv[ii+1]);
+		}
 		else if ((strcmp(argv[ii],"-ss")==0)||(strcmp(argv[ii],"-setup")==0)){
 			fSetupName=string(argv[ii+1]);
 		}
@@ -502,10 +566,47 @@ void PrintHelp(){
 	cout<<"-b or -background: bck file name"<<endl;
 	cout<<"-d or -det: detector file name"<<endl;
 	cout<<"-ss or -setup: setup file name"<<endl;
+	cout<<"-r: recon file name"<<endl;
 	cout<<"-o or -out: output file name"<<endl;
 	cout<<"-batch: batch mode"<<endl;
 }
 
 
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TOpNoviceDetectorLight *m_detector){
+	double ret=0;
 
+	double n1=1.58;
+	double n2=1.31;
+
+	TVector3 vp,vn,vrel;
+
+	double theta1,theta2;
+	double stheta1,stheta2;
+	double ctheta1,ctheta2;
+	double tpara,tperp;
+
+	vn=m_detector->getFaceNormal(iface);
+	vn=-vn; //entering normal
+
+	vp=m_detector->getPosPixel(iface,idetector,ipixel);
+	vrel=vp-v0;
+
+	theta1=vrel.Angle(vn);
+	stheta1=sin(theta1);
+	ctheta1=cos(theta2);
+
+	stheta2=n1*stheta1/n2;
+	if (stheta2>1) ret=0;
+	else{
+		ctheta2=sqrt(1-stheta2*stheta2);
+		theta2=asin(stheta2); //for print
+
+		tpara=((n2*ctheta2)/(n1*ctheta1))*((2*n1*ctheta1)/(n2*ctheta1+n1*ctheta2))*((2*n1*ctheta1)/(n2*ctheta1+n1*ctheta2));
+		tperp=((n2*ctheta2)/(n1*ctheta1))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2));
+
+		ret=0.5*(tpara+tperp);
+		cout<<theta1<<" "<<theta2<<" "<<ret<<endl;
+	}
+	return ret;
+}
 

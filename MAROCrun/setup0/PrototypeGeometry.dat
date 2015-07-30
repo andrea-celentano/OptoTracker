@@ -6,7 +6,7 @@
 #Detector id Lx Ly PixelsX PixelsY 
 #DetectorProperties id QE Reflectivity TimeRes 
 #DetectorPlacement id CenterX CenterY Rotation(degrees)
-#DetectorCoupling id Ncoupling ThicknessCoupling
+#DetectorCoupling id ThicknessCoupling Ncoupling
 
 DetectorSize 6 6 6			    #Scintillator size, cm
 ScintillatorLY 9700		      	    #LY, photon/MeV
@@ -17,13 +17,13 @@ Face 0 1
 Detector 0 4.9 4.9 8 8
 DetectorProperties 0.3 0.2 0.1
 DetectorPlacement 0 0 0
-DetectorCoupling 1 0 
+DetectorCoupling  0 1 
 
 Face 2 1
 Detector 0 4.9 4.9 8 8
 DetectorProperties 0.3 0.2 0.1
 DetectorPlacement 0 0 0
-DetectorCoupling 1 0 
+DetectorCoupling 0 1 
 
 #Face 4 1
 #Detector 0 4 4 2 2

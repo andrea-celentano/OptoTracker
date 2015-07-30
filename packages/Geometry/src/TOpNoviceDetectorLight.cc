@@ -103,9 +103,9 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 		}
 
 		else if (key=="DetectorCoupling"){
-
-			parser>>data;detCouplingRIndex[face][id]=atof(data.c_str());
 			parser>>data;detCouplingThickness[face][id]=atof(data.c_str());
+			parser>>data;detCouplingRIndex[face][id]=atof(data.c_str());
+
 		}
 
 	}
@@ -174,10 +174,10 @@ void TOpNoviceDetectorLight::init(){
 
 					switch (ii){
 					case 0: //faccia 1:yx, +z
-					z=+scintSizeZ/2+detCouplingThickness[ii][jj];
-					x=-xf;
-					y=yf;
-					break;
+						z=+scintSizeZ/2+detCouplingThickness[ii][jj];
+						x=-xf;
+						y=yf;
+						break;
 					case 2: //faccia 3: yx, -z
 						z=-scintSizeZ/2-detCouplingThickness[ii][jj];
 						x=xf;
@@ -215,7 +215,7 @@ void TOpNoviceDetectorLight::init(){
 }
 
 
-void TOpNoviceDetectorLight::printPixels(){
+void TOpNoviceDetectorLight::PrintPixels() const{
 	int id;
 
 	for (int ii=0;ii<6;ii++){
@@ -237,8 +237,8 @@ void TOpNoviceDetectorLight::printPixels(){
 
 
 
-void TOpNoviceDetectorLight::printDet(){
-        printf("Detector :%s \n",m_name.c_str());
+ void  TOpNoviceDetectorLight::Print() const{
+	printf("Detector :%s \n",m_name.c_str());
 	printf("Scintillator size: \t %f \t %f \t %f \n",this->getScintSizeX(),this->getScintSizeY(),this->getScintSizeZ());
 	printf("Decay time: \t %f \n",this->getFastScintTime());
 	printf("LY: \t %f \n",this->getLY());
@@ -257,7 +257,10 @@ void TOpNoviceDetectorLight::printDet(){
 
 
 
-
+ TVector3 TOpNoviceDetectorLight::getPosPixel(int iface,int idetector,int ipixel) const{
+	 TVector3 vp(posPixelX[iface][idetector].at(ipixel),posPixelY[iface][idetector].at(ipixel),posPixelZ[iface][idetector].at(ipixel));
+	 return vp;
+ }
 
 
 
@@ -266,7 +269,7 @@ void TOpNoviceDetectorLight::printDet(){
 
 
 /*Return the EXITING normal of a face*/
-TVector3 TOpNoviceDetectorLight::getFaceNormal(int iface){
+TVector3 TOpNoviceDetectorLight::getFaceNormal(int iface) const{
 	switch (iface){
 	case 0:
 		return TVector3(0.,0.,1.);
@@ -287,10 +290,11 @@ TVector3 TOpNoviceDetectorLight::getFaceNormal(int iface){
 		return TVector3(0.,-1.,0.);
 		break;
 	}
+	return TVector3(0.,0.,0.);
 }
 
 /*Return the first tangent vector*/
-TVector3 TOpNoviceDetectorLight::getFaceT1(int iface){
+TVector3 TOpNoviceDetectorLight::getFaceT1(int iface) const{
 	switch (iface){
 	case 0:
 		return TVector3(-1.,0.,0.);
@@ -311,10 +315,11 @@ TVector3 TOpNoviceDetectorLight::getFaceT1(int iface){
 		return TVector3(1.,0.,0.);
 		break;
 	}
+	return TVector3(0.,0.,0.);
 }
 
 /*Return the second tangent vector*/
-TVector3 TOpNoviceDetectorLight::getFaceT2(int iface){
+TVector3 TOpNoviceDetectorLight::getFaceT2(int iface) const{
 	switch (iface){
 	case 0:
 		return TVector3(0.,1.,0.);
@@ -335,18 +340,15 @@ TVector3 TOpNoviceDetectorLight::getFaceT2(int iface){
 		return TVector3(0.,0.,1.);
 		break;
 	}
+	return TVector3(0.,0.,0.);
 }
 
 
 
 /*Return the first tangent vector*/
-TVector3 TOpNoviceDetectorLight::getDetectorT1(int iface,int idetector){
+TVector3 TOpNoviceDetectorLight::getDetectorT1(int iface,int idetector) const{
 
 	TVector3 n1(cos(detRotation[iface][idetector]*TMath::DegToRad()),sin(detRotation[iface][idetector]*TMath::DegToRad()),0);
-
-
-
-
 
 	switch (iface){
 	case 0:
@@ -368,10 +370,11 @@ TVector3 TOpNoviceDetectorLight::getDetectorT1(int iface,int idetector){
 		return TVector3(n1.X(),0.,-n1.Y());
 		break;
 	}
+	return TVector3(0.,0.,0.);
 }
 
 /*Return the second tangent vector*/
-TVector3 TOpNoviceDetectorLight::getDetectorT2(int iface,int idetector){
+TVector3 TOpNoviceDetectorLight::getDetectorT2(int iface,int idetector) const{
 	TVector3 n2(-sin(detRotation[iface][idetector]*TMath::DegToRad()),cos(detRotation[iface][idetector]*TMath::DegToRad()),0);
 	switch (iface){
 	case 0:
@@ -393,6 +396,7 @@ TVector3 TOpNoviceDetectorLight::getDetectorT2(int iface,int idetector){
 		return TVector3(n2.X(),0.,-n2.Y());
 		break;
 	}
+	return TVector3(0.,0.,0.);
 }
 
 

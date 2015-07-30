@@ -12,4 +12,17 @@ enum fitLikelihoodMode_t{
 	k_both	
 };
 
+enum fitParameters_t{
+	k_x0=0,
+	k_y0,
+	k_z0,
+	k_x1,
+	k_y1,
+	k_z1,
+	k_beta,
+	k_T0,
+	k_N0,
+	k_tau
+};
+
 #endif

@@ -58,34 +58,34 @@ public:
 	void setScintSizeX(double s){scintSizeX=s;}
 	void setScintSizeY(double s){scintSizeY=s;}
 	void setScintSizeZ(double s){scintSizeZ=s;}
-	double getScintSizeX(){return scintSizeX;}
-	double getScintSizeY(){return scintSizeY;}
-	double getScintSizeZ(){return scintSizeZ;}
+	double getScintSizeX() const{return scintSizeX;}
+	double getScintSizeY() const{return scintSizeY;}
+	double getScintSizeZ() const{return scintSizeZ;}
 
 
 	void setLY(double l){LY=l;}
-	double getLY(){return LY;}
+	double getLY() const{return LY;}
 	void setFastScintTime(double t){fastScintTime=t;}
-	double getFastScintTime(){return fastScintTime;}
-	double getRindex(){return rIndex;}
+	double getFastScintTime()  const{return fastScintTime;}
+	double getRindex() const{return rIndex;}
 	void setRindex(double n){rIndex=n;}
 
 	/*Face*/
-	double getFaceReflectivity(int ii){return faceReflectivity[ii];}
+	double getFaceReflectivity(int ii) const{return faceReflectivity[ii];}
 	void   setFaceReflectivity(int ii,double val){faceReflectivity[ii]=val;}
 
 	/*Detector*/
 	void setNdet(int iface, int N){Ndet[iface]=N;}
-	int getNdet(int iface){return Ndet[iface];}
+	int getNdet(int iface) const{return Ndet[iface];}
 
 	void setDetSizeX(int iface,int idetector,double s){detSizeX[iface][idetector]=s;}
 	void setDetSizeY(int iface,int idetector,double s){detSizeY[iface][idetector]=s;}
-	double getDetSizeX(int iface,int idetector){return detSizeX[iface][idetector];}
-	double getDetSizeY(int iface,int idetector){return detSizeY[iface][idetector];}
+	double getDetSizeX(int iface,int idetector) const{return detSizeX[iface][idetector];}
+	double getDetSizeY(int iface,int idetector) const{return detSizeY[iface][idetector];}
 
-	double getDetCenterX(int iface,int idetector){return detCenterX[iface][idetector];}
-	double getDetCenterY(int iface,int idetector){return detCenterY[iface][idetector];}
-	double getDetRotation(int iface,int idetector){return detRotation[iface][idetector];}
+	double getDetCenterX(int iface,int idetector)  const{return detCenterX[iface][idetector];}
+	double getDetCenterY(int iface,int idetector)  const{return detCenterY[iface][idetector];}
+	double getDetRotation(int iface,int idetector) const{return detRotation[iface][idetector];}
 
 	void setDetCenterX(int iface,int idetector,double val){detCenterX[iface][idetector]=val;}
 	void setDetCenterY(int iface,int idetector,double val){detCenterY[iface][idetector]=val;}
@@ -93,42 +93,41 @@ public:
 
 	void setNPixelsX(int iface,int idetector,int N){detNpixelsX[iface][idetector]=N;}
 	void setNPixelsY(int iface,int idetector,int N){detNpixelsY[iface][idetector]=N;}
-	int getNPixelsX(int iface,int idetector){return detNpixelsX[iface][idetector];}
-	int getNPixelsY(int iface,int idetector){return detNpixelsY[iface][idetector];}
-	int getNPixels(int iface,int idetector){return ((this->getNPixelsX(iface,idetector))*(this->getNPixelsY(iface,idetector)));}
-	double getPixelSizeX(int iface,int idetector){return detPixelSizeX[iface][idetector];}
-	double getPixelSizeY(int iface,int idetector){return detPixelSizeY[iface][idetector];}
+	int getNPixelsX(int iface,int idetector) const{return detNpixelsX[iface][idetector];}
+	int getNPixelsY(int iface,int idetector) const{return detNpixelsY[iface][idetector];}
+	int getNPixels(int iface,int idetector) const{return ((this->getNPixelsX(iface,idetector))*(this->getNPixelsY(iface,idetector)));}
+	double getPixelSizeX(int iface,int idetector) const{return detPixelSizeX[iface][idetector];}
+	double getPixelSizeY(int iface,int idetector) const{return detPixelSizeY[iface][idetector];}
 
-	double getCouplingThickness(int iface, int idetector){return detCouplingThickness[iface][idetector];}
-	double getCouplingRIndex(int iface, int idetector){return detCouplingRIndex[iface][idetector];}
+	double getCouplingThickness(int iface, int idetector) const{return detCouplingThickness[iface][idetector];}
+	double getCouplingRIndex(int iface, int idetector) const{return detCouplingRIndex[iface][idetector];}
 
 	void setDetTimeRes(int iface,int idetector,double t){detTimeRes[iface][idetector]=t;}
-	double getDetTimeRes(int iface,int idetector){return detTimeRes[iface][idetector];}
-	double getDetQE(int iface,int idetector){return detQE[iface][idetector];}
+	double getDetTimeRes(int iface,int idetector) const{return detTimeRes[iface][idetector];}
+	double getDetQE(int iface,int idetector) const{return detQE[iface][idetector];}
 	void setDetQE(int iface,int idetector,double QE){detQE[iface][idetector]=QE;}
-	double getDetReflectivity(int iface,int ipixel){return detReflectivity[iface][ipixel];}
+	double getDetReflectivity(int iface,int ipixel) const{return detReflectivity[iface][ipixel];}
 	void setDetReflectivity(int iface,int ipixel,double val){detReflectivity[iface][ipixel]=val;}
 
 
 
 
 
-	int isDetPresent(int iface,int idetector){return detPresent[iface][idetector];}
+	int isDetPresent(int iface,int idetector) const{return detPresent[iface][idetector];}
 
 
 	void setName(std::string name){m_name=name;}
 	std::string getName(){return m_name;}
 
-	TVector3 getPosPixel(int iface,int idetector,int ipixel){return  TVector3(posPixelX[iface][idetector].at(ipixel),posPixelY[iface][idetector].at(ipixel),posPixelZ[iface][idetector].at(ipixel));}
+	TVector3 getPosPixel(int iface,int idetector,int ipixel) const;
 
+	TVector3 getFaceNormal(int iface) const;
+	TVector3 getFaceT1(int iface) const;
+	TVector3 getFaceT2(int iface) const;
 
-	TVector3 getFaceNormal(int iface);
-	TVector3 getFaceT1(int iface);
-	TVector3 getFaceT2(int iface);
-
-	TVector3 getDetectorNormal(int iface,int idetector){return this->getFaceNormal(iface);}
-	TVector3 getDetectorT1(int iface,int idetector);
-	TVector3 getDetectorT2(int iface,int idetector);
+	TVector3 getDetectorNormal(int iface,int idetector) const{return this->getFaceNormal(iface);}
+	TVector3 getDetectorT1(int iface,int idetector) const;
+	TVector3 getDetectorT2(int iface,int idetector) const;
 	/*
 			int getPixelIDx(int iface,double x);
 		int getPixelIDy(int iface,double y);
@@ -137,8 +136,8 @@ public:
 
 	void init();
 
-	void printPixels();
-	void printDet();
+	void PrintPixels() const;
+	virtual void Print() const;
 
 
 

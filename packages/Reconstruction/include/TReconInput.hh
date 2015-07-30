@@ -21,33 +21,33 @@ class TReconInput : public TObject {
     TReconInput(string fname);
     virtual ~TReconInput(){printf("TReconInput deconstructor\n");}
     
-    double getParVal(int id){return m_parVal[id];}
+    double getParVal(int id) const{return m_parVal[id];}
     void   setParVal(int id,double val){m_parVal[id]=val;}
 
-    int    isParFixed(int id){return (m_isParFixed[id]>0 ? 1 : 0);}
+    int    isParFixed(int id) const{return (m_isParFixed[id]>0 ? 1 : 0);}
     void   setParFixed(int id,int fix=1){m_isParFixed[id]=fix;}
     
-    int    isParLowLimited(int id){if (m_isParLowLimited[id]) return 1; else return 0;}
+    int    isParLowLimited(int id) const{if (m_isParLowLimited[id]) return 1; else return 0;}
     void   setParLowLimited(int id,int limit=1){m_isParLowLimited[id]=limit;}
-    double getParLowLimit(int id){return m_parLowLimit[id];}
+    double getParLowLimit(int id) const{return m_parLowLimit[id];}
     void setParLowLimit(int id,double val){m_parLowLimit[id]=val;}
    
-    int    isParHighLimited(int id){if (m_isParHighLimited[id]) return 1; else return 0;}
+    int    isParHighLimited(int id) const{if (m_isParHighLimited[id]) return 1; else return 0;}
     void   setParHighLimited(int id,int limit=1){m_isParHighLimited[id]=limit;}
-    double getParHighLimit(int id){return m_parHighLimit[id];}
+    double getParHighLimit(int id) const{return m_parHighLimit[id];}
     void setParHighLimit(int id,double val){m_parHighLimit[id]=val;}
     
-    int isParBothLimited(int id){ if (m_isParLowLimited[id]&&(m_isParHighLimited[id])) return 1; else return 0;}
+    int isParBothLimited(int id) const{ if (m_isParLowLimited[id]&&(m_isParHighLimited[id])) return 1; else return 0;}
   
    
 
-    fitObject_t getFitObject(){return m_fitObject;}
+    fitObject_t getFitObject() const{return m_fitObject;}
     fitLikelihoodMode_t getFitLikelihoodMode(){return m_fitLikelihoodMode;}
 
     void setName(string name){m_name=name;}
     string getName(){return m_name;}
 
-    void print();
+    virtual void Print() const;
   
     static const int m_nPars = 30; //larger than in TRecon.
   private:

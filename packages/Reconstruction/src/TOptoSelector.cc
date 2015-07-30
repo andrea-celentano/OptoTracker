@@ -85,8 +85,8 @@ void TOptoSelector::SlaveBegin(TTree * /*tree*/)
 	}
 	
 	
-	mm_detector->printDet();
-	mm_reconInput->print();
+	mm_detector->Print();
+	mm_reconInput->Print();
 	//I need to create the "reconstruction" class in EVERY slave
 	mm_recon=new TRecon(mm_detector,mm_reconInput);
 
@@ -125,9 +125,9 @@ void TOptoSelector::SlaveBegin(TTree * /*tree*/)
 				hTimeVsCharge[ii+jj*6]=new vector <TH2D*>;
 				
 				for (int id=0;id<Nx*Ny;id++){ /*indexed in this way: ID=6*idetector + iface*/
-					hCharge[ii+jj*6]->push_back(new TH1D(Form("hCharge_%i_%i_%i",ii,jj,id),Form("hCharge_%i_%i_%i",ii,jj,id),200,-0.5,199.5));fOutput->Add(hCharge[ii+jj*6]->at(id));
+					hCharge[ii+jj*6]->push_back(new TH1D(Form("hCharge_%i_%i_%i",ii,jj,id),Form("hCharge_%i_%i_%i",ii,jj,id),1000,-0.5,999.5));fOutput->Add(hCharge[ii+jj*6]->at(id));
 					hTime[ii+jj*6]->push_back(new TH1D(Form("hTime_%i_%i_%i",ii,jj,id),Form("hTime_%i_%i_%i",ii,jj,id),400,-2.5,17.5));fOutput->Add(hTime[ii+jj*6]->at(id));
-					hTimeVsCharge[ii+jj*6]->push_back(new TH2D(Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),200,-0.5,199.5,400,-2.5,17.5));fOutput->Add(hTimeVsCharge[ii+jj*6]->at(id));
+					hTimeVsCharge[ii+jj*6]->push_back(new TH2D(Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),1000,-0.5,999.5,400,-2.5,17.5));fOutput->Add(hTimeVsCharge[ii+jj*6]->at(id));
 				}
 			}
 		}

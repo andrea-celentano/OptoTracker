@@ -89,8 +89,8 @@ int main(int argc,char **argv){
   
   //Print detector information  
   
-  detector->printPixels();
-  detector->printDet();
+  detector->PrintPixels();
+  detector->Print();
   
 }
 

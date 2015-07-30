@@ -1,12 +1,13 @@
 #Comment
 ###ALL SIZE in CM
-###ALL TIMES in mm
+###ALL TIMES in ns
 
 #Face Nface(0..5) Ndet(>=1)
+#FaceProperties Reflectivity
 #Detector id Lx Ly PixelsX PixelsY 
-#DetectorProperties id QE Reflectivity TimeRes 
-#DetectorPlacement id CenterX CenterY Rotation(degrees)
-#DetectorCoupling id Ncoupling ThicknessCoupling
+#DetectorProperties QE Reflectivity TimeRes 
+#DetectorPlacement CenterX(cm) CenterY(cm) Rotation(degrees)
+#DetectorCoupling ThicknessCoupling(cm) Ncoupling
 
 DetectorSize 6 6 6			    #Scintillator size, cm
 ScintillatorLY 9700		      	    #LY, photon/MeV
@@ -14,19 +15,32 @@ ScintillatorFastTau 1.8	     		    #Fast tau, ns
 ScintillatorRindex 1.58			    #Refraction index
 
 Face 0 1
+FaceProperties 0.01
 Detector 0 4.9 4.9 8 8
-DetectorProperties 0.3 0.2 0.1
+DetectorProperties 0.3 0.1 0.1
 DetectorPlacement 0 0 0
-DetectorCoupling 1 0 
+DetectorCoupling 0.015 1.49
 
-Face 3 1
+Face 2 1
+FaceProperties 0.01
 Detector 0 4.9 4.9 8 8
-DetectorProperties 0.3 0.2 0.1
+DetectorProperties 0.3 0.1 0.1
 DetectorPlacement 0 0 0
-DetectorCoupling 1 0 
+DetectorCoupling 0.015 1.49 
 
-#Face 4 1
-#Detector 0 4 4 2 2
-#DetectorProperties 0.3 0.2 0.1
-#DetectorPlacement 0 0 90
-#DetectorCoupling 1.5 0.01 
+Face 4 0
+FaceProperties -1
+
+Face 5 0
+FaceProperties 0.0
+
+Face 3 0
+FaceProperties -1
+
+Face 1 0
+FaceProperties -1
+
+
+
+
+

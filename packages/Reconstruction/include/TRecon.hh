@@ -28,7 +28,7 @@ class TRecon : public ROOT::Math::IBaseFunctionMultiDim{
 	//class TRecon: public ROOT::Minuit2::FCNBase{
 
 public:
-	TRecon(TOpNoviceDetectorLight* detector, TReconInput* input=0);
+	TRecon(TOpNoviceDetectorLight* detector, TReconInput* input);
 	~TRecon();
 
 	static const int m_nPars = 10;
