@@ -305,7 +305,8 @@ double TRecon::SinglePixelAverageCharge(const TVector3 &x0,int iface,int idetect
 	solidAngle=this->GetSolidAngle(x0,iface,idetector,id);
 	solidAngle /= ( 4 * TMath::Pi() );
 	
-	/*Then, at large angles there may be other effects*/
+	/*Then, at large angles there may be other effects.
+	 *  Add Fresnel transmission between scintillator and coupling*/
 	
 	ret = solidAngle;
 	

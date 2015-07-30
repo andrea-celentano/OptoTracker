@@ -576,7 +576,7 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 	double ret=0;
 
 	double n1=1.58;
-	double n2=1.31;
+	double n2=1.49;
 
 	TVector3 vp,vn,vrel;
 
@@ -600,12 +600,9 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 	else{
 		ctheta2=sqrt(1-stheta2*stheta2);
 		theta2=asin(stheta2); //for print
-
 		tpara=((n2*ctheta2)/(n1*ctheta1))*((2*n1*ctheta1)/(n2*ctheta1+n1*ctheta2))*((2*n1*ctheta1)/(n2*ctheta1+n1*ctheta2));
 		tperp=((n2*ctheta2)/(n1*ctheta1))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2));
-
 		ret=0.5*(tpara+tperp);
-		cout<<theta1<<" "<<theta2<<" "<<ret<<endl;
 	}
 	return ret;
 }
