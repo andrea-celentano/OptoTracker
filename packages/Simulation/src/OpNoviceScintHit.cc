@@ -23,69 +23,63 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+// $Id: OpNoviceScintHit.cc 72250 2013-07-12 08:59:26Z gcosmo $
 //
-// 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+/// \file optical/OpNovice/src/OpNoviceScintHit.cc
+/// \brief Implementation of the OpNoviceScintHit class
+//
+//
+#include "OpNoviceScintHit.hh"
+#include "G4ios.hh"
+#include "G4VVisManager.hh"
+#include "G4Colour.hh"
+#include "G4VisAttributes.hh"
+#include "G4LogicalVolume.hh"
+#include "G4VPhysicalVolume.hh"
+
+G4ThreadLocal G4Allocator<OpNoviceScintHit>* OpNoviceScintHitAllocator=0;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-// Make this appear first!
-#include "G4Timer.hh"
+OpNoviceScintHit::OpNoviceScintHit() : fEdep(0.), fPos(0.), fPhysVol(0) {}
 
-#include "OpNoviceRunAction.hh"
-#include "OpNoviceRecorderBase.hh"
-#include "G4Run.hh"
-#include "RootIO.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r)
-: G4UserRunAction(),
-fTimer(0),
-fRecorder(r),
-fRootIO()
+OpNoviceScintHit::OpNoviceScintHit(G4VPhysicalVolume* pVol) : fPhysVol(pVol) {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+OpNoviceScintHit::~OpNoviceScintHit() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+OpNoviceScintHit::OpNoviceScintHit(const OpNoviceScintHit &right) : G4VHit()
 {
-	fTimer = new G4Timer;
-	fMessenger = OpNoviceMessenger::GetInstance();
-	fMessenger->SetRunAction(this);
-	fName="OpNovice";
-
-	fSaveScintRaw=true;
-	fSaveDetRaw=true;
-	fSaveDetDigi=true;
+  fEdep = right.fEdep;
+  fPos = right.fPos;
+  fPhysVol = right.fPhysVol;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceRunAction::~OpNoviceRunAction()
-{
-	delete fTimer;
+const OpNoviceScintHit& OpNoviceScintHit::operator=(const OpNoviceScintHit &right){
+  fEdep = right.fEdep;
+  fPos = right.fPos;
+  fPhysVol = right.fPhysVol;
+  return *this;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceRunAction::BeginOfRunAction(const G4Run* aRun)
-{
-	G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
-	fTimer->Start();
-	if(fRecorder)fRecorder->RecordBeginOfRun(aRun);
-	
-	/*Init the RootIO*/
-	fRootIO.SetName(fName);
-
-	fRootIO.SetSaveScintRaw(fSaveDetRaw);
-	fRootIO.SetSaveDetRaw(fSaveDetRaw);
-	fRootIO.SetSaveDetDigi(fSaveDetDigi);
-	fRootIO.Init(aRun->GetRunID());
+G4int OpNoviceScintHit::operator==(const OpNoviceScintHit&) const{
+  return false;
+  //returns false because there currently isnt need to check for equality yet
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceRunAction::EndOfRunAction(const G4Run* aRun)
-{
-	if(fRecorder)fRecorder->RecordEndOfRun(aRun);
-	fTimer->Stop();
-	G4cout << "number of events = " << aRun->GetNumberOfEvent()
-		<< " " << *fTimer << G4endl;	
-	fRootIO.WriteAll();
-}
+void OpNoviceScintHit::Draw() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void OpNoviceScintHit::Print() {}

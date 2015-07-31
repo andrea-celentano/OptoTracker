@@ -151,9 +151,9 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 	fScint_y=fDetectorLight->getScintSizeX()*cm;
 	fScint_z=fDetectorLight->getScintSizeX()*cm;
 
-	G4Box* Scintillator_box = new G4Box("Scintillator",fScint_x/2,fScint_y/2,fScint_z/2);
-	G4LogicalVolume* Scintillator_log = new G4LogicalVolume(Scintillator_box,fEJ230,"Scintillator",0,0,0);
-	G4VPhysicalVolume* Scintillator_phys = new G4PVPlacement(0,G4ThreeVector(),Scintillator_log,"Scintillator",fExperimentalHall_log,false,0);
+	fScintillator_box = new G4Box("Scintillator",fScint_x/2,fScint_y/2,fScint_z/2);
+	fScintillator_log = new G4LogicalVolume(fScintillator_box,fEJ230,"Scintillator",0,0,0);
+	G4VPhysicalVolume* Scintillator_phys = new G4PVPlacement(0,G4ThreeVector(),fScintillator_log,"Scintillator",fExperimentalHall_log,false,0);
 
 
 	//The 6 faces
@@ -516,6 +516,14 @@ void OpNoviceDetectorConstruction::ConstructSDandField() {
 		//fDetectorSD->InitPMTs(2); //let pmtSD know # of pmts
 		// pmt_SD->SetPmtPositions(fMainVolume->GetPmtPositions());
 	}
+
+	if (!fScintSD.Get()){
+		   G4cout << "Construction /LXeDet/scintSD" << G4endl;
+		    OpNoviceScintSD* ScintSD = new OpNoviceScintSD("/OpNoviceDet/ScintSD");
+		    fScintSD.Put(ScintSD);
+		    SetSensitiveDetector(fScintillator_log, fScintSD.Get());
+	}
+
 
 	//sensitive detector is not actually on the photocathode.
 	//processHits gets done manually by the stepping action.

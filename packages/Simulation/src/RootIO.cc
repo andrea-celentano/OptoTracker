@@ -48,7 +48,7 @@ static RootIO* instance = 0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-RootIO::RootIO():fNevents(0),fTreeRaw(NULL),fFile(NULL),fName("")
+RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 {
 	G4cout<<"RootIO::creator"<<G4endl;
   // initialize ROOT
@@ -60,13 +60,18 @@ RootIO::RootIO():fNevents(0),fTreeRaw(NULL),fFile(NULL),fName("")
   //gDebug = 1;
 	
 	fFile=NULL;
-	fTreeRaw=NULL;
+	fTreeScintRaw=NULL;
+	fTreeDetRaw=NULL;
+	fTreeDetDigi=NULL;
 	
-	fSaveRaw=true;
-	fSaveDigi=true;
+	fSaveScintRaw=true;
+	fSaveDetRaw=true;
+	fSaveDetDigi=true;
 	
-	fRootCollectionRaw=new std::vector<OpNoviceDetectorHit*>;
-	fRootCollectionDigi=new std::vector<OpNoviceDigi*>;
+
+	fRootCollectionScintRaw=new std::vector<OpNoviceScintHit*>;
+	fRootCollectionDetRaw=new std::vector<OpNoviceDetectorHit*>;
+	fRootCollectionDetDigi=new std::vector<OpNoviceDigi*>;
 	
 	fHistograms1D=NULL;
 	fHistograms2D=NULL;
@@ -78,8 +83,9 @@ RootIO::~RootIO()
 {
 	G4cout<<"RootIO::destructor"<<G4endl;
 	fFile->Close();
-	delete fRootCollectionRaw;
-	delete fRootCollectionDigi;
+	delete fRootCollectionScintRaw;
+	delete fRootCollectionDetRaw;
+	delete fRootCollectionDetDigi;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -99,24 +105,26 @@ RootIO* RootIO::GetInstance()
 
 
 void RootIO::Init(int n){
-	G4cout<<"RootIO::Init "<<(void*)fFile<<" "<<(void*)fTreeRaw<<G4endl<<std::flush;
-	std::fflush(stdout);
 	
 	//if (fTreeRaw) delete fTreeRaw;
 	if (fFile) delete fFile;
 	
 	std::string fFileName=Form("%s_%i.root",fName.c_str(),n);
 	fFile = new TFile(fFileName.c_str(),"RECREATE");
-	if (fSaveRaw){
-		fTreeRaw = new TTree("raw","raw");
-		fTreeRaw->Branch("raw",&fRootCollectionRaw);
+	if (fSaveScintRaw){
+		fTreeScintRaw = new TTree("ScintRaw","ScintRaw");
+		fTreeScintRaw->Branch("ScintRaw",&fRootCollectionScintRaw);
 	}
-	if (fSaveDigi){
-		fTreeDigi= new TTree("digi","digi");
-		fTreeDigi->Branch("digi",&fRootCollectionDigi);
+	if (fSaveDetRaw){
+		fTreeDetRaw = new TTree("DetRaw","DetRaw");
+		fTreeDetRaw->Branch("DetRaw",&fRootCollectionDetRaw);
 	}
-	if (fSaveRaw&&fSaveDigi){
-		fTreeRaw->AddFriend("digi");
+	if (fSaveDetDigi){
+		fTreeDetDigi= new TTree("DetDigi","DetDigi");
+		fTreeDetDigi->Branch("DetDigi",&fRootCollectionDetDigi);
+	}
+	if (fSaveDetRaw&&fSaveDetDigi){
+		fTreeDetRaw->AddFriend("DetDigi");
 	}
 	
 	fHistograms1D=new std::vector<TH1*>;
@@ -139,18 +147,26 @@ void RootIO::Init(int n){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RootIO::FillRaw()
+
+void RootIO::FillScintRaw()
 {
-	if (fSaveRaw)	fTreeRaw->Fill();	
+	if (fSaveScintRaw)	fTreeScintRaw->Fill();
 }
-void RootIO::FillDigi()
+
+void RootIO::FillDetRaw()
 {
-	if (fSaveDigi)	fTreeDigi->Fill();	
+	if (fSaveDetRaw)	fTreeDetRaw->Fill();
+}
+
+void RootIO::FillDetDigi()
+{
+	if (fSaveDetDigi)	fTreeDetDigi->Fill();
 }
 
 void RootIO::FillAll(){
-	this->FillRaw();
-	this->FillDigi();
+	this->FillScintRaw();
+	this->FillDetRaw();
+	this->FillDetDigi();
 }
 void RootIO::WriteAll(){
 	/// Write the Root tree in the file and close it (it is called at the end of run, 1 run == 1 file).

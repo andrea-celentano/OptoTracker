@@ -69,8 +69,9 @@ private:
 	/*Control commands*/
 	G4UIcmdWithABool*      fDoDigiCmd;		
 	/*Save command*/
-	G4UIcmdWithABool*      fSaveRawCmd;
-	G4UIcmdWithABool*      fSaveDigiCmd;
+	G4UIcmdWithABool*      fSaveScintRawCmd;
+	G4UIcmdWithABool*      fSaveDetRawCmd;
+	G4UIcmdWithABool*      fSaveDetDigiCmd;
 	G4UIcmdWithAString*    fSaveNameCmd;
 };
 

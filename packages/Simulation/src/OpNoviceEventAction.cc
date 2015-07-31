@@ -54,59 +54,61 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceEventAction::OpNoviceEventAction(OpNoviceRecorderBase* r)
-: fRecorder(r),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
-fForcedrawphotons(false),fForcenophotons(false)
+: fRecorder(r),fScintCollID(-1),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
+  fForcedrawphotons(false),fForcenophotons(false)
 {
 	G4cout<<"OpNoviceEventAction::creator"<<G4endl;
 	fVerbose=0;
 	//by default, save!
-	fSaveDigi=true;
-	fSaveRaw=true;
 	fDoDigi=true;
-	
+
+	fSaveScintRaw=true;
+	fSaveDetRaw=true;
+	fSaveDetDigi=true;
+
 	fMessenger = OpNoviceMessenger::GetInstance();
 	fMessenger->SetEventAction(this);
-	
-	
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceEventAction::~OpNoviceEventAction(){
-	
+
 	G4cout<<"OpNoviceEventAction::deconstructor"<<G4endl;
-	
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void OpNoviceEventAction::BeginOfEventAction(const G4Event* anEvent){
-	
+
 	//New event, add the user information object
 	G4EventManager::GetEventManager()->SetUserInformation(new OpNoviceUserEventInformation);
-	
+
 	G4SDManager* SDman = G4SDManager::GetSDMpointer();
-	//  if(fScintCollID<0)    fScintCollID=SDman->GetCollectionID("scintCollection");
+	if(fScintCollID<0)    fScintCollID=SDman->GetCollectionID("ScintHitCollection");
 	if(fDetectorCollID<0)     fDetectorCollID=SDman->GetCollectionID("DetectorHitCollection");
-	
-	
-	
+
+
+
 	if(fRecorder)fRecorder->RecordBeginOfEvent(anEvent);
-	
+
 	((OpNoviceDigitizer*)(G4DigiManager::GetDMpointer()->FindDigitizerModule("OpNoviceDetectorDigitizer")))->SetDoDigi(fDoDigi);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
-	
-	
+
+
 	OpNoviceUserEventInformation* eventInformation=(OpNoviceUserEventInformation*)anEvent->GetUserInformation();
 	G4TrajectoryContainer* trajectoryContainer=anEvent->GetTrajectoryContainer();
-	
+
 	G4int n_trajectories = 0;
 	if (trajectoryContainer) n_trajectories = trajectoryContainer->entries();
-	
+
 	//extract the trajectories and draw them
 	if (G4VVisManager::GetConcreteInstance()){
 		for (G4int i=0; i<n_trajectories; i++){
@@ -118,25 +120,42 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			trj->DrawTrajectory();
 		}
 	}
-	
+
 	//get the RootIO pointer and the corresponding collections*/
 	fRootIO=RootIO::GetInstance();
-	fRootCollectionRaw=fRootIO->GetRootCollectionRaw();
-	fRootCollectionDigi=fRootIO->GetRootCollectionDigi();
-	
+
+	fRootCollectionScintRaw=fRootIO->GetRootCollectionScintRaw();
+	fRootCollectionDetRaw=fRootIO->GetRootCollectionDetRaw();
+	fRootCollectionDetDigi=fRootIO->GetRootCollectionDetDigi();
+
 	//TClonesArray &mRootCollectionRaw=*fRootCollectionRaw;
-	std::vector<OpNoviceDetectorHit*> &mRootCollectionRaw=*fRootCollectionRaw;
-	std::vector<OpNoviceDigi*> &mRootCollectionDigi=*fRootCollectionDigi;	
-	mRootCollectionRaw.clear();
-	mRootCollectionDigi.clear();
-	
+	std::vector<OpNoviceScintHit*>    &mRootCollectionScintRaw=*fRootCollectionScintRaw;
+	std::vector<OpNoviceDetectorHit*> &mRootCollectionDetRaw=*fRootCollectionDetRaw;
+	std::vector<OpNoviceDigi*>        &mRootCollectionDetDigi=*fRootCollectionDetDigi;
+
+	mRootCollectionScintRaw.clear();
+	mRootCollectionDetRaw.clear();
+	mRootCollectionDetDigi.clear();
+
 	detectorHC = 0;
 	G4HCofThisEvent* hitsCE = anEvent->GetHCofThisEvent(); //hits
-        //Get the hit collections
+	//Get the hit collections
 	if(hitsCE){
-		if(fDetectorCollID>=0) detectorHC=(OpNoviceDetectorHitsCollection*)(hitsCE->GetHC(fDetectorCollID));
-	 }	
-	//hits in detector
+		if(fDetectorCollID>=0)  detectorHC=(OpNoviceDetectorHitsCollection*)(hitsCE->GetHC(fDetectorCollID));
+		if(fScintCollID>=0)     scintHC = (OpNoviceScintHitsCollection*)(hitsCE->GetHC(fScintCollID));
+	}
+
+	//raw hits in scintillator
+	if (scintHC){
+		G4int scintN=scintHC->entries(); /*Here 1 hit is 1 hit in the scintillator*/
+		for (G4int i=0;i<scintN;i++){
+			if (fSaveScintRaw) mRootCollectionScintRaw.push_back((*scintHC)[i]);
+		}
+	}
+	if (fSaveScintRaw) fRootIO->FillScintRaw();
+
+
+	//raw hits in detector
 	if(detectorHC){
 		G4int detectorN=detectorHC->entries(); /*Here 1 hit is "1 detector".*/
 		//Gather info from all detectors
@@ -151,19 +170,19 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 				(*detectorHC)[i]->SetDrawit(false);
 			}*/
 
-			if (fSaveRaw) mRootCollectionRaw.push_back((*detectorHC)[i]);
+			if (fSaveDetRaw) mRootCollectionDetRaw.push_back((*detectorHC)[i]);
 		}
 		/*Scala di colore qui*/
 		/*for(G4int i=0;i<pmts;i++){
 			(*pmtHC)[i]->SetDrawScaleMax(eventInformation->GetHitCount());
 		}*/
 		if (G4VVisManager::GetConcreteInstance()!=0){
-		//	detectorHC->DrawAllHits();
+			//	detectorHC->DrawAllHits();
 		}
 	}
 	/*Root Save*/
-	if (fSaveRaw) fRootIO->FillRaw();
-	
+	if (fSaveDetRaw) fRootIO->FillDetRaw();
+
 	//digi hits in detector
 	if (fDoDigi){
 		detectorDigiHC = 0;
@@ -180,8 +199,8 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
 				//	G4cout<<"Digi hits "<<(*pmtDigiHC)[i]->GetEnergy()<<G4endl;
-				if (fSaveDigi){
-					mRootCollectionDigi.push_back((*detectorDigiHC)[i]);
+				if (fSaveDetDigi){
+					mRootCollectionDetDigi.push_back((*detectorDigiHC)[i]);
 				}
 			}
 			if (G4VVisManager::GetConcreteInstance()!=0){
@@ -189,33 +208,33 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			}
 		}
 	}
-	if (fSaveDigi) fRootIO->FillDigi();
-	
-	
+	if (fSaveDetDigi) fRootIO->FillDetDigi();
+
+
 	if(fVerbose>0){
-    //End of event output. later to be controlled by a verbose level
-	G4cout << "\tNumber of total phe in all detectors in this event : "
-			<< eventInformation->GetHitCount() << G4endl;
-	G4cout << "\tNumber of photons produced by scintillation in this event : "
-			<< eventInformation->GetPhotonCount_Scint() << G4endl;
-	G4cout << "\tNumber of photons detected in this event : "
-			<< eventInformation->GetDetectionCount() << G4endl;
-	G4cout << "\tNumber of photons absorbed (OpAbsorption) in this event : "
-			<< eventInformation->GetAbsorptionCount() << G4endl;
+		//End of event output. later to be controlled by a verbose level
+		G4cout << "\tNumber of total phe in all detectors in this event : "
+				<< eventInformation->GetHitCount() << G4endl;
+		G4cout << "\tNumber of photons produced by scintillation in this event : "
+				<< eventInformation->GetPhotonCount_Scint() << G4endl;
+		G4cout << "\tNumber of photons detected in this event : "
+				<< eventInformation->GetDetectionCount() << G4endl;
+		G4cout << "\tNumber of photons absorbed (OpAbsorption) in this event : "
+				<< eventInformation->GetAbsorptionCount() << G4endl;
 		G4cout << "\tNumber of photons absorbed at boundaries (OpBoundary) in "
-			<< "this event : " << eventInformation->GetBoundaryAbsorptionCount()
-			<< G4endl;
-	G4cout << "Unacounted for photons in this event : "
-			<< (eventInformation->GetPhotonCount_Scint() -		
-			    eventInformation->GetAbsorptionCount() -
-			    eventInformation->GetDetectionCount() -
-			    eventInformation->GetBoundaryAbsorptionCount())
-			<< G4endl;
+				<< "this event : " << eventInformation->GetBoundaryAbsorptionCount()
+				<< G4endl;
+		G4cout << "Unacounted for photons in this event : "
+				<< (eventInformation->GetPhotonCount_Scint() -
+						eventInformation->GetAbsorptionCount() -
+						eventInformation->GetDetectionCount() -
+						eventInformation->GetBoundaryAbsorptionCount())
+						<< G4endl;
 	}
- 
+
 	if(fRecorder)fRecorder->RecordEndOfEvent(anEvent);
-	
-	
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

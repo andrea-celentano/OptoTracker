@@ -71,11 +71,14 @@ OpNoviceMessenger::OpNoviceMessenger()
 	fDoDigiCmd=new G4UIcmdWithABool("/OpNovice/run/doDigi",this);
 	fDoDigiCmd->SetGuidance("Do digitization");
 	
-	fSaveRawCmd=new G4UIcmdWithABool("/OpNovice/run/saveRaw",this);
-	fSaveRawCmd->SetGuidance("Save raw data");
+	fSaveScintRawCmd=new G4UIcmdWithABool("/OpNovice/run/saveScintRaw",this);
+	fSaveScintRawCmd->SetGuidance("Save scint raw data");
+
+	fSaveDetRawCmd=new G4UIcmdWithABool("/OpNovice/run/saveDetRaw",this);
+	fSaveDetRawCmd->SetGuidance("Save det raw data");
 	
-	fSaveDigiCmd=new G4UIcmdWithABool("/OpNovice/run/saveDigi",this);
-	fSaveDigiCmd->SetGuidance("Save digitized data");
+	fSaveDetDigiCmd=new G4UIcmdWithABool("/OpNovice/run/saveDetDigi",this);
+	fSaveDetDigiCmd->SetGuidance("Save det digitized data");
 	
 	
 }
@@ -106,8 +109,8 @@ OpNoviceMessenger::~OpNoviceMessenger(){
 	
 	delete fDoDigiCmd;		
 	/*Save command*/
-	delete fSaveRawCmd;
-	delete fSaveDigiCmd;
+	delete fSaveDetRawCmd;
+	delete fSaveDetDigiCmd;
 	delete fSaveNameCmd;
 }
 
@@ -126,13 +129,17 @@ void OpNoviceMessenger::SetNewValue(G4UIcommand* command, G4String newValue){
 	else if(command == fDoDigiCmd){
 		fOpNoviceEvent->SetDoDigi(fDoDigiCmd->GetNewBoolValue(newValue));
 	}
-	else if(command == fSaveRawCmd){
-		fOpNoviceEvent->SetSaveRaw(fSaveRawCmd->GetNewBoolValue(newValue));
-		fOpNoviceRun->SetSaveRaw(fSaveDigiCmd->GetNewBoolValue(newValue));
+	else if(command == fSaveScintRawCmd){
+			fOpNoviceEvent->SetSaveScintRaw(fSaveScintRawCmd->GetNewBoolValue(newValue));
+			fOpNoviceRun->SetSaveScintRaw(fSaveScintRawCmd->GetNewBoolValue(newValue));
+		}
+	else if(command == fSaveDetRawCmd){
+		fOpNoviceEvent->SetSaveDetRaw(fSaveDetRawCmd->GetNewBoolValue(newValue));
+		fOpNoviceRun->SetSaveDetRaw(fSaveDetRawCmd->GetNewBoolValue(newValue));
 	}
-	else if(command == fSaveDigiCmd){
-		fOpNoviceEvent->SetSaveDigi(fSaveDigiCmd->GetNewBoolValue(newValue));
-		fOpNoviceRun->SetSaveDigi(fSaveDigiCmd->GetNewBoolValue(newValue));
+	else if(command == fSaveDetDigiCmd){
+		fOpNoviceEvent->SetSaveDetDigi(fSaveDetDigiCmd->GetNewBoolValue(newValue));
+		fOpNoviceRun->SetSaveDetDigi(fSaveDetDigiCmd->GetNewBoolValue(newValue));
 	}
 	else if(command == fSaveNameCmd){
 		fOpNoviceRun->SetName((std::string)newValue);

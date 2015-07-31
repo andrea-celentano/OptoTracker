@@ -124,7 +124,7 @@ int main(int argc, char **argv){
 	m_detector->Print();
 
 	//Create the TChain, fill it
-	ch=new TChain("raw"); //must have the TTree name I am going to read
+	ch=new TChain("DetRaw"); //must have the TTree name I am going to read
 	ch->Add(fName.c_str());	
 	Nevents=ch->GetEntries(); //1 entry=1 event
 	cout<<"There are: "<<Nevents<<" events"<<endl;
@@ -134,8 +134,8 @@ int main(int argc, char **argv){
        // TReconInput m_reconInput(reconName);
 	m_reconInput->Print();
 	
-	  m_reconInput->setName("minchia rec");
-	  m_detector->setName("minchia det");
+	m_reconInput->setName("da rec");
+	m_detector->setName("da det");
 	  
 
 	if (doProof){

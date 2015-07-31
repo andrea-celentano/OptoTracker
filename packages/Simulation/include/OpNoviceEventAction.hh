@@ -68,9 +68,11 @@ public:
 	void SetForceDrawNoPhotons(G4bool b){fForcenophotons=b;}
 	
 	inline void SetDoDigi(G4bool b){fDoDigi=b;}
-	inline void SetSaveRaw(G4bool b){fSaveRaw=b;}
-	inline void SetSaveDigi(G4bool b){fSaveDigi=b;}
 	
+	inline void SetSaveScintRaw(G4bool b){fSaveScintRaw=b;}
+	inline void SetSaveDetRaw(G4bool b){fSaveDetRaw=b;}
+	inline void SetSaveDetDigi(G4bool b){fSaveDetDigi=b;}
+
 private:
 	
 	OpNoviceRecorderBase* fRecorder;
@@ -87,21 +89,27 @@ private:
 	
 	G4bool fForcedrawphotons;
 	G4bool fForcenophotons;
-	G4bool fSaveDigi;
-	G4bool fSaveRaw;
+
+	G4bool fSaveScintRaw;
+	G4bool fSaveDetRaw;
+	G4bool fSaveDetDigi;
 	G4bool fDoDigi;
 	
+	G4int              fScintCollID;
 	G4int              fDetectorCollID;
 	G4int              fDetectorDigiCollID;
 
+	OpNoviceScintHitsCollection* scintHC;
 	OpNoviceDetectorHitsCollection* detectorHC;
 	OpNoviceDigitsCollection* detectorDigiHC;
 	
 	/*To save data*/
 	RootIO *fRootIO;
-	std::vector<OpNoviceDetectorHit*> *fRootCollectionRaw;
-	std::vector<OpNoviceDigi*> *fRootCollectionDigi;
 	
+	std::vector<OpNoviceScintHit*>    *fRootCollectionScintRaw;
+	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
+	std::vector<OpNoviceDigi*>        *fRootCollectionDetDigi;
+
 };
 
 #endif

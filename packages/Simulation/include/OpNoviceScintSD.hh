@@ -23,57 +23,40 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+// $Id: OpNoviceScintSD.hh 68752 2013-04-05 10:23:47Z gcosmo $
 //
-// 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+/// \file optical/OpNovice/include/OpNoviceScintSD.hh
+/// \brief Definition of the OpNoviceScintSD class
+//
+//
+#ifndef OpNoviceScintSD_h
+#define OpNoviceScintSD_h 1
 
-#ifndef OpNoviceRunAction_h
-#define OpNoviceRunAction_h 1
+#include "OpNoviceScintHit.hh"
 
-#include "globals.hh"
+#include "G4VSensitiveDetector.hh"
 
-#include "OpNoviceMessenger.hh"
+class G4Step;
+class G4HCofThisEvent;
 
-#include "G4UserRunAction.hh"
-#include "RootIO.hh"
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-class G4Timer;
-class G4Run;
-class OpNoviceRecorderBase;
-class RootIO;
-
-class OpNoviceRunAction : public G4UserRunAction
+class OpNoviceScintSD : public G4VSensitiveDetector
 {
-public:
-	OpNoviceRunAction(OpNoviceRecorderBase*);
-	virtual ~OpNoviceRunAction();
-	
-public:
-	virtual void BeginOfRunAction(const G4Run* aRun);
-	virtual void EndOfRunAction(const G4Run* aRun);
-	
-	inline void SetName(std::string name){fName=name;}
-	inline std::string GetName(){return fName;}
+  public:
 
-	inline void SetSaveScintRaw(G4bool b){fSaveScintRaw=b;}
-	inline void SetSaveDetRaw(G4bool b){fSaveDetRaw=b;}
-	inline void SetSaveDetDigi(G4bool b){fSaveDetDigi=b;}
-	
-private:
-	G4Timer* fTimer;
-	OpNoviceRecorderBase* fRecorder;
-	OpNoviceMessenger* fMessenger;
+    OpNoviceScintSD(G4String name);
+    virtual ~OpNoviceScintSD();
 
-	G4bool fSaveScintRaw;
-	G4bool fSaveDetRaw;
-	G4bool fSaveDetDigi;
-	
-	std::string fName;
-	RootIO fRootIO;
+    virtual void Initialize(G4HCofThisEvent* );
+    virtual G4bool ProcessHits(G4Step* aStep, G4TouchableHistory* );
+    virtual void EndOfEvent(G4HCofThisEvent* );
+    virtual void clear();
+    virtual void DrawAll();
+    virtual void PrintAll();
+
+  private:
+
+    OpNoviceScintHitsCollection* fScintCollection;
+
 };
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-#endif /*OpNoviceRunAction_h*/
+#endif

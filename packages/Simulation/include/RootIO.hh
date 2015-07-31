@@ -39,6 +39,7 @@
 #include "TSystem.h"
 #include "TClonesArray.h"
 
+#include "OpNoviceScintHit.hh"
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 
@@ -60,8 +61,9 @@ public:
 	virtual ~RootIO();
 	
 	static RootIO* GetInstance();
-	void FillRaw();
-	void FillDigi();
+	void FillScintRaw();
+	void FillDetRaw();
+	void FillDetDigi();
 	void FillAll();
 	void WriteAll();
 	void Init(int n);
@@ -70,14 +72,16 @@ public:
 	inline void SetName(std::string s){this->fName=s;}
 	inline TString GetName(){return fName;}
 	
-	//inline TClonesArray* GetRootCollectionRaw(){return fRootCollectionRaw;}
-	inline std::vector<OpNoviceDetectorHit*>* GetRootCollectionRaw(){return fRootCollectionRaw;}
-	inline std::vector<OpNoviceDigi*>* GetRootCollectionDigi(){return fRootCollectionDigi;}
+	inline std::vector<OpNoviceScintHit*>* GetRootCollectionScintRaw(){return fRootCollectionScintRaw;}
+	inline std::vector<OpNoviceDetectorHit*>* GetRootCollectionDetRaw(){return fRootCollectionDetRaw;}
+	inline std::vector<OpNoviceDigi*>* GetRootCollectionDetDigi(){return fRootCollectionDetDigi;}
 	
 	inline TFile* getFile(){return fFile;}
-	inline void SetSaveRaw(G4bool b){fSaveRaw=b;}
-	inline void SetSaveDigi(G4bool b){fSaveDigi=b;}
 	
+	inline void SetSaveScintRaw(G4bool b){fSaveScintRaw=b;}
+	inline void SetSaveDetRaw(G4bool b){fSaveDetRaw=b;}
+	inline void SetSaveDetDigi(G4bool b){fSaveDetDigi=b;}
+
 	void fillHistogram1D(int idx,double x,double w);
 	void fillHistogram2D(int idx,double x,double y,double w);
 	void saveDetectorLight(TOpNoviceDetectorLight *detector);
@@ -86,18 +90,24 @@ private:
 	
 	std::string fName;
 	TFile* fFile;
-	TTree* fTreeRaw;
-	TTree* fTreeDigi;
+
+	TTree* fTreeScintRaw;
+	TTree* fTreeDetRaw;
+	TTree* fTreeDetDigi;
+
 	int fNevents;
 	
-	G4bool fSaveRaw;
-	G4bool fSaveDigi;
+	G4bool fSaveScintRaw;
+	G4bool fSaveDetRaw;
+	G4bool fSaveDetDigi;
 	
 	//TClonesArray *fRootCollectionRaw;
 	
 	std::vector< TH1* > *fHistograms1D;
 	std::vector< TH2* > *fHistograms2D;
-	std::vector<OpNoviceDetectorHit*> *fRootCollectionRaw;
-	std::vector<OpNoviceDigi*> *fRootCollectionDigi;
+
+	std::vector<OpNoviceScintHit*> *fRootCollectionScintRaw;
+	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
+	std::vector<OpNoviceDigi*> *fRootCollectionDetDigi;
 };
 #endif // INCLUDE_ROOTIO_HH

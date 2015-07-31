@@ -39,6 +39,7 @@
 #include "G4Cache.hh"
 #include "G4RunManager.hh"
 #include "OpNoviceDetectorSD.hh"
+#include "OpNoviceScintSD.hh"
 #include "TOpNoviceDetectorLight.hh"
 
 class G4LogicalVolume;
@@ -128,39 +129,34 @@ private:
 
 	//geometry	
 	G4Box* fExperimentalHall_box;
-	G4LogicalVolume* fExperimentalHall_log;
-	G4VPhysicalVolume* fExperimentalHall_phys;
-
 	G4Box* fDummy_box;
-	G4LogicalVolume* fDummy_log;
-	G4VPhysicalVolume* fDummy_phys;
-
-
 	G4Box* fFace_box[6];	
 	G4Box* fFaceMarker_box[6];
 	G4Box* fDetectorMarker_box[6][MAX_DETECTORS];
-
-
 	G4Box* fDetector_box[6][MAX_DETECTORS];
 	G4Box* fCoupling_box[6][MAX_DETECTORS];
-
 	G4Box* fPixel_box[6][MAX_DETECTORS];
-
 	G4Box* fAround_box_a[6];	
 	G4Box* fAround_box_b[6][MAX_DETECTORS];	
+	G4Box* fScintillator_box;
 	G4SubtractionSolid* fAround[6];	
 	G4SubtractionSolid *previousSubtraction,*currentSubtraction;
 
+
 	G4LogicalVolume* fFace_log[6];
 	G4LogicalVolume* fFaceMarker_log[6];
-
 	G4LogicalVolume* fAround_log[6];
 	G4LogicalVolume* fCoupling_log[6][MAX_DETECTORS];
 	G4LogicalVolume* fDetector_log[6][MAX_DETECTORS];
 	G4LogicalVolume* fDetectorMarker_log[6][MAX_DETECTORS];
 	G4LogicalVolume* fPixel_log[6][MAX_DETECTORS];
+	G4LogicalVolume* fScintillator_log;
+	G4LogicalVolume* fDummy_log;
+	G4LogicalVolume* fExperimentalHall_log;
 
 	G4VPhysicalVolume* fAround_phys[6];
+	G4VPhysicalVolume* fDummy_phys;
+	G4VPhysicalVolume* fExperimentalHall_phys;
 
 	G4double fExpHall_x;
 	G4double fExpHall_y;
@@ -218,6 +214,7 @@ private:
 
 	//Sensitive Detectors
 	G4Cache<OpNoviceDetectorSD*> fDetectorSD;
+	G4Cache<OpNoviceScintSD*> fScintSD;
 
 	G4UserLimits* fStepLimit;
 	G4double fMaxStep;

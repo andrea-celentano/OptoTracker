@@ -126,7 +126,7 @@ int main(int argc,char **argv){
 		}
 	}
 
-	fChain=new TChain("digi"); //must have the TTree name I am going to read
+	fChain=new TChain("DetDigi"); //must have the TTree name I am going to read
 	fChain->Add(fName.c_str());
 	Nevents=fChain->GetEntries(); //1 entry=1 event
 	cout<<"There are: "<<Nevents<<" events"<<endl;

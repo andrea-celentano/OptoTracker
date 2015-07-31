@@ -23,69 +23,87 @@
 // * acceptance of all terms of the Geant4 Software license.          *
 // ********************************************************************
 //
+// $Id: OpNoviceScintSD.cc 68752 2013-04-05 10:23:47Z gcosmo $
 //
-// 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+/// \file optical/OpNovice/src/OpNoviceScintSD.cc
+/// \brief Implementation of the OpNoviceScintSD class
+//
+//
+#include "OpNoviceScintSD.hh"
+#include "OpNoviceScintHit.hh"
+#include "G4VPhysicalVolume.hh"
+#include "G4LogicalVolume.hh"
+#include "G4Track.hh"
+#include "G4Step.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4VTouchable.hh"
+#include "G4TouchableHistory.hh"
+#include "G4ios.hh"
+#include "G4VProcess.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-// Make this appear first!
-#include "G4Timer.hh"
-
-#include "OpNoviceRunAction.hh"
-#include "OpNoviceRecorderBase.hh"
-#include "G4Run.hh"
-#include "RootIO.hh"
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r)
-: G4UserRunAction(),
-fTimer(0),
-fRecorder(r),
-fRootIO()
+OpNoviceScintSD::OpNoviceScintSD(G4String name)
+  : G4VSensitiveDetector(name)
 {
-	fTimer = new G4Timer;
-	fMessenger = OpNoviceMessenger::GetInstance();
-	fMessenger->SetRunAction(this);
-	fName="OpNovice";
-
-	fSaveScintRaw=true;
-	fSaveDetRaw=true;
-	fSaveDetDigi=true;
+  fScintCollection = NULL;
+  collectionName.insert("ScintHitCollection");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceRunAction::~OpNoviceRunAction()
-{
-	delete fTimer;
+OpNoviceScintSD::~OpNoviceScintSD() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void OpNoviceScintSD::Initialize(G4HCofThisEvent* hitsCE){
+  fScintCollection = new OpNoviceScintHitsCollection(SensitiveDetectorName,collectionName[0]);
+  //A way to keep all the hits of this event in one place if needed
+  static G4int hitsCID = -1;
+  if(hitsCID<0){
+    hitsCID = GetCollectionID(0);
+  }
+  hitsCE->AddHitsCollection( hitsCID, fScintCollection );
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceRunAction::BeginOfRunAction(const G4Run* aRun)
-{
-	G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
-	fTimer->Start();
-	if(fRecorder)fRecorder->RecordBeginOfRun(aRun);
-	
-	/*Init the RootIO*/
-	fRootIO.SetName(fName);
+G4bool OpNoviceScintSD::ProcessHits(G4Step* aStep,G4TouchableHistory* ){
+  G4double edep = aStep->GetTotalEnergyDeposit();
+  if(edep==0.) return false; //No edep so dont count as hit
 
-	fRootIO.SetSaveScintRaw(fSaveDetRaw);
-	fRootIO.SetSaveDetRaw(fSaveDetRaw);
-	fRootIO.SetSaveDetDigi(fSaveDetDigi);
-	fRootIO.Init(aRun->GetRunID());
+  G4StepPoint* thePrePoint = aStep->GetPreStepPoint();
+  G4TouchableHistory* theTouchable =(G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
+  G4VPhysicalVolume* thePrePV = theTouchable->GetVolume();
+
+  G4StepPoint* thePostPoint = aStep->GetPostStepPoint();
+
+  //Get the average position of the hit
+  G4ThreeVector pos = thePrePoint->GetPosition() + thePostPoint->GetPosition();
+  pos/=2.;
+
+  OpNoviceScintHit* scintHit = new OpNoviceScintHit(thePrePV);
+
+  scintHit->SetEdep(edep);
+  scintHit->SetPos(pos);
+
+  fScintCollection->insert(scintHit);
+
+  return true;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceRunAction::EndOfRunAction(const G4Run* aRun)
-{
-	if(fRecorder)fRecorder->RecordEndOfRun(aRun);
-	fTimer->Stop();
-	G4cout << "number of events = " << aRun->GetNumberOfEvent()
-		<< " " << *fTimer << G4endl;	
-	fRootIO.WriteAll();
-}
+void OpNoviceScintSD::EndOfEvent(G4HCofThisEvent* ) {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void OpNoviceScintSD::clear() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void OpNoviceScintSD::DrawAll() {}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void OpNoviceScintSD::PrintAll() {}
