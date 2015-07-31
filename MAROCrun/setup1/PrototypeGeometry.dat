@@ -10,7 +10,8 @@
 #DetectorCoupling ThicknessCoupling(cm) Ncoupling
 
 DetectorSize 6 6 6			    #Scintillator size, cm
-ScintillatorLY 9700		      	    #LY, photon/MeV
+#ScintillatorLY 9700		      	    #LY, photon/MeV
+ScintillatorLY 0
 ScintillatorFastTau 1.8	     		    #Fast tau, ns
 ScintillatorRindex 1.58			    #Refraction index
 

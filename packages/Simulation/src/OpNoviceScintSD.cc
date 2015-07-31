@@ -94,7 +94,9 @@ G4bool OpNoviceScintSD::ProcessHits(G4Step* aStep,G4TouchableHistory* ){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void OpNoviceScintSD::EndOfEvent(G4HCofThisEvent* ) {}
+void OpNoviceScintSD::EndOfEvent(G4HCofThisEvent* ) {
+
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

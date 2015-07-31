@@ -106,6 +106,7 @@ private:
 	/*To save data*/
 	RootIO *fRootIO;
 	
+	MCEvent* fMCEvent;
 	std::vector<OpNoviceScintHit*>    *fRootCollectionScintRaw;
 	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
 	std::vector<OpNoviceDigi*>        *fRootCollectionDetDigi;

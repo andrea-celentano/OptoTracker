@@ -104,7 +104,6 @@ void OpNoviceDigitizer::Digitize() // at each event
 					Digi->SetDetectorNumber(jj);
 					Digi->SetUniqueNumber(kk);
 					Digi->SetPixelNumber(id);
-
 					DigitsCollection->insert(Digi);
 				}
 				kk++;
@@ -128,6 +127,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 				faceNumber=Hit->GetFaceNumber();
 				uniqueNumber=Hit->GetInFaceNumber();
 
+
 				for (int qq=0;qq<nPhe;qq++){				
 
 					pixelNumber=Hit->GetPixel(qq);			
@@ -140,7 +140,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[detectorNumber]);
 
 
-					//G4cout<<" "<<x<<" "<<y<<" "<<t<<G4endl;
+
 
 
 					Digi=NULL;

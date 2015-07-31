@@ -127,11 +127,13 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	fRootCollectionScintRaw=fRootIO->GetRootCollectionScintRaw();
 	fRootCollectionDetRaw=fRootIO->GetRootCollectionDetRaw();
 	fRootCollectionDetDigi=fRootIO->GetRootCollectionDetDigi();
+	fMCEvent=fRootIO->GetMCEvent();
 
 	//TClonesArray &mRootCollectionRaw=*fRootCollectionRaw;
 	std::vector<OpNoviceScintHit*>    &mRootCollectionScintRaw=*fRootCollectionScintRaw;
 	std::vector<OpNoviceDetectorHit*> &mRootCollectionDetRaw=*fRootCollectionDetRaw;
 	std::vector<OpNoviceDigi*>        &mRootCollectionDetDigi=*fRootCollectionDetDigi;
+	MCEvent &mMCEvent=*fMCEvent;
 
 	mRootCollectionScintRaw.clear();
 	mRootCollectionDetRaw.clear();
@@ -146,12 +148,20 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	}
 
 	//raw hits in scintillator
+
+	mMCEvent.Etot=0;
+
 	if (scintHC){
 		G4int scintN=scintHC->entries(); /*Here 1 hit is 1 hit in the scintillator*/
+	//	G4cout<<" There are: "<<scintN<<" hits in scintillator"<<G4endl;
 		for (G4int i=0;i<scintN;i++){
+			G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
+			mMCEvent.Etot+=(*scintHC)[i]->GetEdep();
 			if (fSaveScintRaw) mRootCollectionScintRaw.push_back((*scintHC)[i]);
 		}
 	}
+
+	fRootIO->FillMCEvent();
 	if (fSaveScintRaw) fRootIO->FillScintRaw();
 
 
@@ -187,18 +197,18 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	if (fDoDigi){
 		detectorDigiHC = 0;
 		G4DCofThisEvent* hitsDC = anEvent->GetDCofThisEvent(); //all digits
+
 		if (fDetectorDigiCollID<0){ //1: get the collection ID
 			G4DigiManager* Digiman = G4DigiManager::GetDMpointer();
 			fDetectorDigiCollID=Digiman->GetDigiCollectionID("DetectorDigiHitCollection");
 		}
 		if (hitsDC){ //2: Get the collection
-			if(fDetectorDigiCollID>=0) detectorDigiHC = (OpNoviceDigitsCollection*)(hitsDC->GetDC(fDetectorCollID));
+			if(fDetectorDigiCollID>=0) detectorDigiHC = (OpNoviceDigitsCollection*)(hitsDC->GetDC(fDetectorDigiCollID));
 		}	
 		if(detectorDigiHC){//3: Use it
 			G4int DetectorDigiN=detectorDigiHC->entries();
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
-				//	G4cout<<"Digi hits "<<(*pmtDigiHC)[i]->GetEnergy()<<G4endl;
 				if (fSaveDetDigi){
 					mRootCollectionDetDigi.push_back((*detectorDigiHC)[i]);
 				}

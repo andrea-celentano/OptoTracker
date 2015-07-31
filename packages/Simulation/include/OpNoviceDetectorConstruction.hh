@@ -77,6 +77,9 @@ public:
 	//materials
 	void DefineMaterials();
 
+	void SetDefaults();
+	void OverloadWithDetectorLight();
+
 	void SetScintYield(G4double d){fEJ230_LY=d;G4RunManager::GetRunManager()->ReinitializeGeometry(true);}	
 	void SetScintFastTimeConstant(G4double d){fEJ230_FastTimeConstant=d;G4RunManager::GetRunManager()->ReinitializeGeometry(true);}
 
@@ -221,10 +224,7 @@ private:
 
 	G4bool fPmtPlaced;
 
-public:	
 
-
-	void SetDefaults();
 };
 
 

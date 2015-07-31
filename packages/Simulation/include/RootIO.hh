@@ -46,12 +46,16 @@
 #include "TOpNoviceDetectorLight.hh"
 
 #include <string>
-/** @class RootIO
- *   
- *
- *  @author Witold POKORSKI
- *  @date   2005-10-27
- */
+
+
+
+ typedef struct {
+      double Etot;
+ } MCEvent;
+
+
+
+
 
 /// Root IO implementation for the persistency example
 
@@ -61,10 +65,12 @@ public:
 	virtual ~RootIO();
 	
 	static RootIO* GetInstance();
+	void FillMCEvent();
 	void FillScintRaw();
 	void FillDetRaw();
 	void FillDetDigi();
 	void FillAll();
+
 	void WriteAll();
 	void Init(int n);
 	
@@ -72,6 +78,7 @@ public:
 	inline void SetName(std::string s){this->fName=s;}
 	inline TString GetName(){return fName;}
 	
+	inline MCEvent* GetMCEvent(){return fMCEvent;}
 	inline std::vector<OpNoviceScintHit*>* GetRootCollectionScintRaw(){return fRootCollectionScintRaw;}
 	inline std::vector<OpNoviceDetectorHit*>* GetRootCollectionDetRaw(){return fRootCollectionDetRaw;}
 	inline std::vector<OpNoviceDigi*>* GetRootCollectionDetDigi(){return fRootCollectionDetDigi;}
@@ -91,6 +98,7 @@ private:
 	std::string fName;
 	TFile* fFile;
 
+	TTree* fTreeMCEvent;
 	TTree* fTreeScintRaw;
 	TTree* fTreeDetRaw;
 	TTree* fTreeDetDigi;
@@ -109,5 +117,7 @@ private:
 	std::vector<OpNoviceScintHit*> *fRootCollectionScintRaw;
 	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
 	std::vector<OpNoviceDigi*> *fRootCollectionDetDigi;
+
+	MCEvent *fMCEvent;
 };
 #endif // INCLUDE_ROOTIO_HH

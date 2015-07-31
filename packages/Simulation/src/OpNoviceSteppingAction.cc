@@ -197,10 +197,12 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 
 				fRootIO->fillHistogram2D(pmtNumber+3,localPosition.x()/cm,localPosition.y()/cm,1.);
 
+				/*
 				G4SDManager* SDman = G4SDManager::GetSDMpointer();
 				G4String sdName="/OpNoviceDet/DetectorSD";
 				OpNoviceDetectorSD* DetectorSD = (OpNoviceDetectorSD*)SDman->FindSensitiveDetector(sdName);
 				if(DetectorSD)DetectorSD->ProcessHits_constStep(theStep,NULL);
+				*/
 				trackInformation->AddTrackStatusFlag(hitPMT);
 				fAbsorbed++;
 

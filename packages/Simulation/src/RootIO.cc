@@ -68,7 +68,7 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 	fSaveDetRaw=true;
 	fSaveDetDigi=true;
 	
-
+	fMCEvent = new MCEvent;
 	fRootCollectionScintRaw=new std::vector<OpNoviceScintHit*>;
 	fRootCollectionDetRaw=new std::vector<OpNoviceDetectorHit*>;
 	fRootCollectionDetDigi=new std::vector<OpNoviceDigi*>;
@@ -83,9 +83,11 @@ RootIO::~RootIO()
 {
 	G4cout<<"RootIO::destructor"<<G4endl;
 	fFile->Close();
+	delete fMCEvent;
 	delete fRootCollectionScintRaw;
 	delete fRootCollectionDetRaw;
 	delete fRootCollectionDetDigi;
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -111,6 +113,10 @@ void RootIO::Init(int n){
 	
 	std::string fFileName=Form("%s_%i.root",fName.c_str(),n);
 	fFile = new TFile(fFileName.c_str(),"RECREATE");
+
+	fTreeMCEvent = new TTree("MCEvent","MCEvent");
+	fTreeMCEvent->Branch("MCEvent",fMCEvent,"Etot/D");
+
 	if (fSaveScintRaw){
 		fTreeScintRaw = new TTree("ScintRaw","ScintRaw");
 		fTreeScintRaw->Branch("ScintRaw",&fRootCollectionScintRaw);
@@ -123,10 +129,15 @@ void RootIO::Init(int n){
 		fTreeDetDigi= new TTree("DetDigi","DetDigi");
 		fTreeDetDigi->Branch("DetDigi",&fRootCollectionDetDigi);
 	}
+
 	if (fSaveDetRaw&&fSaveDetDigi){
 		fTreeDetRaw->AddFriend("DetDigi");
 	}
-	
+
+	if (fSaveScintRaw){
+		fTreeMCEvent->AddFriend("ScintRaw");
+	}
+
 	fHistograms1D=new std::vector<TH1*>;
 	fHistograms2D=new std::vector<TH2*>;
 	/*Define here histograms*/
@@ -147,6 +158,10 @@ void RootIO::Init(int n){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+void RootIO::FillMCEvent()
+{
+	fTreeMCEvent->Fill();
+}
 
 void RootIO::FillScintRaw()
 {
@@ -164,6 +179,7 @@ void RootIO::FillDetDigi()
 }
 
 void RootIO::FillAll(){
+	this->FillMCEvent();
 	this->FillScintRaw();
 	this->FillDetRaw();
 	this->FillDetDigi();

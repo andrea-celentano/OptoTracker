@@ -25,6 +25,10 @@ TOpNoviceDetectorLight* TOpNoviceDetectorLight::getInstance(){
 TOpNoviceDetectorLight::TOpNoviceDetectorLight(){
 	cout<<"TOpNoviceDetectorLight:: default constructor"<<endl;
 	m_name="DefaultDetector";
+
+	LY=-1;
+	fastScintTime=-1;
+	rIndex=-1;
 }
 
 

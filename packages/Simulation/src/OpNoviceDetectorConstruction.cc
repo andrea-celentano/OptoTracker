@@ -67,6 +67,7 @@ OpNoviceDetectorConstruction::OpNoviceDetectorConstruction(TOpNoviceDetectorLigh
 
 	//for (int ii=0;ii<6;ii++) fDetector_log[ii]=NULL;	
 	SetDefaults();
+	OverloadWithDetectorLight();
 	previousSubtraction=NULL;
 	currentSubtraction=NULL;
 	instance=this;
@@ -141,9 +142,9 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 	fExperimentalHall_log = new G4LogicalVolume(fExperimentalHall_box,fAir,"World",0,0,0);
 	fExperimentalHall_phys = new G4PVPlacement(0,G4ThreeVector(),fExperimentalHall_log,"World",0,false,0);
 
-	fDummy_box = new G4Box("Dummy",1*mm,1*mm,1*mm);
-	fDummy_log = new G4LogicalVolume(fDummy_box,fAir,"Dummy",0,0,0);
-	fDummy_phys = new G4PVPlacement(0,G4ThreeVector(fExpHall_x/2-1*cm,fExpHall_y/2-1*cm,fExpHall_z/2-1*cm),fDummy_log,"Dummy",fExperimentalHall_log ,false,0);
+	//fDummy_box = new G4Box("Dummy",1*mm,1*mm,1*mm);
+	//fDummy_log = new G4LogicalVolume(fDummy_box,fAir,"Dummy",0,0,0);
+	//fDummy_phys = new G4PVPlacement(0,G4ThreeVector(fExpHall_x/2-1*cm,fExpHall_y/2-1*cm,fExpHall_z/2-1*cm),fDummy_log,"Dummy",fExperimentalHall_log ,false,0);
 
 	G4double delta = 1*mm;
 	// The Scintillator
@@ -503,26 +504,28 @@ void OpNoviceDetectorConstruction::ConstructSDandField() {
 
 	if (!fExperimentalHall_phys) return;
 	if (!fPmtPlaced) return;
+	//Scint SD
+		if (!fScintSD.Get()){
+			    G4cout << "Construction /OpNoviceDet/ScintSD" << G4endl;
+			    OpNoviceScintSD* ScintSD = new OpNoviceScintSD("/OpNoviceDet/ScintSD");
+			    fScintSD.Put(ScintSD);
+			    SetSensitiveDetector(fScintillator_log, fScintSD.Get());
+		}
 
-
-	// PMT SD
-
+	//Detector SD
 	if (!fDetectorSD.Get()) {
 		//Created here so it exists as pmts are being placed
 		G4cout << "Construction /OpNoviceDet/DetectorSD" << G4endl;
 		OpNoviceDetectorSD* detectorSD = new OpNoviceDetectorSD("/OpNoviceDet/DetectorSD");
 		fDetectorSD.Put(detectorSD);
-
-		//fDetectorSD->InitPMTs(2); //let pmtSD know # of pmts
-		// pmt_SD->SetPmtPositions(fMainVolume->GetPmtPositions());
+		for (int ii=0;ii<6;ii++){
+				for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
+					if (fDetector_log[ii][jj])	SetSensitiveDetector(fPixel_log[ii][jj],fDetectorSD.Get());
+				}
+		}
 	}
 
-	if (!fScintSD.Get()){
-		   G4cout << "Construction /LXeDet/scintSD" << G4endl;
-		    OpNoviceScintSD* ScintSD = new OpNoviceScintSD("/OpNoviceDet/ScintSD");
-		    fScintSD.Put(ScintSD);
-		    SetSensitiveDetector(fScintillator_log, fScintSD.Get());
-	}
+
 
 
 	//sensitive detector is not actually on the photocathode.
@@ -539,16 +542,21 @@ void OpNoviceDetectorConstruction::ConstructSDandField() {
 
 	/*for (int ii=0;ii<6;ii++){
 	if (fDetector_log[ii])	SetSensitiveDetector(fDetector_log[ii], fPmt_SD.Get());
-      }*/
+    }*/
 
-	SetSensitiveDetector(fDummy_log, fDetectorSD.Get());
+	//SetSensitiveDetector(fDummy_log, fDetectorSD.Get());
 
 
 }
 
 
 
+void OpNoviceDetectorConstruction::OverloadWithDetectorLight(){
 
+	if (fDetectorLight->getLY()>=0) fEJ230_LY=fDetectorLight->getLY();
+	if (fDetectorLight->getFastScintTime()>=0) fEJ230_FastTimeConstant=fDetectorLight->getFastScintTime();
+
+}
 
 
 
