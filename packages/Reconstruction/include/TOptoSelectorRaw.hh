@@ -72,7 +72,7 @@ void TOptoSelectorRaw::Init(TTree *tree)
   fChain = tree;
   fChain->SetMakeClass(1);
 
-  fChain->SetBranchAddress("raw", &raw, &b_raw);
+  fChain->SetBranchAddress("DetRaw", &raw, &b_raw);
 }
 
 #endif

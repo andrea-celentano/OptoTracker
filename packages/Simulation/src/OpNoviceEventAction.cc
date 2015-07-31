@@ -155,7 +155,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 		G4int scintN=scintHC->entries(); /*Here 1 hit is 1 hit in the scintillator*/
 	//	G4cout<<" There are: "<<scintN<<" hits in scintillator"<<G4endl;
 		for (G4int i=0;i<scintN;i++){
-			G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
+			//G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
 			mMCEvent.Etot+=(*scintHC)[i]->GetEdep();
 			if (fSaveScintRaw) mRootCollectionScintRaw.push_back((*scintHC)[i]);
 		}

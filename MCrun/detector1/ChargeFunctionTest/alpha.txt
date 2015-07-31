@@ -1,6 +1,0 @@
-alpha0: 0 0 0 cm OK
-alpha1: 0 2 0 cm OK
-alpha2: 1 2 0 cm OK
-
-alpha3: -2 -2 -2 cm NO
-alpha3a: no reflections AT all --> OK

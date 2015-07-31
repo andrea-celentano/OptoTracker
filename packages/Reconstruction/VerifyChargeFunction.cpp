@@ -147,7 +147,7 @@ int main(int argc,char **argv){
 
 	//Connect to the TTree
 	vector<OpNoviceDigi*> *digi=NULL;
-	fChain->SetBranchAddress("digi", &digi);
+	fChain->SetBranchAddress("DetDigi", &digi);
 
 
 

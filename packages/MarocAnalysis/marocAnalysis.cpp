@@ -576,7 +576,7 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 	double ret=0;
 
 	double n1=1.58;
-	double n2=1.49;
+	double n2=1;
 
 	TVector3 vp,vn,vrel;
 

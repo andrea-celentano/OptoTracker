@@ -1,4 +1,4 @@
-#Ignore root files
+#Ignore MC root files
 *.root
 #ignore binaries
 lib/*
