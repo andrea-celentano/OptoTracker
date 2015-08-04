@@ -180,6 +180,10 @@ int main(int argc,char **argv){
 	TH2D *hMeanBck=new TH2D("hMeanBck","hMeanBck",16,-8.5,7.5,8,-0.5,7.5);
 	TH2D *hMeanDiff=new TH2D("hMeanDiff","hMeanDiff",16,-8.5,7.5,8,-0.5,7.5);
 
+	TH2D *hHitSig=new TH2D("hHitSig","hHitSig",16,-8.5,7.5,8,-0.5,7.5);
+	TH2D *hHitBck=new TH2D("hHitBck","hHitBck",16,-8.5,7.5,8,-0.5,7.5);
+	TH2D *hHitDiff=new TH2D("hHitDiff","hHitDiff",16,-8.5,7.5,8,-0.5,7.5);
+
 
 	TH1D* hChargeExp[6][MAX_DETECTORS];
 	TH1D* hChargeTeo[6][MAX_DETECTORS];
@@ -199,9 +203,11 @@ int main(int argc,char **argv){
 	TH2D* hChargeSigTotLR=new TH2D("hChargeSigTotLR","hChargeSigTotLR",2000,-10E3,200E3,2000,-10E3,200E3);
 	TH2D* hChargeBckTotLR=new TH2D("hChargeBckTotLR","hChargeBckTotLR",2000,-10E3,200E3,2000,-10E3,200E3);
 
+	
+	cout<<"Creating channel histograms"<<endl;
 	for (int ii=0;ii<Ntot;ii++){
 		iH8500=m_setup->getH8500IdFromGlobal(ii+N0);
-
+       
 		hChargeSig[ii]=new TH1D(Form("hChargeSig%i",ii),Form("hChargeSig%i:H8500_%i",ii,iH8500),4096,-0.5,4095.5);
 		hChargeBck[ii]=new TH1D(Form("hChargeBck%i",ii),Form("hChargeBck%i:H8500_%i",ii,iH8500),4096,-0.5,4095.5);
 		hChargeDiff[ii]=new TH1D(Form("hChargeDiff%i",ii),Form("hChargeDiff%i:H8500_%i",ii,iH8500),5000,-1000.5,3999.5);
@@ -210,13 +216,13 @@ int main(int argc,char **argv){
 		hChargeBckCorr[ii]=new TH1D(Form("hChargeBckCorr%i",ii),Form("hChargeBckCorr%i:H8500_%i",ii,iH8500),5096,-1000.5,4095.5);
 
 
-		hChargeSigVsTot[ii]=new TH2D(Form("hChargeSigVsTot%i",ii),Form("hChargeSigVsTot%i",ii),5096,-1000.5,5095.5,500,-10E3,200E3);
-		hChargeBckVsTot[ii]=new TH2D(Form("hChargeBckVsTot%i",ii),Form("hChargeBckVsTot%i",ii),5096,-1000.5,4095.5,500,-10E3,200E3);
+		hChargeSigVsTot[ii]=new TH2D(Form("hChargeSigVsTot%i",ii),Form("hChargeSigVsTot%i",ii),500,-1000.5,5095.5,500,-10E3,200E3);
+		hChargeBckVsTot[ii]=new TH2D(Form("hChargeBckVsTot%i",ii),Form("hChargeBckVsTot%i",ii),500,-1000.5,4095.5,500,-10E3,200E3);
 
 
 	}
-
-
+	cout<<"Done"<<endl;
+	cout<<"Creating comparison histograms"<<endl;
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
@@ -227,7 +233,7 @@ int main(int argc,char **argv){
 			}
 		}
 	}
-
+	cout<<"Done creating histograms"<<endl;
 
 	/*Process the signal*/
 	tSig->SetBranchAddress("ADC",ADC);
@@ -249,12 +255,23 @@ int main(int argc,char **argv){
 			iReconDet=m_setup->getReconstructionDetectorID(iRealDet);
 			iReconFace=m_setup->getReconstructionDetectorFace(iRealDet);
 			iReconPixel=m_setup->getPixelReconId(id);
+			if (iRealDet==32){
+			  ix=iH8500%8;
+			}
+			else {
+			  ix=-iH8500%8-1;
+			}
+			iy=7-iH8500/8;
 			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 
-
-
+			if (hit[id]){
+			  hHitSig->Fill(ix,iy,+1);
+			  hHitDiff->Fill(ix,iy,+1);
+			}
 			Q=ADC[id];
 			hChargeSig[jj]->Fill(Q);
+
+			
 
 			//  hChargeDiff[jj]->Fill(Q,+1);
 		}
@@ -280,7 +297,19 @@ int main(int argc,char **argv){
 			iReconPixel=m_setup->getPixelReconId(id);
 			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 
+				if (iRealDet==32){
+			  ix=iH8500%8;
+			}
+			else {
+			  ix=-iH8500%8-1;
+			}
+			iy=7-iH8500/8;
+			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 
+			if (hit[id]){
+			  hHitBck->Fill(ix,iy,+1);
+			  hHitDiff->Fill(ix,iy,-1);
+			}
 			Q=ADC[id];
 			hChargeBck[jj]->Fill(Q);
 
@@ -358,7 +387,7 @@ int main(int argc,char **argv){
 
 			Q=ADC[id]-PedSig[jj];
 
-			hChargeSigVsTot[jj]->Fill(Q,QSigTot);
+			//			hChargeSigVsTot[jj]->Fill(Q,QSigTot);
 
 
 			if (flagQcut){
@@ -422,7 +451,7 @@ int main(int argc,char **argv){
 			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 
 			Q=ADC[id]-PedBck[jj];
-			hChargeBckVsTot[jj]->Fill(Q,QBckTot);
+			//hChargeBckVsTot[jj]->Fill(Q,QBckTot);
 
 			if (flagQcut){
 				hChargeBckCorr[jj]->Fill(Q);
@@ -587,7 +616,7 @@ int main(int argc,char **argv){
 
 
 	TCanvas *ca=new TCanvas("ca","ca");
-	ca->Divide(2,2);
+	ca->Divide(3,3);
 	ca->cd(1);
 	hGainMap->GetXaxis()->SetRangeUser(1000,2000);
 	hGainMap->Draw("colz");
@@ -612,6 +641,23 @@ int main(int argc,char **argv){
 	hMeanDiff->Draw("colz");
 	hGrid->Draw("TEXTSAME");
 	l->Draw("SAME");
+	
+	ca->cd(7);
+	hHitSig->SetStats(0);
+	hHitSig->Draw("colz");
+	hGrid->Draw("TEXTSAME");
+	
+	ca->cd(8);
+	hHitBck->SetStats(0);
+	hHitBck->Draw("colz");
+	hGrid->Draw("TEXTSAME");
+
+
+	ca->cd(9);
+	hHitDiff->SetStats(0);
+	hHitDiff->Draw("colz");
+	hGrid->Draw("TEXTSAME");
+
 	ca->Print(fOutNamePS.c_str());
 	fOut->cd();
 	ca->Write();
