@@ -49,20 +49,15 @@ link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
 target_link_libraries(PrintMaroc ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
-
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
 target_link_libraries(MarocAnalysis ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
-add_executable(MarocComparison marocComparison.cpp ${sources} ${headers})
-target_link_libraries(MarocComparison ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
-
-add_executable(H8500Comparison H8500Comparison.cpp ${sources} ${headers})
-target_link_libraries(H8500Comparison ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
+add_executable(comparison comparison.cpp ${sources} ${headers})
+target_link_libraries(comparison ReconstructionClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex)
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/bin)
 install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/bin)
-install(TARGETS MarocComparison DESTINATION $ENV{OPTO}/bin)
-install(TARGETS H8500Comparison DESTINATION $ENV{OPTO}/bin)
+install(TARGETS comparison DESTINATION $ENV{OPTO}/bin)

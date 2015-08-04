@@ -100,6 +100,9 @@ int main(int argc,char **argv){
 	double QSigTotL,QBckTotL;
 	double QSigTotR,QBckTotR;
 
+	const double QTotThr=0;
+	const double QTotLThr=0;
+	const double QTotRThr=0;
 
 	double Scale;
 	double MeanSig,MeanBck,MeanDiff,MeanDiffCorrected;
@@ -113,6 +116,8 @@ int main(int argc,char **argv){
 	MarocSetupHandler *m_setup=new MarocSetupHandler(fSetupName);
 	TReconInput *m_reconInput=new TReconInput(fReconName);
 	TRecon *m_recon=new TRecon(m_detector,m_reconInput);
+
+
 
 
 	m_setup->Print(1);
@@ -179,17 +184,17 @@ int main(int argc,char **argv){
 	TH1D* hChargeExp[6][MAX_DETECTORS];
 	TH1D* hChargeTeo[6][MAX_DETECTORS];
 
-	TH1D* hChargeSigTot=new TH1D("hChargeSigTot","hChargeSigTot",20000,-10E3,200E3);
-	TH1D* hChargeBckTot=new TH1D("hChargeBckTot","hChargeBckTot",20000,-10E3,200E3);
-	TH1D* hChargeDiffTot=new TH1D("hChargeDiffTot","hChargeDiffTot",20000,-10E3,200E3);
+	TH1D* hChargeSigTot=new TH1D("hChargeSigTot","hChargeSigTot",5000,-10E3,200E3);
+	TH1D* hChargeBckTot=new TH1D("hChargeBckTot","hChargeBckTot",5000,-10E3,200E3);
+	TH1D* hChargeDiffTot=new TH1D("hChargeDiffTot","hChargeDiffTot",5000,-10E3,200E3);
 
-	TH1D* hChargeSigTotR=new TH1D("hChargeSigTotR","hChargeSigTotR",20000,-10E3,200E3);
-	TH1D* hChargeBckTotR=new TH1D("hChargeBckTotR","hChargeBckTotR",20000,-10E3,200E3);
-	TH1D* hChargeDiffTotR=new TH1D("hChargeDiffTotR","hChargeDiffTotR",20000,-10E3,200E3);
+	TH1D* hChargeSigTotR=new TH1D("hChargeSigTotR","hChargeSigTotR",5000,-10E3,200E3);
+	TH1D* hChargeBckTotR=new TH1D("hChargeBckTotR","hChargeBckTotR",5000,-10E3,200E3);
+	TH1D* hChargeDiffTotR=new TH1D("hChargeDiffTotR","hChargeDiffTotR",5000,-10E3,200E3);
 
-	TH1D* hChargeSigTotL=new TH1D("hChargeSigTotL","hChargeSigTotL",20000,-10E3,200E3);
-	TH1D* hChargeBckTotL=new TH1D("hChargeBckTotL","hChargeBckTotL",20000,-10E3,200E3);
-	TH1D* hChargeDiffTotL=new TH1D("hChargeDiffTotL","hChargeDiffTotL",20000,-10E3,200E3);
+	TH1D* hChargeSigTotL=new TH1D("hChargeSigTotL","hChargeSigTotL",5000,-10E3,200E3);
+	TH1D* hChargeBckTotL=new TH1D("hChargeBckTotL","hChargeBckTotL",5000,-10E3,200E3);
+	TH1D* hChargeDiffTotL=new TH1D("hChargeDiffTotL","hChargeDiffTotL",5000,-10E3,200E3);
 
 	TH2D* hChargeSigTotLR=new TH2D("hChargeSigTotLR","hChargeSigTotLR",2000,-10E3,200E3,2000,-10E3,200E3);
 	TH2D* hChargeBckTotLR=new TH2D("hChargeBckTotLR","hChargeBckTotLR",2000,-10E3,200E3,2000,-10E3,200E3);
@@ -323,9 +328,10 @@ int main(int argc,char **argv){
 			iReconPixel=m_setup->getPixelReconId(id);
 			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 			Q=ADC[id]-PedSig[jj];
-			QSigTot+=Q/Gain;
-			if (jj<Ntot/2) QSigTotL+=Q/Gain;
-			else QSigTotR+=Q/Gain;
+			//QSigTot+=Q/Gain;
+			QSigTot+=Q;
+			if (jj<Ntot/2) QSigTotL+=Q;///Gain;
+			else QSigTotR+=Q;//Gain;
 		}
 		hChargeSigTot->Fill(QSigTot);
 		hChargeSigTotL->Fill(QSigTotL);
@@ -338,7 +344,7 @@ int main(int argc,char **argv){
 
 
 		flagQcut=1;
-		if (QSigTot<20E3) flagQcut=0;
+		if (QSigTot<QTotThr) flagQcut=0;
 		for (int jj=0;jj<Ntot;jj++){
 			id=jj+N0;
 
@@ -358,7 +364,6 @@ int main(int argc,char **argv){
 			if (flagQcut){
 				hChargeDiff[jj]->Fill(Q,+1);
 				hChargeSigCorr[jj]->Fill(Q);
-				//	hChargeDiffCorr[jj]->Fill(Q/Gain,+1);
 			}
 		}
 	}
@@ -385,10 +390,11 @@ int main(int argc,char **argv){
 			iReconPixel=m_setup->getPixelReconId(id);
 			Gain=m_setup->getPixelGain(iReconFace,iReconDet,iReconPixel);
 			Q=ADC[id]-PedBck[jj];
-			QBckTot+=Q/Gain;
+		//	QBckTot+=Q/Gain;
+			QBckTot+=Q;
 
-			if (jj<Ntot/2) QBckTotL+=Q/Gain;
-			else QBckTotR+=Q/Gain;
+			if (jj<Ntot/2) QBckTotL+=Q;///Gain;
+			else QBckTotR+=Q;///Gain;
 		}
 		hChargeBckTot->Fill(QBckTot);
 		hChargeDiffTot->Fill(QBckTot,-1);
@@ -402,7 +408,7 @@ int main(int argc,char **argv){
 
 
 		flagQcut=1;
-		if (QBckTot<20E3) flagQcut=0;
+		if (QBckTot<QTotThr) flagQcut=0;
 
 		for (int jj=0;jj<Ntot;jj++){
 			id=jj+N0;
@@ -421,7 +427,6 @@ int main(int argc,char **argv){
 			if (flagQcut){
 				hChargeBckCorr[jj]->Fill(Q);
 				hChargeDiff[jj]->Fill(Q,-1);
-				//	hChargeDiffCorr[jj]->Fill(Q/Gain,-1);
 			}
 		}
 
@@ -530,11 +535,10 @@ int main(int argc,char **argv){
 
 
 
-		c[iGlobal-N0]=new TCanvas(Form("c%i",(iGlobal-N0)),Form("c:H8500_%i",iH8500));
+		c[iGlobal-N0]=new TCanvas(Form("c%i",(iGlobal-N0)),Form("c%i:H8500_%i",(iGlobal-N0),iH8500));
 		c[iGlobal-N0]->Divide(3,3);
 		c[iGlobal-N0]->cd(1)->SetLogy();
-		//  hChargePed[jj]->GetXaxis()->SetRangeUser(1250,1500);
-		// hChargePed[jj]->Draw();
+
 
 		c[iGlobal-N0]->cd(1)->SetLogy();
 		hChargeSig[iGlobal-N0]->GetXaxis()->SetRangeUser(1250,3000);

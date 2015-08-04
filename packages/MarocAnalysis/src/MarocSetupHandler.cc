@@ -257,7 +257,7 @@ int MarocSetupHandler::getPixelReconId(int iRealDet,int iRealPixel){
 		ret=iX+nH8500PixelsX*iY;
 		break;
 	}
-///Todo: complete with other faces
+     ///Todo: complete with other faces
 	return ret;
 
 }
