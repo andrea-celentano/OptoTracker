@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------
 # Setup the project
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-project(OpNovice)
+project(Reconstruction)
 
 #Rpath
 SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
@@ -29,7 +29,7 @@ include(${Geant4_USE_FILE})
 find_package(ROOT REQUIRED)
 
 if(NOT GCCXML)
-   message(FATAL_ERROR "OpNovice requires GCCXML")
+   message(FATAL_ERROR "Requires GCCXML")
 endif() 
 
 #----------------------------------------------------------------------------
@@ -53,6 +53,7 @@ set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(ReconstructionClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(ReconstructionClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
+
 
 
 

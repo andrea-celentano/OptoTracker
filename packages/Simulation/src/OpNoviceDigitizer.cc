@@ -83,8 +83,11 @@ OpNoviceDigitizer::~OpNoviceDigitizer()
 void OpNoviceDigitizer::Digitize() // at each event
 {
 
+	G4String name;
 	G4int nPhe;
+	G4int ix,iy;
 	G4double e,t,x,y,n; 
+	G4double dx,dy;
 	G4int pixelNumber,detectorNumber,kk;
 	G4int faceNumber,uniqueNumber;
 	OpNoviceDetectorHit* Hit;
@@ -96,17 +99,14 @@ void OpNoviceDigitizer::Digitize() // at each event
 		//init all the digits at 0
 		for (int ii=0;ii<6;ii++){
 			for (int jj=0;jj<fDetector->getNdet(ii);jj++){
-
 				if (fDetector->isDetPresent(ii,jj)==false) continue;
 				for (int id=0;id<fDetector->getNPixels(ii,jj);id++){
 					Digi = new OpNoviceDigi("");
 					Digi->SetFaceNumber(ii);
 					Digi->SetDetectorNumber(jj);
-					Digi->SetUniqueNumber(kk);
 					Digi->SetPixelNumber(id);
 					DigitsCollection->insert(Digi);
 				}
-				kk++;
 			}
 		}
 
@@ -126,23 +126,37 @@ void OpNoviceDigitizer::Digitize() // at each event
 				detectorNumber=Hit->GetDetectorNumber();
 				faceNumber=Hit->GetFaceNumber();
 				uniqueNumber=Hit->GetInFaceNumber();
+				name=Hit->GetName();
+
 
 
 				for (int qq=0;qq<nPhe;qq++){				
 
-					pixelNumber=Hit->GetPixel(qq);			
 					e=Hit->GetE(qq);
 					t=Hit->GetT(qq);
 					x=Hit->GetX(qq);
 					y=Hit->GetY(qq);	
 
+					/*Here is the "proper" part for the digitization.
+					 * In the custom case, the detector is already divided in pixels. The pixelNumber is already set
+					 */
+					if (name=="custom"){
+						pixelNumber=Hit->GetPixel(qq);
+					}
+					/*
+					 * In the H8500 case, there is only one "pixel", i.e. the SINGLE photocathode
+					 * In this case, x and y are the hit position on the photocathode itself.
+					 */
+					else if (name=="H8500"){
+						 dx=H8500ACTIVESIZE*cm/H8500NPIXELSX;
+						 dy=H8500ACTIVESIZE*cm/H8500NPIXELSY;
+						 ix=(x+H8500ACTIVESIZE*cm/2.)/dx;
+						 iy=(y+H8500ACTIVESIZE*cm/2.)/dy;
+						 pixelNumber=ix+iy*H8500NPIXELSX;
+					}
+
 					/*The time resolution*/
 					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[detectorNumber]);
-
-
-
-
-
 					Digi=NULL;
 					/*Check if this hit already exists. It should, we created all of them!*/
 					n=DigitsCollection->entries();
@@ -170,6 +184,8 @@ void OpNoviceDigitizer::Digitize() // at each event
 					<< G4endl;
 		}
 		StoreDigiCollection(DigitsCollection); //This is also storing the collection in the DCoFThisEvent
+	/*G4cout<<"*********************************************************************************"<<G4endl;
+		G4cout<<G4endl<<G4endl<<G4endl;*/
 	}
 }
 

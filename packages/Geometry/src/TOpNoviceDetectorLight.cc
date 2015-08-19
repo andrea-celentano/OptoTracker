@@ -7,6 +7,8 @@
 #include "TVector3.h"
 #include "TOpNoviceDetectorLight.hh"
 
+#include "H8500.h"
+
 using namespace std;
 /*
 static TOpNoviceDetectorLight* detectorLight = 0;
@@ -56,7 +58,7 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 
 		if (key[0]=='#') continue; //comment
 
-		if (key=="DetectorSize"){
+		if (key=="ScintillatorSize"){
 			parser>>data;scintSizeX=atof(data.c_str());
 			parser>>data;scintSizeY=atof(data.c_str());
 			parser>>data;scintSizeZ=atof(data.c_str());
@@ -85,22 +87,24 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 		}
 		else if (key=="Detector"){
 			parser>>data;id=atoi(data.c_str());
-
 			parser>>data;detSizeX[face][id]=atof(data.c_str());
 			parser>>data;detSizeY[face][id]=atof(data.c_str());
 			parser>>data;detNpixelsX[face][id]=atoi(data.c_str());
 			parser>>data;detNpixelsY[face][id]=atoi(data.c_str());
-
+			detName[face][id]="custom";
+			detPresent[face][id]=1;
+		}
+		else if (key=="DetectorSpecial"){
+			parser>>data;id=atoi(data.c_str());
+			parser>>data;detName[face][id]=data;
+			detPresent[face][id]=1;
 		}
 		else if (key=="DetectorProperties"){
-
 			parser>>data;detQE[face][id]=atof(data.c_str());
 			parser>>data;detReflectivity[face][id]=atof(data.c_str());
 			parser>>data;detTimeRes[face][id]=atof(data.c_str());
-
 		}
 		else if (key=="DetectorPlacement"){
-
 			parser>>data;detCenterX[face][id]=atof(data.c_str());
 			parser>>data;detCenterY[face][id]=atof(data.c_str());
 			parser>>data;detRotation[face][id]=atof(data.c_str());
@@ -109,7 +113,6 @@ TOpNoviceDetectorLight::TOpNoviceDetectorLight(string fname)
 		else if (key=="DetectorCoupling"){
 			parser>>data;detCouplingThickness[face][id]=atof(data.c_str());
 			parser>>data;detCouplingRIndex[face][id]=atof(data.c_str());
-
 		}
 
 	}
@@ -143,15 +146,23 @@ void TOpNoviceDetectorLight::init(){
 	int ipixel;
 
 	for (int ii=0;ii<6;ii++){
-		for (int jj=0;jj<Ndet[ii];jj++)
-			if ((detSizeX[ii][jj]<=0)||(detSizeY[ii][jj]<=0)) detPresent[ii][jj]=0;
-			else {
-				detPresent[ii][jj]=1;
+		for (int jj=0;jj<Ndet[ii];jj++){
+			if (detName[ii][jj]=="H8500"){
+				detSizeX[ii][jj]=H8500ACTIVESIZE;
+				detSizeY[ii][jj]=H8500ACTIVESIZE;
+				detNpixelsX[ii][jj]=H8500NPIXELSX;
+				detNpixelsY[ii][jj]=H8500NPIXELSY;
+
+				///TODO: the specific H8500 case here.
 				detPixelSizeX[ii][jj]=detSizeX[ii][jj]/detNpixelsX[ii][jj];
 				detPixelSizeY[ii][jj]=detSizeY[ii][jj]/detNpixelsY[ii][jj];
 			}
+			else if (detName[ii][jj]=="custom") {
+				detPixelSizeX[ii][jj]=detSizeX[ii][jj]/detNpixelsX[ii][jj];
+				detPixelSizeY[ii][jj]=detSizeY[ii][jj]/detNpixelsY[ii][jj];
+			}
+		}
 	}
-
 
 
 
@@ -161,6 +172,7 @@ void TOpNoviceDetectorLight::init(){
 
 			posPixelX[ii][jj].clear();posPixelY[ii][jj].clear();posPixelZ[ii][jj].clear();
 
+			///TODO: the specific H8500 case here.
 
 			for (int iy=0;iy<detNpixelsY[ii][jj];iy++){
 				for (int ix=0;ix<detNpixelsX[ii][jj];ix++){
@@ -170,8 +182,6 @@ void TOpNoviceDetectorLight::init(){
 
 					xf=xd*cos(detRotation[ii][jj]*TMath::DegToRad())-yd*sin(detRotation[ii][jj]*TMath::DegToRad());
 					yf=+xd*sin(detRotation[ii][jj]*TMath::DegToRad())+yd*cos(detRotation[ii][jj]*TMath::DegToRad());
-
-
 
 					xf=xf+detCenterX[ii][jj];
 					yf=yf+detCenterY[ii][jj];
@@ -241,7 +251,7 @@ void TOpNoviceDetectorLight::PrintPixels() const{
 
 
 
- void  TOpNoviceDetectorLight::Print() const{
+void  TOpNoviceDetectorLight::Print() const{
 	printf("Detector :%s \n",m_name.c_str());
 	printf("Scintillator size: \t %f \t %f \t %f \n",this->getScintSizeX(),this->getScintSizeY(),this->getScintSizeZ());
 	printf("Decay time: \t %f \n",this->getFastScintTime());
@@ -261,10 +271,10 @@ void TOpNoviceDetectorLight::PrintPixels() const{
 
 
 
- TVector3 TOpNoviceDetectorLight::getPosPixel(int iface,int idetector,int ipixel) const{
-	 TVector3 vp(posPixelX[iface][idetector].at(ipixel),posPixelY[iface][idetector].at(ipixel),posPixelZ[iface][idetector].at(ipixel));
-	 return vp;
- }
+TVector3 TOpNoviceDetectorLight::getPosPixel(int iface,int idetector,int ipixel) const{
+	TVector3 vp(posPixelX[iface][idetector].at(ipixel),posPixelY[iface][idetector].at(ipixel),posPixelZ[iface][idetector].at(ipixel));
+	return vp;
+}
 
 
 

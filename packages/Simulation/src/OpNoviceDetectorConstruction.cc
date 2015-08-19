@@ -53,6 +53,8 @@
 #include "G4UserLimits.hh"
 
 
+
+
 #include "TString.h"
 
 
@@ -70,7 +72,13 @@ OpNoviceDetectorConstruction::OpNoviceDetectorConstruction(TOpNoviceDetectorLigh
 	OverloadWithDetectorLight();
 	previousSubtraction=NULL;
 	currentSubtraction=NULL;
-	instance=this;
+	if (instance){
+		G4cout<<"An instance of the detector already exists? Error!"<<G4endl;
+		exit(1);
+	}
+	else{
+		instance=this;
+	}
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -117,10 +125,11 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 	double x,y;
 	double xp,yp;
-	G4double faceThickness=1*cm;
-	G4double detectorThickness=5*mm;
-	G4double pixelThickness=.1*mm;	
-	G4double aroundThickness=.2*mm;
+	faceThickness=2*cm;
+	detectorThickness=1*cm;
+	pixelThickness=.1*mm;
+	aroundThickness=.2*mm;
+
 	G4ThreeVector fTrans[6];
 	G4VisAttributes* VisAtt;
 	G4RotationMatrix* fRot[6];	
@@ -218,7 +227,6 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		VisAtt = new G4VisAttributes(G4Colour(1.0,0.7,0.0));
 		VisAtt->SetForceSolid(true);
 		fFaceMarker_log[ii]->SetVisAttributes(VisAtt);
-
 		fAround_box_a[ii]=new G4Box("Around",x/2,y/2,aroundThickness/2);
 
 		for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
@@ -243,42 +251,51 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 				fPhotoQE[ii][jj]=fDetectorLight->getDetQE(ii,jj);
 
 
-				fDetector_box[ii][jj]=new G4Box("Detector",fPhotoDetectorSizeX[ii][jj]/2,fPhotoDetectorSizeY[ii][jj]/2,detectorThickness/2);
-				fDetector_log[ii][jj]=new G4LogicalVolume(fDetector_box[ii][jj],fAir,"Detector",0,0,0);
-
-
-				fPixel_box[ii][jj]=new G4Box("Pixel",fPixelSizeX[ii][jj]/2,fPixelSizeY[ii][jj]/2,pixelThickness/2);
-				fPixel_log[ii][jj]=new G4LogicalVolume(fPixel_box[ii][jj],fAir,"Pixel",0,0,0);
-
-				VisAtt = new G4VisAttributes(G4Colour(0.1,1.,0.1,0.8));
-				VisAtt->SetForceSolid(true);
-				fDetector_log[ii][jj]->SetVisAttributes(VisAtt);
-
-				/*Now place the detector box. First translate wrt the face center, then rotate*/
-				/*With this construction, FIRST Translate in the mother frame, then rotate*/
 
 				rotDet[ii][jj].rotateZ(fPhotoDetectorRotation[ii][jj]);
 				translDet[ii][jj]=G4ThreeVector(fPhotoDetectorCenterX[ii][jj],fPhotoDetectorCenterY[ii][jj],faceThickness/2-fCouplingThickness[ii][jj]-detectorThickness/2);
 				transformDet[ii][jj]=G4Transform3D(rotDet[ii][jj],translDet[ii][jj]);
 
-				/*Place the detector in the face*/
-				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i_Unique:%i",ii,jj,uniqueID),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number
+				if (fDetectorLight->getDetName(ii,jj)=="H8500"){
+					fDetector_log[ii][jj]=buildH8500(ii,jj);
+					fDetector_box[ii][jj]=fH8500_box;
+					fPixel_box[ii][jj]=fH8500Photo_box;
+					fPixel_log[ii][jj]=fH8500Photo_log;
 
-				uniqueID++;
+					fPhotoDetectorSizeX[ii][jj]=H8500FULLSIZE*cm;
+					fPhotoDetectorSizeY[ii][jj]=H8500FULLSIZE*cm;
+				}
+				else if (fDetectorLight->getDetName(ii,jj)=="custom"){ /*For the generic case: construct the detector_log (the box) and the pixel_log*/
+					fDetector_box[ii][jj]=new G4Box("Detector",fPhotoDetectorSizeX[ii][jj]/2,fPhotoDetectorSizeY[ii][jj]/2,detectorThickness/2);
+					fDetector_log[ii][jj]=new G4LogicalVolume(fDetector_box[ii][jj],fVacuum,"Detector",0,0,0);
+					fPixel_box[ii][jj]=new G4Box("Pixel",fPixelSizeX[ii][jj]/2,fPixelSizeY[ii][jj]/2,pixelThickness/2);
+					fPixel_log[ii][jj]=new G4LogicalVolume(fPixel_box[ii][jj],fAir,"Pixel",0,0,0);
+					/*Now place the pixels in the detector*/
+					id=0;
+					for (int iy=0;iy<fNPixelsY[ii][jj];iy++){
+						for (int ix=0;ix<fNPixelsX[ii][jj];ix++){
 
-				/*Now place the pixels in the detector*/
-				id=0;
-				for (int iy=0;iy<fNPixelsY[ii][jj];iy++){
-					for (int ix=0;ix<fNPixelsX[ii][jj];ix++){
+							xp=(fPixelSizeX[ii][jj]-fPhotoDetectorSizeX[ii][jj])/2+ix*fPixelSizeX[ii][jj];
+							yp=(fPixelSizeY[ii][jj]-fPhotoDetectorSizeY[ii][jj])/2+iy*fPixelSizeY[ii][jj];
 
-						xp=(fPixelSizeX[ii][jj]-fPhotoDetectorSizeX[ii][jj])/2+ix*fPixelSizeX[ii][jj];
-						yp=(fPixelSizeY[ii][jj]-fPhotoDetectorSizeY[ii][jj])/2+iy*fPixelSizeY[ii][jj];
 
-						//new G4PVPlacement(0,G4ThreeVector(xp,yp,faceThickness/2-fCouplingThickness[ii]-detectorThickness/2),fPixel_log[ii],Form("Pixel_%i_%i",ii,id),fDetector_log[ii],false,id);
-						new G4PVPlacement(0,G4ThreeVector(xp,yp,detectorThickness/2-pixelThickness/2),fPixel_log[ii][jj],Form("Pixel_%i_%i_%i",ii,jj,id),fDetector_log[ii][jj],false,id);
-						id++;
+							new G4PVPlacement(0,G4ThreeVector(xp,yp,detectorThickness/2-pixelThickness/2),fPixel_log[ii][jj],Form("Pixel_%i_%i_%i",ii,jj,id),fDetector_log[ii][jj],false,id); //copy number
+							id++;
+						}
 					}
 				}
+
+				VisAtt = new G4VisAttributes(G4Colour(0.1,1.,0.1,0.8));
+				VisAtt->SetForceSolid(true);
+				fDetector_log[ii][jj]->SetVisAttributes(VisAtt);
+
+
+
+				/*Place the detector in the face. This is OK for all the cases*/
+				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i",ii,jj,uniqueID),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number within the face
+
+
+
 
 
 				/*Place the optical coupling in the face*/
@@ -344,12 +361,10 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		fAround_phys[ii]=new G4PVPlacement(0,G4ThreeVector(0,0,faceThickness/2-aroundThickness/2),fAround_log[ii],Form("Around_%i",ii),fFace_log[ii],false,0);
 
 		new G4PVPlacement(0,G4ThreeVector(-x/2+2*3*mm,-y/2+2*.5*mm,-faceThickness/2+.2*mm/2),fFaceMarker_log[ii],Form("FaceMarker_%i",ii),fFace_log[ii],false,0);
-
 		new G4PVPlacement(fRot[ii],fTrans[ii],fFace_log[ii],Form("Face%i",ii),fExperimentalHall_log,false,ii); //I use a copy-number to keep the face number
 	}//loop on faces (ii)
 
 
-	//G4VPhysicalVolume* h8500_phys5 = new G4PVPlacement(yRot_4,G4ThreeVector(0.,20.*cm,0.*cm),h8500,"PMT5",fExperimentalHall_log,false,4);
 
 
 	fPmtPlaced=true;
@@ -394,7 +409,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		}
 
 		for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
-
+			///TODO: the case of H8500?
 			G4double DetectorSurfReflectivity[numDetSurf]={fPhotoReflectivity[ii][jj],fPhotoReflectivity[ii][jj]};
 			G4double DetectorSurfEfficiency[numDetSurf]={fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj]),fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj])};    //QE=(1-R)*efficiency
 			fDetectorOpsurf[ii][jj]=new G4OpticalSurface(Form("detector_opsurf_%i_%i",ii,jj),unified,polished,dielectric_metal);
@@ -404,12 +419,6 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 			fDetectorOpsurf[ii][jj]->SetMaterialPropertiesTable(fDetectorOpsurfMT[ii][jj]);
 			fDetectorSkin[ii][jj]=new G4LogicalSkinSurface(Form("detector_surf_%i_%i",ii,jj),fPixel_log[ii][jj],fDetectorOpsurf[ii][jj]);  /*Pixel - coupling material*/
 		}
-
-
-
-
-
-
 	}
 
 
@@ -485,10 +494,15 @@ void OpNoviceDetectorConstruction::DefineMaterials(){
 	assert(sizeof(vacuum_RIND) == sizeof(vacuum_Energy));
 	vacuumMT = new G4MaterialPropertiesTable();
 	vacuumMT->AddProperty("RINDEX", vacuum_Energy, vacuum_RIND,vacnum);
-	fVacuum->SetMaterialPropertiesTable(vacuumMT);
+	//fVacuum->SetMaterialPropertiesTable(vacuumMT);
 
 	//air
 	fAir->SetMaterialPropertiesTable(vacuumMT);//Give air the same rindex as vacuum
+	makeH8500materials();
+
+
+
+
 
 
 
@@ -505,12 +519,12 @@ void OpNoviceDetectorConstruction::ConstructSDandField() {
 	if (!fExperimentalHall_phys) return;
 	if (!fPmtPlaced) return;
 	//Scint SD
-		if (!fScintSD.Get()){
-			    G4cout << "Construction /OpNoviceDet/ScintSD" << G4endl;
-			    OpNoviceScintSD* ScintSD = new OpNoviceScintSD("/OpNoviceDet/ScintSD");
-			    fScintSD.Put(ScintSD);
-			    SetSensitiveDetector(fScintillator_log, fScintSD.Get());
-		}
+	if (!fScintSD.Get()){
+		G4cout << "Construction /OpNoviceDet/ScintSD" << G4endl;
+		OpNoviceScintSD* ScintSD = new OpNoviceScintSD("/OpNoviceDet/ScintSD");
+		fScintSD.Put(ScintSD);
+		SetSensitiveDetector(fScintillator_log, fScintSD.Get());
+	}
 
 	//Detector SD
 	if (!fDetectorSD.Get()) {
@@ -519,9 +533,9 @@ void OpNoviceDetectorConstruction::ConstructSDandField() {
 		OpNoviceDetectorSD* detectorSD = new OpNoviceDetectorSD("/OpNoviceDet/DetectorSD");
 		fDetectorSD.Put(detectorSD);
 		for (int ii=0;ii<6;ii++){
-				for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
-					if (fDetector_log[ii][jj])	SetSensitiveDetector(fPixel_log[ii][jj],fDetectorSD.Get());
-				}
+			for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
+				if (fDetector_log[ii][jj])	SetSensitiveDetector(fPixel_log[ii][jj],fDetectorSD.Get());
+			}
 		}
 	}
 
@@ -602,13 +616,7 @@ void OpNoviceDetectorConstruction::SetDefaults() {
 
 
 	fPmtPlaced=false;
-	/* 
-	G4UImanager::GetUIpointer()
-	->ApplyCommand("/LXe/detector/scintYieldFactor 1.");
 
-	if(fLXe_mt)fLXe_mt->AddConstProperty("SCINTILLATIONYIELD",12000./MeV);
-	if(fMPTPStyrene)fMPTPStyrene->AddConstProperty("SCINTILLATIONYIELD",10./keV);
-	 */
 
 	fMaxStep=0.5*mm;
 
@@ -634,7 +642,7 @@ void OpNoviceDetectorConstruction::makeEJ230(){
 	const G4int numRI = 2;
 	G4double ePhotonRI[numRI] = {1.*eV,10.*eV};
 	G4double RI[numRI] = {fDetectorLight->getRindex(),fDetectorLight->getRindex()};
-	
+
 	G4double absLength[numRI] = {100.*cm,100.*cm}; //temporary
 
 	const G4int numFastLY = 101;
@@ -667,12 +675,97 @@ void OpNoviceDetectorConstruction::makeEJ230(){
 }
 
 
+void  OpNoviceDetectorConstruction::makeH8500materials(){
+	//H8500 Glass
+	fH8500GlassWindow=new G4Material("H8500GlassWindow",2.23*g/cm3, 6);
+	fH8500GlassWindow->AddElement(fB,0.040064);
+	fH8500GlassWindow->AddElement(fO,0.539562);
+	fH8500GlassWindow->AddElement(fNa,0.028191);
+	fH8500GlassWindow->AddElement(fAl,0.011644);
+	fH8500GlassWindow->AddElement(fSi,0.377220);
+	fH8500GlassWindow->AddElement(fK,0.003321);
+
+
+
+	//PMT glass
+	/*http://refractiveindex.info/?shelf=glass&book=HIKARI-BK&page=E-BK7*/
+	const int numGlassRindex=16;
+	G4double lambdaGlassRindex[numGlassRindex]={0.280*um, 0.301*um, 0.322*um, 0.343*um, 0.364*um, 0.386*um, 0.407*um, 0.428*um, 0.449*um, 0.470*um, 0.492*um, 0.513*um, 0.534*um, 0.555*um, 0.576*um, 0.598*um};
+	G4double eGlassRindex[numGlassRindex];
+	for (int ii=0;ii<numGlassRindex;ii++) eGlassRindex[ii]=h_Planck*c_light/lambdaGlassRindex[ii];
+	G4double GlassRindex[numGlassRindex]={1.559270391734, 1.5517282889676, 1.5455412428539, 1.5404772727192, 1.5363084676414, 1.5328456722088, 1.5299403818291, 1.527478148734, 1.5253710432964, 1.5235512346146, 1.5219660054967, 1.5205740166685, 1.5193425426726, 1.5182454307052, 1.5172615878831, 1.5163738528142};
+	G4MaterialPropertiesTable* fH8500GlassWindow_mt = new G4MaterialPropertiesTable();
+	fH8500GlassWindow_mt->AddProperty("RINDEX",eGlassRindex,GlassRindex,numGlassRindex);
+	fH8500GlassWindow->SetMaterialPropertiesTable(fH8500GlassWindow_mt);
+
+
+}
+
+
+
+
+G4LogicalVolume* OpNoviceDetectorConstruction::buildH8500(int iface, int idetector){
+	//This is the function to create the H8500 logical, including all the sub-components
+	//Construct it so that the glass is at z=const, in the xy plane, and the glass starts at z=+14*mm
+	//First, build the box
+	fH8500box_x=H8500FULLSIZE*cm;
+	fH8500box_y=H8500FULLSIZE*cm;
+	fH8500box_z=detectorThickness;
+	fH8500_box = new G4Box("H8500Box",fH8500box_x/2,fH8500box_y/2,fH8500box_z/2);
+	G4LogicalVolume* H8500_log = new G4LogicalVolume(fH8500_box,fVacuum,"H8500Log",0,0,0);
+
+	//Then, build the internal glass, that is active (photocathode is deposited on it)
+	G4double int_glass_x=H8500ACTIVESIZE*cm;
+	G4double int_glass_y=H8500ACTIVESIZE*cm;
+	G4double int_glass_z=H8500GLASSTHICKNESS*cm;
+	fH8500IntGlass_box = new G4Box("H8500GlassInt",int_glass_x/2,int_glass_y/2,int_glass_z/2);
+	G4LogicalVolume* H8500IntGlass_log = new G4LogicalVolume(fH8500IntGlass_box,fH8500GlassWindow,"H8500GlassInt",0,0,0);
+	//place it wrt the mother
+	fH8500IntGlass_phys = new G4PVPlacement(0,G4ThreeVector(0.,0.,fH8500box_z/2-int_glass_z/2),H8500IntGlass_log,Form("H8500GlassInt_%i_%i",iface,idetector),H8500_log,false,0);
+	//visual attributes
+	G4VisAttributes* VisAtt1 = new G4VisAttributes(G4Colour(0.,1.,1.,.6));
+	VisAtt1->SetForceSolid(true);
+	H8500IntGlass_log->SetVisAttributes(VisAtt1);
+
+	//Then, build the external glass, not active
+	G4double ext_glass_x=H8500FULLSIZE*cm;
+	G4double ext_glass_y=H8500FULLSIZE*cm;
+	G4double ext_glass_z=H8500GLASSTHICKNESS*cm;
+
+	G4Box *H8500SubtractionGlass_box1 = new G4Box("H8500SubtractionGlass1",ext_glass_x/2,ext_glass_y/2,ext_glass_z/2);
+	G4Box *H8500SubtractionGlass_box2 = new G4Box("H8500SubtractionGlass2",int_glass_x/2,int_glass_y/2,int_glass_z); //should be int_glass_z/2, but this helps the subtraction
+	G4SubtractionSolid* H8500ExtGlass_box=new G4SubtractionSolid("H8500GlassExt",H8500SubtractionGlass_box1,H8500SubtractionGlass_box2);
+
+	//smooth it
+
+
+
+	G4LogicalVolume* H8500ExtGlass_log = new G4LogicalVolume(H8500ExtGlass_box,fH8500GlassWindow,"H8500GlassExt",0,0,0);
+	//place it wrt the mother
+	G4VPhysicalVolume* H8500ExtGlass_phys = new G4PVPlacement(0,G4ThreeVector(0.,0.,fH8500box_z/2-ext_glass_z/2),H8500ExtGlass_log,"H8500GlassExt",H8500_log,false,0);
+	//visual attributes
+	G4VisAttributes* VisAtt2 = new G4VisAttributes(G4Colour(0.,.4,.6,.6));
+	VisAtt2->SetForceSolid(true);
+	H8500ExtGlass_log->SetVisAttributes(VisAtt2);
+
+	//Then build the photo-cathode, that it is used only for the surface.
+	G4double photo_x= int_glass_x;
+	G4double photo_y= int_glass_y;
+	G4double photo_z=.1*mm;
+
+	fH8500Photo_box=new G4Box("H8500Photocathode",photo_x/2,photo_y/2,photo_z/2);
+	fH8500Photo_log = new G4LogicalVolume(fH8500Photo_box,fAir,"H8500Photocathode",0,0,0); //material is irrelevant, since I define surface properties!
+	fH8500Photo_phys= new G4PVPlacement(0,G4ThreeVector(0.,0.,fH8500box_z/2-int_glass_z-photo_z/2),fH8500Photo_log,"H8500Photocathode",H8500_log,false,0);
+	G4VisAttributes* VisAtt3 = new G4VisAttributes(G4Colour(0.5,0.5,0.5));
+	VisAtt3->SetForceSolid(true);
+	fH8500Photo_log->SetVisAttributes(VisAtt3);
 
 
 
 
 
-
+	return H8500_log;
+}
 
 
 

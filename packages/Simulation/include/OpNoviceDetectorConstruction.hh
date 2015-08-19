@@ -41,6 +41,8 @@
 #include "OpNoviceDetectorSD.hh"
 #include "OpNoviceScintSD.hh"
 #include "TOpNoviceDetectorLight.hh"
+#include "H8500.h"
+
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
@@ -192,6 +194,7 @@ private:
 	G4ThreeVector translCoupling[6][MAX_DETECTORS];
 	G4ThreeVector translAround[6][MAX_DETECTORS];
 
+	G4double faceThickness,detectorThickness,pixelThickness,aroundThickness;
 
 	/*The reflectivity of the wrapping surfaces*/
 	G4double fFaceReflectivity[6];
@@ -212,6 +215,18 @@ private:
 	//member functions
 
 	void makeEJ230();
+	G4LogicalVolume* buildH8500(int iface,int idetector);
+	void makeH8500materials();
+	//for the H8500
+	G4double fH8500box_x,fH8500box_y,fH8500box_z;
+	G4Box* fH8500_box;
+	G4Box* fH8500IntGlass_box;
+	G4Box* fH8500Photo_box;
+	G4Material* fH8500GlassWindow;
+	G4LogicalVolume* fH8500IntGlass_log;
+	G4LogicalVolume* fH8500Photo_log;
+	G4VPhysicalVolume* fH8500IntGlass_phys;
+	G4VPhysicalVolume* fH8500Photo_phys;
 
 	TOpNoviceDetectorLight*  fDetectorLight; 
 

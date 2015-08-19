@@ -73,7 +73,7 @@ private:
 	
 
 	/*identifiers*/
-	G4int fDetectorNumber,fPixelNumber,fFaceNumber,fUniqueNumber;
+	G4int fDetectorNumber,fPixelNumber,fFaceNumber;
 	G4String fName;
 	
 	/*Semi-raw variables*/
@@ -95,8 +95,6 @@ public:
 	inline void SetFaceNumber(G4int n) { fFaceNumber = n; }
 	inline G4int GetFaceNumber() { return fFaceNumber; }
 
-	inline void SetUniqueNumber(G4int n) { fUniqueNumber = n; }
-	inline G4int GetUniqueNumber() { return fUniqueNumber; }
 
 
 

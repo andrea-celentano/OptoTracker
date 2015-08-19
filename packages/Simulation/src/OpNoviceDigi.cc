@@ -44,7 +44,7 @@ G4ThreadLocal G4Allocator<OpNoviceDigi> *OpNoviceDigiAllocator = 0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 OpNoviceDigi::OpNoviceDigi(G4String name):
-fName(name),fFirstHitTime(999999),fDetectorNumber(-1),fPixelNumber(-1),fFaceNumber(-1),fUniqueNumber(-1),fNPhe(0)
+fName(name),fFirstHitTime(999999),fDetectorNumber(-1),fPixelNumber(-1),fFaceNumber(-1),fNPhe(0)
 {
 }
 
@@ -61,7 +61,6 @@ OpNoviceDigi::OpNoviceDigi(const OpNoviceDigi& right)
 	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
 	fFaceNumber=right.fFaceNumber;
-	fUniqueNumber=right.fUniqueNumber;
 	fName=right.fName;
 
 
@@ -77,7 +76,6 @@ const OpNoviceDigi& OpNoviceDigi::operator=(const OpNoviceDigi& right)
 	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
 	fFaceNumber=right.fFaceNumber;
-	fUniqueNumber=right.fUniqueNumber;
 	fName=right.fName;
 
 	fNPhe=right.fNPhe;

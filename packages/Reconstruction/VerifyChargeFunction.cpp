@@ -92,8 +92,14 @@ int main(int argc,char **argv){
 
 
 	TF1 *fPoisson=new TF1("poisson",poissonf,0,100,2);
+	fPoisson->SetNpx(1000);
 
 	//Parse the command line, open the input file
+	if (argc==1){
+		PrintHelp();
+		exit(1);
+	}
+
 	ParseCommandLine(argc,argv);
 	fin=new TFile(fName.c_str());
 	//Check if we have detector info in the ROOT file.
@@ -160,7 +166,6 @@ int main(int argc,char **argv){
 			pixelNumber=digi->at(jj)-> GetPixelNumber();
 			hCharge[faceNumber][detNumber].at(pixelNumber)->Fill(digi->at(jj)->GetPheCount());
 		}
-
 	}
 
 

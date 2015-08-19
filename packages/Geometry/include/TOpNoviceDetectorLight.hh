@@ -18,11 +18,13 @@ private:
 	double LY,fastScintTime,rIndex;
 	double scintSizeX,scintSizeY,scintSizeZ;
 
-	int Ndet[6];
+	int Ndet[6];int detPresent[6][MAX_DETECTORS];
+
+	string detName[6][MAX_DETECTORS];
 	double detSizeX[6][MAX_DETECTORS],detSizeY[6][MAX_DETECTORS];
 	double detPixelSizeX[6][MAX_DETECTORS],detPixelSizeY[6][MAX_DETECTORS];
 	int detNpixelsX[6][MAX_DETECTORS],detNpixelsY[6][MAX_DETECTORS];
-	int detPresent[6][MAX_DETECTORS];
+
 
 	/*Overall detector propeties*/
 	double detQE[6][MAX_DETECTORS];
@@ -90,6 +92,9 @@ public:
 	void setDetCenterX(int iface,int idetector,double val){detCenterX[iface][idetector]=val;}
 	void setDetCenterY(int iface,int idetector,double val){detCenterY[iface][idetector]=val;}
 	void setDetRotation(int iface,int idetector,double val){detRotation[iface][idetector]=val;}
+
+	void setDetName(int iface,int idetector,string val){detName[iface][idetector]=val;}
+	string getDetName(int iface, int idetector){return detName[iface][idetector];}
 
 	void setNPixelsX(int iface,int idetector,int N){detNpixelsX[iface][idetector]=N;}
 	void setNPixelsY(int iface,int idetector,int N){detNpixelsY[iface][idetector]=N;}

@@ -157,6 +157,9 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 		if(thePostPoint->GetStepStatus()==fGeomBoundary){
 			if(fExpectedNextStatus==StepTooSmall){
 				if(boundaryStatus!=StepTooSmall){
+					G4cout<<theStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
+					G4cout<<theStep->GetPostStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
+
 					G4ExceptionDescription ed;
 					ed << "OpNoviceSteppingAction::UserSteppingAction(): "
 							<< "No reallocation step after reflection!"
@@ -182,7 +185,7 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 					thePostPoint->GetTouchable->GetVolume(2) is the "face"
 				 */
 
-				/*The PrePoint is in the coupling
+				/*  thePrePoint is in the coupling
 					thePostPoint->GetTouchable->GetVolume(1) is the "face"
 				 */
 				eventInformation->IncDetection();

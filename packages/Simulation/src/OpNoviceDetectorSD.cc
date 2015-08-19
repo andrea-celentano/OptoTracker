@@ -79,7 +79,7 @@ void OpNoviceDetectorSD::SetPmtPositions(const std::vector<G4ThreeVector>& posit
 
 void OpNoviceDetectorSD::Initialize(G4HCofThisEvent* hitsCE){ //at the beginning of every EVENT!
 	fDetectorHitCollection = new OpNoviceDetectorHitsCollection(SensitiveDetectorName,collectionName[0]);
-        //Store collection with event and keep ID
+	//Store collection with event and keep ID
 	static G4int hitCID = -1;
 	if(hitCID<0){
 		hitCID = GetCollectionID(0);
@@ -92,7 +92,7 @@ void OpNoviceDetectorSD::Initialize(G4HCofThisEvent* hitsCE){ //at the beginning
 	if(HCID<0)
 	{ HCID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]); }
 	HCE->AddHitsCollection( HCID, trackerCollection ); 
-	
+
 	static G4bool registered = false;
 	if ( ! registered ) {
 		G4cout << "... registering TClonesArray" << G4endl;
@@ -100,10 +100,10 @@ void OpNoviceDetectorSD::Initialize(G4HCofThisEvent* hitsCE){ //at the beginning
 			->Register("hits", "TClonesArray",&fRootCollection);
 		registered = true;
 	}   */
-	
-	
-	
-	
+
+
+
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -115,7 +115,7 @@ G4bool OpNoviceDetectorSD::ProcessHits(G4Step* aStep ,G4TouchableHistory* aHist)
 
 	//need to know if this is an optical photon
 	if(aStep->GetTrack()->GetDefinition()!=G4OpticalPhoton::OpticalPhotonDefinition()) return false;
-	
+
 	//Pay attention here: any particle with pre-step point in the photo-cathode will ALSO trigger this!
 	//This happens, for example, if a particle is reflected by the photo-cathode.
 	//Trick: look at the energy deposited. OpBoundaryProcesss, for the detection, will assign the photon energy to the photo-cathode
@@ -125,35 +125,52 @@ G4bool OpNoviceDetectorSD::ProcessHits(G4Step* aStep ,G4TouchableHistory* aHist)
 	G4StepPoint* postStepPoint = aStep->GetPostStepPoint();	       
 
 	//we have replicas both for the pixel,for the Detector(mother volume), and for the Face (grand-mother)
-	
-	
-	G4int faceNumber=postStepPoint->GetTouchable()->GetReplicaNumber(2);
-	G4int detectorNumber=postStepPoint->GetTouchable()->GetReplicaNumber(1);
+
 	G4int pixelNumber=postStepPoint->GetTouchable()->GetReplicaNumber(0);
-	
-	G4VPhysicalVolume* physVol=postStepPoint->GetTouchable()->GetVolume(0);       //this is the pixel
-	G4VPhysicalVolume* physVolMother=postStepPoint->GetTouchable()->GetVolume(2); //this is the detector box
-	
+	G4int detectorNumber=postStepPoint->GetTouchable()->GetReplicaNumber(1);
+	G4int faceNumber=postStepPoint->GetTouchable()->GetReplicaNumber(2);
+
+
+
+	G4VPhysicalVolume* physVol=postStepPoint->GetTouchable()->GetVolume(0);           //this is the pixel
+	G4VPhysicalVolume* physVolMother=postStepPoint->GetTouchable()->GetVolume(1);     //this is the detector
+	G4VPhysicalVolume* physVolGranMother=postStepPoint->GetTouchable()->GetVolume(2); //this is the face
+
 
 	G4double hitTime1=postStepPoint->GetGlobalTime();
 	G4double hitTime2=preStepPoint->GetGlobalTime();
 	G4double energy=aStep->GetTrack()->GetTotalEnergy();
-	
+
 	G4ThreeVector globalPosition=postStepPoint->GetPosition();
-	G4ThreeVector localPosition=preStepPoint->GetTouchableHandle()->GetHistory()->GetTopTransform().TransformPoint(globalPosition);
-	
+	G4ThreeVector localPosition=postStepPoint->GetTouchableHandle()->GetHistory()->GetTopTransform().TransformPoint(globalPosition);
+
 	//wrt the local coordinates.
 	//for reference, as seen from the photon side, the center is at (0,0) and the marker is at (-,-), pointing toward positive X
 	G4double x=localPosition.x();
 	G4double y=localPosition.y();
-	
+
 	/*G4cout<<"PRE: "<<preStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
 	G4cout<<"POST: "<<postStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
 	G4cout<<"PHYS: "<<physVol->GetName()<<G4endl;
 	G4cout<<"Mother:"<<physVolMother->GetName()<<G4endl;
+	G4cout<<"Gran Mother:"<<physVolGranMother->GetName()<<G4endl;
 	G4cout<<"hit: "<<faceNumber<<" "<<detectorNumber<<" "<<pixelNumber<<endl;
 	G4cout<<"coord: "<<x<<" "<<y<<G4endl;
-    */
+*/
+
+	if ((physVol->GetName()=="H8500Photocathode")&&(preStepPoint->GetPhysicalVolume()->GetName()!=Form("H8500GlassInt_%i_%i",faceNumber,detectorNumber))){
+	/*	    G4cout<<"PRE: "<<preStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
+			G4cout<<"POST: "<<postStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
+			G4cout<<"PHYS: "<<physVol->GetName()<<G4endl;
+			G4cout<<"Mother:"<<physVolMother->GetName()<<G4endl;
+			G4cout<<"Gran Mother:"<<physVolGranMother->GetName()<<G4endl;
+			G4cout<<"hit: "<<faceNumber<<" "<<detectorNumber<<" "<<pixelNumber<<endl;
+			G4cout<<"coord: "<<x<<" "<<y<<G4endl;
+
+			G4cout<<"Correct this work-around please"<<G4endl;*/
+			return false;
+	}
+
 	//create a new hit, always.	                                      
 	G4int n=fDetectorHitCollection->entries();
 	OpNoviceDetectorHit* hit=NULL;
@@ -164,20 +181,25 @@ G4bool OpNoviceDetectorSD::ProcessHits(G4Step* aStep ,G4TouchableHistory* aHist)
 		}
 	}
 	
+
 	if(hit==NULL){//this pmt wasnt previously hit in this event
 		hit = new OpNoviceDetectorHit();   //so create new hit
 		hit->SetFaceNumber(faceNumber);
 		hit->SetDetectorNumber(detectorNumber);
 		hit->SetDetectorPhysVol(physVol); //photocathode
-		hit->SetDetectorPhysVolMother(physVolMother); //box around
+		hit->SetDetectorPhysVolMother(physVolGranMother); //box around
 		if (physVol->GetName()=="H8500Photocathode"){
 			hit->SetName("H8500");		
+
+		}
+		else if (physVol->GetName()=="custom"){
+			hit->SetName("custom");
 		}
 		fDetectorHitCollection->insert(hit);
 	}
 	hit->IncrementNPhe();
 	hit->SetHitData(hitTime1,energy,x,y,pixelNumber);
-	
+
 	hit->SetDrawit(true);
 	return true;
 }
@@ -188,7 +210,7 @@ void OpNoviceDetectorSD::EndOfEvent(G4HCofThisEvent *hitsCE) {
 
 	/*Here is a good place to digitize hits!*/
 	//G4cout<<"OpNoviceDetectorSD::EndOfEvent"<<G4endl;
-	
+
 	/*Do the digitization. This creates the collection of digitized hits and stores it in the G4DCOfThisEvent*/
 	fDigitizer->Digitize();
 }
