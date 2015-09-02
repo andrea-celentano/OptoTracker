@@ -55,7 +55,7 @@ private:
 public:
 	TOpNoviceDetectorLight(string fname);
 	TOpNoviceDetectorLight();
-	virtual ~TOpNoviceDetectorLight(){printf("TOpNoviceDetectorLight deconstructor\n");}
+	virtual ~TOpNoviceDetectorLight(){};
 	/*Scintillator*/
 	void setScintSizeX(double s){scintSizeX=s;}
 	void setScintSizeY(double s){scintSizeY=s;}

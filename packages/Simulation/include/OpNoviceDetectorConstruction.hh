@@ -222,7 +222,7 @@ private:
 	G4Box* fH8500_box;
 	G4Box* fH8500IntGlass_box;
 	G4Box* fH8500Photo_box;
-	G4Material* fH8500GlassWindow;
+	G4Material* fH8500C03GlassWindow;
 	G4LogicalVolume* fH8500IntGlass_log;
 	G4LogicalVolume* fH8500Photo_log;
 	G4VPhysicalVolume* fH8500IntGlass_phys;

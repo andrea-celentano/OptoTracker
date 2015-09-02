@@ -391,7 +391,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		G4double ScintSurfReflectivity[numScintSurf]={fFaceReflectivity[ii],fFaceReflectivity[ii]};
 
 		/*This is the part of the face NOT in contact to the detector*/
-		fFaceOpsurf[ii]=new G4OpticalSurface("scint_opsurf",unified,groundfrontpainted,dielectric_dielectric);
+		fFaceOpsurf[ii]=new G4OpticalSurface("scint_opsurf",unified,polishedfrontpainted,dielectric_dielectric);
 		fFaceOpsurf[ii]->SetSigmaAlpha(.1);
 		fFaceOpsurfMT[ii] = new G4MaterialPropertiesTable();
 		fFaceOpsurfMT[ii]->AddProperty("REFLECTIVITY",ePhotonScintSurf, ScintSurfReflectivity,numScintSurf);
@@ -498,14 +498,9 @@ void OpNoviceDetectorConstruction::DefineMaterials(){
 
 	//air
 	fAir->SetMaterialPropertiesTable(vacuumMT);//Give air the same rindex as vacuum
+
+	//make the H8500 materials
 	makeH8500materials();
-
-
-
-
-
-
-
 
 	//build the EJ230 scintillator material
 	makeEJ230();
@@ -677,26 +672,26 @@ void OpNoviceDetectorConstruction::makeEJ230(){
 
 void  OpNoviceDetectorConstruction::makeH8500materials(){
 	//H8500 Glass
-	fH8500GlassWindow=new G4Material("H8500GlassWindow",2.23*g/cm3, 6);
-	fH8500GlassWindow->AddElement(fB,0.040064);
-	fH8500GlassWindow->AddElement(fO,0.539562);
-	fH8500GlassWindow->AddElement(fNa,0.028191);
-	fH8500GlassWindow->AddElement(fAl,0.011644);
-	fH8500GlassWindow->AddElement(fSi,0.377220);
-	fH8500GlassWindow->AddElement(fK,0.003321);
+	fH8500C03GlassWindow=new G4Material("H8500GlassWindow",2.23*g/cm3, 6);
+	fH8500C03GlassWindow->AddElement(fB,0.040064);
+	fH8500C03GlassWindow->AddElement(fO,0.539562);
+	fH8500C03GlassWindow->AddElement(fNa,0.028191);
+	fH8500C03GlassWindow->AddElement(fAl,0.011644);
+	fH8500C03GlassWindow->AddElement(fSi,0.377220);
+	fH8500C03GlassWindow->AddElement(fK,0.003321);
 
 
 
-	//PMT glass
-	/*http://refractiveindex.info/?shelf=glass&book=HIKARI-BK&page=E-BK7*/
-	const int numGlassRindex=16;
-	G4double lambdaGlassRindex[numGlassRindex]={0.280*um, 0.301*um, 0.322*um, 0.343*um, 0.364*um, 0.386*um, 0.407*um, 0.428*um, 0.449*um, 0.470*um, 0.492*um, 0.513*um, 0.534*um, 0.555*um, 0.576*um, 0.598*um};
-	G4double eGlassRindex[numGlassRindex];
-	for (int ii=0;ii<numGlassRindex;ii++) eGlassRindex[ii]=h_Planck*c_light/lambdaGlassRindex[ii];
-	G4double GlassRindex[numGlassRindex]={1.559270391734, 1.5517282889676, 1.5455412428539, 1.5404772727192, 1.5363084676414, 1.5328456722088, 1.5299403818291, 1.527478148734, 1.5253710432964, 1.5235512346146, 1.5219660054967, 1.5205740166685, 1.5193425426726, 1.5182454307052, 1.5172615878831, 1.5163738528142};
-	G4MaterialPropertiesTable* fH8500GlassWindow_mt = new G4MaterialPropertiesTable();
-	fH8500GlassWindow_mt->AddProperty("RINDEX",eGlassRindex,GlassRindex,numGlassRindex);
-	fH8500GlassWindow->SetMaterialPropertiesTable(fH8500GlassWindow_mt);
+	//H8500C-03 PMT glass
+	/*Hamamatsu private communication*/
+	const int numGlassRindexH8500C03=21;
+	G4double lambdaGlassRindexH8500C03[numGlassRindexH8500C03]={300*nm,310*nm,320*nm,330*nm,340*nm,350*nm,360*nm,370*nm,380*nm,390*nm,400*nm,410*nm,420*nm,430*nm,440*nm,450*nm,460*nm,470*nm,480*nm,490*nm,500*nm};
+	G4double eGlassRindexH8500C03[numGlassRindexH8500C03];
+	for (int ii=0;ii<numGlassRindexH8500C03;ii++) eGlassRindexH8500C03[ii]=h_Planck*c_light/lambdaGlassRindexH8500C03[ii];
+	G4double GlassRindexH8500C03[numGlassRindexH8500C03]={1.504,1.503,1.504,1.504,1.503,1.502,1.495,1.494,1.489,1.481,1.477,1.473,1.472,1.47,1.468,1.467,1.468,1.465,1.47,1.469,1.473};
+	G4MaterialPropertiesTable* fH8500C03GlassWindow_mt = new G4MaterialPropertiesTable();
+	fH8500C03GlassWindow_mt->AddProperty("RINDEX",eGlassRindexH8500C03,GlassRindexH8500C03,numGlassRindexH8500C03);
+	fH8500C03GlassWindow->SetMaterialPropertiesTable(fH8500C03GlassWindow_mt);
 
 
 }
@@ -719,7 +714,7 @@ G4LogicalVolume* OpNoviceDetectorConstruction::buildH8500(int iface, int idetect
 	G4double int_glass_y=H8500ACTIVESIZE*cm;
 	G4double int_glass_z=H8500GLASSTHICKNESS*cm;
 	fH8500IntGlass_box = new G4Box("H8500GlassInt",int_glass_x/2,int_glass_y/2,int_glass_z/2);
-	G4LogicalVolume* H8500IntGlass_log = new G4LogicalVolume(fH8500IntGlass_box,fH8500GlassWindow,"H8500GlassInt",0,0,0);
+	G4LogicalVolume* H8500IntGlass_log = new G4LogicalVolume(fH8500IntGlass_box,fH8500C03GlassWindow,"H8500GlassInt",0,0,0);
 	//place it wrt the mother
 	fH8500IntGlass_phys = new G4PVPlacement(0,G4ThreeVector(0.,0.,fH8500box_z/2-int_glass_z/2),H8500IntGlass_log,Form("H8500GlassInt_%i_%i",iface,idetector),H8500_log,false,0);
 	//visual attributes
@@ -740,7 +735,7 @@ G4LogicalVolume* OpNoviceDetectorConstruction::buildH8500(int iface, int idetect
 
 
 
-	G4LogicalVolume* H8500ExtGlass_log = new G4LogicalVolume(H8500ExtGlass_box,fH8500GlassWindow,"H8500GlassExt",0,0,0);
+	G4LogicalVolume* H8500ExtGlass_log = new G4LogicalVolume(H8500ExtGlass_box,fH8500C03GlassWindow,"H8500GlassExt",0,0,0);
 	//place it wrt the mother
 	G4VPhysicalVolume* H8500ExtGlass_phys = new G4PVPlacement(0,G4ThreeVector(0.,0.,fH8500box_z/2-ext_glass_z/2),H8500ExtGlass_log,"H8500GlassExt",H8500_log,false,0);
 	//visual attributes
