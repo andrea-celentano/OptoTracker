@@ -154,9 +154,10 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			cout<<fRootCollectionScintRaw->GetClass()->GetName()<<endl;
 			cin.get();
 			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
-			//cout<<((*scintHC)[i])->GetEdep()<<endl;
 
-			if (fSaveScintRaw) (*(fRootCollectionScintRaw->ConstructedAt(i)))=(*((*scintHC)[i]));
+			cout<<((*scintHC)[i])->GetEdep()<<endl;
+
+			if (fSaveScintRaw) (*(fRootCollectionScintRaw->ConstructedAt(i)))=(OpNoviceScintHit)(*((*scintHC)[i]));
 			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
 		}
 	}

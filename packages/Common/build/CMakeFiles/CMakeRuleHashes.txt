@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+e8dc41499980fd15e60a4552c1f068f3 CommonClasses.cpp
