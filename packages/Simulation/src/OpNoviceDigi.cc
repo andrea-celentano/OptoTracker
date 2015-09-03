@@ -105,8 +105,10 @@ void OpNoviceDigi::Print()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 
-
-
+/*From root TOBject*/
+void OpNoviceDigi::Clear(Option_t* option){
+	Info("OpNoviceDigi","OpNoviceDigi:Clear called");
+}
 
 
 

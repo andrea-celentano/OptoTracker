@@ -121,23 +121,18 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 		}
 	}
 
-	//get the RootIO pointer and the corresponding collections*/
+	//get the RootIO pointer and the corresponding event*/
 	fRootIO=RootIO::GetInstance();
+	fEvent=fRootIO->GetEvent();
+	fEvent->Clear("C"); /*This is a fundamental instruction*/
 
-	fRootCollectionScintRaw=fRootIO->GetRootCollectionScintRaw();
-	fRootCollectionDetRaw=fRootIO->GetRootCollectionDetRaw();
-	fRootCollectionDetDigi=fRootIO->GetRootCollectionDetDigi();
-	fMCEvent=fRootIO->GetMCEvent();
 
-	//TClonesArray &mRootCollectionRaw=*fRootCollectionRaw;
-	std::vector<OpNoviceScintHit*>    &mRootCollectionScintRaw=*fRootCollectionScintRaw;
-	std::vector<OpNoviceDetectorHit*> &mRootCollectionDetRaw=*fRootCollectionDetRaw;
-	std::vector<OpNoviceDigi*>        &mRootCollectionDetDigi=*fRootCollectionDetDigi;
-	MCEvent &mMCEvent=*fMCEvent;
+	fRootCollectionScintRaw=fEvent->getCollectionByName("ScintRawMC");
+	fRootCollectionDetRaw=fEvent->getCollectionByName("DetRawMC");
+	fRootCollectionDetDigi=fEvent->getCollectionByName("DetDigiMC");
 
-	mRootCollectionScintRaw.clear();
-	mRootCollectionDetRaw.clear();
-	mRootCollectionDetDigi.clear();
+
+
 
 	detectorHC = 0;
 	G4HCofThisEvent* hitsCE = anEvent->GetHCofThisEvent(); //hits
@@ -148,21 +143,23 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	}
 
 	//raw hits in scintillator
-
-	mMCEvent.Etot=0;
-
+	//mMCEvent.Etot=0;
 	if (scintHC){
 		G4int scintN=scintHC->entries(); /*Here 1 hit is 1 hit in the scintillator*/
 	//	G4cout<<" There are: "<<scintN<<" hits in scintillator"<<G4endl;
 		for (G4int i=0;i<scintN;i++){
 			//G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
-			mMCEvent.Etot+=(*scintHC)[i]->GetEdep();
-			if (fSaveScintRaw) mRootCollectionScintRaw.push_back((*scintHC)[i]);
+			//mMCEvent.Etot+=(*scintHC)[i]->GetEdep(); ///TODO
+			cout<<"aa"<<endl;
+			cout<<fRootCollectionScintRaw->GetClass()->GetName()<<endl;
+			cin.get();
+			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
+			//cout<<((*scintHC)[i])->GetEdep()<<endl;
+
+			if (fSaveScintRaw) (*(fRootCollectionScintRaw->ConstructedAt(i)))=(*((*scintHC)[i]));
+			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
 		}
 	}
-
-	fRootIO->FillMCEvent();
-	if (fSaveScintRaw) fRootIO->FillScintRaw();
 
 
 	//raw hits in detector
@@ -180,7 +177,8 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 				(*detectorHC)[i]->SetDrawit(false);
 			}*/
 
-			if (fSaveDetRaw) mRootCollectionDetRaw.push_back((*detectorHC)[i]);
+			if (fSaveDetRaw)  (*(fRootCollectionDetRaw->ConstructedAt(i)))=(*((*detectorHC)[i]));
+
 		}
 		/*Scala di colore qui*/
 		/*for(G4int i=0;i<pmts;i++){
@@ -190,8 +188,6 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//	detectorHC->DrawAllHits();
 		}
 	}
-	/*Root Save*/
-	if (fSaveDetRaw) fRootIO->FillDetRaw();
 
 	//digi hits in detector
 	if (fDoDigi){
@@ -210,7 +206,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
 				if (fSaveDetDigi){
-					mRootCollectionDetDigi.push_back((*detectorDigiHC)[i]);
+					(*(fRootCollectionDetDigi->ConstructedAt(i)))=(*((*detectorDigiHC)[i]));
 				}
 			}
 			if (G4VVisManager::GetConcreteInstance()!=0){
@@ -218,8 +214,10 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			}
 		}
 	}
-	if (fSaveDetDigi) fRootIO->FillDetDigi();
 
+
+
+	fRootIO->FillEvent();
 
 	if(fVerbose>0){
 		//End of event output. later to be controlled by a verbose level

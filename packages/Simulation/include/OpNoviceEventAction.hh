@@ -50,43 +50,43 @@ class OpNoviceRecorderBase;
 class OpNoviceEventAction : public G4UserEventAction
 {
 public:
-	
+
 	OpNoviceEventAction(OpNoviceRecorderBase*);
 	virtual ~OpNoviceEventAction();
-	
+
 public:
-	
+
 	virtual void BeginOfEventAction(const G4Event*);
 	virtual void EndOfEventAction(const G4Event*);
-	
-	
-	
+
+
+
 	void SetEventVerbose(G4int v){fVerbose=v;}
-	
-	
+
+
 	void SetForceDrawPhotons(G4bool b){fForcedrawphotons=b;}
 	void SetForceDrawNoPhotons(G4bool b){fForcenophotons=b;}
-	
+
 	inline void SetDoDigi(G4bool b){fDoDigi=b;}
-	
+
 	inline void SetSaveScintRaw(G4bool b){fSaveScintRaw=b;}
 	inline void SetSaveDetRaw(G4bool b){fSaveDetRaw=b;}
 	inline void SetSaveDetDigi(G4bool b){fSaveDetDigi=b;}
 
 private:
-	
+
 	OpNoviceRecorderBase* fRecorder;
 	OpNoviceMessenger* fMessenger;
-	
-	
-	
 
-	
+
+
+
+
 
 	G4int              fVerbose;
-	
-	
-	
+
+
+
 	G4bool fForcedrawphotons;
 	G4bool fForcenophotons;
 
@@ -94,7 +94,7 @@ private:
 	G4bool fSaveDetRaw;
 	G4bool fSaveDetDigi;
 	G4bool fDoDigi;
-	
+
 	G4int              fScintCollID;
 	G4int              fDetectorCollID;
 	G4int              fDetectorDigiCollID;
@@ -102,14 +102,14 @@ private:
 	OpNoviceScintHitsCollection* scintHC;
 	OpNoviceDetectorHitsCollection* detectorHC;
 	OpNoviceDigitsCollection* detectorDigiHC;
-	
+
 	/*To save data*/
 	RootIO *fRootIO;
-	
+	TEvent *fEvent;
 	MCEvent* fMCEvent;
-	std::vector<OpNoviceScintHit*>    *fRootCollectionScintRaw;
-	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
-	std::vector<OpNoviceDigi*>        *fRootCollectionDetDigi;
+	TClonesArray*    fRootCollectionScintRaw;
+	TClonesArray*     fRootCollectionDetRaw;
+	TClonesArray*     fRootCollectionDetDigi;
 
 };
 

@@ -43,7 +43,8 @@
 
 #include "tls.hh"
 
-class OpNoviceScintHit : public G4VHit
+#include "TObject.h"
+class OpNoviceScintHit : public TObject, public G4VHit
 {
   public:
 
@@ -74,6 +75,14 @@ class OpNoviceScintHit : public G4VHit
     G4ThreeVector fPos;
     const G4VPhysicalVolume* fPhysVol;
 
+    /*From root TObject*/
+  public:
+    	virtual void Clear(Option_t* option="");
+    	virtual const char* GetName() const{return "TOpNoviceScintHit";}
+
+
+
+    ClassDef(OpNoviceScintHit,1);
 };
 
 typedef G4THitsCollection<OpNoviceScintHit> OpNoviceScintHitsCollection;

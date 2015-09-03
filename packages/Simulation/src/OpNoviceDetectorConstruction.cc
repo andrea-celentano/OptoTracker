@@ -134,9 +134,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 	G4VisAttributes* VisAtt;
 	G4RotationMatrix* fRot[6];	
 
-	int ix,iy,id,uniqueID;
-
-	uniqueID=0;
+	int ix,iy,id;
 
 	// ------------- Materials -------------
 	DefineMaterials();
@@ -155,7 +153,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 	//fDummy_log = new G4LogicalVolume(fDummy_box,fAir,"Dummy",0,0,0);
 	//fDummy_phys = new G4PVPlacement(0,G4ThreeVector(fExpHall_x/2-1*cm,fExpHall_y/2-1*cm,fExpHall_z/2-1*cm),fDummy_log,"Dummy",fExperimentalHall_log ,false,0);
 
-	G4double delta = 1*mm;
+
 	// The Scintillator
 	fScint_x=fDetectorLight->getScintSizeX()*cm;
 	fScint_y=fDetectorLight->getScintSizeX()*cm;
@@ -272,8 +270,8 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 					fPixel_log[ii][jj]=new G4LogicalVolume(fPixel_box[ii][jj],fAir,"Pixel",0,0,0);
 					/*Now place the pixels in the detector*/
 					id=0;
-					for (int iy=0;iy<fNPixelsY[ii][jj];iy++){
-						for (int ix=0;ix<fNPixelsX[ii][jj];ix++){
+					for (iy=0;iy<fNPixelsY[ii][jj];iy++){
+						for (ix=0;ix<fNPixelsX[ii][jj];ix++){
 
 							xp=(fPixelSizeX[ii][jj]-fPhotoDetectorSizeX[ii][jj])/2+ix*fPixelSizeX[ii][jj];
 							yp=(fPixelSizeY[ii][jj]-fPhotoDetectorSizeY[ii][jj])/2+iy*fPixelSizeY[ii][jj];
@@ -292,7 +290,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
 
 				/*Place the detector in the face. This is OK for all the cases*/
-				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i",ii,jj,uniqueID),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number within the face
+				new G4PVPlacement(transformDet[ii][jj],fDetector_log[ii][jj],Form("Detector_%i_%i",ii,jj),fFace_log[ii],false,jj);//I use a copy-number to keep the detector number within the face
 
 
 

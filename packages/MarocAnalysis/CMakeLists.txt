@@ -39,7 +39,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include 
  					${Geant4_INCLUDE_DIR}
                     ${ROOT_INCLUDE_DIR}
-		    $ENV{OPTO}/packages/Geometry/include
+		    $ENV{OPTO}/packages/Common/include
 		    $ENV{OPTO}/packages/Simulation/include
 		    $ENV{OPTO}/packages/Reconstruction/include
 		    )
@@ -64,13 +64,13 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
 add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
-target_link_libraries(PrintMaroc ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(PrintMaroc ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocAnalysis ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(comparison comparison.cpp ${sources} ${headers})
-target_link_libraries(comparison ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(comparison ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

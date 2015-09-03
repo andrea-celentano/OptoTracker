@@ -41,11 +41,11 @@ G4ThreadLocal G4Allocator<OpNoviceScintHit>* OpNoviceScintHitAllocator=0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceScintHit::OpNoviceScintHit() : fEdep(0.), fPos(0.), fPhysVol(0) {}
+OpNoviceScintHit::OpNoviceScintHit() : TObject(),fEdep(0.), fPos(0.), fPhysVol(0) {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceScintHit::OpNoviceScintHit(G4VPhysicalVolume* pVol) : fPhysVol(pVol) {}
+OpNoviceScintHit::OpNoviceScintHit(G4VPhysicalVolume* pVol) : TObject(),fEdep(0.), fPos(0.), fPhysVol(pVol) {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -53,7 +53,7 @@ OpNoviceScintHit::~OpNoviceScintHit() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceScintHit::OpNoviceScintHit(const OpNoviceScintHit &right) : G4VHit()
+OpNoviceScintHit::OpNoviceScintHit(const OpNoviceScintHit &right) : G4VHit(),TObject()
 {
   fEdep = right.fEdep;
   fPos = right.fPos;
@@ -83,3 +83,9 @@ void OpNoviceScintHit::Draw() {}
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void OpNoviceScintHit::Print() {}
+
+
+//From ROOT TObject
+void OpNoviceScintHit::Clear(Option_t* option){
+
+}

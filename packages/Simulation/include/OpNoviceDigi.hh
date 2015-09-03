@@ -49,16 +49,17 @@
 #include "G4VPhysicalVolume.hh"
 
 #include <vector>
+#include "TObject.h"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-class OpNoviceDigi : public G4VDigi
+class OpNoviceDigi :public TObject, public G4VDigi
 {
 
 public:
   
  // OpNoviceDigi();
   OpNoviceDigi(G4String name="");
-  ~OpNoviceDigi();
+  virtual ~OpNoviceDigi();
   OpNoviceDigi(const OpNoviceDigi&);
   const OpNoviceDigi& operator=(const OpNoviceDigi&);
   int operator==(const OpNoviceDigi&) const;
@@ -96,7 +97,7 @@ public:
 	inline G4int GetFaceNumber() { return fFaceNumber; }
 
 
-
+	inline G4String GetName(){return fName;}
 
 
 	inline void SetPixelNumber(G4int n) { fPixelNumber = n; }
@@ -116,6 +117,14 @@ public:
 	inline void SetPMTPhysVolMother(G4VPhysicalVolume* physVol){this->fPhysVolMother=physVol;}
 	inline G4VPhysicalVolume* GetPMTPhysVolMother(){return fPhysVolMother;}
 
+    /*From root TObject*/
+  public:
+    	virtual void Clear(Option_t* option="");
+    	virtual const char* GetName() const{return fName;}
+
+
+
+	ClassDef(OpNoviceDigi,1);
 	
 	
 };

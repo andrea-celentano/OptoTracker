@@ -37,6 +37,9 @@
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TSystem.h"
+
+#include "TEvent.hh"
+
 #include "TClonesArray.h"
 
 #include "OpNoviceScintHit.hh"
@@ -62,15 +65,12 @@
 class RootIO 
 {
 public: 
+	RootIO();
 	virtual ~RootIO();
 	
-	static RootIO* GetInstance();
-	void FillMCEvent();
-	void FillScintRaw();
-	void FillDetRaw();
-	void FillDetDigi();
-	void FillAll();
 
+	static RootIO* GetInstance();
+	void FillEvent();
 	void WriteAll();
 	void Init(int n);
 	
@@ -78,10 +78,8 @@ public:
 	inline void SetName(std::string s){this->fName=s;}
 	inline TString GetName(){return fName;}
 	
-	inline MCEvent* GetMCEvent(){return fMCEvent;}
-	inline std::vector<OpNoviceScintHit*>* GetRootCollectionScintRaw(){return fRootCollectionScintRaw;}
-	inline std::vector<OpNoviceDetectorHit*>* GetRootCollectionDetRaw(){return fRootCollectionDetRaw;}
-	inline std::vector<OpNoviceDigi*>* GetRootCollectionDetDigi(){return fRootCollectionDetDigi;}
+//	inline MCEvent* GetMCEvent(){return fMCEvent;}
+	inline TEvent*  GetEvent(){return fEvent;}
 	
 	inline TFile* getFile(){return fFile;}
 	
@@ -92,16 +90,17 @@ public:
 	void fillHistogram1D(int idx,double x,double w);
 	void fillHistogram2D(int idx,double x,double y,double w);
 	void saveDetectorLight(TOpNoviceDetectorLight *detector);
-	RootIO(); 
+
 private:
 	
 	std::string fName;
 	TFile* fFile;
+	TTree* fTree;
+	TEvent *fEvent;
 
-	TTree* fTreeMCEvent;
-	TTree* fTreeScintRaw;
-	TTree* fTreeDetRaw;
-	TTree* fTreeDetDigi;
+	TClonesArray *fRootCollectionScintRaw;
+	TClonesArray *fRootCollectionDetRaw;
+	TClonesArray *fRootCollectionDetDigi;
 
 	int fNevents;
 	
@@ -109,15 +108,11 @@ private:
 	G4bool fSaveDetRaw;
 	G4bool fSaveDetDigi;
 	
-	//TClonesArray *fRootCollectionRaw;
-	
 	std::vector< TH1* > *fHistograms1D;
 	std::vector< TH2* > *fHistograms2D;
 
-	std::vector<OpNoviceScintHit*> *fRootCollectionScintRaw;
-	std::vector<OpNoviceDetectorHit*> *fRootCollectionDetRaw;
-	std::vector<OpNoviceDigi*> *fRootCollectionDetDigi;
 
-	MCEvent *fMCEvent;
+
+  	MCEvent *fMCEvent;
 };
 #endif // INCLUDE_ROOTIO_HH

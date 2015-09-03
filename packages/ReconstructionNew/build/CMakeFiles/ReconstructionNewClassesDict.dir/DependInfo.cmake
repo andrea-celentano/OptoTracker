@@ -42,7 +42,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include"
   "../include"
   "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Geometry/include"
+  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include"
   "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include"
   "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include"
   "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtWidgets"

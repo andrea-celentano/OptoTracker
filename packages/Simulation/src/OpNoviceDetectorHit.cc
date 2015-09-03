@@ -48,7 +48,7 @@ G4ThreadLocal G4Allocator<OpNoviceDetectorHit>* OpNoviceDetectorHitAllocator=0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceDetectorHit::OpNoviceDetectorHit()
-: fDetectorNumber(-1),fInFaceNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0),fDrawit(false),fName("")
+:TObject(), fDetectorNumber(-1),fInFaceNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0),fDrawit(false),fName("")
 //,TObject()
 {}
 
@@ -58,7 +58,7 @@ OpNoviceDetectorHit::~OpNoviceDetectorHit() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceDetectorHit::OpNoviceDetectorHit(const OpNoviceDetectorHit &right) : G4VHit()//,TObject()
+OpNoviceDetectorHit::OpNoviceDetectorHit(const OpNoviceDetectorHit &right) : TObject(),G4VHit()
 {
 	fDetectorNumber=right.fDetectorNumber;
 	fFaceNumber=right.fFaceNumber;
@@ -206,3 +206,10 @@ void OpNoviceDetectorHit::Draw(){
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void OpNoviceDetectorHit::Print() {}
+
+
+
+/*From root TOBject*/
+void OpNoviceDetectorHit::Clear(Option_t* option){
+	Info("OpNoviceDetectorHit","OpNoviceDetectorHit::Clear called");
+}

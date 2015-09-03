@@ -1,5 +1,5 @@
 
-packages = Geometry Simulation Reconstruction ReconstructionNew MarocAnalysis
+packages = Common Simulation Reconstruction ReconstructionNew MarocAnalysis
 
 all: $(packages) 
 

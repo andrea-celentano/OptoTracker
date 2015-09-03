@@ -41,6 +41,7 @@
 
 #include <vector>
 
+
 class G4Step;
 class G4HCofThisEvent;
 class OpNoviceDigitizer;
@@ -85,6 +86,9 @@ class OpNoviceDetectorSD : public G4VSensitiveDetector
     G4DataVector* fPMTPositionsX;
     G4DataVector* fPMTPositionsY;
     G4DataVector* fPMTPositionsZ;
+
+
+
 };
 
 #endif

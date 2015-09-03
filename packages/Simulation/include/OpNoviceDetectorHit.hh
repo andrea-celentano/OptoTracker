@@ -30,7 +30,7 @@
 //
 //
 #ifndef OpNoviceDetectorHit_h
-#define OpNoviceDetectorHit_h 1
+#define OpNoviceDetectorHit_h
 
 #include "G4VHit.hh"
 #include "G4THitsCollection.hh"
@@ -49,11 +49,11 @@
 
 class G4VTouchable;
 
-class OpNoviceDetectorHit :  public G4VHit //, public TObject
+class OpNoviceDetectorHit :  public TObject , public G4VHit
 {
 public:    
 	OpNoviceDetectorHit();
-	~OpNoviceDetectorHit();
+	virtual ~OpNoviceDetectorHit();
 	OpNoviceDetectorHit(const OpNoviceDetectorHit &right);
 	
 	const OpNoviceDetectorHit& operator=(const OpNoviceDetectorHit &right);
@@ -62,10 +62,7 @@ public:
 	inline void *operator new(size_t);       //! transient value not to be saved in ROOT
 	inline void operator delete(void *aHit); //! transient value not to be saved in ROOT
 	
-	/*
-	inline void *operatornew(size_t){};
-	inline void operatordelete(void*){};
-	*/
+
 	virtual void Draw();
 	virtual void Print();
 	
@@ -113,6 +110,12 @@ public:
 
 	inline void SetName(G4String n){fName=n;}
 	inline G4String GetName(){return fName;}
+
+	/*From root TObject*/
+public:
+	virtual void Clear(Option_t* option="");
+ 	virtual const char* GetName() const{return fName;}
+
 private:
 	G4int fDetectorNumber;
 	G4int fFaceNumber;
@@ -134,7 +137,7 @@ private:
 	G4bool fDrawit; 		   //! transient value not to be saved in ROOT
 	G4int fDrawScaleMin,fDrawScaleMax; //! transient value not to be saved in ROOT
 	
-	//	ClassDef(OpNoviceDetectorHit, 1);
+	ClassDef(OpNoviceDetectorHit, 1);
 	
 };
 

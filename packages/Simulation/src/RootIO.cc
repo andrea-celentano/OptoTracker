@@ -51,28 +51,31 @@ static RootIO* instance = 0;
 RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 {
 	G4cout<<"RootIO::creator"<<G4endl;
-  // initialize ROOT
-	TSystem ts;
-	gSystem->Load("libOpNoviceClassesDict");
-	
+	// initialize ROOT
+
+	//gSystem->Load("libOpNoviceClassesDict");
+
 	ROOT::Cintex::Cintex::SetDebug(0);
 	ROOT::Cintex::Cintex::Enable();
-  //gDebug = 1;
-	
+	//gDebug = 1;
+
 	fFile=NULL;
-	fTreeScintRaw=NULL;
-	fTreeDetRaw=NULL;
-	fTreeDetDigi=NULL;
-	
+	fTree=NULL;
+	fEvent=NULL;
+
+	fRootCollectionScintRaw=NULL;
+	fRootCollectionDetRaw=NULL;
+	fRootCollectionDetDigi=NULL;
+
+
 	fSaveScintRaw=true;
 	fSaveDetRaw=true;
 	fSaveDetDigi=true;
-	
+
+
 	fMCEvent = new MCEvent;
-	fRootCollectionScintRaw=new std::vector<OpNoviceScintHit*>;
-	fRootCollectionDetRaw=new std::vector<OpNoviceDetectorHit*>;
-	fRootCollectionDetDigi=new std::vector<OpNoviceDigi*>;
-	
+
+
 	fHistograms1D=NULL;
 	fHistograms2D=NULL;
 	instance=this;
@@ -81,12 +84,11 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 RootIO::~RootIO()
 {
-	G4cout<<"RootIO::destructor"<<G4endl;
 	fFile->Close();
 	delete fMCEvent;
-	delete fRootCollectionScintRaw;
-	delete fRootCollectionDetRaw;
-	delete fRootCollectionDetDigi;
+	if(fRootCollectionScintRaw) delete fRootCollectionScintRaw;
+	if(fRootCollectionDetRaw) delete fRootCollectionDetRaw;
+	if(fRootCollectionDetDigi) delete fRootCollectionDetDigi;
 
 }
 
@@ -107,49 +109,40 @@ RootIO* RootIO::GetInstance()
 
 
 void RootIO::Init(int n){
-	
-	//if (fTreeRaw) delete fTreeRaw;
+
 	if (fFile) delete fFile;
-	
+
 	std::string fFileName=Form("%s_%i.root",fName.c_str(),n);
 	fFile = new TFile(fFileName.c_str(),"RECREATE");
+	fTree = new TTree("Event","Event");
+	fTree->Branch("Event",&fEvent);
 
-	fTreeMCEvent = new TTree("MCEvent","MCEvent");
-	fTreeMCEvent->Branch("MCEvent",fMCEvent,"Etot/D");
+	/*Here we need to set the collections of our event*/
+	fRootCollectionScintRaw=new TClonesArray("OpNoviceScintHit",10000); /*If more than s objects are entered, the array will be automatically expanded*/
+	fRootCollectionDetRaw=new TClonesArray("OpNoviceScintHit",10000);
+	fRootCollectionDetDigi=new TClonesArray("OpNoviceScintHit",10000);
 
-	if (fSaveScintRaw){
-		fTreeScintRaw = new TTree("ScintRaw","ScintRaw");
-		fTreeScintRaw->Branch("ScintRaw",&fRootCollectionScintRaw);
-	}
-	if (fSaveDetRaw){
-		fTreeDetRaw = new TTree("DetRaw","DetRaw");
-		fTreeDetRaw->Branch("DetRaw",&fRootCollectionDetRaw);
-	}
-	if (fSaveDetDigi){
-		fTreeDetDigi= new TTree("DetDigi","DetDigi");
-		fTreeDetDigi->Branch("DetDigi",&fRootCollectionDetDigi);
-	}
+	fRootCollectionScintRaw->SetName("ScintRawMC");
+	fRootCollectionDetRaw->SetName("DetRawMC");
+	fRootCollectionDetDigi->SetName("DetDigiMC");
+	fEvent->addCollection(fRootCollectionScintRaw); /*Do not need to check if exists already*/
+	fEvent->addCollection(fRootCollectionDetRaw);
+	fEvent->addCollection(fRootCollectionDetDigi);
 
-	if (fSaveDetRaw&&fSaveDetDigi){
-		fTreeDetRaw->AddFriend("DetDigi");
-	}
 
-	if (fSaveScintRaw){
-		fTreeMCEvent->AddFriend("ScintRaw");
-	}
 
 	fHistograms1D=new std::vector<TH1*>;
 	fHistograms2D=new std::vector<TH2*>;
 	/*Define here histograms*/
 	fHistograms1D->push_back(new TH1D("hy","hy",200,-3.1,3.1));   //0
 	fHistograms1D->push_back(new TH1D("hY1","hY1",200,-3.1,3.1)); //1
-	
-	
+
+
 	fHistograms2D->push_back(new TH2D("hGenYX","hGenYX",600,-3.1,3.1,600,-3.1,3.1)); //0
 	fHistograms2D->push_back(new TH2D("hGenYZ","hGenYZ",600,-3.1,3.1,600,-3.1,3.1)); //1
 	fHistograms2D->push_back(new TH2D("hGenXZ","hGenXZ",600,-3.1,3.1,600,-3.1,3.1)); //2
 	for (int ii=0;ii<6;ii++) fHistograms2D->push_back(new TH2D(Form("hRecXY_%i",ii),Form("hRecXY_%i",ii),600,-3.1,3.1,600,-3.1,3.1)); //3..8
-	
+
 
 }
 
@@ -158,32 +151,12 @@ void RootIO::Init(int n){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void RootIO::FillMCEvent()
+void RootIO::FillEvent()
 {
-	fTreeMCEvent->Fill();
+	fTree->Fill();
 }
 
-void RootIO::FillScintRaw()
-{
-	if (fSaveScintRaw)	fTreeScintRaw->Fill();
-}
 
-void RootIO::FillDetRaw()
-{
-	if (fSaveDetRaw)	fTreeDetRaw->Fill();
-}
-
-void RootIO::FillDetDigi()
-{
-	if (fSaveDetDigi)	fTreeDetDigi->Fill();
-}
-
-void RootIO::FillAll(){
-	this->FillMCEvent();
-	this->FillScintRaw();
-	this->FillDetRaw();
-	this->FillDetDigi();
-}
 void RootIO::WriteAll(){
 	/// Write the Root tree in the file and close it (it is called at the end of run, 1 run == 1 file).
 	fFile->cd();

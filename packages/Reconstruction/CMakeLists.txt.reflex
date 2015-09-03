@@ -38,7 +38,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include 
                     ${Geant4_INCLUDE_DIR}
 		    ${ROOT_INCLUDE_DIR}
-		    $ENV{OPTO}/packages/Geometry/include
+		    $ENV{OPTO}/packages/Common/include
 		    $ENV{OPTO}/packages/Simulation/include)
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
@@ -65,16 +65,16 @@ target_link_libraries(ReconstructionClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRA
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
 #add_executable(Reconstruction.single Reconstruction.single.cpp ${sources} ${headers})
-#target_link_libraries(Reconstruction.single ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+#target_link_libraries(Reconstruction.single ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(Reconstruction.proof Reconstruction.proof.cpp ${sources} ${headers})
-target_link_libraries(Reconstruction.proof ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(Reconstruction.proof ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(VerifyChargeFunction VerifyChargeFunction.cpp ${sources} ${headers})
-target_link_libraries(VerifyChargeFunction ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(VerifyChargeFunction ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(VerifyTimeFunction VerifyTimeFunction.cpp ${sources} ${headers})
-target_link_libraries(VerifyTimeFunction ReconstructionClassesDict OpNoviceClassesDict GeometryClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(VerifyTimeFunction ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 
 
