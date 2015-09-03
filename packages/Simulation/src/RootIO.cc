@@ -118,9 +118,9 @@ void RootIO::Init(int n){
 	fTree->Branch("Event",&fEvent);
 
 	/*Here we need to set the collections of our event*/
-	fRootCollectionScintRaw=new TClonesArray("OpNoviceScintHit",10000); /*If more than s objects are entered, the array will be automatically expanded*/
-	fRootCollectionDetRaw=new TClonesArray("OpNoviceScintHit",10000);
-	fRootCollectionDetDigi=new TClonesArray("OpNoviceScintHit",10000);
+	fRootCollectionScintRaw=new TClonesArray("OpNoviceScintHit",1000); /*If more than s objects are entered, the array will be automatically expanded*/
+	fRootCollectionDetRaw=new TClonesArray("OpNoviceDetectorHit",1000);
+	fRootCollectionDetDigi=new TClonesArray("OpNoviceDigi",1000);
 
 	fRootCollectionScintRaw->SetName("ScintRawMC");
 	fRootCollectionDetRaw->SetName("DetRawMC");

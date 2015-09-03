@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/CommonClassesDict.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
 CMakeFiles/CommonClassesDict.dir/all:
 	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/depend
 	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles  1 2 3 4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles  1 2 3 4 5
 	@echo "Built target CommonClassesDict"
 .PHONY : CMakeFiles/CommonClassesDict.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/CommonClassesDict.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CommonClassesDict.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CommonClassesDict.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 0
 .PHONY : CMakeFiles/CommonClassesDict.dir/rule
 
 # Convenience name for target.
@@ -97,7 +97,7 @@ clean: CMakeFiles/CommonClassesDict.dir/clean
 CMakeFiles/PrintDetector.dir/all: CMakeFiles/CommonClassesDict.dir/all
 	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/depend
 	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles  6 7 8 9
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles  6 7 8 9
 	@echo "Built target PrintDetector"
 .PHONY : CMakeFiles/PrintDetector.dir/all
 
@@ -107,9 +107,9 @@ all: CMakeFiles/PrintDetector.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PrintDetector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PrintDetector.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 0
 .PHONY : CMakeFiles/PrintDetector.dir/rule
 
 # Convenience name for target.
@@ -132,7 +132,7 @@ clean: CMakeFiles/PrintDetector.dir/clean
 CMakeFiles/TestCommon.dir/all: CMakeFiles/CommonClassesDict.dir/all
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/depend
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles  10 11 12 13
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles  10 11 12 13
 	@echo "Built target TestCommon"
 .PHONY : CMakeFiles/TestCommon.dir/all
 
@@ -142,9 +142,9 @@ all: CMakeFiles/TestCommon.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TestCommon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TestCommon.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 0
 .PHONY : CMakeFiles/TestCommon.dir/rule
 
 # Convenience name for target.

@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TDriver.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o"
+  "/work/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp" "/work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o"
+  "/work/OptoTracker/packages/ReconstructionNew/src/TDriver.cc" "/work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o"
+  "/work/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc" "/work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,11 +17,13 @@ SET(CMAKE_TARGET_DEFINITIONS
   "G4UI_USE"
   "G4UI_USE_QT"
   "G4UI_USE_TCSH"
+  "G4UI_USE_XM"
   "G4VERBOSE"
   "G4VIS_USE"
   "G4VIS_USE_OPENGL"
   "G4VIS_USE_OPENGLQT"
   "G4VIS_USE_OPENGLX"
+  "G4VIS_USE_OPENGLXM"
   "G4_STORE_TRAJECTORY"
   "QT_CORE_LIB"
   "QT_GUI_LIB"
@@ -37,20 +39,19 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include"
+  "/work/geant4/4.10.01/SL6/no_multithread/include/Geant4"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include"
   "../include"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtWidgets"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtGui"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtCore"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/mkspecs/linux-g++"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtPrintSupport"
-  "/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtOpenGL"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root"
+  "/work/OptoTracker/packages/Common/include"
+  "/work/OptoTracker/packages/Simulation/include"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtWidgets"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtGui"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtCore"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/mkspecs/linux-g++"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtPrintSupport"
+  "/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/include/QtOpenGL"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

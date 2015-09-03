@@ -1,2 +1,2 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libReconstructionNewClassesDict.so
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/ReconstructionNew
+/work/OptoTracker/lib/libReconstructionNewClassesDict.so
+/work/OptoTracker/bin/ReconstructionNew

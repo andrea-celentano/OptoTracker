@@ -41,6 +41,7 @@
 
 #include "G4SystemOfUnits.hh"
 
+using namespace std;
 
 //ClassImp(OpNoviceDetectorHit)
 G4ThreadLocal G4Allocator<OpNoviceDetectorHit>* OpNoviceDetectorHitAllocator=0;
@@ -50,7 +51,8 @@ G4ThreadLocal G4Allocator<OpNoviceDetectorHit>* OpNoviceDetectorHitAllocator=0;
 OpNoviceDetectorHit::OpNoviceDetectorHit()
 :TObject(), fDetectorNumber(-1),fInFaceNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0),fDrawit(false),fName("")
 //,TObject()
-{}
+{
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -90,25 +92,18 @@ const OpNoviceDetectorHit& OpNoviceDetectorHit::operator=(const OpNoviceDetector
 	fDetectorNumber=right.fDetectorNumber;
 	fFaceNumber=right.fFaceNumber;
 	fInFaceNumber=right.fInFaceNumber;
+
+
 	fNPhe=right.fNPhe;
 	fPhysVol=right.fPhysVol;
 	fPhysVolMother=right.fPhysVolMother;
 	fDrawit=right.fDrawit;
 	
-	fEnergy.clear();
-	fTime.clear();
-	fX.clear();
-	fY.clear();
-	fPixel.clear();
-	for (int ii=0;ii<right.fNPhe;ii++){
-		fEnergy.push_back(right.fEnergy.at(ii));
-		fTime.push_back(right.fTime.at(ii));
-		fX.push_back(right.fX.at(ii));
-		fY.push_back(right.fX.at(ii));
-		fPixel.push_back(right.fPixel.at(ii));
-	}
-	
-	return *this;
+	fEnergy=right.fEnergy;
+	fTime=right.fTime;
+	fX=right.fX;
+	fY=right.fY;
+	fPixel=right.fPixel;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -205,11 +200,17 @@ void OpNoviceDetectorHit::Draw(){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+
+
 void OpNoviceDetectorHit::Print() {}
 
 
 
 /*From root TOBject*/
 void OpNoviceDetectorHit::Clear(Option_t* option){
-	Info("OpNoviceDetectorHit","OpNoviceDetectorHit::Clear called");
+	fEnergy.clear();
+	fTime.clear();
+	fX.clear();
+	fY.clear();
+	fPixel.clear();
 }

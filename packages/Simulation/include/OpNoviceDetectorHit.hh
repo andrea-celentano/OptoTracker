@@ -111,6 +111,7 @@ public:
 	inline void SetName(G4String n){fName=n;}
 	inline G4String GetName(){return fName;}
 
+	
 	/*From root TObject*/
 public:
 	virtual void Clear(Option_t* option="");

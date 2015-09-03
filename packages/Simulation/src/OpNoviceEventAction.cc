@@ -150,19 +150,13 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 		for (G4int i=0;i<scintN;i++){
 			//G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
 			//mMCEvent.Etot+=(*scintHC)[i]->GetEdep(); ///TODO
-			cout<<"aa"<<endl;
-			cout<<fRootCollectionScintRaw->GetClass()->GetName()<<endl;
-			cin.get();
-			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
-
-			cout<<((*scintHC)[i])->GetEdep()<<endl;
-
-			if (fSaveScintRaw) (*(fRootCollectionScintRaw->ConstructedAt(i)))=(OpNoviceScintHit)(*((*scintHC)[i]));
-			cout<<((OpNoviceScintHit*)(fRootCollectionScintRaw->ConstructedAt(i)))->GetEdep()<<endl;
+			if (fSaveScintRaw){ 
+			  ((OpNoviceScintHit*)fRootCollectionScintRaw->ConstructedAt(i))->operator=(*((*scintHC)[i]));
+			}
 		}
 	}
 
-
+ 
 	//raw hits in detector
 	if(detectorHC){
 		G4int detectorN=detectorHC->entries(); /*Here 1 hit is "1 detector".*/
@@ -178,8 +172,9 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 				(*detectorHC)[i]->SetDrawit(false);
 			}*/
 
-			if (fSaveDetRaw)  (*(fRootCollectionDetRaw->ConstructedAt(i)))=(*((*detectorHC)[i]));
-
+			if (fSaveDetRaw){
+			  ((OpNoviceDetectorHit*)fRootCollectionDetRaw->ConstructedAt(i))->operator=(*((*detectorHC)[i]));  
+			}
 		}
 		/*Scala di colore qui*/
 		/*for(G4int i=0;i<pmts;i++){

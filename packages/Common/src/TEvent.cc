@@ -83,6 +83,7 @@ void TEvent::printCollectionsClass()const{
 
 
 void	TEvent::Clear(Option_t* opt){
+//	Info("TEvent","TEvent::Clear called with opt %s",opt);
 	vector < TClonesArray* >::iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
 		(*it)->Clear(opt);
