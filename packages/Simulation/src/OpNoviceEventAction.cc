@@ -127,9 +127,9 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	fEvent->Clear("C"); /*This is a fundamental instruction*/
 
 
-	fRootCollectionScintRaw=fEvent->getCollectionByName("ScintRawMC");
-	fRootCollectionDetRaw=fEvent->getCollectionByName("DetRawMC");
-	fRootCollectionDetDigi=fEvent->getCollectionByName("DetDigiMC");
+	fRootCollectionScintRaw=fEvent->getCollection(OpNoviceScintHit::Class(),"ScintRawMC");
+	fRootCollectionDetRaw=fEvent->getCollection(OpNoviceDetectorHit::Class(),"DetRawMC");
+	fRootCollectionDetDigi=fEvent->getCollection(OpNoviceDigi::Class(),"DetDigiMC");
 
 
 

@@ -43,9 +43,10 @@ G4ThreadLocal G4Allocator<OpNoviceDigi> *OpNoviceDigiAllocator = 0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
-OpNoviceDigi::OpNoviceDigi(G4String name):
-fName(name),fFirstHitTime(999999),fDetectorNumber(-1),fPixelNumber(-1),fFaceNumber(-1),fNPhe(0)
+OpNoviceDigi::OpNoviceDigi(std::string name):
+fFirstHitTime(999999),fDetectorNumber(-1),fPixelNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0)
 {
+	strcpy(fName,name.c_str());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -56,12 +57,12 @@ OpNoviceDigi::~OpNoviceDigi()
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
 
 OpNoviceDigi::OpNoviceDigi(const OpNoviceDigi& right)
-  :G4VDigi()
+  :G4VDigi(),fPhysVol(0),fPhysVolMother(0)
 {
 	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
 	fFaceNumber=right.fFaceNumber;
-	fName=right.fName;
+	strcpy(fName,right.fName);
 
 
 	fNPhe=right.fNPhe;
@@ -76,7 +77,7 @@ const OpNoviceDigi& OpNoviceDigi::operator=(const OpNoviceDigi& right)
 	fDetectorNumber=right.fDetectorNumber;
 	fPixelNumber=right.fPixelNumber;
 	fFaceNumber=right.fFaceNumber;
-	fName=right.fName;
+	strcpy(fName,right.fName);
 
 	fNPhe=right.fNPhe;
 	fFirstHitTime=right.fFirstHitTime;

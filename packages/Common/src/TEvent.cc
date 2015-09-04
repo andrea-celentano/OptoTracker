@@ -19,73 +19,89 @@ TClonesArray* TEvent::getCollection (int id) const{
 	}
 }
 
-TClonesArray* TEvent::getCollectionByName(string name) const{
+TClonesArray* TEvent::getCollection(TClass *theClass,string name) const{
 	TClonesArray* ret=0;
 	vector < TClonesArray* >::const_iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
-		if (strcmp((*it)->GetName(),name.c_str())==0){
+		if ((strcmp((*it)->GetName(),name.c_str())==0)&&((*it)->GetClass()->InheritsFrom(theClass))){
 			ret=*it;
 			break;
 		}
 	}
 	if (ret==0){
-		Error("TEvent","TEvent::getCollectionByName not found %s",name.c_str());
+		Error("TEvent","TEvent::getCollection not found class: %s name:%s",theClass->GetName(),name.c_str());
 	}
 	return ret;
 }
 
-void TEvent::addCollection(TClonesArray *coll,int checkNameAlreadyExists){
+
+
+
+
+void TEvent::addCollection(TClonesArray *coll,int checkAlreadyExists){
 	if (coll==NULL){
 		Error("TEvent","TEvent::addCollection input null");
 		return;
 	}
-	if (checkNameAlreadyExists){
-		if (this->hasCollectionByName(coll->GetName())){
-			Warning("TEvent","TEvent::addCollection. Collection with same name already exists");
+	if (checkAlreadyExists){
+		if (this->hasCollection(coll)){
+			Warning("TEvent","TEvent::addCollection. Collection with same class and name already exists. Can't insert");
 			return;
 		}
 	}
 	m_collections.push_back(coll);
 }
 
-int TEvent::hasCollectionByName(string name)const{
+
+void TEvent::deleteCollection(TClass *theClass,string name){
+	vector < TClonesArray* >::iterator it;
+	for (it=m_collections.begin();it!=m_collections.end();it++){
+		if ((strcmp((*it)->GetName(),name.c_str())==0)&&((*it)->GetClass()->InheritsFrom(theClass))){
+			m_collections.erase(it);
+			return;
+		}
+	}
+	Warning("TEvent","TEvent::deleteCollection not found class: %s name:%s",theClass->GetName(),name.c_str());
+}
+
+
+
+
+int TEvent::hasCollection(TClass *theClass,string name)const{
 	int ret=0;
 	vector < TClonesArray* >::const_iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
-		if ((*it)->GetName()==name) ret=1;
+		if  ((strcmp((*it)->GetName(),name.c_str())==0)&&((*it)->GetClass()->InheritsFrom(theClass))){
+			ret=1;
+			break;
+		}
 	}
 	return ret;
 }
 
 
-int TEvent::hasCollectionByClass(string name)const{
+int TEvent::hasCollection(TClonesArray *coll)const{
 	int ret=0;
-	vector < TClonesArray* >::const_iterator it;
-	for (it=m_collections.begin();it!=m_collections.end();it++){
-		if ((*it)->GetName()==name) ret=1;
-	}
+	ret=this->hasCollection(coll->GetClass(),coll->GetName());
 	return ret;
 }
 
-void TEvent::printCollectionsName()const{
+void TEvent::printCollections()const{
 	vector < TClonesArray* >::const_iterator it;
+	cout<<"Available collections: class name - collection name"<<endl;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
-		cout<<(*it)->GetName()<<endl;
+		cout<<(*it)->GetClass()->GetName()<<" "<<(*it)->GetName()<<endl;
 	}
 }
 
-void TEvent::printCollectionsClass()const{
-	vector < TClonesArray* >::const_iterator it;
-	for (it=m_collections.begin();it!=m_collections.end();it++){
-		cout<<(*it)->Class()->GetName()<<endl;
-	}
-}
+
 
 
 void	TEvent::Clear(Option_t* opt){
 //	Info("TEvent","TEvent::Clear called with opt %s",opt);
 	vector < TClonesArray* >::iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
+		//if (*it) delete (*it);
 		(*it)->Clear(opt);
 	}
 }

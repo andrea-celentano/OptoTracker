@@ -44,6 +44,7 @@
 #include "TObject.h"
 
 #include <vector>
+#include <string>
 
 #include "tls.hh"
 
@@ -108,8 +109,8 @@ public:
 	inline void  SetDrawScaleMin(G4int n){fDrawScaleMin=n;}
 	inline G4int GetDrawScaleMin(){return fDrawScaleMin;}
 
-	inline void SetName(G4String n){fName=n;}
-	inline G4String GetName(){return fName;}
+	inline void SetName(std::string name){strcpy(fName,name.c_str());}
+	inline std::string GetName(){return std::string(fName);}
 
 	
 	/*From root TObject*/
@@ -125,13 +126,13 @@ private:
 	G4int fNPhe;	
 	G4int fNPixels;
 	
-	G4String fName;
+	char fName[50];
 	
-	std::vector < G4double > fTime; //hit time
-	std::vector < G4double > fEnergy; //hit energy (i.e. opt.photon energy)
-	std::vector < G4double > fX; //hit X coordinate (0,0 is in the center)
-	std::vector < G4double > fY; //hit Y coordinate (0,0 is in the center)
-	std::vector < G4double > fPixel; //hit pixel number. Cna be calculated from X,Y, but here is for simplicity!
+	std::vector < double > fTime; //hit time
+	std::vector < double > fEnergy; //hit energy (i.e. opt.photon energy)
+	std::vector < double > fX; //hit X coordinate (0,0 is in the center)
+	std::vector < double > fY; //hit Y coordinate (0,0 is in the center)
+	std::vector < double > fPixel; //hit pixel number. Cna be calculated from X,Y, but here is for simplicity!
 	
 	G4VPhysicalVolume* fPhysVolMother; //! transient value not to be saved in ROOT
 	G4VPhysicalVolume* fPhysVol;       //! transient value not to be saved in ROOT

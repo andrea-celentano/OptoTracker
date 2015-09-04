@@ -2,12 +2,15 @@
 #define TOPTOJOBMANAGER_HG
 
 #include <vector>
-
+#include <string>
 
 
 #include "TSelector.h"
 #include "TChain.h"
 #include "TTree.h"
+
+#include "TEvent.hh"
+#include "TDriver.hh"
 
 class OpNoviceDetectorHit;
 class OpNoviceDigi;
@@ -19,15 +22,19 @@ private:
 	TTree *fTree;   //!pointer to the analyzed TTree or TChain
 
 	// List of branches and corresponding pointers
-	TBranch        *b_MCraw;
-	vector < OpNoviceDetectorHit* > *m_MCraw;
+	TBranch        *b_event;
+	TEvent         *m_event;
 
-	TBranch        *b_MCdigi;
-	vector < OpNoviceDigi* > *m_MCdigi;
+
+
+	//string tmp;
+	double tmp2;
+
+
 
 public:
 	TOptoJobManager(TTree * t=0);
-	virtual ~TOptoJobManager(){};
+	virtual ~TOptoJobManager();
 
 	virtual Int_t   Version() const { return 2; }
 	virtual void    Begin(TTree *tree);      /*All the same*/
@@ -47,6 +54,16 @@ public:
 	virtual Bool_t  Process(Long64_t entry);
 
 	virtual const char*	ClassName() const{return "TOptoJobManager";} /*Stupid root.. as to be here otherwise crashes*/
+
+
+	double getTmp2(){return tmp2;}
+	void   setTmp2(double d){tmp2=d;}
+
+	//string getTmp(){return tmp;}
+	//void   setTmp(string g){tmp=g;}
+
+
+
 
 
 	ClassDef(TOptoJobManager,1);

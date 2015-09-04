@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TestCommon.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/TestCommon.dir/flags.make
 
 CMakeFiles/TestCommon.dir/TestCommon.cpp.o: CMakeFiles/TestCommon.dir/flags.make
 CMakeFiles/TestCommon.dir/TestCommon.cpp.o: ../TestCommon.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TestCommon.dir/TestCommon.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/TestCommon.cpp.o -c /work/OptoTracker/packages/Common/TestCommon.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/TestCommon.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/TestCommon.cpp
 
 CMakeFiles/TestCommon.dir/TestCommon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestCommon.dir/TestCommon.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/TestCommon.cpp > CMakeFiles/TestCommon.dir/TestCommon.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/TestCommon.cpp > CMakeFiles/TestCommon.dir/TestCommon.cpp.i
 
 CMakeFiles/TestCommon.dir/TestCommon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestCommon.dir/TestCommon.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/TestCommon.cpp -o CMakeFiles/TestCommon.dir/TestCommon.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/TestCommon.cpp -o CMakeFiles/TestCommon.dir/TestCommon.cpp.s
 
 CMakeFiles/TestCommon.dir/TestCommon.cpp.o.requires:
 .PHONY : CMakeFiles/TestCommon.dir/TestCommon.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/TestCommon.dir/TestCommon.cpp.o.provides.build: CMakeFiles/TestCommon
 
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o: CMakeFiles/TestCommon.dir/flags.make
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o: ../src/TOpNoviceDetectorLight.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o -c /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc
 
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc > CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc > CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.i
 
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc -o CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc -o CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s
 
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o.requires:
 .PHONY : CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o.requires
@@ -98,42 +98,19 @@ CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o.provides: CMakeFiles/T
 
 CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o.provides.build: CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o
 
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o: CMakeFiles/TestCommon.dir/flags.make
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o -c /work/OptoTracker/packages/Common/src/RealSetupHandler.cc
-
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i
-
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s
-
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires:
-.PHONY : CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
-
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides.build
-.PHONY : CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides
-
-CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o
-
 CMakeFiles/TestCommon.dir/src/TEvent.cc.o: CMakeFiles/TestCommon.dir/flags.make
 CMakeFiles/TestCommon.dir/src/TEvent.cc.o: ../src/TEvent.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TestCommon.dir/src/TEvent.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/TEvent.cc.o -c /work/OptoTracker/packages/Common/src/TEvent.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/TEvent.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc
 
 CMakeFiles/TestCommon.dir/src/TEvent.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestCommon.dir/src/TEvent.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/TestCommon.dir/src/TEvent.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/TestCommon.dir/src/TEvent.cc.i
 
 CMakeFiles/TestCommon.dir/src/TEvent.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestCommon.dir/src/TEvent.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/TestCommon.dir/src/TEvent.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/TestCommon.dir/src/TEvent.cc.s
 
 CMakeFiles/TestCommon.dir/src/TEvent.cc.o.requires:
 .PHONY : CMakeFiles/TestCommon.dir/src/TEvent.cc.o.requires
@@ -144,20 +121,43 @@ CMakeFiles/TestCommon.dir/src/TEvent.cc.o.provides: CMakeFiles/TestCommon.dir/sr
 
 CMakeFiles/TestCommon.dir/src/TEvent.cc.o.provides.build: CMakeFiles/TestCommon.dir/src/TEvent.cc.o
 
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o: CMakeFiles/TestCommon.dir/flags.make
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc
+
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.i
+
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s
+
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires:
+.PHONY : CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
+
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides.build
+.PHONY : CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides
+
+CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o
+
 # Object files for target TestCommon
 TestCommon_OBJECTS = \
 "CMakeFiles/TestCommon.dir/TestCommon.cpp.o" \
 "CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o" \
-"CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o" \
-"CMakeFiles/TestCommon.dir/src/TEvent.cc.o"
+"CMakeFiles/TestCommon.dir/src/TEvent.cc.o" \
+"CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o"
 
 # External object files for target TestCommon
 TestCommon_EXTERNAL_OBJECTS =
 
 TestCommon: CMakeFiles/TestCommon.dir/TestCommon.cpp.o
 TestCommon: CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o
-TestCommon: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o
 TestCommon: CMakeFiles/TestCommon.dir/src/TEvent.cc.o
+TestCommon: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o
 TestCommon: CMakeFiles/TestCommon.dir/build.make
 TestCommon: libCommonClassesDict.so
 TestCommon: CMakeFiles/TestCommon.dir/link.txt
@@ -170,8 +170,8 @@ CMakeFiles/TestCommon.dir/build: TestCommon
 
 CMakeFiles/TestCommon.dir/requires: CMakeFiles/TestCommon.dir/TestCommon.cpp.o.requires
 CMakeFiles/TestCommon.dir/requires: CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o.requires
-CMakeFiles/TestCommon.dir/requires: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
 CMakeFiles/TestCommon.dir/requires: CMakeFiles/TestCommon.dir/src/TEvent.cc.o.requires
+CMakeFiles/TestCommon.dir/requires: CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o.requires
 .PHONY : CMakeFiles/TestCommon.dir/requires
 
 CMakeFiles/TestCommon.dir/clean:
@@ -179,6 +179,6 @@ CMakeFiles/TestCommon.dir/clean:
 .PHONY : CMakeFiles/TestCommon.dir/clean
 
 CMakeFiles/TestCommon.dir/depend:
-	cd /work/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/TestCommon.dir/depend
 

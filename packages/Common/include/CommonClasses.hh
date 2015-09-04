@@ -1,8 +1,8 @@
 #include "TOpNoviceDetectorLight.hh"
 #include "TEvent.hh"
-#include <string>
+//#include <string>
 
-string obj1;
+//string obj1;
 TOpNoviceDetectorLight obj2;
 TEvent obj3;
 

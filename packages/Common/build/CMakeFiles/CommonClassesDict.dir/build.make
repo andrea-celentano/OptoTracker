@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CommonClassesDict.dir/depend.make
@@ -54,23 +54,23 @@ include CMakeFiles/CommonClassesDict.dir/flags.make
 
 CommonClasses.cpp: ../include/CommonClasses.hh
 CommonClasses.cpp: ../xml/selection.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating CommonClasses.cpp"
-	/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/genreflex /work/OptoTracker/packages/Common/include/CommonClasses.hh -o CommonClasses.cpp --select=/work/OptoTracker/packages/Common/xml/selection.xml --gccxmlpath=/usr/bin -I/work/OptoTracker/packages/Common/include -I/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root
+	/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/genreflex /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/CommonClasses.hh -o CommonClasses.cpp --select=/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/xml/selection.xml --gccxmlpath=/usr/bin -I/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root
 
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o: CMakeFiles/CommonClassesDict.dir/flags.make
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o: ../src/TOpNoviceDetectorLight.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o -c /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc
 
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc > CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc > CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.i
 
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc -o CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc -o CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.s
 
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o.requires:
 .PHONY : CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o.requires
@@ -81,42 +81,19 @@ CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o.provides: CMake
 
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o.provides.build: CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o
 
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o: CMakeFiles/CommonClassesDict.dir/flags.make
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o -c /work/OptoTracker/packages/Common/src/RealSetupHandler.cc
-
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i
-
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s
-
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires:
-.PHONY : CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
-
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides.build
-.PHONY : CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides
-
-CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o
-
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o: CMakeFiles/CommonClassesDict.dir/flags.make
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o: ../src/TEvent.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o -c /work/OptoTracker/packages/Common/src/TEvent.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc
 
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.i
 
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.s
 
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o.requires:
 .PHONY : CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o.requires
@@ -127,19 +104,42 @@ CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o.provides: CMakeFiles/CommonClas
 
 CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o.provides.build: CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o
 
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o: CMakeFiles/CommonClassesDict.dir/flags.make
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc
+
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.i
+
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.s
+
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires:
+.PHONY : CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
+
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides.build
+.PHONY : CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides
+
+CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o
+
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: CMakeFiles/CommonClassesDict.dir/flags.make
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: CommonClasses.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o -c /work/OptoTracker/packages/Common/build/CommonClasses.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CommonClasses.cpp
 
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/build/CommonClasses.cpp > CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CommonClasses.cpp > CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.i
 
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/build/CommonClasses.cpp -o CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CommonClasses.cpp -o CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.s
 
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o.requires:
 .PHONY : CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o.requires
@@ -153,16 +153,16 @@ CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o.provides.build: CMakeFiles/
 # Object files for target CommonClassesDict
 CommonClassesDict_OBJECTS = \
 "CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o" \
-"CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o" \
 "CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o" \
+"CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o" \
 "CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o"
 
 # External object files for target CommonClassesDict
 CommonClassesDict_EXTERNAL_OBJECTS =
 
 libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o
-libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o
 libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o
+libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o
 libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o
 libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/build.make
 libCommonClassesDict.so: CMakeFiles/CommonClassesDict.dir/link.txt
@@ -174,8 +174,8 @@ CMakeFiles/CommonClassesDict.dir/build: libCommonClassesDict.so
 .PHONY : CMakeFiles/CommonClassesDict.dir/build
 
 CMakeFiles/CommonClassesDict.dir/requires: CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o.requires
-CMakeFiles/CommonClassesDict.dir/requires: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
 CMakeFiles/CommonClassesDict.dir/requires: CMakeFiles/CommonClassesDict.dir/src/TEvent.cc.o.requires
+CMakeFiles/CommonClassesDict.dir/requires: CMakeFiles/CommonClassesDict.dir/src/RealSetupHandler.cc.o.requires
 CMakeFiles/CommonClassesDict.dir/requires: CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o.requires
 .PHONY : CMakeFiles/CommonClassesDict.dir/requires
 
@@ -184,6 +184,6 @@ CMakeFiles/CommonClassesDict.dir/clean:
 .PHONY : CMakeFiles/CommonClassesDict.dir/clean
 
 CMakeFiles/CommonClassesDict.dir/depend: CommonClasses.cpp
-	cd /work/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build/CMakeFiles/CommonClassesDict.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/CommonClassesDict.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CommonClassesDict.dir/depend
 

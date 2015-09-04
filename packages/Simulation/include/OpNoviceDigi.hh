@@ -48,6 +48,8 @@
 #include "G4Transform3D.hh"
 #include "G4VPhysicalVolume.hh"
 
+#include <string>
+
 #include <vector>
 #include "TObject.h"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo....
@@ -58,7 +60,7 @@ class OpNoviceDigi :public TObject, public G4VDigi
 public:
   
  // OpNoviceDigi();
-  OpNoviceDigi(G4String name="");
+  OpNoviceDigi(std::string name="OpNoviceDigiDefaultName");
   virtual ~OpNoviceDigi();
   OpNoviceDigi(const OpNoviceDigi&);
   const OpNoviceDigi& operator=(const OpNoviceDigi&);
@@ -75,7 +77,7 @@ private:
 
 	/*identifiers*/
 	G4int fDetectorNumber,fPixelNumber,fFaceNumber;
-	G4String fName;
+	char fName[50];
 	
 	/*Semi-raw variables*/
 	G4int fNPhe;	 //total phe
@@ -97,7 +99,7 @@ public:
 	inline G4int GetFaceNumber() { return fFaceNumber; }
 
 
-	inline G4String GetName(){return fName;}
+	inline std::string GetName(){return std::string(fName);}
 
 
 	inline void SetPixelNumber(G4int n) { fPixelNumber = n; }

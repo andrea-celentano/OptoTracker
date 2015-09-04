@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/packages/ReconstructionNew
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/packages/ReconstructionNew/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ReconstructionNewClassesDict.dir/depend.make
@@ -54,23 +54,23 @@ include CMakeFiles/ReconstructionNewClassesDict.dir/flags.make
 
 ReconstructionNewClasses.cpp: ../include/ReconstructionNewClasses.hh
 ReconstructionNewClasses.cpp: ../xml/selection.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ReconstructionNewClasses.cpp"
-	/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/genreflex /work/OptoTracker/packages/ReconstructionNew/include/ReconstructionNewClasses.hh -o ReconstructionNewClasses.cpp --select=/work/OptoTracker/packages/ReconstructionNew/xml/selection.xml --gccxmlpath=/usr/bin -I/work/geant4/4.10.01/SL6/no_multithread/include/Geant4 -I/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include -I/work/OptoTracker/packages/ReconstructionNew/include -I/work/geant4/4.10.01/SL6/no_multithread/include/Geant4 -I/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root -I/work/OptoTracker/packages/Common/include -I/work/OptoTracker/packages/Simulation/include -DG4_STORE_TRAJECTORY -DG4VERBOSE -DG4UI_USE -DG4VIS_USE -DG4UI_USE_TCSH -DG4INTY_USE_QT -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4INTY_USE_XT -DG4UI_USE_XM -DG4VIS_USE_OPENGLXM -DG4VIS_USE_OPENGLX -DG4VIS_USE_OPENGL
+	/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/genreflex /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/include/ReconstructionNewClasses.hh -o ReconstructionNewClasses.cpp --select=/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/xml/selection.xml --gccxmlpath=/usr/bin -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4 -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include -I/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/include -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4 -I/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root -I/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include -I/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include -DG4_STORE_TRAJECTORY -DG4VERBOSE -DG4UI_USE -DG4VIS_USE -DG4UI_USE_TCSH -DG4INTY_USE_QT -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4INTY_USE_XT -DG4VIS_USE_OPENGLX -DG4VIS_USE_OPENGL
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: CMakeFiles/ReconstructionNewClassesDict.dir/flags.make
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: ../src/TOptoJobManager.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o -c /work/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc > CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc > CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.i
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.s
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o.requires
@@ -83,17 +83,17 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o.provides.bu
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o: CMakeFiles/ReconstructionNewClassesDict.dir/flags.make
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o: ../src/TDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o -c /work/OptoTracker/packages/ReconstructionNew/src/TDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TDriver.cc
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/ReconstructionNew/src/TDriver.cc > CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TDriver.cc > CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.i
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/ReconstructionNew/src/TDriver.cc -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TDriver.cc -o CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.s
 
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o.requires
@@ -106,17 +106,17 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o.provides.build: CMa
 
 CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o: CMakeFiles/ReconstructionNewClassesDict.dir/flags.make
 CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o: ReconstructionNewClasses.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o -c /work/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp
 
 CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp > CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp > CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.i
 
 CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp -o CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/ReconstructionNewClasses.cpp -o CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.s
 
 CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o.requires:
 .PHONY : CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o.requires
@@ -140,71 +140,67 @@ libReconstructionNewClassesDict.so: CMakeFiles/ReconstructionNewClassesDict.dir/
 libReconstructionNewClassesDict.so: CMakeFiles/ReconstructionNewClassesDict.dir/src/TDriver.cc.o
 libReconstructionNewClassesDict.so: CMakeFiles/ReconstructionNewClassesDict.dir/ReconstructionNewClasses.cpp.o
 libReconstructionNewClassesDict.so: CMakeFiles/ReconstructionNewClassesDict.dir/build.make
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4Tree.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4FR.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4GMocren.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4visHepRep.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4RayTracer.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4VRML.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4OpenGL.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4gl2ps.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4vis_management.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4modeling.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4interfaces.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4persistency.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4analysis.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4error_propagation.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4readout.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4physicslists.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4run.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4event.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4tracking.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4parmodels.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4processes.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4digits_hits.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4track.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4particles.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4geometry.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4materials.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4graphics_reps.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4intercoms.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4global.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4clhep.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4zlib.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4geomUSolids.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4FR.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4vis_management.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4modeling.so
-libReconstructionNewClassesDict.so: /usr/lib64/libXm.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4Tree.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4FR.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4GMocren.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4visHepRep.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4RayTracer.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4VRML.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4OpenGL.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4gl2ps.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4vis_management.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4modeling.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4interfaces.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4persistency.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4analysis.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4error_propagation.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4readout.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4physicslists.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4run.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4event.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4tracking.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4parmodels.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4processes.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4digits_hits.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4track.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4particles.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4geometry.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4materials.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4graphics_reps.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4intercoms.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4global.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4zlib.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4FR.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4vis_management.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4modeling.so
+libReconstructionNewClassesDict.so: /usr/lib64/libGLU.so
+libReconstructionNewClassesDict.so: /usr/lib64/libGL.so
 libReconstructionNewClassesDict.so: /usr/lib64/libSM.so
 libReconstructionNewClassesDict.so: /usr/lib64/libICE.so
 libReconstructionNewClassesDict.so: /usr/lib64/libX11.so
 libReconstructionNewClassesDict.so: /usr/lib64/libXext.so
 libReconstructionNewClassesDict.so: /usr/lib64/libXmu.so
-libReconstructionNewClassesDict.so: /usr/lib64/libGLU.so
-libReconstructionNewClassesDict.so: /usr/lib64/libGL.so
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5OpenGL.so.5.3.2
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5PrintSupport.so.5.3.2
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Widgets.so.5.3.2
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Gui.so.5.3.2
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Core.so.5.3.2
-libReconstructionNewClassesDict.so: /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4run.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4event.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4tracking.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4processes.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4zlib.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5OpenGL.so.5.3.2
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5PrintSupport.so.5.3.2
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Widgets.so.5.3.2
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Gui.so.5.3.2
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.3.2/5.3/gcc_64/lib/libQt5Core.so.5.3.2
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4run.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4event.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4tracking.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4processes.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4zlib.so
 libReconstructionNewClassesDict.so: /usr/lib64/libexpat.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4digits_hits.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4track.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4particles.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4geometry.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4geomUSolids.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4materials.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4graphics_reps.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4intercoms.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4global.so
-libReconstructionNewClassesDict.so: /work/geant4/4.10.01/SL6/no_multithread/lib64/libG4clhep.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4digits_hits.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4track.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4particles.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4geometry.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4materials.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4graphics_reps.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4intercoms.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/libG4global.so
+libReconstructionNewClassesDict.so: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/lib/libCLHEP.so
 libReconstructionNewClassesDict.so: CMakeFiles/ReconstructionNewClassesDict.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library libReconstructionNewClassesDict.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ReconstructionNewClassesDict.dir/link.txt --verbose=$(VERBOSE)
@@ -223,6 +219,6 @@ CMakeFiles/ReconstructionNewClassesDict.dir/clean:
 .PHONY : CMakeFiles/ReconstructionNewClassesDict.dir/clean
 
 CMakeFiles/ReconstructionNewClassesDict.dir/depend: ReconstructionNewClasses.cpp
-	cd /work/OptoTracker/packages/ReconstructionNew/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/packages/ReconstructionNew /work/OptoTracker/packages/ReconstructionNew /work/OptoTracker/packages/ReconstructionNew/build /work/OptoTracker/packages/ReconstructionNew/build /work/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ReconstructionNewClassesDict.dir/depend
 

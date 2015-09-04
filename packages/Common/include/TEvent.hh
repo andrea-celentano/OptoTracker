@@ -18,24 +18,29 @@ class TEvent : public TObject{
 private:
 	vector <TClonesArray*> m_collections;
 
+
+	TClonesArray* getCollection (int id) const;
+	void deleteCollection (int id);
+
 public:
 	TEvent();
 	virtual ~TEvent();
 	virtual void Clear(Option_t* option="");
-
-	inline int getNcollections() const{return m_collections.size();}
 	void clearCollections(){m_collections.clear();}
 
-	TClonesArray* getCollection (int id) const;
-	TClonesArray* getCollectionByName(string name) const;
+	inline int getNcollections() const{return m_collections.size();}
+	void		printCollections() const;
 
-	void		  addCollection(TClonesArray *coll,int checkNameAlreadyExists=0);
 
-	int 		 hasCollectionByName(string name) const;
-	int  		 hasCollectionByClass(string name) const;
+	void		  addCollection(TClonesArray *coll,int checkAlreadyExists=1);
+	TClonesArray* getCollection(TClass *theClass,string name) const;
+	//TClonesArray* getCollection(TClonesArray *coll) const;
+	void          deleteCollection(TClass *theClass,string name);
 
-	void		printCollectionsName() const;
-	void		printCollectionsClass() const;
+	int  		 hasCollection(TClonesArray *coll) const;
+	int 		 hasCollection(TClass *theClass,string name) const;
+
+
 
 
 
