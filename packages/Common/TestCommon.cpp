@@ -1,5 +1,6 @@
 
 #include "TEvent.hh"
+#include "TXMLHandler.hh"
 
 #include "TFile.h"
 #include "TTree.h"
@@ -20,6 +21,39 @@ TApplication gui("gui",0,NULL);
 int main(){
 	//Load Cintex
 	ROOT::Cintex::Cintex::Enable();
+
+
+
+	TXMLHandler parser("recon.xml");
+
+	parser.GetDrivers();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
 	TEvent *ev=new TEvent();
 	TClonesArray *array1=new TClonesArray("TVectorT<float>");
 	array1->SetName("Coll1");
@@ -99,5 +133,5 @@ int main(){
 			//	gui.Run(1);
 		//}
 
-	}
+	}*/
 }

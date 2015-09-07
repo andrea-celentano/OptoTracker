@@ -343,6 +343,36 @@ src/TOpNoviceDetectorLight.cc.s:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s
 .PHONY : src/TOpNoviceDetectorLight.cc.s
 
+src/TXMLHandler.o: src/TXMLHandler.cc.o
+.PHONY : src/TXMLHandler.o
+
+# target to build an object file
+src/TXMLHandler.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.o
+.PHONY : src/TXMLHandler.cc.o
+
+src/TXMLHandler.i: src/TXMLHandler.cc.i
+.PHONY : src/TXMLHandler.i
+
+# target to preprocess a source file
+src/TXMLHandler.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.i
+.PHONY : src/TXMLHandler.cc.i
+
+src/TXMLHandler.s: src/TXMLHandler.cc.s
+.PHONY : src/TXMLHandler.s
+
+# target to generate assembly for a file
+src/TXMLHandler.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.s
+.PHONY : src/TXMLHandler.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -376,6 +406,9 @@ help:
 	@echo "... src/TOpNoviceDetectorLight.o"
 	@echo "... src/TOpNoviceDetectorLight.i"
 	@echo "... src/TOpNoviceDetectorLight.s"
+	@echo "... src/TXMLHandler.o"
+	@echo "... src/TXMLHandler.i"
+	@echo "... src/TXMLHandler.s"
 .PHONY : help
 
 

@@ -125,22 +125,21 @@ int main(int argc,char **argv){
 
 //Selector
 	TOptoJobManager *manager=new TOptoJobManager();
-	manager->setTmp2(22);
 	//PROOF
 	TProof *pf;
 
 	TChain *ch=new TChain("Event");
-		ch->Add("test.root");
-		int doProof=1;
-		int doProofDiag=1;
+	ch->Add("test.root");
+	int doProof=0;
+	int doProofDiag=1;
 
 	if (doProof){
 			pf=TProof::Open("workers=2");
 			pf->Exec("gSystem->Load(\"libCintex\")");
 			pf->Exec("ROOT::Cintex::Cintex::Enable()");
 			pf->Exec("gSystem->Load(\"${OPTO}/lib/libCommonClassesDict.so\")");
-			pf->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionNewClassesDict.so\")");
 			pf->Exec("gSystem->Load(\"${OPTO}/lib/libOpNoviceClassesDict.so\")");
+			pf->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionNewClassesDict.so\")");
 			pf->SetLogLevel(1, TProofDebug::kPacketizer);
 			pf->SetParameter("PROOF_Packetizer", "TPacketizer");
 			//This is the way to do when using PROOF,
@@ -152,6 +151,7 @@ int main(int argc,char **argv){
 			//selectorRaw->setSeed(0);
 		}
 
+		manager->Config("recon.xml");
 
 		if (doProof){
 			if (doProofDiag){

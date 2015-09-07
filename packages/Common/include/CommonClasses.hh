@@ -1,5 +1,6 @@
 #include "TOpNoviceDetectorLight.hh"
 #include "TEvent.hh"
+#include "TXMLHandler.hh"
 
 //#include <string>
 

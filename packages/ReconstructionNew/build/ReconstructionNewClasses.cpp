@@ -1,4 +1,4 @@
-// Generated at Mon Sep  7 09:54:27 2015. Do not modify it
+// Generated at Mon Sep  7 11:23:55 2015. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -36,40 +36,41 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 namespace {
   ::Reflex::Type type_47 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
   ::Reflex::Type type_41 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_931 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
+  ::Reflex::Type type_930 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
   ::Reflex::Type type_61 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
-  ::Reflex::Type type_967 = ::Reflex::TypeBuilder(Reflex::Literal("bool"));
+  ::Reflex::Type type_966 = ::Reflex::TypeBuilder(Reflex::Literal("bool"));
   ::Reflex::Type type_void = ::Reflex::TypeBuilder(Reflex::Literal("void"));
   ::Reflex::Type type_143 = ::Reflex::TypeBuilder(Reflex::Literal("TList"));
-  ::Reflex::Type type_897 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
-  ::Reflex::Type type_1857 = ::Reflex::TypeBuilder(Reflex::Literal("TTree"));
-  ::Reflex::Type type_358 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
-  ::Reflex::Type type_994 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
-  ::Reflex::Type type_648 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
-  ::Reflex::Type type_1439 = ::Reflex::TypeBuilder(Reflex::Literal("TEvent"));
-  ::Reflex::Type type_1858 = ::Reflex::TypeBuilder(Reflex::Literal("TDriver"));
-  ::Reflex::Type type_1275 = ::Reflex::TypeBuilder(Reflex::Literal("TBranch"));
-  ::Reflex::Type type_622 = ::Reflex::TypeBuilder(Reflex::Literal("TSelector"));
-  ::Reflex::Type type_849 = ::Reflex::TypeBuilder(Reflex::Literal("long long"));
-  ::Reflex::Type type_614 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
-  ::Reflex::Type type_2188 = ::Reflex::TypeBuilder(Reflex::Literal("TOptoJobManager"));
-  ::Reflex::Type type_8638 = ::Reflex::ReferenceBuilder(type_1858);
-  ::Reflex::Type type_1858c = ::Reflex::ConstBuilder(type_1858);
-  ::Reflex::Type type_8639 = ::Reflex::ReferenceBuilder(type_1858c);
-  ::Reflex::Type type_836 = ::Reflex::PointerBuilder(type_897);
-  ::Reflex::Type type_931c = ::Reflex::ConstBuilder(type_931);
-  ::Reflex::Type type_2657 = ::Reflex::PointerBuilder(type_931c);
-  ::Reflex::Type type_1687 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_61);
-  ::Reflex::Type type_7830 = ::Reflex::ReferenceBuilder(type_614);
-  ::Reflex::Type type_5139 = ::Reflex::ReferenceBuilder(type_648);
-  ::Reflex::Type type_5036 = ::Reflex::PointerBuilder(type_1857);
-  ::Reflex::Type type_5035 = ::Reflex::PointerBuilder(type_1275);
-  ::Reflex::Type type_8649 = ::Reflex::PointerBuilder(type_1439);
-  ::Reflex::Type type_1979 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Int_t"), type_47);
-  ::Reflex::Type type_850 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Long64_t"), type_849);
-  ::Reflex::Type type_7640 = ::Reflex::PointerBuilder(type_994);
-  ::Reflex::Type type_8173 = ::Reflex::PointerBuilder(type_143);
-  ::Reflex::Type type_968 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Bool_t"), type_967);
+  ::Reflex::Type type_896 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
+  ::Reflex::Type type_1856 = ::Reflex::TypeBuilder(Reflex::Literal("TTree"));
+  ::Reflex::Type type_993 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
+  ::Reflex::Type type_647 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
+  ::Reflex::Type type_1438 = ::Reflex::TypeBuilder(Reflex::Literal("TEvent"));
+  ::Reflex::Type type_1857 = ::Reflex::TypeBuilder(Reflex::Literal("TDriver"));
+  ::Reflex::Type type_1274 = ::Reflex::TypeBuilder(Reflex::Literal("TBranch"));
+  ::Reflex::Type type_621 = ::Reflex::TypeBuilder(Reflex::Literal("TSelector"));
+  ::Reflex::Type type_848 = ::Reflex::TypeBuilder(Reflex::Literal("long long"));
+  ::Reflex::Type type_613 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
+  ::Reflex::Type type_2186 = ::Reflex::TypeBuilder(Reflex::Literal("TOptoJobManager"));
+  ::Reflex::Type type_2332 = ::Reflex::TypeBuilder(Reflex::Literal("std::basic_string<char>"));
+  ::Reflex::Type type_8634 = ::Reflex::ReferenceBuilder(type_1857);
+  ::Reflex::Type type_1857c = ::Reflex::ConstBuilder(type_1857);
+  ::Reflex::Type type_8635 = ::Reflex::ReferenceBuilder(type_1857c);
+  ::Reflex::Type type_835 = ::Reflex::PointerBuilder(type_896);
+  ::Reflex::Type type_930c = ::Reflex::ConstBuilder(type_930);
+  ::Reflex::Type type_2655 = ::Reflex::PointerBuilder(type_930c);
+  ::Reflex::Type type_1686 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_61);
+  ::Reflex::Type type_7826 = ::Reflex::ReferenceBuilder(type_613);
+  ::Reflex::Type type_5137 = ::Reflex::ReferenceBuilder(type_647);
+  ::Reflex::Type type_5034 = ::Reflex::PointerBuilder(type_1856);
+  ::Reflex::Type type_5033 = ::Reflex::PointerBuilder(type_1274);
+  ::Reflex::Type type_8645 = ::Reflex::PointerBuilder(type_1438);
+  ::Reflex::Type type_1978 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Int_t"), type_47);
+  ::Reflex::Type type_849 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Long64_t"), type_848);
+  ::Reflex::Type type_7636 = ::Reflex::PointerBuilder(type_993);
+  ::Reflex::Type type_8169 = ::Reflex::PointerBuilder(type_143);
+  ::Reflex::Type type_967 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Bool_t"), type_966);
+  ::Reflex::Type type_2343 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("std::string"), type_2332);
 } // unnamed namespace
 
 #ifndef __CINT__
@@ -111,7 +112,6 @@ class __TOptoJobManager : public ::TSelector {
   void* fTree;
   void* b_event;
   void* m_event;
-  double tmp2;
 };
 }
 
@@ -172,7 +172,6 @@ void ::TOptoJobManager::ShowMembers(TMemberInspector &R__insp) {
    R__insp.Inspect(R__cl, R__insp.GetParent(), "*fTree", &fTree);
    R__insp.Inspect(R__cl, R__insp.GetParent(), "*b_event", &b_event);
    R__insp.Inspect(R__cl, R__insp.GetParent(), "*m_event", &m_event);
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "tmp2", &tmp2);
    TSelector::ShowMembers(R__insp);
 }
 void ::TOptoJobManager::Streamer(TBuffer &b) {
@@ -186,94 +185,94 @@ void ::TOptoJobManager::Streamer(TBuffer &b) {
 
 namespace {
 //------Stub functions for class TDriver -------------------------------
-static  void operator_5723( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_5721( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TDriver*)o)->operator=)(*(const ::TDriver*)arg[0]);
   else   (((::TDriver*)o)->operator=)(*(const ::TDriver*)arg[0]);
 }
 
-static void constructor_5724( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_5722( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TDriver(*(const ::TDriver*)arg[0]);
   else ::new(mem) ::TDriver(*(const ::TDriver*)arg[0]);
 }
 
-static void constructor_5725( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+static void constructor_5723( void* retaddr, void* mem, const std::vector<void*>&, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TDriver();
   else ::new(mem) ::TDriver();
 }
 
-static void destructor_5726(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_5724(void*, void * o, const std::vector<void*>&, void *) {
 (((::TDriver*)o)->::TDriver::~TDriver)();
 }
-static  void method_5727( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5725( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDriver*)o)->Class)());
   else   (((::TDriver*)o)->Class)();
 }
 
-static  void method_5728( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5726( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDriver*)o)->Class_Name)());
   else   (((::TDriver*)o)->Class_Name)();
 }
 
-static  void method_5729( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5727( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TDriver*)o)->Class_Version)());
   else   (((::TDriver*)o)->Class_Version)();
 }
 
-static  void method_5730( void*, void* o, const std::vector<void*>&, void*)
+static  void method_5728( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TDriver*)o)->Dictionary)();
 }
 
-static  void method_5731( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5729( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TDriver*)o)->IsA)());
   else   (((const ::TDriver*)o)->IsA)();
 }
 
-static  void method_5732( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5730( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDriver*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_5733( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5731( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDriver*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_5734( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5732( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDriver*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_5735( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5733( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDriver*)o)->DeclFileName)());
   else   (((::TDriver*)o)->DeclFileName)();
 }
 
-static  void method_5736( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5734( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDriver*)o)->ImplFileLine)());
   else   (((::TDriver*)o)->ImplFileLine)();
 }
 
-static  void method_5737( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5735( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDriver*)o)->ImplFileName)());
   else   (((::TDriver*)o)->ImplFileName)();
 }
 
-static  void method_5738( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5736( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDriver*)o)->DeclFileLine)());
   else   (((::TDriver*)o)->DeclFileLine)();
 }
 
-static void method_newdel_1858( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_1857( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TDriver >::new_T;
@@ -303,12 +302,12 @@ void __TDriver_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TDriver"), typeid(::TDriver), sizeof(::TDriver), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TDriver::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_994, ::Reflex::BaseOffset< ::TDriver, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8638, type_8639), Reflex::Literal("operator="), operator_5723, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8639), Reflex::Literal("TDriver"), constructor_5724, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TDriver"), constructor_5725, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TDriver"), destructor_5726, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1858, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddBase(type_993, ::Reflex::BaseOffset< ::TDriver, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8634, type_8635), Reflex::Literal("operator="), operator_5721, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8635), Reflex::Literal("TDriver"), constructor_5722, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TDriver"), constructor_5723, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TDriver"), destructor_5724, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1857, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x1, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandFunctionMemberBuilder(&__TDriver_funcmem_bld);
 }
@@ -320,21 +319,21 @@ void __TDriver_db_datamem(Reflex::Class*) {
 //------Delayed function member builder for class TDriver -------------------
 void __TDriver_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("Class"), method_5727, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("Class_Name"), method_5728, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1687), Reflex::Literal("Class_Version"), method_5729, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Dictionary"), method_5730, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("IsA"), method_5731, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7830), Reflex::Literal("ShowMembers"), method_5732, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5139), Reflex::Literal("Streamer"), method_5733, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5139), Reflex::Literal("StreamerNVirtual"), method_5734, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("DeclFileName"), method_5735, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_5736, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("ImplFileName"), method_5737, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_5738, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_835), Reflex::Literal("Class"), method_5725, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("Class_Name"), method_5726, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1686), Reflex::Literal("Class_Version"), method_5727, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Dictionary"), method_5728, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_835), Reflex::Literal("IsA"), method_5729, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7826), Reflex::Literal("ShowMembers"), method_5730, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5137), Reflex::Literal("Streamer"), method_5731, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5137), Reflex::Literal("StreamerNVirtual"), method_5732, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("DeclFileName"), method_5733, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_5734, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("ImplFileName"), method_5735, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_5736, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 //------Stub functions for class TOptoJobManager -------------------------------
-static void constructor_5828( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_5825( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if ( arg.size() == 0 ) {
     if (retaddr) *(void**)retaddr = ::new(mem) ::TOptoJobManager();
   else ::new(mem) ::TOptoJobManager();
@@ -345,26 +344,26 @@ static void constructor_5828( void* retaddr, void* mem, const std::vector<void*>
   }
 }
 
-static void destructor_5829(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_5826(void*, void * o, const std::vector<void*>&, void *) {
 (((::TOptoJobManager*)o)->::TOptoJobManager::~TOptoJobManager)();
 }
-static  void method_5830( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5827( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Int_t)((((const ::TOptoJobManager*)o)->Version)());
   else   (((const ::TOptoJobManager*)o)->Version)();
 }
 
-static  void method_5831( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5828( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->Begin)((::TTree*)arg[0]);
 }
 
-static  void method_5832( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5829( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->SlaveBegin)((::TTree*)arg[0]);
 }
 
-static  void method_5833( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_5830( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if ( arg.size() == 1 ) {
     if (retaddr) new (retaddr) (Int_t)((((::TOptoJobManager*)o)->GetEntry)(*(::Long64_t*)arg[0]));
@@ -378,134 +377,133 @@ static  void method_5833( void* retaddr, void* o, const std::vector<void*>& arg,
   }
 }
 
-static  void method_5834( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5831( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->SetOption)((const char*)arg[0]);
 }
 
-static  void method_5835( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5832( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->SetObject)((::TObject*)arg[0]);
 }
 
-static  void method_5836( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5833( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->SetInputList)((::TList*)arg[0]);
 }
 
-static  void method_5837( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5834( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TOptoJobManager*)o)->GetOutputList)());
   else   (((const ::TOptoJobManager*)o)->GetOutputList)();
 }
 
-static  void method_5838( void*, void* o, const std::vector<void*>&, void*)
+static  void method_5835( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TOptoJobManager*)o)->SlaveTerminate)();
 }
 
-static  void method_5839( void*, void* o, const std::vector<void*>&, void*)
+static  void method_5836( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TOptoJobManager*)o)->Terminate)();
 }
 
-static  void method_5840( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5837( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Bool_t)((((::TOptoJobManager*)o)->Notify)());
   else   (((::TOptoJobManager*)o)->Notify)();
 }
 
-static  void method_5841( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5838( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->Init)((::TTree*)arg[0]);
 }
 
-static  void method_5842( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_5839( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (Bool_t)((((::TOptoJobManager*)o)->Process)(*(::Long64_t*)arg[0]));
   else   (((::TOptoJobManager*)o)->Process)(*(::Long64_t*)arg[0]);
 }
 
-static  void method_5843( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5840( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TOptoJobManager*)o)->ClassName)());
   else   (((const ::TOptoJobManager*)o)->ClassName)();
 }
 
-static  void method_5844( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5841( void*, void* o, const std::vector<void*>& arg, void*)
 {
-  if (retaddr) new (retaddr) (double)((((::TOptoJobManager*)o)->getTmp2)());
-  else   (((::TOptoJobManager*)o)->getTmp2)();
+  if ( arg.size() == 0 ) {
+    (((::TOptoJobManager*)o)->Config)();
+  }
+  else if ( arg.size() == 1 ) { 
+    (((::TOptoJobManager*)o)->Config)(*(::std::string*)arg[0]);
+  }
 }
 
-static  void method_5845( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TOptoJobManager*)o)->setTmp2)(*(double*)arg[0]);
-}
-
-static  void method_5846( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5842( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TOptoJobManager*)o)->Class)());
   else   (((::TOptoJobManager*)o)->Class)();
 }
 
-static  void method_5847( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5843( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TOptoJobManager*)o)->Class_Name)());
   else   (((::TOptoJobManager*)o)->Class_Name)();
 }
 
-static  void method_5848( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5844( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TOptoJobManager*)o)->Class_Version)());
   else   (((::TOptoJobManager*)o)->Class_Version)();
 }
 
-static  void method_5849( void*, void* o, const std::vector<void*>&, void*)
+static  void method_5845( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TOptoJobManager*)o)->Dictionary)();
 }
 
-static  void method_5850( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5846( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TOptoJobManager*)o)->IsA)());
   else   (((const ::TOptoJobManager*)o)->IsA)();
 }
 
-static  void method_5851( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5847( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_5852( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5848( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_5853( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_5849( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TOptoJobManager*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_5854( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5850( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TOptoJobManager*)o)->DeclFileName)());
   else   (((::TOptoJobManager*)o)->DeclFileName)();
 }
 
-static  void method_5855( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5851( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TOptoJobManager*)o)->ImplFileLine)());
   else   (((::TOptoJobManager*)o)->ImplFileLine)();
 }
 
-static  void method_5856( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5852( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TOptoJobManager*)o)->ImplFileName)());
   else   (((::TOptoJobManager*)o)->ImplFileName)();
 }
 
-static  void method_5857( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_5853( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TOptoJobManager*)o)->DeclFileLine)());
   else   (((::TOptoJobManager*)o)->DeclFileLine)();
@@ -516,7 +514,7 @@ static void constructor_x2( void* retaddr, void* mem, const std::vector<void*>&,
   else ::new(mem) ::TOptoJobManager();
 }
 
-static void method_newdel_2188( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_2186( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TOptoJobManager >::new_T;
@@ -547,11 +545,11 @@ void __TOptoJobManager_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TOptoJobManager"), typeid(::TOptoJobManager), sizeof(::TOptoJobManager), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TOptoJobManager::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_622, ::Reflex::BaseOffset< ::TOptoJobManager, ::TSelector >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_5036), Reflex::Literal("TOptoJobManager"), constructor_5828, 0, "t=0", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TOptoJobManager"), destructor_5829, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddBase(type_621, ::Reflex::BaseOffset< ::TOptoJobManager, ::TSelector >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_5034), Reflex::Literal("TOptoJobManager"), constructor_5825, 0, "t=0", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TOptoJobManager"), destructor_5826, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TOptoJobManager"), constructor_x2, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_2188, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_2186, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x4, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TOptoJobManager_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TOptoJobManager_funcmem_bld);
@@ -560,42 +558,40 @@ void __TOptoJobManager_dict() {
 //------Delayed data member builder for class TOptoJobManager -------------------
 void __TOptoJobManager_db_datamem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddDataMember(type_5036, Reflex::Literal("fTree"), OffsetOf(__shadow__::__TOptoJobManager, fTree), ::Reflex::PRIVATE)
-  .AddDataMember(type_5035, Reflex::Literal("b_event"), OffsetOf(__shadow__::__TOptoJobManager, b_event), ::Reflex::PRIVATE)
-  .AddDataMember(type_8649, Reflex::Literal("m_event"), OffsetOf(__shadow__::__TOptoJobManager, m_event), ::Reflex::PRIVATE)
-  .AddDataMember(type_358, Reflex::Literal("tmp2"), OffsetOf(__shadow__::__TOptoJobManager, tmp2), ::Reflex::PRIVATE);
+  .AddDataMember(type_5034, Reflex::Literal("fTree"), OffsetOf(__shadow__::__TOptoJobManager, fTree), ::Reflex::PRIVATE)
+  .AddDataMember(type_5033, Reflex::Literal("b_event"), OffsetOf(__shadow__::__TOptoJobManager, b_event), ::Reflex::PRIVATE)
+  .AddDataMember(type_8645, Reflex::Literal("m_event"), OffsetOf(__shadow__::__TOptoJobManager, m_event), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TOptoJobManager -------------------
 void __TOptoJobManager_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1979), Reflex::Literal("Version"), method_5830, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5036), Reflex::Literal("Begin"), method_5831, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5036), Reflex::Literal("SlaveBegin"), method_5832, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1979, type_850, type_1979), Reflex::Literal("GetEntry"), method_5833, 0, "entry;getall=0", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_2657), Reflex::Literal("SetOption"), method_5834, 0, "option", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7640), Reflex::Literal("SetObject"), method_5835, 0, "obj", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_8173), Reflex::Literal("SetInputList"), method_5836, 0, "input", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8173), Reflex::Literal("GetOutputList"), method_5837, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("SlaveTerminate"), method_5838, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Terminate"), method_5839, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_968), Reflex::Literal("Notify"), method_5840, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5036), Reflex::Literal("Init"), method_5841, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_968, type_850), Reflex::Literal("Process"), method_5842, 0, "entry", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("ClassName"), method_5843, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_358), Reflex::Literal("getTmp2"), method_5844, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_358), Reflex::Literal("setTmp2"), method_5845, 0, "d", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("Class"), method_5846, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("Class_Name"), method_5847, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1687), Reflex::Literal("Class_Version"), method_5848, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Dictionary"), method_5849, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("IsA"), method_5850, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7830), Reflex::Literal("ShowMembers"), method_5851, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5139), Reflex::Literal("Streamer"), method_5852, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5139), Reflex::Literal("StreamerNVirtual"), method_5853, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("DeclFileName"), method_5854, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_5855, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2657), Reflex::Literal("ImplFileName"), method_5856, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_5857, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1978), Reflex::Literal("Version"), method_5827, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5034), Reflex::Literal("Begin"), method_5828, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5034), Reflex::Literal("SlaveBegin"), method_5829, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1978, type_849, type_1978), Reflex::Literal("GetEntry"), method_5830, 0, "entry;getall=0", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_2655), Reflex::Literal("SetOption"), method_5831, 0, "option", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7636), Reflex::Literal("SetObject"), method_5832, 0, "obj", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_8169), Reflex::Literal("SetInputList"), method_5833, 0, "input", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8169), Reflex::Literal("GetOutputList"), method_5834, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("SlaveTerminate"), method_5835, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Terminate"), method_5836, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_967), Reflex::Literal("Notify"), method_5837, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5034), Reflex::Literal("Init"), method_5838, 0, "tree", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_967, type_849), Reflex::Literal("Process"), method_5839, 0, "entry", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("ClassName"), method_5840, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_2343), Reflex::Literal("Config"), method_5841, 0, "fname=\"reconstruction.xml\"", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_835), Reflex::Literal("Class"), method_5842, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("Class_Name"), method_5843, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1686), Reflex::Literal("Class_Version"), method_5844, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41), Reflex::Literal("Dictionary"), method_5845, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_835), Reflex::Literal("IsA"), method_5846, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_7826), Reflex::Literal("ShowMembers"), method_5847, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5137), Reflex::Literal("Streamer"), method_5848, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_41, type_5137), Reflex::Literal("StreamerNVirtual"), method_5849, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("DeclFileName"), method_5850, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_5851, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2655), Reflex::Literal("ImplFileName"), method_5852, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_5853, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 namespace {
   struct Dictionaries {
@@ -605,8 +601,8 @@ namespace {
       __TOptoJobManager_dict(); 
     }
     ~Dictionaries() {
-      type_1858.Unload(); // class TDriver 
-      type_2188.Unload(); // class TOptoJobManager 
+      type_1857.Unload(); // class TDriver 
+      type_2186.Unload(); // class TOptoJobManager 
     }
   };
   static Dictionaries instance;

@@ -9,11 +9,13 @@
 #include "TChain.h"
 #include "TTree.h"
 
+
+#include "TXMLHandler.hh"
 #include "TEvent.hh"
 #include "TDriver.hh"
 
-class OpNoviceDetectorHit;
-class OpNoviceDigi;
+
+
 
 using namespace std;
 
@@ -25,11 +27,7 @@ private:
 	TBranch        *b_event;
 	TEvent         *m_event;
 
-
-
-	//string tmp;
-	double tmp2;
-
+	TXMLHandler 	*m_xmlHandler;
 
 
 public:
@@ -56,8 +54,8 @@ public:
 	virtual const char*	ClassName() const{return "TOptoJobManager";} /*Stupid root.. as to be here otherwise crashes*/
 
 
-	double getTmp2(){return tmp2;}
-	void   setTmp2(double d){tmp2=d;}
+	void Config(string fname="reconstruction.xml");
+
 
 	//string getTmp(){return tmp;}
 	//void   setTmp(string g){tmp=g;}

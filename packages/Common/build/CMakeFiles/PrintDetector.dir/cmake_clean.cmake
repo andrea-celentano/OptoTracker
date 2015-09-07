@@ -2,6 +2,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o"
   "CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o"
   "CMakeFiles/PrintDetector.dir/src/TEvent.cc.o"
+  "CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o"
   "CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o"
   "PrintDetector.pdb"
   "PrintDetector"

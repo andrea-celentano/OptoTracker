@@ -4,6 +4,7 @@
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: ../include/TDriver.hh
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: ../include/TOptoJobManager.hh
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TEvent.hh
+CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TXMLHandler.hh
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: ../Reconstruction.cpp
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDigi.hh
@@ -137,6 +138,7 @@ CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/a
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCollection.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCondition.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TConditionImp.h
+CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDOMParser.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDatime.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
@@ -214,6 +216,9 @@ CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/a
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualPad.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualX.h
+CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
+CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLEngine.h
+CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/ThreadLocalStorage.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Varargs.h
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/config.h
@@ -240,6 +245,7 @@ CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o: /project/Gruppo3/fiber6/apps/
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: ../include/TDriver.hh
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: ../include/TOptoJobManager.hh
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TEvent.hh
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TXMLHandler.hh
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: ../src/TOptoJobManager.cc
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDigi.hh
@@ -323,6 +329,7 @@ CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fibe
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClass.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClonesArray.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCollection.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDOMParser.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TGenericClassInfo.h
@@ -334,6 +341,8 @@ CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fibe
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjArray.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjString.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TQClass.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TQObject.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TSchemaHelper.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TSelector.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TSelectorList.h
@@ -343,6 +352,9 @@ CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fibe
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TTree.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVersionCheck.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLEngine.h
+CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/ThreadLocalStorage.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/snprintf.h
 CMakeFiles/ReconstructionNew.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/strlcpy.h

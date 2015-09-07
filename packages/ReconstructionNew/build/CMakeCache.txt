@@ -19,7 +19,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -201,7 +201,7 @@ ROOTCINT_EXECUTABLE:FILEPATH=/project/Gruppo3/fiber6/apps/jlab_software_20150427
 ROOT_CONFIG_EXECUTABLE:FILEPATH=/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/root-config
 
 //Dependencies for the target
-ReconstructionNewClassesDict_LIB_DEPENDS:STATIC=general;G4Tree;general;G4FR;general;G4GMocren;general;G4visHepRep;general;G4RayTracer;general;G4VRML;general;G4OpenGL;general;G4gl2ps;general;G4vis_management;general;G4modeling;general;G4interfaces;general;G4persistency;general;G4analysis;general;G4error_propagation;general;G4readout;general;G4physicslists;general;G4run;general;G4event;general;G4tracking;general;G4parmodels;general;G4processes;general;G4digits_hits;general;G4track;general;G4particles;general;G4geometry;general;G4materials;general;G4graphics_reps;general;G4intercoms;general;G4global;general;G4zlib;general;-L/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic;general;-lMinuit;general;-lMinuit2;general;-lProof;general;Cintex;general;Reflex;
+ReconstructionNewClassesDict_LIB_DEPENDS:STATIC=general;G4Tree;general;G4FR;general;G4GMocren;general;G4visHepRep;general;G4RayTracer;general;G4VRML;general;G4OpenGL;general;G4gl2ps;general;G4vis_management;general;G4modeling;general;G4interfaces;general;G4persistency;general;G4analysis;general;G4error_propagation;general;G4readout;general;G4physicslists;general;G4run;general;G4event;general;G4tracking;general;G4parmodels;general;G4processes;general;G4digits_hits;general;G4track;general;G4particles;general;G4geometry;general;G4materials;general;G4graphics_reps;general;G4intercoms;general;G4global;general;G4zlib;general;-L/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/lib/root -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic;general;-lMinuit;general;-lMinuit2;general;-lProof;general;-lXMLIO;general;Cintex;general;Reflex;
 
 //Value Computed by CMake
 ReconstructionNew_BINARY_DIR:STATIC=/project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/build
