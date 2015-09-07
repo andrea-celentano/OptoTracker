@@ -16,9 +16,9 @@ using namespace std;
 typedef struct driver{
 	string name;
 	string className;
-	vector<string> methodName;
-	vector< vector < double > > vectorParam;
-} driver;
+	vector < string > methodName;
+	vector < string > methodParam;
+} driver_struct;
 
 
 class TXMLHandler : public TObject{
@@ -39,7 +39,7 @@ public:
 
 
 
-	vector<driver> GetDrivers();
+	vector<driver_struct> GetDrivers();
 
 	void DisplayNodes(XMLNodePointer_t node, Int_t level);
 
