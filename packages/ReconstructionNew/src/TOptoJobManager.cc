@@ -1,19 +1,20 @@
 #define TOptoJobManager_cxx
 #include "TOptoJobManager.hh"
 #include "OpNoviceDigi.hh"
+#include "OpNoviceDetectorHit.hh"
 
 TOptoJobManager::TOptoJobManager(TTree* tree):
 fTree(tree),b_event(0),m_event(0)
 {
-	//	Info("TOptoJobManager","TOptoJobManager constructor");
+	Info("TOptoJobManager","TOptoJobManager constructor");
 }
 
 
 TOptoJobManager::~TOptoJobManager()
 {
-	if (fTree) delete fTree;
+	/*if (fTree) delete fTree;
 	if (b_event) delete b_event;
-	if (m_event) delete m_event;
+	if (m_event) delete m_event;*/
 	Info("TOptoJobManager","TOptoJobManager destructor");
 
 }
@@ -83,9 +84,18 @@ Bool_t  TOptoJobManager::Process(Long64_t entry){
 	cout<<this->getTmp2()<<endl;
 	this->setTmp2(entry);
 	cout<<this->getTmp2()<<endl;
-
+	cout<<"AAA"<<endl;
 	TClonesArray* tmp=m_event->getCollection(OpNoviceDigi::Class(),"DetDigiMC");
-	cout<<((OpNoviceDigi*)tmp->At(0))->GetName()<<" "<<((OpNoviceDigi*)tmp->At(0))->GetPheCount()<<endl;
+	TClonesArray* tmp2=m_event->getCollection(OpNoviceDetectorHit::Class(),"DetRawMC");
+	cout<<"DIGI0: "<<((OpNoviceDigi*)tmp->At(0))->GetName()<<" "<<((OpNoviceDigi*)tmp->At(0))->GetPheCount()<<endl;
+	cout<<"RAW0: "<<((OpNoviceDetectorHit*)tmp2->At(0))->GetName()<<" "<<((OpNoviceDetectorHit*)tmp2->At(0))->GetPheCount()<<endl;
+
+	for (int qq=0;qq<tmp2->GetEntriesFast();qq++){
+		int Nphe=((OpNoviceDetectorHit*)tmp2->At(qq))->GetPheCount();
+		for (int nn=0;nn<Nphe;nn++){
+			cout<<((OpNoviceDetectorHit*)tmp2->At(qq))->GetX(nn)<<endl;
+		}
+	}
 
 
 }

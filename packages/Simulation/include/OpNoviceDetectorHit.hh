@@ -49,8 +49,8 @@
 #include "tls.hh"
 
 class G4VTouchable;
-
-class OpNoviceDetectorHit :  public TObject , public G4VHit
+// public TObject ,
+class OpNoviceDetectorHit : public TObject ,  public G4VHit
 {
 public:    
 	OpNoviceDetectorHit();

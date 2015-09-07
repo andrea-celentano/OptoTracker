@@ -122,6 +122,7 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: ../include
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: ../include/TOptoJobManager.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TEvent.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: ../src/TOptoJobManager.cc
+CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDigi.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/BasicVector3D.h
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Normal3D.h
@@ -164,12 +165,15 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/G
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4String.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4String.icc
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4TDigiCollection.hh
+CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4THitsCollection.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Threading.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4ThreeVector.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Transform3D.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Types.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VDigi.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VDigiCollection.hh
+CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VHit.hh
+CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VHitsCollection.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VPhysicalVolume.hh
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VPhysicalVolume.icc
 CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4ios.hh

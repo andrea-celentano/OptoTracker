@@ -34,7 +34,6 @@ public:
 
 	void		  addCollection(TClonesArray *coll,int checkAlreadyExists=1);
 	TClonesArray* getCollection(TClass *theClass,string name) const;
-	//TClonesArray* getCollection(TClonesArray *coll) const;
 	void          deleteCollection(TClass *theClass,string name);
 
 	int  		 hasCollection(TClonesArray *coll) const;

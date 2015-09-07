@@ -123,6 +123,7 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o
  ../include/TOptoJobManager.hh
  /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/TEvent.hh
  /project/Gruppo3/fiber5/celentano/OptoTracker/packages/ReconstructionNew/src/TOptoJobManager.cc
+ /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDetectorHit.hh
  /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Simulation/include/OpNoviceDigi.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/BasicVector3D.h
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.3/include/CLHEP/Geometry/Normal3D.h
@@ -165,12 +166,15 @@ CMakeFiles/ReconstructionNewClassesDict.dir/src/TOptoJobManager.cc.o
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4String.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4String.icc
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4TDigiCollection.hh
+ /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4THitsCollection.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Threading.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4ThreeVector.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Transform3D.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4Types.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VDigi.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VDigiCollection.hh
+ /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VHit.hh
+ /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VHitsCollection.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VPhysicalVolume.hh
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4VPhysicalVolume.icc
  /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/include/Geant4/G4ios.hh

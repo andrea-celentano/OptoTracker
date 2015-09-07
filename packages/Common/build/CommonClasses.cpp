@@ -1,4 +1,4 @@
-// Generated at Fri Sep  4 10:44:56 2015. Do not modify it
+// Generated at Mon Sep  7 09:40:42 2015. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -36,16 +36,16 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 namespace {
   ::Reflex::Type type_49 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
   ::Reflex::Type type_43 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_936 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
+  ::Reflex::Type type_935 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
   ::Reflex::Type type_void = ::Reflex::TypeBuilder(Reflex::Literal("void"));
   ::Reflex::Type type_289 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
   ::Reflex::Type type_371 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
-  ::Reflex::Type type_894 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
+  ::Reflex::Type type_893 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
   ::Reflex::Type type_1486 = ::Reflex::TypeBuilder(Reflex::Literal("TEvent"));
   ::Reflex::Type type_1354 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
   ::Reflex::Type type_2199 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
-  ::Reflex::Type type_1045 = ::Reflex::TypeBuilder(Reflex::Literal("TVector3"));
-  ::Reflex::Type type_1295 = ::Reflex::TypeBuilder(Reflex::Literal("TClonesArray"));
+  ::Reflex::Type type_1044 = ::Reflex::TypeBuilder(Reflex::Literal("TVector3"));
+  ::Reflex::Type type_1294 = ::Reflex::TypeBuilder(Reflex::Literal("TClonesArray"));
   ::Reflex::Type type_627 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
   ::Reflex::Type type_2372 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<double>"));
   ::Reflex::Type type_459 = ::Reflex::TypeBuilder(Reflex::Literal("TOpNoviceDetectorLight"));
@@ -65,18 +65,18 @@ namespace {
   ::Reflex::Type type_8545 = ::Reflex::ReferenceBuilder(type_459);
   ::Reflex::Type type_459c = ::Reflex::ConstBuilder(type_459);
   ::Reflex::Type type_8546 = ::Reflex::ReferenceBuilder(type_459c);
-  ::Reflex::Type type_837 = ::Reflex::PointerBuilder(type_894);
-  ::Reflex::Type type_936c = ::Reflex::ConstBuilder(type_936);
-  ::Reflex::Type type_2739 = ::Reflex::PointerBuilder(type_936c);
+  ::Reflex::Type type_836 = ::Reflex::PointerBuilder(type_893);
+  ::Reflex::Type type_935c = ::Reflex::ConstBuilder(type_935);
+  ::Reflex::Type type_2739 = ::Reflex::PointerBuilder(type_935c);
   ::Reflex::Type type_1733 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_289);
   ::Reflex::Type type_8165 = ::Reflex::ReferenceBuilder(type_627);
   ::Reflex::Type type_4661 = ::Reflex::ReferenceBuilder(type_2199);
   ::Reflex::Type type_8853 = ::Reflex::ReferenceBuilder(type_1486);
   ::Reflex::Type type_1486c = ::Reflex::ConstBuilder(type_1486);
   ::Reflex::Type type_8854 = ::Reflex::ReferenceBuilder(type_1486c);
-  ::Reflex::Type type_2274 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Option_t"), type_936c);
+  ::Reflex::Type type_2274 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Option_t"), type_935c);
   ::Reflex::Type type_8164 = ::Reflex::PointerBuilder(type_2274);
-  ::Reflex::Type type_6320 = ::Reflex::PointerBuilder(type_1295);
+  ::Reflex::Type type_6320 = ::Reflex::PointerBuilder(type_1294);
 } // unnamed namespace
 
 #ifndef __CINT__
@@ -823,21 +823,21 @@ void __TOpNoviceDetectorLight_db_funcmem(Reflex::Class* cl) {
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("isDetPresent"), method_3318, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_2426), Reflex::Literal("setName"), method_3319, 0, "name", ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2426), Reflex::Literal("getName"), method_3320, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49, type_49, type_49), Reflex::Literal("getPosPixel"), method_3321, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49), Reflex::Literal("getFaceNormal"), method_3322, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49), Reflex::Literal("getFaceT1"), method_3323, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49), Reflex::Literal("getFaceT2"), method_3324, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49, type_49), Reflex::Literal("getDetectorNormal"), method_3325, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49, type_49), Reflex::Literal("getDetectorT1"), method_3326, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1045, type_49, type_49), Reflex::Literal("getDetectorT2"), method_3327, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49, type_49, type_49), Reflex::Literal("getPosPixel"), method_3321, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49), Reflex::Literal("getFaceNormal"), method_3322, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49), Reflex::Literal("getFaceT1"), method_3323, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49), Reflex::Literal("getFaceT2"), method_3324, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49, type_49), Reflex::Literal("getDetectorNormal"), method_3325, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49, type_49), Reflex::Literal("getDetectorT1"), method_3326, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1044, type_49, type_49), Reflex::Literal("getDetectorT2"), method_3327, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("init"), method_3328, 0, 0, ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("PrintPixels"), method_3329, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Print"), method_3330, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_837), Reflex::Literal("Class"), method_3331, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("Class"), method_3331, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2739), Reflex::Literal("Class_Name"), method_3332, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1733), Reflex::Literal("Class_Version"), method_3333, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_3334, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_837), Reflex::Literal("IsA"), method_3335, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("IsA"), method_3335, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8165), Reflex::Literal("ShowMembers"), method_3336, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_4661), Reflex::Literal("Streamer"), method_3337, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_4661), Reflex::Literal("StreamerNVirtual"), method_3338, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
@@ -1053,15 +1053,15 @@ void __TEvent_db_funcmem(Reflex::Class* cl) {
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getNcollections"), method_4491, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("printCollections"), method_4492, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_6320, type_49), Reflex::Literal("addCollection"), method_4493, 0, "coll;checkAlreadyExists=1", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_6320, type_837, type_2426), Reflex::Literal("getCollection"), method_4494, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_837, type_2426), Reflex::Literal("deleteCollection"), method_4495, 0, "theClass;name", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_6320, type_836, type_2426), Reflex::Literal("getCollection"), method_4494, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_836, type_2426), Reflex::Literal("deleteCollection"), method_4495, 0, "theClass;name", ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_6320), Reflex::Literal("hasCollection"), method_4496, 0, "coll", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_837, type_2426), Reflex::Literal("hasCollection"), method_4497, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_837), Reflex::Literal("Class"), method_4498, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_836, type_2426), Reflex::Literal("hasCollection"), method_4497, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("Class"), method_4498, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2739), Reflex::Literal("Class_Name"), method_4499, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1733), Reflex::Literal("Class_Version"), method_4500, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_4501, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_837), Reflex::Literal("IsA"), method_4502, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_836), Reflex::Literal("IsA"), method_4502, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8165), Reflex::Literal("ShowMembers"), method_4503, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_4661), Reflex::Literal("Streamer"), method_4504, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_4661), Reflex::Literal("StreamerNVirtual"), method_4505, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)

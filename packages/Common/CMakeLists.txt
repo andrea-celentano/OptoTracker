@@ -26,7 +26,7 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
-#
+# 
 REFLEX_GENERATE_DICTIONARY(CommonClasses include/CommonClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 add_library(CommonClassesDict SHARED ${sources} CommonClasses.cpp)
 set(libsuffix .so)
@@ -35,7 +35,7 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(CommonClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(CommonClassesDict ${ROOT_LIBRARIES} Cintex Reflex)
 
-
+ 
 
 add_executable(PrintDetector PrintDetector.cpp ${sources} ${headers})
 target_link_libraries(PrintDetector CommonClassesDict ${ROOT_LIBRARIES} Cintex)

@@ -173,7 +173,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			}*/
 
 			if (fSaveDetRaw){
-			  ((OpNoviceDetectorHit*)fRootCollectionDetRaw->ConstructedAt(i))->operator=(*((*detectorHC)[i]));  
+			  ((OpNoviceDetectorHit*)fRootCollectionDetRaw->ConstructedAt(i))->operator=(*((*detectorHC)[i]));
 			}
 		}
 		/*Scala di colore qui*/
@@ -202,7 +202,8 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
 				if (fSaveDetDigi){
-					(*(fRootCollectionDetDigi->ConstructedAt(i)))=(*((*detectorDigiHC)[i]));
+					G4cout<<(*detectorDigiHC)[i]->GetPheCount()<<G4endl;
+					 ((OpNoviceDigi*)fRootCollectionDetDigi->ConstructedAt(i))->operator=(*((*detectorDigiHC)[i]));
 				}
 			}
 			if (G4VVisManager::GetConcreteInstance()!=0){

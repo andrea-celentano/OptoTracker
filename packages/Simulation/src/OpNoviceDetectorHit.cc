@@ -49,7 +49,7 @@ G4ThreadLocal G4Allocator<OpNoviceDetectorHit>* OpNoviceDetectorHitAllocator=0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceDetectorHit::OpNoviceDetectorHit()
-:TObject(), fDetectorNumber(-1),fInFaceNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0),fDrawit(false),fNPixels(-1),fDrawScaleMax(-1),fDrawScaleMin(-1)
+: TObject(), fDetectorNumber(-1),fInFaceNumber(-1),fFaceNumber(-1),fNPhe(0),fPhysVol(0),fPhysVolMother(0),fDrawit(false),fNPixels(-1),fDrawScaleMax(-1),fDrawScaleMin(-1)
 //,TObject()
 {
 	strcpy(fName,"OpNoviceDetectorHitDefaultName");
@@ -60,12 +60,11 @@ OpNoviceDetectorHit::OpNoviceDetectorHit()
 
 OpNoviceDetectorHit::~OpNoviceDetectorHit() {
 	return;
-	cout<<"CU CU "<<fEnergy.size()<<" "<<string(fName)<<endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceDetectorHit::OpNoviceDetectorHit(const OpNoviceDetectorHit &right) : TObject(),G4VHit()
+OpNoviceDetectorHit::OpNoviceDetectorHit(const OpNoviceDetectorHit &right) : TObject() , G4VHit()
 {
 	fDetectorNumber=right.fDetectorNumber;
 	fFaceNumber=right.fFaceNumber;

@@ -1,21 +1,20 @@
+#include "G4VHit.hh"
+#include "G4VDigi.hh"
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceScintHit.hh"
-#include "G4VHit.hh"
-
-#include "G4VDigi.hh"
 #include "OpNoviceDigi.hh"
 
-OpNoviceDetectorHit object1;
-G4VHit object2;
-std::vector<OpNoviceDetectorHit*> object3;
+//std::vector< double > object1;
 
-OpNoviceDigi object4;
-G4VDigi object5;
-std::vector<OpNoviceDigi*> object6;
-std::vector< double > object7;
+G4VHit object2a;
+OpNoviceScintHit object2b;
+//OpNoviceDetectorHit object2c;
 
-OpNoviceScintHit object8;
-std::vector<OpNoviceScintHit*> object9;
+G4VDigi object3a;
+OpNoviceDigi object3b;
+
+
+
 
 //TOpNoviceDetectorLight detector;
 
