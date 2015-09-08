@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 #include "TEvent.hh"
-#include "TOptoJobManager.hh"
+#include "TJobManager.hh"
 
 #include "OpNoviceDigi.hh"
 #include "OpNoviceDetectorHit.hh"
@@ -124,14 +124,14 @@ int main(int argc,char **argv){
 	cin.get();*/
 
 //Selector
-	TOptoJobManager *manager=new TOptoJobManager();
+	TJobManager *manager=new TJobManager();
 	//PROOF
 	TProof *pf;
 
 	TChain *ch=new TChain("Event");
 	ch->Add("test.root");
-	int doProof=0;
-	int doProofDiag=1;
+	int doProof=1;
+	int doProofDiag=0;
 
 	if (doProof){
 			pf=TProof::Open("workers=2");

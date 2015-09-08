@@ -53,7 +53,7 @@ int main(){
 
 
 
-	/*
+
 	TEvent *ev=new TEvent();
 	TClonesArray *array1=new TClonesArray("TVectorT<float>");
 	array1->SetName("Coll1");
@@ -73,7 +73,7 @@ int main(){
 	cout<< h->IsA()->InheritsFrom(TH1F::Class())<<endl;
 	cout<<dynamic_cast<TH1*>(h)<<endl;
 	cout<<dynamic_cast<TH1F*>(h)<<endl;
-	cin.get();
+	cin.get();/*
 
 
 

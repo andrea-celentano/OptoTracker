@@ -149,7 +149,7 @@ vector<driver_struct> TXMLHandler::GetDrivers(){
 			//Now we need to check this driver has a matching execute entry 
 			for (int qq=0;qq<m_ret.size();qq++){
 			  if (m_ret.at(qq).name==m_driver.name){
-			    m_ret.at(qq).className=m_driver.name;
+			    m_ret.at(qq).className=m_driver.className;
 			    m_ret.at(qq).methodName=m_driver.methodName;
 			    m_ret.at(qq).methodParam=m_driver.methodParam;
 			    

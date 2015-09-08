@@ -1,8 +1,11 @@
-#include "TOptoJobManager.hh"
-#include "TDriver.hh"
 #include <vector>
+#include "TJobManager.hh"
+#include "TDriver.hh"
+#include "TEventMarkerDriver.hh"
 
-TOptoJobManager object1;
-TDriver object2;
-
+#ifdef __GCCXML__
+TJobManager object1;
+TDriver *object2;
+std::vector <TDriver*> object3;
+#endif
 //#undef __G4String

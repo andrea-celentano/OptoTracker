@@ -11,15 +11,13 @@
 
 
 #include "TXMLHandler.hh"
-#include "TEvent.hh"
-#include "TDriver.hh"
 
-
-
-
+class TDriver;
+class TEvent;
 using namespace std;
 
-class TOptoJobManager : public TSelector{
+class TJobManager : public TSelector{
+
 private:
 	TTree *fTree;   //!pointer to the analyzed TTree or TChain
 
@@ -27,12 +25,15 @@ private:
 	TBranch        *b_event;
 	TEvent         *m_event;
 
-	TXMLHandler 	*m_xmlHandler;
+	TXMLHandler 	  *m_xmlHandler;
+	vector <TDriver*> *m_drivers;
 
+
+	int m_eventN;
 
 public:
-	TOptoJobManager(TTree * t=0);
-	virtual ~TOptoJobManager();
+	TJobManager(TTree * t=0);
+	virtual ~TJobManager();
 
 	virtual Int_t   Version() const { return 2; }
 	virtual void    Begin(TTree *tree);      /*All the same*/
@@ -51,41 +52,28 @@ public:
 	virtual void    Init(TTree *tree);
 	virtual Bool_t  Process(Long64_t entry);
 
-	virtual const char*	ClassName() const{return "TOptoJobManager";} /*Stupid root.. as to be here otherwise crashes*/
+	virtual const char*	ClassName() const{return "TJobManager";} /*Stupid root.. as to be here otherwise crashes*/
 
 
 	void Config(string fname="reconstruction.xml");
 
 
-	//string getTmp(){return tmp;}
-	//void   setTmp(string g){tmp=g;}
+	vector<TDriver*>* getDrivers(){
+		return m_drivers;
+	}
+	TDriver* getDriver(int id);
+
+	int getEventN() const {
+		return m_eventN;
+	}
+
+	void setEventN(int eventN) {
+		m_eventN = eventN;
+	}
+
+	ClassDef(TJobManager,1);
 
 
-
-
-
-	ClassDef(TOptoJobManager,1);
 };
 #endif
 
-#ifdef TOptoJobManager_cxx
-
-
-Bool_t TOptoJobManager::Notify()
-{
-	// The Notify() function is called when a new file is opened. This
-	// can be either for a new TTree in a TChain or when when a new TTree
-	// is started when using PROOF. It is normally not necessary to make changes
-	// to the generated code, but the routine can be extended by the
-	// user if needed. The return value is currently not used.
-
-	return kTRUE;
-}
-
-
-
-
-
-
-
-#endif

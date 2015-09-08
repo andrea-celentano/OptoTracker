@@ -1,4 +1,8 @@
 <lcgdict>
-<class name="TOptoJobManager"/>
+<class name="std::vector< TDriver * >"/>
+<class name="TJobManager">
+	<field name="m_xmlHandler" transient="true"/>
+</class>
 <class name="TDriver"/>
+<class name="TEventMarkerDriver"/>
 </lcgdict>
