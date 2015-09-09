@@ -254,6 +254,7 @@ CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o: /project/Gruppo3/f
 CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/snprintf.h
 CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/strlcpy.h
 
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: ../include/CommonStructures.hh
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: ../include/TXMLHandler.hh
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: ../src/TXMLHandler.cc
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/DllImport.h
@@ -265,10 +266,19 @@ CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypeinfo.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArray.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayD.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayI.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttLine.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBranch.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBuffer.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TChain.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClass.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCollection.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDOMParser.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TGenericClassInfo.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TIterator.h
@@ -283,7 +293,9 @@ CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TSeqCollection.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TStorage.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TString.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TTree.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVersionCheck.h
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLEngine.h
 CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h

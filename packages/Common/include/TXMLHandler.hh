@@ -11,14 +11,10 @@
 #include "TXMLParser.h"
 #include "TDOMParser.h"
 
+#include "CommonStructures.hh"
+
 using namespace std;
 
-typedef struct driver{
-	string name;
-	string className;
-	vector < string > methodName;
-	vector < string > methodParam;
-} driver_struct;
 
 
 class TXMLHandler : public TObject{
@@ -40,6 +36,7 @@ public:
 
 
 	vector<driver_struct> GetDrivers();
+	reconControl_struct GetReconControl();
 
 	void DisplayNodes(XMLNodePointer_t node, Int_t level);
 

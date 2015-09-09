@@ -9,8 +9,6 @@ class TEvent;
 class TEventMarkerDriver : public TDriver {
 
 private:
-	int Nevents;
-	int m_eventN;
 	int m_interval;
 
 public:

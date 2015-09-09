@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/CommonStructures.hh
+string
+-
+vector
+-
+
 ../include/TXMLHandler.hh
 iostream
 -
@@ -21,10 +27,16 @@ TXMLParser.h
 ../include/TXMLParser.h
 TDOMParser.h
 ../include/TDOMParser.h
+CommonStructures.hh
+../include/CommonStructures.hh
 
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.cc
 TXMLHandler.hh
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.hh
+TChain.h
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TChain.h
+stdlib.h
+-
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/DllImport.h
 
@@ -86,11 +98,57 @@ atomic
 TGenericClassInfo.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TGenericClassInfo.h
 
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArray.h
+Rtypes.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+string.h
+-
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayD.h
+TArray.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArray.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayI.h
+TArray.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArray.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+Rtypes.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+Riosfwd.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttLine.h
+Rtypes.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+Riosfwd.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
+Rtypes.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+Riosfwd.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBranch.h
+TNamed.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TNamed.h
+TObjArray.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjArray.h
+TAttFill.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+TDataType.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
+
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBuffer.h
 TObject.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
 typeinfo
 -
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TChain.h
+TTree.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TTree.h
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClass.h
 TDictionary.h
@@ -123,6 +181,10 @@ TXMLParser.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h
 TXMLDocument.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
+TDictionary.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
 TNamed.h
@@ -222,9 +284,35 @@ stdarg.h
 string
 -
 
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TTree.h
+TBranch.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBranch.h
+TObjArray.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjArray.h
+TAttLine.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttLine.h
+TAttFill.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+TAttMarker.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
+TArrayD.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayD.h
+TArrayI.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayI.h
+TDataType.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
+TClass.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClass.h
+TVirtualTreePlayer.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
+
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVersionCheck.h
 RVersion.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/RVersion.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
+TObject.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
 TObject.h

@@ -17,6 +17,8 @@ protected:
 	TJobManager *m_manager;
 	string m_name;
 
+	int m_verboseLevel;
+	int m_iterationN;
 
 public:
 	TDriver(TJobManager *manager=0);
@@ -43,7 +45,22 @@ public:
 		m_name = name;
 	}
 
+	int getVerboseLevel() const {
+		return m_verboseLevel;
+	}
 
+	void setVerboseLevel(int verboseLevel) {
+		m_verboseLevel = verboseLevel;
+	}
+
+
+	int getIterationN() const {
+		return m_iterationN;
+	}
+
+	void setIterationN(int iterationN) {
+		m_iterationN = iterationN;
+	}
 
 	ClassDef(TDriver,1);
 };

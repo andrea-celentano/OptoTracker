@@ -13,7 +13,8 @@ $(packages):
 clean:
 	for package in ${packages} ; do \
 		cd ${OPTO}/packages/$$package/build ; \
-		rm -rf * ; \
+		rm -rf CMakeFiles ; \
+		rm -rf CMakeCache.txt ; \
 	done ; \
 	cd ${OPTO}/bin ; rm * ; cd ${OPTO}/lib ; rm *
 

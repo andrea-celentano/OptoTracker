@@ -3,6 +3,7 @@
 
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: CommonClasses.cpp
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: ../include/CommonClasses.hh
+CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: ../include/CommonStructures.hh
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: ../include/TEvent.hh
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: ../include/TOpNoviceDetectorLight.hh
 CMakeFiles/CommonClassesDict.dir/CommonClasses.cpp.o: ../include/TXMLHandler.hh
@@ -213,6 +214,7 @@ CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o: /project/Grupp
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/snprintf.h
 CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/strlcpy.h
 
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: ../include/CommonStructures.hh
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: ../include/TXMLHandler.hh
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: ../src/TXMLHandler.cc
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/DllImport.h
@@ -224,10 +226,19 @@ CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/a
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypeinfo.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArray.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayD.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayI.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttLine.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBranch.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBuffer.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TChain.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClass.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCollection.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDOMParser.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDictionary.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TGenericClassInfo.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TIterator.h
@@ -242,7 +253,9 @@ CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/a
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TSeqCollection.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TStorage.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TString.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TTree.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVersionCheck.h
+CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TVirtualTreePlayer.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLEngine.h
 CMakeFiles/CommonClassesDict.dir/src/TXMLHandler.cc.o: /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h

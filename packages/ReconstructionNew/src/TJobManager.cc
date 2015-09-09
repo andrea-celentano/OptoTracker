@@ -1,18 +1,30 @@
 #include "TJobManager.hh"
 #include "TDriver.hh"
 #include "TEvent.hh"
-#include "OpNoviceDigi.hh"
-#include "OpNoviceDetectorHit.hh"
+#include "CommonStructures.hh"
+
 
 #include "TClass.h"
 #include "TMethod.h"
 #include "TMethodArg.h"
 #include "TMethodCall.h"
 
+
+
 TJobManager::TJobManager(TTree* tree):
 fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
+	m_eventN=0;
+	m_doProof=0;
+	m_doProofDiag=0;
+	m_skipEvents=0;
+	m_numberOfEvents=TChain::kBigNumber;
+	m_verboseLevel=0;
+	m_dryRun=0;
+	m_numberOfWorkers=1;
+
+	m_iterationN=0;
 	Info("TOptoJobManager","Done");
 }
 
@@ -80,7 +92,7 @@ void TJobManager::SlaveBegin(TTree* /*tree*/)
 	m_eventN=0;
 	/*We need to init each driver*/
 	for (int ii=0;ii<m_drivers->size();ii++){
-			m_drivers->at(ii)->startOfData();
+		m_drivers->at(ii)->startOfData();
 	}
 
 }
@@ -120,7 +132,28 @@ void	TJobManager::Config(string fname){
 
 	m_xmlHandler=new TXMLHandler(fname);
 
+	reconControl_struct reconControl=m_xmlHandler->GetReconControl();
 	vector<driver_struct> driver_list=m_xmlHandler->GetDrivers();
+
+	this->ConfigControl(reconControl);
+	this->ConfigDrivers(driver_list);
+
+
+	Info("Config","Done");
+}
+
+void TJobManager::ConfigControl(const reconControl_struct &reconControl){
+	this->setDryRun(reconControl.dryRun);
+	this->setNumberOfEvents(reconControl.numberOfEvents);
+	this->setSkipEvents(reconControl.skipEvents);
+	this->setDoProof(reconControl.doProof);
+	this->setDoProofDiag(reconControl.doProofDiag);
+	this->setVerboseLevel(reconControl.verboseLevel);
+	this->setNumberOfWorkers(reconControl.numberOfWorkers);
+	Info("ConfigControl","Done");
+
+}
+void TJobManager::ConfigDrivers(const vector<driver_struct> &driver_list){
 
 	TDriver *driver;
 	TClass *driverClass;
@@ -136,41 +169,44 @@ void	TJobManager::Config(string fname){
 
 		driverClass=TClass::GetClass(className.c_str());
 		if (driverClass==0){
-			Error("TJobManager","TJobManager:Config error, driver class %s not in ROOT dictionary. Skip",className.c_str());
+			Error("ConfigDrivers","Error, driver class %s not in ROOT dictionary. Skip",className.c_str());
 			continue;
 		}
 		driver=(TDriver*)driverClass->New();
 		if (driver==0){
-			Error("Config","Error, driver class %s can't be created",className.c_str());
+			Error("ConfigDrivers","Error, driver class %s can't be created",className.c_str());
 			continue;
 		}
 		else{
 			/*We created the class. */
 			driver->setName(name);
 			driver->setManager(this);
+			/*Here we set some common driver parameters*/
+			driver->setVerboseLevel(m_verboseLevel);
+			driver->setIterationN(m_iterationN);
 			/*Go with methods*/
 			for (int imethod=0;imethod<driver_list.at(ii).methodName.size();imethod++){
 				amethodName=driver_list.at(ii).methodName.at(imethod);
 				amethodParam=driver_list.at(ii).methodParam.at(imethod);
-				Info("Config","Try to call method name %s with param %s on class %s",amethodName.c_str(),amethodParam.c_str(),className.c_str());
+				Info("ConfigDrivers","Try to call method name %s with param %s on class %s",amethodName.c_str(),amethodParam.c_str(),className.c_str());
 				classMethod=0;
 				classMethod=driverClass->GetMethod(amethodName.c_str(),amethodParam.c_str());                         //Use "GetMethod" to also search in base class (TDriver, TObject)
 				if (classMethod==0){
-					Error("Config","Error, driver class %s does not have any matching methods name: %s param: %s",className.c_str(),amethodName.c_str(),amethodParam.c_str());
+					Error("ConfigDrivers","Error, driver class %s does not have any matching methods name: %s param: %s",className.c_str(),amethodName.c_str(),amethodParam.c_str());
 					continue;
 				}
 				else{
 					classMethodCall=0;
 					classMethodCall=new TMethodCall(driverClass,amethodName.c_str(),amethodParam.c_str());
 					classMethodCall->Execute((void *)driver);
-					Info("Config","Method called");
+					Info("ConfigDrivers","Method %s called",amethodName.c_str());
 				}
 
 			}
 			m_drivers->push_back(driver);
 		}
 	}
-	Info("Config","Done");
+	Info("ConfigDrivers","Done");
 }
 
 

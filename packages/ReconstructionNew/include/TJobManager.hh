@@ -12,6 +12,8 @@
 
 #include "TXMLHandler.hh"
 
+
+
 class TDriver;
 class TEvent;
 using namespace std;
@@ -30,6 +32,18 @@ private:
 
 
 	int m_eventN;
+
+	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEvents,m_verboseLevel,m_dryRun,m_numberOfWorkers;
+
+	/*For some analysis, we may want to do more than one iteration.
+	 * This happens, for example, if we need to first compute a "global" quantity,
+	 * and then re-process the events using this quantity
+	 */
+	int m_iterationN;
+
+	void ConfigDrivers(const vector < driver_struct > &driver_list);
+	void ConfigControl(const reconControl_struct  &reconControl);
+
 
 public:
 	TJobManager(TTree * t=0);
@@ -69,6 +83,74 @@ public:
 
 	void setEventN(int eventN) {
 		m_eventN = eventN;
+	}
+
+
+	int getDoProof() const {
+		return m_doProof;
+	}
+
+	void setDoProof(int doProof) {
+		m_doProof = doProof;
+	}
+
+	int getDoProofDiag() const {
+		return m_doProofDiag;
+	}
+
+	void setDoProofDiag(int doProofDiag) {
+		m_doProofDiag = doProofDiag;
+	}
+
+	int getNumberOfEvents() const {
+		return m_numberOfEvents;
+	}
+
+	void setNumberOfEvents(int numberOfEvents) {
+		m_numberOfEvents = numberOfEvents;
+	}
+
+	int getSkipEvents() const {
+		return m_skipEvents;
+	}
+
+	void setSkipEvents(int skipEvents) {
+		m_skipEvents = skipEvents;
+	}
+
+	int getVerboseLevel() const {
+		return m_verboseLevel;
+	}
+
+	void setVerboseLevel(int verboseLevel) {
+		m_verboseLevel = verboseLevel;
+	}
+
+
+	int getDryRun() const {
+		return m_dryRun;
+	}
+
+	void setDryRun(int dryRun) {
+		m_dryRun = dryRun;
+	}
+
+
+	int getNumberOfWorkers() const {
+		return m_numberOfWorkers;
+	}
+
+	void setNumberOfWorkers(int numberOfWorkers) {
+		m_numberOfWorkers = numberOfWorkers;
+	}
+
+
+	int getIterationN() const {
+		return m_iterationN;
+	}
+
+	void setIterationN(int iterationN) {
+		m_iterationN = iterationN;
 	}
 
 	ClassDef(TJobManager,1);
