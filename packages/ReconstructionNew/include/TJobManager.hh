@@ -18,6 +18,9 @@ class TDriver;
 class TEvent;
 using namespace std;
 
+
+
+
 class TJobManager : public TSelector{
 
 private:
@@ -33,7 +36,7 @@ private:
 
 	int m_eventN;
 
-	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEvents,m_verboseLevel,m_dryRun,m_numberOfWorkers;
+	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEvents,m_verboseLevel,m_dryRun,m_numberOfWorkers,m_numberOfIterations;
 
 	/*For some analysis, we may want to do more than one iteration.
 	 * This happens, for example, if we need to first compute a "global" quantity,
@@ -46,6 +49,11 @@ private:
 
 
 public:
+
+
+
+
+
 	TJobManager(TTree * t=0);
 	virtual ~TJobManager();
 
@@ -61,10 +69,11 @@ public:
 	virtual void    SlaveTerminate(); /*All the same*/
 	virtual void    Terminate(); /*All the same*/
 
-
 	virtual Bool_t  Notify();
 	virtual void    Init(TTree *tree);
 	virtual Bool_t  Process(Long64_t entry);
+
+
 
 	virtual const char*	ClassName() const{return "TJobManager";} /*Stupid root.. as to be here otherwise crashes*/
 
@@ -152,6 +161,31 @@ public:
 	void setIterationN(int iterationN) {
 		m_iterationN = iterationN;
 	}
+	void incrementIterationN(){m_iterationN++;}
+	int isLastIteration(){
+		if (m_iterationN==(m_numberOfIterations-1)) return 1;
+		else return 0;
+	}
+
+	int getNumberOfIterations() const {
+		return m_numberOfIterations;
+	}
+
+	void setNumberOfIterations(int numberOfIterations) {
+		m_numberOfIterations = numberOfIterations;
+	}
+
+
+
+public:
+
+	static const int	noVerbosity=0;
+	static const int	minimalVerbosity=1;
+	static const int	normalVerbosity=2;
+	static const int	fullVerbosity=3;
+	static const int	veryfullVerbosity=4;
+
+
 
 	ClassDef(TJobManager,1);
 

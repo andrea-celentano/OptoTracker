@@ -15,6 +15,7 @@ clean:
 		cd ${OPTO}/packages/$$package/build ; \
 		rm -rf CMakeFiles ; \
 		rm -rf CMakeCache.txt ; \
+		rm -rf *Classes.cpp ; \
 	done ; \
 	cd ${OPTO}/bin ; rm * ; cd ${OPTO}/lib ; rm *
 

@@ -1,4 +1,4 @@
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TEvent.hh"
 #include "TXMLHandler.hh"
 
@@ -7,7 +7,7 @@
 //string obj1;
 
 
-TOpNoviceDetectorLight obj1;
+TDetectorLight obj1;
 TEvent obj2;
 
 

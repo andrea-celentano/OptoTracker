@@ -81,15 +81,6 @@ CMakeFiles/CommonClassesDict.dir/rule: cmake_check_build_system
 CommonClassesDict: CMakeFiles/CommonClassesDict.dir/rule
 .PHONY : CommonClassesDict
 
-# Pre-install relink rule for target.
-CMakeFiles/CommonClassesDict.dir/preinstall:
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/preinstall
-.PHONY : CMakeFiles/CommonClassesDict.dir/preinstall
-
-# Prepare target for install.
-preinstall: CMakeFiles/CommonClassesDict.dir/preinstall
-.PHONY : preinstall
-
 # clean rule for target.
 CMakeFiles/CommonClassesDict.dir/clean:
 	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/clean
@@ -125,15 +116,6 @@ CMakeFiles/PrintDetector.dir/rule: cmake_check_build_system
 PrintDetector: CMakeFiles/PrintDetector.dir/rule
 .PHONY : PrintDetector
 
-# Pre-install relink rule for target.
-CMakeFiles/PrintDetector.dir/preinstall:
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/preinstall
-.PHONY : CMakeFiles/PrintDetector.dir/preinstall
-
-# Prepare target for install.
-preinstall: CMakeFiles/PrintDetector.dir/preinstall
-.PHONY : preinstall
-
 # clean rule for target.
 CMakeFiles/PrintDetector.dir/clean:
 	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/clean
@@ -168,15 +150,6 @@ CMakeFiles/TestCommon.dir/rule: cmake_check_build_system
 # Convenience name for target.
 TestCommon: CMakeFiles/TestCommon.dir/rule
 .PHONY : TestCommon
-
-# Pre-install relink rule for target.
-CMakeFiles/TestCommon.dir/preinstall:
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/preinstall
-.PHONY : CMakeFiles/TestCommon.dir/preinstall
-
-# Prepare target for install.
-preinstall: CMakeFiles/TestCommon.dir/preinstall
-.PHONY : preinstall
 
 # clean rule for target.
 CMakeFiles/TestCommon.dir/clean:

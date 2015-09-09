@@ -24,7 +24,7 @@
 // Header file for the classes stored in the TTree if any.
 
 #include "OpNoviceDetectorHit.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 #include "TReconInput.hh"
 

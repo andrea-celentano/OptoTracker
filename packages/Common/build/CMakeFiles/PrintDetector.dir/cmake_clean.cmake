@@ -1,13 +1,11 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o"
-  "CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o"
   "CMakeFiles/PrintDetector.dir/src/TEvent.cc.o"
   "CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o"
   "CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o"
+  "CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o"
   "PrintDetector.pdb"
   "PrintDetector"
-  "PrintDetector.pdb"
-  "CMakeFiles/CMakeRelink.dir/PrintDetector"
 )
 
 # Per-language clean rules from dependency scanning.

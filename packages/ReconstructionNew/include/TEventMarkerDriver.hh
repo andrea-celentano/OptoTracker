@@ -15,11 +15,8 @@ public:
 	TEventMarkerDriver();
 	virtual ~TEventMarkerDriver();
 
-	/*These are the pure virtual methods implemented by here in derived classes*/
-	virtual int startOfData(); //This method gets called once before the first event.
-	virtual int endOfData();   //This method gets called once after the last event.
+	/*These are the pure methods implemented here*/
 	virtual int process(TEvent *event);
-	virtual int detectorChanged();
 
 
 	int getInterval() const {

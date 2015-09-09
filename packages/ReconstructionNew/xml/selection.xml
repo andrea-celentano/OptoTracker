@@ -1,8 +1,10 @@
 <lcgdict>
 <class name="std::vector< TDriver * >"/>
+<class name="TAnalysis"/>
 <class name="TJobManager">
 	<field name="m_xmlHandler" transient="true"/>
 </class>
 <class name="TDriver"/>
 <class name="TEventMarkerDriver"/>
+<class name="TRootSaveDriver"/>
 </lcgdict>

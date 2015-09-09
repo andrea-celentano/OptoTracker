@@ -1,5 +1,5 @@
 #include "TRecon.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 
 #include "Minuit2/FCNBase.h"
 #include "TFitterMinuit.h"

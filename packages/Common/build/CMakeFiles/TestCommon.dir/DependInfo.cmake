@@ -6,8 +6,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/TestCommon.cpp" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/TestCommon.cpp.o"
   "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o"
+  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorLight.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.o"
   "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/src/TEvent.cc.o"
-  "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TOpNoviceDetectorLight.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o"
   "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.cc" "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

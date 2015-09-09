@@ -24,11 +24,13 @@ public:
 	TDriver(TJobManager *manager=0);
 	virtual ~TDriver();
 
-	/*These are the pure virtual methods implemented by the derived classes*/
-	virtual int startOfData()=0;
-	virtual int endOfData()=0;
-	virtual int process(TEvent *event)=0;
-	virtual int detectorChanged()=0;
+	/*These are the virtual methods implemented by the derived classes*/
+	virtual int start(){return 0;};
+	virtual int startOfData(){return 0;};
+	virtual int endOfData(){return 0;};
+	virtual int end(){return 0;};
+	virtual int process(TEvent *event){return 0;};
+	virtual int detectorChanged(){return 0;};
 
 	TJobManager* getManager() const {
 		return m_manager;

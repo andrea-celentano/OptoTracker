@@ -82,6 +82,16 @@ install/local: preinstall
 install/local/fast: install/local
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -145,11 +155,6 @@ CommonClassesDict/fast:
 	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/build
 .PHONY : CommonClassesDict/fast
 
-# Manual pre-install relink rule for target.
-CommonClassesDict/preinstall:
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/preinstall
-.PHONY : CommonClassesDict/preinstall
-
 #=============================================================================
 # Target rules for targets named PrintDetector
 
@@ -163,11 +168,6 @@ PrintDetector/fast:
 	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/build
 .PHONY : PrintDetector/fast
 
-# Manual pre-install relink rule for target.
-PrintDetector/preinstall:
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/preinstall
-.PHONY : PrintDetector/preinstall
-
 #=============================================================================
 # Target rules for targets named TestCommon
 
@@ -180,11 +180,6 @@ TestCommon: cmake_check_build_system
 TestCommon/fast:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/build
 .PHONY : TestCommon/fast
-
-# Manual pre-install relink rule for target.
-TestCommon/preinstall:
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/preinstall
-.PHONY : TestCommon/preinstall
 
 CommonClasses.o: CommonClasses.cpp.o
 .PHONY : CommonClasses.o
@@ -288,6 +283,36 @@ src/RealSetupHandler.cc.s:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.s
 .PHONY : src/RealSetupHandler.cc.s
 
+src/TDetectorLight.o: src/TDetectorLight.cc.o
+.PHONY : src/TDetectorLight.o
+
+# target to build an object file
+src/TDetectorLight.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorLight.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.o
+.PHONY : src/TDetectorLight.cc.o
+
+src/TDetectorLight.i: src/TDetectorLight.cc.i
+.PHONY : src/TDetectorLight.i
+
+# target to preprocess a source file
+src/TDetectorLight.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorLight.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.i
+.PHONY : src/TDetectorLight.cc.i
+
+src/TDetectorLight.s: src/TDetectorLight.cc.s
+.PHONY : src/TDetectorLight.s
+
+# target to generate assembly for a file
+src/TDetectorLight.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorLight.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.s
+.PHONY : src/TDetectorLight.cc.s
+
 src/TEvent.o: src/TEvent.cc.o
 .PHONY : src/TEvent.o
 
@@ -317,36 +342,6 @@ src/TEvent.cc.s:
 	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TEvent.cc.s
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TEvent.cc.s
 .PHONY : src/TEvent.cc.s
-
-src/TOpNoviceDetectorLight.o: src/TOpNoviceDetectorLight.cc.o
-.PHONY : src/TOpNoviceDetectorLight.o
-
-# target to build an object file
-src/TOpNoviceDetectorLight.cc.o:
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.o
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.o
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o
-.PHONY : src/TOpNoviceDetectorLight.cc.o
-
-src/TOpNoviceDetectorLight.i: src/TOpNoviceDetectorLight.cc.i
-.PHONY : src/TOpNoviceDetectorLight.i
-
-# target to preprocess a source file
-src/TOpNoviceDetectorLight.cc.i:
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.i
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.i
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.i
-.PHONY : src/TOpNoviceDetectorLight.cc.i
-
-src/TOpNoviceDetectorLight.s: src/TOpNoviceDetectorLight.cc.s
-.PHONY : src/TOpNoviceDetectorLight.s
-
-# target to generate assembly for a file
-src/TOpNoviceDetectorLight.cc.s:
-	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TOpNoviceDetectorLight.cc.s
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TOpNoviceDetectorLight.cc.s
-	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.s
-.PHONY : src/TOpNoviceDetectorLight.cc.s
 
 src/TXMLHandler.o: src/TXMLHandler.cc.o
 .PHONY : src/TXMLHandler.o
@@ -390,6 +385,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... CommonClasses.o"
@@ -404,12 +400,12 @@ help:
 	@echo "... src/RealSetupHandler.o"
 	@echo "... src/RealSetupHandler.i"
 	@echo "... src/RealSetupHandler.s"
+	@echo "... src/TDetectorLight.o"
+	@echo "... src/TDetectorLight.i"
+	@echo "... src/TDetectorLight.s"
 	@echo "... src/TEvent.o"
 	@echo "... src/TEvent.i"
 	@echo "... src/TEvent.s"
-	@echo "... src/TOpNoviceDetectorLight.o"
-	@echo "... src/TOpNoviceDetectorLight.i"
-	@echo "... src/TOpNoviceDetectorLight.s"
 	@echo "... src/TXMLHandler.o"
 	@echo "... src/TXMLHandler.i"
 	@echo "... src/TXMLHandler.s"

@@ -1,13 +1,11 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/TestCommon.dir/TestCommon.cpp.o"
-  "CMakeFiles/TestCommon.dir/src/TOpNoviceDetectorLight.cc.o"
   "CMakeFiles/TestCommon.dir/src/TEvent.cc.o"
   "CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.o"
   "CMakeFiles/TestCommon.dir/src/RealSetupHandler.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.o"
   "TestCommon.pdb"
   "TestCommon"
-  "TestCommon.pdb"
-  "CMakeFiles/CMakeRelink.dir/TestCommon"
 )
 
 # Per-language clean rules from dependency scanning.

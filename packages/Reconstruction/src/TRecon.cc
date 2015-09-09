@@ -1,5 +1,5 @@
 #include "TRecon.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 
 
 #include "TMath.h"
@@ -9,7 +9,7 @@
 
 using namespace std;
 
-TRecon::TRecon(TOpNoviceDetectorLight *detector,TReconInput *input):
+TRecon::TRecon(TDetectorLight *detector,TReconInput *input):
 m_detector(detector),
 m_reconInput(input),
 m_fitObject(k_point),

@@ -68,7 +68,7 @@
 #include "G4UIExecutive.hh"
 #endif
 
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TFile.h"
 
 
@@ -132,7 +132,7 @@ int main(int argc,char** argv)
 	}	
 
 	/*Create the detectorLight*/
-	TOpNoviceDetectorLight *detectorLight=new TOpNoviceDetectorLight(detFileName);
+	TDetectorLight *detectorLight=new TDetectorLight(detFileName);
 
 	// Choose the Random engine
 	//

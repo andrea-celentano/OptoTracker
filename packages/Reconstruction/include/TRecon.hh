@@ -1,7 +1,7 @@
 #ifndef TRECON_H_GUARD
 #define TRECON_H_GUARD
 
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 
 
 //#include "Minuit2/FCNBase.h"
@@ -28,15 +28,15 @@ class TRecon : public ROOT::Math::IBaseFunctionMultiDim{
 	//class TRecon: public ROOT::Minuit2::FCNBase{
 
 public:
-	TRecon(TOpNoviceDetectorLight* detector, TReconInput* input);
+	TRecon(TDetectorLight* detector, TReconInput* input);
 	~TRecon();
 
 	static const int m_nPars = 10;
 
 	
 	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
-	TOpNoviceDetectorLight* getDetector(){return m_detector;}
-	void setDetector(TOpNoviceDetectorLight* detector){m_detector=detector;}
+	TDetectorLight* getDetector(){return m_detector;}
+	void setDetector(TDetectorLight* detector){m_detector=detector;}
 
 	  
 	void initParameters();
@@ -70,7 +70,7 @@ public:
     
 private:
 	ROOT::Math::Minimizer* m_minimizer;
-	TOpNoviceDetectorLight* m_detector;
+	TDetectorLight* m_detector;
 	TReconInput* m_reconInput;
 
 	fitObject_t m_fitObject;

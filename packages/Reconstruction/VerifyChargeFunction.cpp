@@ -29,7 +29,7 @@
 #include "G4PhysicalConstants.hh"
 #include "G4UnitsTable.hh"
 
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 #include "TReconInput.hh"
 #include "TReconDefs.hh"
@@ -75,7 +75,7 @@ int main(int argc,char **argv){
 	//Input chain
 	TChain *fChain;
 	//detector
-	TOpNoviceDetectorLight *m_detector;
+	TDetectorLight *m_detector;
 	//Reconstruction
 	TRecon *m_recon;
 	//Input for the recon
@@ -103,8 +103,8 @@ int main(int argc,char **argv){
 	ParseCommandLine(argc,argv);
 	fin=new TFile(fName.c_str());
 	//Check if we have detector info in the ROOT file.
-	if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
-		m_detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
+	if (fin->GetListOfKeys()->Contains("TDetectorLight")){
+		m_detector=(TDetectorLight*)fin->Get("TDetectorLight");
 		cout<<"Detector found:"<<m_detector->getName()<<endl;
 	}
 	else{

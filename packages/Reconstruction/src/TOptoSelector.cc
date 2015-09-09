@@ -36,7 +36,7 @@ void TOptoSelector::Begin(TTree * /*tree*/)
 	Info("Begin","Master Begin");
 
 	if (mm_detector==0){
-		mm_detector=dynamic_cast<TOpNoviceDetectorLight *>(fInput->FindObject("TOpNoviceDetectorLight"));
+		mm_detector=dynamic_cast<TDetectorLight *>(fInput->FindObject("TDetectorLight"));
 		Info("Begin","We are on Proof, load detector on master");
 		if (mm_detector==NULL){
 			Error("Begin","Detector not on the master");
@@ -66,7 +66,7 @@ void TOptoSelector::SlaveBegin(TTree * /*tree*/)
 
 	//Get the detector object from the input list
 	if (mm_detector==0){
-		mm_detector=dynamic_cast<TOpNoviceDetectorLight *>(fInput->FindObject("TOpNoviceDetectorLight"));
+		mm_detector=dynamic_cast<TDetectorLight *>(fInput->FindObject("TDetectorLight"));
 		Info("Begin","We are on Proof, loaded detector on slave");
 	}
 	if (mm_detector==NULL){

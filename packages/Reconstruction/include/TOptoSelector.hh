@@ -24,7 +24,7 @@
 // Header file for the classes stored in the TTree if any.
 
 #include "OpNoviceDetectorHit.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 #include "TReconInput.hh"
 
@@ -61,8 +61,8 @@ class TOptoSelector : public TSelector {
 
 
 
-    TOpNoviceDetectorLight* getDetector(){return mm_detector;}
-    void setDetector(TOpNoviceDetectorLight* detector){mm_detector=detector;}
+    TDetectorLight* getDetector(){return mm_detector;}
+    void setDetector(TDetectorLight* detector){mm_detector=detector;}
     
     TReconInput* getReconInput(){return mm_reconInput;}
     void setReconInput(TReconInput* input){mm_reconInput=input;}
@@ -79,7 +79,7 @@ class TOptoSelector : public TSelector {
       virtual const char*	ClassName() const{return "TOptoSelector";} /*Stupid root.. as to be here otherwise crashes*/
 
   protected:
-    TOpNoviceDetectorLight *mm_detector;
+    TDetectorLight *mm_detector;
     TRecon                 *mm_recon;
     TReconInput 	       *mm_reconInput;
     TRandom3		       *mm_rand;

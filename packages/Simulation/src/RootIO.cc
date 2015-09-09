@@ -181,7 +181,7 @@ void RootIO::fillHistogram2D(int idx,double x,double y,double w=1){
 }
 
 
-void RootIO::saveDetectorLight(TOpNoviceDetectorLight *detector){
+void RootIO::saveDetectorLight(TDetectorLight *detector){
 	fFile->WriteTObject(detector);
 	//	detector->Write();
 }

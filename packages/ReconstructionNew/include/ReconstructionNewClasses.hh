@@ -1,7 +1,9 @@
 #include <vector>
+#include "TAnalysis.hh"
 #include "TJobManager.hh"
 #include "TDriver.hh"
 #include "TEventMarkerDriver.hh"
+#include "TRootSaveDriver.hh"
 
 #ifdef __GCCXML__
 TJobManager object1;

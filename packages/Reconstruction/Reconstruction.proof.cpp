@@ -35,7 +35,7 @@
 
 #include "TOptoSelector.hh"
 #include "TOptoSelectorRaw.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 #include "TReconInput.hh"
 
@@ -64,7 +64,7 @@ TApplication gui("gui",0,NULL);
 //Recon input
 TReconInput *m_reconInput=0;
 //Detector
-TOpNoviceDetectorLight *m_detector=0;
+TDetectorLight *m_detector=0;
 
 int main(int argc, char **argv){
      
@@ -99,8 +99,8 @@ int main(int argc, char **argv){
 
 	fin=new TFile(fName.c_str()); 
 	//Check if we have detector info in the ROOT file. 
-	if (fin->GetListOfKeys()->Contains("TOpNoviceDetectorLight")){
-		m_detector=(TOpNoviceDetectorLight*)fin->Get("TOpNoviceDetectorLight");
+	if (fin->GetListOfKeys()->Contains("TDetectorLight")){
+		m_detector=(TDetectorLight*)fin->Get("TDetectorLight");
 		cout<<"Detector found:"<<m_detector->getName()<<endl;
 	}
 	else {

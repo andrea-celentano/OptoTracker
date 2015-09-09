@@ -21,7 +21,7 @@
 
 
 #include "MarocSetupHandler.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 #include "TReconInput.hh"
 #include "TReconDefs.hh"
@@ -43,7 +43,7 @@ void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
 TApplication gui("GUI",0,NULL);
 
-double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TOpNoviceDetectorLight *m_detector);
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetectorLight *m_detector);
 
 
 int main(int argc,char **argv){
@@ -136,7 +136,7 @@ int main(int argc,char **argv){
 
 
 	int Nx,Ny;
-	TOpNoviceDetectorLight *m_detector=new TOpNoviceDetectorLight(fDetName);
+	TDetectorLight *m_detector=new TDetectorLight(fDetName);
 	MarocSetupHandler *m_setup=new MarocSetupHandler(fSetupName);
 	TReconInput *m_reconInput=0;
 	TRecon *m_recon=0;
@@ -162,9 +162,6 @@ int main(int argc,char **argv){
 		cMC->Add(fReconName.c_str());
 		NeventsMC=cMC->GetEntries(); //1 entry=1 event
 		cMC->SetBranchAddress("DetDigi", &digi);
-
-
-
 	}
 	else{
 		m_reconInput=new TReconInput(fReconName);
@@ -939,7 +936,7 @@ void PrintHelp(){
 }
 
 
-double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TOpNoviceDetectorLight *m_detector){
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetectorLight *m_detector){
 	double ret=0;
 
 	double n1=1.58;

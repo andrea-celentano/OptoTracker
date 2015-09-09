@@ -46,7 +46,7 @@
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 
 #include <string>
 
@@ -89,7 +89,7 @@ public:
 
 	void fillHistogram1D(int idx,double x,double w);
 	void fillHistogram2D(int idx,double x,double y,double w);
-	void saveDetectorLight(TOpNoviceDetectorLight *detector);
+	void saveDetectorLight(TDetectorLight *detector);
 
 private:
 	

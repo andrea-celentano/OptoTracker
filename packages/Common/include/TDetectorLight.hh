@@ -1,5 +1,5 @@
-#ifndef TOpNoviceDetectorLight_HG
-#define TOpNoviceDetectorLight_HG
+#ifndef TDetectorLight_HG
+#define TDetectorLight_HG
 
 #include "TObject.h"
 #include "TVector3.h"
@@ -11,7 +11,7 @@
 
 #define MAX_DETECTORS 256
 using namespace std;
-class TOpNoviceDetectorLight : public TObject
+class TDetectorLight : public TObject
 {
 private:
 
@@ -53,9 +53,9 @@ private:
 	std::string m_name;
     
 public:
-	TOpNoviceDetectorLight(string fname);
-	TOpNoviceDetectorLight();
-	virtual ~TOpNoviceDetectorLight(){};
+	TDetectorLight(string fname);
+	TDetectorLight();
+	virtual ~TDetectorLight(){};
 	/*Scintillator*/
 	void setScintSizeX(double s){scintSizeX=s;}
 	void setScintSizeY(double s){scintSizeY=s;}
@@ -147,9 +147,8 @@ public:
 
 
 
-	//static TOpNoviceDetectorLight* getInstance();
-	//	virtual ~TOpNoviceDetectorLight();
 
-	ClassDef(TOpNoviceDetectorLight,1);
+
+	ClassDef(TDetectorLight,1);
 };
 #endif

@@ -1,15 +1,18 @@
+#include <iostream>
+
 #include "TJobManager.hh"
 #include "TDriver.hh"
 #include "TEvent.hh"
 #include "CommonStructures.hh"
 
-
+#include "TList.h"
 #include "TClass.h"
 #include "TMethod.h"
 #include "TMethodArg.h"
 #include "TMethodCall.h"
 
 
+using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
 fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
@@ -23,7 +26,7 @@ fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 	m_verboseLevel=0;
 	m_dryRun=0;
 	m_numberOfWorkers=1;
-
+	m_numberOfIterations=1;
 	m_iterationN=0;
 	Info("TOptoJobManager","Done");
 }
@@ -83,6 +86,10 @@ Bool_t TJobManager::Notify()
 void TJobManager::Begin(TTree* /*tree*/)
 {
 	Info("Begin","start");
+	/*We need to start each driver on the client*/
+			for (int ii=0;ii<m_drivers->size();ii++){
+				m_drivers->at(ii)->start();
+			}
 }
 
 
@@ -90,11 +97,10 @@ void TJobManager::SlaveBegin(TTree* /*tree*/)
 {
 	Info("SlaveBegin","start");
 	m_eventN=0;
-	/*We need to init each driver*/
+	/*We need to init each driver on the workers*/
 	for (int ii=0;ii<m_drivers->size();ii++){
 		m_drivers->at(ii)->startOfData();
 	}
-
 }
 
 
@@ -102,6 +108,13 @@ void TJobManager::SlaveBegin(TTree* /*tree*/)
 void TJobManager::SlaveTerminate()
 {
 	Info("SlaveTerminate","start");
+	/*We need to end each driver on the workers*/
+	for (int ii=0;ii<m_drivers->size();ii++){
+		m_drivers->at(ii)->endOfData();
+	}
+
+
+
 }
 
 
@@ -109,6 +122,17 @@ void TJobManager::SlaveTerminate()
 void TJobManager::Terminate()
 {
 	Info("Terminate","start");
+	/*First, I copy all the objects from the input list to the output list*/
+	TIter *inputIter=new TIter(fInput);
+	while (TObject *obj=inputIter->Next()){
+		fOutput->Add(obj);
+	}
+	/*Then I need to end each driver on the client*/
+	/*Note that in this way the drivers will see everything in the input list+output list*/
+	/*This is usefull for example for the TRootSave driver, that can save everything!*/
+	for (int ii=0;ii<m_drivers->size();ii++){
+		m_drivers->at(ii)->end();
+	}
 }
 
 
@@ -150,6 +174,7 @@ void TJobManager::ConfigControl(const reconControl_struct &reconControl){
 	this->setDoProofDiag(reconControl.doProofDiag);
 	this->setVerboseLevel(reconControl.verboseLevel);
 	this->setNumberOfWorkers(reconControl.numberOfWorkers);
+	this->setNumberOfIterations(reconControl.numberOfIterations);
 	Info("ConfigControl","Done");
 
 }
@@ -181,6 +206,7 @@ void TJobManager::ConfigDrivers(const vector<driver_struct> &driver_list){
 			/*We created the class. */
 			driver->setName(name);
 			driver->setManager(this);
+			Info("ConfigDrivers","Configure driver %s class %s",name.c_str(),className.c_str());
 			/*Here we set some common driver parameters*/
 			driver->setVerboseLevel(m_verboseLevel);
 			driver->setIterationN(m_iterationN);

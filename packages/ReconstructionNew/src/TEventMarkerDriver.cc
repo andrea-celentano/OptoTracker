@@ -9,28 +9,21 @@ m_interval(1)
 
 }
 
-
-int TEventMarkerDriver::startOfData() {
+TEventMarkerDriver::~TEventMarkerDriver() {
+	// TODO Auto-generated destructor stub
 }
 
-int TEventMarkerDriver::endOfData() {
-}
+
+
 
 int TEventMarkerDriver::process(TEvent* event) {
 	int eventN=m_manager->getEventN();
 	if (eventN%m_interval==0){
 		cout<<"Processing event "<<eventN<<endl;
 	}
-
-
-}
-
-int TEventMarkerDriver::detectorChanged() {
 }
 
 
 
-TEventMarkerDriver::~TEventMarkerDriver() {
-	// TODO Auto-generated destructor stub
-}
+
 

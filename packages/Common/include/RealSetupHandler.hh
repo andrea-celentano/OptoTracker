@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <string>
 #include <utility>
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 /*
  * This is the base class for all the "real" geometries, i.e. it provides the matching between
 a real configuration, with detectors handled in a "certain" way, 

@@ -14,7 +14,7 @@
 
 
 #include "MarocSetupHandler.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 
 using namespace std;
 
@@ -46,7 +46,7 @@ int main(int argc,char **argv){
 	}
 
 
-	TOpNoviceDetectorLight *m_detector=new TOpNoviceDetectorLight(fDetName);
+	TDetectorLight *m_detector=new TDetectorLight(fDetName);
 	MarocSetupHandler *m_setup=new MarocSetupHandler(fSetupName);
 
 

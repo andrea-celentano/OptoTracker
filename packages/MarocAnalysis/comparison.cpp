@@ -13,7 +13,7 @@
 #include "TVector3.h"
 
 #include "MarocSetupHandler.hh"
-#include "TOpNoviceDetectorLight.hh"
+#include "TDetectorLight.hh"
 #include "TRecon.hh"
 
 using namespace std;
