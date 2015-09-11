@@ -28,7 +28,7 @@
 
 
 #include "TAnalysis.hh"
-
+#include "CommonMacros.hh"
 
 
 
@@ -41,7 +41,7 @@ int main(int argc,char **argv){
 	TH1::AddDirectory(kFALSE);
 
 	//Load Cintex
-	ROOT::Cintex::Cintex::Enable();
+	LOADLIBS
 
 	TAnalysis ana;
 

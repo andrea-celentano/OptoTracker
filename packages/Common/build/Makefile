@@ -313,6 +313,36 @@ src/TDetectorLight.cc.s:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorLight.cc.s
 .PHONY : src/TDetectorLight.cc.s
 
+src/TDetectorUtils.o: src/TDetectorUtils.cc.o
+.PHONY : src/TDetectorUtils.o
+
+# target to build an object file
+src/TDetectorUtils.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorUtils.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorUtils.cc.o
+.PHONY : src/TDetectorUtils.cc.o
+
+src/TDetectorUtils.i: src/TDetectorUtils.cc.i
+.PHONY : src/TDetectorUtils.i
+
+# target to preprocess a source file
+src/TDetectorUtils.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorUtils.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorUtils.cc.i
+.PHONY : src/TDetectorUtils.cc.i
+
+src/TDetectorUtils.s: src/TDetectorUtils.cc.s
+.PHONY : src/TDetectorUtils.s
+
+# target to generate assembly for a file
+src/TDetectorUtils.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TDetectorUtils.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TDetectorUtils.cc.s
+.PHONY : src/TDetectorUtils.cc.s
+
 src/TEvent.o: src/TEvent.cc.o
 .PHONY : src/TEvent.o
 
@@ -403,6 +433,9 @@ help:
 	@echo "... src/TDetectorLight.o"
 	@echo "... src/TDetectorLight.i"
 	@echo "... src/TDetectorLight.s"
+	@echo "... src/TDetectorUtils.o"
+	@echo "... src/TDetectorUtils.i"
+	@echo "... src/TDetectorUtils.s"
 	@echo "... src/TEvent.o"
 	@echo "... src/TEvent.i"
 	@echo "... src/TEvent.s"

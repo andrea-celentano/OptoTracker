@@ -17,15 +17,15 @@
 #include "TSystem.h"
 #include "TRandom3.h"
 #include "TLatex.h"
+#include "TClass.h"
+#include "TObject.h"
 #include "Cintex/Cintex.h"
 
-
+#include "CommonMacros.hh"
 #include "MarocSetupHandler.hh"
 #include "TDetectorLight.hh"
-#include "TRecon.hh"
-#include "TReconInput.hh"
-#include "TReconDefs.hh"
-
+#include "TDetectorUtils.hh"
+#include "TEvent.hh"
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 
@@ -53,10 +53,7 @@ int main(int argc,char **argv){
 	}
 	ParseCommandLine(argc,argv);
 	//Load Cintex and the shared library
-	ROOT::Cintex::Cintex::Enable();
-	gSystem->Load("libGeometryClassesDict.so");
-	gSystem->Load("libOpNoviceClassesDict.so");
-	gSystem->Load("libReconstructionClassesDict.so");
+	LOADLIBS
 
 	if (fDoBatch)  gROOT->SetBatch();
 
@@ -111,6 +108,7 @@ int main(int argc,char **argv){
 
 	double fExp[6][MAX_DETECTORS][MarocSetupHandler::nH8500Pixels];double fNormExp;
 	double fTeo[6][MAX_DETECTORS][MarocSetupHandler::nH8500Pixels];double fNormTeo;
+	double fMC[6][MAX_DETECTORS][MarocSetupHandler::nH8500Pixels];double fNormMC;
 
 	Int_t EvtMultiplicity;
 	int Nb,Ns,Nped;
@@ -138,15 +136,17 @@ int main(int argc,char **argv){
 	int Nx,Ny;
 	TDetectorLight *m_detector=new TDetectorLight(fDetName);
 	MarocSetupHandler *m_setup=new MarocSetupHandler(fSetupName);
-	TReconInput *m_reconInput=0;
-	TRecon *m_recon=0;
+	TDetectorUtils *m_utils=0;
 
 	/*MC DATA INPUT CASE*/
 	TChain *cMC;
 
-	vector < TH1D* > hChargeMC[6][MAX_DETECTORS];
+	vector < TH1D* > hSimChargeMC[6][MAX_DETECTORS];
 	vector < double > chargeMC[6][MAX_DETECTORS];
-	vector<OpNoviceDigi*> *digi=NULL;
+
+
+	TEvent *event = 0;
+	TClonesArray *digi;
 	int NeventsMC;
 	int Nhits,faceNumber,detNumber,pixelNumber;
 	int nBckCut,nSigCut;
@@ -155,19 +155,19 @@ int main(int argc,char **argv){
 
 	m_setup->Print(1);
 
+	m_detector->PrintPixels();
 	m_detector->Print();
 
 	if (fDoRoot){
-		cMC=new TChain("DetDigi"); //must have the TTree name I am going to read
+		cMC=new TChain("Event"); //must have the TTree name I am going to read
 		cMC->Add(fReconName.c_str());
 		NeventsMC=cMC->GetEntries(); //1 entry=1 event
-		cMC->SetBranchAddress("DetDigi", &digi);
+		cMC->SetBranchAddress("Event", &event);
 	}
-	else{
-		m_reconInput=new TReconInput(fReconName);
-		m_recon=new TRecon(m_detector,m_reconInput);
-		m_reconInput->Print();
-	}
+
+	m_utils=new TDetectorUtils(m_detector);
+
+
 
 
 	/*Set the first gain, i.e. the Hamamatsu one. The index is the H8500ID!!!*/
@@ -235,6 +235,7 @@ int main(int argc,char **argv){
 
 	TH1D* hChargeExp[6][MAX_DETECTORS];
 	TH1D* hChargeTeo[6][MAX_DETECTORS];
+	TH1D* hChargeMC[6][MAX_DETECTORS];
 	TH2D* hChargeComparison[6][MAX_DETECTORS];
 
 	TH1D* hChargeSigTot=new TH1D("hChargeSigTot","hChargeSigTot",5000,-10E3,200E3);
@@ -280,9 +281,10 @@ int main(int argc,char **argv){
 				Ny=m_detector->getNPixelsY(ii,jj);
 				hChargeExp[ii][jj]=new TH1D(Form("hChargeExp%i_%i",ii,jj),Form("hChargeExp%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
 				hChargeTeo[ii][jj]=new TH1D(Form("hChargeTeo%i_%i",ii,jj),Form("hChargeTeo%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+				hChargeMC[ii][jj]=new TH1D(Form("hChargeMC%i_%i",ii,jj),Form("hChargeMC%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
 				hChargeComparison[ii][jj]=new TH2D(Form("hChargeComparison%i_%i",ii,jj),Form("hChargeComparison%i_%i",ii,jj),Nx,-0.5,Nx-0.5,Ny,-0.5,Ny-0.5);
 				for (int kk=0;kk<Nx*Ny;kk++){
-					hChargeMC[ii][jj].push_back(new TH1D(Form("hChargeMC_%i_%i_%i",ii,jj,kk),Form("hCharge_%i_%i_%i",ii,jj,kk),1000,-0.5,999.5));
+					hSimChargeMC[ii][jj].push_back(new TH1D(Form("hChargeMC_%i_%i_%i",ii,jj,kk),Form("hCharge_%i_%i_%i",ii,jj,kk),1000,-0.5,999.5));
 					chargeMC[ii][jj].push_back(0.);
 				}
 			}
@@ -574,13 +576,16 @@ int main(int argc,char **argv){
 		cout<<"There are: "<<NeventsMC<<" MonteCarlo events"<<endl;
 		for (int ii=0;ii<NeventsMC;ii++){
 			cMC->GetEntry(ii);
-			Nhits=digi->size();
+
+			digi=event->getCollection(OpNoviceDigi::Class(),"DetDigiMC");
+
+			Nhits=digi->GetEntries();
 			for (int jj=0;jj<Nhits;jj++){
-				faceNumber=digi->at(jj)-> GetFaceNumber();
-				detNumber=digi->at(jj)-> GetDetectorNumber();
-				pixelNumber=digi->at(jj)-> GetPixelNumber();
-				hChargeMC[faceNumber][detNumber].at(pixelNumber)->Fill(digi->at(jj)->GetPheCount());
-				chargeMC[faceNumber][detNumber].at(pixelNumber)+=digi->at(jj)->GetPheCount();
+				faceNumber=((OpNoviceDigi*)digi->At(jj))->GetFaceNumber();
+				detNumber=((OpNoviceDigi*)digi->At(jj))->GetDetectorNumber();
+				pixelNumber=((OpNoviceDigi*)digi->At(jj))->GetPixelNumber();
+				hSimChargeMC[faceNumber][detNumber].at(pixelNumber)->Fill(((OpNoviceDigi*)digi->At(jj))->GetPheCount());
+				chargeMC[faceNumber][detNumber].at(pixelNumber)+=((OpNoviceDigi*)digi->At(jj))->GetPheCount();
 			}
 		}
 		cout<<"Geant4 recon: mean"<<endl;
@@ -589,24 +594,26 @@ int main(int argc,char **argv){
 				if (m_detector->isDetPresent(ii,jj)){
 					for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
 						qMeanMC=chargeMC[ii][jj].at(kk)/NeventsMC;
-						fTeo[ii][jj][kk]=qMeanMC;
+						fMC[ii][jj][kk]=qMeanMC;
 					}
 				}
 			}
 		}
 	}
 
-	else{
-		vin.SetXYZ(m_reconInput->getParVal(k_x0),m_reconInput->getParVal(k_y0),m_reconInput->getParVal(k_z0));
-		for (int ii=0;ii<6;ii++){
-			for (int jj=0;jj<m_detector->getNdet(ii);jj++){
-				if (m_detector->isDetPresent(ii,jj)){
-					for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
-						F=m_recon->SinglePixelAverageCharge(vin,ii,jj,kk);
-						Corr=CorrectionPixel(vin,ii,jj,kk,m_detector);
-						fTeo[ii][jj][kk]=F*Corr;
+
+	vin.SetXYZ(0.,3.,0.);
+	for (int ii=0;ii<6;ii++){
+		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
+			if (m_detector->isDetPresent(ii,jj)){
+				for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
+					F=m_utils->SinglePixelAverageCharge(vin,ii,jj,kk);
+					Corr=CorrectionPixel(vin,ii,jj,kk,m_detector);
+					fTeo[ii][jj][kk]=F*Corr;
+					if (!fDoRoot) {
+						fMC[ii][jj][kk]=0;
 						for (int qq=0;qq<1000;qq++){
-							hChargeMC[ii][jj].at(kk)->Fill(gRandom->Poisson(F*Corr));
+							hSimChargeMC[ii][jj].at(kk)->Fill(gRandom->Poisson(F*Corr));
 						}
 					}
 				}
@@ -615,22 +622,20 @@ int main(int argc,char **argv){
 	}
 
 
+
 	cout<<"Comparison, fixing normalization"<<endl;
 	/*Now compute normalization and fill histograms*/
-	fNormTeo=fNormExp=0;
+	fNormTeo=fNormExp=fNormMC=0;
 	for (int iface=0;iface<6;iface++){
 		for (int idetector=0;idetector<m_detector->getNdet(iface);idetector++){
 			if (m_detector->isDetPresent(iface,idetector)){
 				for (int ipixel=0;ipixel<m_detector->getNPixels(iface,idetector);ipixel++){
-
-
-
 					fNormTeo+=fTeo[iface][idetector][ipixel];
+					fNormMC+=fMC[iface][idetector][ipixel];
 					fNormExp+=fExp[iface][idetector][ipixel];
 					hChargeTeo[iface][idetector]->Fill(ipixel,fTeo[iface][idetector][ipixel]);
 					hChargeExp[iface][idetector]->Fill(ipixel,fExp[iface][idetector][ipixel]);
-
-
+					if (fDoRoot) hChargeMC[iface][idetector]->Fill(ipixel,fMC[iface][idetector][ipixel]);
 				}
 			}
 		}
@@ -643,7 +648,7 @@ int main(int argc,char **argv){
 			if (m_detector->isDetPresent(ii,jj)){
 				hChargeExp[ii][jj]->Scale(1./fNormExp);
 				hChargeTeo[ii][jj]->Scale(1./fNormTeo);
-
+				if (fDoRoot) hChargeMC[ii][jj]->Scale(1./fNormMC);
 				/*Set the error*/
 				for (int ipixel=0;ipixel<m_detector->getNPixels(ii,jj);ipixel++){
 					hChargeExp[ii][jj]->SetBinError(ipixel+1,3E-3); //the error is ~ 3E-3
@@ -713,7 +718,7 @@ int main(int argc,char **argv){
 		hChargeDiff[iGlobal-N0]->Draw();
 		latex.DrawLatex(1000,100,Form("m: %f",MeanDiff[iGlobal-N0]));
 		c[iGlobal-N0]->cd(6);
-		hChargeMC[iReconFace][iReconDet].at(iReconPixel)->Draw();
+		hSimChargeMC[iReconFace][iReconDet].at(iReconPixel)->Draw();
 
 
 		//hChargeDiffCorr[iGlobal-N0]->GetXaxis()->SetRangeUser(-500,1600);
@@ -846,12 +851,17 @@ int main(int argc,char **argv){
 				hChargeTeo[ii][jj]->SetLineWidth(2);
 				hChargeTeo[ii][jj]->SetLineColor(2);
 				hChargeTeo[ii][jj]->Draw("SAME");
-
+				if (fDoRoot){
+					hChargeMC[ii][jj]->SetStats(0);
+					hChargeMC[ii][jj]->SetLineWidth(2);
+					hChargeMC[ii][jj]->SetLineColor(3);
+					hChargeMC[ii][jj]->Draw("SAME");
+				}
 				/*Also write histograms to file*/
 				fOut->cd();
 				hChargeExp[ii][jj]->Write();
 				hChargeTeo[ii][jj]->Write();
-
+				hChargeMC[ii][jj]->Write();
 				iPad++;
 			}
 		}
@@ -954,12 +964,18 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 
 	vp=m_detector->getPosPixel(iface,idetector,ipixel);
 	vrel=vp-v0;
+	cout<<iface<<" "<<idetector<<" "<<ipixel<<endl;
+	v0.Print();
+	vp.Print();
+
 
 	theta1=vrel.Angle(vn);
 	stheta1=sin(theta1);
 	ctheta1=cos(theta2);
 
+
 	stheta2=n1*stheta1/n2;
+	cout<<theta1<<" "<<stheta1<<" "<<stheta2<<endl;
 	if (stheta2>1) ret=0;
 	else{
 		ctheta2=sqrt(1-stheta2*stheta2);
@@ -968,6 +984,7 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 		tperp=((n2*ctheta2)/(n1*ctheta1))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2))*((2*n1*ctheta1)/(n1*ctheta1+n2*ctheta2));
 		ret=0.5*(tpara+tperp);
 	}
+
 	return ret;
 }
 

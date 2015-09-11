@@ -82,14 +82,14 @@ private:
 	
 	string m_parNames[m_nPars];
 	int m_freeFitObject;
-
+	TF1 *m_SinglePhotonTimeProbKernel;
 
 public:	
 	/*These methods are used by both!*/
 	double SinglePhotonTimeProb(double t,double tau,double sigma) const;
 	double SinglePhotonIntegratedTimeProb(double t,double tau,double sigma) const;
 	double SinglePhotonTimeProbKernel(double *x,double *p);
-	TF1 *m_SinglePhotonTimeProbKernel;
+
 	double SinglePixelAverageCharge(const TVector3 &x0,int iface,int idetector,int id) const;
 	double GetSolidAngle(const TVector3 &x0,int iface,int idetector,int id) const;
 

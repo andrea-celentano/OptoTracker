@@ -9,7 +9,7 @@
 #DetectorPlacement CenterX(cm) CenterY(cm) Rotation(degrees)
 #DetectorCoupling ThicknessCoupling(cm) Ncoupling
 
-DetectorSize 6 6 6			    #Scintillator size, cm
+ScintillatorSize 6 6 6			    #Scintillator size, cm
 ScintillatorLY 9700		      	    #LY, photon/MeV
 ScintillatorFastTau 1.8	     		    #Fast tau, ns
 ScintillatorRindex 1.58			    #Refraction index

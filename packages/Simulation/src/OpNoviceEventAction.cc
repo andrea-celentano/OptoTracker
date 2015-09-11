@@ -202,7 +202,6 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
 				if (fSaveDetDigi){
-					G4cout<<(*detectorDigiHC)[i]->GetPheCount()<<G4endl;
 					 ((OpNoviceDigi*)fRootCollectionDetDigi->ConstructedAt(i))->operator=(*((*detectorDigiHC)[i]));
 				}
 			}

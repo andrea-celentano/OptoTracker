@@ -48,6 +48,10 @@ vector
 fstream
 -
 
+../include/TDetectorUtils.hh
+TVector3.h
+../include/TVector3.h
+
 ../include/TEvent.hh
 vector
 -
@@ -124,6 +128,16 @@ TDetectorLight.hh
 H8500.h
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/H8500.h
 
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorUtils.cc
+TDetectorUtils.hh
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorUtils.hh
+TDetectorLight.hh
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorLight.hh
+TMath.h
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TMath.h
+TF1.h
+/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TF1.h
+
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc
 TEvent.hh
 /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.hh
@@ -149,6 +163,12 @@ Reflex/Member.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/ESTLType.h
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Foption.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Math/ParamFunctor.h
+vector
+-
+iostream
+-
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Property.h
 
@@ -506,6 +526,14 @@ TAttAxis.h
 TArrayD.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TArrayD.h
 
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBits.h
+TObject.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+Riosfwd.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Riosfwd.h
+string.h
+-
+
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBranch.h
 TNamed.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TNamed.h
@@ -598,6 +626,18 @@ Rtypes.h
 stdarg.h
 -
 
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TF1.h
+TFormula.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TFormula.h
+TAttLine.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttLine.h
+TAttFill.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttFill.h
+TAttMarker.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
+Math/ParamFunctor.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Math/ParamFunctor.h
+
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TFile.h
 atomic
 -
@@ -611,6 +651,14 @@ TUrl.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TFitResultPtr.h
 Rtypes.h
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
+
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TFormula.h
+TNamed.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TNamed.h
+TBits.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TBits.h
+TObjArray.h
+/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjArray.h
 
 /project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TGenericClassInfo.h
 vector

@@ -14,7 +14,6 @@
 
 #include "MarocSetupHandler.hh"
 #include "TDetectorLight.hh"
-#include "TRecon.hh"
 
 using namespace std;
 
