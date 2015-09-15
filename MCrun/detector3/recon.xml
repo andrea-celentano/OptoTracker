@@ -1,0 +1,19 @@
+<OptoTracker>
+ <Recon>
+   <control>
+     <doProof>1</doProof>
+     <numberOfWorkers>2</numberOfWorkers>
+     <numberOfIterations>1</numberOfIterations>
+     <verboseLevel>2</verboseLevel>
+   </control>
+   <execute>
+     <driver name="Primo"/>
+   </execute>
+   <drivers>
+      <driver name="Primo" type="TMatrixAnalysisDriver"/>
+   </drivers>
+ </Recon>
+</OptoTracker>
+ 
+ 
+ 

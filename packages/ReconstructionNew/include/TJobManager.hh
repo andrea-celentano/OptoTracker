@@ -133,7 +133,10 @@ public:
 
 	int getNumberOfEventsProcessed() const{
 		int treeEntries;
-		if (!fTree) return 0;
+		if (!fTree){
+			Warning("getNumberOfEventsProcessed","no tree");
+			return 0;
+		}
 		treeEntries=fTree->GetEntries();
 
 		if (m_numberOfEventsTBP <= treeEntries ) return m_numberOfEventsTBP;
