@@ -8,7 +8,7 @@ class TChain;
 class TList;
 class TProof;
 
-
+using namespace std;
 
 class TAnalysis : public TObject{
 private:
@@ -16,6 +16,10 @@ private:
 	TJobManager *m_manager;
 	TChain		*m_chain;
 	TProof		*m_proof;
+
+	string steeringName;
+	vector<string> *m_fileName;
+
 
 	int isConfigured;
 public:
@@ -46,6 +50,7 @@ public:
 
 	void run();
 
+	void ParseCommandLine(int argc,char **argv);
 
 	ClassDef(TAnalysis,1);
 };

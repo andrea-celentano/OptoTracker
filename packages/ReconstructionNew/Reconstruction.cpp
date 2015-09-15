@@ -37,20 +37,19 @@ using namespace std;
 
 TApplication gui("gui",0,NULL);
 
+
 int main(int argc,char **argv){
 	TH1::AddDirectory(kFALSE);
+
+
 
 	//Load Cintex
 	LOADLIBS
 
 	TAnalysis ana;
-
-	TH1D *h1=new TH1D("h1","h1",100,-1,1);
-	//ana.addToInputList(h1);
-
-	ana.addFileToChain("test.root");
-
-	ana.configure("recon.xml");
+	ana.ParseCommandLine(argc,argv);
 	ana.run();
 }
+
+
 

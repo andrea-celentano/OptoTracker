@@ -87,13 +87,13 @@ public:
 	inline void SetNPixels(G4int n){fNPixels=n;}
 	inline G4int GetNPixels(){return fNPixels;}
 	
-	inline void SetHitData(G4double t,G4double e,G4double x,G4double y,G4int pixel) {fEnergy.push_back(e);fTime.push_back(t);fX.push_back(x);fY.push_back(y);fPixel.push_back(pixel);}
+	void SetHitData(double t,double e,double x,double y,int pixel);
 	
-	inline G4double GetX(int n){return fX.at(n);};
-	inline G4double GetY(int n){return fY.at(n);};
-	inline G4double GetT(int n){return fTime.at(n);};
-	inline G4double GetE(int n){return fEnergy.at(n);};
-	inline G4int    GetPixel(int n){return fPixel.at(n);};
+	inline double GetX(int n){return fX.at(n);};
+	inline double GetY(int n){return fY.at(n);};
+	inline double GetT(int n){return fTime.at(n);};
+	inline double GetE(int n){return fEnergy.at(n);};
+	inline int    GetPixel(int n){return fPixel.at(n);};
 	
 	
 	inline void SetDetectorPhysVol(G4VPhysicalVolume* physVol){this->fPhysVol=physVol;}
@@ -132,7 +132,7 @@ private:
 	std::vector < double > fEnergy; //hit energy (i.e. opt.photon energy)
 	std::vector < double > fX; //hit X coordinate (0,0 is in the center)
 	std::vector < double > fY; //hit Y coordinate (0,0 is in the center)
-	std::vector < double > fPixel; //hit pixel number. Cna be calculated from X,Y, but here is for simplicity!
+	std::vector < int > fPixel; //hit pixel number. Cna be calculated from X,Y, but here is for simplicity!
 	
 	G4VPhysicalVolume* fPhysVolMother; //! transient value not to be saved in ROOT
 	G4VPhysicalVolume* fPhysVol;       //! transient value not to be saved in ROOT

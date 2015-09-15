@@ -148,8 +148,8 @@ G4bool OpNoviceDetectorSD::ProcessHits(G4Step* aStep ,G4TouchableHistory* aHist)
 	//for reference, as seen from the photon side, the center is at (0,0) and the marker is at (-,-), pointing toward positive X
 	G4double x=localPosition.x();
 	G4double y=localPosition.y();
-
-	/*G4cout<<"PRE: "<<preStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
+/*
+	G4cout<<"PRE: "<<preStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
 	G4cout<<"POST: "<<postStepPoint->GetPhysicalVolume()->GetName()<<G4endl;
 	G4cout<<"PHYS: "<<physVol->GetName()<<G4endl;
 	G4cout<<"Mother:"<<physVolMother->GetName()<<G4endl;
@@ -177,22 +177,25 @@ G4bool OpNoviceDetectorSD::ProcessHits(G4Step* aStep ,G4TouchableHistory* aHist)
 	for(G4int i=0;i<n;i++){
 		if ( ((*fDetectorHitCollection)[i]->GetDetectorNumber()== detectorNumber) &&  ((*fDetectorHitCollection)[i]->GetFaceNumber()== faceNumber) ) {
 			hit=(*fDetectorHitCollection)[i];
+			//cout<<"GOT IT"<<detectorNumber<<" "<<faceNumber<<endl;
 			break;
 		}
 	}
 	
 
 	if(hit==NULL){//this pmt wasnt previously hit in this event
+	//	cout<<"NOT GOT IT"<<detectorNumber<<" "<<faceNumber<<endl;
 		hit = new OpNoviceDetectorHit();   //so create new hit
 		hit->SetFaceNumber(faceNumber);
 		hit->SetDetectorNumber(detectorNumber);
 		hit->SetDetectorPhysVol(physVol); //photocathode
 		hit->SetDetectorPhysVolMother(physVolGranMother); //box around
+
+		//Specific cases for digitization
 		if (physVol->GetName()=="H8500Photocathode"){
 			hit->SetName("H8500");		
-
 		}
-		else if (physVol->GetName()=="custom"){
+		else {
 			hit->SetName("custom");
 		}
 		fDetectorHitCollection->insert(hit);

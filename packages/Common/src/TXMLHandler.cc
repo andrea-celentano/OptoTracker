@@ -54,7 +54,7 @@ XMLNodePointer_t TXMLHandler::GetUniqueNode(string nodename,XMLNodePointer_t fat
 
 reconControl_struct TXMLHandler::GetReconControl(){
 	reconControl_struct	m_ret={};
-	m_ret.numberOfEvents=TChain::kBigNumber;
+	m_ret.numberOfEventsTBP=TChain::kBigNumber;
 	m_ret.numberOfWorkers=1;
 	m_ret.numberOfIterations=1;
 
@@ -85,10 +85,10 @@ reconControl_struct TXMLHandler::GetReconControl(){
 				}
 			}
 			else if (nodeName=="numberOfEvents"){
-				m_ret.numberOfEvents=atoi(nodeContent.c_str());
-				if (m_ret.numberOfEvents<=0){
+				m_ret.numberOfEventsTBP=atoi(nodeContent.c_str());
+				if (m_ret.numberOfEventsTBP<=0){
 					Warning("GetReconControl","skipEvents must be >0");
-					m_ret.numberOfEvents=TChain::kBigNumber;
+					m_ret.numberOfEventsTBP=TChain::kBigNumber;
 				}
 			}
 			else if (nodeName=="verboseLevel"){

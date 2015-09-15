@@ -2,8 +2,9 @@
 #include "TAnalysis.hh"
 #include "TJobManager.hh"
 #include "TDriver.hh"
-#include "TEventMarkerDriver.hh"
-#include "TRootSaveDriver.hh"
+#include "../drivers/TEventMarkerDriver.hh"
+#include "../drivers/TRootSaveDriver.hh"
+#include "../drivers/TMatrixAnalysisDriver.hh"
 
 #ifdef __GCCXML__
 TJobManager object1;

@@ -39,6 +39,7 @@ string fSigName,fBckName,fDetName,fSetupName,fReconName;
 string fOutNameRoot,fOutNamePS,fOutName;
 int fDoBatch=0;
 int fDoRoot=0;
+double xSource,ySource;
 void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
 TApplication gui("GUI",0,NULL);
@@ -279,9 +280,9 @@ int main(int argc,char **argv){
 			if (m_detector->isDetPresent(ii,jj)){
 				Nx=m_detector->getNPixelsX(ii,jj);
 				Ny=m_detector->getNPixelsY(ii,jj);
-				hChargeExp[ii][jj]=new TH1D(Form("hChargeExp%i_%i",ii,jj),Form("hChargeExp%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
-				hChargeTeo[ii][jj]=new TH1D(Form("hChargeTeo%i_%i",ii,jj),Form("hChargeTeo%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
-				hChargeMC[ii][jj]=new TH1D(Form("hChargeMC%i_%i",ii,jj),Form("hChargeMC%i_%i",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+				hChargeExp[ii][jj]=new TH1D(Form("hChargeExp%i_%i",ii,jj),Form("hChargeExp%i_%i; Pixel ID",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+				hChargeTeo[ii][jj]=new TH1D(Form("hChargeTeo%i_%i",ii,jj),Form("hChargeTeo%i_%i; Pixel ID",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
+				hChargeMC[ii][jj]=new TH1D(Form("hChargeMC%i_%i",ii,jj),Form("hChargeMC%i_%i; Pixel ID",ii,jj),Nx*Ny,-0.5,Nx*Ny-0.5);
 				hChargeComparison[ii][jj]=new TH2D(Form("hChargeComparison%i_%i",ii,jj),Form("hChargeComparison%i_%i",ii,jj),Nx,-0.5,Nx-0.5,Ny,-0.5,Ny-0.5);
 				for (int kk=0;kk<Nx*Ny;kk++){
 					hSimChargeMC[ii][jj].push_back(new TH1D(Form("hChargeMC_%i_%i_%i",ii,jj,kk),Form("hCharge_%i_%i_%i",ii,jj,kk),1000,-0.5,999.5));
@@ -602,7 +603,7 @@ int main(int argc,char **argv){
 	}
 
 
-	vin.SetXYZ(0.,3.,0.);
+	vin.SetXYZ(xSource,3.,ySource);
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_detector->getNdet(ii);jj++){
 			if (m_detector->isDetPresent(ii,jj)){
@@ -928,6 +929,10 @@ void ParseCommandLine(int argc,char **argv){
 		else if (strcmp(argv[ii],"-batch")==0){
 			fDoBatch=true;
 		}
+		else if (strcmp(argv[ii],"-XY")==0){
+				xSource=atof(argv[ii+1]);
+				ySource=atof(argv[ii+2]);
+			}
 
 	}
 
@@ -943,6 +948,7 @@ void PrintHelp(){
 	cout<<"-r: recon file name OR root file name with MC results"<<endl;
 	cout<<"-o or -out: output file name"<<endl;
 	cout<<"-batch: batch mode"<<endl;
+	cout<<"-XY: position"<<endl;
 }
 
 

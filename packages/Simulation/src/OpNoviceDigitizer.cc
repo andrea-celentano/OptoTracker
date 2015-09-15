@@ -158,7 +158,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 					/*The time resolution*/
 					t=t+CLHEP::RandGauss::shoot(0,detTimeRes[detectorNumber]);
 					Digi=NULL;
-					/*Check if this hit already exists. It should, we created all of them!*/
+					/*Check if this digi hit already exists. It should, we created all of them!*/
 					n=DigitsCollection->entries();
 					for(G4int jj=0;jj<n;jj++){
 						if ( ((*DigitsCollection)[jj]->GetFaceNumber()==faceNumber) && ((*DigitsCollection)[jj]->GetDetectorNumber()==detectorNumber) && ((*DigitsCollection)[jj]->GetPixelNumber()==pixelNumber)  ) {
@@ -168,6 +168,7 @@ void OpNoviceDigitizer::Digitize() // at each event
 					}
 					if(Digi==NULL){
 						G4cout<<"Probable error in OpNoviceDigitizer: digi not found "<<detectorNumber<<" "<<pixelNumber<<endl;
+						G4cout<<"Hit face,det, X-Y (cm) is: "<<faceNumber<<" "<<detectorNumber<<" "<<x/cm<<" "<<y/cm<<endl;
 					}
 
 					Digi->IncrementPheCount();

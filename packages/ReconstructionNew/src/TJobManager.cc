@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
 
 #include "TJobManager.hh"
 #include "TDriver.hh"
@@ -15,14 +18,15 @@
 using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
-fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
+				fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
+	m_variables=new map < string, string>;
 	m_eventN=0;
 	m_doProof=0;
 	m_doProofDiag=0;
 	m_skipEvents=0;
-	m_numberOfEvents=TChain::kBigNumber;
+	m_numberOfEventsTBP=TChain::kBigNumber;
 	m_verboseLevel=0;
 	m_dryRun=0;
 	m_numberOfWorkers=1;
@@ -87,9 +91,9 @@ void TJobManager::Begin(TTree* /*tree*/)
 {
 	Info("Begin","start");
 	/*We need to start each driver on the client*/
-			for (int ii=0;ii<m_drivers->size();ii++){
-				m_drivers->at(ii)->start();
-			}
+	for (int ii=0;ii<m_drivers->size();ii++){
+		m_drivers->at(ii)->start();
+	}
 }
 
 
@@ -168,7 +172,7 @@ void	TJobManager::Config(string fname){
 
 void TJobManager::ConfigControl(const reconControl_struct &reconControl){
 	this->setDryRun(reconControl.dryRun);
-	this->setNumberOfEvents(reconControl.numberOfEvents);
+	this->setNumberOfEventsTBP(reconControl.numberOfEventsTBP);
 	this->setSkipEvents(reconControl.skipEvents);
 	this->setDoProof(reconControl.doProof);
 	this->setDoProofDiag(reconControl.doProofDiag);
@@ -186,6 +190,7 @@ void TJobManager::ConfigDrivers(const vector<driver_struct> &driver_list){
 	TMethodCall *classMethodCall;
 	string name,className;
 	string amethodName,amethodParam;
+	string variableName,variableValue;
 	for (int ii=0;ii<driver_list.size();ii++){
 		driverClass=0;
 
@@ -214,6 +219,20 @@ void TJobManager::ConfigDrivers(const vector<driver_struct> &driver_list){
 			for (int imethod=0;imethod<driver_list.at(ii).methodName.size();imethod++){
 				amethodName=driver_list.at(ii).methodName.at(imethod);
 				amethodParam=driver_list.at(ii).methodParam.at(imethod);
+				/*Here I need to check if the methodParam is a variable from command line*/
+				if(amethodParam[0]=='$'){ /*This is a variable*/
+					variableName=amethodParam.substr(1);
+					if (this->hasVariable(variableName)){
+						variableValue=this->getVariable(variableName);
+						amethodParam=variableValue;
+					}
+					else{
+						Error("ConfigDrivers","Variable %s in steering file not exists",variableName.c_str());
+						exit(1);
+					}
+
+				}
+
 				Info("ConfigDrivers","Try to call method name %s with param %s on class %s",amethodName.c_str(),amethodParam.c_str(),className.c_str());
 				classMethod=0;
 				classMethod=driverClass->GetMethod(amethodName.c_str(),amethodParam.c_str());                         //Use "GetMethod" to also search in base class (TDriver, TObject)
@@ -237,7 +256,6 @@ void TJobManager::ConfigDrivers(const vector<driver_struct> &driver_list){
 
 
 
-
 TDriver* TJobManager::getDriver(int id){
 	if (m_drivers==0){
 		Error("getDriver","m_drivers is null");
@@ -251,5 +269,48 @@ TDriver* TJobManager::getDriver(int id){
 }
 
 
+void TJobManager::setVariable(string name, string value) {
+	map<string,string>::iterator it;
+	it = m_variables->find(name);
+	if (it!=m_variables->end()){ //This wariable is already here
+		Warning("setVariable","Variable %s already exists with value %d. Setting it at %s",name.c_str(),it->second,value.c_str());
+		m_variables->at(name)=value;
+	}
+	else{
+		Info("setVariable","Setting variable %s at value %s",name.c_str(),value.c_str());
+		m_variables->insert(std::make_pair(name,value));
+	}
 
+}
+
+int TJobManager::hasVariable(string name) const{
+	map<string,string>::const_iterator it;
+	it = m_variables->find(name);
+	if (it==m_variables->end()){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+}
+
+string TJobManager::getVariable(string name) const{
+	map<string,string>::const_iterator it;
+	it = m_variables->find(name);
+	if (it==m_variables->end()){
+		Warning("getVariable","Variable %s does not exists",name);
+		return "";
+	}
+	else{
+		return it->second;
+	}
+}
+
+void TJobManager::printVariables() const{
+	map<string,string>::const_iterator it;
+	Info("printVariables","Registered variables");
+	for (it=m_variables->begin();it!=m_variables->end();it++){
+		cout<<it->first<<" "<<it->second<<endl;
+	}
+}
 

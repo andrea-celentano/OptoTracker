@@ -16,7 +16,7 @@ typedef struct driver{
 typedef struct reconControl{
 	int dryRun;
 	int skipEvents;
-	int numberOfEvents;
+	int numberOfEventsTBP;
 	int verboseLevel;
 	int doProof;
 	int doProofDiag;

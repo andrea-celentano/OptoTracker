@@ -186,7 +186,7 @@ GCCXML:FILEPATH=/usr/bin/gccxml
 GENREFLEX_EXECUTABLE:FILEPATH=/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/genreflex
 
 //No help, variable specified on the command line.
-Geant4_DIR:UNINITIALIZED=/project/Gruppo3/fiber6/apps/geant4/4.10.01/SL6/no_multithread/lib64/Geant4-10.1.1/
+Geant4_DIR:UNINITIALIZED=/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.00.p03/lib64/Geant4-10.1.1/
 
 //Path to a program.
 ROOTCINT_EXECUTABLE:FILEPATH=/project/Gruppo3/fiber6/apps/jlab_software_20150427/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/bin/rootcint

@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-
+#include <map>
 
 #include "TSelector.h"
 #include "TChain.h"
@@ -33,10 +33,12 @@ private:
 	TXMLHandler 	  *m_xmlHandler;
 	vector <TDriver*> *m_drivers;
 
+	map < string , string > *m_variables;
+
 
 	int m_eventN;
 
-	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEvents,m_verboseLevel,m_dryRun,m_numberOfWorkers,m_numberOfIterations;
+	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEventsTBP,m_verboseLevel,m_dryRun,m_numberOfWorkers,m_numberOfIterations;
 
 	/*For some analysis, we may want to do more than one iteration.
 	 * This happens, for example, if we need to first compute a "global" quantity,
@@ -80,6 +82,10 @@ public:
 
 	void Config(string fname="reconstruction.xml");
 
+	void setVariable(string name,string value);
+	int hasVariable(string name) const;
+	string getVariable(string name) const;
+	void printVariables() const;
 
 	vector<TDriver*>* getDrivers(){
 		return m_drivers;
@@ -111,20 +117,27 @@ public:
 		m_doProofDiag = doProofDiag;
 	}
 
-	int getNumberOfEvents() const {
-		return m_numberOfEvents;
+	/*These methods refer to the number of events to be processed, and to the number of events skipped*/
+	int getNumberOfEventsTBP() const {
+		return m_numberOfEventsTBP;
 	}
-
-	void setNumberOfEvents(int numberOfEvents) {
-		m_numberOfEvents = numberOfEvents;
+	void setNumberOfEventsTBP(int numberOfEvents) {
+		m_numberOfEventsTBP = numberOfEvents;
 	}
-
 	int getSkipEvents() const {
 		return m_skipEvents;
 	}
-
 	void setSkipEvents(int skipEvents) {
 		m_skipEvents = skipEvents;
+	}
+
+	int getNumberOfEventsProcessed() const{
+		int treeEntries;
+		if (!fTree) return 0;
+		treeEntries=fTree->GetEntries();
+
+		if (m_numberOfEventsTBP <= treeEntries ) return m_numberOfEventsTBP;
+		else return treeEntries;
 	}
 
 	int getVerboseLevel() const {

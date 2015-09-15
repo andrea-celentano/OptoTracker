@@ -208,7 +208,15 @@ void OpNoviceDetectorHit::Draw(){
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
+void OpNoviceDetectorHit::SetHitData(double t,double e,double x,double y,int pixel)
+{
+	fEnergy.push_back(e);
+	fTime.push_back(t);
+	fX.push_back(x);
+	fY.push_back(y);
+	fPixel.push_back(pixel);
 
+}
 
 void OpNoviceDetectorHit::Print() {}
 
