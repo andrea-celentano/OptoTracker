@@ -17,7 +17,8 @@ private:
 	TChain		*m_chain;
 	TProof		*m_proof;
 
-	string steeringName;
+	string m_steeringName;
+	string m_detName;
 	vector<string> *m_fileName;
 
 

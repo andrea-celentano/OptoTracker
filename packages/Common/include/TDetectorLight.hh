@@ -53,8 +53,7 @@ private:
 	std::string m_name;
     
 public:
-	TDetectorLight(string fname);
-	TDetectorLight();
+	TDetectorLight(string fname="");
 	virtual ~TDetectorLight(){};
 	/*Scintillator*/
 	void setScintSizeX(double s){scintSizeX=s;}
@@ -79,6 +78,10 @@ public:
 	/*Detector*/
 	void setNdet(int iface, int N){Ndet[iface]=N;}
 	int getNdet(int iface) const{return Ndet[iface];}
+
+	int getDetGlobalID(int iface,int idetector) const;
+	void getFaceAndDetIDfromGlobal(int global,int &iface,int &idetector) const;
+
 
 	void setDetSizeX(int iface,int idetector,double s){detSizeX[iface][idetector]=s;}
 	void setDetSizeY(int iface,int idetector,double s){detSizeY[iface][idetector]=s;}
@@ -141,8 +144,8 @@ public:
 
 	void init();
 
-	void PrintPixels() const;
-	virtual void Print() const;
+	void PrintPixels(Option_t* option = "") const;
+	virtual void Print(Option_t* option = "") const;
 
 
 

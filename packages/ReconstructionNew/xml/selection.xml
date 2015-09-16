@@ -3,6 +3,7 @@
 <class name="TAnalysis"/>
 <class name="TJobManager">
 	<field name="m_xmlHandler" transient="true"/>
+	<field name="m_variables" transient="true"/>
 </class>
 <class name="TDriver"/>
 <class name="TEventMarkerDriver"/>

@@ -14,11 +14,10 @@
 #include "TMethodArg.h"
 #include "TMethodCall.h"
 
-
 using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
-				fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
+										fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
 	m_variables=new map < string, string>;
@@ -26,12 +25,13 @@ TJobManager::TJobManager(TTree* tree):
 	m_doProof=0;
 	m_doProofDiag=0;
 	m_skipEvents=0;
-	m_numberOfEventsTBP=TChain::kBigNumber;
+	m_numberOfEvents=TChain::kBigNumber;
 	m_verboseLevel=0;
 	m_dryRun=0;
 	m_numberOfWorkers=1;
 	m_numberOfIterations=1;
 	m_iterationN=0;
+	m_detector=0;
 	Info("TOptoJobManager","Done");
 }
 
@@ -172,7 +172,7 @@ void	TJobManager::Config(string fname){
 
 void TJobManager::ConfigControl(const reconControl_struct &reconControl){
 	this->setDryRun(reconControl.dryRun);
-	this->setNumberOfEventsTBP(reconControl.numberOfEventsTBP);
+	this->setNumberOfEvents(reconControl.numberOfEventsTBP);
 	this->setSkipEvents(reconControl.skipEvents);
 	this->setDoProof(reconControl.doProof);
 	this->setDoProofDiag(reconControl.doProofDiag);
@@ -313,4 +313,5 @@ void TJobManager::printVariables() const{
 		cout<<it->first<<" "<<it->second<<endl;
 	}
 }
+
 

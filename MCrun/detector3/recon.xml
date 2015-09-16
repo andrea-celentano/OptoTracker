@@ -1,15 +1,21 @@
 <OptoTracker>
  <Recon>
    <control>
-     <doProof>1</doProof>
+     <doProof>0</doProof>
+     <doProofDiag>1</doProofDiag>
      <numberOfWorkers>2</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
      <verboseLevel>2</verboseLevel>
+     <numberOfEvents>10000</numberOfEvents>
    </control>
    <execute>
+     <driver name="EventMarker"/>
      <driver name="Primo"/>
    </execute>
    <drivers>
+      <driver name="EventMarker" type="TEventMarkerDriver">
+	<setInterval>100</setInterval>
+      </driver>
       <driver name="Primo" type="TMatrixAnalysisDriver"/>
    </drivers>
  </Recon>

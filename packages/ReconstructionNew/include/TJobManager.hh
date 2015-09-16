@@ -16,6 +16,7 @@
 
 class TDriver;
 class TEvent;
+class TDetectorLight;
 using namespace std;
 
 
@@ -33,12 +34,14 @@ private:
 	TXMLHandler 	  *m_xmlHandler;
 	vector <TDriver*> *m_drivers;
 
+	TDetectorLight *m_detector;
+
 	map < string , string > *m_variables;
 
 
 	int m_eventN;
 
-	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEventsTBP,m_verboseLevel,m_dryRun,m_numberOfWorkers,m_numberOfIterations;
+	int m_doProof,m_doProofDiag,m_skipEvents,m_numberOfEvents,m_verboseLevel,m_dryRun,m_numberOfWorkers,m_numberOfIterations;
 
 	/*For some analysis, we may want to do more than one iteration.
 	 * This happens, for example, if we need to first compute a "global" quantity,
@@ -118,11 +121,11 @@ public:
 	}
 
 	/*These methods refer to the number of events to be processed, and to the number of events skipped*/
-	int getNumberOfEventsTBP() const {
-		return m_numberOfEventsTBP;
+	int getNumberOfEvents() const {
+		return m_numberOfEvents;
 	}
-	void setNumberOfEventsTBP(int numberOfEvents) {
-		m_numberOfEventsTBP = numberOfEvents;
+	void setNumberOfEvents(int numberOfEvents) {
+		m_numberOfEvents = numberOfEvents;
 	}
 	int getSkipEvents() const {
 		return m_skipEvents;
@@ -131,17 +134,7 @@ public:
 		m_skipEvents = skipEvents;
 	}
 
-	int getNumberOfEventsProcessed() const{
-		int treeEntries;
-		if (!fTree){
-			Warning("getNumberOfEventsProcessed","no tree");
-			return 0;
-		}
-		treeEntries=fTree->GetEntries();
 
-		if (m_numberOfEventsTBP <= treeEntries ) return m_numberOfEventsTBP;
-		else return treeEntries;
-	}
 
 	int getVerboseLevel() const {
 		return m_verboseLevel;
@@ -191,7 +184,13 @@ public:
 		m_numberOfIterations = numberOfIterations;
 	}
 
+	TDetectorLight* getDetector() const {
+		return m_detector;
+	}
 
+	void setDetector(TDetectorLight* detector) {
+		m_detector = detector;
+	}
 
 public:
 
@@ -200,6 +199,9 @@ public:
 	static const int	normalVerbosity=2;
 	static const int	fullVerbosity=3;
 	static const int	veryfullVerbosity=4;
+
+
+
 
 
 

@@ -6,6 +6,8 @@ bin/*
 
 #local backups
 *~
+#objects
+*.o
 
 #build
 packages/Geometry/build

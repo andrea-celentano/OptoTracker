@@ -11,18 +11,16 @@
 
 using namespace std;
 
-TDetectorLight::TDetectorLight(){
-
-	m_name="DefaultDetector";
-
-	LY=-1;
-	fastScintTime=-1;
-	rIndex=-1;
-}
 
 
 TDetectorLight::TDetectorLight(string fname)
 {	
+
+	if (fname.length()==0){
+		m_name="DefaultDetector";
+		return;
+	}
+
 	ifstream file(fname.c_str());
 	string line,key,data;
 	istringstream parser;
@@ -216,7 +214,7 @@ void TDetectorLight::init(){
 }
 
 
-void TDetectorLight::PrintPixels() const{
+void TDetectorLight::PrintPixels(Option_t* option) const{
 	int id;
 
 	for (int ii=0;ii<6;ii++){
@@ -238,16 +236,16 @@ void TDetectorLight::PrintPixels() const{
 
 
 
-void  TDetectorLight::Print() const{
+void  TDetectorLight::Print(Option_t* option) const{
 	printf("Detector :%s \n",m_name.c_str());
 	printf("Scintillator size: \t %f \t %f \t %f \n",this->getScintSizeX(),this->getScintSizeY(),this->getScintSizeZ());
 	printf("Decay time: \t %f \n",this->getFastScintTime());
 	printf("LY: \t %f \n",this->getLY());
 	printf("rIndex: \t %f \n",this->getRindex());
-	printf("Face \t Detector \t SizeX \t \t SizeY \t \t PixelsX \t PixelsY \t TimeRes \t QE \n");
+	printf("Face \t Detector \t SizeX \t \t SizeY \t \t CenterX \t CenterY \t PixelsX \t PixelsY \t TimeRes \t QE \n");
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<Ndet[ii];jj++){
-			if (this->isDetPresent(ii,jj)) printf("%i \t %i \t \t  %f \t %f \t %i \t \t %i \t \t %f \t  %f\n",ii,jj,this->getDetSizeX(ii,jj),this->getDetSizeY(ii,jj),this->getNPixelsX(ii,jj),this->getNPixelsY(ii,jj),this->getDetTimeRes(ii,jj),this->getDetQE(ii,jj));
+			if (this->isDetPresent(ii,jj)) printf("%i \t %i \t \t  %f \t %f \t %f \t %f \t %i \t \t %i \t \t %f \t  %f\n",ii,jj,this->getDetSizeX(ii,jj),this->getDetSizeY(ii,jj),this->getDetCenterX(ii,jj),this->getDetCenterY(ii,jj),this->getNPixelsX(ii,jj),this->getNPixelsY(ii,jj),this->getDetTimeRes(ii,jj),this->getDetQE(ii,jj));
 			else printf("%i \t \t Not present \n",ii+1);
 		}
 	}
@@ -402,7 +400,17 @@ TVector3 TDetectorLight::getDetectorT2(int iface,int idetector) const{
 
 
 
+int TDetectorLight::getDetGlobalID(int iface,int idetector) const{
+	int ret=0;
+	for (int ii=0;ii<iface;ii++){
+		ret+=this->getNdet(ii);
+	}
+	ret+=idetector;
+	return ret;
+}
+void TDetectorLight::getFaceAndDetIDfromGlobal(int global,int &iface,int &idetector) const{
 
+}
 
 
 

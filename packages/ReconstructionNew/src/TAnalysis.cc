@@ -1,18 +1,22 @@
 #include "TAnalysis.hh"
 #include "TJobManager.hh"
+#include "TDetectorLight.hh"
 
 #include "TProof.h"
+#include "TFile.h"
 #include "Cintex/Cintex.h"
 #include <string>
 
 using namespace std;
 
 TAnalysis::TAnalysis():
-				m_manager(0),m_chain(0),m_proof(0)
+														m_manager(0),m_chain(0),m_proof(0)
 {
 	m_fileName=new vector<string>;
 	m_manager=new TJobManager();
 	m_chain=new TChain("Event");
+
+	m_detName="";
 	ROOT::Cintex::Cintex::Enable();
 	isConfigured=0;
 }
@@ -45,11 +49,12 @@ void TAnalysis::addToInputList(TObject *obj){
 void TAnalysis::configure(string xmlname){
 	int doProof;
 	int doProofDiag;
+	int detFound=0;
+	TFile *fTMP;
 
 
+	/*Configure the manager*/
 	m_manager->Config(xmlname);
-
-
 	doProof=m_manager->getDoProof();
 	doProofDiag=m_manager->getDoProofDiag();
 
@@ -70,13 +75,51 @@ void TAnalysis::configure(string xmlname){
 			m_proof->SetProgressDialog(kFALSE);
 		}
 	}
+
+
+	/*If the detector was specified via filename, set it*/
+	if (m_detName.length()!=0){
+		m_manager->setDetector(new TDetectorLight(m_detName));
+	}
+	/*Otherwise, check the detector existance*/
+	else{
+		for (int ii=0;ii<m_fileName->size();ii++){
+			fTMP=new TFile((m_fileName->at(ii)).c_str());
+			if (fTMP->GetListOfKeys()->Contains("TDetectorLight")){
+				Info("configure","Detector found in file %s",(m_fileName->at(ii)).c_str());
+				m_manager->setDetector((TDetectorLight*)fTMP->Get("TDetectorLight"));
+				if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+					((TDetectorLight*)fTMP->Get("TDetectorLight"))->Print();
+				}
+				fTMP->Close();
+				detFound=1;
+				delete fTMP;
+				break;
+			}
+			fTMP->Close();
+			delete fTMP;
+		}
+		if (!detFound){
+			Error("configure","No detector found in any file, and no txt file passed with -det option");
+			exit(1);
+		}
+	}
+
+	/*Add the files to the chain,*/
+	for (int ii=0;ii<m_fileName->size();ii++){
+		this->addFileToChain(m_fileName->at(ii));
+	}
+
+
+
 	isConfigured=1;
 }
 
 void TAnalysis::run(){
 
 	int iterationN;
-
+	TList *input,*output;
+	TIter *inputIter,*outputIter;
 	if (isConfigured==0){
 		Error("run","Use configure before with a proper xml file");
 		return;
@@ -85,22 +128,27 @@ void TAnalysis::run(){
 		Error("run","No entries to process");
 		return;
 	}
-	TList *input,*output;
-	TIter *inputIter,*outputIter;
 
+	/*I guarantee that the number of events we ask to process is <= that the number of events in the chain.
+	 * Proof can do this automatically, but I can't get any longer the number of actually processed events
+	 */
+	if (iterationN==0){
+		if (m_chain->GetEntries() <= m_manager->getNumberOfEvents()) m_manager->setNumberOfEvents(m_chain->GetEntries());
+	}
 	for (iterationN=0;iterationN<m_manager->getNumberOfIterations();iterationN++){
 		Info("run","\n \n Starting reconstruction iteration %i",m_manager->getIterationN());
-		m_chain->Process(m_manager,"",m_manager->getNumberOfEventsTBP(),m_manager->getSkipEvents());
+		m_chain->Process(m_manager,"",m_manager->getNumberOfEvents(),m_manager->getSkipEvents());
 
 		output=m_manager->GetOutputList();
 		if (output) m_manager->SetInputList(output);
 
 		if ( (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity) && output){
 			outputIter = new TIter(output);
+			Info("run","List of next inputs");
 			while (TObject *obj = outputIter->Next()) Info("run","Object %s is in next input",obj->GetName());
 			delete outputIter;
 		}
-
+		Info("run","\n \n Ended reconstruction iteration %i",m_manager->getIterationN());
 		m_manager->incrementIterationN();
 
 	}
@@ -116,8 +164,12 @@ void TAnalysis::ParseCommandLine(int argc,char **argv){
 		variableName=string(argv[ii]);
 		if (variableName.find("-s")!=std::string::npos){	/*Steering file*/
 			Info("ParseCommandLine","steering file: %s",argv[ii+1]);
-			steeringName=string(argv[ii+1]);
+			m_steeringName=string(argv[ii+1]);
 			ii++;
+		}
+		else if (variableName.find("-det")!=std::string::npos){ /*Detector file name (txt format)*/
+			Info("ParseCommandLine","detector name: %s",argv[ii+1]);
+			m_detName=string(argv[ii+1]);
 		}
 		else if (variableName.find("-D")!=std::string::npos){ /*Variable, -DvarName=value*/
 			found1=variableName.find("-D");
@@ -134,10 +186,8 @@ void TAnalysis::ParseCommandLine(int argc,char **argv){
 	}
 
 
-	this->configure(steeringName);
-	for (int ii=0;ii<m_fileName->size();ii++){
-		this->addFileToChain(m_fileName->at(ii));
-	}
+	this->configure(m_steeringName);
+
 }
 
 

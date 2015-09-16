@@ -4,9 +4,14 @@
 #include "TObject.h"
 #include "TDriver.hh"
 
+#include "TH1D.h"
 class TEvent;
 
 class TMatrixAnalysisDriver : public TDriver {
+private:
+	TH1D *hPixels;
+	int m_nPixelsTot;
+	int m_nDetectors;
 public:
 	TMatrixAnalysisDriver();
 	virtual ~TMatrixAnalysisDriver();
@@ -20,6 +25,7 @@ public:
 	virtual int detectorChanged(){return 0;};*/
 
 	virtual int start();
+	virtual int startOfData();
 	virtual int process(TEvent *event);
 	virtual int end();
 
