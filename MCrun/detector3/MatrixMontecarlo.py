@@ -7,7 +7,7 @@ import string,math,os,sys,subprocess
 doFarm=True
 
 doGeant=True
-doMatrix=False
+doMatrix=True
 
 
 queue_name="long"
@@ -15,13 +15,13 @@ resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir=os.environ("OPTO")+"/MCrun/detector3/"
+workDir=os.environ['OPTO']+"/MCrun/detector3/"
 saveDir="run0"
 matrixDir="matrix"
 #Executables
-geantExe=os.environ("OPTO")+"/bin/OpNoviceExe" 
-matrixExe=os.environ("OPTO")+"/bin/ReconstructionNew"
-steeringName=workDir+"/matrixAnalysis.xml"
+geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
+matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
+steeringName=workDir+"matrixAnalysis.xml"
 #dimensions, in cm -> This is used to "move" the particle!
 Lx = 6.0
 Ly = 6.0
@@ -32,14 +32,14 @@ Ny = 5
 Nz = 5
 
 #which detector
-detectorName="PrototypeGeometry.dat"
+detectorName=workDir+"/PrototypeGeometry.dat"
 #which particle
 particle="alpha"
 #which energy
 energy="1 MeV"
 
 #How many events
-Nevents=1000
+Nevents=100
 
 command = "rm log*"
 os.system(command)
@@ -121,15 +121,15 @@ for iz in range(0,Nz):
 			if (doGeant):
 				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
 				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
-				runFile.write("mv run_"+str(ibin)+"_0.root "+saveDir+"/root \n"); #mv the root file to saveDir		
+				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir		
 				runFile.write("cd "+workDir+"\n"); #cd to the workDir
             
 			if (doMatrix):
-				runFilw.write("cd "+saveDir+"\n"); #go to the saveDir
-				runFile.write(matrixExe+" -s "+steeringName+" "+saveDir+"/root/run_"+str(ibin)+"_0.root"); #go with the analysis
-				runFile.write("mv run"+str(ibin)+".out "+matrixDir+"/pixels"+ "\n"); #mv the out file
+				runFile.write("cd "+saveDir+"\n"); #go to the saveDir
+				runFile.write(matrixExe+" -s "+steeringName+" -DvoxelID="+str(ibin)+" root/run_"+str(ibin)+"_0.root"+"\n"); #go with the analysis
+				runFile.write("mv voxel_"+str(ibin)+".dat "+matrixDir+"/pixels"+ "\n"); #mv the out file
           
-			runFile.write("cd ..\n");
+			runFile.write("cd "+workDir+"\n");
 			os.chmod(runFileName,0755)
 
 			if (doFarm):

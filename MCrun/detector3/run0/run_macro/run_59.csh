@@ -1,6 +1,10 @@
 #!/bin/tcsh -f
-cd /project/Gruppo3/fiber5/celentano/OptoTracker/MCrun/detector3/
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/OpNoviceExe -m /project/Gruppo3/fiber5/celentano/OptoTracker/MCrun/detector3/run0/run_macro/macro59.run -det PrototypeGeometry.dat
-mv run_59_0.root run0/root 
+cd /work/OptoTracker/MCrun/detector3/
 cd run0
-cd ..
+/work/OptoTracker/bin/OpNoviceExe -m /work/OptoTracker/MCrun/detector3/run0/run_macro/macro59.run -det /work/OptoTracker/MCrun/detector3//PrototypeGeometry.dat
+mv run_59_0.root root/ 
+cd /work/OptoTracker/MCrun/detector3/
+cd run0
+/work/OptoTracker/bin/ReconstructionNew -s /work/OptoTracker/MCrun/detector3/matrixAnalysis.xml -DvoxelID=59 root/run_59_0.root
+mv voxel_59.dat matrix/pixels
+cd /work/OptoTracker/MCrun/detector3/

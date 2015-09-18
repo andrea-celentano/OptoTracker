@@ -8,4 +8,4 @@
 /gps/pos/halfz 0.6
 /gps/ang/type iso
 /gps/pos/centre 1.2 -1.11022302463e-16 -1.2 cm
-/run/beamOn 1000
+/run/beamOn 100

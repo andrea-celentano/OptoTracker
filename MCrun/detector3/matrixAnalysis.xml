@@ -17,7 +17,7 @@
 	<setInterval>100</setInterval>
       </driver>
       <driver name="Matrix" type="TMatrixAnalysisDriver">
-        <setVoxelID>11</setVoxelID>
+        <setVoxelID>$voxelID</setVoxelID>
       </driver>
    </drivers>
  </Recon>
