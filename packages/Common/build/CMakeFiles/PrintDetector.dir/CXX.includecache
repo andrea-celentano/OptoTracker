@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/CommonStructures.hh
+string
+-
+vector
+-
+
 ../include/H8500.h
 
 ../include/RealSetupHandler.hh
@@ -45,6 +51,38 @@ fstream
 ../include/TDetectorUtils.hh
 TVector3.h
 ../include/TVector3.h
+
+../include/TEvent.hh
+vector
+-
+string
+-
+iostream
+-
+TObject.h
+../include/TObject.h
+TClass.h
+../include/TClass.h
+TClonesArray.h
+../include/TClonesArray.h
+
+../include/TXMLHandler.hh
+iostream
+-
+string
+-
+vector
+-
+TObject.h
+../include/TObject.h
+TXMLEngine.h
+../include/TXMLEngine.h
+TXMLParser.h
+../include/TXMLParser.h
+TDOMParser.h
+../include/TDOMParser.h
+CommonStructures.hh
+../include/CommonStructures.hh
 
 /work/OptoTracker/packages/Common/PrintDetector.cpp
 TFile.h
@@ -121,6 +159,18 @@ TMath.h
 /work/OptoTracker/packages/Common/src/TMath.h
 TF1.h
 /work/OptoTracker/packages/Common/src/TF1.h
+
+/work/OptoTracker/packages/Common/src/TEvent.cc
+TEvent.hh
+/work/OptoTracker/packages/Common/src/TEvent.hh
+
+/work/OptoTracker/packages/Common/src/TXMLHandler.cc
+TXMLHandler.hh
+/work/OptoTracker/packages/Common/src/TXMLHandler.hh
+TChain.h
+/work/OptoTracker/packages/Common/src/TChain.h
+stdlib.h
+-
 
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Buttons.h
 
@@ -592,6 +642,10 @@ atomic
 ThreadLocalStorage.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/ThreadLocalStorage.h
 
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TClonesArray.h
+TObjArray.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObjArray.h
+
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TCollection.h
 TObject.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
@@ -611,6 +665,12 @@ Rtypes.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/Rtypes.h
 TObject.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDOMParser.h
+TXMLParser.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h
+TXMLDocument.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
 
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TDataType.h
 TDictionary.h
@@ -1211,6 +1271,24 @@ TAttMarker.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TAttMarker.h
 GuiTypes.h
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/GuiTypes.h
+
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLDocument.h
+TObject.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+TString.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TString.h
+
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLEngine.h
+TObject.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TXMLParser.h
+TQObject.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TQObject.h
+TObject.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TObject.h
+TString.h
+/work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/TString.h
 
 /work/jlab_software/1.2/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.21/root/include/root/ThreadLocalStorage.h
 RConfig.h

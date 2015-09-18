@@ -10,13 +10,15 @@
    </control>
    <execute>
      <driver name="EventMarker"/>
-     <driver name="Primo"/>
+     <driver name="Matrix"/>
    </execute>
    <drivers>
       <driver name="EventMarker" type="TEventMarkerDriver">
 	<setInterval>100</setInterval>
       </driver>
-      <driver name="Primo" type="TMatrixAnalysisDriver"/>
+      <driver name="Matrix" type="TMatrixAnalysisDriver">
+        <setVoxelID>11</setVoxelID>
+      </driver>
    </drivers>
  </Recon>
 </OptoTracker>

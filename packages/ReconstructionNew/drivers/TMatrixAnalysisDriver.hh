@@ -10,8 +10,9 @@ class TEvent;
 class TMatrixAnalysisDriver : public TDriver {
 private:
 	TH1D *hPixels;
-	int m_nPixelsTot;
+	int m_nPixels;
 	int m_nDetectors;
+	int m_voxelID;
 public:
 	TMatrixAnalysisDriver();
 	virtual ~TMatrixAnalysisDriver();
@@ -28,6 +29,8 @@ public:
 	virtual int startOfData();
 	virtual int process(TEvent *event);
 	virtual int end();
+
+	void setVoxelID(int id){m_voxelID=id;}
 
 	ClassDef(TMatrixAnalysisDriver,1);
 

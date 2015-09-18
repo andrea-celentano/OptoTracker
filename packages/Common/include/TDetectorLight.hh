@@ -51,7 +51,7 @@ private:
 	vector < double > posPixelZ[6][MAX_DETECTORS];
 
 	std::string m_name;
-    
+
 public:
 	TDetectorLight(string fname="");
 	virtual ~TDetectorLight(){};
@@ -80,8 +80,12 @@ public:
 	int getNdet(int iface) const{return Ndet[iface];}
 
 	int getDetGlobalID(int iface,int idetector) const;
-	void getFaceAndDetIDfromGlobal(int global,int &iface,int &idetector) const;
+	void getFaceDetIDfromGlobal(int global,int &iface,int &idetector) const;
+	int getPixelGlobalID(int iface,int idetector,int ipixel) const;
+	void getFaceDetPixelIDfromGlobal(int global,int &iface,int &idetector,int &ipixel) const;
 
+	int getTotDetectors();
+	int getTotPixels();
 
 	void setDetSizeX(int iface,int idetector,double s){detSizeX[iface][idetector]=s;}
 	void setDetSizeY(int iface,int idetector,double s){detSizeY[iface][idetector]=s;}

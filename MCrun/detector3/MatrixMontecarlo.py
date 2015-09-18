@@ -15,12 +15,13 @@ resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir="/project/Gruppo3/fiber5/celentano/OptoTracker/MCrun/detector3/"
+workDir=os.environ("OPTO")+"/MCrun/detector3/"
 saveDir="run0"
 matrixDir="matrix"
 #Executables
-baseExe="/project/Gruppo3/fiber5/celentano/OptoTracker/bin/OpNoviceExe" 
-
+geantExe=os.environ("OPTO")+"/bin/OpNoviceExe" 
+matrixExe=os.environ("OPTO")+"/bin/ReconstructionNew"
+steeringName=workDir+"/matrixAnalysis.xml"
 #dimensions, in cm -> This is used to "move" the particle!
 Lx = 6.0
 Ly = 6.0
@@ -65,91 +66,79 @@ if not os.path.exists(workDir+saveDir+"/run_macro"):
 
 
 for iz in range(0,Nz):
-    for iy in range(0,Ny):
-        for ix in range(0,Nx):
-            ibin=ix+Nx*iy+Nx*Ny*iz #as defined in my notebook
-            centerX=-Lx/2+ix*(Lx/(Nx))+Lx/(2*Nx)
-            centerY=-Ly/2+iy*(Ly/(Ny))+Ly/(2*Ny)
-            centerZ=-Lz/2+iz*(Lz/(Nz))+Lz/(2*Nz)
+	for iy in range(0,Ny):
+		for ix in range(0,Nx):
+			ibin=ix+Nx*iy+Nx*Ny*iz #as defined in my notebook
+			centerX=-Lx/2+ix*(Lx/(Nx))+Lx/(2*Nx)
+			centerY=-Ly/2+iy*(Ly/(Ny))+Ly/(2*Ny)
+			centerZ=-Lz/2+iz*(Lz/(Nz))+Lz/(2*Nz)
 
-            print "Bin "+str(ibin)+": "+str(ix)+" "+str(iy)+" "+str(iz)
-            print "Center: "+str(centerX)+" "+str(centerY)+" "+str(centerZ)
+			print "Bin "+str(ibin)+": "+str(ix)+" "+str(iy)+" "+str(iz)
+			print "Center: "+str(centerX)+" "+str(centerY)+" "+str(centerZ)
+			
+			if (doGeant):
+				#	Open the macro file and fill it
+				macroFileName=workDir+saveDir+"/run_macro/macro"+str(ibin)+".run"
+				macroFile=open(macroFileName,'w')	
+				 # define the file-name!!
+				line="/OpNovice/run/setRunName run_"+str(ibin)+"\n"
+				macroFile.write(line)
+				# define the particle
+				line="/gps/particle "+particle+"\n"
+				macroFile.write(line)
+				# define the energy
+				line="/gps/energy "+energy+"\n"
+				macroFile.write(line)
+				# set up the generator
+				line="/gps/pos/type Volume \n"
+				macroFile.write(line)
+				line="/gps/pos/shape Para \n"
+				macroFile.write(line)
+				# the volume is the voxel volume
+				line="/gps/pos/halfx "+str(Lx/(2*Nx))+"\n"
+				macroFile.write(line)
+				line="/gps/pos/halfy "+str(Ly/(2*Ny))+"\n"
+				macroFile.write(line)
+				line="/gps/pos/halfz "+str(Lz/(2*Nz))+"\n"
+				macroFile.write(line)
+				# angles
+				line="/gps/ang/type iso"+"\n"
+				macroFile.write(line)
+				# the center
+				line="/gps/pos/centre "+str(centerX)+" "+str(centerY)+" "+str(centerZ)+" cm"+"\n"
+				macroFile.write(line)
+				# event number
+				line="/run/beamOn "+str(Nevents)+"\n"
+				macroFile.write(line)
+				macroFile.close()
+				
+
+			# now prepare the run file
+			runFileName=workDir+saveDir+"/run_macro/run_"+str(ibin)+".csh"
+			runFile=open(runFileName,'w')
+			runFile.write("#!/bin/tcsh -f\n")				
+			runFile.write("cd "+workDir+"\n");
+			if (doGeant):
+				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
+				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
+				runFile.write("mv run_"+str(ibin)+"_0.root "+saveDir+"/root \n"); #mv the root file to saveDir		
+				runFile.write("cd "+workDir+"\n"); #cd to the workDir
             
-	    if (doGeant):
-		#	Open the macro file and fill it
-		macroFileName=workDir+saveDir+"/run_macro/macro"+str(ibin)+".run"
-		macroFile=open(macroFileName,'w')	
-		#define the file-name!!
-		line="/OpNovice/run/setRunName run_"+str(ibin)+"\n"
-		macroFile.write(line)
-		#define the particle
-		line="/gps/particle "+particle+"\n"
-		macroFile.write(line)
-		#define the energy
-		line="/gps/energy "+energy+"\n"
-		macroFile.write(line)
-		#set up the generator
-		line="/gps/pos/type Volume \n"
-		macroFile.write(line)
-		line="/gps/pos/shape Para \n"
-		macroFile.write(line)
-		#the volume is the voxel volume
-		line="/gps/pos/halfx "+str(Lx/(2*Nx))+"\n"
-		macroFile.write(line)
-		line="/gps/pos/halfy "+str(Ly/(2*Ny))+"\n"
-		macroFile.write(line)
-		line="/gps/pos/halfz "+str(Lz/(2*Nz))+"\n"
-		macroFile.write(line)
-		#angles
-		line="/gps/ang/type iso"+"\n"
-		macroFile.write(line)
-		#the center
-		line="/gps/pos/centre "+str(centerX)+" "+str(centerY)+" "+str(centerZ)+" cm"+"\n"
-		macroFile.write(line)
-		#event number
-		line="/run/beamOn "+str(Nevents)+"\n"
-		macroFile.write(line)
-		macroFile.close()
+			if (doMatrix):
+				runFilw.write("cd "+saveDir+"\n"); #go to the saveDir
+				runFile.write(matrixExe+" -s "+steeringName+" "+saveDir+"/root/run_"+str(ibin)+"_0.root"); #go with the analysis
+				runFile.write("mv run"+str(ibin)+".out "+matrixDir+"/pixels"+ "\n"); #mv the out file
+          
+			runFile.write("cd ..\n");
+			os.chmod(runFileName,0755)
 
-
-            #now prepare the run file
-            runFileName=workDir+saveDir+"/run_macro/run_"+str(ibin)+".csh"
-            runFile=open(runFileName,'w')
-            runFile.write("#!/bin/tcsh -f\n")
-	    #terrible hack starts here
-	   # runFile.write("unsetenv ROOT_VERSION \n");
-	   # runFile.write("setenv OS_NAME Linux64RHEL6 \n");
-	   # runFile.write("setenv OSRELEASE Linux_Scientific6-x86_64-gcc4.4.7 \n");
-	   # runFile.write("source /project/Gruppo3/fiber6/apps/cshrc/aiace_2011.cshrc \n");
-	   # runFile.write("setenv JLAB_ROOT /project/Gruppo3/fiber6/apps/jlab_software_20150427 \n");
-	   # runFile.write("setenv JLAB_VERSION 1.2 \n");
-	   # runFile.write("source $JLAB_ROOT/$JLAB_VERSION/ce/jlab.csh \n");
-	   # runFile.write("source $OPTO/cshrc/geantSL6.cshrc\n");
-	    #terrible hack ends here
-            runFile.write("cd "+workDir+"\n");
-	    if (doGeant):
-		runFile.write(baseExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
-		runFile.write("mv run_"+str(ibin)+"_0.root "+saveDir+"/root \n"); #mv the root file
-            
-	    runFile.write("cd "+saveDir+"\n"); #cd to the saveDir
-            
-	    if (doMatrix):
-		runFile.write("root -l -q -b  ../doPixels.C\("+str(ibin)+"\) "+"\n"); #go with the macro
-		runFile.write("mv run"+str(ibin)+".ps "+matrixDir+"/ps" +"\n"); #mv the ps file
-		runFile.write("mv run"+str(ibin)+".out "+matrixDir+"/pixels"+ "\n"); #mv the ps file
-            
-	    runFile.write("cd ..\n");
-
-
-            os.chmod(runFileName,0755)
-
-            if (doFarm):
-                if (len(resources)>0):
-                    arg="-q "+queue_name+" -P "+arch_name+" -R \""+resources+"\" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
-                else:
-                    arg="-q "+queue_name+" -P "+arch_name+" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
-                subprocess.call("bsub "+arg,shell=True)
-            else:
-                subprocess.call([runFileName],shell=True)
+			if (doFarm):
+				if (len(resources)>0):
+					arg="-q "+queue_name+" -P "+arch_name+" -R \""+resources+"\" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
+				else:
+					arg="-q "+queue_name+" -P "+arch_name+" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
+					subprocess.call("bsub "+arg,shell=True)
+			else:
+				subprocess.call([runFileName],shell=True)
                      
             

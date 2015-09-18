@@ -408,13 +408,65 @@ int TDetectorLight::getDetGlobalID(int iface,int idetector) const{
 	ret+=idetector;
 	return ret;
 }
-void TDetectorLight::getFaceAndDetIDfromGlobal(int global,int &iface,int &idetector) const{
-
+void TDetectorLight::getFaceDetIDfromGlobal(int global,int &iface,int &idetector) const{
+	int iTmp=global;
+	for (int ii=0;ii<6;ii++){
+		if (iTmp<this->getNdet(ii)){
+			iface=ii;
+			idetector=iTmp;
+		}
+		else{
+			iTmp-=this->getNdet(ii);
+		}
+	}
 }
 
+int TDetectorLight::getPixelGlobalID(int iface,int idetector,int ipixel) const{
+	int ret=0;
+	for (int ii=0;ii<iface;ii++){
+		for (int jj=0;jj<this->getNdet(ii);jj++){
+			ret+=this->getNPixels(ii,jj);
+		}
+	}
+	for (int jj=0;jj<idetector;jj++){
+		ret+=this->getNPixels(iface,jj);
+	}
+	ret+=ipixel;
+	return ret;
+}
 
+void TDetectorLight::getFaceDetPixelIDfromGlobal(int global,int &iface,int &idetector,int &ipixel) const{
+	int iTmp=global;
+	for (int ii=0;ii<6;ii++){
+		for (int jj=0;jj<this->getNdet(ii);jj++){
+			if (iTmp<this->getNPixels(ii,jj)){
+				iface=ii;
+				idetector=jj;
+				ipixel=iTmp;
+			}
+			else{
+				iTmp-=this->getNPixels(ii,jj);
+			}
+		}
+	}
+}
 
+int TDetectorLight::getTotDetectors(){
+	int ret=0;
+	for (int ii=0;ii<6;ii++){
+		ret+=this->getNdet(ii);
+	}
+	return ret;
+}
 
-
+int TDetectorLight::getTotPixels(){
+	int ret=0;
+	for (int ii=0;ii<6;ii++){
+		for (int jj=0;jj<this->getNdet(ii);jj++){
+			ret+=this->getNPixels(ii,jj);
+		}
+	}
+	return ret;
+}
 
 

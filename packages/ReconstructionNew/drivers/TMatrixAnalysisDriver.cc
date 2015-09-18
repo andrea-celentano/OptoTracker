@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "TMatrixAnalysisDriver.hh"
 
 #include "OpNoviceDigi.hh"
@@ -6,11 +8,14 @@
 #include "TJobManager.hh"
 #include "TDetectorLight.hh"
 
+using namespace std;
+
 TMatrixAnalysisDriver::TMatrixAnalysisDriver() {
 	// TODO Auto-generated constructor stub
 	hPixels=0;
-	m_nPixelsTot=0;
+	m_nPixels=0;
 	m_nDetectors=0;
+	m_voxelID=0;
 }
 
 TMatrixAnalysisDriver::~TMatrixAnalysisDriver() {
@@ -33,7 +38,7 @@ int TMatrixAnalysisDriver::process(TEvent *event){
 			detector=digi->GetDetectorNumber();
 			pixel=digi->GetPixelNumber();
 			nPhe=digi->GetPheCount();
-
+			hPixels->Fill(m_manager->getDetector()->getPixelGlobalID(face,detector,pixel),nPhe);
 		}
 	}
 
@@ -48,22 +53,18 @@ int TMatrixAnalysisDriver::start(){
 }
 int TMatrixAnalysisDriver::startOfData(){
 	Info("startOfData","start");
-	m_nPixelsTot=0;
-	m_nDetectors=0;
+	m_nPixels=m_manager->getDetector()->getTotPixels();
+	m_nDetectors=m_manager->getDetector()->getTotDetectors();
+
 	/*Here I need to create the histogram with the pixels count
 	I have faces,detectors,pixels
 	 //	TODO: not parellelepied?
 	 */
-	for (int iface=0;iface<6;iface++){
-		m_nDetectors+=m_manager->getDetector()->getNdet(iface);
-		for (int idet=0;idet<m_manager->getDetector()->getNdet(iface);idet++){
-			m_nPixelsTot+=m_manager->getDetector()->getNPixels(iface,idet);
-		}
-	}
+
 	if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
-		Info("startOfData","hPixels created with %i pixels",m_nPixelsTot);
+		Info("startOfData","hPixels created with %i pixels",m_nPixels);
 	}
-	hPixels=new TH1D("hPixels","hPixels",m_nPixelsTot,-0.5,m_nPixelsTot-0.5);
+	hPixels=new TH1D("hPixels","hPixels",m_nPixels,-0.5,m_nPixels-0.5);
 
 
 	m_manager->GetOutputList()->Add(hPixels);
@@ -71,6 +72,24 @@ int TMatrixAnalysisDriver::startOfData(){
 
 
 int TMatrixAnalysisDriver::end(){
+	ofstream out;
+	string outName;
+	outName=Form("voxel_%i.dat",m_voxelID);
+	out.open(outName.c_str());
 	Info("end","ended");
 	cout<<m_manager->getNumberOfEvents()<<endl;
+	hPixels->Scale(1./m_manager->getNumberOfEvents());
+
+
+
+	Info("end","Writing datafile");
+	for (int ipixel=0;ipixel<m_nPixels;ipixel++){
+		out<<hPixels->GetBinContent(ipixel+1)<<" "; //out will be a 1-line file
+		if (m_manager->getVerboseLevel()>=TJobManager::fullVerbosity){ cout<<ipixel<<" "<<hPixels->GetBinContent(ipixel+1)<<endl; //+1 is "a-la-Root"
+		}
+	}
+
+
+
+
 }
