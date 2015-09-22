@@ -9,14 +9,17 @@
 #include "TObject.h"
 #include "TClass.h"
 #include "TClonesArray.h"
-
+#include "TObjArray.h"
 using namespace std;
 
 class TEvent : public TObject{
 
 
 private:
+
+	TObjArray			   m_objects;
 	vector <TClonesArray*> m_collections;
+
 
 
 	TClonesArray* getCollection (int id) const;
@@ -27,6 +30,13 @@ public:
 	virtual ~TEvent();
 	virtual void Clear(Option_t* option="");
 	void clearCollections(){m_collections.clear();}
+	void clearObjects(){m_objects.Clear();}
+
+	void printObjects() const;
+
+	void addObject(TObject *obj);
+	TObject* getObject(string name) const;
+	int hasObject(string name) const;
 
 	inline int getNcollections() const{return m_collections.size();}
 	void		printCollections() const;

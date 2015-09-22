@@ -1,6 +1,8 @@
 #!/usr/local/bin/python
 
-import string,math,os,sys,subprocess
+import string,math,os,sys,subprocess,time
+import ROOT
+from ROOT import * 
 
 #Initialization part for variables
 #run on the farm?
@@ -8,21 +10,21 @@ doFarm=True
 
 doGeant=True
 doMatrix=True
-
+ 
 
 queue_name="long"
 resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir=os.environ['OPTO']+"/MCrun/detector3/"
-saveDir="run0"
-matrixDir="matrix"
+workDir=os.environ['OPTO']+"/MCrun/detector3"
+saveDir=workDir+"/run0/matrix0"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
-steeringName=workDir+"matrixAnalysis.xml"
+steeringName=workDir+"/matrixMCcalculation.xml"
 #dimensions, in cm -> This is used to "move" the particle!
+#These are re-loaded from the detector now.
 Lx = 6.0
 Ly = 6.0
 Lz = 6.0
@@ -41,44 +43,51 @@ energy="1 MeV"
 #How many events
 Nevents=100
 
-command = "rm log*"
-os.system(command)
-command = "rm run*.csh"
+command = "rm -f matrix.root"
 os.system(command)
 
-if not os.path.exists(workDir+saveDir):
-	os.makedirs(workDir+saveDir)
+if not os.path.exists(saveDir):
+	os.makedirs(saveDir)
+	os.makedirs(saveDir+"/root")
+	os.makedirs(saveDir+"/ps")
+	os.makedirs(saveDir+"/pixels")
+	os.makedirs(saveDir+"/run_macro")
 	
-if not os.path.exists(workDir+saveDir+"/root"):
-	os.makedirs(workDir+saveDir+"/root")
 	
-if not os.path.exists(workDir+saveDir+"/"+matrixDir):
-	os.makedirs(workDir+saveDir+"/"+matrixDir)   
-	os.makedirs(workDir+saveDir+"/"+matrixDir+"/ps")
-	os.makedirs(workDir+saveDir+"/"+matrixDir+"/pixels")
-	
-if not os.path.exists(workDir+saveDir+"/run_macro"):
-	os.makedirs(workDir+saveDir+"/run_macro")
-	
-#command = "cd "+workDir+saveDir+" ; ln -s ../libOpNoviceClassesDict.so ; cd .."
-#os.system(command)
+command = "cd "+saveDir+" ; rm -rf *log* ; cd .."
+os.system(command)
       
+gSystem.Load("$OPTO/lib/libCommonClassesDict.so")
+detector = TDetectorLight("PrototypeGeometry.dat");
 
+detector.Print();
 
+Lx = detector.getScintSizeX();
+Ly = detector.getScintSizeY();
+Lz = detector.getScintSizeZ();
+
+fVoxels = TFile("matrix.root","recreate");
+hVoxels = TH3D("hVoxels","hVoxels",Nx,-Lx/2,Lx/2,Ny,-Ly/2,Ly/2,Nz,-Lz/2,Lz/2);
+hVoxels.Write()
+procs=[]
 for iz in range(0,Nz):
 	for iy in range(0,Ny):
 		for ix in range(0,Nx):
 			ibin=ix+Nx*iy+Nx*Ny*iz #as defined in my notebook
-			centerX=-Lx/2+ix*(Lx/(Nx))+Lx/(2*Nx)
-			centerY=-Ly/2+iy*(Ly/(Ny))+Ly/(2*Ny)
-			centerZ=-Lz/2+iz*(Lz/(Nz))+Lz/(2*Nz)
+		
+			
+			centerX=hVoxels.GetXaxis().GetBinCenter(ix+1);
+			centerY=hVoxels.GetYaxis().GetBinCenter(iy+1);
+			centerZ=hVoxels.GetZaxis().GetBinCenter(iz+1);
+
+
 
 			print "Bin "+str(ibin)+": "+str(ix)+" "+str(iy)+" "+str(iz)
 			print "Center: "+str(centerX)+" "+str(centerY)+" "+str(centerZ)
 			
 			if (doGeant):
 				#	Open the macro file and fill it
-				macroFileName=workDir+saveDir+"/run_macro/macro"+str(ibin)+".run"
+				macroFileName=saveDir+"/run_macro/macro"+str(ibin)+".run"
 				macroFile=open(macroFileName,'w')	
 				 # define the file-name!!
 				line="/OpNovice/run/setRunName run_"+str(ibin)+"\n"
@@ -114,7 +123,7 @@ for iz in range(0,Nz):
 				
 
 			# now prepare the run file
-			runFileName=workDir+saveDir+"/run_macro/run_"+str(ibin)+".csh"
+			runFileName=saveDir+"/run_macro/run_"+str(ibin)+".csh"
 			runFile=open(runFileName,'w')
 			runFile.write("#!/bin/tcsh -f\n")				
 			runFile.write("cd "+workDir+"\n");
@@ -122,23 +131,40 @@ for iz in range(0,Nz):
 				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
 				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
 				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir		
-				runFile.write("cd "+workDir+"\n"); #cd to the workDir
+				runFile.write("cd "+saveDir+"\n"); #cd to the saveDir
             
 			if (doMatrix):
 				runFile.write("cd "+saveDir+"\n"); #go to the saveDir
 				runFile.write(matrixExe+" -s "+steeringName+" -DvoxelID="+str(ibin)+" root/run_"+str(ibin)+"_0.root"+"\n"); #go with the analysis
-				runFile.write("mv voxel_"+str(ibin)+".dat "+matrixDir+"/pixels"+ "\n"); #mv the out file
+				runFile.write("mv voxel_"+str(ibin)+".dat "+saveDir+"/pixels"+ "\n"); #mv the out file
           
-			runFile.write("cd "+workDir+"\n");
+			runFile.write("cd "+saveDir+"\n");
 			os.chmod(runFileName,0755)
+		
+#redo the loop
+
+for iz in range(0,Nz):
+	for iy in range(0,Ny):
+		for ix in range(0,Nx):
+			ibin=ix+Nx*iy+Nx*Ny*iz #as defined in my notebook
+			print "Execute bin "+str(ibin)+": "+str(ix)+" "+str(iy)+" "+str(iz)
+			runFileName=saveDir+"/run_macro/run_"+str(ibin)+".csh"
 
 			if (doFarm):
 				if (len(resources)>0):
-					arg="-q "+queue_name+" -P "+arch_name+" -R \""+resources+"\" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
+					arg="-q "+queue_name+" -P "+arch_name+" -R \""+resources+"\" -e "+saveDir+"/log"+str(ibin)+".e"+" -o "+saveDir+"/log"+str(ibin)+".o "+runFileName
 				else:
-					arg="-q "+queue_name+" -P "+arch_name+" -e "+workDir+saveDir+"/log"+str(ibin)+".e"+" -o "+workDir+saveDir+"/log"+str(ibin)+".o "+runFileName
-					subprocess.call("bsub "+arg,shell=True)
+					arg="-q "+queue_name+" -P "+arch_name+" -e "+saveDir+"/log"+str(ibin)+".e"+" -o "+saveDir+"/log"+str(ibin)+".o "+runFileName
+				procs.append(subprocess.Popen("bsub -K "+arg,shell=True));	
+				time.sleep(0.2);
 			else:
 				subprocess.call([runFileName],shell=True)
-                     
-            
+				
+if (doFarm):
+	for p in procs:
+		p.wait()
+print "DONE"
+fVoxels.Close()
+gROOT.LoadMacro('writeMatrix.C')
+writeMatrix(saveDir+"/pixels");
+ 

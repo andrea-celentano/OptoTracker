@@ -9,4 +9,5 @@
 <class name="TEventMarkerDriver"/>
 <class name="TRootSaveDriver"/>
 <class name="TMatrixAnalysisDriver"/>
+<class name="TMatrixReconDriver"/>
 </lcgdict>

@@ -5,6 +5,7 @@
 #include "../drivers/TEventMarkerDriver.hh"
 #include "../drivers/TRootSaveDriver.hh"
 #include "../drivers/TMatrixAnalysisDriver.hh"
+#include "../drivers/TMatrixReconDriver.hh"
 
 #ifdef __GCCXML__
 TJobManager object1;

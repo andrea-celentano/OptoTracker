@@ -98,12 +98,45 @@ void TEvent::printCollections()const{
 
 
 void	TEvent::Clear(Option_t* opt){
-//	Info("TEvent","TEvent::Clear called with opt %s",opt);
+	//	Info("TEvent","TEvent::Clear called with opt %s",opt);
 	vector < TClonesArray* >::iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
 		//if (*it) delete (*it);
-if (*it)		(*it)->Clear(opt);
+		if (*it)		(*it)->Clear(opt);
+	}
+	m_objects.Clear();
+}
+
+
+void TEvent::printObjects() const{
+	TIter it(&m_objects);
+	while (TObject* obj = it.Next()) {
+		obj->Print();
 	}
 }
+
+
+
+
+
+void TEvent::addObject(TObject *obj){
+	m_objects.Add(obj);
+}
+
+TObject* TEvent::getObject(string name) const{
+	TObject *ret=0;
+	ret=m_objects.FindObject(name.c_str());
+	return ret;
+}
+
+int TEvent::hasObject(string name) const{
+	TObject *ret=0;
+	ret=m_objects.FindObject(name.c_str());
+	if (ret) return 1;
+	else return 0;
+}
+
+
+
 
 
