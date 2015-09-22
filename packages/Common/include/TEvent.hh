@@ -33,7 +33,6 @@ public:
 	void clearObjects(){m_objects.Clear();}
 
 	void printObjects() const;
-
 	void addObject(TObject *obj);
 	TObject* getObject(string name) const;
 	int hasObject(string name) const;

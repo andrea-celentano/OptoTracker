@@ -8,6 +8,7 @@
 <class name="TDriver"/>
 <class name="TEventMarkerDriver"/>
 <class name="TRootSaveDriver"/>
-<class name="TMatrixAnalysisDriver"/>
+<class name="TMatrixWriterDriver"/>
 <class name="TMatrixReconDriver"/>
+<class name="TChargeAnalysisDriver"/>
 </lcgdict>

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PrintDetector.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/PrintDetector.dir/flags.make
 
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o: CMakeFiles/PrintDetector.dir/flags.make
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o: ../PrintDetector.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/PrintDetector.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o -c /work/OptoTracker/packages/Common/PrintDetector.cpp
 
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/PrintDetector.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/PrintDetector.cpp > CMakeFiles/PrintDetector.dir/PrintDetector.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/PrintDetector.cpp > CMakeFiles/PrintDetector.dir/PrintDetector.cpp.i
 
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/PrintDetector.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/PrintDetector.cpp -o CMakeFiles/PrintDetector.dir/PrintDetector.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/PrintDetector.cpp -o CMakeFiles/PrintDetector.dir/PrintDetector.cpp.s
 
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o.requires:
 .PHONY : CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o.requires
@@ -75,111 +75,19 @@ CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o.provides: CMakeFiles/PrintDetec
 
 CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o.provides.build: CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o
 
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o: CMakeFiles/PrintDetector.dir/flags.make
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o: ../src/TDetectorUtils.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorUtils.cc
-
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorUtils.cc > CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i
-
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorUtils.cc -o CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s
-
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires:
-.PHONY : CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
-
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides.build
-.PHONY : CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides
-
-CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.o: CMakeFiles/PrintDetector.dir/flags.make
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.o: ../src/TEvent.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TEvent.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TEvent.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TEvent.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/PrintDetector.dir/src/TEvent.cc.i
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TEvent.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/PrintDetector.dir/src/TEvent.cc.s
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires:
-.PHONY : CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides.build
-.PHONY : CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides
-
-CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: CMakeFiles/PrintDetector.dir/flags.make
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: ../src/TXMLHandler.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.cc
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.cc > CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TXMLHandler.cc -o CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires:
-.PHONY : CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides.build
-.PHONY : CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides
-
-CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o: CMakeFiles/PrintDetector.dir/flags.make
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires:
-.PHONY : CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides.build
-.PHONY : CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides
-
-CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o
-
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o: CMakeFiles/PrintDetector.dir/flags.make
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o: ../src/TDetectorLight.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorLight.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o -c /work/OptoTracker/packages/Common/src/TDetectorLight.cc
 
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorLight.cc > CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TDetectorLight.cc > CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.i
 
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/src/TDetectorLight.cc -o CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TDetectorLight.cc -o CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.s
 
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o.requires:
 .PHONY : CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o.requires
@@ -190,24 +98,116 @@ CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o.provides: CMakeFiles/PrintD
 
 CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o
 
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o: CMakeFiles/PrintDetector.dir/flags.make
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o: ../src/TDetectorUtils.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o -c /work/OptoTracker/packages/Common/src/TDetectorUtils.cc
+
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TDetectorUtils.cc > CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.i
+
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TDetectorUtils.cc -o CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.s
+
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires:
+.PHONY : CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
+
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides.build
+.PHONY : CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides
+
+CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o: CMakeFiles/PrintDetector.dir/flags.make
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o: ../src/RealSetupHandler.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o -c /work/OptoTracker/packages/Common/src/RealSetupHandler.cc
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/RealSetupHandler.cc > CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.i
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/RealSetupHandler.cc -o CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.s
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires:
+.PHONY : CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides.build
+.PHONY : CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides
+
+CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: CMakeFiles/PrintDetector.dir/flags.make
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o: ../src/TXMLHandler.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o -c /work/OptoTracker/packages/Common/src/TXMLHandler.cc
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TXMLHandler.cc > CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.i
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TXMLHandler.cc -o CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.s
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires:
+.PHONY : CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides.build
+.PHONY : CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides
+
+CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.o: CMakeFiles/PrintDetector.dir/flags.make
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.o: ../src/TEvent.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/packages/Common/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/PrintDetector.dir/src/TEvent.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/PrintDetector.dir/src/TEvent.cc.o -c /work/OptoTracker/packages/Common/src/TEvent.cc
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PrintDetector.dir/src/TEvent.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/packages/Common/src/TEvent.cc > CMakeFiles/PrintDetector.dir/src/TEvent.cc.i
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PrintDetector.dir/src/TEvent.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/packages/Common/src/TEvent.cc -o CMakeFiles/PrintDetector.dir/src/TEvent.cc.s
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires:
+.PHONY : CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides.build
+.PHONY : CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides
+
+CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.provides.build: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o
+
 # Object files for target PrintDetector
 PrintDetector_OBJECTS = \
 "CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o" \
+"CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o" \
 "CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o" \
-"CMakeFiles/PrintDetector.dir/src/TEvent.cc.o" \
-"CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o" \
 "CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o" \
-"CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o"
+"CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o" \
+"CMakeFiles/PrintDetector.dir/src/TEvent.cc.o"
 
 # External object files for target PrintDetector
 PrintDetector_EXTERNAL_OBJECTS =
 
 PrintDetector: CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o
-PrintDetector: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o
-PrintDetector: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o
-PrintDetector: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o
-PrintDetector: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o
 PrintDetector: CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o
+PrintDetector: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o
+PrintDetector: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o
+PrintDetector: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o
+PrintDetector: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o
 PrintDetector: CMakeFiles/PrintDetector.dir/build.make
 PrintDetector: libCommonClassesDict.so
 PrintDetector: CMakeFiles/PrintDetector.dir/link.txt
@@ -219,11 +219,11 @@ CMakeFiles/PrintDetector.dir/build: PrintDetector
 .PHONY : CMakeFiles/PrintDetector.dir/build
 
 CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/PrintDetector.cpp.o.requires
-CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
-CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
-CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
-CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
 CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TDetectorLight.cc.o.requires
+CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TDetectorUtils.cc.o.requires
+CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/RealSetupHandler.cc.o.requires
+CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TXMLHandler.cc.o.requires
+CMakeFiles/PrintDetector.dir/requires: CMakeFiles/PrintDetector.dir/src/TEvent.cc.o.requires
 .PHONY : CMakeFiles/PrintDetector.dir/requires
 
 CMakeFiles/PrintDetector.dir/clean:
@@ -231,6 +231,6 @@ CMakeFiles/PrintDetector.dir/clean:
 .PHONY : CMakeFiles/PrintDetector.dir/clean
 
 CMakeFiles/PrintDetector.dir/depend:
-	cd /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/PrintDetector.dir/DependInfo.cmake --color=$(COLOR)
+	cd /work/OptoTracker/packages/Common/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build /work/OptoTracker/packages/Common/build/CMakeFiles/PrintDetector.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PrintDetector.dir/depend
 

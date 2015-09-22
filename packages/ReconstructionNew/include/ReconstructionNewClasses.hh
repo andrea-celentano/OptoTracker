@@ -4,7 +4,8 @@
 #include "TDriver.hh"
 #include "../drivers/TEventMarkerDriver.hh"
 #include "../drivers/TRootSaveDriver.hh"
-#include "../drivers/TMatrixAnalysisDriver.hh"
+#include "../drivers/TChargeAnalysisDriver.hh"
+#include "../drivers/TMatrixWriterDriver.hh"
 #include "../drivers/TMatrixReconDriver.hh"
 
 #ifdef __GCCXML__

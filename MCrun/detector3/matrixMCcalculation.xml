@@ -16,7 +16,7 @@
       <driver name="EventMarker" type="TEventMarkerDriver">
 	<setInterval>100</setInterval>
       </driver>
-      <driver name="Matrix" type="TMatrixAnalysisDriver">
+      <driver name="Matrix" type="TMatrixWriterDriver">
         <setVoxelID>$voxelID</setVoxelID>
       </driver>
    </drivers>
