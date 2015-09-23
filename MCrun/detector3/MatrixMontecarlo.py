@@ -23,8 +23,9 @@ saveDir=workDir+"/run0/matrix0"
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
 steeringName=workDir+"/matrixMCcalculation.xml"
-#dimensions, in cm -> This is used to "move" the particle!
-#These are re-loaded from the detector now.
+writeMacroName=os.environ['OPTO']+"/macros/writeMatrix.C"
+
+#dimensions, in cm -> These are re-loaded from the detector now.
 Lx = 6.0
 Ly = 6.0
 Lz = 6.0
@@ -165,6 +166,6 @@ if (doFarm):
 		p.wait()
 print "DONE"
 fVoxels.Close()
-gROOT.LoadMacro('writeMatrix.C')
+gROOT.LoadMacro(writeMacroName)
 writeMatrix(saveDir+"/pixels");
  

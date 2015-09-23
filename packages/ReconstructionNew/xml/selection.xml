@@ -10,5 +10,6 @@
 <class name="TRootSaveDriver"/>
 <class name="TMatrixWriterDriver"/>
 <class name="TMatrixReconDriver"/>
+<class name="TMatrixInterpreterDriver"/>
 <class name="TChargeAnalysisDriver"/>
 </lcgdict>

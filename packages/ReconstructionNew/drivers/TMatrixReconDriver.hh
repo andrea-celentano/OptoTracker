@@ -24,7 +24,11 @@ private:
 	string m_matrixFileName;
 	string m_collectionName;
 
-	TH3D *hVoxels;
+	TH3D *hVoxelsInput; //for the geometry only
+
+	TH3D *hVoxelsReconAll; //all events recon (average)
+	TMatrixD m_pixelDataAll;
+	TMatrixD m_voxelDataAll;
 
 	static const int matrixSourceFile=0;
 	static const int matrixSourceModel=1;
@@ -35,6 +39,7 @@ public:
 
 	virtual int startOfData();
 	virtual int process(TEvent *event);
+	virtual int endOfData();
 	/*virtual int start();
 	virtual int startOfData();
 	virtual int process(TEvent *event);

@@ -7,6 +7,7 @@
 #include "../drivers/TChargeAnalysisDriver.hh"
 #include "../drivers/TMatrixWriterDriver.hh"
 #include "../drivers/TMatrixReconDriver.hh"
+#include "../drivers/TMatrixInterpreterDriver.hh"
 
 #ifdef __GCCXML__
 TJobManager object1;
