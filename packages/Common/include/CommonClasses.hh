@@ -1,7 +1,7 @@
 #include "TDetectorLight.hh"
 #include "TEvent.hh"
 #include "TXMLHandler.hh"
-
+#include "TNamedContainer.hh"
 //#include <string>
 
 //string obj1;

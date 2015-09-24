@@ -1,4 +1,4 @@
-// Generated at Wed Sep 23 09:37:36 2015. Do not modify it
+// Generated at Wed Sep 23 22:56:25 2015. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -26,7 +26,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #elif defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3)) && !defined(__INTEL_COMPILER) 
 # pragma GCC diagnostic ignored "-Warray-bounds"
 #endif
-#include "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/include/CommonClasses.hh"
+#include "/work/OptoTracker/packages/Common/include/CommonClasses.hh"
 #ifdef CONST
 # undef CONST
 #endif
@@ -36,63 +36,68 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 namespace {
   ::Reflex::Type type_49 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
   ::Reflex::Type type_43 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_950 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
+  ::Reflex::Type type_951 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
   ::Reflex::Type type_void = ::Reflex::TypeBuilder(Reflex::Literal("void"));
   ::Reflex::Type type_296 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
-  ::Reflex::Type type_908 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
+  ::Reflex::Type type_909 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
   ::Reflex::Type type_378 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
-  ::Reflex::Type type_1507 = ::Reflex::TypeBuilder(Reflex::Literal("TEvent"));
-  ::Reflex::Type type_1372 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
-  ::Reflex::Type type_2225 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
-  ::Reflex::Type type_1059 = ::Reflex::TypeBuilder(Reflex::Literal("TVector3"));
+  ::Reflex::Type type_194 = ::Reflex::TypeBuilder(Reflex::Literal("TNamed"));
+  ::Reflex::Type type_1508 = ::Reflex::TypeBuilder(Reflex::Literal("TEvent"));
+  ::Reflex::Type type_1373 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
+  ::Reflex::Type type_2227 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
+  ::Reflex::Type type_1060 = ::Reflex::TypeBuilder(Reflex::Literal("TVector3"));
   ::Reflex::Type type_133 = ::Reflex::TypeBuilder(Reflex::Literal("TXMLEngine"));
-  ::Reflex::Type type_1625 = ::Reflex::TypeBuilder(Reflex::Literal("TObjArray"));
+  ::Reflex::Type type_1626 = ::Reflex::TypeBuilder(Reflex::Literal("TObjArray"));
   ::Reflex::Type type_119 = ::Reflex::TypeBuilder(Reflex::Literal("TXMLHandler"));
   ::Reflex::Type type_400 = ::Reflex::TypeBuilder(Reflex::Literal("reconControl"));
-  ::Reflex::Type type_1312 = ::Reflex::TypeBuilder(Reflex::Literal("TClonesArray"));
+  ::Reflex::Type type_1313 = ::Reflex::TypeBuilder(Reflex::Literal("TClonesArray"));
   ::Reflex::Type type_444 = ::Reflex::TypeBuilder(Reflex::Literal("TDetectorLight"));
   ::Reflex::Type type_640 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
-  ::Reflex::Type type_2401 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<driver>"));
-  ::Reflex::Type type_2404 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<double>"));
-  ::Reflex::Type type_2444 = ::Reflex::TypeBuilder(Reflex::Literal("std::basic_string<char>"));
-  ::Reflex::Type type_2403 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<TClonesArray*>"));
-  ::Reflex::Type type_8607 = ::Reflex::PointerBuilder(type_133);
-  ::Reflex::Type type_2458 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("std::string"), type_2444);
+  ::Reflex::Type type_2246 = ::Reflex::TypeBuilder(Reflex::Literal("TNamedContainer"));
+  ::Reflex::Type type_2403 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<driver>"));
+  ::Reflex::Type type_2406 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<double>"));
+  ::Reflex::Type type_2446 = ::Reflex::TypeBuilder(Reflex::Literal("std::basic_string<char>"));
+  ::Reflex::Type type_2405 = ::Reflex::TypeBuilder(Reflex::Literal("std::vector<TClonesArray*>"));
+  ::Reflex::Type type_8629 = ::Reflex::PointerBuilder(type_133);
+  ::Reflex::Type type_2460 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("std::string"), type_2446);
   ::Reflex::Type type_111 = ::Reflex::PointerBuilder(type_43);
   ::Reflex::Type type_112 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("XMLDocPointer_t"), type_111);
-  ::Reflex::Type type_2242 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("XMLNodePointer_t"), type_111);
-  ::Reflex::Type type_8608 = ::Reflex::ReferenceBuilder(type_119);
+  ::Reflex::Type type_2244 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("XMLNodePointer_t"), type_111);
+  ::Reflex::Type type_8630 = ::Reflex::ReferenceBuilder(type_119);
   ::Reflex::Type type_119c = ::Reflex::ConstBuilder(type_119);
-  ::Reflex::Type type_8609 = ::Reflex::ReferenceBuilder(type_119c);
+  ::Reflex::Type type_8631 = ::Reflex::ReferenceBuilder(type_119c);
   ::Reflex::Type type_401 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("reconControl_struct"), type_400);
-  ::Reflex::Type type_1380 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Int_t"), type_49);
-  ::Reflex::Type type_851 = ::Reflex::PointerBuilder(type_908);
-  ::Reflex::Type type_950c = ::Reflex::ConstBuilder(type_950);
-  ::Reflex::Type type_2777 = ::Reflex::PointerBuilder(type_950c);
-  ::Reflex::Type type_1759 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_296);
-  ::Reflex::Type type_8610 = ::Reflex::ReferenceBuilder(type_640);
-  ::Reflex::Type type_5024 = ::Reflex::ReferenceBuilder(type_2225);
-  ::Reflex::Type type_8706 = ::Reflex::ArrayBuilder(type_49, 6);
-  ::Reflex::Type type_10009 = ::Reflex::ArrayBuilder(type_49, 256);
-  ::Reflex::Type type_8707 = ::Reflex::ArrayBuilder(type_10009, 6);
-  ::Reflex::Type type_10010 = ::Reflex::ArrayBuilder(type_2458, 256);
-  ::Reflex::Type type_8708 = ::Reflex::ArrayBuilder(type_10010, 6);
-  ::Reflex::Type type_10011 = ::Reflex::ArrayBuilder(type_378, 256);
-  ::Reflex::Type type_8709 = ::Reflex::ArrayBuilder(type_10011, 6);
-  ::Reflex::Type type_8710 = ::Reflex::ArrayBuilder(type_378, 6);
-  ::Reflex::Type type_10012 = ::Reflex::ArrayBuilder(type_2404, 256);
-  ::Reflex::Type type_8711 = ::Reflex::ArrayBuilder(type_10012, 6);
-  ::Reflex::Type type_8712 = ::Reflex::ReferenceBuilder(type_444);
+  ::Reflex::Type type_1381 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Int_t"), type_49);
+  ::Reflex::Type type_852 = ::Reflex::PointerBuilder(type_909);
+  ::Reflex::Type type_951c = ::Reflex::ConstBuilder(type_951);
+  ::Reflex::Type type_2779 = ::Reflex::PointerBuilder(type_951c);
+  ::Reflex::Type type_1761 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_296);
+  ::Reflex::Type type_8632 = ::Reflex::ReferenceBuilder(type_640);
+  ::Reflex::Type type_5026 = ::Reflex::ReferenceBuilder(type_2227);
+  ::Reflex::Type type_8728 = ::Reflex::ArrayBuilder(type_49, 6);
+  ::Reflex::Type type_10033 = ::Reflex::ArrayBuilder(type_49, 256);
+  ::Reflex::Type type_8729 = ::Reflex::ArrayBuilder(type_10033, 6);
+  ::Reflex::Type type_10034 = ::Reflex::ArrayBuilder(type_2460, 256);
+  ::Reflex::Type type_8730 = ::Reflex::ArrayBuilder(type_10034, 6);
+  ::Reflex::Type type_10035 = ::Reflex::ArrayBuilder(type_378, 256);
+  ::Reflex::Type type_8731 = ::Reflex::ArrayBuilder(type_10035, 6);
+  ::Reflex::Type type_8732 = ::Reflex::ArrayBuilder(type_378, 6);
+  ::Reflex::Type type_10036 = ::Reflex::ArrayBuilder(type_2406, 256);
+  ::Reflex::Type type_8733 = ::Reflex::ArrayBuilder(type_10036, 6);
+  ::Reflex::Type type_8734 = ::Reflex::ReferenceBuilder(type_444);
   ::Reflex::Type type_444c = ::Reflex::ConstBuilder(type_444);
-  ::Reflex::Type type_8713 = ::Reflex::ReferenceBuilder(type_444c);
-  ::Reflex::Type type_8660 = ::Reflex::ReferenceBuilder(type_49);
-  ::Reflex::Type type_2303 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Option_t"), type_950c);
-  ::Reflex::Type type_8631 = ::Reflex::PointerBuilder(type_2303);
-  ::Reflex::Type type_9353 = ::Reflex::ReferenceBuilder(type_1507);
-  ::Reflex::Type type_1507c = ::Reflex::ConstBuilder(type_1507);
-  ::Reflex::Type type_9354 = ::Reflex::ReferenceBuilder(type_1507c);
-  ::Reflex::Type type_7526 = ::Reflex::PointerBuilder(type_1372);
-  ::Reflex::Type type_6748 = ::Reflex::PointerBuilder(type_1312);
+  ::Reflex::Type type_8735 = ::Reflex::ReferenceBuilder(type_444c);
+  ::Reflex::Type type_8682 = ::Reflex::ReferenceBuilder(type_49);
+  ::Reflex::Type type_2305 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Option_t"), type_951c);
+  ::Reflex::Type type_8653 = ::Reflex::PointerBuilder(type_2305);
+  ::Reflex::Type type_9375 = ::Reflex::ReferenceBuilder(type_1508);
+  ::Reflex::Type type_1508c = ::Reflex::ConstBuilder(type_1508);
+  ::Reflex::Type type_9376 = ::Reflex::ReferenceBuilder(type_1508c);
+  ::Reflex::Type type_7548 = ::Reflex::PointerBuilder(type_1373);
+  ::Reflex::Type type_6770 = ::Reflex::PointerBuilder(type_1313);
+  ::Reflex::Type type_9484 = ::Reflex::ReferenceBuilder(type_2246);
+  ::Reflex::Type type_2246c = ::Reflex::ConstBuilder(type_2246);
+  ::Reflex::Type type_9485 = ::Reflex::ReferenceBuilder(type_2246c);
 } // unnamed namespace
 
 #ifndef __CINT__
@@ -156,6 +161,18 @@ class __TEvent : public ::TObject {
   virtual ~__TEvent() throw();
   ::TObjArray m_objects;
   ::std::vector<TClonesArray*> m_collections;
+};
+#ifdef __TNamedContainer
+#undef __TNamedContainer
+#endif
+class __TNamedContainer : public ::TNamed {
+  public:
+  __TNamedContainer();
+  virtual ~__TNamedContainer() throw();
+  virtual void ShowMembers(TMemberInspector&) throw();
+  virtual ::TClass* IsA() const throw();
+  virtual void Streamer(TBuffer&) throw();
+  void* m_object;
 };
 }
 
@@ -284,21 +301,47 @@ void ::TEvent::Streamer(TBuffer &b) {
    }
 }
 
+atomic_TClass_ptr TNamedContainer::fgIsA(0);
+TClass* ::TNamedContainer::Class() {
+   if (!fgIsA) {
+      R__LOCKGUARD2(gCINTMutex);      if (!fgIsA)
+         fgIsA = TClass::GetClass("TNamedContainer");
+   }
+   return fgIsA;
+}
+const char * ::TNamedContainer::Class_Name() {return "TNamedContainer";}
+void ::TNamedContainer::Dictionary() {}
+const char *::TNamedContainer::ImplFileName() {return "";}
+int ::TNamedContainer::ImplFileLine() {return 1;}
+void ::TNamedContainer::ShowMembers(TMemberInspector &R__insp) {
+   TClass *R__cl = ::TNamedContainer::IsA();
+   if (R__cl || R__insp.IsA()) { }
+   R__insp.Inspect(R__cl, R__insp.GetParent(), "*m_object", &m_object);
+   TNamed::ShowMembers(R__insp);
+}
+void ::TNamedContainer::Streamer(TBuffer &b) {
+   if (b.IsReading()) {
+      b.ReadClassBuffer(::TNamedContainer::Class(),this);
+   } else {
+      b.WriteClassBuffer(::TNamedContainer::Class(),this);
+   }
+}
+
 
 namespace {
 //------Stub functions for class TXMLHandler -------------------------------
-static  void operator_2870( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_2872( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TXMLHandler*)o)->operator=)(*(const ::TXMLHandler*)arg[0]);
   else   (((::TXMLHandler*)o)->operator=)(*(const ::TXMLHandler*)arg[0]);
 }
 
-static void constructor_2871( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_2873( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TXMLHandler(*(const ::TXMLHandler*)arg[0]);
   else ::new(mem) ::TXMLHandler(*(const ::TXMLHandler*)arg[0]);
 }
 
-static void constructor_2873( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_2875( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if ( arg.size() == 0 ) {
     if (retaddr) *(void**)retaddr = ::new(mem) ::TXMLHandler();
   else ::new(mem) ::TXMLHandler();
@@ -309,90 +352,90 @@ static void constructor_2873( void* retaddr, void* mem, const std::vector<void*>
   }
 }
 
-static void destructor_2874(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_2876(void*, void * o, const std::vector<void*>&, void *) {
 (((::TXMLHandler*)o)->::TXMLHandler::~TXMLHandler)();
 }
-static  void method_2875( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2877( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (std::vector<driver>)((((::TXMLHandler*)o)->GetDrivers)());
   else   (((::TXMLHandler*)o)->GetDrivers)();
 }
 
-static  void method_2876( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2878( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (reconControl_struct)((((::TXMLHandler*)o)->GetReconControl)());
   else   (((::TXMLHandler*)o)->GetReconControl)();
 }
 
-static  void method_2877( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_2879( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TXMLHandler*)o)->DisplayNodes)(*(::XMLNodePointer_t*)arg[0],
     *(::Int_t*)arg[1]);
 }
 
-static  void method_2878( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2880( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TXMLHandler*)o)->Class)());
   else   (((::TXMLHandler*)o)->Class)();
 }
 
-static  void method_2879( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2881( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TXMLHandler*)o)->Class_Name)());
   else   (((::TXMLHandler*)o)->Class_Name)();
 }
 
-static  void method_2880( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2882( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TXMLHandler*)o)->Class_Version)());
   else   (((::TXMLHandler*)o)->Class_Version)();
 }
 
-static  void method_2881( void*, void* o, const std::vector<void*>&, void*)
+static  void method_2883( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TXMLHandler*)o)->Dictionary)();
 }
 
-static  void method_2882( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2884( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TXMLHandler*)o)->IsA)());
   else   (((const ::TXMLHandler*)o)->IsA)();
 }
 
-static  void method_2883( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_2885( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TXMLHandler*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_2884( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_2886( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TXMLHandler*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_2885( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_2887( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TXMLHandler*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_2886( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2888( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TXMLHandler*)o)->DeclFileName)());
   else   (((::TXMLHandler*)o)->DeclFileName)();
 }
 
-static  void method_2887( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2889( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TXMLHandler*)o)->ImplFileLine)());
   else   (((::TXMLHandler*)o)->ImplFileLine)();
 }
 
-static  void method_2888( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2890( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TXMLHandler*)o)->ImplFileName)());
   else   (((::TXMLHandler*)o)->ImplFileName)();
 }
 
-static  void method_2889( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_2891( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TXMLHandler*)o)->DeclFileLine)());
   else   (((::TXMLHandler*)o)->DeclFileLine)();
@@ -433,11 +476,11 @@ void __TXMLHandler_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TXMLHandler"), typeid(::TXMLHandler), sizeof(::TXMLHandler), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TXMLHandler::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_1372, ::Reflex::BaseOffset< ::TXMLHandler, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8608, type_8609), Reflex::Literal("operator="), operator_2870, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8609), Reflex::Literal("TXMLHandler"), constructor_2871, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2458), Reflex::Literal("TXMLHandler"), constructor_2873, 0, "fname=\"\"", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TXMLHandler"), destructor_2874, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddBase(type_1373, ::Reflex::BaseOffset< ::TXMLHandler, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8630, type_8631), Reflex::Literal("operator="), operator_2872, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8631), Reflex::Literal("TXMLHandler"), constructor_2873, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2460), Reflex::Literal("TXMLHandler"), constructor_2875, 0, "fname=\"\"", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TXMLHandler"), destructor_2876, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TXMLHandler"), constructor_x0, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_119, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x2, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
@@ -448,43 +491,43 @@ void __TXMLHandler_dict() {
 //------Delayed data member builder for class TXMLHandler -------------------
 void __TXMLHandler_db_datamem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddDataMember(type_8607, Reflex::Literal("m_xml"), OffsetOf(__shadow__::__TXMLHandler, m_xml), ::Reflex::PRIVATE)
-  .AddDataMember(type_2458, Reflex::Literal("m_xmlFile"), OffsetOf(__shadow__::__TXMLHandler, m_xmlFile), ::Reflex::PRIVATE)
+  .AddDataMember(type_8629, Reflex::Literal("m_xml"), OffsetOf(__shadow__::__TXMLHandler, m_xml), ::Reflex::PRIVATE)
+  .AddDataMember(type_2460, Reflex::Literal("m_xmlFile"), OffsetOf(__shadow__::__TXMLHandler, m_xmlFile), ::Reflex::PRIVATE)
   .AddDataMember(type_112, Reflex::Literal("m_xmldoc"), OffsetOf(__shadow__::__TXMLHandler, m_xmldoc), ::Reflex::PRIVATE)
-  .AddDataMember(type_2242, Reflex::Literal("m_mainnode"), OffsetOf(__shadow__::__TXMLHandler, m_mainnode), ::Reflex::PRIVATE);
+  .AddDataMember(type_2244, Reflex::Literal("m_mainnode"), OffsetOf(__shadow__::__TXMLHandler, m_mainnode), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TXMLHandler -------------------
 void __TXMLHandler_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2401), Reflex::Literal("GetDrivers"), method_2875, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_401), Reflex::Literal("GetReconControl"), method_2876, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_2242, type_1380), Reflex::Literal("DisplayNodes"), method_2877, 0, "node;level", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("Class"), method_2878, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("Class_Name"), method_2879, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1759), Reflex::Literal("Class_Version"), method_2880, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_2881, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("IsA"), method_2882, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8610), Reflex::Literal("ShowMembers"), method_2883, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("Streamer"), method_2884, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("StreamerNVirtual"), method_2885, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("DeclFileName"), method_2886, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_2887, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("ImplFileName"), method_2888, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_2889, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2403), Reflex::Literal("GetDrivers"), method_2877, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_401), Reflex::Literal("GetReconControl"), method_2878, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_2244, type_1381), Reflex::Literal("DisplayNodes"), method_2879, 0, "node;level", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("Class"), method_2880, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("Class_Name"), method_2881, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1761), Reflex::Literal("Class_Version"), method_2882, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_2883, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("IsA"), method_2884, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8632), Reflex::Literal("ShowMembers"), method_2885, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("Streamer"), method_2886, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("StreamerNVirtual"), method_2887, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("DeclFileName"), method_2888, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_2889, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("ImplFileName"), method_2890, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_2891, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 //------Stub functions for class TDetectorLight -------------------------------
-static  void operator_3383( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_3385( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TDetectorLight*)o)->operator=)(*(const ::TDetectorLight*)arg[0]);
   else   (((::TDetectorLight*)o)->operator=)(*(const ::TDetectorLight*)arg[0]);
 }
 
-static void constructor_3384( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_3386( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TDetectorLight(*(const ::TDetectorLight*)arg[0]);
   else ::new(mem) ::TDetectorLight(*(const ::TDetectorLight*)arg[0]);
 }
 
-static void constructor_3385( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_3387( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if ( arg.size() == 0 ) {
     if (retaddr) *(void**)retaddr = ::new(mem) ::TDetectorLight();
   else ::new(mem) ::TDetectorLight();
@@ -495,100 +538,100 @@ static void constructor_3385( void* retaddr, void* mem, const std::vector<void*>
   }
 }
 
-static void destructor_3386(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_3388(void*, void * o, const std::vector<void*>&, void *) {
 (((::TDetectorLight*)o)->::TDetectorLight::~TDetectorLight)();
 }
-static  void method_3387( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3389( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setScintSizeX)(*(double*)arg[0]);
 }
 
-static  void method_3388( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3390( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setScintSizeY)(*(double*)arg[0]);
 }
 
-static  void method_3389( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3391( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setScintSizeZ)(*(double*)arg[0]);
 }
 
-static  void method_3390( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3392( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getScintSizeX)());
   else   (((const ::TDetectorLight*)o)->getScintSizeX)();
 }
 
-static  void method_3391( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3393( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getScintSizeY)());
   else   (((const ::TDetectorLight*)o)->getScintSizeY)();
 }
 
-static  void method_3392( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3394( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getScintSizeZ)());
   else   (((const ::TDetectorLight*)o)->getScintSizeZ)();
 }
 
-static  void method_3393( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3395( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setLY)(*(double*)arg[0]);
 }
 
-static  void method_3394( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3396( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getLY)());
   else   (((const ::TDetectorLight*)o)->getLY)();
 }
 
-static  void method_3395( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3397( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setFastScintTime)(*(double*)arg[0]);
 }
 
-static  void method_3396( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3398( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getFastScintTime)());
   else   (((const ::TDetectorLight*)o)->getFastScintTime)();
 }
 
-static  void method_3397( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3399( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getRindex)());
   else   (((const ::TDetectorLight*)o)->getRindex)();
 }
 
-static  void method_3398( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3400( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setRindex)(*(double*)arg[0]);
 }
 
-static  void method_3399( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3401( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getFaceReflectivity)(*(int*)arg[0]));
   else   (((const ::TDetectorLight*)o)->getFaceReflectivity)(*(int*)arg[0]);
 }
 
-static  void method_3400( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3402( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setFaceReflectivity)(*(int*)arg[0],
     *(double*)arg[1]);
 }
 
-static  void method_3401( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3403( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setNdet)(*(int*)arg[0],
     *(int*)arg[1]);
 }
 
-static  void method_3402( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3404( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getNdet)(*(int*)arg[0]));
   else   (((const ::TDetectorLight*)o)->getNdet)(*(int*)arg[0]);
 }
 
-static  void method_3403( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3405( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getDetGlobalID)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -596,14 +639,14 @@ static  void method_3403( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3404( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3406( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((const ::TDetectorLight*)o)->getFaceDetIDfromGlobal)(*(int*)arg[0],
     *(int*)arg[1],
     *(int*)arg[2]);
 }
 
-static  void method_3405( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3407( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getPixelGlobalID)(*(int*)arg[0],
     *(int*)arg[1],
@@ -613,7 +656,7 @@ static  void method_3405( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[2]);
 }
 
-static  void method_3406( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3408( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((const ::TDetectorLight*)o)->getFaceDetPixelIDfromGlobal)(*(int*)arg[0],
     *(int*)arg[1],
@@ -621,33 +664,33 @@ static  void method_3406( void*, void* o, const std::vector<void*>& arg, void*)
     *(int*)arg[3]);
 }
 
-static  void method_3407( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3409( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDetectorLight*)o)->getTotDetectors)());
   else   (((::TDetectorLight*)o)->getTotDetectors)();
 }
 
-static  void method_3408( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3410( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDetectorLight*)o)->getTotPixels)());
   else   (((::TDetectorLight*)o)->getTotPixels)();
 }
 
-static  void method_3409( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3411( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetSizeX)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3410( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3412( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetSizeY)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3411( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3413( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetSizeX)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -655,7 +698,7 @@ static  void method_3411( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3412( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3414( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetSizeY)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -663,7 +706,7 @@ static  void method_3412( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3413( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3415( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetCenterX)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -671,7 +714,7 @@ static  void method_3413( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3414( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3416( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetCenterY)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -679,7 +722,7 @@ static  void method_3414( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3415( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3417( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetRotation)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -687,35 +730,35 @@ static  void method_3415( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3416( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3418( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetCenterX)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3417( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3419( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetCenterY)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3418( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3420( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetRotation)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3419( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3421( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetName)(*(int*)arg[0],
     *(int*)arg[1],
     *(::std::string*)arg[2]);
 }
 
-static  void method_3420( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3422( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (std::string)((((::TDetectorLight*)o)->getDetName)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -723,21 +766,21 @@ static  void method_3420( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3421( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3423( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setNPixelsX)(*(int*)arg[0],
     *(int*)arg[1],
     *(int*)arg[2]);
 }
 
-static  void method_3422( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3424( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setNPixelsY)(*(int*)arg[0],
     *(int*)arg[1],
     *(int*)arg[2]);
 }
 
-static  void method_3423( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3425( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getNPixelsX)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -745,7 +788,7 @@ static  void method_3423( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3424( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3426( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getNPixelsY)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -753,7 +796,7 @@ static  void method_3424( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3425( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3427( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->getNPixels)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -761,7 +804,7 @@ static  void method_3425( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3426( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3428( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getPixelSizeX)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -769,7 +812,7 @@ static  void method_3426( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3427( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3429( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getPixelSizeY)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -777,7 +820,7 @@ static  void method_3427( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3428( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3430( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getCouplingThickness)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -785,7 +828,7 @@ static  void method_3428( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3429( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3431( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getCouplingRIndex)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -793,14 +836,14 @@ static  void method_3429( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3430( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3432( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetTimeRes)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3431( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3433( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetTimeRes)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -808,7 +851,7 @@ static  void method_3431( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3432( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3434( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetQE)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -816,14 +859,14 @@ static  void method_3432( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3433( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3435( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetQE)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3434( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3436( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (double)((((const ::TDetectorLight*)o)->getDetReflectivity)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -831,14 +874,14 @@ static  void method_3434( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3435( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3437( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setDetReflectivity)(*(int*)arg[0],
     *(int*)arg[1],
     *(double*)arg[2]);
 }
 
-static  void method_3436( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3438( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TDetectorLight*)o)->isDetPresent)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -846,18 +889,18 @@ static  void method_3436( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3437( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3439( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->setName)(*(::std::string*)arg[0]);
 }
 
-static  void method_3438( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3440( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (std::string)((((::TDetectorLight*)o)->getName)());
   else   (((::TDetectorLight*)o)->getName)();
 }
 
-static  void method_3439( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3441( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getPosPixel)(*(int*)arg[0],
     *(int*)arg[1],
@@ -867,25 +910,25 @@ static  void method_3439( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[2]);
 }
 
-static  void method_3440( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3442( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getFaceNormal)(*(int*)arg[0]));
   else   (((const ::TDetectorLight*)o)->getFaceNormal)(*(int*)arg[0]);
 }
 
-static  void method_3441( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3443( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getFaceT1)(*(int*)arg[0]));
   else   (((const ::TDetectorLight*)o)->getFaceT1)(*(int*)arg[0]);
 }
 
-static  void method_3442( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3444( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getFaceT2)(*(int*)arg[0]));
   else   (((const ::TDetectorLight*)o)->getFaceT2)(*(int*)arg[0]);
 }
 
-static  void method_3443( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3445( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getDetectorNormal)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -893,7 +936,7 @@ static  void method_3443( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3444( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3446( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getDetectorT1)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -901,7 +944,7 @@ static  void method_3444( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3445( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_3447( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (TVector3)((((const ::TDetectorLight*)o)->getDetectorT2)(*(int*)arg[0],
     *(int*)arg[1]));
@@ -909,12 +952,12 @@ static  void method_3445( void* retaddr, void* o, const std::vector<void*>& arg,
     *(int*)arg[1]);
 }
 
-static  void method_3446( void*, void* o, const std::vector<void*>&, void*)
+static  void method_3448( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TDetectorLight*)o)->init)();
 }
 
-static  void method_3447( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3449( void*, void* o, const std::vector<void*>& arg, void*)
 {
   if ( arg.size() == 0 ) {
     (((const ::TDetectorLight*)o)->PrintPixels)();
@@ -924,7 +967,7 @@ static  void method_3447( void*, void* o, const std::vector<void*>& arg, void*)
   }
 }
 
-static  void method_3448( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3450( void*, void* o, const std::vector<void*>& arg, void*)
 {
   if ( arg.size() == 0 ) {
     (((const ::TDetectorLight*)o)->Print)();
@@ -934,69 +977,69 @@ static  void method_3448( void*, void* o, const std::vector<void*>& arg, void*)
   }
 }
 
-static  void method_3449( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3451( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDetectorLight*)o)->Class)());
   else   (((::TDetectorLight*)o)->Class)();
 }
 
-static  void method_3450( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3452( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDetectorLight*)o)->Class_Name)());
   else   (((::TDetectorLight*)o)->Class_Name)();
 }
 
-static  void method_3451( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3453( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TDetectorLight*)o)->Class_Version)());
   else   (((::TDetectorLight*)o)->Class_Version)();
 }
 
-static  void method_3452( void*, void* o, const std::vector<void*>&, void*)
+static  void method_3454( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TDetectorLight*)o)->Dictionary)();
 }
 
-static  void method_3453( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3455( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TDetectorLight*)o)->IsA)());
   else   (((const ::TDetectorLight*)o)->IsA)();
 }
 
-static  void method_3454( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3456( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_3455( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3457( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_3456( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3458( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TDetectorLight*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_3457( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3459( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDetectorLight*)o)->DeclFileName)());
   else   (((::TDetectorLight*)o)->DeclFileName)();
 }
 
-static  void method_3458( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3460( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDetectorLight*)o)->ImplFileLine)());
   else   (((::TDetectorLight*)o)->ImplFileLine)();
 }
 
-static  void method_3459( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3461( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TDetectorLight*)o)->ImplFileName)());
   else   (((::TDetectorLight*)o)->ImplFileName)();
 }
 
-static  void method_3460( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3462( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TDetectorLight*)o)->DeclFileLine)());
   else   (((::TDetectorLight*)o)->DeclFileLine)();
@@ -1037,11 +1080,11 @@ void __TDetectorLight_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TDetectorLight"), typeid(::TDetectorLight), sizeof(::TDetectorLight), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TDetectorLight::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_1372, ::Reflex::BaseOffset< ::TDetectorLight, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8712, type_8713), Reflex::Literal("operator="), operator_3383, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8713), Reflex::Literal("TDetectorLight"), constructor_3384, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2458), Reflex::Literal("TDetectorLight"), constructor_3385, 0, "fname=\"\"", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TDetectorLight"), destructor_3386, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddBase(type_1373, ::Reflex::BaseOffset< ::TDetectorLight, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8734, type_8735), Reflex::Literal("operator="), operator_3385, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8735), Reflex::Literal("TDetectorLight"), constructor_3386, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2460), Reflex::Literal("TDetectorLight"), constructor_3387, 0, "fname=\"\"", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TDetectorLight"), destructor_3388, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TDetectorLight"), constructor_x3, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_444, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x5, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
@@ -1058,128 +1101,128 @@ void __TDetectorLight_db_datamem(Reflex::Class* cl) {
   .AddDataMember(type_378, Reflex::Literal("scintSizeX"), OffsetOf(__shadow__::__TDetectorLight, scintSizeX), ::Reflex::PRIVATE)
   .AddDataMember(type_378, Reflex::Literal("scintSizeY"), OffsetOf(__shadow__::__TDetectorLight, scintSizeY), ::Reflex::PRIVATE)
   .AddDataMember(type_378, Reflex::Literal("scintSizeZ"), OffsetOf(__shadow__::__TDetectorLight, scintSizeZ), ::Reflex::PRIVATE)
-  .AddDataMember(type_8706, Reflex::Literal("Ndet"), OffsetOf(__shadow__::__TDetectorLight, Ndet), ::Reflex::PRIVATE)
-  .AddDataMember(type_8707, Reflex::Literal("detPresent"), OffsetOf(__shadow__::__TDetectorLight, detPresent), ::Reflex::PRIVATE)
-  .AddDataMember(type_8708, Reflex::Literal("detName"), OffsetOf(__shadow__::__TDetectorLight, detName), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detSizeX"), OffsetOf(__shadow__::__TDetectorLight, detSizeX), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detSizeY"), OffsetOf(__shadow__::__TDetectorLight, detSizeY), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detPixelSizeX"), OffsetOf(__shadow__::__TDetectorLight, detPixelSizeX), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detPixelSizeY"), OffsetOf(__shadow__::__TDetectorLight, detPixelSizeY), ::Reflex::PRIVATE)
-  .AddDataMember(type_8707, Reflex::Literal("detNpixelsX"), OffsetOf(__shadow__::__TDetectorLight, detNpixelsX), ::Reflex::PRIVATE)
-  .AddDataMember(type_8707, Reflex::Literal("detNpixelsY"), OffsetOf(__shadow__::__TDetectorLight, detNpixelsY), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detQE"), OffsetOf(__shadow__::__TDetectorLight, detQE), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detReflectivity"), OffsetOf(__shadow__::__TDetectorLight, detReflectivity), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detTimeRes"), OffsetOf(__shadow__::__TDetectorLight, detTimeRes), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detCenterX"), OffsetOf(__shadow__::__TDetectorLight, detCenterX), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detCenterY"), OffsetOf(__shadow__::__TDetectorLight, detCenterY), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detRotation"), OffsetOf(__shadow__::__TDetectorLight, detRotation), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detCouplingRIndex"), OffsetOf(__shadow__::__TDetectorLight, detCouplingRIndex), ::Reflex::PRIVATE)
-  .AddDataMember(type_8709, Reflex::Literal("detCouplingThickness"), OffsetOf(__shadow__::__TDetectorLight, detCouplingThickness), ::Reflex::PRIVATE)
-  .AddDataMember(type_8710, Reflex::Literal("faceReflectivity"), OffsetOf(__shadow__::__TDetectorLight, faceReflectivity), ::Reflex::PRIVATE)
-  .AddDataMember(type_8711, Reflex::Literal("posPixelX"), OffsetOf(__shadow__::__TDetectorLight, posPixelX), ::Reflex::PRIVATE)
-  .AddDataMember(type_8711, Reflex::Literal("posPixelY"), OffsetOf(__shadow__::__TDetectorLight, posPixelY), ::Reflex::PRIVATE)
-  .AddDataMember(type_8711, Reflex::Literal("posPixelZ"), OffsetOf(__shadow__::__TDetectorLight, posPixelZ), ::Reflex::PRIVATE)
-  .AddDataMember(type_2458, Reflex::Literal("m_name"), OffsetOf(__shadow__::__TDetectorLight, m_name), ::Reflex::PRIVATE);
+  .AddDataMember(type_8728, Reflex::Literal("Ndet"), OffsetOf(__shadow__::__TDetectorLight, Ndet), ::Reflex::PRIVATE)
+  .AddDataMember(type_8729, Reflex::Literal("detPresent"), OffsetOf(__shadow__::__TDetectorLight, detPresent), ::Reflex::PRIVATE)
+  .AddDataMember(type_8730, Reflex::Literal("detName"), OffsetOf(__shadow__::__TDetectorLight, detName), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detSizeX"), OffsetOf(__shadow__::__TDetectorLight, detSizeX), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detSizeY"), OffsetOf(__shadow__::__TDetectorLight, detSizeY), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detPixelSizeX"), OffsetOf(__shadow__::__TDetectorLight, detPixelSizeX), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detPixelSizeY"), OffsetOf(__shadow__::__TDetectorLight, detPixelSizeY), ::Reflex::PRIVATE)
+  .AddDataMember(type_8729, Reflex::Literal("detNpixelsX"), OffsetOf(__shadow__::__TDetectorLight, detNpixelsX), ::Reflex::PRIVATE)
+  .AddDataMember(type_8729, Reflex::Literal("detNpixelsY"), OffsetOf(__shadow__::__TDetectorLight, detNpixelsY), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detQE"), OffsetOf(__shadow__::__TDetectorLight, detQE), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detReflectivity"), OffsetOf(__shadow__::__TDetectorLight, detReflectivity), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detTimeRes"), OffsetOf(__shadow__::__TDetectorLight, detTimeRes), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detCenterX"), OffsetOf(__shadow__::__TDetectorLight, detCenterX), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detCenterY"), OffsetOf(__shadow__::__TDetectorLight, detCenterY), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detRotation"), OffsetOf(__shadow__::__TDetectorLight, detRotation), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detCouplingRIndex"), OffsetOf(__shadow__::__TDetectorLight, detCouplingRIndex), ::Reflex::PRIVATE)
+  .AddDataMember(type_8731, Reflex::Literal("detCouplingThickness"), OffsetOf(__shadow__::__TDetectorLight, detCouplingThickness), ::Reflex::PRIVATE)
+  .AddDataMember(type_8732, Reflex::Literal("faceReflectivity"), OffsetOf(__shadow__::__TDetectorLight, faceReflectivity), ::Reflex::PRIVATE)
+  .AddDataMember(type_8733, Reflex::Literal("posPixelX"), OffsetOf(__shadow__::__TDetectorLight, posPixelX), ::Reflex::PRIVATE)
+  .AddDataMember(type_8733, Reflex::Literal("posPixelY"), OffsetOf(__shadow__::__TDetectorLight, posPixelY), ::Reflex::PRIVATE)
+  .AddDataMember(type_8733, Reflex::Literal("posPixelZ"), OffsetOf(__shadow__::__TDetectorLight, posPixelZ), ::Reflex::PRIVATE)
+  .AddDataMember(type_2460, Reflex::Literal("m_name"), OffsetOf(__shadow__::__TDetectorLight, m_name), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TDetectorLight -------------------
 void __TDetectorLight_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeX"), method_3387, 0, "s", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeY"), method_3388, 0, "s", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeZ"), method_3389, 0, "s", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeX"), method_3390, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeY"), method_3391, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeZ"), method_3392, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setLY"), method_3393, 0, "l", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getLY"), method_3394, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setFastScintTime"), method_3395, 0, "t", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getFastScintTime"), method_3396, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getRindex"), method_3397, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setRindex"), method_3398, 0, "n", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49), Reflex::Literal("getFaceReflectivity"), method_3399, 0, "ii", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_378), Reflex::Literal("setFaceReflectivity"), method_3400, 0, "ii;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49), Reflex::Literal("setNdet"), method_3401, 0, "iface;N", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49), Reflex::Literal("getNdet"), method_3402, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getDetGlobalID"), method_3403, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_8660, type_8660), Reflex::Literal("getFaceDetIDfromGlobal"), method_3404, 0, "global;iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49, type_49), Reflex::Literal("getPixelGlobalID"), method_3405, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_8660, type_8660, type_8660), Reflex::Literal("getFaceDetPixelIDfromGlobal"), method_3406, 0, "global;iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getTotDetectors"), method_3407, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getTotPixels"), method_3408, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetSizeX"), method_3409, 0, "iface;idetector;s", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetSizeY"), method_3410, 0, "iface;idetector;s", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetSizeX"), method_3411, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetSizeY"), method_3412, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetCenterX"), method_3413, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetCenterY"), method_3414, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetRotation"), method_3415, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetCenterX"), method_3416, 0, "iface;idetector;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetCenterY"), method_3417, 0, "iface;idetector;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetRotation"), method_3418, 0, "iface;idetector;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_2458), Reflex::Literal("setDetName"), method_3419, 0, "iface;idetector;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2458, type_49, type_49), Reflex::Literal("getDetName"), method_3420, 0, "iface;idetector", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_49), Reflex::Literal("setNPixelsX"), method_3421, 0, "iface;idetector;N", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_49), Reflex::Literal("setNPixelsY"), method_3422, 0, "iface;idetector;N", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixelsX"), method_3423, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixelsY"), method_3424, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixels"), method_3425, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getPixelSizeX"), method_3426, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getPixelSizeY"), method_3427, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getCouplingThickness"), method_3428, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getCouplingRIndex"), method_3429, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetTimeRes"), method_3430, 0, "iface;idetector;t", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetTimeRes"), method_3431, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetQE"), method_3432, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetQE"), method_3433, 0, "iface;idetector;QE", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetReflectivity"), method_3434, 0, "iface;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetReflectivity"), method_3435, 0, "iface;ipixel;val", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("isDetPresent"), method_3436, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_2458), Reflex::Literal("setName"), method_3437, 0, "name", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2458), Reflex::Literal("getName"), method_3438, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49, type_49, type_49), Reflex::Literal("getPosPixel"), method_3439, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49), Reflex::Literal("getFaceNormal"), method_3440, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49), Reflex::Literal("getFaceT1"), method_3441, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49), Reflex::Literal("getFaceT2"), method_3442, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49, type_49), Reflex::Literal("getDetectorNormal"), method_3443, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49, type_49), Reflex::Literal("getDetectorT1"), method_3444, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1059, type_49, type_49), Reflex::Literal("getDetectorT2"), method_3445, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("init"), method_3446, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8631), Reflex::Literal("PrintPixels"), method_3447, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8631), Reflex::Literal("Print"), method_3448, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("Class"), method_3449, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("Class_Name"), method_3450, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1759), Reflex::Literal("Class_Version"), method_3451, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_3452, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("IsA"), method_3453, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8610), Reflex::Literal("ShowMembers"), method_3454, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("Streamer"), method_3455, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("StreamerNVirtual"), method_3456, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("DeclFileName"), method_3457, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_3458, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("ImplFileName"), method_3459, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_3460, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeX"), method_3389, 0, "s", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeY"), method_3390, 0, "s", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setScintSizeZ"), method_3391, 0, "s", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeX"), method_3392, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeY"), method_3393, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getScintSizeZ"), method_3394, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setLY"), method_3395, 0, "l", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getLY"), method_3396, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setFastScintTime"), method_3397, 0, "t", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getFastScintTime"), method_3398, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378), Reflex::Literal("getRindex"), method_3399, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_378), Reflex::Literal("setRindex"), method_3400, 0, "n", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49), Reflex::Literal("getFaceReflectivity"), method_3401, 0, "ii", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_378), Reflex::Literal("setFaceReflectivity"), method_3402, 0, "ii;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49), Reflex::Literal("setNdet"), method_3403, 0, "iface;N", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49), Reflex::Literal("getNdet"), method_3404, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getDetGlobalID"), method_3405, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_8682, type_8682), Reflex::Literal("getFaceDetIDfromGlobal"), method_3406, 0, "global;iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49, type_49), Reflex::Literal("getPixelGlobalID"), method_3407, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_8682, type_8682, type_8682), Reflex::Literal("getFaceDetPixelIDfromGlobal"), method_3408, 0, "global;iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getTotDetectors"), method_3409, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getTotPixels"), method_3410, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetSizeX"), method_3411, 0, "iface;idetector;s", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetSizeY"), method_3412, 0, "iface;idetector;s", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetSizeX"), method_3413, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetSizeY"), method_3414, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetCenterX"), method_3415, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetCenterY"), method_3416, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetRotation"), method_3417, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetCenterX"), method_3418, 0, "iface;idetector;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetCenterY"), method_3419, 0, "iface;idetector;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetRotation"), method_3420, 0, "iface;idetector;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_2460), Reflex::Literal("setDetName"), method_3421, 0, "iface;idetector;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2460, type_49, type_49), Reflex::Literal("getDetName"), method_3422, 0, "iface;idetector", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_49), Reflex::Literal("setNPixelsX"), method_3423, 0, "iface;idetector;N", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_49), Reflex::Literal("setNPixelsY"), method_3424, 0, "iface;idetector;N", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixelsX"), method_3425, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixelsY"), method_3426, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("getNPixels"), method_3427, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getPixelSizeX"), method_3428, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getPixelSizeY"), method_3429, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getCouplingThickness"), method_3430, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getCouplingRIndex"), method_3431, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetTimeRes"), method_3432, 0, "iface;idetector;t", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetTimeRes"), method_3433, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetQE"), method_3434, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetQE"), method_3435, 0, "iface;idetector;QE", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_378, type_49, type_49), Reflex::Literal("getDetReflectivity"), method_3436, 0, "iface;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_49, type_49, type_378), Reflex::Literal("setDetReflectivity"), method_3437, 0, "iface;ipixel;val", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_49, type_49), Reflex::Literal("isDetPresent"), method_3438, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_2460), Reflex::Literal("setName"), method_3439, 0, "name", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2460), Reflex::Literal("getName"), method_3440, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49, type_49, type_49), Reflex::Literal("getPosPixel"), method_3441, 0, "iface;idetector;ipixel", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49), Reflex::Literal("getFaceNormal"), method_3442, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49), Reflex::Literal("getFaceT1"), method_3443, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49), Reflex::Literal("getFaceT2"), method_3444, 0, "iface", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49, type_49), Reflex::Literal("getDetectorNormal"), method_3445, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49, type_49), Reflex::Literal("getDetectorT1"), method_3446, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1060, type_49, type_49), Reflex::Literal("getDetectorT2"), method_3447, 0, "iface;idetector", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("init"), method_3448, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8653), Reflex::Literal("PrintPixels"), method_3449, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8653), Reflex::Literal("Print"), method_3450, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("Class"), method_3451, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("Class_Name"), method_3452, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1761), Reflex::Literal("Class_Version"), method_3453, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_3454, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("IsA"), method_3455, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8632), Reflex::Literal("ShowMembers"), method_3456, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("Streamer"), method_3457, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("StreamerNVirtual"), method_3458, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("DeclFileName"), method_3459, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_3460, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("ImplFileName"), method_3461, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_3462, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 //------Stub functions for class TEvent -------------------------------
-static  void operator_4772( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_4774( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TEvent*)o)->operator=)(*(const ::TEvent*)arg[0]);
   else   (((::TEvent*)o)->operator=)(*(const ::TEvent*)arg[0]);
 }
 
-static void constructor_4773( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_4775( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TEvent(*(const ::TEvent*)arg[0]);
   else ::new(mem) ::TEvent(*(const ::TEvent*)arg[0]);
 }
 
-static void constructor_4776( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+static void constructor_4778( void* retaddr, void* mem, const std::vector<void*>&, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TEvent();
   else ::new(mem) ::TEvent();
 }
 
-static void destructor_4777(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_4779(void*, void * o, const std::vector<void*>&, void *) {
 (((::TEvent*)o)->::TEvent::~TEvent)();
 }
-static  void method_4778( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4780( void*, void* o, const std::vector<void*>& arg, void*)
 {
   if ( arg.size() == 0 ) {
     (((::TEvent*)o)->Clear)();
@@ -1189,50 +1232,50 @@ static  void method_4778( void*, void* o, const std::vector<void*>& arg, void*)
   }
 }
 
-static  void method_4779( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4781( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TEvent*)o)->clearCollections)();
 }
 
-static  void method_4780( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4782( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TEvent*)o)->clearObjects)();
 }
 
-static  void method_4781( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4783( void*, void* o, const std::vector<void*>&, void*)
 {
   (((const ::TEvent*)o)->printObjects)();
 }
 
-static  void method_4782( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4784( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TEvent*)o)->addObject)((::TObject*)arg[0]);
 }
 
-static  void method_4783( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_4785( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TEvent*)o)->getObject)(*(::std::string*)arg[0]));
   else   (((const ::TEvent*)o)->getObject)(*(::std::string*)arg[0]);
 }
 
-static  void method_4784( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_4786( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TEvent*)o)->hasObject)(*(::std::string*)arg[0]));
   else   (((const ::TEvent*)o)->hasObject)(*(::std::string*)arg[0]);
 }
 
-static  void method_4785( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4787( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TEvent*)o)->getNcollections)());
   else   (((const ::TEvent*)o)->getNcollections)();
 }
 
-static  void method_4786( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4788( void*, void* o, const std::vector<void*>&, void*)
 {
   (((const ::TEvent*)o)->printCollections)();
 }
 
-static  void method_4787( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4789( void*, void* o, const std::vector<void*>& arg, void*)
 {
   if ( arg.size() == 1 ) {
     (((::TEvent*)o)->addCollection)((::TClonesArray*)arg[0]);
@@ -1243,7 +1286,7 @@ static  void method_4787( void*, void* o, const std::vector<void*>& arg, void*)
   }
 }
 
-static  void method_4788( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_4790( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TEvent*)o)->getCollection)((::TClass*)arg[0],
     *(::std::string*)arg[1]));
@@ -1251,19 +1294,19 @@ static  void method_4788( void* retaddr, void* o, const std::vector<void*>& arg,
     *(::std::string*)arg[1]);
 }
 
-static  void method_4789( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4791( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TEvent*)o)->deleteCollection)((::TClass*)arg[0],
     *(::std::string*)arg[1]);
 }
 
-static  void method_4790( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_4792( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TEvent*)o)->hasCollection)((::TClonesArray*)arg[0]));
   else   (((const ::TEvent*)o)->hasCollection)((::TClonesArray*)arg[0]);
 }
 
-static  void method_4791( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void method_4793( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TEvent*)o)->hasCollection)((::TClass*)arg[0],
     *(::std::string*)arg[1]));
@@ -1271,75 +1314,75 @@ static  void method_4791( void* retaddr, void* o, const std::vector<void*>& arg,
     *(::std::string*)arg[1]);
 }
 
-static  void method_4792( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4794( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TEvent*)o)->Class)());
   else   (((::TEvent*)o)->Class)();
 }
 
-static  void method_4793( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4795( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TEvent*)o)->Class_Name)());
   else   (((::TEvent*)o)->Class_Name)();
 }
 
-static  void method_4794( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4796( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TEvent*)o)->Class_Version)());
   else   (((::TEvent*)o)->Class_Version)();
 }
 
-static  void method_4795( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4797( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TEvent*)o)->Dictionary)();
 }
 
-static  void method_4796( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4798( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TEvent*)o)->IsA)());
   else   (((const ::TEvent*)o)->IsA)();
 }
 
-static  void method_4797( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4799( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TEvent*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_4798( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4800( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TEvent*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4799( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4801( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TEvent*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4800( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4802( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TEvent*)o)->DeclFileName)());
   else   (((::TEvent*)o)->DeclFileName)();
 }
 
-static  void method_4801( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4803( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TEvent*)o)->ImplFileLine)());
   else   (((::TEvent*)o)->ImplFileLine)();
 }
 
-static  void method_4802( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4804( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TEvent*)o)->ImplFileName)());
   else   (((::TEvent*)o)->ImplFileName)();
 }
 
-static  void method_4803( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4805( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TEvent*)o)->DeclFileLine)());
   else   (((::TEvent*)o)->DeclFileLine)();
 }
 
-static void method_newdel_1507( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_1508( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TEvent >::new_T;
@@ -1369,12 +1412,12 @@ void __TEvent_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TEvent"), typeid(::TEvent), sizeof(::TEvent), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TEvent::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_1372, ::Reflex::BaseOffset< ::TEvent, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9353, type_9354), Reflex::Literal("operator="), operator_4772, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9354), Reflex::Literal("TEvent"), constructor_4773, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TEvent"), constructor_4776, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TEvent"), destructor_4777, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1507, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddBase(type_1373, ::Reflex::BaseOffset< ::TEvent, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9375, type_9376), Reflex::Literal("operator="), operator_4774, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9376), Reflex::Literal("TEvent"), constructor_4775, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TEvent"), constructor_4778, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TEvent"), destructor_4779, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1508, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x7, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TEvent_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TEvent_funcmem_bld);
@@ -1383,38 +1426,228 @@ void __TEvent_dict() {
 //------Delayed data member builder for class TEvent -------------------
 void __TEvent_db_datamem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddDataMember(type_1625, Reflex::Literal("m_objects"), OffsetOf(__shadow__::__TEvent, m_objects), ::Reflex::PRIVATE)
-  .AddDataMember(type_2403, Reflex::Literal("m_collections"), OffsetOf(__shadow__::__TEvent, m_collections), ::Reflex::PRIVATE);
+  .AddDataMember(type_1626, Reflex::Literal("m_objects"), OffsetOf(__shadow__::__TEvent, m_objects), ::Reflex::PRIVATE)
+  .AddDataMember(type_2405, Reflex::Literal("m_collections"), OffsetOf(__shadow__::__TEvent, m_collections), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TEvent -------------------
 void __TEvent_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8631), Reflex::Literal("Clear"), method_4778, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("clearCollections"), method_4779, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("clearObjects"), method_4780, 0, 0, ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("printObjects"), method_4781, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_7526), Reflex::Literal("addObject"), method_4782, 0, "obj", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_7526, type_2458), Reflex::Literal("getObject"), method_4783, 0, "name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_2458), Reflex::Literal("hasObject"), method_4784, 0, "name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getNcollections"), method_4785, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("printCollections"), method_4786, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_6748, type_49), Reflex::Literal("addCollection"), method_4787, 0, "coll;checkAlreadyExists=1", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_6748, type_851, type_2458), Reflex::Literal("getCollection"), method_4788, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_851, type_2458), Reflex::Literal("deleteCollection"), method_4789, 0, "theClass;name", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_6748), Reflex::Literal("hasCollection"), method_4790, 0, "coll", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_851, type_2458), Reflex::Literal("hasCollection"), method_4791, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("Class"), method_4792, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("Class_Name"), method_4793, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1759), Reflex::Literal("Class_Version"), method_4794, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_4795, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_851), Reflex::Literal("IsA"), method_4796, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8610), Reflex::Literal("ShowMembers"), method_4797, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("Streamer"), method_4798, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5024), Reflex::Literal("StreamerNVirtual"), method_4799, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("DeclFileName"), method_4800, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_4801, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2777), Reflex::Literal("ImplFileName"), method_4802, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_4803, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8653), Reflex::Literal("Clear"), method_4780, 0, "option=\"\"", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("clearCollections"), method_4781, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("clearObjects"), method_4782, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("printObjects"), method_4783, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_7548), Reflex::Literal("addObject"), method_4784, 0, "obj", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_7548, type_2460), Reflex::Literal("getObject"), method_4785, 0, "name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_2460), Reflex::Literal("hasObject"), method_4786, 0, "name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("getNcollections"), method_4787, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("printCollections"), method_4788, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_6770, type_49), Reflex::Literal("addCollection"), method_4789, 0, "coll;checkAlreadyExists=1", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_6770, type_852, type_2460), Reflex::Literal("getCollection"), method_4790, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_852, type_2460), Reflex::Literal("deleteCollection"), method_4791, 0, "theClass;name", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_6770), Reflex::Literal("hasCollection"), method_4792, 0, "coll", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49, type_852, type_2460), Reflex::Literal("hasCollection"), method_4793, 0, "theClass;name", ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("Class"), method_4794, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("Class_Name"), method_4795, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1761), Reflex::Literal("Class_Version"), method_4796, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_4797, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("IsA"), method_4798, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8632), Reflex::Literal("ShowMembers"), method_4799, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("Streamer"), method_4800, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("StreamerNVirtual"), method_4801, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("DeclFileName"), method_4802, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_4803, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("ImplFileName"), method_4804, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_4805, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+}
+//------Stub functions for class TNamedContainer -------------------------------
+static  void operator_5622( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+{
+  if (retaddr) *(void**)retaddr = (void*)&(((::TNamedContainer*)o)->operator=)(*(const ::TNamedContainer*)arg[0]);
+  else   (((::TNamedContainer*)o)->operator=)(*(const ::TNamedContainer*)arg[0]);
+}
+
+static void constructor_5623( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+  if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer(*(const ::TNamedContainer*)arg[0]);
+  else ::new(mem) ::TNamedContainer(*(const ::TNamedContainer*)arg[0]);
+}
+
+static void constructor_5624( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+  if ( arg.size() == 0 ) {
+    if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer();
+  else ::new(mem) ::TNamedContainer();
+  }
+  else if ( arg.size() == 1 ) { 
+    if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer((::TObject*)arg[0]);
+  else ::new(mem) ::TNamedContainer((::TObject*)arg[0]);
+  }
+  else if ( arg.size() == 2 ) { 
+    if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer((::TObject*)arg[0],
+      *(::std::string*)arg[1]);
+  else ::new(mem) ::TNamedContainer((::TObject*)arg[0],
+      *(::std::string*)arg[1]);
+  }
+  else if ( arg.size() == 3 ) { 
+    if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer((::TObject*)arg[0],
+      *(::std::string*)arg[1],
+      *(::std::string*)arg[2]);
+  else ::new(mem) ::TNamedContainer((::TObject*)arg[0],
+      *(::std::string*)arg[1],
+      *(::std::string*)arg[2]);
+  }
+}
+
+static void destructor_5625(void*, void * o, const std::vector<void*>&, void *) {
+(((::TNamedContainer*)o)->::TNamedContainer::~TNamedContainer)();
+}
+static  void method_5626( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TNamedContainer*)o)->getObject)());
+  else   (((::TNamedContainer*)o)->getObject)();
+}
+
+static  void method_5627( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TNamedContainer*)o)->setObject)((::TObject*)arg[0]);
+}
+
+static  void method_5628( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TNamedContainer*)o)->Class)());
+  else   (((::TNamedContainer*)o)->Class)();
+}
+
+static  void method_5629( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TNamedContainer*)o)->Class_Name)());
+  else   (((::TNamedContainer*)o)->Class_Name)();
+}
+
+static  void method_5630( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (Version_t)((((::TNamedContainer*)o)->Class_Version)());
+  else   (((::TNamedContainer*)o)->Class_Version)();
+}
+
+static  void method_5631( void*, void* o, const std::vector<void*>&, void*)
+{
+  (((::TNamedContainer*)o)->Dictionary)();
+}
+
+static  void method_5632( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TNamedContainer*)o)->IsA)());
+  else   (((const ::TNamedContainer*)o)->IsA)();
+}
+
+static  void method_5633( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TNamedContainer*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
+}
+
+static  void method_5634( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TNamedContainer*)o)->Streamer)(*(::TBuffer*)arg[0]);
+}
+
+static  void method_5635( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TNamedContainer*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
+}
+
+static  void method_5636( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TNamedContainer*)o)->DeclFileName)());
+  else   (((::TNamedContainer*)o)->DeclFileName)();
+}
+
+static  void method_5637( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (int)((((::TNamedContainer*)o)->ImplFileLine)());
+  else   (((::TNamedContainer*)o)->ImplFileLine)();
+}
+
+static  void method_5638( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TNamedContainer*)o)->ImplFileName)());
+  else   (((::TNamedContainer*)o)->ImplFileName)();
+}
+
+static  void method_5639( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (int)((((::TNamedContainer*)o)->DeclFileLine)());
+  else   (((::TNamedContainer*)o)->DeclFileLine)();
+}
+
+static void constructor_x8( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+  if (retaddr) *(void**)retaddr = ::new(mem) ::TNamedContainer();
+  else ::new(mem) ::TNamedContainer();
+}
+
+static void method_newdel_2246( void* retaddr, void*, const std::vector<void*>&, void*)
+{
+  static ::Reflex::NewDelFunctions s_funcs;
+  s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TNamedContainer >::new_T;
+  s_funcs.fNewArray    = ::Reflex::NewDelFunctionsT< ::TNamedContainer >::newArray_T;
+  s_funcs.fDelete      = ::Reflex::NewDelFunctionsT< ::TNamedContainer >::delete_T;
+  s_funcs.fDeleteArray = ::Reflex::NewDelFunctionsT< ::TNamedContainer >::deleteArray_T;
+  s_funcs.fDestructor  = ::Reflex::NewDelFunctionsT< ::TNamedContainer >::destruct_T;
+  if (retaddr) *(::Reflex::NewDelFunctions**)retaddr = &s_funcs;
+}
+
+static void method_x10( void* retaddr, void*, const std::vector<void*>&, void*)
+{
+  typedef std::vector<std::pair< ::Reflex::Base, int> > Bases_t;
+  static Bases_t s_bases;
+  if ( !s_bases.size() ) {
+    s_bases.push_back(std::make_pair(::Reflex::Base( ::Reflex::TypeBuilder(Reflex::Literal("TNamed")), ::Reflex::BaseOffset< ::TNamedContainer,::TNamed >::Get(),::Reflex::PUBLIC), 0));
+    s_bases.push_back(std::make_pair(::Reflex::Base( ::Reflex::TypeBuilder(Reflex::Literal("TObject")), ::Reflex::BaseOffset< ::TNamedContainer,::TObject >::Get(),::Reflex::PUBLIC), 1));
+  }
+  if (retaddr) *(Bases_t**)retaddr = &s_bases;
+}
+
+//------Dictionary for class TNamedContainer -------------------------------
+void __TNamedContainer_db_datamem(Reflex::Class*);
+void __TNamedContainer_db_funcmem(Reflex::Class*);
+Reflex::GenreflexMemberBuilder __TNamedContainer_datamem_bld(&__TNamedContainer_db_datamem);
+Reflex::GenreflexMemberBuilder __TNamedContainer_funcmem_bld(&__TNamedContainer_db_funcmem);
+void __TNamedContainer_dict() {
+  ::Reflex::ClassBuilder(Reflex::Literal("TNamedContainer"), typeid(::TNamedContainer), sizeof(::TNamedContainer), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
+  .AddProperty(Reflex::Literal("ClassVersion"), ::TNamedContainer::Class_Version())
+  .AddProperty(Reflex::Literal("ClassDef"), 1)
+  .AddBase(type_194, ::Reflex::BaseOffset< ::TNamedContainer, ::TNamed >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9484, type_9485), Reflex::Literal("operator="), operator_5622, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9485), Reflex::Literal("TNamedContainer"), constructor_5623, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_7548, type_2460, type_2460), Reflex::Literal("TNamedContainer"), constructor_5624, 0, "obj=0;m_name=\"\";m_title=\"\"", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TNamedContainer"), destructor_5625, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TNamedContainer"), constructor_x8, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_2246, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x10, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddOnDemandDataMemberBuilder(&__TNamedContainer_datamem_bld)
+  .AddOnDemandFunctionMemberBuilder(&__TNamedContainer_funcmem_bld);
+}
+
+//------Delayed data member builder for class TNamedContainer -------------------
+void __TNamedContainer_db_datamem(Reflex::Class* cl) {
+  ::Reflex::ClassBuilder(cl)
+  .AddDataMember(type_7548, Reflex::Literal("m_object"), OffsetOf(__shadow__::__TNamedContainer, m_object), ::Reflex::PRIVATE);
+}
+//------Delayed function member builder for class TNamedContainer -------------------
+void __TNamedContainer_db_funcmem(Reflex::Class* cl) {
+  ::Reflex::ClassBuilder(cl)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_7548), Reflex::Literal("getObject"), method_5626, 0, 0, ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_7548), Reflex::Literal("setObject"), method_5627, 0, "obj", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("Class"), method_5628, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("Class_Name"), method_5629, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1761), Reflex::Literal("Class_Version"), method_5630, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43), Reflex::Literal("Dictionary"), method_5631, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_852), Reflex::Literal("IsA"), method_5632, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_8632), Reflex::Literal("ShowMembers"), method_5633, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("Streamer"), method_5634, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_43, type_5026), Reflex::Literal("StreamerNVirtual"), method_5635, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("DeclFileName"), method_5636, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("ImplFileLine"), method_5637, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2779), Reflex::Literal("ImplFileName"), method_5638, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_49), Reflex::Literal("DeclFileLine"), method_5639, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 namespace {
   struct Dictionaries {
@@ -1423,11 +1656,13 @@ namespace {
       __TXMLHandler_dict(); 
       __TDetectorLight_dict(); 
       __TEvent_dict(); 
+      __TNamedContainer_dict(); 
     }
     ~Dictionaries() {
       type_119.Unload(); // class TXMLHandler 
       type_444.Unload(); // class TDetectorLight 
-      type_1507.Unload(); // class TEvent 
+      type_1508.Unload(); // class TEvent 
+      type_2246.Unload(); // class TNamedContainer 
     }
   };
   static Dictionaries instance;

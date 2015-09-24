@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -113,9 +113,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles /work/OptoTracker/packages/Common/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -373,6 +373,36 @@ src/TEvent.cc.s:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TEvent.cc.s
 .PHONY : src/TEvent.cc.s
 
+src/TNamedContainer.o: src/TNamedContainer.cc.o
+.PHONY : src/TNamedContainer.o
+
+# target to build an object file
+src/TNamedContainer.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TNamedContainer.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TNamedContainer.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TNamedContainer.cc.o
+.PHONY : src/TNamedContainer.cc.o
+
+src/TNamedContainer.i: src/TNamedContainer.cc.i
+.PHONY : src/TNamedContainer.i
+
+# target to preprocess a source file
+src/TNamedContainer.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TNamedContainer.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TNamedContainer.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TNamedContainer.cc.i
+.PHONY : src/TNamedContainer.cc.i
+
+src/TNamedContainer.s: src/TNamedContainer.cc.s
+.PHONY : src/TNamedContainer.s
+
+# target to generate assembly for a file
+src/TNamedContainer.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TNamedContainer.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TNamedContainer.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TNamedContainer.cc.s
+.PHONY : src/TNamedContainer.cc.s
+
 src/TXMLHandler.o: src/TXMLHandler.cc.o
 .PHONY : src/TXMLHandler.o
 
@@ -439,6 +469,9 @@ help:
 	@echo "... src/TEvent.o"
 	@echo "... src/TEvent.i"
 	@echo "... src/TEvent.s"
+	@echo "... src/TNamedContainer.o"
+	@echo "... src/TNamedContainer.i"
+	@echo "... src/TNamedContainer.s"
 	@echo "... src/TXMLHandler.o"
 	@echo "... src/TXMLHandler.i"
 	@echo "... src/TXMLHandler.s"

@@ -9,6 +9,7 @@
 #include "TAxis.h"
 #include "TApplication.h"
 
+#include "TNamedContainer.hh"
 #include "TMatrixReconDriver.hh"
 #include "OpNoviceDigi.hh"
 #include "TDriver.hh"
@@ -89,15 +90,17 @@ int TMatrixReconDriver::startOfData(){
 	}
 
 
+
 	hVoxelsReconAll=(TH3D*)hVoxelsInput->Clone();
 	hVoxelsReconAll->SetName("hVoxelsReconAll");
+	m_manager->GetOutputList()->Add(hVoxelsReconAll);
 
 	m_pixelDataAll.ResizeTo(m_matrix->GetNrows(),1);
 	m_voxelDataAll.ResizeTo(m_matrix->GetNcols(),1);
 
 
-	/*Here we have m_matrix. Need to compute the inverse */
-	/*If there are V voxels and P pixels, the direct matrix is P x V,
+	/*Here we have m_matrix. Need to compute the inverse *
+	 *If there are V voxels and P pixels, the direct matrix is P x V,
 	 * and the generalized inverse should be V x P
 	 */
 	TDecompSVD svd(*m_matrix);
@@ -111,6 +114,9 @@ int TMatrixReconDriver::startOfData(){
 				m_matrixInverse.Print();
 			}
 		}
+		/*Add the matrix to the output*/
+		m_manager->GetOutputList()->Add(new TNamedContainer(m_matrix,"matrix"));
+		m_manager->GetOutputList()->Add(new TNamedContainer(&m_matrixInverse,"inverseMatrix"));
 	}
 	else {
 		Error("startOfData","SVT failed");
@@ -159,12 +165,12 @@ int TMatrixReconDriver::process(TEvent *event){
 	for (int iz=1;iz<=Vz;iz++){
 		for (int iy=1;iy<=Vy;iy++){
 			for (int ix=1;ix<=Vx;ix++){
-				m_voxelHisto->Fill(ix,iy,iz,m_voxelData(V,0));
+				m_voxelHisto->SetBinContent(ix,iy,iz,m_voxelData(V,0));
 				V++;
 			}
 		}
 	}
-	m_voxelHisto->SetName(Form("h_%i",m_manager->getEventN()));
+
 	m_manager->GetOutputList()->Add(m_voxelHisto);
 	event->addObject(m_voxelHisto);
 
@@ -182,7 +188,7 @@ int TMatrixReconDriver::endOfData(){
 	for (int iz=1;iz<=Vz;iz++){
 		for (int iy=1;iy<=Vy;iy++){
 			for (int ix=1;ix<=Vx;ix++){
-				hVoxelsReconAll->Fill(ix,iy,iz,m_voxelDataAll(V,0));
+				hVoxelsReconAll->SetBinContent(ix,iy,iz,m_voxelDataAll(V,0));
 				V++;
 			}
 		}
