@@ -5,6 +5,7 @@
 #include "TDriver.hh"
 #include "TDetectorLight.hh"
 #include <vector>
+#include <fstream>
 
 class TEvent;
 class TH1D;
@@ -15,6 +16,12 @@ private:
 	TH1D *hPixels;
 	int m_nPixels;
 	int m_nDetectors;
+
+	int m_writeOut;
+	std::string m_writeOutFileName;
+	std::ofstream m_writeOutFile;
+
+	vector < double > m_Q;
 
 	TH2D *hPixels2D[6][MAX_DETECTORS];
 
@@ -35,7 +42,7 @@ public:
 	virtual int process(TEvent *event);
 	virtual int end();
 
-
+	void setWriteOutFileName(const char* fname);
 
 	ClassDef(TChargeAnalysisDriver,1);
 

@@ -52,6 +52,8 @@ private:
 
 	std::string m_name;
 
+	int m_totPixels,m_totDetectors;
+
 public:
 	TDetectorLight(string fname="");
 	virtual ~TDetectorLight(){};

@@ -49,6 +49,8 @@ private:
 	 */
 	int m_iterationN;
 
+	int m_isProofCompatible;
+
 	void ConfigDrivers(const vector < driver_struct > &driver_list);
 	void ConfigControl(const reconControl_struct  &reconControl);
 
@@ -192,6 +194,10 @@ public:
 		m_detector = detector;
 	}
 
+	int isProofCompatible() const {
+		return m_isProofCompatible;
+	}
+
 public:
 
 	static const int	noVerbosity=0;
@@ -199,6 +205,9 @@ public:
 	static const int	normalVerbosity=2;
 	static const int	fullVerbosity=3;
 	static const int	veryfullVerbosity=4;
+
+
+
 
 
 

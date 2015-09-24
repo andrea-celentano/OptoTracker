@@ -17,7 +17,7 @@
 using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
-										fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
+												fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
 	m_variables=new map < string, string>;
@@ -32,6 +32,7 @@ TJobManager::TJobManager(TTree* tree):
 	m_numberOfIterations=1;
 	m_iterationN=0;
 	m_detector=0;
+	m_isProofCompatible=1;
 	Info("TOptoJobManager","Done");
 }
 
@@ -166,7 +167,16 @@ void	TJobManager::Config(string fname){
 	this->ConfigControl(reconControl);
 	this->ConfigDrivers(driver_list);
 
-
+	/*Check if drivers are Proof-compatible*/
+	for (int ii=0;ii<m_drivers->size();ii++){
+		if (!m_drivers->at(ii)->isProofCompatible()) {
+			m_isProofCompatible=0;
+			if (m_verboseLevel>=TJobManager::normalVerbosity){
+				Info("Config","Driver %s not PROOF compatible",m_drivers->at(ii)->GetName());
+			}
+			break; //Do not neeed to check all, if one is not compatible we are not.
+		}
+	}
 	Info("Config","Done");
 }
 

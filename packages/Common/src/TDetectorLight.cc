@@ -13,7 +13,8 @@ using namespace std;
 
 
 
-TDetectorLight::TDetectorLight(string fname)
+TDetectorLight::TDetectorLight(string fname):
+								m_totPixels(-1),m_totDetectors(-1)
 {	
 
 	if (fname.length()==0){
@@ -452,21 +453,25 @@ void TDetectorLight::getFaceDetPixelIDfromGlobal(int global,int &iface,int &idet
 }
 
 int TDetectorLight::getTotDetectors(){
-	int ret=0;
-	for (int ii=0;ii<6;ii++){
-		ret+=this->getNdet(ii);
-	}
-	return ret;
-}
+	if (m_totDetectors==-1){
+		m_totDetectors=0;
+		for (int ii=0;ii<6;ii++){
 
-int TDetectorLight::getTotPixels(){
-	int ret=0;
-	for (int ii=0;ii<6;ii++){
-		for (int jj=0;jj<this->getNdet(ii);jj++){
-			ret+=this->getNPixels(ii,jj);
+			m_totDetectors+=this->getNdet(ii);
 		}
 	}
-	return ret;
+	return m_totDetectors;
+}
+int TDetectorLight::getTotPixels(){
+	if (m_totPixels==-1){
+		m_totPixels=0;
+		for (int ii=0;ii<6;ii++){
+			for (int jj=0;jj<this->getNdet(ii);jj++){
+				m_totPixels+=this->getNPixels(ii,jj);
+			}
+		}
+	}
+	return m_totPixels;
 }
 
 

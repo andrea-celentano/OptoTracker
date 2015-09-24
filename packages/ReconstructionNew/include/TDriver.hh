@@ -19,6 +19,7 @@ protected:
 
 	int m_verboseLevel;
 	int m_iterationN;
+	int m_isProofCompatible;
 
 public:
 	TDriver(TJobManager *manager=0);
@@ -62,6 +63,15 @@ public:
 
 	void setIterationN(int iterationN) {
 		m_iterationN = iterationN;
+	}
+
+
+	int isProofCompatible() const {
+		return m_isProofCompatible;
+	}
+
+	void setIsProofCompatible(int isProofCompatible) {
+		m_isProofCompatible = isProofCompatible;
 	}
 
 	ClassDef(TDriver,1);

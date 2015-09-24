@@ -58,6 +58,13 @@ void TAnalysis::configure(string xmlname){
 	doProof=m_manager->getDoProof();
 	doProofDiag=m_manager->getDoProofDiag();
 
+	if ((!m_manager->isProofCompatible())&&(doProof)){
+		doProof=0;
+		if (m_manager->getVerboseLevel()>=TJobManager::minimalVerbosity){
+			Info("configure","Not proof compatible, switching PROOF off");
+		}
+	}
+
 	if (doProof){
 		m_proof=TProof::Open(Form("workers=%i",m_manager->getNumberOfWorkers()));
 		m_proof->Exec("gSystem->Load(\"libCintex\")");
