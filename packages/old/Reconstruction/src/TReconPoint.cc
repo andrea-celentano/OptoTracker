@@ -35,23 +35,23 @@ double TRecon::PointLikelihood(const double *x) const{
 			for (int id=0;id<m_detector->getNPixels(iface,idetector);id++){
 				switch (m_fitLikelihoodMode){
 				case(k_onlyCharge):
-							pQ=PointLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
+						pQ=PointLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
 				break;
 				case (k_onlyTime):
-							Nphotons=m_N[iface][idetector][id]; //measured number of phe in this pixel
-							if (Nphotons==0){
-									pT=0;
-							}
-							else pT=PointLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
-							break;
+						Nphotons=m_N[iface][idetector][id]; //measured number of phe in this pixel
+						if (Nphotons==0){
+							pT=0;
+						}
+						else pT=PointLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
+						break;
 				case (k_both):
-							Nphotons=m_N[iface][idetector][id]; //measured number of phe in this pixel
-							pQ=PointLikelihoodCharge(iface,idetector,id,x); /*This already returns the log of the charge probability*/
-							if (Nphotons==0){
-								pT=0;
-							}
-							else pT=PointLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
-							break;
+						Nphotons=m_N[iface][idetector][id]; //measured number of phe in this pixel
+						pQ=PointLikelihoodCharge(iface,idetector,id,x); /*This already returns the log of the charge probability*/
+						if (Nphotons==0){
+							pT=0;
+						}
+						else pT=PointLikelihoodTime(iface,idetector,id,x);   /*This already returns the log of the time probability*/
+						break;
 				}
 				ret+=(-pT-pQ);
 			}

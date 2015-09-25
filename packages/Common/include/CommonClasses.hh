@@ -2,6 +2,7 @@
 #include "TEvent.hh"
 #include "TXMLHandler.hh"
 #include "TNamedContainer.hh"
+#include "TDetectorUtils.hh"
 //#include <string>
 
 //string obj1;

@@ -1,7 +1,6 @@
 #include "TRecon.hh"
 #include "TDetectorLight.hh"
 
-
 #include "TMath.h"
 
 #include <vector>
@@ -369,9 +368,6 @@ TVector3 TRecon::computeCOG(){
 	cog=cog*(1./qTotNew);
 	return cog;
 }
-
-
-
 
 
 

@@ -49,48 +49,48 @@ void TMatrixReconDriver::setMatrixSource(const char* ssource){
 		Info("setMatrixSource","Matrix source set to %s",source.c_str());
 	}
 }
-
-int TMatrixReconDriver::startOfData(){
-	/*First, load the matrix from the proper source*/
+int TMatrixReconDriver::start(){
+	/*load the matrix from the proper source*/
 	int Np,Nv;
-	switch (m_matrixSource){
-	case matrixSourceFile:
-		m_matrixFile=new TFile(m_matrixFileName.c_str());
-		if (!m_matrixFile){
-			Error("startOfData","Error with the root file");
-			return 0;
-		}
-		m_matrix=(TMatrixD*)m_matrixFile->Get("TMatrixT<double>");
-		if (!m_matrix){
-			Error("startOfData","Error with the matrix not in root file");
-			return 0;
-		}
-		/*Get the voxels histo*/
-		hVoxelsInput=(TH3D*)m_matrixFile->Get("hVoxels");
-		if (!hVoxelsInput){
-			Error("startOfData","Error with the hVoxels not in root file");
-			return 0;
-		}
+		switch (m_matrixSource){
+		case matrixSourceFile:
+			m_matrixFile=new TFile(m_matrixFileName.c_str());
+			if (!m_matrixFile){
+				Error("startOfData","Error with the root file");
+				return 0;
+			}
+			m_matrix=(TMatrixD*)m_matrixFile->Get("TMatrixT<double>");
+			if (!m_matrix){
+				Error("startOfData","Error with the matrix not in root file");
+				return 0;
+			}
+			/*Get the voxels histo*/
+			hVoxelsInput=(TH3D*)m_matrixFile->Get("hVoxels");
+			if (!hVoxelsInput){
+				Error("startOfData","Error with the hVoxels not in root file");
+				return 0;
+			}
 
-		/*Do some dimensionals check*/
-		Np=m_manager->getDetector()->getTotPixels();
-		Nv=hVoxelsInput->GetXaxis()->GetNbins();
-		Nv*=hVoxelsInput->GetYaxis()->GetNbins();
-		Nv*=hVoxelsInput->GetZaxis()->GetNbins();
-		if (Np!=m_matrix->GetNrows()){
-			Error("startOfData","Inconcisteny pixels number. Detector has %i, matrix has %i",Np,m_matrix->GetNrows());
+			/*Do some dimensionals check*/
+			Np=m_manager->getDetector()->getTotPixels();
+			Nv=hVoxelsInput->GetXaxis()->GetNbins();
+			Nv*=hVoxelsInput->GetYaxis()->GetNbins();
+			Nv*=hVoxelsInput->GetZaxis()->GetNbins();
+			if (Np!=m_matrix->GetNrows()){
+				Error("startOfData","Inconcisteny pixels number. Detector has %i, matrix has %i",Np,m_matrix->GetNrows());
+			}
+			if (Nv!=m_matrix->GetNcols()){
+				Error("startOfData","Inconcisteny voxel number. Detector has %i, matrix has %i",Nv,m_matrix->GetNcols());
+			}
+			break;
+		case matrixSourceModel:
+			///TODO
+			break;
 		}
-		if (Nv!=m_matrix->GetNcols()){
-			Error("startOfData","Inconcisteny voxel number. Detector has %i, matrix has %i",Nv,m_matrix->GetNcols());
-		}
-		break;
-	case matrixSourceModel:
-		///TODO
-		break;
-	}
+}
+int TMatrixReconDriver::startOfData(){
 
-
-
+	/*Here we have guaranteed that hVoxlesInput exists, we got it from the start*/
 	hVoxelsReconAll=(TH3D*)hVoxelsInput->Clone();
 	hVoxelsReconAll->SetName("hVoxelsReconAll");
 	m_manager->GetOutputList()->Add(hVoxelsReconAll);

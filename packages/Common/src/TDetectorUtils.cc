@@ -5,16 +5,20 @@
 #include "TF1.h"
 TDetectorUtils::TDetectorUtils(TDetectorLight *detector):
 m_detector(detector),
-m_SinglePhotonTimeProbKernel(NULL){
+m_SinglePhotonTimeProbKernel(NULL),
+m_TrackChargeKernel(NULL){
 
 	if (m_detector){
+		Info("TDetectorUtils","Created TDetectorUtils with the detector");
 		double tau=m_detector->getFastScintTime();
 		m_SinglePhotonTimeProbKernel=new TF1("SinglePhotonTimeProbIntegral",this,&TDetectorUtils::SinglePhotonTimeProbKernel,-3*tau,10*tau,2);
+		m_TrackChargeKernel=new TF1("TrackChargeKernel",this,&TDetectorUtils::TrackChargeKernel,0.,1.,9); //9 fixed parameters: x0(3x), x1(3x), face, detector, pixel
 	}
 }
 
 TDetectorUtils::~TDetectorUtils() {
 	if (m_SinglePhotonTimeProbKernel) delete m_SinglePhotonTimeProbKernel;
+	if (m_TrackChargeKernel) delete m_TrackChargeKernel;
 }
 
 
@@ -211,3 +215,64 @@ double TDetectorUtils::GetMinimalDelay(const TVector3& x0, const TVector3& x1,do
 		}
 		return tmin;
 }
+
+
+
+
+
+
+
+/*Given a track from x0 to x1, determine the average charge seen at the face / detector  /pixel, assuming UNIFORM excitation*/
+double TDetectorUtils::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,int iface,int idetector,int id) const{
+
+
+	//TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
+	double ret;
+	/*Prepare the parameters*/
+	m_TrackChargeKernel->SetRange(0.,1.);
+	m_TrackChargeKernel->SetParameter(0,x0.X());
+	m_TrackChargeKernel->SetParameter(1,x0.Y());
+	m_TrackChargeKernel->SetParameter(2,x0.Z());
+	m_TrackChargeKernel->SetParameter(3,x1.X());
+	m_TrackChargeKernel->SetParameter(4,x1.Y());
+	m_TrackChargeKernel->SetParameter(5,x1.Z());
+
+
+	m_TrackChargeKernel->SetParameter(6,iface);
+	m_TrackChargeKernel->SetParameter(7,idetector);
+	m_TrackChargeKernel->SetParameter(8,id);
+
+	m_TrackChargeKernel->SetNpx(1000);
+
+	ret=m_TrackChargeKernel->Integral(0.,1.);
+
+
+	return ret;
+
+}
+
+
+
+
+double TDetectorUtils::TrackChargeKernel(double *x,double *p){
+
+	double lambda=x[0];
+	TVector3 x0(p[0],p[1],p[2]);
+	TVector3 x1(p[3],p[4],p[5]);
+
+	int iface=(int)(p[6]);
+	int idetector=(int)(p[7]);
+	int id=(int)(p[8]);
+
+	TVector3 xPos=x0+lambda*(x1-x0);
+	double ret=SinglePixelAverageCharge(xPos,iface,idetector,id);
+
+
+
+	return ret;
+}
+
+
+
+
+

@@ -21,6 +21,9 @@ protected:
 	int m_iterationN;
 	int m_isProofCompatible;
 
+	string m_collectionName;
+	string m_collectionRawName;
+
 public:
 	TDriver(TJobManager *manager=0);
 	virtual ~TDriver();
@@ -73,6 +76,9 @@ public:
 	void setIsProofCompatible(int isProofCompatible) {
 		m_isProofCompatible = isProofCompatible;
 	}
+
+	void setCollectionName(const char* name){m_collectionName=string(name);}
+	void setCollectionRawName(const char* name){m_collectionRawName=string(name);}
 
 	ClassDef(TDriver,1);
 };

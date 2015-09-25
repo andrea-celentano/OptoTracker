@@ -36,7 +36,7 @@ public:
 	
 	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
 	TDetectorLight* getDetector(){return m_detector;}
-	void setDetector(TDetectorLight* detector){m_detector=detector;}
+	void setDetector(TDetectorLight* detector);
 
 	  
 	void initParameters();

@@ -12,6 +12,7 @@
 
 #include "TXMLHandler.hh"
 
+#include "TDetectorUtils.hh"
 
 
 class TDriver;
@@ -35,6 +36,7 @@ private:
 	vector <TDriver*> *m_drivers;
 
 	TDetectorLight *m_detector;
+	TDetectorUtils* m_detectorUtils;
 
 	map < string , string > *m_variables;
 
@@ -188,6 +190,9 @@ public:
 
 	TDetectorLight* getDetector() const {
 		return m_detector;
+	}
+	TDetectorUtils* getDetectorUtils() const{
+		return m_detectorUtils;
 	}
 
 	void setDetector(TDetectorLight* detector) {

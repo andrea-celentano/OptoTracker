@@ -1,13 +1,10 @@
 #include "TReconInput.hh"
 #include <stdlib.h>     /* atof */
-TReconInput::TReconInput(){
-
-	cout<<"TReconInput:: default constructor"<<endl;
-
-	for (int ii=0;ii<m_nPars;ii++) m_isParConfigured[ii]=0;
-}
 
 TReconInput::TReconInput(string fname){
+
+	if (fname.length()==0) return;
+
 	ifstream file(fname.c_str());
 	string line,key,data;
 	istringstream parser;
@@ -71,7 +68,7 @@ TReconInput::TReconInput(string fname){
 
 
 void TReconInput::Print() const{
-	printf("TRecon input %s : \n",m_name.c_str());
+	printf("TRecon input %s : \n",this->GetName());
 	for (int ii=0;ii<m_nPars;ii++){
 		if(m_isParConfigured[ii]==1){
 			printf("Parameter %i : value is %f . Fixed : %i \n",ii,m_parVal[ii],m_isParFixed[ii]);

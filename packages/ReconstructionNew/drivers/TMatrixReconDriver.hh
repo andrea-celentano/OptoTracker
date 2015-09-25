@@ -6,6 +6,7 @@
 #include "TMatrixD.h"
 
 #include "TDriver.hh"
+#include "TDetectorLight.hh"
 
 #include <string>
 
@@ -22,7 +23,7 @@ private:
 
 	TFile *m_matrixFile;
 	string m_matrixFileName;
-	string m_collectionName;
+
 
 	TH3D *hVoxelsInput; //for the geometry only
 
@@ -33,10 +34,13 @@ private:
 	static const int matrixSourceFile=0;
 	static const int matrixSourceModel=1;
 
+
+
 public:
 	TMatrixReconDriver();
 	virtual ~TMatrixReconDriver();
 
+	virtual int start();
 	virtual int startOfData();
 	virtual int process(TEvent *event);
 	virtual int endOfData();
@@ -48,7 +52,7 @@ public:
 	 */
 	void setMatrixSource(const char* source);
 	void setMatrixFileName(const char* fname){m_matrixFileName=string(fname);}
-	void setCollectionName(const char* name){m_collectionName=string(name);}
+
 
 	ClassDef(TMatrixReconDriver,1);
 

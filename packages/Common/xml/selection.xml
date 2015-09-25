@@ -4,4 +4,5 @@
 <class name="TEvent"/>
 <class name="TXMLHandler"/>
 <class name="TNamedContainer"/>
+<class name="TDetectorUtils"/>
 </lcgdict>

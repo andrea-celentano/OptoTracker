@@ -8,17 +8,18 @@
 
 #include "TROOT.h"
 #include "TObject.h"
+#include "TNamed.h"
 
 #include "TReconDefs.hh"
 
 
 using namespace std;
 
-class TReconInput : public TObject {
+class TReconInput : public TNamed {
 
   public:
-    TReconInput();
-    TReconInput(string fname);
+
+  	TReconInput(string fname="");
     virtual ~TReconInput(){printf("TReconInput deconstructor\n");}
     
     double getParVal(int id) const{return m_parVal[id];}
@@ -44,8 +45,7 @@ class TReconInput : public TObject {
     fitObject_t getFitObject() const{return m_fitObject;}
     fitLikelihoodMode_t getFitLikelihoodMode(){return m_fitLikelihoodMode;}
 
-    void setName(string name){m_name=name;}
-    string getName(){return m_name;}
+
 
     virtual void Print() const;
   
@@ -53,7 +53,6 @@ class TReconInput : public TObject {
   private:
 
 
-   string m_name;
    
    int    m_isParConfigured[m_nPars];
    double m_parVal[m_nPars];

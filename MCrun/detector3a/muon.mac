@@ -3,7 +3,7 @@
 /gps/particle mu-
 /gps/energy 1 GeV
 
-/gps/position  0 5 0 cm
+/gps/position  1 5 1 cm
 /gps/direction 0 -1 0
 
 

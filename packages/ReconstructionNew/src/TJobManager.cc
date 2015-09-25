@@ -33,6 +33,7 @@ TJobManager::TJobManager(TTree* tree):
 	m_iterationN=0;
 	m_detector=0;
 	m_isProofCompatible=1;
+	m_detectorUtils=0;
 	Info("TOptoJobManager","Done");
 }
 
@@ -101,6 +102,7 @@ void TJobManager::Begin(TTree* /*tree*/)
 void TJobManager::SlaveBegin(TTree* /*tree*/)
 {
 	Info("SlaveBegin","start");
+	m_detectorUtils=new TDetectorUtils(m_detector); //since each slave needs its own
 	m_eventN=0;
 	/*We need to init each driver on the workers*/
 	for (int ii=0;ii<m_drivers->size();ii++){
@@ -112,6 +114,7 @@ void TJobManager::SlaveBegin(TTree* /*tree*/)
 
 void TJobManager::SlaveTerminate()
 {
+
 	Info("SlaveTerminate","start");
 	/*We need to end each driver on the workers*/
 	for (int ii=0;ii<m_drivers->size();ii++){

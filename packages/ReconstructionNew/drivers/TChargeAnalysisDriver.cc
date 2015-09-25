@@ -46,8 +46,8 @@ int TChargeAnalysisDriver::process(TEvent *event){
 	m_Q.clear();
 	m_Q.resize(m_manager->getDetector()->getTotPixels(),0);
 
-	if (event->hasCollection(OpNoviceDigi::Class(),"DetDigiMC")){
-		digiCollection=event->getCollection(OpNoviceDigi::Class(),"DetDigiMC");
+	if (event->hasCollection(OpNoviceDigi::Class(),m_collectionName)){
+		digiCollection=event->getCollection(OpNoviceDigi::Class(),m_collectionName);
 		digiCollectionIter=new TIter(digiCollection);
 		while (digi = (OpNoviceDigi*)digiCollectionIter->Next()){
 			face=digi->GetFaceNumber();

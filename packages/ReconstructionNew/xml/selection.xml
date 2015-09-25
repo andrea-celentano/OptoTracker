@@ -6,10 +6,12 @@
 	<field name="m_variables" transient="true"/>
 </class>
 <class name="TDriver"/>
+<class name="TReconInput"/>
 <class name="TEventMarkerDriver"/>
 <class name="TRootSaveDriver"/>
 <class name="TMatrixWriterDriver"/>
 <class name="TMatrixReconDriver"/>
 <class name="TMatrixInterpreterDriver"/>
+<class name="TLikelihoodReconDriver"/>
 <class name="TChargeAnalysisDriver"/>
 </lcgdict>
