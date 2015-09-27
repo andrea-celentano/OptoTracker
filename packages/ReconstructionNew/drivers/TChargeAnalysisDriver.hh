@@ -8,12 +8,13 @@
 #include <fstream>
 
 class TEvent;
+class TMCTruth;
 class TH1D;
 class TH2D;
 
 class TChargeAnalysisDriver : public TDriver {
 private:
-	TH1D *hPixels;
+
 	int m_nPixels;
 	int m_nDetectors;
 
@@ -24,13 +25,17 @@ private:
 	vector < double > m_Q;
 
 	TH2D *hPixels2D[6][MAX_DETECTORS];
+	TH1D *hPixelsMC;
+	TH1D *hPixelsModel;
+
+	TMCTruth *m_MCTruth;
 
 public:
 	TChargeAnalysisDriver();
 	virtual ~TChargeAnalysisDriver();
 
 	/*These are the virtual methods implemented by the derived classes*/
-/*	virtual int start(){return 0;};
+	/*	virtual int start(){return 0;};
 	virtual int startOfData(){return 0;};
 	virtual int endOfData(){return 0;};
 	virtual int end(){return 0;};

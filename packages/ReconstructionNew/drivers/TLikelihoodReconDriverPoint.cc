@@ -1,5 +1,5 @@
 #include "TLikelihoodReconDriver.hh"
-
+#include <limits>
 
 /*This is the part for the POINT fit*/
 /*We write the general likelihood function as
@@ -25,6 +25,9 @@ double TLikelihoodReconDriver::PointLikelihood(const double *x) const{
 			for (int id=0;id<m_manager->getDetector()->getNPixels(iface,idetector);id++){
 				if (m_N[iface][idetector][id]<0){
 					pT=pQ=0;
+					if (m_manager->getVerboseLevel()>=TJobManager::fullVerbosity){
+						Info("PointLikelihood","skipping a pixel with no data (it is not a zero, this did not report anything)");
+					}
 				}
 				else{
 					switch (m_fitLikelihoodMode){
@@ -59,7 +62,9 @@ double TLikelihoodReconDriver::PointLikelihood(const double *x) const{
 	cout<<"********"<<endl;
 	cout.precision(10);
 	cout<<ret<<" "<<x[0]<<" "<<x[1]<<" "<<x[2]<<endl;
-*/
+
+	cin.get();
+	*/
 	return ret;
 }
 
@@ -157,17 +162,21 @@ double TLikelihoodReconDriver::PointLikelihoodCharge(int iface,int idetector,int
 
 	int Nphe=m_N[iface][idetector][id];     //hit number of photo-electrons
 	double t=m_t[iface][idetector][id];     //hit time, useless here
-	double mu0,ret,eps;
+	double mu0,ret;
 	TVector3 xp=m_manager->getDetector()->getPosPixel(iface,idetector,id); //pixel position
 
-
-	/*Compute mu*/
-	eps=m_manager->getDetector()->getDetQE(iface,idetector);
+	/*Compute mu. This also contains QE*/
 	mu0=m_manager->getDetectorUtils()->SinglePixelAverageCharge(x0,iface,idetector,id);
+
+	if (mu0<=0){ //work-around for those cases with 0 average (for example, because they're in the total internal reflaction zone
+		mu0=SMALL_MU0;
+	}
 	mu0*=N0;
-	//cout<<mu0<<endl;
-	//cin.get();
-	ret=-eps*mu0+Nphe*log(mu0);
+
+	ret=-mu0+Nphe*log(mu0);
+
+
+
 	return ret;
 }
 

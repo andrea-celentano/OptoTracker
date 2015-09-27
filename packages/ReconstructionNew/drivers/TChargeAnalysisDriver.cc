@@ -7,6 +7,8 @@
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TCanvas.h"
+#include "TVector3.h"
+#include "TLorentzVector.h"
 
 #include "TChargeAnalysisDriver.hh"
 #include "OpNoviceDigi.hh"
@@ -14,13 +16,13 @@
 #include "TEvent.hh"
 #include "TJobManager.hh"
 #include "TDetectorLight.hh"
-
-
+#include "TMCTruth.hh"
 using namespace std;
 
 TChargeAnalysisDriver::TChargeAnalysisDriver() {
 	// TODO Auto-generated constructor stub
-	hPixels=0;
+	hPixelsMC=0;
+	hPixelsModel=0;
 	m_nPixels=0;
 	m_nDetectors=0;
 	for (int ii=0;ii<6;ii++){
@@ -29,6 +31,7 @@ TChargeAnalysisDriver::TChargeAnalysisDriver() {
 		}
 	}
 	m_writeOut=0;
+	m_MCTruth=0;
 }
 
 TChargeAnalysisDriver::~TChargeAnalysisDriver() {
@@ -40,11 +43,14 @@ int TChargeAnalysisDriver::process(TEvent *event){
 	TClonesArray *digiCollection;
 	TIter		 *digiCollectionIter;
 	OpNoviceDigi *digi;
-
+	TVector3 xIn,xOut,x0;
 	int face,detector,pixel,nPhe,nX,nY,ID;
-
+	double meanModel;
 	m_Q.clear();
 	m_Q.resize(m_manager->getDetector()->getTotPixels(),0);
+
+
+
 
 	if (event->hasCollection(OpNoviceDigi::Class(),m_collectionName)){
 		digiCollection=event->getCollection(OpNoviceDigi::Class(),m_collectionName);
@@ -57,11 +63,44 @@ int TChargeAnalysisDriver::process(TEvent *event){
 			nX=m_manager->getDetector()->getNPixelsX(face,detector);
 			nY=m_manager->getDetector()->getNPixelsY(face,detector);
 			ID=m_manager->getDetector()->getPixelGlobalID(face,detector,pixel);
-			hPixels->Fill(m_manager->getDetector()->getPixelGlobalID(face,detector,pixel),nPhe);
+			hPixelsMC->Fill(ID,nPhe);
 			hPixels2D[face][detector]->Fill(pixel%nX,pixel/nX,nPhe);
 			m_Q.at(ID)=nPhe;
 		}
 	}
+	if (event->hasObject("MCTruth")){
+		m_MCTruth=(TMCTruth*)event->getObject("MCTruth");
+		for (int ii=0;ii<6;ii++){
+			for (int jj=0;jj<m_manager->getDetector()->getNdet(ii);jj++){
+				if (m_manager->getDetector()->isDetPresent(ii,jj)){
+					for (int kk=0;kk<m_manager->getDetector()->getNPixels(ii,jj);kk++){
+						ID=m_manager->getDetector()->getPixelGlobalID(ii,jj,kk);
+						//mean=m_manager->getDetectorUtils()->SinglePixelAverageCharge( ,ii,jj,kk);
+						meanModel=0;
+						if ((m_MCTruth->getXin()!=0)&&(m_MCTruth->getXout()!=0)){
+							if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+								Info("process","model with track");
+							}
+							xIn=m_MCTruth->getXin()->Vect();
+							xOut=m_MCTruth->getXout()->Vect();
+							meanModel=m_manager->getDetectorUtils()->TrackAverageCharge(xIn,xOut,ii,jj,kk);
+						}
+						else{
+							if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+								Info("process","model with point");
+							}
+							x0=m_MCTruth->getX0()->Vect();
+							meanModel=m_manager->getDetectorUtils()->SinglePixelAverageCharge(x0,ii,jj,kk);
+						}
+						meanModel*=m_MCTruth->getEdepVis();
+						meanModel*=m_manager->getDetector()->getLY();
+						hPixelsModel->Fill(ID,meanModel);
+					}
+				}
+			}
+		}
+	}
+
 
 	if (m_writeOut){	/*In this case, it is not running on proof by definition*/
 		for (int ipixel=0;ipixel<m_Q.size();ipixel++){
@@ -93,8 +132,11 @@ int TChargeAnalysisDriver::startOfData(){
 	if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
 		Info("startOfData","hPixels created with %i pixels",m_nPixels);
 	}
-	hPixels=new TH1D("hPixels","hPixels",m_nPixels,-0.5,m_nPixels-0.5);
-	m_manager->GetOutputList()->Add(hPixels);
+	hPixelsMC=new TH1D("hPixelsMC","hPixelsMC",m_nPixels,-0.5,m_nPixels-0.5);
+	hPixelsModel=new TH1D("hPixelsModel","hPixelsModel",m_nPixels,-0.5,m_nPixels-0.5);
+
+	m_manager->GetOutputList()->Add(hPixelsMC);
+	m_manager->GetOutputList()->Add(hPixelsModel);
 
 
 
@@ -115,8 +157,15 @@ int TChargeAnalysisDriver::startOfData(){
 
 
 int TChargeAnalysisDriver::end(){
-	hPixels=(TH1D*)(m_manager->GetOutputList()->FindObject("hPixels"));
-	hPixels->Scale(1./m_manager->getNumberOfEvents());
+	int ID;
+	double mean;
+
+
+	hPixelsMC=(TH1D*)(m_manager->GetOutputList()->FindObject("hPixelsMC"));
+	hPixelsModel=(TH1D*)(m_manager->GetOutputList()->FindObject("hPixelsModel"));
+	hPixelsMC->Scale(1./m_manager->getNumberOfEvents());
+	hPixelsModel->Scale(1./m_manager->getNumberOfEvents());
+
 	for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<m_manager->getDetector()->getNdet(ii);jj++){
 			if (m_manager->getDetector()->isDetPresent(ii,jj)){
@@ -125,7 +174,6 @@ int TChargeAnalysisDriver::end(){
 			}
 		}
 	}
-	/*Lets organize them in canvases*/
 
 	return 0;
 }

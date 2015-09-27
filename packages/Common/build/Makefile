@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common
+CMAKE_SOURCE_DIR = /work/OptoTracker/packages/Common
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build
+CMAKE_BINARY_DIR = /work/OptoTracker/packages/Common/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -113,9 +113,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles /work/OptoTracker/packages/Common/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/packages/Common/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/packages/Common/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -373,6 +373,66 @@ src/TEvent.cc.s:
 	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TEvent.cc.s
 .PHONY : src/TEvent.cc.s
 
+src/TMCParticle.o: src/TMCParticle.cc.o
+.PHONY : src/TMCParticle.o
+
+# target to build an object file
+src/TMCParticle.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCParticle.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCParticle.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCParticle.cc.o
+.PHONY : src/TMCParticle.cc.o
+
+src/TMCParticle.i: src/TMCParticle.cc.i
+.PHONY : src/TMCParticle.i
+
+# target to preprocess a source file
+src/TMCParticle.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCParticle.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCParticle.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCParticle.cc.i
+.PHONY : src/TMCParticle.cc.i
+
+src/TMCParticle.s: src/TMCParticle.cc.s
+.PHONY : src/TMCParticle.s
+
+# target to generate assembly for a file
+src/TMCParticle.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCParticle.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCParticle.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCParticle.cc.s
+.PHONY : src/TMCParticle.cc.s
+
+src/TMCTruth.o: src/TMCTruth.cc.o
+.PHONY : src/TMCTruth.o
+
+# target to build an object file
+src/TMCTruth.cc.o:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCTruth.cc.o
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCTruth.cc.o
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCTruth.cc.o
+.PHONY : src/TMCTruth.cc.o
+
+src/TMCTruth.i: src/TMCTruth.cc.i
+.PHONY : src/TMCTruth.i
+
+# target to preprocess a source file
+src/TMCTruth.cc.i:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCTruth.cc.i
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCTruth.cc.i
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCTruth.cc.i
+.PHONY : src/TMCTruth.cc.i
+
+src/TMCTruth.s: src/TMCTruth.cc.s
+.PHONY : src/TMCTruth.s
+
+# target to generate assembly for a file
+src/TMCTruth.cc.s:
+	$(MAKE) -f CMakeFiles/CommonClassesDict.dir/build.make CMakeFiles/CommonClassesDict.dir/src/TMCTruth.cc.s
+	$(MAKE) -f CMakeFiles/PrintDetector.dir/build.make CMakeFiles/PrintDetector.dir/src/TMCTruth.cc.s
+	$(MAKE) -f CMakeFiles/TestCommon.dir/build.make CMakeFiles/TestCommon.dir/src/TMCTruth.cc.s
+.PHONY : src/TMCTruth.cc.s
+
 src/TNamedContainer.o: src/TNamedContainer.cc.o
 .PHONY : src/TNamedContainer.o
 
@@ -469,6 +529,12 @@ help:
 	@echo "... src/TEvent.o"
 	@echo "... src/TEvent.i"
 	@echo "... src/TEvent.s"
+	@echo "... src/TMCParticle.o"
+	@echo "... src/TMCParticle.i"
+	@echo "... src/TMCParticle.s"
+	@echo "... src/TMCTruth.o"
+	@echo "... src/TMCTruth.i"
+	@echo "... src/TMCTruth.s"
 	@echo "... src/TNamedContainer.o"
 	@echo "... src/TNamedContainer.i"
 	@echo "... src/TNamedContainer.s"

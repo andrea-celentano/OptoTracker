@@ -1,8 +1,12 @@
 #ifndef TDETECTORUTILS_HG
 #define TDETECTORUTILS_HG
 
+#include <complex>
+
 #include "TVector3.h"
 #include "TObject.h"
+
+using namespace std;
 
 #define clight 299.792  /*in mm/ns*/
 /*In this class, I insert all the relevant function that
@@ -22,6 +26,9 @@ private:
 	double GaussianCDF(const double &x,const double &mean,const double &sigma) const;
 	double TrackChargeKernel(double *x,double *p);
 	double SinglePhotonTimeProbKernel(double *x,double *p);
+
+	double getFresnelReflectivityCustomDetector(const TVector3& x0, int iface, int idetector, int id) const;
+	double FresnelReflectivity(double n1,double ctheta1,double n2) const;
 
 public:
 	TDetectorUtils(TDetectorLight *det=0);

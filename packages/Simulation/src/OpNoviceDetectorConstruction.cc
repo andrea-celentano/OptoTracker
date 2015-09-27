@@ -255,7 +255,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 				transformDet[ii][jj]=G4Transform3D(rotDet[ii][jj],translDet[ii][jj]);
 
 				if (fDetectorLight->getDetName(ii,jj)=="H8500"){
-					fDetector_log[ii][jj]=buildH8500(ii,jj);
+					fDetector_log[ii][jj]=buildH8500(ii,jj); //this defines fH8500_box , fH8500Photo_box, fH8500Photo_log
 					fDetector_box[ii][jj]=fH8500_box;
 					fPixel_box[ii][jj]=fH8500Photo_box;
 					fPixel_log[ii][jj]=fH8500Photo_log;
@@ -752,10 +752,6 @@ G4LogicalVolume* OpNoviceDetectorConstruction::buildH8500(int iface, int idetect
 	G4VisAttributes* VisAtt3 = new G4VisAttributes(G4Colour(0.5,0.5,0.5));
 	VisAtt3->SetForceSolid(true);
 	fH8500Photo_log->SetVisAttributes(VisAtt3);
-
-
-
-
 
 	return H8500_log;
 }

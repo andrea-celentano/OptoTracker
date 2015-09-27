@@ -1,4 +1,10 @@
-#include "TEvent.hh"
+#include "../include/TEvent.hh"
+
+#include <Rtypes.h>
+#include <TCollection.h>
+#include <TNamed.h>
+#include <cstring>
+#include <iterator>
 
 TEvent::TEvent(){
 

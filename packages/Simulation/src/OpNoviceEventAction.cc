@@ -50,12 +50,14 @@
 #include "G4UImanager.hh"
 #include "G4SystemOfUnits.hh"
 
+
 #include "RootIO.hh"
+#include "TMCTruth.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceEventAction::OpNoviceEventAction(OpNoviceRecorderBase* r)
 : fRecorder(r),fScintCollID(-1),fDetectorCollID(-1),fDetectorDigiCollID(-1),fVerbose(0),
-  fForcedrawphotons(false),fForcenophotons(false)
+  fForcedrawphotons(false),fForcenophotons(false),fMCTruth(NULL)
 {
 	G4cout<<"OpNoviceEventAction::creator"<<G4endl;
 	fVerbose=0;
@@ -95,7 +97,15 @@ void OpNoviceEventAction::BeginOfEventAction(const G4Event* anEvent){
 
 	if(fRecorder)fRecorder->RecordBeginOfEvent(anEvent);
 
+
 	((OpNoviceDigitizer*)(G4DigiManager::GetDMpointer()->FindDigitizerModule("OpNoviceDetectorDigitizer")))->SetDoDigi(fDoDigi);
+
+	fRootIO=RootIO::GetInstance();
+	fEvent=fRootIO->GetEvent();
+	fEvent->Clear("C"); /*This is a fundamental instruction*/
+	fMCTruth=new TMCTruth();
+	fMCTruth->SetName("MCTruth");
+	fEvent->addObject(fMCTruth); //add the MCTruth
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -121,11 +131,12 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 		}
 	}
 
-	//get the RootIO pointer and the corresponding event*/
+
+	/*
 	fRootIO=RootIO::GetInstance();
 	fEvent=fRootIO->GetEvent();
-	fEvent->Clear("C"); /*This is a fundamental instruction*/
-
+	fEvent->Clear("C"); //this is a fundamental instruction
+	 */
 
 	fRootCollectionScintRaw=fEvent->getCollection(OpNoviceScintHit::Class(),"ScintRawMC");
 	fRootCollectionDetRaw=fEvent->getCollection(OpNoviceDetectorHit::Class(),"DetRawMC");
@@ -143,20 +154,23 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 	}
 
 	//raw hits in scintillator
-	//mMCEvent.Etot=0;
+	fMCTruth->setEdep(0);
+	fMCTruth->setEdepVis(0);
 	if (scintHC){
 		G4int scintN=scintHC->entries(); /*Here 1 hit is 1 hit in the scintillator*/
-	//	G4cout<<" There are: "<<scintN<<" hits in scintillator"<<G4endl;
+		//	G4cout<<" There are: "<<scintN<<" hits in scintillator"<<G4endl;
 		for (G4int i=0;i<scintN;i++){
 			//G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
-			//mMCEvent.Etot+=(*scintHC)[i]->GetEdep(); ///TODO
+			fMCTruth->addEdep((*scintHC)[i]->GetEdep());
+			fMCTruth->addEdepVis((*scintHC)[i]->GetEdepVis());
+
 			if (fSaveScintRaw){ 
-			  ((OpNoviceScintHit*)fRootCollectionScintRaw->ConstructedAt(i))->operator=(*((*scintHC)[i]));
+				((OpNoviceScintHit*)fRootCollectionScintRaw->ConstructedAt(i))->operator=(*((*scintHC)[i]));
 			}
 		}
 	}
 
- 
+
 	//raw hits in detector
 	if(detectorHC){
 		G4int detectorN=detectorHC->entries(); /*Here 1 hit is "1 detector".*/
@@ -173,7 +187,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			}*/
 
 			if (fSaveDetRaw){
-			  ((OpNoviceDetectorHit*)fRootCollectionDetRaw->ConstructedAt(i))->operator=(*((*detectorHC)[i]));
+				((OpNoviceDetectorHit*)fRootCollectionDetRaw->ConstructedAt(i))->operator=(*((*detectorHC)[i]));
 			}
 		}
 		/*Scala di colore qui*/
@@ -202,7 +216,7 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//Gather info from all DigiPMTs
 			for(G4int i=0;i<DetectorDigiN;i++){
 				if (fSaveDetDigi){
-					 ((OpNoviceDigi*)fRootCollectionDetDigi->ConstructedAt(i))->operator=(*((*detectorDigiHC)[i]));
+					((OpNoviceDigi*)fRootCollectionDetDigi->ConstructedAt(i))->operator=(*((*detectorDigiHC)[i]));
 				}
 			}
 			if (G4VVisManager::GetConcreteInstance()!=0){
@@ -214,6 +228,8 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 
 
 	fRootIO->FillEvent();
+
+	delete fMCTruth;
 
 	if(fVerbose>0){
 		//End of event output. later to be controlled by a verbose level

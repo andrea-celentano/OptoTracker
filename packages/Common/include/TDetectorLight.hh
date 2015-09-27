@@ -120,8 +120,8 @@ public:
 	double getDetTimeRes(int iface,int idetector) const{return detTimeRes[iface][idetector];}
 	double getDetQE(int iface,int idetector) const{return detQE[iface][idetector];}
 	void setDetQE(int iface,int idetector,double QE){detQE[iface][idetector]=QE;}
-	double getDetReflectivity(int iface,int ipixel) const{return detReflectivity[iface][ipixel];}
-	void setDetReflectivity(int iface,int ipixel,double val){detReflectivity[iface][ipixel]=val;}
+	double getDetReflectivity(int iface,int idetector) const{return detReflectivity[iface][idetector];}
+	void setDetReflectivity(int iface,int idetector,double val){detReflectivity[iface][idetector]=val;}
 
 
 

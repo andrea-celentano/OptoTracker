@@ -46,43 +46,48 @@
 #include "TObject.h"
 class OpNoviceScintHit : public TObject, public G4VHit
 {
-  public:
+public:
 
-    OpNoviceScintHit();
-    OpNoviceScintHit(G4VPhysicalVolume* pVol);
-    virtual ~OpNoviceScintHit();
-    OpNoviceScintHit(const OpNoviceScintHit &right);
-    const OpNoviceScintHit& operator=(const OpNoviceScintHit &right);
-    G4int operator==(const OpNoviceScintHit &right) const;
+	OpNoviceScintHit();
+	OpNoviceScintHit(G4VPhysicalVolume* pVol);
+	virtual ~OpNoviceScintHit();
+	OpNoviceScintHit(const OpNoviceScintHit &right);
+	const OpNoviceScintHit& operator=(const OpNoviceScintHit &right);
+	G4int operator==(const OpNoviceScintHit &right) const;
 
-    inline void *operator new(size_t);
-    inline void operator delete(void *aHit);
+	inline void *operator new(size_t);
+	inline void operator delete(void *aHit);
 
-    virtual void Draw();
-    virtual void Print();
+	virtual void Draw();
+	virtual void Print();
 
-    inline void SetEdep(G4double de) { fEdep = de; }
-    inline void AddEdep(G4double de) { fEdep += de; }
-    inline G4double GetEdep() { return fEdep; }
+	inline void SetEdep(G4double de) { fEdep = de; }
+	inline void AddEdep(G4double de) { fEdep += de; }
+	inline G4double GetEdep() { return fEdep; }
 
-    inline void SetPos(G4ThreeVector xyz) { fPos = xyz; }
-    inline G4ThreeVector GetPos() { return fPos; }
+	inline void SetEdepVis(G4double de) { fEdepVis = de; }
+	inline void AddEdepVis(G4double de) { fEdepVis += de; }
+	inline G4double GetEdepVis() { return fEdepVis; }
 
-    inline const G4VPhysicalVolume * GetPhysV() { return fPhysVol; }
+	inline void SetPos(G4ThreeVector xyz) { fPos = xyz; }
+	inline G4ThreeVector GetPos() { return fPos; }
 
-  private:
-    G4double fEdep;
-    G4ThreeVector fPos;
-    const G4VPhysicalVolume* fPhysVol;
+	inline const G4VPhysicalVolume * GetPhysV() { return fPhysVol; }
 
-    /*From root TObject*/
-  public:
-    	virtual void Clear(Option_t* option="");
-    	virtual const char* GetName() const{return "TOpNoviceScintHit";}
+private:
+	G4double fEdep;
+	G4double fEdepVis;
+	G4ThreeVector fPos;
+	const G4VPhysicalVolume* fPhysVol;
+
+	/*From root TObject*/
+public:
+	virtual void Clear(Option_t* option="");
+	virtual const char* GetName() const{return "TOpNoviceScintHit";}
 
 
 
-    ClassDef(OpNoviceScintHit,1);
+	ClassDef(OpNoviceScintHit,1);
 };
 
 typedef G4THitsCollection<OpNoviceScintHit> OpNoviceScintHitsCollection;
@@ -91,14 +96,14 @@ extern G4ThreadLocal G4Allocator<OpNoviceScintHit>* OpNoviceScintHitAllocator;
 
 inline void* OpNoviceScintHit::operator new(size_t)
 {
-  if(!OpNoviceScintHitAllocator)
-      OpNoviceScintHitAllocator = new G4Allocator<OpNoviceScintHit>;
-  return (void *) OpNoviceScintHitAllocator->MallocSingle();
+	if(!OpNoviceScintHitAllocator)
+		OpNoviceScintHitAllocator = new G4Allocator<OpNoviceScintHit>;
+	return (void *) OpNoviceScintHitAllocator->MallocSingle();
 }
 
 inline void OpNoviceScintHit::operator delete(void *aHit)
 {
-  OpNoviceScintHitAllocator->FreeSingle((OpNoviceScintHit*) aHit);
+	OpNoviceScintHitAllocator->FreeSingle((OpNoviceScintHit*) aHit);
 }
 
 #endif

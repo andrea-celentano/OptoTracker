@@ -10,7 +10,7 @@ bin/*
 *.o
 
 #build
-packages/Geometry/build
-packages/Reconstruction/build
+packages/Common/build
+packages/ReconstructionNew/build
 packages/Simulation/build
 packages/MarocAnalysis/build

@@ -5,4 +5,6 @@
 <class name="TXMLHandler"/>
 <class name="TNamedContainer"/>
 <class name="TDetectorUtils"/>
+<class name="TMCTruth"/>
+<class name="TMCParticle"/>
 </lcgdict>

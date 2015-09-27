@@ -46,6 +46,7 @@
 
 class G4Event;
 class OpNoviceRecorderBase;
+class TMCTruth;
 
 class OpNoviceEventAction : public G4UserEventAction
 {
@@ -106,7 +107,7 @@ private:
 	/*To save data*/
 	RootIO *fRootIO;
 	TEvent *fEvent;
-	MCEvent* fMCEvent;
+	TMCTruth* fMCTruth;
 	TClonesArray*    fRootCollectionScintRaw;
 	TClonesArray*     fRootCollectionDetRaw;
 	TClonesArray*     fRootCollectionDetDigi;

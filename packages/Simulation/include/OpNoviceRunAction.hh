@@ -31,12 +31,14 @@
 #ifndef OpNoviceRunAction_h
 #define OpNoviceRunAction_h 1
 
-#include "globals.hh"
+#include <G4Types.hh>
+#include <G4UserRunAction.hh>
+#include <string>
 
-#include "OpNoviceMessenger.hh"
-
-#include "G4UserRunAction.hh"
 #include "RootIO.hh"
+
+class OpNoviceMessenger;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class G4Timer;

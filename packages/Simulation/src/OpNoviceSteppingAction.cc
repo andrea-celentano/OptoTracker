@@ -52,11 +52,13 @@
 
 
 #include "RootIO.hh"
-
+#include "TMCTruth.hh"
 #include "OpNoviceDetectorSD.hh"
 #include "OpNoviceUserTrackInformation.hh"
 #include "OpNoviceUserEventInformation.hh"
 #include "OpNoviceRecorderBase.hh"
+
+#include "TLorentzVector.h"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 
@@ -72,6 +74,7 @@ OpNoviceSteppingAction::OpNoviceSteppingAction(OpNoviceRecorderBase* r)
 	G4cout<<"OpNoviceSteppingAction::creator "<<G4endl;
 
 	fRootIO=RootIO::GetInstance();
+	fMCTruth=0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -90,10 +93,6 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 
 	G4Track* theTrack = theStep->GetTrack();
 
-
-
-	if ( theTrack->GetCurrentStepNumber() == 1 ) fExpectedNextStatus = Undefined;
-
 	OpNoviceUserTrackInformation* trackInformation=(OpNoviceUserTrackInformation*)theTrack->GetUserInformation();
 	OpNoviceUserEventInformation* eventInformation=(OpNoviceUserEventInformation*)G4EventManager::GetEventManager()->GetConstCurrentEvent()->GetUserInformation();
 
@@ -105,6 +104,40 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 
 	G4OpBoundaryProcessStatus boundaryStatus=Undefined;
 	static G4ThreadLocal G4OpBoundaryProcess* boundary=NULL;
+
+	if ( theTrack->GetCurrentStepNumber() == 1 ){
+		fExpectedNextStatus = Undefined;
+	}
+
+	if (theTrack->GetParentID() == 0){ //first step of primary track
+		if ( theTrack->GetCurrentStepNumber() == 1 ){
+			fMCTruth=(TMCTruth *)(fRootIO->GetEvent()->getObject("MCTruth"));
+			if (!fMCTruth){
+				G4ExceptionDescription ed;
+				ed << "OpNoviceSteppingAction::UserSteppingAction(): "
+						<< "No MCTruth object in the event"	<< G4endl;
+				G4Exception("OpNoviceSteppingAction::UserSteppingAction()", "OpNovice",
+						FatalException,ed,
+						"Something is wrong with the fMCTruth");
+			}
+			fMCTruth->setPid(theTrack->GetParticleDefinition()->GetPDGEncoding());
+			fMCTruth->setX0(new TLorentzVector(thePrePoint->GetPosition().x(),thePrePoint->GetPosition().y(),thePrePoint->GetPosition().z(),thePrePoint->GetGlobalTime()));
+			fMCTruth->setP0(new TLorentzVector(theTrack->GetMomentum().x(),theTrack->GetMomentum().y(),theTrack->GetMomentum().z(),theTrack->GetTotalEnergy()));
+		}
+		else if (!thePostPV){
+			fExpectedNextStatus=Undefined;
+			return;
+		}
+		else if((thePostPoint->GetPhysicalVolume()->GetName()=="Scintillator")&&(thePrePoint->GetStepStatus()==fGeomBoundary)&&(thePrePoint->GetPhysicalVolume()->GetName()!="Scintillator")){ //entering
+      			fMCTruth->setXin(new TLorentzVector(thePrePoint->GetPosition().x(),thePrePoint->GetPosition().y(),thePrePoint->GetPosition().z(),thePrePoint->GetGlobalTime()));
+		}
+		else if((thePrePoint->GetPhysicalVolume()->GetName()=="Scintillator")&&(thePostPoint->GetStepStatus()==fGeomBoundary)&&((thePostPoint->GetPhysicalVolume()->GetName()!="Scintillator"))){ //exiting
+			fMCTruth->setXout(new TLorentzVector(thePostPoint->GetPosition().x(),thePostPoint->GetPosition().y(),thePostPoint->GetPosition().z(),thePostPoint->GetGlobalTime()));
+		}
+	}
+
+
+
 
 	//find the boundary process only once
 	if(!boundary){
@@ -120,11 +153,6 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 		}
 	}
 
-	if(theTrack->GetParentID()==0){
-		//This is a primary track
-	}
-
-
 
 	if(!thePostPV){//out of world
 		fExpectedNextStatus=Undefined;
@@ -137,7 +165,7 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 		//if (theStep->IsFirstStepInVolume()){
 		//	G4cout<<theStep->GetPreStepPoint()->GetPosition()<<G4endl;
 
-		if ( theTrack->GetCurrentStepNumber() == 1 ){
+		if ( theTrack->GetCurrentStepNumber() == 1 ){ //first step
 
 			fRootIO->fillHistogram1D(0,thePrePoint->GetPosition().y()/cm,1.);
 			fRootIO->fillHistogram2D(0,thePrePoint->GetPosition().x()/cm,thePrePoint->GetPosition().y()/cm,1.);
@@ -205,7 +233,7 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 				G4String sdName="/OpNoviceDet/DetectorSD";
 				OpNoviceDetectorSD* DetectorSD = (OpNoviceDetectorSD*)SDman->FindSensitiveDetector(sdName);
 				if(DetectorSD)DetectorSD->ProcessHits_constStep(theStep,NULL);
-				*/
+				 */
 				trackInformation->AddTrackStatusFlag(hitPMT);
 				fAbsorbed++;
 

@@ -30,7 +30,7 @@
 
 // Make this appear first!
 #include "G4Timer.hh"
-
+#include "OpNoviceMessenger.hh"
 #include "OpNoviceRunAction.hh"
 #include "OpNoviceRecorderBase.hh"
 #include "G4Run.hh"

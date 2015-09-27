@@ -52,14 +52,6 @@
 
 
 
- typedef struct {
-      double Etot;
- } MCEvent;
-
-
-
-
-
 /// Root IO implementation for the persistency example
 
 class RootIO 
@@ -113,6 +105,6 @@ private:
 
 
 
-  	MCEvent *fMCEvent;
+
 };
 #endif // INCLUDE_ROOTIO_HH

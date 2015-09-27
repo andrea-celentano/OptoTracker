@@ -13,5 +13,7 @@
 <class name="TMatrixReconDriver"/>
 <class name="TMatrixInterpreterDriver"/>
 <class name="TLikelihoodReconDriver"/>
-<class name="TChargeAnalysisDriver"/>
+<class name="TChargeAnalysisDriver">
+	<field name="m_writeOutFile" transient="true"/>
+</class>
 </lcgdict>

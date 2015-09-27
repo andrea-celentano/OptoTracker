@@ -33,22 +33,17 @@ m_fitLikelihoodMode(k_onlyCharge)
 
 	hX=hY=hZ=hX_1=hY_1=hZ_1=hX_2=hY_2=hZ_2=0;
 	hXY=hXZ=hYZ=hXY_1=hXZ_1=hYZ_1=hXY_2=hXZ_2=hYZ_2=0;
+
 	hTheta=hPhi=0;
 	hNPhotons=hT0=hTau=0;
-	for (int ii=0;ii<6;ii++){
+
+	/*for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<MAX_DETECTORS;jj++){
 			hPixel0[ii][jj]=0;
 		}
 	}
-
-	hPixel0Title=new string[6];
-
-	hPixel0Title[0]="hPixel0_0;-x;y";
-	hPixel0Title[1]="hPixel0_0;+z;+y";
-	hPixel0Title[2]="hPixel0_0;+x;+y";
-	hPixel0Title[3]="hPixel0_0;-z;+y";
-	hPixel0Title[4]="hPixel0_0;+x;+z";
-	hPixel0Title[5]="hPixel0_0;+x;-z";
+	hPixel0Title=0;
+*/
 }
 
 TLikelihoodReconDriver::~TLikelihoodReconDriver() {
@@ -114,13 +109,13 @@ double TLikelihoodReconDriver::DoEval(const double *x) const{
 	double ret;
 	switch (m_fitObject){
 	case (k_null):
-														ret=0;
+																ret=0;
 	break;
 	case (k_point):
-														ret=PointLikelihood(x);
+																ret=PointLikelihood(x);
 	break;
 	case (k_track):
-														ret=TrackLikelihood(x);
+																ret=TrackLikelihood(x);
 	break;
 	}
 	return ret;
@@ -283,8 +278,16 @@ int TLikelihoodReconDriver::startOfData(){
 			}
 		}
 	}*/
+	/*
+	hPixel0Title=new string[6];
 
-
+	hPixel0Title[0]="hPixel0_0;-x;y";
+	hPixel0Title[1]="hPixel0_0;+z;+y";
+	hPixel0Title[2]="hPixel0_0;+x;+y";
+	hPixel0Title[3]="hPixel0_0;-z;+y";
+	hPixel0Title[4]="hPixel0_0;+x;+z";
+	hPixel0Title[5]="hPixel0_0;+x;-z";
+*/
 	hX=new TH1D("hX","hX;x (cm)",200,-m_manager->getDetector()->getScintSizeX()/2-1,m_manager->getDetector()->getScintSizeX()/2+1);m_manager->GetOutputList()->Add(hX);
 	hY=new TH1D("hY","hY;y (cm)",200,-m_manager->getDetector()->getScintSizeY()/2-1,m_manager->getDetector()->getScintSizeY()/2+1);m_manager->GetOutputList()->Add(hY);
 	hZ=new TH1D("hZ","hZ;z (cm)",200,-m_manager->getDetector()->getScintSizeZ()/2-1,m_manager->getDetector()->getScintSizeZ()/2+1);m_manager->GetOutputList()->Add(hZ);
@@ -444,7 +447,6 @@ int TLikelihoodReconDriver::process(TEvent *event){
 	hT0->Fill(m_minimizer->X()[7]);
 	hNPhotons->Fill(m_minimizer->X()[8]);
 	hTau->Fill( m_minimizer->X()[9]);
-
 
 
 

@@ -40,6 +40,7 @@
 class OpNoviceEventAction;
 class OpNoviceTrackingAction;
 class OpNoviceRecorderBase;
+class TMCTruth;
 /// Stepping action class
 /// 
 
@@ -66,6 +67,7 @@ class OpNoviceSteppingAction : public G4UserSteppingAction
     G4OpBoundaryProcessStatus fExpectedNextStatus;
 	
 	RootIO *fRootIO;
+	TMCTruth *fMCTruth;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

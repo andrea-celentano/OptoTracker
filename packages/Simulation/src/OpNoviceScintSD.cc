@@ -40,7 +40,8 @@
 #include "G4TouchableHistory.hh"
 #include "G4ios.hh"
 #include "G4VProcess.hh"
-
+#include "G4LossTableManager.hh"
+#include "G4EmSaturation.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 OpNoviceScintSD::OpNoviceScintSD(G4String name)
@@ -70,6 +71,8 @@ void OpNoviceScintSD::Initialize(G4HCofThisEvent* hitsCE){
 
 G4bool OpNoviceScintSD::ProcessHits(G4Step* aStep,G4TouchableHistory* ){
   G4double edep = aStep->GetTotalEnergyDeposit();
+  G4double edepVis = G4LossTableManager::Instance()->EmSaturation()->VisibleEnergyDeposition(aStep);
+
   if(edep==0.) return false; //No edep so dont count as hit
 
   G4StepPoint* thePrePoint = aStep->GetPreStepPoint();
@@ -85,6 +88,7 @@ G4bool OpNoviceScintSD::ProcessHits(G4Step* aStep,G4TouchableHistory* ){
   OpNoviceScintHit* scintHit = new OpNoviceScintHit(thePrePV);
 
   scintHit->SetEdep(edep);
+  scintHit->SetEdepVis(edepVis);
   scintHit->SetPos(pos);
 
   fScintCollection->insert(scintHit);

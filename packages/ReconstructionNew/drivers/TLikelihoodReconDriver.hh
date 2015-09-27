@@ -22,6 +22,7 @@ class TEvent;
 class TReconInput;
 
 #define clight 299.792  /*in mm/ns*/
+#define SMALL_MU0 1E-24;
 
 class TLikelihoodReconDriver: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
 public:
@@ -91,14 +92,15 @@ private:
 	//histograms
 	TH1D *hX,*hY,*hZ,*hX_1,*hY_1,*hZ_1,*hX_2,*hY_2,*hZ_2;
 	TH2D *hXY,*hXZ,*hYZ,*hXY_1,*hXZ_1,*hYZ_1,*hXY_2,*hXZ_2,*hYZ_2;
-	TH2D *hPixel0[6][MAX_DETECTORS];
 	TH1D *hTheta,*hPhi;
 	TH1D *hNPhotons,*hT0,*hTau;
+	/*
+	//TH2D *hPixel0[6][MAX_DETECTORS];
 	vector < TH1D* > *hCharge[6*MAX_DETECTORS];
 	vector < TH1D* > *hTime[6*MAX_DETECTORS];
 	vector < TH2D* > *hTimeVsCharge[6*MAX_DETECTORS];
 	string *hPixel0Title;
-
+*/
 	ClassDef(TLikelihoodReconDriver,1);
 };
 

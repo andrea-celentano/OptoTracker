@@ -1,4 +1,5 @@
 #include "TLikelihoodReconDriver.hh"
+#include <limits>
 
 
 /*This is the part for the TRACK fit*/
@@ -157,17 +158,18 @@ double TLikelihoodReconDriver::TrackLikelihoodCharge(int iface,int idetector,int
 	int Nphe=m_N[iface][idetector][id]; //hit number of photo-electrons
 	double t=m_t[iface][idetector][id];     //hit time
 
-	double eps,mu0,ret;
+	double mu0,ret;
 
 	/*Compute mu, integrating along the trajectory*/
-	eps=m_manager->getDetector()->getDetQE(iface,idetector);
 	mu0=m_manager->getDetectorUtils()->TrackAverageCharge(x0,x1,iface,idetector,id);
+	if (mu0<=0){ //work-around for those cases with 0 average (for example, because they're in the total internal reflaction zone
+				mu0=SMALL_MU0;
+	}
 	mu0*=N0;
 
 
 
-	ret=-eps*mu0+Nphe*log(mu0);
-
+	ret=-mu0+Nphe*log(mu0);
 
 
 	return ret;

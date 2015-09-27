@@ -41,11 +41,11 @@ G4ThreadLocal G4Allocator<OpNoviceScintHit>* OpNoviceScintHitAllocator=0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceScintHit::OpNoviceScintHit() : TObject(),fEdep(0.), fPos(0.), fPhysVol(0) {}
+OpNoviceScintHit::OpNoviceScintHit() : TObject(),fEdep(0.),fEdepVis(0.), fPos(0.), fPhysVol(0) {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceScintHit::OpNoviceScintHit(G4VPhysicalVolume* pVol) : TObject(),fEdep(0.), fPos(0.), fPhysVol(pVol) {}
+OpNoviceScintHit::OpNoviceScintHit(G4VPhysicalVolume* pVol) : TObject(),fEdep(0.),fEdepVis(0.), fPos(0.), fPhysVol(pVol) {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -56,6 +56,7 @@ OpNoviceScintHit::~OpNoviceScintHit() {}
 OpNoviceScintHit::OpNoviceScintHit(const OpNoviceScintHit &right) : G4VHit(),TObject()
 {
   fEdep = right.fEdep;
+  fEdepVis = right.fEdepVis;
   fPos = right.fPos;
   fPhysVol = right.fPhysVol;
 }
@@ -64,6 +65,7 @@ OpNoviceScintHit::OpNoviceScintHit(const OpNoviceScintHit &right) : G4VHit(),TOb
 
 const OpNoviceScintHit& OpNoviceScintHit::operator=(const OpNoviceScintHit &right){
   fEdep = right.fEdep;
+  fEdepVis = right.fEdepVis;
   fPos = right.fPos;
   fPhysVol = right.fPhysVol;
   return *this;

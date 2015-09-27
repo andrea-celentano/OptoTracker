@@ -73,7 +73,6 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 	fSaveDetDigi=true;
 
 
-	fMCEvent = new MCEvent;
 
 
 	fHistograms1D=NULL;
@@ -85,7 +84,7 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 RootIO::~RootIO()
 {
 	fFile->Close();
-	delete fMCEvent;
+
 	if(fRootCollectionScintRaw) delete fRootCollectionScintRaw;
 	if(fRootCollectionDetRaw) delete fRootCollectionDetRaw;
 	if(fRootCollectionDetDigi) delete fRootCollectionDetDigi;
