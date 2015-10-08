@@ -6,7 +6,7 @@
      <numberOfWorkers>7</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
      <verboseLevel>2</verboseLevel>
-     <numberOfEvents>10</numberOfEvents>
+     <numberOfEvents>-1</numberOfEvents> 
    </control>
    <execute>
      <driver name="EventMarker"/>
@@ -19,9 +19,10 @@
       </driver>
       <driver name="Charge" type="TChargeAnalysisDriver">  
 	<setCollectionName>"DetDigiMC"</setCollectionName>
+	<setWriteOutFileName>$outFile</setWriteOutFileName>
       </driver>
       <driver name="Save" type="TRootSaveDriver">
-	<setOutFileName>"out.root"</setOutFileName>
+	<setOutFileName>"outMu.root"</setOutFileName>
       </driver>
    </drivers>
  </Recon>

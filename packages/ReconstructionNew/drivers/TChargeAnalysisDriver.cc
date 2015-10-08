@@ -78,7 +78,7 @@ int TChargeAnalysisDriver::process(TEvent *event){
 						//mean=m_manager->getDetectorUtils()->SinglePixelAverageCharge( ,ii,jj,kk);
 						meanModel=0;
 						if ((m_MCTruth->getXin()!=0)&&(m_MCTruth->getXout()!=0)){
-							if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+							if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){
 								Info("process","model with track");
 							}
 							xIn=m_MCTruth->getXin()->Vect();
@@ -86,11 +86,12 @@ int TChargeAnalysisDriver::process(TEvent *event){
 							meanModel=m_manager->getDetectorUtils()->TrackAverageCharge(xIn,xOut,ii,jj,kk);
 						}
 						else{
-							if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
-								Info("process","model with point");
-							}
 							x0=m_MCTruth->getX0()->Vect();
 							meanModel=m_manager->getDetectorUtils()->SinglePixelAverageCharge(x0,ii,jj,kk);
+							if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){
+								Info("process","model with point: %f %f %f. Average: %f",x0.X(),x0.Y(),x0.Z(),meanModel);
+
+							}
 						}
 						meanModel*=m_MCTruth->getEdepVis();
 						meanModel*=m_manager->getDetector()->getLY();

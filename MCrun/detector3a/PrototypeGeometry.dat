@@ -15,62 +15,61 @@ ScintillatorFastTau 1.8	     		    #Fast tau, ns
 ScintillatorRindex 1.58			    #Refraction index
 
 Face 0 2
-FaceProperties -1
+FaceProperties 0.05
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1 
-DetectorPlacement 0 1.25 0
-DetectorCoupling 0.01 1
+DetectorPlacement 0 -1.2 0
+DetectorCoupling 0.01 1.5
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1
-DetectorPlacement 0 -1.25 0 
-DetectorCoupling 0.01 1
+DetectorPlacement 0 1.2 0 
+DetectorCoupling 0.01 1.5
 
 Face 1 2
-FaceProperties -1
+FaceProperties 0.05
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1 
-DetectorPlacement 0 1.25 0
-DetectorCoupling 0.01 1
+DetectorPlacement 0 -1.2 0
+DetectorCoupling 0.01 1.5
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1
-DetectorPlacement 0 -1.25 0 
-DetectorCoupling 0.01 1
+DetectorPlacement 0 1.2 0 
+DetectorCoupling 0.01 1.5
 
 
 Face 2 2
-FaceProperties -1
+FaceProperties 0.05
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1 
-DetectorPlacement 0 1.25 0
-DetectorCoupling 0.01 1
+DetectorPlacement 0 -1.2 0
+DetectorCoupling 0.01 1.5
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1
-DetectorPlacement 0 -1.25 0 
-DetectorCoupling 0.01 1
+DetectorPlacement 0 1.2 0 
+DetectorCoupling 0.01 1.5
 
 
 Face 3 2
-FaceProperties -1
+FaceProperties 0.05
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1 
-DetectorPlacement 0 1.25 0
-DetectorCoupling 0.01 1
+DetectorPlacement 0 -1.2 0
+DetectorCoupling 0.01 1.5
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.3 0.1 0.1
-DetectorPlacement 0 -1.25 0 
-DetectorCoupling 0.01 1
-
+DetectorPlacement 0 1.2 0 
+DetectorCoupling 0.01 1.5
 
 
 Face 4 0
-FaceProperties 0.15
+FaceProperties 0.05
 
 Face 5 0
-FaceProperties 0.15
+FaceProperties 0.05
 
 
 

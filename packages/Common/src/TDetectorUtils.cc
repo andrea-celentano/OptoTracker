@@ -175,10 +175,12 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 
 
 	ret = solidAngle * Ttot * QE;
+	//ret = solidAngle * QE;
 
 
 	return ret;
 }
+
 
 
 /*This is the method that returns the solid angle of a given face/detector/pixel

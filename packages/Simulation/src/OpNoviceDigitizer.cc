@@ -163,16 +163,17 @@ void OpNoviceDigitizer::Digitize() // at each event
 					for(G4int jj=0;jj<n;jj++){
 						if ( ((*DigitsCollection)[jj]->GetFaceNumber()==faceNumber) && ((*DigitsCollection)[jj]->GetDetectorNumber()==detectorNumber) && ((*DigitsCollection)[jj]->GetPixelNumber()==pixelNumber)  ) {
 							Digi=(*DigitsCollection)[jj];
+							Digi->IncrementPheCount();
+							if ( t < Digi->GetFirstHitTime() ) Digi->SetFirstHitTime(t);
 							break;
 						}
 					}
 					if(Digi==NULL){
-						G4cout<<"Probable error in OpNoviceDigitizer: digi not found "<<detectorNumber<<" "<<pixelNumber<<endl;
-						G4cout<<"Hit face,det, X-Y (cm) is: "<<faceNumber<<" "<<detectorNumber<<" "<<x/cm<<" "<<y/cm<<endl;
+						G4cout<<"Probable_error in OpNoviceDigitizer: digi not found "<<detectorNumber<<" "<<pixelNumber<<endl;
+						G4cout<<"Hit face,det,pixel X-Y (cm) is: "<<faceNumber<<" "<<detectorNumber<<" "<<pixelNumber<<" "<<x/cm<<" "<<y/cm<<endl;
 					}
 
-					Digi->IncrementPheCount();
-					if ( t < Digi->GetFirstHitTime() ) Digi->SetFirstHitTime(t);
+
 				}
 			}
 		}

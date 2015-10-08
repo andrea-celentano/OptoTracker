@@ -86,7 +86,8 @@ int TMatrixWriterDriver::end(){
 	out<<m_nPixels<<endl;
 	for (int ipixel=0;ipixel<m_nPixels;ipixel++){
 		out<<hPixels->GetBinContent(ipixel+1)<<" "; //out will be a 2-line file
-		if (m_manager->getVerboseLevel()>=TJobManager::fullVerbosity){ cout<<ipixel<<" "<<hPixels->GetBinContent(ipixel+1)<<endl; //+1 is "a-la-Root"
+		if (m_manager->getVerboseLevel()>=TJobManager::fullVerbosity){
+			cout<<ipixel<<" "<<hPixels->GetBinContent(ipixel+1)<<endl; //+1 is "a-la-Root"
 		}
 	}
 

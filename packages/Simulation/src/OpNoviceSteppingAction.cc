@@ -121,18 +121,18 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 						"Something is wrong with the fMCTruth");
 			}
 			fMCTruth->setPid(theTrack->GetParticleDefinition()->GetPDGEncoding());
-			fMCTruth->setX0(new TLorentzVector(thePrePoint->GetPosition().x(),thePrePoint->GetPosition().y(),thePrePoint->GetPosition().z(),thePrePoint->GetGlobalTime()));
-			fMCTruth->setP0(new TLorentzVector(theTrack->GetMomentum().x(),theTrack->GetMomentum().y(),theTrack->GetMomentum().z(),theTrack->GetTotalEnergy()));
+			fMCTruth->setX0(new TLorentzVector(thePrePoint->GetPosition().x()/cm,thePrePoint->GetPosition().y()/cm,thePrePoint->GetPosition().z()/cm,thePrePoint->GetGlobalTime()/ns));
+			fMCTruth->setP0(new TLorentzVector(theTrack->GetMomentum().x()/cm,theTrack->GetMomentum().y()/cm,theTrack->GetMomentum().z()/cm,theTrack->GetTotalEnergy()/ns));
 		}
 		else if (!thePostPV){
 			fExpectedNextStatus=Undefined;
 			return;
 		}
 		else if((thePostPoint->GetPhysicalVolume()->GetName()=="Scintillator")&&(thePrePoint->GetStepStatus()==fGeomBoundary)&&(thePrePoint->GetPhysicalVolume()->GetName()!="Scintillator")){ //entering
-      			fMCTruth->setXin(new TLorentzVector(thePrePoint->GetPosition().x(),thePrePoint->GetPosition().y(),thePrePoint->GetPosition().z(),thePrePoint->GetGlobalTime()));
+      			fMCTruth->setXin(new TLorentzVector(thePrePoint->GetPosition().x()/cm,thePrePoint->GetPosition().y()/cm,thePrePoint->GetPosition().z()/cm,thePrePoint->GetGlobalTime()/ns));
 		}
 		else if((thePrePoint->GetPhysicalVolume()->GetName()=="Scintillator")&&(thePostPoint->GetStepStatus()==fGeomBoundary)&&((thePostPoint->GetPhysicalVolume()->GetName()!="Scintillator"))){ //exiting
-			fMCTruth->setXout(new TLorentzVector(thePostPoint->GetPosition().x(),thePostPoint->GetPosition().y(),thePostPoint->GetPosition().z(),thePostPoint->GetGlobalTime()));
+			fMCTruth->setXout(new TLorentzVector(thePostPoint->GetPosition().x()/cm,thePostPoint->GetPosition().y()/cm,thePostPoint->GetPosition().z()/cm,thePostPoint->GetGlobalTime()/ns));
 		}
 	}
 
