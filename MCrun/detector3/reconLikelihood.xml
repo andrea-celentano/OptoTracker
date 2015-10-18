@@ -23,7 +23,7 @@
 	<setReconInputFileName>"recon.inp"</setReconInputFileName>
       </driver>
       <driver name="Save" type="TRootSaveDriver">
-	<setOutFileName>"outMu.root"</setOutFileName>
+	<setOutFileName>"outAlphaRecon.root"</setOutFileName>
       </driver>
    </drivers>
  </Recon>

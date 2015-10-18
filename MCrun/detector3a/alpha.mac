@@ -1,9 +1,9 @@
-/OpNovice/run/setRunName alpha
+/OpNovice/run/setRunName alphaLateral2
 
 /gps/particle alpha
 /gps/energy 1 MeV
 
-/gps/position  0 0 0 cm
+/gps/position  0 1 1 cm
 /gps/direction 0 -1 0
 
 
