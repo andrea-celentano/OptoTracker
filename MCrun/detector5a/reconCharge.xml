@@ -19,10 +19,10 @@
       </driver>
       <driver name="Charge" type="TChargeAnalysisDriver">  
 		<setCollectionName>"DetDigiMC"</setCollectionName>
-		<setWriteOutFileName>"alphaCentral.dat"</setWriteOutFileName>
+		<setWriteOutFileName>"alphaLateral.dat"</setWriteOutFileName>
       </driver>
       <driver name="Save" type="TRootSaveDriver">
-		<setOutFileName>"alphaCentral.root"</setOutFileName>
+		<setOutFileName>"alphaLateral.root"</setOutFileName>
       </driver>
    </drivers>
  </Recon>
