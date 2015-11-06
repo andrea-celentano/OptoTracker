@@ -1,0 +1,5 @@
+/OpNovice/run/setRunName run_94
+/gps/particle alpha
+/gps/energy 1 MeV
+/gps/pos/centre 2.4 1.2 1.2 cm
+/run/beamOn 10000

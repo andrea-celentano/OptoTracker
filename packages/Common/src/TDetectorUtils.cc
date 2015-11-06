@@ -158,8 +158,7 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 		//case 1-a: there is no coupling at all
 		detectorR=m_detector->getDetReflectivity(iface,idetector);
 		detectorT=1-detectorR;
-		QE=m_detector->getDetQE(iface,idetector);
-		QE=QE/detectorT;
+		QE=m_detector->getDetQE(iface,idetector); /*This is the ''intrinsic'' one, for a photon that DID NOT GOT REFLECTED!*/
 
 		if (m_detector->getCouplingThickness(iface,idetector)<=0){
 			Ttot=1-detectorR;
@@ -171,7 +170,7 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 			Ttot=FresnelT*detectorT/(1-FresnelR*detectorR);
 		}
 	}
-
+	//cout<<Ttot<<" "<<QE<<" "<<solidAngle<<endl;
 
 
 	ret = solidAngle * Ttot * QE;

@@ -17,8 +17,8 @@ resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir=os.environ['OPTO']+"/MCrun/detector3a"
-saveDir=workDir+"/matrix1"
+workDir=os.environ['OPTO']+"/MCrun/detector3"
+saveDir=workDir+"/run0/matrix0"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -42,8 +42,10 @@ particle="alpha"
 energy="1 MeV"
 
 #How many events
-Nevents=10000
+Nevents=100
 
+command = "rm -f matrix.root"
+os.system(command)
 
 if not os.path.exists(saveDir):
 	os.makedirs(saveDir)
@@ -55,20 +57,9 @@ if not os.path.exists(saveDir):
 	
 command = "cd "+saveDir+" ; rm -rf *log* ; cd .."
 os.system(command)
-
-
-#Let's start
-#Go to the saveDir and work there
-os.chdir(saveDir)      
-
-#Remove the matrix file if it exists
-command = "rm -f matrix.root"
-os.system(command)
-
-
-
+      
 gSystem.Load("$OPTO/lib/libCommonClassesDict.so")
-detector = TDetectorLight(workDir+"/PrototypeGeometry.dat");
+detector = TDetectorLight("PrototypeGeometry.dat");
 
 detector.Print();
 
@@ -117,7 +108,7 @@ for iz in range(0,Nz):
 				line="/gps/pos/halfx "+str(Lx/(2*Nx))+"\n"
 				macroFile.write(line)
 				line="/gps/pos/halfy "+str(Ly/(2*Ny))+"\n"
-	        		macroFile.write(line)
+				macroFile.write(line)
 				line="/gps/pos/halfz "+str(Lz/(2*Nz))+"\n"
 				macroFile.write(line)
 				# angles
@@ -125,7 +116,6 @@ for iz in range(0,Nz):
 				macroFile.write(line)
 				# the center
 				line="/gps/pos/centre "+str(centerX)+" "+str(centerY)+" "+str(centerZ)+" cm"+"\n"
-		#		line="/gps/position "+str(centerX)+" "+str(centerY)+" "+str(centerZ)+" cm"+"\n"
 				macroFile.write(line)
 				# event number
 				line="/run/beamOn "+str(Nevents)+"\n"
@@ -141,19 +131,19 @@ for iz in range(0,Nz):
 			if (doGeant):
 				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
 				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
-				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir/root		
+				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir		
 				runFile.write("cd "+saveDir+"\n"); #cd to the saveDir
             
 			if (doMatrix):
 				runFile.write("cd "+saveDir+"\n"); #go to the saveDir
 				runFile.write(matrixExe+" -s "+steeringName+" -DvoxelID="+str(ibin)+" root/run_"+str(ibin)+"_0.root"+"\n"); #go with the analysis
-				runFile.write("mv voxel_"+str(ibin)+".dat "+saveDir+"/pixels"+ "\n"); #mv the out file to saveDir/pixels
+				runFile.write("mv voxel_"+str(ibin)+".dat "+saveDir+"/pixels"+ "\n"); #mv the out file
           
 			runFile.write("cd "+saveDir+"\n");
-			runFile.close()
 			os.chmod(runFileName,0755)
-time.sleep(1);
-#redo the loop and run!
+		
+#redo the loop
+
 for iz in range(0,Nz):
 	for iy in range(0,Ny):
 		for ix in range(0,Nx):
@@ -170,14 +160,12 @@ for iz in range(0,Nz):
 				time.sleep(0.2);
 			else:
 				subprocess.call([runFileName],shell=True)
-			
+				
 if (doFarm):
 	for p in procs:
 		p.wait()
-
 print "DONE"
 fVoxels.Close()
 gROOT.LoadMacro(writeMacroName)
-writeMatrix(detectorName,saveDir+"/pixels");
-
+writeMatrix(saveDir+"/pixels");
  

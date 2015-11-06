@@ -22,7 +22,7 @@ Info in <TMatrixWriterDriver::start>: start
 Info in <TJobManager::SlaveBegin>: start
 Info in <TDetectorUtils::TDetectorUtils>: Created TDetectorUtils with the detector
 Info in <TMatrixWriterDriver::startOfData>: start
-Info in <TMatrixWriterDriver::startOfData>: hPixels created with 512 pixels
+Info in <TMatrixWriterDriver::startOfData>: hPixels created with 256 pixels
 Info in <TJobManager::Init>: Start
 Info in <TJobManager::Init>: Done
 Info in <TJobManager::SlaveTerminate>: start

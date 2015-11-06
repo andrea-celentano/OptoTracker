@@ -409,7 +409,8 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 		for (int jj=0;jj<fDetectorLight->getNdet(ii);jj++){
 			///TODO: the case of H8500?
 			G4double DetectorSurfReflectivity[numDetSurf]={fPhotoReflectivity[ii][jj],fPhotoReflectivity[ii][jj]};
-			G4double DetectorSurfEfficiency[numDetSurf]={fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj]),fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj])};    //QE=(1-R)*efficiency
+		//	G4double DetectorSurfEfficiency[numDetSurf]={fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj]),fPhotoQE[ii][jj]/(1-fPhotoReflectivity[ii][jj])};    //QE=(1-R)*efficiency
+			G4double DetectorSurfEfficiency[numDetSurf]={fPhotoQE[ii][jj],fPhotoQE[ii][jj]};  //NO. This is again in fPhotoQE, embedded!!!
 			fDetectorOpsurf[ii][jj]=new G4OpticalSurface(Form("detector_opsurf_%i_%i",ii,jj),unified,polished,dielectric_metal);
 			fDetectorOpsurfMT[ii][jj] = new G4MaterialPropertiesTable();
 			fDetectorOpsurfMT[ii][jj]->AddProperty("REFLECTIVITY",ePhotonDetSurf,DetectorSurfReflectivity,numDetSurf);

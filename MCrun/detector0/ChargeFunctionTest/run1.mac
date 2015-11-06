@@ -1,0 +1,13 @@
+/gps/particle alpha
+/gps/energy 1 MeV
+/gps/position -2 -2 -2 cm
+/gps/direction 0 0.1 0.1
+
+
+/OpNovice/forceDrawNoPhotons 1
+#/OpNovice/detector/ScintYield 1
+
+/OpNovice/eventVerbose 1
+#/OpNovice/detector/ScintYield 0
+#/tracking/verbose 1
+/run/beamOn 400
