@@ -19,10 +19,10 @@
       </driver>
       <driver name="Charge" type="TChargeAnalysisDriver">  
 		<setCollectionName>"DetDigiMC"</setCollectionName>
-		<setWriteOutFileName>$CHARGE_TXT</setWriteOutFileName>
+		<setWriteOutFileName>"alphaLateral.dat"</setWriteOutFileName>
       </driver>
       <driver name="Save" type="TRootSaveDriver">
-		<setOutFileName>$CHARGE_ROOT</setOutFileName>
+		<setOutFileName>"alphaLateral.root"</setOutFileName>
       </driver>
    </drivers>
  </Recon>
