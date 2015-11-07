@@ -263,7 +263,10 @@ double TDetectorUtils::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,
 
 
 	//TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
-	double ret;
+	double ret=0;
+	int N=10;
+	double delta=1./N;
+	double x;
 	/*Prepare the parameters*/
 	m_TrackChargeKernel->SetRange(0.,1.);
 	m_TrackChargeKernel->SetParameter(0,x0.X());
@@ -280,7 +283,12 @@ double TDetectorUtils::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,
 
 	m_TrackChargeKernel->SetNpx(1000);
 
-	ret=m_TrackChargeKernel->Integral(0.,1.);
+	for (int ii=0;ii<N;ii++){
+		x=delta/2+ii*delta;
+		ret+=delta*m_TrackChargeKernel->Eval(x);
+	}
+
+//	ret=m_TrackChargeKernel->Integral(0.,1.);
 
 
 	return ret;

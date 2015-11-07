@@ -1,0 +1,27 @@
+<OptoTracker>
+ <Recon>
+   <control>
+     <doProof>0</doProof>
+     <doProofDiag>1</doProofDiag>
+     <numberOfWorkers>1</numberOfWorkers>
+     <numberOfIterations>1</numberOfIterations>
+     <verboseLevel>2</verboseLevel>
+     <numberOfEvents>10000</numberOfEvents>
+   </control>
+   <execute>
+     <driver name="EventMarker"/>
+     <driver name="Matrix"/>
+   </execute>
+   <drivers>
+      <driver name="EventMarker" type="TEventMarkerDriver">
+		<setInterval>100</setInterval>
+      </driver>
+      <driver name="Matrix" type="TMatrixWriterDriver">
+        <setVoxelID>$voxelID</setVoxelID>
+      </driver>
+   </drivers>
+ </Recon>
+</OptoTracker>
+ 
+ 
+ 
