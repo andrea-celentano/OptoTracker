@@ -1,7 +1,5 @@
-Error in <TGClient::TGClient>: can't open display "farmuisl6:10.0", switching to batch mode...
- In case you run from a remote ssh session, reconnect with ssh -Y
 Info in <TJobManager::TOptoJobManager>: Done
-Info in <TAnalysis::ParseCommandLine>: steering file: /project/Gruppo3/fiber5/celentano/OptoTracker/MCrun/detector5a/matrixMCcalculation.xml
+Info in <TAnalysis::ParseCommandLine>: steering file: /project/Gruppo3/fiber5/celentano/OptoTracker/MCrun/detector5b/matrixMCcalculation.xml
 Info in <TJobManager::setVariable>: Setting variable voxelID at value 14
 Info in <TAnalysis::ParseCommandLine>: add file to chain: root/run_14_0.root
 Info in <TJobManager::ConfigControl>: Done

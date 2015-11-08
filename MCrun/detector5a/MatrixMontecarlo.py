@@ -10,15 +10,15 @@ doFarm=True
 
 doGeant=True
 doMatrix=True
-doVoxelVolume=True
+doVoxelVolume=False
 
 queue_name="long"
 resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir=os.environ['OPTO']+"/MCrun/detector5a"
-saveDir=workDir+"/matrix1"
+workDir=os.environ['OPTO']+"/MCrun/detector5c"
+saveDir=workDir+"/matrix0"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -51,8 +51,21 @@ if not os.path.exists(saveDir):
 	os.makedirs(saveDir+"/ps")
 	os.makedirs(saveDir+"/pixels")
 	os.makedirs(saveDir+"/run_macro")
+
+if not os.path.exists(saveDir+"/root"):
+	os.makedirs(saveDir+"/root")
+      	
+if not os.path.exists(saveDir+"/ps"):
+        os.makedirs(saveDir+"/ps")
 	
-	
+if not os.path.exists(saveDir+"/pixels"):
+        os.makedirs(saveDir+"/pixels")
+
+if not os.path.exists(saveDir+"/run_macro"):
+        os.makedirs(saveDir+"/run_macro")
+
+
+
 command = "cd "+saveDir+" ; rm -rf *log* ; cd .."
 os.system(command)
 

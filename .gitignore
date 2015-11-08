@@ -8,9 +8,15 @@ bin/*
 *~
 #objects
 *.o
+#farm logs
+*log.o
+*log.e
 
 #build
 packages/Common/build
 packages/ReconstructionNew/build
 packages/Simulation/build
 packages/MarocAnalysis/build
+
+#eclipse
+eclipse/*

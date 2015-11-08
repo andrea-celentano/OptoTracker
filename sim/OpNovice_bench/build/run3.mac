@@ -1,0 +1,6 @@
+/gps/particle opticalphoton
+/gps/energy 3.5357 eV
+/gps/position 3 20 0 cm
+/gps/direction -1 0 -1
+#/gps/polarization 0 1 0
+#/run/beamOn 1000

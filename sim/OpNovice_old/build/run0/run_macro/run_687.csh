@@ -1,0 +1,7 @@
+#!/bin/tcsh -f
+cd /project/Gruppo3/fiber5/celentano/OptoTracker/sim/OpNovice/build/
+cd run0
+root -l -q -b  ../doPixels.C\(687\) 
+mv run687.ps matrix0/ps
+mv run687.out matrix0/pixels
+cd ..

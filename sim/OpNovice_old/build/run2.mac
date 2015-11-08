@@ -1,0 +1,23 @@
+#/gps/particle mu-
+#/gps/energy 1000 MeV
+
+/gps/particle alpha
+/gps/energy 1 MeV
+/gps/position 0.0 0.0 0.0 cm
+#/gps/pos/type  Volume
+#/gps/pos/shape Para
+#/gps/pos/halfx 1 mm
+#/gps/pos/halfy 1 mm
+#/gps/pos/halfz 1 mm
+#/gps/pos/paralp 0
+#/gps/pos/parthe 0
+#/gps/pos/parphi 0
+
+#/gps/pos/centre -1 1 1 cm
+#/gps/ang/type iso
+
+#/OpNovice/detector/dimensions 5.2 5.2 5.2 cm
+#/OpNovice/detector/ScintYield 0
+#/tracking/verbose 1
+/OpNovice/forceDrawNoPhotons 1
+/run/beamOn 100

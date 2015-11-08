@@ -1,0 +1,12 @@
+/gps/particle mu-
+/gps/energy 30 GeV
+/gps/position 0 -20 0 cm
+/gps/direction 0 1 0
+
+#/OpNovice/detector/ScintYield 0
+/OpNovice/forceDrawNoPhotons 1
+#/OpNovice/detector/ScintYield 1
+
+#/OpNovice/detector/ScintYield 1E5
+/tracking/verbose 0
+/run/beamOn 1

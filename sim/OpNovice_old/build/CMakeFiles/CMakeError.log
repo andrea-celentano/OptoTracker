@@ -1,0 +1,28 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /usr/bin/gcc 
+Build flags: 
+Id flags: 
+
+The output was:
+1
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/../../../../lib64/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: ld returned 1 exit status
+
+
+The C compiler identification could not be found in "/project/Gruppo3/fiber5/celentano/OptoTracker/sim/OpNovice_old/build/CMakeFiles/CompilerIdC/CMakeCCompilerId.o"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+1
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/../../../../lib64/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: ld returned 1 exit status
+
+
+The CXX compiler identification could not be found in "/project/Gruppo3/fiber5/celentano/OptoTracker/sim/OpNovice_old/build/CMakeFiles/CompilerIdCXX/CMakeCXXCompilerId.o"
+

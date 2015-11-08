@@ -1,0 +1,11 @@
+/OpNovice/run/setRunName run_893
+/gps/particle alpha
+/gps/energy 1 MeV
+/gps/pos/type Volume 
+/gps/pos/shape Para 
+/gps/pos/halfx 0.272727272727
+/gps/pos/halfy 0.272727272727
+/gps/pos/halfz 0.272727272727
+/gps/ang/type iso
+/gps/pos/centre -1.63636363636 -0.545454545455 1.09090909091 cm
+/run/beamOn 1000
