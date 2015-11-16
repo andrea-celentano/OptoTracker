@@ -19,12 +19,12 @@ FaceProperties 0.1
 
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 -1.2 0
+DetectorPlacement -1.6 -1.25 0
 DetectorCoupling 0.01 1.54
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 1.2 0 
+DetectorPlacement -1.6 1.25 0 
 DetectorCoupling 0.01 1.54
 
 
@@ -33,12 +33,12 @@ FaceProperties 0.1
 
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0.  
-DetectorPlacement -1.6 -1.2 0
+DetectorPlacement -1.6 -1.25 0
 DetectorCoupling 0.01 1.54
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 1.2 0 
+DetectorPlacement -1.6 1.25 0 
 DetectorCoupling 0.01 1.54
 
 
@@ -48,12 +48,12 @@ FaceProperties 0.1
 
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 -1.2 0
+DetectorPlacement -1.6 -1.25 0
 DetectorCoupling 0.01 1.54
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacemen -1.6 1.2 0 
+DetectorPlacement -1.6 1.25 0 
 DetectorCoupling 0.01 1.54
 
 Face 3 2
@@ -61,12 +61,12 @@ FaceProperties 0.1
 
 Detector 0 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 -1.2 0
+DetectorPlacement -1.6 -1.25 0
 DetectorCoupling 0.01 1.54
 
 Detector 1 2.4 2.4 8 8
 DetectorProperties 0.42 0.22 0. 
-DetectorPlacement -1.6 1.2 0 
+DetectorPlacement -1.6 1.25 0 
 DetectorCoupling 0.01 1.54
 
 
