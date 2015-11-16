@@ -1,0 +1,13 @@
+/OpNovice/run/setRunName alphaLateral3
+
+/gps/particle alpha
+/gps/energy 0.5 MeV
+
+/gps/position  0 2.99 -1 cm
+/gps/direction 0 -1 0
+
+
+
+/OpNovice/forceDrawNoPhotons 1
+/run/beamOn 1000
+
