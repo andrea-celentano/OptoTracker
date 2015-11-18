@@ -236,7 +236,6 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 				fPhotoDetectorCenterX[ii][jj]=fDetectorLight->getDetCenterX(ii,jj)*cm;
 				fPhotoDetectorCenterY[ii][jj]=fDetectorLight->getDetCenterY(ii,jj)*cm;
 				fPhotoDetectorRotation[ii][jj]=fDetectorLight->getDetRotation(ii,jj)*deg;
-
 				fPixelSizeX[ii][jj]=fDetectorLight->getPixelSizeX(ii,jj)*cm;
 				fPixelSizeY[ii][jj]=fDetectorLight->getPixelSizeY(ii,jj)*cm;
 

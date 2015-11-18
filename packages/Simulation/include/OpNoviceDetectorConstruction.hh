@@ -176,6 +176,7 @@ private:
 	G4double fPhotoDetectorCenterY[6][MAX_DETECTORS];
 	G4double fPhotoDetectorRotation[6][MAX_DETECTORS];
 
+
 	G4double fPixelSizeX[6][MAX_DETECTORS];
 	G4double fPixelSizeY[6][MAX_DETECTORS];
 

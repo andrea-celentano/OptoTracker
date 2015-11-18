@@ -32,6 +32,7 @@ private:
 	double detTimeRes[6][MAX_DETECTORS];
 
 	/*Detector placement*/
+	int	   detPlacementAlt[6][MAX_DETECTORS];
 	double detCenterX[6][MAX_DETECTORS];
 	double detCenterY[6][MAX_DETECTORS];
 	double detRotation[6][MAX_DETECTORS];
@@ -97,6 +98,7 @@ public:
 	double getDetCenterX(int iface,int idetector)  const{return detCenterX[iface][idetector];}
 	double getDetCenterY(int iface,int idetector)  const{return detCenterY[iface][idetector];}
 	double getDetRotation(int iface,int idetector) const{return detRotation[iface][idetector];}
+	int    getDetPlacementAlt(int iface,int idetector) const{return detPlacementAlt[iface][idetector];}
 
 	void setDetCenterX(int iface,int idetector,double val){detCenterX[iface][idetector]=val;}
 	void setDetCenterY(int iface,int idetector,double val){detCenterY[iface][idetector]=val;}

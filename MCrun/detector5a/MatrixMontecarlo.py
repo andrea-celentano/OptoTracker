@@ -10,15 +10,15 @@ doFarm=True
 
 doGeant=True
 doMatrix=True
-doVoxelVolume=False
+doVoxelVolume=True
 
 queue_name="long"
 resources="rusage[mem=500,swp=500] "
 arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
-workDir=os.environ['OPTO']+"/MCrun/detector5c"
-saveDir=workDir+"/matrix0"
+workDir=os.environ['OPTO']+"/MCrun/detector5a"
+saveDir=workDir+"/matrix2"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -30,9 +30,9 @@ Lx = 6.0
 Ly = 6.0
 Lz = 6.0
 #divisions for voxels
-Nx = 5
-Ny = 5
-Nz = 5
+Nx = 6
+Ny = 6
+Nz = 6
 
 #which detector
 detectorName=workDir+"/PrototypeGeometry.dat"

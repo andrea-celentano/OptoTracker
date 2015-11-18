@@ -94,6 +94,13 @@ TDetectorLight::TDetectorLight(string fname):
 			parser>>data;detCenterX[face][id]=atof(data.c_str());
 			parser>>data;detCenterY[face][id]=atof(data.c_str());
 			parser>>data;detRotation[face][id]=atof(data.c_str());
+			detPlacementAlt[face][id]=0;
+		}
+		else if (key=="DetectorPlacementAlt"){
+					parser>>data;detCenterX[face][id]=atof(data.c_str());
+					parser>>data;detCenterY[face][id]=atof(data.c_str());
+					parser>>data;detRotation[face][id]=atof(data.c_str());
+					detPlacementAlt[face][id]=1;
 		}
 
 		else if (key=="DetectorCoupling"){
