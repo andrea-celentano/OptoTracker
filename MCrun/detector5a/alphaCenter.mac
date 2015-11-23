@@ -11,3 +11,14 @@
 /OpNovice/forceDrawNoPhotons 1
 /run/beamOn 100
 
+/gps/energy 2 MeV
+/run/beamOn 100
+
+/gps/energy 3 MeV
+/run/beamOn 100
+
+/gps/energy 5 MeV
+/run/beamOn 100
+
+/gps/energy 10 MeV
+/run/beamOn 100

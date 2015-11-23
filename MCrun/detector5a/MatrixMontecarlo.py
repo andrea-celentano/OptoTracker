@@ -18,7 +18,7 @@ arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
 workDir=os.environ['OPTO']+"/MCrun/detector5a"
-saveDir=workDir+"/matrix2"
+saveDir=workDir+"/matrix3"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -39,7 +39,7 @@ detectorName=workDir+"/PrototypeGeometry.dat"
 #which particle
 particle="alpha"
 #which energy
-energy="1 MeV"
+energy="10 MeV"
 
 #How many events
 Nevents=10000

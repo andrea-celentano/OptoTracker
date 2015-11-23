@@ -10,5 +10,7 @@ set BENCHS = (alphaCenter alphaLateral alphaLateral2 muonCenter muonLateral)
 foreach bench ($BENCHS)
 echo $bench
 $MC -det $DET -m ${bench}.mac
-$RECON -s $STEERING ${bench}_0.root -DCHARGE_TXT=\"${bench}Out.txt\" -DCHARGE_ROOT=\"${bench}Out.root\"
+
+foreach file (${bench}_*.root)
+$RECON -s $STEERING $file -DCHARGE_TXT=\"${file}Out.txt\" -DCHARGE_ROOT=\"${file}Out.root\"
 end
