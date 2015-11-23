@@ -5,12 +5,12 @@ void compareMatrix(int iv){
 
 	TH1D *hAnalyticModelOptics=new TH1D("hAnalyticModelOptics","hAnalyticModelOptics",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hAnalyticModelOptics2=new TH1D("hAnalyticModelOptics2","hAnalyticModelOptics2",Np,-0.5,Np-0.5);
-	ifstream fAnalyticModelOptics("matrixAnalyticModel.txt");
+	ifstream fAnalyticModelOptics("../detector5d/matrix0/matrix.txt");
 
 
 	TH1D *hMCpoint=new TH1D("hMCpoint","hMCpoint",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hMCpoint2=new TH1D("hMCpoint2","hMCpoint2",Np,-0.5,Np-0.5);
-	ifstream fMCpoint("matrixMCpoint.txt");
+	ifstream fMCpoint("../detector5e/matrix0/matrix.txt");
 
 
 	TH1D *hMCvolume=new TH1D("hMCvolume","hMCvolume",Np*Nv,-0.5,Np*Nv-0.5);
@@ -52,7 +52,7 @@ void compareMatrix(int iv){
 			}
 		}
 	}
-
+	/*
 	totval=0;
 	totval2=0;
 	for (int ivoxel=0;ivoxel<Nv;ivoxel++){
@@ -66,7 +66,7 @@ void compareMatrix(int iv){
 			}
 		}
 	}
-
+	*/
 	//hMCpoint2->Scale(1./totval2);
 
 

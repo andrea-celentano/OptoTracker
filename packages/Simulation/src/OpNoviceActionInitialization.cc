@@ -39,10 +39,11 @@
 #include "OpNoviceSteppingVerbose.hh"
 
 #include "OpNoviceRecorderBase.hh"
+#include "TDetectorLight.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceActionInitialization::OpNoviceActionInitialization(OpNoviceRecorderBase* recorder)
-: G4VUserActionInitialization(),fRecorder(recorder)
+OpNoviceActionInitialization::OpNoviceActionInitialization(OpNoviceRecorderBase* recorder,TDetectorLight* detector)
+: G4VUserActionInitialization(),fRecorder(recorder),fDetector(detector)
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -54,7 +55,7 @@ OpNoviceActionInitialization::~OpNoviceActionInitialization()
 
 void OpNoviceActionInitialization::BuildForMaster() const
 {
-	SetUserAction(new OpNoviceRunAction(fRecorder));
+	SetUserAction(new OpNoviceRunAction(fRecorder,fDetector));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -64,7 +65,7 @@ void OpNoviceActionInitialization::Build() const
   SetUserAction(new OpNovicePrimaryGeneratorAction());
   SetUserAction(new OpNoviceStackingAction());
 	
-  SetUserAction(new OpNoviceRunAction(fRecorder));
+  SetUserAction(new OpNoviceRunAction(fRecorder,fDetector));
   SetUserAction(new OpNoviceEventAction(fRecorder));
   SetUserAction(new OpNoviceTrackingAction(fRecorder));	
   SetUserAction(new OpNoviceSteppingAction(fRecorder));

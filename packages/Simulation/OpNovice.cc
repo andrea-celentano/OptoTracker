@@ -173,7 +173,7 @@ int main(int argc,char** argv)
 	OpNoviceRecorderBase* recorder = NULL; //No recording is done in this example
 
 	// User action initialization
-	runManager->SetUserInitialization(new OpNoviceActionInitialization(recorder));
+	runManager->SetUserInitialization(new OpNoviceActionInitialization(recorder,detectorLight));
 
 
 	// Initialize G4 kernel
@@ -233,12 +233,12 @@ int main(int argc,char** argv)
 
 
 
-
+/*
 	RootIO *fRootIO=RootIO::GetInstance();
 	TFile *fRootFile=fRootIO->getFile();
 	fRootFile->cd();
-	fRootIO->saveDetectorLight(detectorLight);		
-
+	fRootIO->saveDetector(detectorLight);
+*/
 
 	delete runManager;
 

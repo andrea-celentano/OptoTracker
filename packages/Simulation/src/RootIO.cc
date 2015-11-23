@@ -109,29 +109,49 @@ RootIO* RootIO::GetInstance()
 
 void RootIO::Init(int n){
 
-	if (fFile) delete fFile;
+	G4cout<<"RootIO::Init "<<G4endl;
+	//if (fEvent) delete fEvent;
+	//G4cout<<"RootIO:: clean event"<<G4endl;
+
+	//if (fRootCollectionScintRaw) delete fRootCollectionScintRaw;
+	//if (fRootCollectionDetRaw) delete fRootCollectionDetRaw;
+	//if (fRootCollectionDetDigi) delete fRootCollectionDetDigi;
+
+	fEvent = 0;
+	fFile = 0;
+	G4cout<<"RootIO::initial cleanup done "<<G4endl;
 
 	std::string fFileName=Form("%s_%i.root",fName.c_str(),n);
 	fFile = new TFile(fFileName.c_str(),"RECREATE");
 	fTree = new TTree("Event","Event");
 	fTree->Branch("Event",&fEvent);
 
+	G4cout<<"RootIO::tree created "<<G4endl;
+
 	/*Here we need to set the collections of our event*/
 	fRootCollectionScintRaw=new TClonesArray("OpNoviceScintHit",1000); /*If more than s objects are entered, the array will be automatically expanded*/
 	fRootCollectionDetRaw=new TClonesArray("OpNoviceDetectorHit",1000);
 	fRootCollectionDetDigi=new TClonesArray("OpNoviceDigi",1000);
 
+	G4cout<<"RootIO::collections created"<<G4endl;
+
 	fRootCollectionScintRaw->SetName("ScintRawMC");
 	fRootCollectionDetRaw->SetName("DetRawMC");
 	fRootCollectionDetDigi->SetName("DetDigiMC");
+
+	G4cout<<"RootIO::collections named "<<G4endl;
+
 	fEvent->addCollection(fRootCollectionScintRaw); /*Do not need to check if exists already*/
 	fEvent->addCollection(fRootCollectionDetRaw);
 	fEvent->addCollection(fRootCollectionDetDigi);
 
 
+	G4cout<<"RootIO::collections added "<<G4endl;
 
 	fHistograms1D=new std::vector<TH1*>;
 	fHistograms2D=new std::vector<TH2*>;
+
+	G4cout<<"RootIO::histo vectors created"<<G4endl;
 	/*Define here histograms*/
 	fHistograms1D->push_back(new TH1D("hy","hy",200,-3.1,3.1));   //0
 	fHistograms1D->push_back(new TH1D("hY1","hY1",200,-3.1,3.1)); //1
@@ -156,7 +176,7 @@ void RootIO::FillEvent()
 }
 
 
-void RootIO::WriteAll(){
+void RootIO::End(TDetectorLight *detector){
 	/// Write the Root tree in the file and close it (it is called at the end of run, 1 run == 1 file).
 	fFile->cd();
 	for (int ii=0;ii<fHistograms1D->size();ii++){
@@ -166,7 +186,22 @@ void RootIO::WriteAll(){
 		fHistograms2D->at(ii)->Write();
 	}
 	fFile->Write();
-	G4cout<<"RootIO::WriteAll done"<<G4endl;
+	fFile->WriteTObject(detector);
+
+	fFile->Close();
+	G4cout<<"fRootIO::End close root file done"<<G4endl;
+
+	if (fEvent) delete fEvent;
+	G4cout<<"Delete event done"<<G4endl;
+	if (fRootCollectionScintRaw) delete fRootCollectionScintRaw;
+	if (fRootCollectionDetRaw) delete fRootCollectionDetRaw;
+	if (fRootCollectionDetDigi) delete fRootCollectionDetDigi;
+	G4cout<<"Delete collections done"<<G4endl;
+	if (fHistograms1D) delete fHistograms1D;
+	if (fHistograms2D) delete fHistograms2D;
+	G4cout<<"Delete histograms done"<<G4endl;
+
+	G4cout<<"fRootIO::End done"<<G4endl;
 }
 
 
@@ -180,10 +215,6 @@ void RootIO::fillHistogram2D(int idx,double x,double y,double w=1){
 }
 
 
-void RootIO::saveDetectorLight(TDetectorLight *detector){
-	fFile->WriteTObject(detector);
-	//	detector->Write();
-}
 
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

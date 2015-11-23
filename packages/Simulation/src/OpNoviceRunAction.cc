@@ -35,13 +35,15 @@
 #include "OpNoviceRecorderBase.hh"
 #include "G4Run.hh"
 #include "RootIO.hh"
+#include "TDetectorLight.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r)
+OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r,TDetectorLight *detector)
 : G4UserRunAction(),
 fTimer(0),
 fRecorder(r),
-fRootIO()
+fRootIO(),
+fDetector(detector)
 {
 	fTimer = new G4Timer;
 	fMessenger = OpNoviceMessenger::GetInstance();
@@ -85,7 +87,8 @@ void OpNoviceRunAction::EndOfRunAction(const G4Run* aRun)
 	fTimer->Stop();
 	G4cout << "number of events = " << aRun->GetNumberOfEvent()
 		<< " " << *fTimer << G4endl;	
-	fRootIO.WriteAll();
+	fRootIO.End(fDetector);
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
