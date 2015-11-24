@@ -4,13 +4,16 @@
 lib/*
 bin/*
 
+#sim macros and script
+macro*.run
+run_*.csh
 #local backups
 *~
 #objects
 *.o
 #farm logs
-*log.o
-*log.e
+log*.o
+log*.e
 
 #build
 packages/Common/build
