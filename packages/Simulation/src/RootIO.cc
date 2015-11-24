@@ -83,12 +83,11 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 RootIO::~RootIO()
 {
-	fFile->Close();
 
-	if(fRootCollectionScintRaw) delete fRootCollectionScintRaw;
+/*	if(fRootCollectionScintRaw) delete fRootCollectionScintRaw;
 	if(fRootCollectionDetRaw) delete fRootCollectionDetRaw;
 	if(fRootCollectionDetDigi) delete fRootCollectionDetDigi;
-
+*/
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -121,7 +120,7 @@ void RootIO::Init(int n){
 	fFile = 0;
 	G4cout<<"RootIO::initial cleanup done "<<G4endl;
 
-	std::string fFileName=Form("%s_%i.root",fName.c_str(),n);
+	std::string fFileName=Form("%s.%i.MCout.root",fName.c_str(),n);
 	fFile = new TFile(fFileName.c_str(),"RECREATE");
 	fTree = new TTree("Event","Event");
 	fTree->Branch("Event",&fEvent);
