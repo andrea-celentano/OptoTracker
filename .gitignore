@@ -23,3 +23,5 @@ packages/MarocAnalysis/build
 
 #eclipse
 eclipse/*
+.project
+.cproject
