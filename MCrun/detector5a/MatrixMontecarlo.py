@@ -18,7 +18,7 @@ arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
 workDir=os.environ['OPTO']+"/MCrun/detector5a"
-saveDir=workDir+"/matrix3"
+saveDir=workDir+"/matrix2"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -30,9 +30,10 @@ Lx = 6.0
 Ly = 6.0
 Lz = 6.0
 #divisions for voxels
-Nx = 6
-Ny = 6
-Nz = 6
+
+Nx = 4
+Ny = 4
+Nz = 4
 
 #which detector
 detectorName=workDir+"/PrototypeGeometry.dat"
@@ -153,13 +154,13 @@ for iz in range(0,Nz):
 			runFile.write("cd "+workDir+"\n");
 			if (doGeant):
 				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
-				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
-				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir/root		
+				#runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
+				runFile.write("mv run_"+str(ibin)+".0.MCout.root "+"root/ \n"); #mv the root file to saveDir/root		
 				runFile.write("cd "+saveDir+"\n"); #cd to the saveDir
             
 			if (doMatrix):
 				runFile.write("cd "+saveDir+"\n"); #go to the saveDir
-				runFile.write(matrixExe+" -s "+steeringName+" -DvoxelID="+str(ibin)+" root/run_"+str(ibin)+"_0.root"+"\n"); #go with the analysis
+				runFile.write(matrixExe+" -s "+steeringName+" -DvoxelID="+str(ibin)+" root/run_"+str(ibin)+".0.MCout.root"+"\n"); #go with the analysis
 				runFile.write("mv voxel_"+str(ibin)+".dat "+saveDir+"/pixels"+ "\n"); #mv the out file to saveDir/pixels
           
 			runFile.write("cd "+saveDir+"\n");

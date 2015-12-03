@@ -7,6 +7,7 @@
 #include <iterator>
 
 TEvent::TEvent(){
+	m_eventHeader=0;
 
 }
 
@@ -111,6 +112,7 @@ void	TEvent::Clear(Option_t* opt){
 		if (*it)		(*it)->Clear(opt);
 	}
 	m_objects.Clear();
+	m_eventHeader=0;
 }
 
 

@@ -39,7 +39,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include
                     ${Geant4_INCLUDE_DIR}
 		    ${ROOT_INCLUDE_DIR}
 		    $ENV{OPTO}/packages/Common/include
-		    $ENV{OPTO}/packages/Simulation/include)
+		    $ENV{OPTO}/packages/Simulation/include
+   	        $ENV{OPTO}/packages/TofpetAnalysis/include)
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc ${PROJECT_SOURCE_DIR}/drivers/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh ${PROJECT_SOURCE_DIR}/drivers/*.cc)
 
@@ -64,11 +65,8 @@ target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LI
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
-#add_executable(Reconstruction.single Reconstruction.single.cpp ${sources} ${headers})
-#target_link_libraries(Reconstruction.single ReconstructionClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
-
 add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${headers})
-target_link_libraries(ReconstructionNew ReconstructionNewClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(ReconstructionNew ReconstructionNewClassesDict OpNoviceClassesDict TofpetAnalysisClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 
 

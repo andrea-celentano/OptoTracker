@@ -1,5 +1,5 @@
 
-packages = Common Simulation ReconstructionNew MarocAnalysis
+packages = Common TofpetAnalysis Simulation ReconstructionNew MarocAnalysis
 
 all: $(packages) 
 

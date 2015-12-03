@@ -2,6 +2,7 @@
 <!-- <class name="CLHEP::Hep3Vector"/> -->
 <class name="TDetectorLight"/>
 <class name="TEvent"/>
+<class name="TEventHeader"/>
 <class name="TXMLHandler"/>
 <class name="TNamedContainer"/>
 <class name="TDetectorUtils"/>

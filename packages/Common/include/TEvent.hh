@@ -12,11 +12,14 @@
 #include "TObjArray.h"
 using namespace std;
 
+class TEventHeader;
+
 class TEvent : public TObject{
 
 
 private:
 
+	TEventHeader*		   m_eventHeader;
 	TObjArray			   m_objects;
 	vector <TClonesArray*> m_collections;
 
@@ -37,7 +40,7 @@ public:
 	TObject* getObject(string name) const;
 	int hasObject(string name) const;
 
-	inline int getNcollections() const{return m_collections.size();}
+	inline int  getNcollections() const{return m_collections.size();}
 	void		printCollections() const;
 
 
@@ -52,7 +55,16 @@ public:
 
 
 
-	ClassDef(TEvent,1);
+
+	TEventHeader* getEventHeader() const {
+		return m_eventHeader;
+	}
+
+	void setEventHeader(TEventHeader* eventHeader) {
+		m_eventHeader = eventHeader;
+	}
+
+	ClassDef(TEvent,2);
 };
 
 

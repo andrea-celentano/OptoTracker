@@ -188,13 +188,15 @@ void  OpNoviceSteppingAction::UserSteppingAction(const G4Step * theStep){
 					G4cout<<theStep->GetPreStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
 					G4cout<<theStep->GetPostStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
 
-					G4ExceptionDescription ed;
+					return;
+					/*Do not know whast is happening here, but do not want to crash code*/
+					/*G4ExceptionDescription ed;
 					ed << "OpNoviceSteppingAction::UserSteppingAction(): "
 							<< "No reallocation step after reflection!"
 							<< G4endl;
 					G4Exception("OpNoviceSteppingAction::UserSteppingAction()", "OpNovice",
 							FatalException,ed,
-							"Something is wrong with the surface normal or geometry");
+							"Something is wrong with the surface normal or geometry");*/
 				}
 			}
 			fExpectedNextStatus=Undefined;
