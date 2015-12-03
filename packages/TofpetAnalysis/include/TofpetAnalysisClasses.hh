@@ -1,8 +1,8 @@
 #include "TTofpetEventHeader.hh"
 #include "TTofpetHit.hh"
 
-TTofpetEventHeader obj1;
-TTofpetHit		   obj2;
+//TTofpetEventHeader obj1;
+//TTofpetHit		 obj2;
 
 
 

@@ -66,10 +66,10 @@ target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LI
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
 add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${headers})
-target_link_libraries(ReconstructionNew ReconstructionNewClassesDict OpNoviceClassesDict TofpetAnalysisClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(ReconstructionNew ReconstructionNewClassesDict OpNoviceClassesDict TofpetAnalysisClassesDict  CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 
-
+#
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

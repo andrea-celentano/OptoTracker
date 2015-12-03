@@ -14,7 +14,8 @@ private:
 
 public:
 
-
+	TTofpetEventHeader();
+	virtual ~TTofpetEventHeader();
 
 
 	int getStep1() const {

@@ -18,6 +18,7 @@ log*.e
 #build
 packages/Common/build
 packages/ReconstructionNew/build
+packages/TofpetAnalysis/build
 packages/Simulation/build
 packages/MarocAnalysis/build
 

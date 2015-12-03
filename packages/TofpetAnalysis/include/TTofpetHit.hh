@@ -13,15 +13,17 @@ private:
 	double m_channelIdleTime,m_tacIdleTime;
 
 
-	float m_eventEnergy,m_eventTot;
+	float m_energy,m_ToT;
 	float m_TQT,m_TQE;
 
-	long long time;
+	long long m_time;
 
 
 
 public:
 
+	TTofpetHit();
+	virtual ~TTofpetHit();
 	short getChannel() const {
 		return m_channel;
 	}
@@ -46,20 +48,20 @@ public:
 		m_detector = detector;
 	}
 
-	float getEventEnergy() const {
-		return m_eventEnergy;
+	float getEnergy() const {
+		return m_energy;
 	}
 
-	void setEventEnergy(float eventEnergy) {
-		m_eventEnergy = eventEnergy;
+	void getEnergy(float eventEnergy) {
+		m_energy = eventEnergy;
 	}
 
-	float getEventTot() const {
-		return m_eventTot;
+	float getToT() const {
+		return m_ToT;
 	}
 
-	void setEventTot(float eventTot) {
-		m_eventTot = eventTot;
+	void setTot(float eventTot) {
+		m_ToT = eventTot;
 	}
 
 	double getTacIdleTime() const {
@@ -103,11 +105,11 @@ public:
 	}
 
 	long long getTime() const {
-		return time;
+		return m_time;
 	}
 
 	void setTime(long long time) {
-		this->time = time;
+		m_time = time;
 	}
 
 	ClassDef(TTofpetHit,1);

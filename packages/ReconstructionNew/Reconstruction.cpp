@@ -44,12 +44,12 @@ int main(int argc,char **argv){
 
 
 	//Load Cintex
-//	LOADLIBS
+	LOADLIBS
 
-//	TAnalysis ana;
-	//ana.ParseCommandLine(argc,argv);
+	TAnalysis ana;
+	ana.ParseCommandLine(argc,argv);
 
-//	ana.run();
+	ana.run();
 
 	cout<<"DONE"<<endl;
 }
