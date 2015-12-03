@@ -8,7 +8,7 @@
 #include "TSelector.h"
 #include "TChain.h"
 #include "TTree.h"
-
+#include "TRandom3.h"
 
 #include "TXMLHandler.hh"
 
@@ -56,6 +56,8 @@ private:
 	void ConfigDrivers(const vector < driver_struct > &driver_list);
 	void ConfigControl(const reconControl_struct  &reconControl);
 
+	/*It may be good to have a random number generator here*/
+	TRandom3 *m_randomGenerator;
 
 public:
 
@@ -201,6 +203,14 @@ public:
 
 	int isProofCompatible() const {
 		return m_isProofCompatible;
+	}
+
+	TRandom3* getRandomGenerator() const{
+		return m_randomGenerator;
+	}
+
+	void setRandomGenerator(TRandom3 *generator){
+		m_randomGenerator=generator;
 	}
 
 public:

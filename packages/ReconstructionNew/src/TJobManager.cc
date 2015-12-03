@@ -34,6 +34,8 @@ TJobManager::TJobManager(TTree* tree):
 	m_detector=0;
 	m_isProofCompatible=1;
 	m_detectorUtils=0;
+
+	m_randomGenerator=new TRandom3(0); ///TODO: use a proper seed
 	Info("TOptoJobManager","Done");
 }
 

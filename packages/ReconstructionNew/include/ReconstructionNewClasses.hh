@@ -6,6 +6,7 @@
 #include "../drivers/TEventMarkerDriver.hh"
 #include "../drivers/TRootSaveDriver.hh"
 #include "../drivers/TChargeAnalysisDriver.hh"
+#include "../drivers/TChargeAnalysisPoissonDriver.hh"
 #include "../drivers/TMatrixWriterDriver.hh"
 #include "../drivers/TMatrixReconDriver.hh"
 #include "../drivers/TMatrixInterpreterDriver.hh"

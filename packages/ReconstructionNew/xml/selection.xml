@@ -16,4 +16,7 @@
 <class name="TChargeAnalysisDriver">
 	<field name="m_writeOutFile" transient="true"/>
 </class>
+<class name="TChargeAnalysisPoissonDriver">
+	<field name="m_writeOutFile" transient="true"/>
+</class>
 </lcgdict>
