@@ -24,10 +24,10 @@ int main(){
 
 
 
-	TXMLHandler parser("recon.xml");
+/*	TXMLHandler parser("recon.xml");
 
 	parser.GetDrivers();
-
+*/
 
 
 
@@ -73,7 +73,7 @@ int main(){
 	cout<< h->IsA()->InheritsFrom(TH1F::Class())<<endl;
 	cout<<dynamic_cast<TH1*>(h)<<endl;
 	cout<<dynamic_cast<TH1F*>(h)<<endl;
-	cin.get();/*
+	cin.get();
 
 
 
@@ -124,14 +124,12 @@ int main(){
 	for (int ii=0;ii<t2->GetEntries();ii++){
 		if (ev2) ev2->Clear("C");
 		t2->GetEntry(ii);
-	//	int nC1=ev2->getCollection(0)->GetEntriesFast();
-	//	cout<<"Qui: "<<nC1<<endl;
+		//int nC1=ev2->getCollection(0)->GetEntriesFast();
+		//cout<<"Qui: "<<nC1<<endl;
 		//for (int jj=0;jj<nC1;jj++){
-		//	cout<<ev2->getCollection(0)->At(jj)->GetName()<<" ";
-			//cout<<((TVectorT<float>*)(ev2->getCollection(0)->At(jj)))->GetName()<<endl;
-		//	//cout<<((TVectorT<float>*)(ev2->getCollection(0)->At(jj)))->GetNrows()<<endl;
+
 			//	gui.Run(1);
 		//}
 
-	}*/
+	}
 }

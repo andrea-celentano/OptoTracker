@@ -72,6 +72,7 @@ void TAnalysis::configure(string xmlname){
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libCommonClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libOpNoviceClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionNewClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libTofpetAnalysisClassesDict.so\")");
 		m_proof->SetLogLevel(1, TProofDebug::kPacketizer);
 		m_proof->SetParameter("PROOF_Packetizer", "TPacketizer");
 		m_chain->SetProof();
@@ -177,6 +178,7 @@ void TAnalysis::ParseCommandLine(int argc,char **argv){
 		else if (variableName.find("-det")!=std::string::npos){ /*Detector file name (txt format)*/
 			Info("ParseCommandLine","detector name: %s",argv[ii+1]);
 			m_detName=string(argv[ii+1]);
+			ii++; //need to force skipping
 		}
 		else if (variableName.find("-D")!=std::string::npos){ /*Variable, -DvarName=value*/
 			found1=variableName.find("-D");
