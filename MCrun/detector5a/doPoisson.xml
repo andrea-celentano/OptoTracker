@@ -17,7 +17,7 @@
       <driver name="EventMarker" type="TEventMarkerDriver">
 	<setInterval>100</setInterval>
       </driver>
-      <driver name="ChargePoisson" type="TChargeAnalysisPossionDriver">  
+      <driver name="ChargePoisson" type="TChargeAnalysisPoissonDriver">  
 		<setCollectionName>"DetDigiMC"</setCollectionName>
 		<setWriteOutFileName>$CHARGE_TXT</setWriteOutFileName>
 		<setEventsProduced>100</setEventsProduced>

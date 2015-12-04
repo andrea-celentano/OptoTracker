@@ -52,7 +52,7 @@ public:
 		return m_energy;
 	}
 
-	void getEnergy(float eventEnergy) {
+	void setEnergy(float eventEnergy) {
 		m_energy = eventEnergy;
 	}
 
