@@ -10,6 +10,8 @@ class TTofpetHit:public TObject{
 private:
 
 	short m_channel,m_xi,m_yi,m_detector;
+
+	unsigned short	m_tac;
 	double m_channelIdleTime,m_tacIdleTime;
 
 
@@ -110,6 +112,13 @@ public:
 
 	void setTime(long long time) {
 		m_time = time;
+	}
+
+	void setTac(unsigned short tac){
+		m_tac=tac;
+	}
+	unsigned short getTac(){
+		return m_tac;
 	}
 
 	ClassDef(TTofpetHit,1);
