@@ -9,7 +9,7 @@
 class TTofpetSetup:public TObject{
 
 private:
-	int m_Nsteps1,m_Nsteps2,m_Nsteps;
+	int m_Nsteps1,m_Nsteps2;
 	std::vector < std::pair < int , int > > m_pairs;
 
 public:
@@ -17,11 +17,7 @@ public:
 
 
 	int getNsteps() const {
-		return m_Nsteps;
-	}
-
-	void setNsteps(int nsteps) {
-		m_Nsteps = nsteps;
+		return m_pairs.size();
 	}
 
 	int getNsteps1() const {
