@@ -6,7 +6,7 @@
  */
 
 #include "TTofpetDummyAnalysisDriver.hh"
-
+#include "TTofpetSetup.hh"
 
 #include "TEvent.hh"
 #include "TTofpetEventHeader.hh"
@@ -18,6 +18,7 @@
 
 TTofpetDummyAnalysisDriver::TTofpetDummyAnalysisDriver() {
 	// TODO Auto-generated constructor stub
+	mTofpetSetup=0;
 	hMultiplicity0=0;
 
 }
@@ -65,7 +66,10 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 	hMultiplicity0=new TH2D("hMultiplicity0","hMultiplicity;step1;step2",64,-0.5,64-0.5,64,-0.5,64-0.5);
 
 	m_manager->GetOutputList()->Add(hMultiplicity0);
-
+	if (m_manager->hasObject(TTofpetSetup::Class())){
+		mTofpetSetup=(TTofpetSetup*)(m_manager->getObject(TTofpetSetup::Class()));
+		cout<<mTofpetSetup->getNsteps()<<endl;
+	}
 
 
 	return 0;

@@ -14,6 +14,7 @@
 
 class TH1D;
 class TH2D;
+class TTofpetSetup;
 
 class TTofpetDummyAnalysisDriver: public TDriver {
 public:
@@ -35,6 +36,7 @@ public:
 
 private:
 	TH2D *hMultiplicity0;
+	TTofpetSetup *mTofpetSetup;
 
 	ClassDef(TTofpetDummyAnalysisDriver,1);
 

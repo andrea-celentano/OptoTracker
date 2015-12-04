@@ -4,13 +4,16 @@
 
 #include "TProof.h"
 #include "TFile.h"
+#include "TKey.h"
 #include "Cintex/Cintex.h"
 #include <string>
+
+
 
 using namespace std;
 
 TAnalysis::TAnalysis():
-m_manager(0),m_chain(0),m_proof(0)
+				m_manager(0),m_chain(0),m_proof(0)
 {
 	m_fileName=new vector<string>;
 	m_manager=new TJobManager();
@@ -57,7 +60,9 @@ void TAnalysis::configure(string xmlname){
 	m_manager->Config(xmlname);
 	doProof=m_manager->getDoProof();
 	doProofDiag=m_manager->getDoProofDiag();
-
+	if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+		Info("configure","TJobManager has been configured");
+	}
 	if ((!m_manager->isProofCompatible())&&(doProof)){
 		doProof=0;
 		if (m_manager->getVerboseLevel()>=TJobManager::minimalVerbosity){
@@ -112,6 +117,37 @@ void TAnalysis::configure(string xmlname){
 			exit(1);
 		}
 	}
+
+	/*Add all the objects found in the files, but the TTree and the TDetectorLight, to the inputList*/
+	for (int ii=0;ii<m_fileName->size();ii++){
+		fTMP=new TFile((m_fileName->at(ii)).c_str());
+		TIter next (fTMP->GetListOfKeys());
+		TKey *key;
+		while ((key = (TKey*)next())) {
+			if (string(key->GetClassName())=="TTree") continue;
+			else if (string(key->GetClassName())=="TChain") continue;
+			else if (string(key->GetClassName())=="TDetectorLight") continue;
+			else {
+				if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){
+					Info("configure","Object found in TFile: %s",key->GetClassName());
+				}
+			}
+			/*if (strstr(key->GetClassName(),"TH1")) {
+					         printf (" key : %s is a %s in %s\n",
+					                 key->GetName(),key->GetClassName(),dir->GetPath());
+					      }
+					      if (!strcmp(key->GetClassName(),"TDirectory")) {
+					         dir->cd(key->GetName());
+					         TDirectory *subdir = gDirectory;
+					         loopdir(subdir);
+					         dir->cd();
+					      }*/
+		}
+
+		fTMP->Close();
+		delete fTMP;
+	}
+
 
 	/*Add the files to the chain,*/
 	for (int ii=0;ii<m_fileName->size();ii++){

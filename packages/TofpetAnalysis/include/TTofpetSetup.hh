@@ -14,8 +14,6 @@ private:
 
 public:
 
-
-
 	int getNsteps() const {
 		return m_pairs.size();
 	}
