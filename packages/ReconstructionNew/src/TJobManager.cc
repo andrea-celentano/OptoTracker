@@ -17,7 +17,7 @@
 using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
-												fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
+fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
 	m_variables=new map < string, string>;
@@ -31,11 +31,13 @@ TJobManager::TJobManager(TTree* tree):
 	m_numberOfWorkers=1;
 	m_numberOfIterations=1;
 	m_iterationN=0;
-	m_detector=0;
 	m_isProofCompatible=1;
+
+	m_detector=0;
 	m_detectorUtils=0;
 
-	m_randomGenerator=new TRandom3(0); ///TODO: use a proper seed
+
+//
 	Info("TOptoJobManager","Done");
 }
 
@@ -74,7 +76,6 @@ void TJobManager::Init(TTree *tree)
 	}
 	m_event->Clear("C");
 
-
 	Info("Init","Done");
 }
 
@@ -98,6 +99,9 @@ void TJobManager::Begin(TTree* /*tree*/)
 	for (int ii=0;ii<m_drivers->size();ii++){
 		m_drivers->at(ii)->start();
 	}
+
+
+
 }
 
 
@@ -132,7 +136,9 @@ void TJobManager::SlaveTerminate()
 void TJobManager::Terminate()
 {
 	Info("Terminate","start");
+
 	/*First, I copy all the objects from the input list to the output list*/
+	if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("Terminate","fInput is %p",fInput);
 	TIter *inputIter=new TIter(fInput);
 	while (TObject *obj=inputIter->Next()){
 		fOutput->Add(obj);
@@ -152,7 +158,7 @@ void TJobManager::Terminate()
 
 Bool_t  TJobManager::Process(Long64_t entry){
 	m_event->Clear("C");
-	fTree->GetEntry(entry);
+	fTree->GetTree()->GetEntry(entry);  //So it works both with TChain and TTree
 	/*We need to process each driver*/
 	for (int ii=0;ii<m_drivers->size();ii++){
 		m_drivers->at(ii)->process(m_event);
@@ -162,6 +168,7 @@ Bool_t  TJobManager::Process(Long64_t entry){
 
 
 /*This method is supposed to be called at the BEGINNING of the analysis, on the master, before the "process"*/
+/*This is called ON THE MASTER!*/
 void	TJobManager::Config(string fname){
 
 	m_xmlHandler=new TXMLHandler(fname);
@@ -182,6 +189,15 @@ void	TJobManager::Config(string fname){
 			break; //Do not neeed to check all, if one is not compatible we are not.
 		}
 	}
+
+	/*I place this here, to be streamed to the clients*/
+	if (fInput==0){
+			fInput=new TList();
+			Info("Init","creating input list - are we in the proof case? %i",this->getDoProof());
+	}
+	this->addObject(new TRandom3(0)); ///Todo: user proper seed
+
+
 	Info("Config","Done");
 }
 
@@ -313,7 +329,7 @@ string TJobManager::getVariable(string name) const{
 	map<string,string>::const_iterator it;
 	it = m_variables->find(name);
 	if (it==m_variables->end()){
-		Warning("getVariable","Variable %s does not exists",name);
+		Warning("getVariable","Variable %s does not exists",name.c_str());
 		return "";
 	}
 	else{
@@ -328,5 +344,49 @@ void TJobManager::printVariables() const{
 		cout<<it->first<<" "<<it->second<<endl;
 	}
 }
+
+
+TObject* TJobManager::getObject(TClass *theClass) const{
+	TObject* ret=0;
+	TIter *iter = new TIter(fInput);
+	while (ret = iter->Next()){
+		if ((ret->InheritsFrom(theClass)))	break;
+	}
+	if (ret==0){
+		Error("getObject","Not found class: %s",theClass->GetName());
+	}
+	return ret;
+}
+
+
+int TJobManager::hasObject(TClass *theClass) const{
+		TObject* ret=0;
+		TIter *iter = new TIter(fInput);
+		while (ret = iter->Next()){
+			if ((ret->InheritsFrom(theClass)))	break;
+		}
+		if (ret==0){
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s not found",theClass->GetName());
+			return 0;
+		}
+		else{
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s found",theClass->GetName());
+			return 1;
+		}
+}
+void TJobManager::addObject(TObject *obj,int doExistingCheck){
+	if ( (doExistingCheck)&&(this->hasObject(obj->IsA()))){
+		Warning("addObject","Object %s already exists. Not adding again",obj->Class_Name());
+	}
+	else fInput->Add(obj);
+}
+
+
+
+
+
+
+
+
 
 

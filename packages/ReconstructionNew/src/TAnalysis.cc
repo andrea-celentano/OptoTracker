@@ -10,7 +10,7 @@
 using namespace std;
 
 TAnalysis::TAnalysis():
-														m_manager(0),m_chain(0),m_proof(0)
+m_manager(0),m_chain(0),m_proof(0)
 {
 	m_fileName=new vector<string>;
 	m_manager=new TJobManager();

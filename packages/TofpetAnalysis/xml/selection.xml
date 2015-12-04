@@ -2,5 +2,6 @@
 <!-- <class name="CLHEP::Hep3Vector"/> -->
 	<class name="TTofpetEventHeader"/> 
 	<class name="TTofpetHit"/>
+	<class name="TTofpetSetup"/>
 	<class name="TTofpetDummyAnalysisDriver"/>
 </lcgdict>

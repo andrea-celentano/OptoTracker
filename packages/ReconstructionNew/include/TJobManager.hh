@@ -36,7 +36,7 @@ private:
 	vector <TDriver*> *m_drivers;
 
 	TDetectorLight *m_detector;
-	TDetectorUtils* m_detectorUtils;
+	TDetectorUtils *m_detectorUtils;
 
 	map < string , string > *m_variables;
 
@@ -56,8 +56,7 @@ private:
 	void ConfigDrivers(const vector < driver_struct > &driver_list);
 	void ConfigControl(const reconControl_struct  &reconControl);
 
-	/*It may be good to have a random number generator here*/
-	TRandom3 *m_randomGenerator;
+
 
 public:
 
@@ -205,12 +204,17 @@ public:
 		return m_isProofCompatible;
 	}
 
+	TObject* getObject(TClass *theClass) const;
+	int hasObject(TClass *theClass) const;
+	void addObject(TObject* object,int doExistingCheck=1);
+
+
 	TRandom3* getRandomGenerator() const{
-		return m_randomGenerator;
+		return (TRandom3*)this->getObject(TRandom3::Class());
 	}
 
 	void setRandomGenerator(TRandom3 *generator){
-		m_randomGenerator=generator;
+		fInput->Add(generator);
 	}
 
 public:

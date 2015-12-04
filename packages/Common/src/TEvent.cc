@@ -36,7 +36,7 @@ TClonesArray* TEvent::getCollection(TClass *theClass,string name) const{
 		}
 	}
 	if (ret==0){
-		Error("TEvent","TEvent::getCollection not found class: %s name:%s",theClass->GetName(),name.c_str());
+		Error("getCollection","Not found class: %s name:%s",theClass->GetName(),name.c_str());
 	}
 	return ret;
 }
