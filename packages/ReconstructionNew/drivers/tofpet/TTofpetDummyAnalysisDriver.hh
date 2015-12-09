@@ -36,7 +36,8 @@ public:
 
 private:
 	TH2D **hMultiplicity0;
-	TH2D **hToT;
+	TH2D **hToT0;
+	TH2D **hToT1;
 	TTofpetSetup *m_TofpetSetup;
 
 	int m_Nsteps;
