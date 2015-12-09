@@ -20,4 +20,6 @@
 	<field name="m_writeOutFile" transient="true"/>
 </class>
 
+<class name="TTofpetDummyAnalysisDriver"/>
+
 </lcgdict>

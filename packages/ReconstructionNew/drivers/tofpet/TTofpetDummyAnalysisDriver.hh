@@ -36,7 +36,9 @@ public:
 
 private:
 	TH2D *hMultiplicity0;
-	TTofpetSetup *mTofpetSetup;
+	TTofpetSetup *m_TofpetSetup;
+
+	int m_Nsteps;
 
 	ClassDef(TTofpetDummyAnalysisDriver,1);
 

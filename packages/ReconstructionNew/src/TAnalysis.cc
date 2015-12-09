@@ -128,10 +128,12 @@ void TAnalysis::configure(string xmlname){
 			else if (string(key->GetClassName())=="TChain") continue;
 			else if (string(key->GetClassName())=="TDetectorLight") continue;
 			else {
+				this->addToInputList(fTMP->Get(key->GetName()));
 				if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){
-					Info("configure","Object found in TFile: %s",key->GetClassName());
+					Info("configure","Object found in TFile and added to input list. Class: %s Name: %s",key->GetClassName(),key->GetName());
 				}
 			}
+
 			/*if (strstr(key->GetClassName(),"TH1")) {
 					         printf (" key : %s is a %s in %s\n",
 					                 key->GetName(),key->GetClassName(),dir->GetPath());

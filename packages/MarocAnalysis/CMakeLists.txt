@@ -39,10 +39,11 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include 
  					${Geant4_INCLUDE_DIR}
                     ${ROOT_INCLUDE_DIR}
-		    $ENV{OPTO}/packages/Common/include
-		    $ENV{OPTO}/packages/Simulation/include
-		    $ENV{OPTO}/packages/Reconstruction/include
-		    )
+		    		$ENV{OPTO}/packages/Common/include
+		    		$ENV{OPTO}/packages/Tofpet/include
+		    		$ENV{OPTO}/packages/Simulation/include
+		    		$ENV{OPTO}/packages/Reconstruction/include
+		  			)
 		    
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
@@ -64,13 +65,13 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
 add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
-target_link_libraries(PrintMaroc ReconstructionNewClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(PrintMaroc ReconstructionNewClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis ReconstructionNewClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocAnalysis ReconstructionNewClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(comparison comparison.cpp ${sources} ${headers})
-target_link_libraries(comparison ReconstructionNewClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(comparison ReconstructionNewClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

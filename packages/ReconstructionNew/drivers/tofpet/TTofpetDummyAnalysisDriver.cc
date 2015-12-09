@@ -18,7 +18,7 @@
 
 TTofpetDummyAnalysisDriver::TTofpetDummyAnalysisDriver() {
 	// TODO Auto-generated constructor stub
-	mTofpetSetup=0;
+	m_TofpetSetup=0;
 	hMultiplicity0=0;
 
 }
@@ -67,8 +67,15 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 
 	m_manager->GetOutputList()->Add(hMultiplicity0);
 	if (m_manager->hasObject(TTofpetSetup::Class())){
-		mTofpetSetup=(TTofpetSetup*)(m_manager->getObject(TTofpetSetup::Class()));
-		cout<<mTofpetSetup->getNsteps()<<endl;
+		m_TofpetSetup=(TTofpetSetup*)(m_manager->getObject(TTofpetSetup::Class()));
+		m_Nsteps=m_TofpetSetup->getNsteps();
+		if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){
+			Info("startOfData","Got TTofpetSetup. Number of steps: %i",m_Nsteps);
+			for (int ii=0;ii<m_Nsteps;ii++){
+				printf("Step %i: step1: %i, step2: %i \n",ii,m_TofpetSetup->getStep1(ii),m_TofpetSetup->getStep2(ii));
+			}
+
+		}
 	}
 
 

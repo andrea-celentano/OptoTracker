@@ -1,7 +1,7 @@
 <OptoTracker>
  <Recon>
    <control>
-     <doProof>1</doProof>
+     <doProof>0</doProof>
      <doProofDiag>1</doProofDiag>
      <numberOfWorkers>7</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
