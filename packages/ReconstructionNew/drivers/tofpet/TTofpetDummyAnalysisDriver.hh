@@ -32,10 +32,11 @@ public:
 
 	virtual int startOfData();
 	virtual int process(TEvent *event);
-
+	virtual int end();
 
 private:
-	TH2D *hMultiplicity0;
+	TH2D **hMultiplicity0;
+	TH2D **hToT;
 	TTofpetSetup *m_TofpetSetup;
 
 	int m_Nsteps;

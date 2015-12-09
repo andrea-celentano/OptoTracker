@@ -154,7 +154,7 @@ for iz in range(0,Nz):
 			if (doGeant):
 				runFile.write("cd "+saveDir+"\n"); #go do the saveDir
 				runFile.write(geantExe+" -m "+macroFileName+" -det "+detectorName+"\n");#launch MC
-				runFile.write("mv run_"+str(ibin)+"_0.root "+"root/ \n"); #mv the root file to saveDir/root		
+				runFile.write("mv run_"+str(ibin)+".0.root "+"root/ \n"); #mv the root file to saveDir/root		
 				runFile.write("cd "+saveDir+"\n"); #cd to the saveDir
             
 			if (doMatrix):

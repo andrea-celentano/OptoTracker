@@ -22,6 +22,6 @@ clean:
 debug:
 	for package in ${packages} ; do \
                 cd ${OPTO}/packages/$$package/build ; \
-                cmake -DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/  -DCMAKE_BUILD_TYPE=Debug ../ ; \
+                cmake -DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/ -DCMAKE_BUILD_TYPE=Debug ../ ; \
 		make -j16 install ; \
         done
