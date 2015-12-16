@@ -4,6 +4,7 @@
 #include "TXMLHandler.hh"
 #include "TNamedContainer.hh"
 #include "TDetectorUtils.hh"
+#include "TRealSetupHandler.hh"
 #include "TMCTruth.hh"
 #include "TMCParticle.hh"
 //#include <string>

@@ -11,6 +11,9 @@
 #include <string>
 #include <utility>
 #include "TDetectorLight.hh"
+
+#include "TObject.h"
+
 /*
  * This is the base class for all the "real" geometries, i.e. it provides the matching between
 a real configuration, with detectors handled in a "certain" way, 
@@ -19,9 +22,9 @@ and the reconstruction configuration, that is defined in a "universal" way.
 In the "real" analysis, one will derive a concrete instance of this base class
  */
 using namespace std;
-class RealSetupHandler
+class TRealSetupHandler : public TObject
 {
-private:
+protected:
 	/*
     These are the 2 maps that provide, given the RealDetectorId (key), 
     the detector face (0..5) and the detectorID (in the face)
@@ -37,7 +40,7 @@ private:
 	map < int , double > m_PixelGain2[6][MAX_DETECTORS];
 	map < int , double > m_PixelGain3[6][MAX_DETECTORS];
 
-protected:
+
 	int nRealDet;
 	int m_thisReconFace;
 	int m_thisReconDetID;
@@ -52,8 +55,8 @@ protected:
 	void processLine(string line);
 
 public:
-	RealSetupHandler(string fname);
-	RealSetupHandler();
+	TRealSetupHandler(string fname);
+	TRealSetupHandler();
 
 
 	int    getReconstructionDetectorFace(int idet);
@@ -71,6 +74,8 @@ public:
 	void   Print(int printPixels=0);
 	void   PrintPixels(int iface,int idetector);
 
+
+	ClassDef(TRealSetupHandler,1);
 };
 
 

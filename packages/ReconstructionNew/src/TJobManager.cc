@@ -10,6 +10,7 @@
 
 #include "TList.h"
 #include "TClass.h"
+#include "TNamed.h"
 #include "TMethod.h"
 #include "TMethodArg.h"
 #include "TMethodCall.h"
@@ -17,7 +18,7 @@
 using namespace std;
 
 TJobManager::TJobManager(TTree* tree):
-fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
+								fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 {
 	m_drivers=new vector<TDriver*>;
 	m_variables=new map < string, string>;
@@ -37,7 +38,7 @@ fTree(tree),b_event(0),m_event(0),m_xmlHandler(0),m_drivers(0)
 	m_detectorUtils=0;
 
 
-//
+	//
 	Info("TOptoJobManager","Done");
 }
 
@@ -192,8 +193,8 @@ void	TJobManager::Config(string fname){
 
 	/*I place this here, to be streamed to the clients*/
 	if (fInput==0){
-			fInput=new TList();
-			Info("Init","creating input list - are we in the proof case? %i",this->getDoProof());
+		fInput=new TList();
+		Info("Init","creating input list - are we in the proof case? %i",this->getDoProof());
 	}
 	this->addObject(new TRandom3(0)); ///Todo: user proper seed
 
@@ -346,24 +347,38 @@ void TJobManager::printVariables() const{
 }
 
 
-TObject* TJobManager::getObject(TClass *theClass) const{
+int TJobManager::hasObject(TClass *theClass,string name) const{
 	TObject* ret=0;
 	TIter *iter = new TIter(fInput);
-	while (ret = iter->Next()){
-		if ((ret->InheritsFrom(theClass)))	break;
+	int isNamed=0;
+	/*First check if theClass inherits from TNamed,
+	 */
+	if (theClass->InheritsFrom(TNamed::Class())){
+		isNamed=1;
 	}
-	if (ret==0){
-		Error("getObject","Not found class: %s",theClass->GetName());
+	if (isNamed&&name.length()==0){
+		Error("hasObject","Class %s is a TNamed derived one, but no name was passed to the method",theClass->GetName());
+		return 0;
 	}
-	return ret;
-}
 
 
-int TJobManager::hasObject(TClass *theClass) const{
-		TObject* ret=0;
-		TIter *iter = new TIter(fInput);
+	if (isNamed){
 		while (ret = iter->Next()){
-			if ((ret->InheritsFrom(theClass)))	break;
+			if ((ret->InheritsFrom(theClass)) && (strcmp(ret->GetName(),name.c_str())==0)) 	break;
+		}
+		if (ret==0){
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s not found",theClass->GetName(),name.c_str());
+			return 0;
+		}
+		else{
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s found",theClass->GetName(),name.c_str());
+			return 1;
+		}
+
+	}
+	else{
+		while (ret = iter->Next()){
+			if (ret->InheritsFrom(theClass)) 	break;
 		}
 		if (ret==0){
 			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s not found",theClass->GetName());
@@ -373,12 +388,59 @@ int TJobManager::hasObject(TClass *theClass) const{
 			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s found",theClass->GetName());
 			return 1;
 		}
-}
-void TJobManager::addObject(TObject *obj,int doExistingCheck){
-	if ( (doExistingCheck)&&(this->hasObject(obj->IsA()))){
-		Warning("addObject","Object %s already exists. Not adding again",obj->Class_Name());
+
 	}
-	else fInput->Add(obj);
+}
+
+
+
+
+TObject* TJobManager::getObject(TClass *theClass,string name) const{
+	TObject* ret=0;
+	TIter *iter = new TIter(fInput);
+	int isNamed=0;
+	if (theClass->InheritsFrom(TNamed::Class())){
+		isNamed=1;
+	}
+	if (isNamed&&name.length()==0){
+		Error("getObject","Class %s is a TNamed derived one, but no name was passed to the method",theClass->GetName());
+		return 0;
+	}
+
+
+	if (isNamed){
+		while (ret = iter->Next()){
+			if ((ret->InheritsFrom(theClass)) && (strcmp(ret->GetName(),name.c_str())==0)) 	return ret;
+		}
+	}
+	else{
+		while (ret = iter->Next()){
+			if ((ret->InheritsFrom(theClass))) 	return ret;
+		}
+	}
+	return 0;
+}
+
+
+
+
+
+void TJobManager::addObject(TObject *obj,int doExistingCheck){
+	if (doExistingCheck){
+		if (obj->IsA()->InheritsFrom(TNamed::Class())){
+			if (this->hasObject(obj->IsA(),string(obj->GetName()))){
+				Warning("addObject","Object of class %s with name %s already exists. Not adding again",obj->Class_Name(),obj->GetName());
+				return;
+			}
+		}
+		else{
+			if (this->hasObject(obj->IsA())){
+				Warning("addObject","Object of class %s already exists. Not adding again",obj->Class_Name());
+				return;
+			}
+		}
+	}
+	fInput->Add(obj);
 }
 
 

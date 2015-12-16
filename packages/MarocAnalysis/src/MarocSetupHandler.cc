@@ -2,7 +2,7 @@
 
 
 MarocSetupHandler::MarocSetupHandler():
-RealSetupHandler()
+TRealSetupHandler()
 {
 	cout<<"MarocSetupHandler default constructor"<<endl;
 	fillMaps();
@@ -10,20 +10,19 @@ RealSetupHandler()
 
 
 MarocSetupHandler::MarocSetupHandler(string fname):
-				RealSetupHandler(fname)
+TRealSetupHandler(fname)
 {
-	cout<<"RealSetupHandler file constructor"<<endl;
+	cout<<"MarocSetupHandler file constructor"<<endl;
 	ifstream file;
 	string line;
 	file.open(fname.c_str());
 	if (!file){
-		cerr<<"RealSetupHandler::file not found "<<fname<<endl;
+		cerr<<"MarocSetupHandler::file not found "<<fname<<endl;
 	}
 	else{
 		while(!file.eof()){
 			getline (file,line);
 			if (line.size()==0) continue;
-			RealSetupHandler::processLine(line);
 			this->processLine(line);
 		}
 	}

@@ -39,10 +39,20 @@ set_target_properties(TofpetClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 
 target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} Cintex Reflex)
 
+#----------------------------------------------------------------------------
+# Add the executable
+#
+
+link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
+
+add_executable(DarkScan DarkScan.cpp)
+target_link_libraries(DarkScan ${ROOT_LIBRARIES})
+
+
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS TofpetClassesDict DESTINATION $ENV{OPTO}/lib)
-#install(TARGETS PrintDetector DESTINATION $ENV{OPTO}/bin)
+install(TARGETS DarkScan DESTINATION $ENV{OPTO}/bin)
 #install(TARGETS TestCommon DESTINATION $ENV{OPTO}/bin)

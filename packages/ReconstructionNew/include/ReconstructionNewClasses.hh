@@ -10,11 +10,13 @@
 #include "../drivers/matrix/TMatrixReconDriver.hh"
 #include "../drivers/matrix/TMatrixInterpreterDriver.hh"
 
-#include "../drivers/tofpet/TTofpetDummyAnalysisDriver.hh"
 
 #include "../drivers/TChargeAnalysisDriver.hh"
 #include "../drivers/TChargeAnalysisPoissonDriver.hh"
 #include "../drivers/TLikelihoodReconDriver.hh"
+
+#include "../drivers/tofpet/TTofpetDummyAnalysisDriver.hh"
+#include "../drivers/tofpet/TTofpetSetupHandlerDriver.hh"
 
 
 #ifdef __GCCXML__

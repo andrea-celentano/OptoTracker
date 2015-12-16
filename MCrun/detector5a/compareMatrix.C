@@ -5,18 +5,17 @@ void compareMatrix(int iv){
 
 	TH1D *hAnalyticModelOptics=new TH1D("hAnalyticModelOptics","hAnalyticModelOptics",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hAnalyticModelOptics2=new TH1D("hAnalyticModelOptics2","hAnalyticModelOptics2",Np,-0.5,Np-0.5);
-	ifstream fAnalyticModelOptics("../detector5d/matrix2/matrix.txt");
+	ifstream fAnalyticModelOptics("./matrix1/matrix.txt");
 
 
 	TH1D *hMCpoint=new TH1D("hMCpoint","hMCpoint",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hMCpoint2=new TH1D("hMCpoint2","hMCpoint2",Np,-0.5,Np-0.5);
-	ifstream fMCpoint("../detector5e/matrix2/matrix.txt");
+	ifstream fMCpoint("matrixAnalyticModel.txt");
 
 
 	TH1D *hMCvolume=new TH1D("hMCvolume","hMCvolume",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hMCvolume2=new TH1D("hMCvolume2","hMCvolume2",Np,-0.5,Np-0.5);
-	ifstream fMCvolume("./matrix3/matrix.txt");
-
+	ifstream fMCvolume("matrixAnalyticModel2.txt");
 	double val;
 	double totval,totval2,totval3;
 

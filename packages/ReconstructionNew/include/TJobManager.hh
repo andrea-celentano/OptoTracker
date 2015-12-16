@@ -176,9 +176,15 @@ public:
 		m_iterationN = iterationN;
 	}
 	void incrementIterationN(){m_iterationN++;}
-	int isLastIteration(){
+
+	inline int isLastIteration()const{
 		if (m_iterationN==(m_numberOfIterations-1)) return 1;
 		else return 0;
+	}
+
+	inline int isFirstIteration() const{
+			if (m_iterationN==0) return 1;
+			else return 0;
 	}
 
 	int getNumberOfIterations() const {
@@ -204,16 +210,17 @@ public:
 		return m_isProofCompatible;
 	}
 
-	TObject* getObject(TClass *theClass) const;
-	int hasObject(TClass *theClass) const;
+	int hasObject(TClass *theClass,string name="") const;
+	TObject* getObject(TClass *theClass,string name="") const;
 	void addObject(TObject* object,int doExistingCheck=1);
 
 
 	TRandom3* getRandomGenerator() const{
-		return (TRandom3*)this->getObject(TRandom3::Class());
+		return (TRandom3*)this->getObject(TRandom3::Class(),"RandomGenerator");
 	}
 
 	void setRandomGenerator(TRandom3 *generator){
+		generator->SetName("RandomGenerator"); //Hey, TRandom3 is TNamed!
 		fInput->Add(generator);
 	}
 

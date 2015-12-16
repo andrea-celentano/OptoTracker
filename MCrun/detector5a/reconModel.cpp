@@ -17,9 +17,9 @@
 #define ScintY 6.
 #define ScintZ 6.
 //These are divisions along the 3 axis, to define the number of VOXELS
-#define Nvx  5
-#define Nvy  5
-#define Nvz  5
+#define Nvx  7
+#define Nvy  7
+#define Nvz  7
 
 //These are the sizes (cm) of each photo-detector, along the 2 directions of the plane of the face. Use a dot at the end!
 #define PhotoX 4.8
@@ -370,6 +370,7 @@ void writeMatrix(string fname){
     out<<endl;
   }//end voxel
 }
+
 void writeMatrix2(TDetectorLight *det,string fname){
   int ipixel,iface;
   int ivoxel;
@@ -392,6 +393,8 @@ void writeMatrix2(TDetectorLight *det,string fname){
     out2<<endl;
   }//end voxel
 }
+
+//analytic model in the center of the voxel
 void writeMatrix3(TDetectorLight *det,string fname){
   int ipixel,iface;
   int ivoxel;
@@ -411,7 +414,62 @@ void writeMatrix3(TDetectorLight *det,string fname){
     }
     out2<<endl;
   }//end voxel
+}\
+
+//analyic model in the volume of the voxel
+void writeMatrix4(TDetectorLight *det,string fname){
+  int ipixel,iface;
+  int ivoxel;
+  double val=0;
+
+  /*voxels size*/
+  double Lx=ScintX/Nvx;
+  double Ly=ScintY/Nvy;
+  double Lz=ScintZ/Nvz;
+  
+
+
+  double dx,dy,dz;
+  double x,y,z;
+  TVector3 rv,r;
+int Nxx=3;
+  int Nyy=3;
+  int Nzz=3;
+  dx=Lx/Nxx;
+  dy=Ly/Nyy;
+  dz=Lz/Nzz;
+
+  
+  TDetectorUtils *utils=new TDetectorUtils(det);
+  ofstream out2(fname.c_str());
+  for (int ivoxel=0;ivoxel<(Nvx*Nvy*Nvz);ivoxel++){
+    for (int iface=0;iface<6;iface++){
+      for (int idet=0;idet<det->getNdet(iface);idet++){
+      	for (int ipixel=0;ipixel<(det->getNPixels(iface,idet));ipixel++){
+	  rv=getVoxelCenter(ivoxel);
+	  val=0;
+	  for (int ix=0;ix<=Nxx;ix++){
+	    for (int iy=0;iy<=Nyy;iy++){
+	      for (int iz=0;iz<=Nzz;iz++){
+		x=(-Lx/2+ix*dx);
+		y=(-Ly/2+iy*dy);
+		z=(-Lz/2+iz*dy);
+		r.SetXYZ(x,y,z);
+		r=rv+r;
+		val+=utils->SinglePixelAverageCharge(r,iface,idet,ipixel);
+	      }
+	    }	    
+	  }
+	  val/=((Nxx+1)*(Nyy+1)*(Nzz+1));
+	  val*=det->getLY();
+	  out2<<val<<" ";
+	}
+      } 
+    }
+    out2<<endl;
+  }//end voxel
 }
+
 
 int macro(){
   gSystem->Load("$OPTO/lib/libCommonClassesDict.so");
@@ -442,11 +500,11 @@ int macro(){
   det->getPosPixel(0,3,0).Print();
 
 
-  writeMatrix("matrixReconModel.txt"); //simple recon model
-  cout<<"written Matrix"<<endl;
+  
   //  writeMatrix2(det,"analyticModelMatrixNoOptics.txt");
   //cout<<"written Matrix2"<<endl;
   writeMatrix3(det,"matrixAnalyticModel.txt");
+  writeMatrix4(det,"matrixAnalyticModel2.txt");
   cout<<"written Matrix2"<<endl;
 }
 

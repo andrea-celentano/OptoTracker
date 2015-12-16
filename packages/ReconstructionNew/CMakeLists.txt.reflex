@@ -57,6 +57,8 @@ file(GLOB_RECURSE driver_headers ${PROJECT_SOURCE_DIR}/drivers/*.hh)
 # Generate dictionaries, add ROOT libraries properties
 #
 REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+#REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses ${headers} ${driver_headers} SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+
 add_library(ReconstructionNewClassesDict SHARED ${sources} ${driver_sources} ReconstructionNewClasses.cpp)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO)

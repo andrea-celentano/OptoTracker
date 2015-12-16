@@ -6,7 +6,7 @@
      <numberOfWorkers>7</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
      <verboseLevel>2</verboseLevel>
-     <numberOfEvents>-1</numberOfEvents> 
+     <numberOfEvents>100</numberOfEvents> 
    </control>
    <execute>
      <driver name="EventMarker"/>

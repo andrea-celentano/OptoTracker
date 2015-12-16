@@ -18,7 +18,7 @@ arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
 workDir=os.environ['OPTO']+"/MCrun/detector5a"
-saveDir=workDir+"/matrix1"
+saveDir=workDir+"/matrix4"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -26,24 +26,21 @@ steeringName=workDir+"/matrixMCcalculation.xml"
 writeMacroName=os.environ['OPTO']+"/macros/writeMatrix.C"
 
 #dimensions, in cm -> These are re-loaded from the detector now!!
-Lx = 6.0
-Ly = 6.0
-Lz = 6.0
-#divisions for voxels
 
-Nx = 5
-Ny = 5
-Nz = 5
+#divisions for voxels
+Nx = 7
+Ny = 7
+Nz = 7
 
 #which detector
 detectorName=workDir+"/PrototypeGeometry.dat"
 #which particle
 particle="alpha"
 #which energy
-energy="10 MeV"
+energy="1 MeV"
 
 #How many events
-Nevents=10000
+Nevents=100000
 
 
 if not os.path.exists(saveDir):

@@ -35,7 +35,9 @@ public:
 	virtual int end();
 
 private:
-	TH2D **hMultiplicity0;
+	TH1D **hMultiplicity0;
+	TH2D  *hMultiplicityAverage;
+
 	TH2D **hToT0;
 	TH2D **hToT1;
 	TTofpetSetup *m_TofpetSetup;

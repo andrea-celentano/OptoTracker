@@ -1,15 +1,15 @@
-#include "RealSetupHandler.hh"
+#include "TRealSetupHandler.hh"
 
 using namespace std;
 
-RealSetupHandler::RealSetupHandler():
-																				nRealDet(0)
+TRealSetupHandler::TRealSetupHandler() :
+nRealDet(0)
 {
 	cout<<"RealSetupHandler::default constructor"<<endl;
 }
 
-RealSetupHandler::RealSetupHandler(string fname):
-																				nRealDet(0)
+TRealSetupHandler::TRealSetupHandler(string fname) :
+nRealDet(0)
 {
 	cout<<"RealSetupHandler::file constructor"<<endl;
 	ifstream file;
@@ -28,7 +28,8 @@ RealSetupHandler::RealSetupHandler(string fname):
 	file.close();
 }
 
-void RealSetupHandler::processLine(string line){
+void TRealSetupHandler::processLine(string line){
+	Info("processLine","called with line: %s",line.c_str());
 	istringstream parser;
 	string key,data;
 	pair < int , int > facedet;
@@ -88,7 +89,7 @@ void RealSetupHandler::processLine(string line){
 	}
 }
 
-int    RealSetupHandler::getReconstructionDetectorFace(int idet){
+int    TRealSetupHandler::getReconstructionDetectorFace(int idet){
 	int ret=-1;
 	std::map<int,int>::iterator it;
 	it = m_reconstructionDetFace.find(idet);
@@ -101,7 +102,7 @@ int    RealSetupHandler::getReconstructionDetectorFace(int idet){
 	return ret;
 }
 
-int     RealSetupHandler::getReconstructionDetectorID(int idet){  
+int     TRealSetupHandler::getReconstructionDetectorID(int idet){  
 	int ret=-1;
 	std::map<int,int>::iterator it;
 	it = m_reconstructionDetID.find(idet);
@@ -115,7 +116,7 @@ int     RealSetupHandler::getReconstructionDetectorID(int idet){
 
 }
 
-int     RealSetupHandler::getRealDetectorID(int iface,int idet){
+int     TRealSetupHandler::getRealDetectorID(int iface,int idet){
 	pair <int,int> facedet(iface,idet);
 	int ret=-1;
 	std::map<pair<int,int>,int>::iterator it;
@@ -130,7 +131,7 @@ int     RealSetupHandler::getRealDetectorID(int iface,int idet){
 }
 
 
-double RealSetupHandler::getPixelGain(int iface,int idetector, int ipixel,int igain){
+double TRealSetupHandler::getPixelGain(int iface,int idetector, int ipixel,int igain){
 	double ret=-1;
 	std::map<int,double>::iterator it;
 	switch (igain){
@@ -162,7 +163,7 @@ double RealSetupHandler::getPixelGain(int iface,int idetector, int ipixel,int ig
 	return ret;
 }
 
-void RealSetupHandler::setPixelGain(int iface,int idetector, int ipixel,int igain,double val){
+void TRealSetupHandler::setPixelGain(int iface,int idetector, int ipixel,int igain,double val){
 
 	std::pair <int,double> par(ipixel,val);
 	switch (igain){
@@ -177,14 +178,14 @@ void RealSetupHandler::setPixelGain(int iface,int idetector, int ipixel,int igai
 		break;
 
 	default:
-		cout<<"Error in RealSetupHandler::setPixelGain. igain must be 1,2,3"<<endl;
+		Error("setPixelGain","Error in RealSetupHandler::setPixelGain. igain must be 1,2,3");
 		break;
 	}
 }
 
 
 
-void RealSetupHandler::Print(int printPixels){
+void TRealSetupHandler::Print(int printPixels){
 
 	std::map<int,int>::iterator itDet,itFace;
 	int iReconDetID,iReconDetFace,iDet,iDet2;
@@ -240,7 +241,7 @@ void RealSetupHandler::Print(int printPixels){
 }
 
 
-void RealSetupHandler::PrintPixels(int iface,int idetector){
+void TRealSetupHandler::PrintPixels(int iface,int idetector){
 
 	std::map<int,double>::iterator itGain1,itGain2,itGain3;
 

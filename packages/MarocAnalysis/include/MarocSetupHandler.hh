@@ -5,11 +5,11 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include "RealSetupHandler.hh"
+#include "TRealSetupHandler.hh"
 
 using namespace std;
 
-class MarocSetupHandler:public RealSetupHandler{
+class MarocSetupHandler:public TRealSetupHandler{
 
 private:
 
