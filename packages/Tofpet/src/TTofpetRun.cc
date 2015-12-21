@@ -1,14 +1,14 @@
-#include "TTofpetSetup.hh"
+#include "TTofpetRun.hh"
 #include <algorithm>
 #include <vector>
 #include <utility>
 #include <iostream>
 using namespace std;
 
-TTofpetSetup::TTofpetSetup(){
+TTofpetRun::TTofpetRun(){
 }
 
-void TTofpetSetup::addPair(int step1,int step2,int N){
+void TTofpetRun::addPair(int step1,int step2,int N){
 	m_pairs.push_back(std::make_pair(step1,step2));
 	m_pairsNevents.insert(std::make_pair(std::make_pair(step1,step2),N));
 	if (find(m_steps1.begin(),m_steps1.end(),step1)==m_steps1.end()){
@@ -21,7 +21,7 @@ void TTofpetSetup::addPair(int step1,int step2,int N){
 
 }
 
-int TTofpetSetup::getStepID(int step1,int step2) const{
+int TTofpetRun::getStepID(int step1,int step2) const{
 	int ret=0;
 
 	vector< pair<int,int> >::const_iterator it;
@@ -36,7 +36,7 @@ int TTofpetSetup::getStepID(int step1,int step2) const{
 }
 
 
-int TTofpetSetup::getStepNevents(int step1,int step2) const{
+int TTofpetRun::getStepNevents(int step1,int step2) const{
 	int ret=0;
 
 	map< pair<int,int> , int >::const_iterator it;
@@ -54,7 +54,7 @@ int TTofpetSetup::getStepNevents(int step1,int step2) const{
 
 
 
-int TTofpetSetup::getStep1ID(int step1) const{
+int TTofpetRun::getStep1ID(int step1) const{
 	int ret=0;
 
 	vector< int >::const_iterator it;

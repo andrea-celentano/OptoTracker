@@ -14,7 +14,7 @@
 
 class TH1D;
 class TH2D;
-class TTofpetSetup;
+class TTofpetRun;
 
 class TTofpetDummyAnalysisDriver: public TDriver {
 public:
@@ -40,7 +40,7 @@ private:
 
 	TH2D **hToT0;
 	TH2D **hToT1;
-	TTofpetSetup *m_TofpetSetup;
+	TTofpetRun *m_TofpetRun;
 
 	int m_Nsteps;
 

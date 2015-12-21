@@ -7,7 +7,7 @@
 #include <utility>
 
 
-class TTofpetSetup:public TObject{
+class TTofpetRun:public TObject{
 
 private:
 
@@ -18,7 +18,7 @@ private:
 
 public:
 
-	TTofpetSetup();
+	TTofpetRun();
 
 
 	int getNsteps() const {
@@ -53,7 +53,7 @@ public:
 
 	int getStepNevents(int step1,int step2) const;
 
-	ClassDef(TTofpetSetup,1);
+	ClassDef(TTofpetRun,1);
 };
 
 

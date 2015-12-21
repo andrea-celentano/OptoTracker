@@ -1,6 +1,6 @@
 #include "TTofpetEventHeader.hh"
 #include "TTofpetHit.hh"
-#include "TTofpetSetup.hh"
+#include "TTofpetRun.hh"
 #include "TofpetSetupHandler.hh"
 //TTofpetEventHeader obj1;
 
