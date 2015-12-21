@@ -4,4 +4,5 @@
 	<class name="TTofpetHit"/>
 	<class name="TTofpetRun"/>
 	<class name="TofpetSetupHandler"/>
+	<class name="	std::map < std::pair <int , int > , int >"/>
 </lcgdict>
