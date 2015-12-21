@@ -1,0 +1,7 @@
+#Any line starting with # is a comment
+#Detector RealID  ReconstructionFace ReconstructionID(in each face starts from 0!)
+#Pixel pixelID gainEntry gainVal     (gainEntry:1,2,3)
+#Pixels firstPixel lastPixel gainEntry gainVal (gainEntry:1,2,3)
+
+Detector 0 0 0
+Detector 1 2 0

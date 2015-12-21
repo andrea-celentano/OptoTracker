@@ -5,6 +5,10 @@
  *      Author: celentan
  */
 
+#include "TH1D.h"
+#include "TH2D.h"
+
+
 #include "TTofpetDummyAnalysisDriver.hh"
 #include "TTofpetSetup.hh"
 
@@ -12,9 +16,7 @@
 #include "TTofpetEventHeader.hh"
 #include "TTofpetHit.hh"
 #include "TJobManager.hh"
-
-#include "TH1D.h"
-#include "TH2D.h"
+#include "TofpetSetupHandler.hh"
 
 TTofpetDummyAnalysisDriver::TTofpetDummyAnalysisDriver() {
 	// TODO Auto-generated constructor stub
@@ -35,7 +37,8 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 	TTofpetHit   *hit;
 	TTofpetEventHeader *header=0;
 
-	int N,step1,step2,id,id1,ch;
+	int N,step1,step2,id,id1,ch,ix,iy;
+
 
 
 	header=(TTofpetEventHeader*)event->getEventHeader();
@@ -55,7 +58,9 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 		while (hit = (TTofpetHit*)TofpetHitCollectionIter->Next()){
 
 			ch=hit->getChannel();
-			hToT0[id]->Fill(ch,hit->getToT());
+			ix=hit->getXi();
+			iy=hit->getYi();
+			hToT0[id]->Fill(ix,iy,hit->getToT());
 			hToT1[id1*128+ch]->Fill(hit->getToT(),step2);
 			//cout<<hit->getChannel()<<" "<<hit->getToT()<<endl;
 		}
@@ -99,7 +104,7 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 			step1=m_TofpetSetup->getStep1(ii);
 			step2=m_TofpetSetup->getStep2(ii);
 
-			hToT0[ii]=new TH2D(Form("hTot0_%i_%i",step1,step2),Form("hTot0_%i_%i",step1,step2),128,-0.5,127.5,1000,-50,200);
+			hToT0[ii]=new TH2D(Form("hTot0_%i_%i",step1,step2),Form("hTot0_%i_%i",step1,step2),TofpetSetupHandler::nTofpetPixelsX,-0.5,TofpetSetupHandler::nTofpetPixelsX-0.5,TofpetSetupHandler::nTofpetPixelsY,-.5,TofpetSetupHandler::nTofpetPixelsY-.5);
 			m_manager->GetOutputList()->Add(hToT0[ii]);
 		}
 
@@ -124,6 +129,8 @@ int TTofpetDummyAnalysisDriver::end(){
 		step1=m_TofpetSetup->getStep1(ii);
 		step2=m_TofpetSetup->getStep2(ii);
 		hMultiplicity0[ii]=(TH1D*)m_manager->GetOutputList()->FindObject(Form("hMultiplicity0_%i_%i",step1,step2));
+		hToT0[ii]=(TH2D*)m_manager->GetOutputList()->FindObject(Form("hTot0_%i_%i",step1,step2));
+		hToT0[ii]->Scale(1./m_manager->getNumberOfEvents());
 		N=hMultiplicity0[ii]->GetMean();
 		hMultiplicityAverage->Fill(step1,step2,N);
 	}

@@ -3,6 +3,7 @@
 
 #include "TObject.h"
 #include <vector>
+#include <map>
 #include <utility>
 
 
@@ -11,6 +12,7 @@ class TTofpetSetup:public TObject{
 private:
 
 	std::vector < std::pair < int , int > > m_pairs;
+	std::map < std::pair <int , int > , int > m_pairsNevents;
 	std::vector < int > m_steps1;
 	std::vector < int > m_steps2;
 
@@ -32,7 +34,7 @@ public:
 	}
 
 
-	void addPair(int step1,int step2);
+	void addPair(int step1,int step2,int N=0);
 
 	std::pair < int , int > getPair(int id) const{
 		return m_pairs.at(id);
@@ -48,6 +50,8 @@ public:
 
 	int getStepID(int step1,int step2) const;
 	int getStep1ID(int step1) const;
+
+	int getStepNevents(int step1,int step2) const;
 
 	ClassDef(TTofpetSetup,1);
 };

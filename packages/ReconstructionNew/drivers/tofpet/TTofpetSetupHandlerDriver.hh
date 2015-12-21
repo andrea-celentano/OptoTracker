@@ -36,7 +36,7 @@ public:
 	virtual int start();
 
 	void setSource(int source){m_source=source;}
-	void setOutFileName(const char* m_fname){this->m_fname=string(fname);}
+	void setFileName(const char* fname){this->m_fname=string(fname);}
 
 	static const int	txtFile=0;
 	static const int	rootFile=1;

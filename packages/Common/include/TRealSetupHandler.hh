@@ -1,5 +1,5 @@
 #ifndef REAL_GEOMETRY_HANDLER_HG
-#define REAL_GEOMETRY_HANGLER_HG
+#define REAL_GEOMETRY_HANDLER_HG
 
 #include <iostream>
 #include <iomanip>
@@ -14,6 +14,8 @@
 
 #include "TObject.h"
 
+using namespace std;
+
 /*
  * This is the base class for all the "real" geometries, i.e. it provides the matching between
 a real configuration, with detectors handled in a "certain" way, 
@@ -21,9 +23,8 @@ and the reconstruction configuration, that is defined in a "universal" way.
  *To do this, one specifies:  RealDetectorID --> reconstruction detector face / reconstruction detector ID (in the face)
 In the "real" analysis, one will derive a concrete instance of this base class
  */
-using namespace std;
-class TRealSetupHandler : public TObject
-{
+
+class TRealSetupHandler : public TObject{
 protected:
 	/*
     These are the 2 maps that provide, given the RealDetectorId (key), 

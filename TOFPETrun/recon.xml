@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <OptoTracker>
  <Recon>
    <control>
@@ -10,13 +11,18 @@
    </control>
    <execute>
      <driver name="EventMarker"/>
+     <driver name="TofpetSetupHandler"/>
      <driver name="Dummy"/>
      <driver name="Save"/>
    </execute>
    <drivers>
       <driver name="EventMarker" type="TEventMarkerDriver">
-	<setInterval>100</setInterval>
+		<setInterval>100</setInterval>
       </driver>
+     <driver name="TofpetSetupHandler" type="TTofpetSetupHandlerDriver">  
+		<setSource>0</setSource>
+		<setFileName>"PrototypeSetup.dat"</setFileName>
+      </driver> 
       <driver name="Dummy" type="TTofpetDummyAnalysisDriver">  
 		<setCollectionRawName>"TofpetHitRaw"</setCollectionRawName>
       </driver>

@@ -1,5 +1,5 @@
+#include "TRealSetupHandler.hh"
 #include "TofpetSetupHandler.hh"
-
 using namespace std;
 
 TofpetSetupHandler::TofpetSetupHandler():
@@ -8,8 +8,7 @@ TRealSetupHandler(){
 }
 
 
-TofpetSetupHandler::TofpetSetupHandler(string fname):
-TRealSetupHandler(fname)
+TofpetSetupHandler::TofpetSetupHandler(string fname)
 {
 	Info("TofpetSetupHandler","constructor with file: %s",fname.c_str());
 	ifstream file;
@@ -22,8 +21,13 @@ TRealSetupHandler(fname)
 		while(!file.eof()){
 			getline (file,line);
 			if (line.size()==0) continue;
+			TRealSetupHandler::processLine(line);
 			this->processLine(line);
 		}
 	}
 	file.close();
+}
+
+void TofpetSetupHandler::processLine(string line){
+	return;
 }
