@@ -75,7 +75,7 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 int TTofpetDummyAnalysisDriver::startOfData(){
 	Info("startOfData","start");
 
-	int step1,step2;
+	int step1,step2,N;
 
 	hMultiplicityAverage=new TH2D("hMultiplicityAverage","hMultiplicityAverage",64,-0.5,63.5,64,-0.5,63.5);
 	m_manager->GetOutputList()->Add(hMultiplicityAverage);
@@ -92,9 +92,9 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 		for (int ii=0;ii<m_Nsteps;ii++){
 			step1=m_TofpetRun->getStep1(ii);
 			step2=m_TofpetRun->getStep2(ii);
+			N=m_TofpetRun->getStepNevents(step1,step2);
 
-
-			if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity)	printf("Step %i: step1: %i, step2: %i \n",ii,step1,step2);
+			if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity)	printf("Step %i: step1: %i, step2: %i, events: %i \n",ii,step1,step2,N);
 
 			hMultiplicity0[ii]=new TH1D(Form("hMultiplicity0_%i_%i",step1,step2),Form("hMultiplicity0_%i_%i",step1,step2),128,-0.5,128.5);
 			m_manager->GetOutputList()->Add(hMultiplicity0[ii]);
@@ -114,6 +114,10 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 				m_manager->GetOutputList()->Add(hToT1[ii*128+jj]);
 			}
 		}
+	}
+	else{
+		Error("startOfData","No TTofpetRun object in the file, should be there!");
+		return -1;
 	}
 
 
