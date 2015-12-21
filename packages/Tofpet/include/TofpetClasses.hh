@@ -5,10 +5,6 @@
 //TTofpetEventHeader obj1;
 
 
-#include <map>
-#include <utility>
-
-std::map<std::pair<int,int>,int> obj1;
 
 
 //#undef __G4String
