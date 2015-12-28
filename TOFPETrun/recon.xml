@@ -2,9 +2,9 @@
 <OptoTracker>
  <Recon>
    <control>
-     <doProof>0</doProof>
+     <doProof>1</doProof>
      <doProofDiag>1</doProofDiag>
-     <numberOfWorkers>7</numberOfWorkers>
+     <numberOfWorkers>15</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
      <verboseLevel>3</verboseLevel>
      <numberOfEvents>-1</numberOfEvents> 

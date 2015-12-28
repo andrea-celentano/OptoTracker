@@ -29,11 +29,13 @@ int TRootSaveDriver::end(){
 		outputIter=new TListIter(m_manager->GetOutputList());
 		if (m_verboseLevel>=TJobManager::normalVerbosity) Info("end","There are %i object in output list",m_manager->GetOutputList()->GetEntries());
 		while (TObject *obj=outputIter->Next()){
+			if (obj->InheritsFrom(TJobManager::Class())) continue;
 			obj->Write();
 			if (m_verboseLevel>=TJobManager::normalVerbosity){
 				Info("end","Writing to file object: %s",obj->GetName());
 			}
 		}
+		m_fout->Close();
 	}
 	else if (m_manager->isLastIteration()==0){
 		if (m_verboseLevel>=TJobManager::normalVerbosity){

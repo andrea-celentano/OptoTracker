@@ -9,4 +9,5 @@
 <class name="TRealSetupHandler"/>
 <class name="TMCTruth"/>
 <class name="TMCParticle"/>
+<class name="std::map<int,double>"/>
 </lcgdict>

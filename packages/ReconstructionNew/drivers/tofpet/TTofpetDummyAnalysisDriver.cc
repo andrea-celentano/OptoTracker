@@ -22,6 +22,7 @@ TTofpetDummyAnalysisDriver::TTofpetDummyAnalysisDriver() {
 	// TODO Auto-generated constructor stub
 	m_TofpetRun=0;
 	hMultiplicity0=0;
+	hMultiplicity1=0;
 	hMultiplicityAverage=0;
 	hToT0=0;
 	hToT1=0;
@@ -45,16 +46,20 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 	if (header==0){
 		Error("process","no event header!");
 	}
+
 	step1=header->getStep1();
 	step2=header->getStep2();
+
 	id=m_TofpetRun->getStepID(step1,step2);
 	id1=m_TofpetRun->getStep1ID(step1);
+
 	if (event->hasCollection(TTofpetHit::Class(),m_collectionRawName)){
 		TofpetHitCollection=event->getCollection(TTofpetHit::Class(),m_collectionRawName);
 		N=TofpetHitCollection->GetEntries();
 		TofpetHitCollectionIter=new TIter(TofpetHitCollection);
 
 		hMultiplicity0[id]->Fill(N);
+
 		while (hit = (TTofpetHit*)TofpetHitCollectionIter->Next()){
 
 			ch=hit->getChannel();
@@ -62,6 +67,7 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 			iy=hit->getYi();
 			hToT0[id]->Fill(ix,iy,hit->getToT());
 			hToT1[id1*128+ch]->Fill(hit->getToT(),step2);
+			hMultiplicity1[id]->Fill(ix,iy);
 			//cout<<hit->getChannel()<<" "<<hit->getToT()<<endl;
 		}
 	}
@@ -88,6 +94,7 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 		hToT0=new TH2D*[m_Nsteps];
 		hToT1=new TH2D*[128*m_TofpetRun->getNsteps1()];
 		hMultiplicity0=new TH1D*[m_Nsteps];
+		hMultiplicity1=new TH2D*[m_Nsteps];
 
 		for (int ii=0;ii<m_Nsteps;ii++){
 			step1=m_TofpetRun->getStep1(ii);
@@ -100,6 +107,14 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 			m_manager->GetOutputList()->Add(hMultiplicity0[ii]);
 
 		}
+		for (int ii=0;ii<m_Nsteps;ii++){
+			step1=m_TofpetRun->getStep1(ii);
+			step2=m_TofpetRun->getStep2(ii);
+			hMultiplicity1[ii]=new TH2D(Form("hMultiplicity1_%i_%i",step1,step2),Form("hMultiplicity1_%i_%i",step1,step2),TofpetSetupHandler::nTofpetPixelsX,-0.5,TofpetSetupHandler::nTofpetPixelsX-0.5,TofpetSetupHandler::nTofpetPixelsY,-.5,TofpetSetupHandler::nTofpetPixelsY-.5);
+			m_manager->GetOutputList()->Add(hMultiplicity1[ii]);
+		}
+
+
 		for (int ii=0;ii<m_Nsteps;ii++){
 			step1=m_TofpetRun->getStep1(ii);
 			step2=m_TofpetRun->getStep2(ii);
@@ -125,20 +140,65 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 }
 
 int TTofpetDummyAnalysisDriver::end(){
+	Info("end","end starts now");
 	int step1,step2;
 	double N;
 
+	m_TofpetRun=0;
+	hMultiplicityAverage=0;
+
 	hMultiplicityAverage=(TH2D*)m_manager->GetOutputList()->FindObject("hMultiplicityAverage");
-	m_TofpetRun=(TTofpetRun*)m_manager->GetOutputList()->FindObject("TTofpetRun");
+	m_TofpetRun=(TTofpetRun*)m_manager->getObject(TTofpetRun::Class());
+	if (m_TofpetRun==0){
+		Error("end","No TTofpetRun!");
+		return -1;
+	}
+
+	m_Nsteps=m_TofpetRun->getNsteps();
+	Info("end","There are %i steps",m_Nsteps);
+
+	hMultiplicity0=new TH1D*[m_Nsteps];
+	hMultiplicity1=new TH2D*[m_Nsteps];
+	hToT0=new TH2D*[m_Nsteps];
+	hToT1=new TH2D*[128*m_TofpetRun->getNsteps1()];
+
+
+
 
 	for (int ii=0;ii<m_Nsteps;ii++){
 		step1=m_TofpetRun->getStep1(ii);
 		step2=m_TofpetRun->getStep2(ii);
+		Info("end","getting histos for: %i %i",step1,step2);
+
 		hMultiplicity0[ii]=(TH1D*)m_manager->GetOutputList()->FindObject(Form("hMultiplicity0_%i_%i",step1,step2));
+		hMultiplicity1[ii]=(TH2D*)m_manager->GetOutputList()->FindObject(Form("hMultiplicity1_%i_%i",step1,step2));
 		hToT0[ii]=(TH2D*)m_manager->GetOutputList()->FindObject(Form("hTot0_%i_%i",step1,step2));
+
+
+
+		m_manager->getObject(TH1D::Class(),string(Form("hMultiplicity0_%i_%i",step1,step2)));
+		m_manager->getObject(TH2D::Class(),string(Form("hMultiplicity1_%i_%i",step1,step2)));
+		m_manager->GetOutputList()->FindObject(Form("hTot0_%i_%i",step1,step2));
+
+
+
 		hToT0[ii]->Scale(1./m_TofpetRun->getStepNevents(step1,step2));
+
+
+		hMultiplicity1[ii]->Scale(1./m_TofpetRun->getStepNevents(step1,step2));
+		Info("end","hMultiplicity1 scaled: %s",hMultiplicity1[ii]->GetName());
+
+
+
 		N=hMultiplicity0[ii]->GetMean();
 		hMultiplicityAverage->Fill(step1,step2,N);
 	}
 	return 0;
+
+/*	delete hMultiplicity0;
+	delete hMultiplicity1;
+	delete hToT0;
+	delete hToT1;*/
+
+
 }

@@ -400,6 +400,7 @@ TObject* TJobManager::getObject(TClass *theClass,string name) const{
 	TIter *iter = new TIter(fInput);
 	int isNamed=0;
 	if (theClass->InheritsFrom(TNamed::Class())){
+		Info("getObject","Object is named and name is provided. OK");
 		isNamed=1;
 	}
 	if (isNamed&&name.length()==0){
@@ -418,6 +419,7 @@ TObject* TJobManager::getObject(TClass *theClass,string name) const{
 			if ((ret->InheritsFrom(theClass))) 	return ret;
 		}
 	}
+	Info("getObject","No object from class %s and name %s is found",theClass->GetName(),name.c_str());
 	return 0;
 }
 

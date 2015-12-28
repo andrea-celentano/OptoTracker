@@ -36,6 +36,7 @@ public:
 
 private:
 	TH1D **hMultiplicity0;
+	TH2D **hMultiplicity1;
 	TH2D  *hMultiplicityAverage;
 
 	TH2D **hToT0;
