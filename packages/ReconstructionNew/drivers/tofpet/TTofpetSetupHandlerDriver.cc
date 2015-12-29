@@ -9,11 +9,11 @@
 
 
 #include "TTofpetSetupHandlerDriver.hh"
-#include "TofpetSetupHandler.hh"
+#include "TTofpetSetupHandler.hh"
 #include "TJobManager.hh"
 
 TTofpetSetupHandlerDriver::TTofpetSetupHandlerDriver():
-m_fname(""),m_setupHandler(0){
+m_fname(""),m_setupHandler(0),m_source(0){
 	// TODO Auto-generated constructor stub
 
 }
@@ -37,7 +37,7 @@ int TTofpetSetupHandlerDriver::start(){
 		if (m_manager->getVerboseLevel() >  TJobManager::normalVerbosity) Info("start","Iteration 0");
 
 
-		if (m_manager->hasObject(TofpetSetupHandler::Class())){
+		if (m_manager->hasObject(TTofpetSetupHandler::Class())){
 			return 0;
 		}
 		else if (m_source==TTofpetSetupHandlerDriver::txtFile){
@@ -47,7 +47,7 @@ int TTofpetSetupHandlerDriver::start(){
 				return -1;
 			}
 			else{
-				m_setupHandler=new TofpetSetupHandler(m_fname);
+				m_setupHandler=new TTofpetSetupHandler(m_fname);
 				m_manager->addObject(m_setupHandler);
 			}
 		}
@@ -60,7 +60,7 @@ int TTofpetSetupHandlerDriver::start(){
 			else{
 				m_file=new TFile(m_fname.c_str());
 				if (m_file->GetListOfKeys()->Contains("TofpetSetupHandler")){
-					m_setupHandler=(TofpetSetupHandler*)m_file->Get("TofpetSetupHandler");
+					m_setupHandler=(TTofpetSetupHandler*)m_file->Get("TofpetSetupHandler");
 					m_manager->addObject(m_setupHandler);
 				}
 				else{

@@ -26,8 +26,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-
+#include "TTofpetChargeCalibration.hh"
+#include "TTofpetRun.hh"
 
 
 using namespace std;
@@ -47,7 +47,7 @@ int parseCommandLine(int argc,char **argv){
 
 
 int main(int argc,char **argv){
-
+	ROOT::Cintex::Cintex::Enable();
 	const int Nch=128;
 	const int BIN_MIN=10;
 	//	const double MAX_RATE=10E6; //for sure the thermal single phe are less than this
@@ -58,6 +58,8 @@ int main(int argc,char **argv){
 	TH1D **hRate2;
 	TGraph **gRate2;
 	TGraph **gRate2A;
+
+	TTofpetChargeCalibration *m_calib;
 
 	float step1,step2,channel,asic,rate;
 	int ich,ihisto,istep1,id,imax,iphe;
@@ -110,33 +112,35 @@ int main(int argc,char **argv){
 	for (istep1=0;istep1<Nstep1;istep1++){
 		for (ich=0;ich<Nch;ich++){
 			id=ich+istep1*Nch;
-			hRate[id]=new TH1D(Form("hRate_step%i_ch%i",istep1,ich),Form("hRate_step%i_ch%i:thr:rate",istep1,ich),64,-0.5,63.5);
+			cout<<"Creating histo for ch: "<<ich<<" step1 val: "<<m_step1.at(istep1)<<endl;
+			hRate[id]=new TH1D(Form("hRate_step%i_ch%i",int(m_step1.at(istep1)),ich),Form("hRate_step%i_ch%i:thr:rate",int(m_step1.at(istep1)),ich),64,-0.5,63.5);
 			hRate[id]->SetStats(0);
 
-			hRate2[id]=new TH1D(Form("hRate2_step%i_ch%i",istep1,ich),Form("hRate2_step%i_ch%i:thr:rate",istep1,ich),64,-0.5,63.5);
+			hRate2[id]=new TH1D(Form("hRate2_step%i_ch%i",int(m_step1.at(istep1)),ich),Form("hRate2_step%i_ch%i:thr:rate",int(m_step1.at(istep1)),ich),64,-0.5,63.5);
 			hRate2[id]->SetStats(0);
 
 			gRate2[id]=new TGraph();
-			gRate2[id]->SetName(Form("gPhe_step%i_ch%i",istep1,ich));
-			gRate2[id]->SetTitle(Form("gPhe_step%i_ch%i",istep1,ich));
+			gRate2[id]->SetName(Form("gPhe_step%i_ch%i",int(m_step1.at(istep1)),ich));
+			gRate2[id]->SetTitle(Form("gPhe_step%i_ch%i",int(m_step1.at(istep1)),ich));
 			gRate2[id]->SetMarkerStyle(20);
 
 			gRate2A[id]=new TGraph();
-			gRate2A[id]->SetName(Form("gPheA_step%i_ch%i",istep1,ich));
-			gRate2A[id]->SetTitle(Form("gPheA_step%i_ch%i",istep1,ich));
+			gRate2A[id]->SetName(Form("gPheA_step%i_ch%i",int(m_step1.at(istep1)),ich));
+			gRate2A[id]->SetTitle(Form("gPheA_step%i_ch%i",int(m_step1.at(istep1)),ich));
 			gRate2A[id]->SetMarkerStyle(20);
 
 			//	gRate2[id]->SetStats(0);
 		}
 	}
 
+	/*Now read the data!*/
 	for (int ii=0;ii<N;ii++){
 		t->GetEntry(ii);
 		if (asic>=2) continue; //TODO TEMPORARY
 		ich=(int)(channel+asic*64);
 		istep1=distance(m_step1.begin(),find(m_step1.begin(),m_step1.end(),step1));
 		ihisto=ich+istep1*Nch;
-		cout<<ihisto<<" "<<ich<<" "<<asic<<" "<<istep1<<" "<<step1<<endl;
+		//cout<<ihisto<<" "<<ich<<" "<<asic<<" "<<istep1<<" "<<step1<<endl;
 		hRate[ihisto]->Fill(step2,rate);
 	}
 
@@ -171,7 +175,7 @@ int main(int argc,char **argv){
 				post_data=hRate2[id]->GetBinContent(ibin-1);
 				if ((data>prev_data)&&(data>post_data)){
 					gRate2[id]->SetPoint(iphe,hRate2[id]->GetBinCenter(ibin),iphe);
-					gRate2A[id]->SetPoint(iphe,63-hRate2[id]->GetBinCenter(ibin),iphe);
+					gRate2A[id]->SetPoint(iphe,iphe,63-hRate2[id]->GetBinCenter(ibin));
 					iphe++;
 				}
 			}
@@ -224,7 +228,7 @@ int main(int argc,char **argv){
 	}
 	c->Print((outname+")").c_str());
 
-	fOut->cd();
+	m_calib=new TTofpetChargeCalibration();
 
 	for (ich=0;ich<Nch;ich++){
 		for (istep1=0;istep1<Nstep1;istep1++){
@@ -237,9 +241,16 @@ int main(int argc,char **argv){
 			hRate2[ihisto]->Write();
 			gRate2[ihisto]->Write();
 			gRate2A[ihisto]->Write();
+			m_calib->addhRateRaw(ich,m_step1.at(istep1),hRate[ihisto]);
+			m_calib->addhRateDerived(ich,m_step1.at(istep1),hRate2[ihisto]);
+			m_calib->addgThr(ich,m_step1.at(istep1),gRate2A[ihisto]);
+
 		}
 	}
-
+	fOut->cd();
+	m_calib->printhRateDerived();
+	m_calib->Write();
+	fOut->Close();
 	cout<<"DONE"<<endl;
 }
 

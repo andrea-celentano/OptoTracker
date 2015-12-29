@@ -1,5 +1,5 @@
 int Np=1024;
-int Nv=6*6*6;
+int Nv=3*3*3;
 
 void compareMatrix(int iv){
 

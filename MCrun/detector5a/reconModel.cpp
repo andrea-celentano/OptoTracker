@@ -17,9 +17,9 @@
 #define ScintY 6.
 #define ScintZ 6.
 //These are divisions along the 3 axis, to define the number of VOXELS
-#define Nvx  7
-#define Nvy  7
-#define Nvz  7
+#define Nvx  3
+#define Nvy  3
+#define Nvz  3
 
 //These are the sizes (cm) of each photo-detector, along the 2 directions of the plane of the face. Use a dot at the end!
 #define PhotoX 4.8

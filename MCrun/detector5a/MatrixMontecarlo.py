@@ -18,7 +18,7 @@ arch_name="sl6_64"
 #work dir
 #this is the folder where the data input files are located.
 workDir=os.environ['OPTO']+"/MCrun/detector5a"
-saveDir=workDir+"/matrix4"
+saveDir=workDir+"/matrix5"
 #Executables
 geantExe=os.environ['OPTO']+"/bin/OpNoviceExe" 
 matrixExe=os.environ['OPTO']+"/bin/ReconstructionNew"
@@ -28,9 +28,9 @@ writeMacroName=os.environ['OPTO']+"/macros/writeMatrix.C"
 #dimensions, in cm -> These are re-loaded from the detector now!!
 
 #divisions for voxels
-Nx = 7
-Ny = 7
-Nz = 7
+Nx = 3
+Ny = 3
+Nz = 3
 
 #which detector
 detectorName=workDir+"/PrototypeGeometry.dat"

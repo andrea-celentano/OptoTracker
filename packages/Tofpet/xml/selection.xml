@@ -3,6 +3,9 @@
 	<class name="TTofpetEventHeader"/> 
 	<class name="TTofpetHit"/>
 	<class name="TTofpetRun"/>
-	<class name="TofpetSetupHandler"/>
+	<class name="TTofpetSetupHandler"/>
 	<class name="std::map < std::pair <int , int > , int >"/>
+	<class name="TTofpetChargeCalibration"/>
+	<class name="std::map < std::pair <int , int > , TH1D* >"/>
+	<class name="std::map < std::pair <int , int > , TGraph* >"/>
 </lcgdict>

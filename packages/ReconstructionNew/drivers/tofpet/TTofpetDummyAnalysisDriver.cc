@@ -16,7 +16,7 @@
 #include "TTofpetEventHeader.hh"
 #include "TTofpetHit.hh"
 #include "TJobManager.hh"
-#include "TofpetSetupHandler.hh"
+#include "TTofpetSetupHandler.hh"
 
 TTofpetDummyAnalysisDriver::TTofpetDummyAnalysisDriver() {
 	// TODO Auto-generated constructor stub
@@ -110,7 +110,7 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 		for (int ii=0;ii<m_Nsteps;ii++){
 			step1=m_TofpetRun->getStep1(ii);
 			step2=m_TofpetRun->getStep2(ii);
-			hMultiplicity1[ii]=new TH2D(Form("hMultiplicity1_%i_%i",step1,step2),Form("hMultiplicity1_%i_%i",step1,step2),TofpetSetupHandler::nTofpetPixelsX,-0.5,TofpetSetupHandler::nTofpetPixelsX-0.5,TofpetSetupHandler::nTofpetPixelsY,-.5,TofpetSetupHandler::nTofpetPixelsY-.5);
+			hMultiplicity1[ii]=new TH2D(Form("hMultiplicity1_%i_%i",step1,step2),Form("hMultiplicity1_%i_%i",step1,step2),TTofpetSetupHandler::nTofpetPixelsX,-0.5,TTofpetSetupHandler::nTofpetPixelsX-0.5,TTofpetSetupHandler::nTofpetPixelsY,-.5,TTofpetSetupHandler::nTofpetPixelsY-.5);
 			m_manager->GetOutputList()->Add(hMultiplicity1[ii]);
 		}
 
@@ -119,7 +119,7 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 			step1=m_TofpetRun->getStep1(ii);
 			step2=m_TofpetRun->getStep2(ii);
 
-			hToT0[ii]=new TH2D(Form("hTot0_%i_%i",step1,step2),Form("hTot0_%i_%i",step1,step2),TofpetSetupHandler::nTofpetPixelsX,-0.5,TofpetSetupHandler::nTofpetPixelsX-0.5,TofpetSetupHandler::nTofpetPixelsY,-.5,TofpetSetupHandler::nTofpetPixelsY-.5);
+			hToT0[ii]=new TH2D(Form("hTot0_%i_%i",step1,step2),Form("hTot0_%i_%i",step1,step2),TTofpetSetupHandler::nTofpetPixelsX,-0.5,TTofpetSetupHandler::nTofpetPixelsX-0.5,TTofpetSetupHandler::nTofpetPixelsY,-.5,TTofpetSetupHandler::nTofpetPixelsY-.5);
 			m_manager->GetOutputList()->Add(hToT0[ii]);
 		}
 
@@ -148,6 +148,8 @@ int TTofpetDummyAnalysisDriver::end(){
 	hMultiplicityAverage=0;
 
 	hMultiplicityAverage=(TH2D*)m_manager->GetOutputList()->FindObject("hMultiplicityAverage");
+
+	/*m_TofpetRun is in the INPUT list!*/
 	m_TofpetRun=(TTofpetRun*)m_manager->getObject(TTofpetRun::Class());
 	if (m_TofpetRun==0){
 		Error("end","No TTofpetRun!");
@@ -170,15 +172,11 @@ int TTofpetDummyAnalysisDriver::end(){
 		step2=m_TofpetRun->getStep2(ii);
 		Info("end","getting histos for: %i %i",step1,step2);
 
+		/*These are histograms in the output list!*/
 		hMultiplicity0[ii]=(TH1D*)m_manager->GetOutputList()->FindObject(Form("hMultiplicity0_%i_%i",step1,step2));
 		hMultiplicity1[ii]=(TH2D*)m_manager->GetOutputList()->FindObject(Form("hMultiplicity1_%i_%i",step1,step2));
 		hToT0[ii]=(TH2D*)m_manager->GetOutputList()->FindObject(Form("hTot0_%i_%i",step1,step2));
 
-
-
-		m_manager->getObject(TH1D::Class(),string(Form("hMultiplicity0_%i_%i",step1,step2)));
-		m_manager->getObject(TH2D::Class(),string(Form("hMultiplicity1_%i_%i",step1,step2)));
-		m_manager->GetOutputList()->FindObject(Form("hTot0_%i_%i",step1,step2));
 
 
 

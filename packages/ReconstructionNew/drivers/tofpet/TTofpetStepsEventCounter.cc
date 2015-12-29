@@ -7,7 +7,7 @@
 
 #include "TTofpetStepsEventCounter.hh"
 #include "TEvent.hh"
-#include "TofpetSetupHandler.hh"
+#include "TTofpetSetupHandler.hh"
 #include "TTofpetRun.hh"
 
 #include "TTofpetHit.hh"

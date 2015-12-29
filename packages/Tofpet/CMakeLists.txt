@@ -46,7 +46,7 @@ target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} Cintex Reflex)
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
 add_executable(DarkScan DarkScan.cpp)
-target_link_libraries(DarkScan ${ROOT_LIBRARIES})
+target_link_libraries(DarkScan TofpetClassesDict CommonClassesDict ${ROOT_LIBRARIES})
 
 
 

@@ -11,14 +11,14 @@
 #include "TDriver.hh"
 #include <string>
 
-class TofpetSetupHandler;
+class TTofpetSetupHandler;
 
 class TTofpetSetupHandlerDriver: public TDriver {
 
 private:
 	int m_source;
 	std::string m_fname;
-	TofpetSetupHandler *m_setupHandler;
+	TTofpetSetupHandler *m_setupHandler;
 public:
 	TTofpetSetupHandlerDriver();
 	virtual ~TTofpetSetupHandlerDriver();

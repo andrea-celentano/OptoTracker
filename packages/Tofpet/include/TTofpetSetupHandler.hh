@@ -1,18 +1,18 @@
-#ifndef TOFPETSETUPHANDLER_HG
-#define TOFPETSETUPHANDLER_HG
+#ifndef TTOFPETSETUPHANDLER_HG
+#define TTOFPETSETUPHANDLER_HG
 
 #include <string>
 #include "TObject.h"
 
 #include "TRealSetupHandler.hh"
 
-class TofpetSetupHandler : public TRealSetupHandler{
+class TTofpetSetupHandler : public TRealSetupHandler{
 
 private:
 
 public:
-	TofpetSetupHandler();
-	TofpetSetupHandler(std::string fname);
+	TTofpetSetupHandler();
+	TTofpetSetupHandler(std::string fname);
 
 	void processLine(std::string line);
 
@@ -30,7 +30,7 @@ public:
 
 
 
-	ClassDef(TofpetSetupHandler,1);
+	ClassDef(TTofpetSetupHandler,1);
 };
 
 #endif
