@@ -52,7 +52,7 @@ int TTofpetChargeCalibration::getThreshold(int ch,int step1,int nphe) const{
 
 	mean=(nPreTransition+nPostTransition)/2.;
 	mean=floor(mean);
-	//mean+=1;
+	mean+=1;
 
 	return (int)mean;
 }
