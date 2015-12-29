@@ -51,8 +51,27 @@ int TTofpetChargeCalibration::getThreshold(int ch,int step1,int nphe) const{
 	nPostTransition=this->getTransition(ch,step1,nphe);  //this is the thr val corresponding to nphe   --> nphe+1
 
 	mean=(nPreTransition+nPostTransition)/2.;
-	mean=rint(mean);
-	mean+=1;
+	mean=floor(mean);
+	//mean+=1;
 
 	return (int)mean;
+}
+
+void TTofpetChargeCalibration::printTransitions(int step1,int nphe1,int nphe2) const{
+	int thr1,thr2;
+	for (int ich=0;ich<128;ich++){ ///TODO
+		thr1=getTransition(ich,step1,nphe1);
+		thr2=getTransition(ich,step1,nphe2);
+		cout<<"Ch: "<<ich<<" transition (inverted!): "<<thr1<<" "<<thr2<<" --- transition(not inverted): "<<63-thr1<<" "<<63-thr2<<endl;
+	}
+}
+
+
+void TTofpetChargeCalibration::printThresholds(int step1,int nphe1,int nphe2) const{
+	int thr1,thr2;
+	for (int ich=0;ich<128;ich++){ ///TODO
+		thr1=getThreshold(ich,step1,nphe1);
+		thr2=getThreshold(ich,step1,nphe2);
+		cout<<"Ch: "<<ich<<" thr (inverted!): "<<thr1<<" "<<thr2<<" --- thr(not inverted): "<<63-thr1<<" "<<63-thr2<<endl;
+	}
 }

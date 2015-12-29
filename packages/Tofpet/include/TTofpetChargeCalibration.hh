@@ -27,7 +27,6 @@ private:
 
 public:
 
-	ClassDef(TTofpetChargeCalibration,1);
 
 	TTofpetChargeCalibration();
 	virtual ~TTofpetChargeCalibration();
@@ -56,10 +55,13 @@ public:
 
 	/*This method retunrs the INVERTED threshold corresponding to the transition between nphe and nphe+1 */
 	int getTransition(int ch,int step1,int nphe) const;
+	void printTransitions(int step1,int nphe1,int nphe2) const;
 
 	/*This method returns the INVERTED threshold corresponding to nphe*/
 	int getThreshold(int ch,int step1,int nphe) const;
+	void printThresholds(int step1,int nphe1,int nphe2) const;
 
+	ClassDef(TTofpetChargeCalibration,1);
 
 };
 
