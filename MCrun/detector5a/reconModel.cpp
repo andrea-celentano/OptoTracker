@@ -421,6 +421,7 @@ void writeMatrix4(TDetectorLight *det,string fname){
   int ipixel,iface;
   int ivoxel;
   double val=0;
+  double tmp;
 
   /*voxels size*/
   double Lx=ScintX/Nvx;
@@ -432,7 +433,7 @@ void writeMatrix4(TDetectorLight *det,string fname){
   double dx,dy,dz;
   double x,y,z;
   TVector3 rv,r;
-int Nxx=3;
+  int Nxx=3;
   int Nyy=3;
   int Nzz=3;
   dx=Lx/Nxx;
@@ -456,7 +457,8 @@ int Nxx=3;
 		z=(-Lz/2+iz*dy);
 		r.SetXYZ(x,y,z);
 		r=rv+r;
-		val+=utils->SinglePixelAverageCharge(r,iface,idet,ipixel);
+		tmp=utils->SinglePixelAverageCharge(r,iface,idet,ipixel);
+		val+=tmp;
 	      }
 	    }	    
 	  }
@@ -474,7 +476,7 @@ int Nxx=3;
 int macro(){
   gSystem->Load("$OPTO/lib/libCommonClassesDict.so");
   TDetectorLight *det=new TDetectorLight("PrototypeGeometry.dat");
-  
+  TDetectorUtils *utils=new TDetectorUtils(det);
   cout<<" "<<endl;
   getPixelCenter(0,0).Print();
   det->getPosPixel(0,0,0).Print();
@@ -499,12 +501,14 @@ int macro(){
   getPixelCenter(0,192).Print();
   det->getPosPixel(0,3,0).Print();
 
-
+  cout<<" "<<endl;
+  TVector3 r(-1,-2.33,-3.0);
+  det->getPosPixel(2,0,4).Print();
+  cout<<utils->SinglePixelAverageCharge(r,2,0,4)<<endl;
   
-  //  writeMatrix2(det,"analyticModelMatrixNoOptics.txt");
-  //cout<<"written Matrix2"<<endl;
-  writeMatrix3(det,"matrixAnalyticModel.txt");
-  writeMatrix4(det,"matrixAnalyticModel2.txt");
+  
+  //writeMatrix3(det,"matrixAnalyticModel.txt");
+    writeMatrix4(det,"matrixAnalyticModel2.txt");
   cout<<"written Matrix2"<<endl;
 }
 

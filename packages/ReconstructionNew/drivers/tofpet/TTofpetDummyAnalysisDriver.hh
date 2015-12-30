@@ -37,10 +37,14 @@ public:
 private:
 	TH1D **hMultiplicity0;
 	TH2D **hMultiplicity1;
+	TH1D **hMultiplicity2;
 	TH2D  *hMultiplicityAverage;
 
 	TH2D **hToT0;
 	TH2D **hToT1;
+
+	TH2D **hToTCh;
+
 	TTofpetRun *m_TofpetRun;
 
 	int m_Nsteps;

@@ -9,10 +9,12 @@
 #include "TH2D.h"
 #include "TMath.h"
 #include "TCanvas.h"
+#include "TF1.h"
 #include "TApplication.h"
 #include "TVector3.h"
 #include "TRandom3.h"
 #include "TGraph.h"
+#include "TGraphErrors.h"
 #include "TGraph2D.h"
 #include "Cintex/Cintex.h"
 #include "TList.h"
@@ -21,12 +23,13 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-#include "TTofpetChargeCalibration.hh"
+#include "TTofpetThresholdCalibration.hh"
 #include "TTofpetRun.hh"
 
 
@@ -50,26 +53,29 @@ int main(int argc,char **argv){
 	ROOT::Cintex::Cintex::Enable();
 	const int Nch=128;
 	const int BIN_MIN=10;
-	//	const double MAX_RATE=10E6; //for sure the thermal single phe are less than this
+	const double MAX_RATE=5E6; //for sure the thermal single phe are less than this
 
 	TFile *f,*fOut;
 	TTree *t;
 	TH1D **hRate;
 	TH1D **hRate2;
 	TGraph **gRate2;
-	TGraph **gRate2A;
+	TGraphErrors **gRate2A;
 
-	TTofpetChargeCalibration *m_calib;
+	TH1D** hSlope;
+	TH1D** hRateSinglePhe;
+	TTofpetThresholdCalibration *m_calib;
 
 	float step1,step2,channel,asic,rate;
 	int ich,ihisto,istep1,id,imax,iphe;
 	int N,Nstep1;
 
+	float *rateSinglePhe,*rateSinglePheTMP;
 
 	double max,delta,diff;
 	double data,prev_data,post_data;
 
-
+	vector < float > *m_thr;
 	vector < float > m_step1;
 
 	outname="out.ps";
@@ -107,9 +113,19 @@ int main(int argc,char **argv){
 	hRate=new TH1D*[Nch*Nstep1];
 	hRate2=new TH1D*[Nch*Nstep1];
 	gRate2=new TGraph*[Nch*Nstep1];
-	gRate2A=new TGraph*[Nch*Nstep1];
+	gRate2A=new TGraphErrors*[Nch*Nstep1];
+
+	hSlope=new TH1D*[Nstep1];
+	hRateSinglePhe=new TH1D*[Nstep1];
+
+	rateSinglePhe=new float[Nch*Nstep1];
+	rateSinglePheTMP=new float[Nch*Nstep1];
+
+	m_thr = new vector<float>[Nch*Nstep1];
 
 	for (istep1=0;istep1<Nstep1;istep1++){
+
+
 		for (ich=0;ich<Nch;ich++){
 			id=ich+istep1*Nch;
 			cout<<"Creating histo for ch: "<<ich<<" step1 val: "<<m_step1.at(istep1)<<endl;
@@ -124,13 +140,17 @@ int main(int argc,char **argv){
 			gRate2[id]->SetTitle(Form("gPhe_step%i_ch%i",int(m_step1.at(istep1)),ich));
 			gRate2[id]->SetMarkerStyle(20);
 
-			gRate2A[id]=new TGraph();
+			gRate2A[id]=new TGraphErrors();
 			gRate2A[id]->SetName(Form("gPheA_step%i_ch%i",int(m_step1.at(istep1)),ich));
 			gRate2A[id]->SetTitle(Form("gPheA_step%i_ch%i",int(m_step1.at(istep1)),ich));
 			gRate2A[id]->SetMarkerStyle(20);
 
 			//	gRate2[id]->SetStats(0);
 		}
+
+		hSlope[istep1]=new TH1D(Form("hSlope_step1:%i",istep1),Form("hSlope_step1:%i",istep1),100,0,6);
+		hRateSinglePhe[istep1]=new TH1D(Form("hRateSinglePhe_step1:%i",istep1),Form("hRateSinglePhe_step1:%i",istep1),Nch,-0.5,Nch-0.5);
+
 	}
 
 	/*Now read the data!*/
@@ -145,44 +165,130 @@ int main(int argc,char **argv){
 	}
 
 	/*Ok, now I have hRate*/
+	/*Now I compute the numerical derivative of the spectrum*/
+	cout<<"Computing numerical derivative"<<endl;
 	for (istep1=0;istep1<Nstep1;istep1++){
 		for (ich=0;ich<Nch;ich++){
 			id=ich+istep1*Nch;
-			imax=hRate[id]->GetMaximumBin();
+
+			/*Compute the derivative of the spectrum starting from the FIRST bin above max_rate*/
+			for (int ibin=0;ibin<hRate[id]->GetNbinsX();ibin++){
+				data=hRate[id]->GetBinContent(ibin);
+				if (data>MAX_RATE){
+					imax=ibin;
+					break;
+				}
+			}
 
 			for (int ibin=imax;ibin>=BIN_MIN;ibin--){
 				data=hRate[id]->GetBinContent(ibin);
 				//	if (data>MAX_RATE) continue; //this avoids counting at the baseline
 
-				diff=hRate[id]->GetBinContent(ibin)-hRate[id]->GetBinContent(ibin-1);
-				delta=hRate[id]->GetBinContent(ibin)+hRate[id]->GetBinContent(ibin-1);
+				//diff=hRate[id]->GetBinContent(ibin)-hRate[id]->GetBinContent(ibin-1);
+				diff=hRate[id]->GetBinContent(ibin+1)-hRate[id]->GetBinContent(ibin-1);
+				delta=hRate[id]->GetBinContent(ibin);
 				if (delta!=0){
 					diff=2*diff/delta;
 					hRate2[id]->SetBinContent(ibin,diff);
 				}
 			}
-			hRate2[id]->Smooth(1); //to avoid a local maximum
+			//hRate2[id]->Smooth(1); //to avoid a local maximum
 		}
 	}
+
+	cout<<"Searching maxima"<<endl;
+	/*Looking for maxima*/
 	for (istep1=0;istep1<Nstep1;istep1++){
 		for (ich=0;ich<Nch;ich++){
 			id=ich+istep1*Nch;
-			imax=hRate[id]->GetMaximumBin();
+			/*Compute the derivative of the spectrum starting from the FIRST bin above max_rate*/
+			for (int ibin=0;ibin<hRate[id]->GetNbinsX();ibin++){
+				data=hRate[id]->GetBinContent(ibin);
+				if (data>MAX_RATE){
+					imax=ibin;
+					break;
+				}
+			}
 			iphe=0;
 			for (int ibin=imax;ibin>=BIN_MIN;ibin--){
 				data=hRate2[id]->GetBinContent(ibin);
 				prev_data=hRate2[id]->GetBinContent(ibin+1);
 				post_data=hRate2[id]->GetBinContent(ibin-1);
 				if ((data>prev_data)&&(data>post_data)){
-					gRate2[id]->SetPoint(iphe,hRate2[id]->GetBinCenter(ibin),iphe);
-					gRate2A[id]->SetPoint(iphe,iphe,63-hRate2[id]->GetBinCenter(ibin));
+					m_thr[id].push_back(hRate2[id]->GetBinCenter(ibin));
+					//					gRate2[id]->SetPoint(iphe,hRate2[id]->GetBinCenter(ibin),iphe);
 					iphe++;
 				}
 			}
 		}
 	}
+	/*Now compute the rate corresponding to 1 phe and save it */
+	cout<<"Computing single phe rate"<<endl;
+	for (istep1=0;istep1<Nstep1;istep1++){
+		for (ich=0;ich<Nch;ich++){
+			id=ich+istep1*Nch;
+			if (m_thr[id].size()>1)			rate=hRate[id]->GetBinContent(hRate[id]->FindBin(m_thr[id].at(1)));
+			else rate=0;
+			rateSinglePhe[id]=rate;
+		}
+	}
 
 
+	/*Now it is important to do a check: the 1 phe rate should be, for sure, < 10MHz or so.
+	 * If it is higher, it means there is 1 fake peak (or more)
+	 */
+	cout<<"Rate correction"<<endl;
+	bool common_flag;
+	while(1){
+		common_flag=true;
+		/*First, loop on all channels and check the single-phe rate*/
+		for (istep1=0;istep1<Nstep1;istep1++){
+			for (int ich=0;ich<Nch;ich++){
+				id=ich+istep1*Nch;
+				rate=rateSinglePhe[id];
+				if (rate>MAX_RATE){
+					cout<<"Doing correction for channel: "<<ich<<" step: "<<istep1<<endl;
+					cout<<"Before: "<<rate<<endl;
+					common_flag=false;
+					//implement the correction->translate by -1 the phe, starting from 1
+					m_thr[id].erase(m_thr[id].begin());
+					//re-compute rateSinglePhe for this
+					rate=hRate[id]->GetBinContent(hRate[id]->FindBin(m_thr[id].at(1)));
+					rateSinglePhe[id]=rate;
+					cout<<"After: "<<rate<<endl<<endl;
+
+				}
+			}
+		}
+		if (common_flag) break;
+	}
+	/*Produce the graphs*/
+	for (istep1=0;istep1<Nstep1;istep1++){
+		for (ich=0;ich<Nch;ich++){
+			id=ich+istep1*Nch;
+			for (int iphe=0;iphe<m_thr[id].size();iphe++){
+				gRate2[id]->SetPoint(iphe,m_thr[id].at(iphe),iphe);
+				gRate2A[id]->SetPoint(iphe,iphe,63-m_thr[id].at(iphe));
+				gRate2A[id]->SetPointError(iphe,0.,1./sqrt(12.));
+			}
+			if (gRate2A[id]->GetN()>2){
+				gRate2A[id]->Fit("pol1","FQ");
+				hSlope[istep1]->Fill(gRate2A[id]->GetFunction("pol1")->GetParameter(1));
+			}
+			rate=rateSinglePhe[id];
+			hRateSinglePhe[istep1]->Fill(ich,rate);
+		}
+
+	}
+
+
+
+	/*		if (gRate2A[id]->GetN()>2){
+				gRate2A[id]->Fit("pol1","F");
+				hSlope->Fill(gRate2A[id]->GetFunction("pol1")->GetParameter(1));
+			}
+		}
+	}*/
 
 	TCanvas *c=new TCanvas();
 
@@ -220,15 +326,29 @@ int main(int argc,char **argv){
 			gRate2A[ihisto]->SetMarkerColor(istep1+1);
 
 			(istep1 == 0 ? gRate2A[ihisto]->Draw("ALP") : gRate2A[ihisto]->Draw("PLSAME"));
+			if (gRate2A[ihisto]->GetFunction("pol1")) gRate2A[ihisto]->GetFunction("pol1")->Draw("SAME");
 
 			if (istep1 == (Nstep1-1)) c->Print(outname.c_str());
 
 
+
+
 		}
 	}
-	c->Print((outname+")").c_str());
+	TCanvas *cReport0=new TCanvas();
+	cReport0->Divide(2,2);
+	cReport0->cd(1);
+	for (istep1=0;istep1<Nstep1;istep1++){
+		(istep1==0 ? hSlope[istep1]->Draw() : hSlope[istep1]->Draw("SAME"));
+	}
+	cReport0->cd(2);
 
-	m_calib=new TTofpetChargeCalibration();
+	for (istep1=0;istep1<Nstep1;istep1++){
+		(istep1==0 ? hRateSinglePhe[istep1]->Draw() : hRateSinglePhe[istep1]->Draw("SAME"));
+	}
+	cReport0->Print((outname+")").c_str());
+
+	m_calib=new TTofpetThresholdCalibration();
 
 	for (ich=0;ich<Nch;ich++){
 		for (istep1=0;istep1<Nstep1;istep1++){
@@ -250,6 +370,10 @@ int main(int argc,char **argv){
 	fOut->cd();
 	m_calib->printhRateDerived();
 	m_calib->Write();
+	for (istep1=0;istep1<Nstep1;istep1++){
+		hRateSinglePhe[istep1]->Write();
+		hSlope[istep1]->Write();
+	}
 	fOut->Close();
 	cout<<"DONE"<<endl;
 }

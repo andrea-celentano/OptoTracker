@@ -16,17 +16,13 @@ ScintillatorRindex 1.58			    #Refraction index
 
 Face 0 1
 FaceProperties -1
-Detector 0 4.9 4.9 8 8
+Detector 0 4.8 2.4 16 8
 DetectorProperties 0.3 0.1 0.1
 DetectorPlacement 0 0 0
 DetectorCoupling 0.015 1.49
 
-Face 1 1
-FaceProperties -1
-Detector 0 4.9 4.9 8 8
-DetectorProperties 0.3 0.1 0.1
-DetectorPlacement 0 0 0
-DetectorCoupling 0.015 1.49 
+Face 1 0
+FaceProperties 0.1
 
 Face 2 0
 FaceProperties 0.1

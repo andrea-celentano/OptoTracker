@@ -4,4 +4,4 @@
 #Pixels firstPixel lastPixel gainEntry gainVal (gainEntry:1,2,3)
 
 Detector 0 0 0
-Detector 1 2 0
+#Detector 1 2 0

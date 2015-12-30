@@ -18,7 +18,7 @@
 #include <iostream>
 
 
-class TTofpetChargeCalibration : public TObject {
+class TTofpetThresholdCalibration : public TObject {
 
 private:
 	std::map<std::pair<int,int>,TH1D*> m_hRateRaw;
@@ -28,8 +28,8 @@ private:
 public:
 
 
-	TTofpetChargeCalibration();
-	virtual ~TTofpetChargeCalibration();
+	TTofpetThresholdCalibration();
+	virtual ~TTofpetThresholdCalibration();
 
 
 	/*Methods to fill the maps*/
@@ -61,14 +61,14 @@ public:
 	int getThreshold(int ch,int step1,int nphe) const;
 	void printThresholds(int step1,int nphe1,int nphe2) const;
 
-	ClassDef(TTofpetChargeCalibration,1);
+	ClassDef(TTofpetThresholdCalibration,1);
 
 };
 
 /*These have to be here since the compiler must always see the template-implementation in order to generate the proper code*/
 
 
-template <typename T> int TTofpetChargeCalibration::addObject(int ch,int step1,T* obj,std::map<std::pair<int,int>,T*> &map){
+template <typename T> int TTofpetThresholdCalibration::addObject(int ch,int step1,T* obj,std::map<std::pair<int,int>,T*> &map){
 	std::pair<typename std::map<std::pair<int,int>,T*>::iterator,bool> ret=map.insert(std::make_pair(std::pair<int,int>(ch,step1),obj));
 	if ((ret.second)==true) return 0;
 	else{
@@ -77,7 +77,7 @@ template <typename T> int TTofpetChargeCalibration::addObject(int ch,int step1,T
 	}
 }
 
-template <typename T> T* TTofpetChargeCalibration::getObject(int ch,int step1,const std::map<std::pair<int,int>,T*> &map) const{
+template <typename T> T* TTofpetThresholdCalibration::getObject(int ch,int step1,const std::map<std::pair<int,int>,T*> &map) const{
 	typename std::map<std::pair<int,int>,T*>::const_iterator it;
 
 	it = map.find(std::make_pair(ch,step1));
@@ -88,7 +88,7 @@ template <typename T> T* TTofpetChargeCalibration::getObject(int ch,int step1,co
 	else return (it->second);
 }
 
-template <typename T> void TTofpetChargeCalibration::printObject(const std::map<std::pair<int,int>,T*> &map) const{
+template <typename T> void TTofpetThresholdCalibration::printObject(const std::map<std::pair<int,int>,T*> &map) const{
 	typename std::map<std::pair<int,int>,T*>::const_iterator it;
 	int ch,step1;
 	std::string name,title;

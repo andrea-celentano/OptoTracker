@@ -22,4 +22,6 @@
 
 <class name="TTofpetDummyAnalysisDriver"/>
 <class name="TTofpetSetupHandlerDriver"/>
+<class name="TTofpetChargeCalibrationDriver"/>
+
 </lcgdict>

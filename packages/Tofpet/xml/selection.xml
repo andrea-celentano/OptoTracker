@@ -5,7 +5,7 @@
 	<class name="TTofpetRun"/>
 	<class name="TTofpetSetupHandler"/>
 	<class name="std::map < std::pair <int , int > , int >"/>
-	<class name="TTofpetChargeCalibration"/>
+	<class name="TTofpetThresholdCalibration"/>
 	<class name="std::map < std::pair <int , int > , TH1D* >"/>
 	<class name="std::map < std::pair <int , int > , TGraph* >"/>
 </lcgdict>

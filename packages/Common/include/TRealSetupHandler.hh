@@ -20,7 +20,7 @@ using namespace std;
  * This is the base class for all the "real" geometries, i.e. it provides the matching between
 a real configuration, with detectors handled in a "certain" way, 
 and the reconstruction configuration, that is defined in a "universal" way.
- *To do this, one specifies:  RealDetectorID --> reconstruction detector face / reconstruction detector ID (in the face)
+ To do this, one specifies:  RealDetectorID --> reconstruction detector face / reconstruction detector ID (in the face)
 In the "real" analysis, one will derive a concrete instance of this base class
  */
 

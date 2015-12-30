@@ -2,7 +2,7 @@
 #include "TTofpetHit.hh"
 #include "TTofpetRun.hh"
 #include "TTofpetSetupHandler.hh"
-#include "TTofpetChargeCalibration.hh"
+#include "TTofpetThresholdCalibration.hh"
 //TTofpetEventHeader obj1;
 
 

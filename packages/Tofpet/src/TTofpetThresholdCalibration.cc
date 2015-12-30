@@ -5,22 +5,22 @@
  *      Author: celentan
  */
 
-#include "TTofpetChargeCalibration.hh"
+#include "TTofpetThresholdCalibration.hh"
 #include <iostream>
 
 using namespace std;
-TTofpetChargeCalibration::TTofpetChargeCalibration() {
+TTofpetThresholdCalibration::TTofpetThresholdCalibration() {
 	// TODO Auto-generated constructor stub
-	Info("TTofpetChargeCalibration","creator");
+	Info("TTofpetThresholdCalibration","creator");
 }
 
 
-TTofpetChargeCalibration::~TTofpetChargeCalibration() {
+TTofpetThresholdCalibration::~TTofpetThresholdCalibration() {
 	// TODO Auto-generated stub
-	Info("TTofpetChargeCalibration","desctructor");
+	Info("TTofpetThresholdCalibration","desctructor");
 }
 
-int TTofpetChargeCalibration::getTransition(int ch,int step1,int nphe) const{
+int TTofpetThresholdCalibration::getTransition(int ch,int step1,int nphe) const{
 
 	TGraph *grThr=0;
 	int thr=-1;
@@ -38,7 +38,7 @@ int TTofpetChargeCalibration::getTransition(int ch,int step1,int nphe) const{
 	}
 }
 
-int TTofpetChargeCalibration::getThreshold(int ch,int step1,int nphe) const{
+int TTofpetThresholdCalibration::getThreshold(int ch,int step1,int nphe) const{
 
 	int nPreTransition,nPostTransition;
 
@@ -57,7 +57,7 @@ int TTofpetChargeCalibration::getThreshold(int ch,int step1,int nphe) const{
 	return (int)mean;
 }
 
-void TTofpetChargeCalibration::printTransitions(int step1,int nphe1,int nphe2) const{
+void TTofpetThresholdCalibration::printTransitions(int step1,int nphe1,int nphe2) const{
 	int thr1,thr2;
 	for (int ich=0;ich<128;ich++){ ///TODO
 		thr1=getTransition(ich,step1,nphe1);
@@ -67,7 +67,7 @@ void TTofpetChargeCalibration::printTransitions(int step1,int nphe1,int nphe2) c
 }
 
 
-void TTofpetChargeCalibration::printThresholds(int step1,int nphe1,int nphe2) const{
+void TTofpetThresholdCalibration::printThresholds(int step1,int nphe1,int nphe2) const{
 	int thr1,thr2;
 	for (int ich=0;ich<128;ich++){ ///TODO
 		thr1=getThreshold(ich,step1,nphe1);
