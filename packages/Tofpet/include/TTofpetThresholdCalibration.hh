@@ -25,6 +25,13 @@ private:
 	std::map<std::pair<int,int>,TH1D*> m_hRateDerived;
 	std::map<std::pair<int,int>,TGraph*> m_gThr;
 
+	std::map<std::pair<int,int>,std::vector<int> > m_transitions;  //each val in the vector, at the position i, corresponds to the transition i->i+1. THE SCALE IS INVERTED!!!
+	std::map<std::pair<int,int>,double> m_rateSinglePhe;
+
+
+	static const int BIN_MIN=10;
+	static const double MAX_RATE=5E6; //for sure the thermal single phe are less than this
+	static const int MAX_SCALE=63;
 public:
 
 
@@ -40,6 +47,7 @@ public:
 	int addgThr(int ch,int step1,TGraph* g){return this->addObject(ch,step1,g,this->m_gThr);};
 
 
+
 	template <typename T> T* getObject(int ch,int step1,const std::map<std::pair<int,int>,T*> &map) const;
 
 	TH1D* gethRateRaw(int ch,int step1) const{return this->getObject(ch,step1,this->m_hRateRaw);}
@@ -52,6 +60,9 @@ public:
 	void printgThr()const{return this->printObject(this->m_gThr);}
 
 	/*Analysis methods*/
+	void computeRateDerived(int ch,int step1);
+	void computeThresholds(int ch,int step1);
+
 
 	/*This method retunrs the INVERTED threshold corresponding to the transition between nphe and nphe+1 */
 	int getTransition(int ch,int step1,int nphe) const;
