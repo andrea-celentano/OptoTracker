@@ -20,6 +20,12 @@ TTofpetThresholdCalibration::~TTofpetThresholdCalibration() {
 	Info("TTofpetThresholdCalibration","desctructor");
 }
 
+int TTofpetThresholdCalibration::getNtransitions(int ch,int step1) const{
+	std::map<std::pair<int,int>,std::vector<int> >::const_iterator it;
+	it=m_transitions.find(std::make_pair(ch,step1));
+	return it->second.size();
+}
+
 int TTofpetThresholdCalibration::getTransition(int ch,int step1,int nphe) const{
 	std::map<std::pair<int,int>,std::vector<int> >::const_iterator it;
 	it=m_transitions.find(std::make_pair(ch,step1));
@@ -71,8 +77,8 @@ void TTofpetThresholdCalibration::printThresholds(int step1,int nphe1,int nphe2)
 void TTofpetThresholdCalibration::computeRateDerived(int ch,int step1){
 	TH1D *hRateRaw=0;
 	TH1D *hRateDerived=0;
-	double data,diff,delta;
-	int imax;
+	double data,max_data,diff,delta;
+	int imax,imax2;
 	hRateRaw=this->gethRateRaw(ch,step1);
 	if (hRateRaw==0){
 		Error("computeRateDerived","no raw-rate histogram found");
@@ -82,12 +88,22 @@ void TTofpetThresholdCalibration::computeRateDerived(int ch,int step1){
 	/*Compute here the derived rate*/
 	hRateDerived=new TH1D(Form("hRateDerived_step%i_ch%i",step1,ch),Form("hRateDerived_step%i_ch%i:thr:rate",step1,ch),64,-0.5,63.5);
 
+	imax=-1;
+	max_data=0;
 	for (int ibin=0;ibin<hRateRaw->GetNbinsX();ibin++){
 		data=hRateRaw->GetBinContent(ibin);
 		if (data>MAX_RATE){
 			imax=ibin;
 			break;
 		}
+		if (data>max_data){
+			max_data=data;
+			imax2=ibin;
+		}
+	}
+	if (imax==-1){
+		Warning("computeRateDerived","using local maxima since MAX_RATE not exceeded");
+		imax=imax2;
 	}
 
 	for (int ibin=imax;ibin>=BIN_MIN;ibin--){
@@ -99,6 +115,7 @@ void TTofpetThresholdCalibration::computeRateDerived(int ch,int step1){
 			hRateDerived->SetBinContent(ibin,diff);
 		}
 	}
+	hRateDerived->Smooth(1);
 
 	this->addhRateDerived(ch,step1,hRateDerived);
 	return;
@@ -108,8 +125,8 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 	TH1D *hRateRaw=0;
 	TH1D *hRateDerived=0;
 	TGraph *gThreshold=0;
-	double data,prev_data,post_data,rate;
-	int iphe,imax;
+	double data,prev_data,prev_prev_data,post_data,post_post_data,rate,max_data;
+	int iphe,imax,imax2;
 	bool flag;
 
 	vector <int> m_transition_tmp;
@@ -127,19 +144,33 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 	}
 
 	/*Looking for maxima*/
+	imax=-1;
 	for (int ibin=0;ibin<hRateRaw->GetNbinsX();ibin++){
 		data=hRateRaw->GetBinContent(ibin);
 		if (data>MAX_RATE){
 			imax=ibin;
 			break;
 		}
+		if (data>max_data){
+			max_data=data;
+			imax2=ibin;
+		}
 	}
+	if (imax==-1){
+		Warning("computeThresholds","using local maxima since MAX_RATE not exceeded");
+		imax=imax2;
+	}
+
+
 	iphe=0;
 	for (int ibin=imax;ibin>=BIN_MIN;ibin--){
 		data=hRateDerived->GetBinContent(ibin);
+		prev_prev_data=hRateDerived->GetBinContent(ibin+2);
 		prev_data=hRateDerived->GetBinContent(ibin+1);
 		post_data=hRateDerived->GetBinContent(ibin-1);
-		if ((data>prev_data)&&(data>post_data)){
+		post_post_data=hRateDerived->GetBinContent(ibin-2);
+
+		if ((data>prev_data)&&(data>post_data)&&(data>post_post_data)&&(data>prev_prev_data)){
 			m_transition_tmp.push_back(hRateDerived->GetBinCenter(ibin));
 			iphe++;
 		}
@@ -169,7 +200,8 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 
 	/*Invert the scale*/
 	for (int iphe=0;iphe<m_transition_tmp.size();iphe++){
-		m_transition_tmp.at(iphe)=MAX_SCALE-m_transition_tmp.at(iphe);
+		//	m_transition_tmp.at(iphe)=MAX_SCALE-m_transition_tmp.at(iphe);
+		m_transition_tmp.at(iphe)=1*m_transition_tmp.at(iphe);
 	}
 	/*Compute the thresholds values*/
 

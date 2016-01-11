@@ -25,7 +25,7 @@ private:
 	std::map<std::pair<int,int>,TH1D*> m_hRateDerived;
 	std::map<std::pair<int,int>,TGraph*> m_gThr;
 
-	std::map<std::pair<int,int>,std::vector<int> > m_transitions;  //each val in the vector, at the position i, corresponds to the transition i->i+1. THE SCALE IS INVERTED!!!
+	std::map<std::pair<int,int>,std::vector<int> > m_transitions;  //each val in the vector, at the position i, corresponds to the transition i->i+1.
 	std::map<std::pair<int,int>,double> m_rateSinglePhe;
 
 
@@ -64,11 +64,12 @@ public:
 	void computeThresholds(int ch,int step1);
 
 
-	/*This method retunrs the INVERTED threshold corresponding to the transition between nphe and nphe+1 */
+	int getNtransitions(int ch,int step1) const;
+	/*This method returns the threshold corresponding to the transition between nphe and nphe+1 */
 	int getTransition(int ch,int step1,int nphe) const;
 	void printTransitions(int step1,int nphe1,int nphe2) const;
 
-	/*This method returns the INVERTED threshold corresponding to nphe*/
+	/*This method returns the threshold corresponding to nphe*/
 	int getThreshold(int ch,int step1,int nphe) const;
 	void printThresholds(int step1,int nphe1,int nphe2) const;
 

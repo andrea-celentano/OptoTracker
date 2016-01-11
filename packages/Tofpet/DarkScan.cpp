@@ -16,6 +16,7 @@
 #include "TGraph.h"
 #include "TGraphErrors.h"
 #include "TGraph2D.h"
+#include "TLine.h"
 #include "Cintex/Cintex.h"
 #include "TList.h"
 
@@ -69,7 +70,7 @@ int main(int argc,char **argv){
 	float step1,step2,channel,asic,rate;
 	int ich,ihisto,istep1,id,imax,iphe;
 	int N,Nstep1;
-
+	double ymin,ymax;
 	float *rateSinglePhe,*rateSinglePheTMP;
 
 	double max,delta,diff;
@@ -340,16 +341,28 @@ int main(int argc,char **argv){
 
 	c->Print((outname+"(").c_str());
 
+
 	for (ich=0;ich<Nch;ich++){
 		for (istep1=0;istep1<Nstep1;istep1++){
 			ihisto=ich+istep1*Nch;
 			c->cd(1);
 			hRate[ihisto]->SetLineColor(istep1+1);
 			(istep1 == 0 ? hRate[ihisto]->Draw() : hRate[ihisto]->Draw("SAME"));
-
+			ymin=0.01;
+			ymax=hRate[ihisto]->GetMaximum();
+			cout<<ymin<<" "<<ymax<<endl;
+			for (int iphe=0;iphe<m_calib->getNtransitions(ich,m_step1.at(istep1));iphe++){
+				int val=m_calib->getTransition(ich,m_step1.at(istep1),iphe);
+			//	cout<<iphe<<" "<<val<<endl;
+				TLine *l=new TLine(val,ymin,val,ymax);
+				l->SetLineColor(2);
+				l->SetLineWidth(2);
+				l->Draw("SAME");
+			}
 			c->cd(2);
 			hRate2[ihisto]=m_calib->gethRateDerived(ich,m_step1.at(istep1));
 			hRate2[ihisto]->SetLineColor(istep1+1);
+			hRate2[ihisto]->ShowPeaks();
 			(istep1 == 0 ? hRate2[ihisto]->Draw() : hRate2[ihisto]->Draw("SAME"));
 			c->cd(3);
 			gRate[ihisto]=m_calib->getgThr(ich,m_step1.at(istep1));

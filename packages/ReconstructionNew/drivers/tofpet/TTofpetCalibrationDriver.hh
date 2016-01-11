@@ -5,8 +5,8 @@
  *      Author: celentan
  */
 
-#ifndef TTOFPETCHARGECALIBRATIONDRIVER_HH_
-#define TTOFPETCHARGECALIBRATIONDRIVER_HH_
+#ifndef TTOFPETCALIBRATIONDRIVER_HH_
+#define TTOFPETCALIBRATIONDRIVER_HH_
 
 #include "TObject.h"
 
@@ -19,10 +19,10 @@ class TTofpetRun;
 class TTofpetSetupHandler;
 class TDetectorLight;
 
-class TTofpetChargeCalibrationDriver: public TDriver {
+class TTofpetCalibrationDriver: public TDriver {
 public:
-	TTofpetChargeCalibrationDriver();
-	virtual ~TTofpetChargeCalibrationDriver();
+	TTofpetCalibrationDriver();
+	virtual ~TTofpetCalibrationDriver();
 	/*
 	virtual int start(){return 0;};
 	virtual int startOfData(){return 0;};
@@ -39,6 +39,7 @@ public:
 private:
 
 	TH1D **hToT0;
+	TH2D **hToTCalib;
 
 	TTofpetRun *m_TTofpetRun;
 	TTofpetSetupHandler *m_TTofpetSetupHandler;
@@ -46,7 +47,7 @@ private:
 
 	int m_Nsteps;
 	int m_Nchannels;
-	int m_NhToT0;
+	int m_NhToT0,m_NhToTCalib;
 
 	int m_hToT0_nbins;
 	double m_hToT0_min,m_hToT0_max;
@@ -76,7 +77,7 @@ private:
 		m_hToT0_nbins = hToT0Nbins;
 	}
 
-	ClassDef(TTofpetChargeCalibrationDriver,1);
+	ClassDef(TTofpetCalibrationDriver,1);
 };
 
 #endif /* TTOFPETCHARGECALIBRATIONDRIVER_HH_ */
