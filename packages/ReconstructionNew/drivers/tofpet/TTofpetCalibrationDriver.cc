@@ -9,6 +9,10 @@
 
 #include "TH1D.h"
 #include "TH2D.h"
+#include "TFile.h"
+#include "TCanvas.h"
+#include "TLine.h"
+
 
 #include "TTofpetRun.hh"
 #include "TEvent.hh"
@@ -16,8 +20,9 @@
 #include "TTofpetHit.hh"
 #include "TJobManager.hh"
 #include "TTofpetSetupHandler.hh"
-
+#include "TTofpetThresholdCalibration.hh"
 #include "TDetectorLight.hh"
+
 
 TTofpetCalibrationDriver::TTofpetCalibrationDriver() {
 	// TODO Auto-generated constructor stub
@@ -30,10 +35,44 @@ TTofpetCalibrationDriver::TTofpetCalibrationDriver() {
 	m_hToT0_nbins=400;
 	m_hToT0_min=-100;
 	m_hToT0_max=500;
+
+	m_TTofpetThresholdCalibration=0;
 }
 
 TTofpetCalibrationDriver::~TTofpetCalibrationDriver() {
 	// TODO Auto-generated destructor stub
+}
+
+/*This does the following:
+ * 1) Add the TTofpetThresholdCalibration object file to the input list
+ */
+int TTofpetCalibrationDriver::start(){
+	TFile *m_file;
+	if (m_manager->isFirstIteration()){
+		if (m_manager->getVerboseLevel() >  TJobManager::normalVerbosity) Info("start","Iteration 0");
+		if (m_manager->hasObject(TTofpetThresholdCalibration::Class())){
+			return 0;
+		}
+		if (m_Thrfname.length()==0){
+			Error("start","Set file name first");
+			return -1;
+		}
+		else{
+			m_file=new TFile(m_Thrfname.c_str());
+			if (m_file->GetListOfKeys()->Contains("TTofpetThresholdCalibration")){
+				m_TTofpetThresholdCalibration=(TTofpetThresholdCalibration*)m_file->Get("TTofpetThresholdCalibration");
+				m_manager->addObject(m_TTofpetThresholdCalibration);
+			}
+			else{
+				Error("start","No TTofpetThresholdCalibration found in ROOT file %s",m_Thrfname.c_str());
+			}
+			m_file->Close();
+		}
+	}
+
+	else{
+		if (m_manager->getVerboseLevel() >  TJobManager::normalVerbosity) Info("start","Iteration: %i doing nothing",m_manager->getIterationN());
+	}
 }
 
 int TTofpetCalibrationDriver::startOfData(){
@@ -169,5 +208,9 @@ int TTofpetCalibrationDriver::end(){
 			id++;
 		}
 	}
+
+
+
+
 
 }

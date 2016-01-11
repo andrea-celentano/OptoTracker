@@ -5,8 +5,8 @@
  *      Author: celentan
  */
 
-#ifndef TTOFPETCHARGECALIBRATION_HH_
-#define TTOFPETCHARGECALIBRATION_HH_
+#ifndef TTOFPETTHRCALIBRATION_HH_
+#define TTOFPETTHRCALIBRATION_HH_
 
 #include "TObject.h"
 #include "TH1D.h"
@@ -30,7 +30,7 @@ private:
 
 
 	static const int BIN_MIN=10;
-	static const double MAX_RATE=5E6; //for sure the thermal single phe are less than this
+	static const int MAX_RATE=(int)5E6; //for sure the thermal single phe are less than this
 	static const int MAX_SCALE=63;
 public:
 

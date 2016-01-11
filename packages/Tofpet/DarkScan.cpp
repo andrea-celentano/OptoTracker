@@ -362,7 +362,6 @@ int main(int argc,char **argv){
 			c->cd(2);
 			hRate2[ihisto]=m_calib->gethRateDerived(ich,m_step1.at(istep1));
 			hRate2[ihisto]->SetLineColor(istep1+1);
-			hRate2[ihisto]->ShowPeaks();
 			(istep1 == 0 ? hRate2[ihisto]->Draw() : hRate2[ihisto]->Draw("SAME"));
 			c->cd(3);
 			gRate[ihisto]=m_calib->getgThr(ich,m_step1.at(istep1));
@@ -405,15 +404,18 @@ int main(int argc,char **argv){
 			hRate[ihisto]->Write();
 			hRate2[ihisto]->Write();
 			gRate[ihisto]->Write();
+			cout<<"step1: "<<m_step1.at(istep1)<<" ch: "<<ich<<" Thr 2 phe: "<<m_calib->getThreshold(ich,step1,2)<<endl;
 		}
 	}
 	fOut->cd();
-	m_calib->printhRateDerived();
+	//m_calib->printhRateDerived();
 	m_calib->Write();
 	/*for (istep1=0;istep1<Nstep1;istep1++){
+
 		hRateSinglePhe[istep1]->Write();
 		hSlope[istep1]->Write();
-	}*/
+	}
+	*/
 	fOut->Close();
 	cout<<"DONE"<<endl;
 }

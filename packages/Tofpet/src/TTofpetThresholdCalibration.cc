@@ -1,10 +1,3 @@
-/*
- * TTofpetChargeCalibration.cc
- *
- *  Created on: Dec 29, 2015
- *      Author: celentan
- */
-
 #include "TTofpetThresholdCalibration.hh"
 #include <iostream>
 
@@ -30,8 +23,12 @@ int TTofpetThresholdCalibration::getTransition(int ch,int step1,int nphe) const{
 	std::map<std::pair<int,int>,std::vector<int> >::const_iterator it;
 	it=m_transitions.find(std::make_pair(ch,step1));
 	if (it==m_transitions.end()){
-		Error("getTransitions","no entry in map for ch: %i step1:%i",ch,step1);
+		Error("getTransition","no entry in map for ch: %i step1:%i",ch,step1);
 		return -1;
+	}
+	if (it->second.size()<=nphe){
+		Error("getTransition","vector size is less than nphe");
+		return -2;
 	}
 	return it->second.at(nphe);
 }
@@ -47,7 +44,9 @@ int TTofpetThresholdCalibration::getThreshold(int ch,int step1,int nphe) const{
 	}
 	nPreTransition=this->getTransition(ch,step1,nphe-1); //this is the thr val corresponding to nphe-1 --> nphe
 	nPostTransition=this->getTransition(ch,step1,nphe);  //this is the thr val corresponding to nphe   --> nphe+1
-
+	if ((nPreTransition<0)||(nPostTransition<0)){
+		return 0;
+	}
 	mean=(nPreTransition+nPostTransition)/2.;
 	mean=floor(mean);
 	mean+=1;

@@ -59,12 +59,12 @@ int TTofpetSetupHandlerDriver::start(){
 			}
 			else{
 				m_file=new TFile(m_fname.c_str());
-				if (m_file->GetListOfKeys()->Contains("TofpetSetupHandler")){
-					m_setupHandler=(TTofpetSetupHandler*)m_file->Get("TofpetSetupHandler");
+				if (m_file->GetListOfKeys()->Contains("TTofpetSetupHandler")){
+					m_setupHandler=(TTofpetSetupHandler*)m_file->Get("TTofpetSetupHandler");
 					m_manager->addObject(m_setupHandler);
 				}
 				else{
-					Error("start","No TofpetSetupHandler found in ROOT file %s",m_fname.c_str());
+					Error("start","No TTofpetSetupHandler found in ROOT file %s",m_fname.c_str());
 				}
 				m_file->Close();
 			}
