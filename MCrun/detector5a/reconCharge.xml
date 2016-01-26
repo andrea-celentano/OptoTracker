@@ -6,7 +6,7 @@
      <numberOfWorkers>7</numberOfWorkers>
      <numberOfIterations>1</numberOfIterations>
      <verboseLevel>2</verboseLevel>
-     <numberOfEvents>100</numberOfEvents> 
+     <numberOfEvents>-1</numberOfEvents> 
    </control>
    <execute>
      <driver name="EventMarker"/>
@@ -15,7 +15,7 @@
    </execute>
    <drivers>
       <driver name="EventMarker" type="TEventMarkerDriver">
-	<setInterval>100</setInterval>
+		<setInterval>100</setInterval>
       </driver>
       <driver name="Charge" type="TChargeAnalysisDriver">  
 		<setCollectionName>"DetDigiMC"</setCollectionName>

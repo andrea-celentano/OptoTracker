@@ -17,7 +17,7 @@
 
 #include "../drivers/tofpet/TTofpetDummyAnalysisDriver.hh"
 #include "../drivers/tofpet/TTofpetSetupHandlerDriver.hh"
-#include "../drivers/tofpet/TTofpetCalibrationDriver.hh"
+#include "../drivers/tofpet/TTofpetThresholdCalibrationDriver.hh"
 
 #ifdef __GCCXML__
 TJobManager object1;

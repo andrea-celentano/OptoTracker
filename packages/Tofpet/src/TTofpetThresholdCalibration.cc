@@ -1,16 +1,25 @@
 #include "TTofpetThresholdCalibration.hh"
 #include <iostream>
-
+#include "time.h"
+#include "TLine.h"
 using namespace std;
 TTofpetThresholdCalibration::TTofpetThresholdCalibration() {
 	// TODO Auto-generated constructor stub
 	Info("TTofpetThresholdCalibration","creator");
+	m_c_interactive=new TList();
+	m_TTofpetThresholdCalibrationGui=0;
 }
 
 
 TTofpetThresholdCalibration::~TTofpetThresholdCalibration() {
 	// TODO Auto-generated stub
-	Info("TTofpetThresholdCalibration","desctructor");
+	Info("TTofpetThresholdCalibration","destructor");
+	TIter *iter=new TIter(m_c_interactive);
+	TObject *obj;
+	while (obj = iter->Next()){
+		if (obj!=0) delete obj;
+	}
+	delete iter;
 }
 
 int TTofpetThresholdCalibration::getNtransitions(int ch,int step1) const{
@@ -33,7 +42,55 @@ int TTofpetThresholdCalibration::getTransition(int ch,int step1,int nphe) const{
 	return it->second.at(nphe);
 }
 
-int TTofpetThresholdCalibration::getThreshold(int ch,int step1,int nphe) const{
+bool TTofpetThresholdCalibration::hasFinalThreshold(int ch,int step1) const{
+	int thr;
+	std::map<std::pair<int,int>,int>::const_iterator it;
+	it = m_Thresholds.find(std::make_pair(ch,step1));
+	if (it==m_Thresholds.end()) return false;
+	else return true;
+}
+
+int TTofpetThresholdCalibration::getThreshold(int ch,int step1,bool forceRaw) const{
+	int thr;
+	std::map<std::pair<int,int>,int>::const_iterator it;
+	if (forceRaw){
+		it = m_RawThresholds.find(std::make_pair(ch,step1));
+		if (it==m_RawThresholds.end()){
+			Error("getThreshold","Raw threshold not found for ch: %i step1: %i",ch,step1);
+			return 0;
+		}
+		else{
+			return (it)->second;
+		}
+	}
+	else{
+		it = m_Thresholds.find(std::make_pair(ch,step1));
+		if (it==m_Thresholds.end()){
+			Info("getThreshold","Threshold not found for ch: %i step1: %i. Trying raw",ch,step1);
+			return this->getThreshold(ch,step1,true);
+		}
+		else{
+			return (it)->second;
+		}
+	}
+	return 0;
+}
+void TTofpetThresholdCalibration::setThreshold(int ch,int step1,int thr){
+	//here, I am not checking if the element exists or not!
+	m_Thresholds[std::make_pair(ch,step1)]=thr;
+
+	//save the time this was done
+	char thrTime[40];
+	time_t _tm =time(NULL );
+	struct tm * curtime = localtime ( &_tm );
+	strftime(thrTime,sizeof(thrTime),"%Y%m%d%H%M%S",curtime);
+	m_ThresholdsDate[std::make_pair(ch,step1)]=string(thrTime);
+
+}
+
+
+
+int TTofpetThresholdCalibration::computeThresholdFromRateTransitions(int ch,int step1,int nphe) const{
 
 	int nPreTransition,nPostTransition;
 
@@ -71,6 +128,16 @@ void TTofpetThresholdCalibration::printThresholds(int step1,int nphe1,int nphe2)
 		thr2=getThreshold(ich,step1,nphe2);
 		cout<<"Ch: "<<ich<<" thr (inverted!): "<<thr1<<" "<<thr2<<" --- thr(not inverted): "<<63-thr1<<" "<<63-thr2<<endl;
 	}
+}
+
+void TTofpetThresholdCalibration::dumpThresholds(int step1,string fname) const{
+	ofstream file(fname.c_str(),std::ios::trunc);
+	std::map<std::pair<int,int>,int>::const_iterator it;
+	file<<"Ch step1 thr"<<endl;
+	for (it=m_Thresholds.begin();it!=m_Thresholds.end();it++){
+		file<<it->first.first<<" "<<it->first.second<<" "<<it->second<<endl;
+	}
+	file.close();
 }
 
 void TTofpetThresholdCalibration::computeRateDerived(int ch,int step1){
@@ -125,7 +192,7 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 	TH1D *hRateDerived=0;
 	TGraph *gThreshold=0;
 	double data,prev_data,prev_prev_data,post_data,post_post_data,rate,max_data;
-	int iphe,imax,imax2;
+	int iphe,imax,imax2,thr;
 	bool flag;
 
 	vector <int> m_transition_tmp;
@@ -202,23 +269,133 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 		//	m_transition_tmp.at(iphe)=MAX_SCALE-m_transition_tmp.at(iphe);
 		m_transition_tmp.at(iphe)=1*m_transition_tmp.at(iphe);
 	}
-	/*Compute the thresholds values*/
+	/*Write transitions*/
+	std::pair<int,int> m_key(ch,step1);
+	m_transitions[m_key]=m_transition_tmp;
+	m_rateSinglePhe[m_key]=rate;
 
+	/*Compute the threshold values*/
+	thr=this->computeThresholdFromRateTransitions(ch,step1,PHE_THR);
+	m_RawThresholds[m_key]=thr;
 
-
-	/*Now, save everything*/
+	/*save graph*/
 	gThreshold=new TGraph();
 	gThreshold->SetName(Form("gThreshold_step%i_ch%i",step1,ch));
 	gThreshold->SetTitle(Form("gThreshold_step%i_ch%i",step1,ch));
 	gThreshold->SetMarkerStyle(20);
 
-	std::pair<int,int> m_key(ch,step1);
-	m_transitions[m_key]=m_transition_tmp;
-	m_rateSinglePhe[m_key]=rate;
-
-
 	for (int iphe=0;iphe<m_transition_tmp.size();iphe++){
 		gThreshold->SetPoint(iphe,iphe,m_transition_tmp.at(iphe));
 	}
 	this->addgThr(ch,step1,gThreshold);
+}
+
+int TTofpetThresholdCalibration::getDAQRunThreshold(int ch,int step1, int step2) const{
+
+	int thr;
+
+	thr=this->computeThresholdFromRateTransitions(ch,step1,1);
+	thr=thr+3-step2;
+	return thr;
+
+
+}
+
+TCanvas* TTofpetThresholdCalibration::getInteractiveCanvas(int ch,int step1){
+	string name=string(Form("c_ch:%i_step1:%i",ch,step1));
+	TIter *iter=new TIter(m_c_interactive);
+	TCanvas *c;
+	Info("getInteractiveCanvas","creating canvas");
+	c=new TCanvas(name.c_str(),name.c_str(),1000,1000);
+	//m_c_interactive->Add(c);
+	Info("getInteractiveCanvas","done");
+
+	/*Here draw the canvas*/
+	TLine *l;
+	int thr,thr_tmp;
+	double maxDrawY,minDrawY;
+	double maxDrawX,minDrawX;
+	int firstBin,lastBin;
+	thr=this->getThreshold(ch,step1); //whatever the threshold is - raw or not
+	maxDrawY=this->getDAQRunThreshold(ch,step1,0);
+	minDrawY=this->getDAQRunThreshold(ch,step1,20);
+
+
+	c->Divide(2,2);
+	c->cd(1);
+	Info("getInteractiveCanvas","1");
+	this->gethToTvsThr(ch,step1)->GetYaxis()->SetRangeUser(minDrawY,maxDrawY);
+	this->gethToTvsThr(ch,step1)->Draw("colz");
+	Info("getInteractiveCanvas","2");
+	minDrawX=this->gethToTvsThr(ch,step1)->GetXaxis()->GetXmin();
+	maxDrawX=this->gethToTvsThr(ch,step1)->GetXaxis()->GetXmax();
+	Info("getInteractiveCanvas","3");
+	l=new TLine(minDrawX,thr,maxDrawX,thr);
+	l->SetLineColor(2);
+	l->SetLineWidth(2);
+	l->Draw("SAME");
+	thr_tmp=this->getTransition(ch,step1,1);
+	l=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
+	l->SetLineColor(3);
+	l->SetLineWidth(2);
+	l->Draw("SAME");
+	thr_tmp=this->getTransition(ch,step1,2);
+	l=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
+	l->SetLineColor(3);
+	l->SetLineWidth(2);
+	l->Draw("SAME");
+
+
+	c->cd(2);
+	firstBin=thr+1;
+	lastBin=thr+1;
+	Info("getInteractiveCanvas","4");
+	if (m_hToT.find(std::make_pair(ch,step1)) !=	m_hToT.end() ){
+		Info("getInteractiveCanvas","hToT %i %i already exists. delete it and replace",ch,step1);
+		delete m_hToT[std::make_pair(ch,step1)]; //note that this calls delete on the pointer, that is still there in the map pointing at 0!
+		m_hToT.erase(m_hToT.find(std::make_pair(ch,step1)));
+		Info("getInteractiveCanvas","done");
+	}
+	m_hToT[std::make_pair(ch,step1)]=this->gethToTvsThr(ch,step1)->ProjectionX(Form("hToT0_ch:%i_step1:%i_proj",ch,step1),firstBin,lastBin);
+	m_hToT[std::make_pair(ch,step1)]->Draw();
+	c->cd(3)->SetLogy();
+	maxDrawY=this->gethRateRaw(ch,step1)->GetMaximum()*1.1;
+	minDrawY=1;
+	this->gethRateRaw(ch,step1)->Draw();
+	l=new TLine(thr,minDrawY,thr,maxDrawY);
+	l->SetLineColor(2);
+	l->SetLineWidth(2);
+	l->Draw("SAME");
+	c->cd(4);
+	this->getgThr(ch,step1)->Draw("AP");
+
+
+	return c;
+
+
+}
+
+int TTofpetThresholdCalibration::decideThresholdDummy(int ch,int step1){
+	TCanvas *c;
+	int thr;
+	while(1){
+		c=this->getInteractiveCanvas(ch,step1);
+		c->Draw();
+		c->Modified();
+		c->Update();
+		cout<<"Thr is: "<<this->getThreshold(ch,step1)<<" it is ok? Or set new value"<<endl;
+		cin>>thr;
+		if (thr){
+			this->setThreshold(ch,step1,thr);
+		}
+		else break;
+	}
+
+
+}
+
+int TTofpetThresholdCalibration::decideThresholds(int step1){
+	m_TTofpetThresholdCalibrationGui=new TTofpetThresholdCalibrationGui(this,gClient->GetRoot(),1000,1000);
+	m_TTofpetThresholdCalibrationGui->Start(step1);
+
 }

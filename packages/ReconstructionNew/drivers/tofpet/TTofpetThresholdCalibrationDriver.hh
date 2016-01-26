@@ -11,6 +11,7 @@
 #include "TObject.h"
 
 #include "TDriver.hh"
+#include <string>
 
 class TH1D;
 class TH2D;
@@ -20,10 +21,11 @@ class TTofpetSetupHandler;
 class TDetectorLight;
 class TTofpetThresholdCalibration;
 
-class TTofpetCalibrationDriver: public TDriver {
+class TTofpetThresholdCalibrationDriver: public TDriver {
+
 public:
-	TTofpetCalibrationDriver();
-	virtual ~TTofpetCalibrationDriver();
+	TTofpetThresholdCalibrationDriver();
+	virtual ~TTofpetThresholdCalibrationDriver();
 	/*
 	virtual int start(){return 0;};
 	virtual int startOfData(){return 0;};
@@ -41,7 +43,7 @@ public:
 private:
 
 	TH1D **hToT0;
-	TH2D **hToTCalib;
+	TH2D **hToTvsThr;
 
 	TTofpetRun *m_TTofpetRun;
 	TTofpetSetupHandler *m_TTofpetSetupHandler;
@@ -56,7 +58,11 @@ private:
 	int m_hToT0_nbins;
 	double m_hToT0_min,m_hToT0_max;
 
-	string m_Thrfname;
+	int m_isInteractive;
+	std::string m_Thrfname;
+
+
+
 public:
 
 	double getHToT0Max() const {
@@ -85,7 +91,18 @@ public:
 
 	void setThrFileName(const char* fname){this->m_Thrfname=string(fname);}
 
-	ClassDef(TTofpetCalibrationDriver,1);
+
+
+
+	int getIsInteractive() const {
+		return m_isInteractive;
+	}
+
+	void setIsInteractive(int isInteractive) {
+		m_isInteractive = isInteractive;
+	}
+
+	ClassDef(TTofpetThresholdCalibrationDriver,1);
 };
 
 #endif /* TTOFPETCHARGECALIBRATIONDRIVER_HH_ */

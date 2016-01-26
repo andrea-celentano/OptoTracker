@@ -5,14 +5,14 @@
  *      Author: celentan
  */
 
-#include "TTofpetCalibrationDriver.hh"
+#include "TTofpetThresholdCalibrationDriver.hh"
 
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TFile.h"
 #include "TCanvas.h"
 #include "TLine.h"
-
+#include "TROOT.h"
 
 #include "TTofpetRun.hh"
 #include "TEvent.hh"
@@ -24,29 +24,29 @@
 #include "TDetectorLight.hh"
 
 
-TTofpetCalibrationDriver::TTofpetCalibrationDriver() {
+TTofpetThresholdCalibrationDriver::TTofpetThresholdCalibrationDriver() {
 	// TODO Auto-generated constructor stub
 	m_TTofpetRun=0;
 	m_TTofpetSetupHandler=0;
 	hToT0=0;
-	hToTCalib=0;
+	hToTvsThr=0;
 	m_detector=0;
 
 	m_hToT0_nbins=400;
 	m_hToT0_min=-100;
 	m_hToT0_max=500;
-
+	m_isInteractive=0;
 	m_TTofpetThresholdCalibration=0;
 }
 
-TTofpetCalibrationDriver::~TTofpetCalibrationDriver() {
+TTofpetThresholdCalibrationDriver::~TTofpetThresholdCalibrationDriver() {
 	// TODO Auto-generated destructor stub
 }
 
 /*This does the following:
  * 1) Add the TTofpetThresholdCalibration object file to the input list
  */
-int TTofpetCalibrationDriver::start(){
+int TTofpetThresholdCalibrationDriver::start(){
 	TFile *m_file;
 	if (m_manager->isFirstIteration()){
 		if (m_manager->getVerboseLevel() >  TJobManager::normalVerbosity) Info("start","Iteration 0");
@@ -75,7 +75,7 @@ int TTofpetCalibrationDriver::start(){
 	}
 }
 
-int TTofpetCalibrationDriver::startOfData(){
+int TTofpetThresholdCalibrationDriver::startOfData(){
 
 	int step1,step2,id;
 
@@ -95,6 +95,15 @@ int TTofpetCalibrationDriver::startOfData(){
 		Error("startOfData","No TTofpetSetup found. Have you activated (before this!) the TTofpetSetupHandlerDriver?");
 		return -1;
 	}
+
+	if (m_manager->hasObject(TTofpetThresholdCalibration::Class())){
+		m_TTofpetThresholdCalibration=(TTofpetThresholdCalibration*)(m_manager->getObject(TTofpetThresholdCalibration::Class()));
+	}
+	else{
+		Error("end","No TTofpetThresholdCalibration found");
+		return -1;
+	}
+
 	m_detector=m_manager->getDetector();
 
 
@@ -106,25 +115,25 @@ int TTofpetCalibrationDriver::startOfData(){
 	m_NhToT0=m_Nsteps*m_Nchannels;
 	m_NhToTCalib=m_Nchannels*m_TTofpetRun->getNsteps1();
 
-	hToT0=new TH1D*[m_NhToT0];
+	hToT0=new TH1D*[m_NhToTCalib];
 	id=0;
 	for (int ich=0;ich<m_Nchannels;ich++){
 		for (int istep=0;istep<m_Nsteps;istep++){
 			step1=m_TTofpetRun->getStep1(istep);
 			step2=m_TTofpetRun->getStep2(istep);
-			hToT0[id]=new TH1D(Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max);
-			m_manager->GetOutputList()->Add(hToT0[id]);
+			//	hToT0[id]=new TH1D(Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max);
+			//	m_manager->GetOutputList()->Add(hToT0[id]);
 			id++;
 		}
 	}
 
-	hToTCalib=new TH2D*[m_NhToTCalib];
+	hToTvsThr=new TH2D*[m_NhToTCalib];
 	id=0;
 	for (int ich=0;ich<m_Nchannels;ich++){
 		for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
 			step1=m_TTofpetRun->getStep1(istep1);
-			hToTCalib[id]=new TH2D(Form("hToTCalib_step1:%i_ch:%i",step1,ich),Form("hToTCalib_step1:%i_ch:%i",step1,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
-			m_manager->GetOutputList()->Add(hToTCalib[id]);
+			hToTvsThr[id]=new TH2D(Form("hToTCalib_step1:%i_ch:%i",step1,ich),Form("hToTCalib_step1:%i_ch:%i",step1,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
+			m_manager->GetOutputList()->Add(hToTvsThr[id]);
 			id++;
 		}
 	}
@@ -132,7 +141,7 @@ int TTofpetCalibrationDriver::startOfData(){
 
 }
 
-int TTofpetCalibrationDriver::process(TEvent *event){
+int TTofpetThresholdCalibrationDriver::process(TEvent *event){
 	TClonesArray *TofpetHitCollection;
 	TIter		 *TofpetHitCollectionIter;
 	TTofpetHit   *hit;
@@ -163,22 +172,34 @@ int TTofpetCalibrationDriver::process(TEvent *event){
 			iy=hit->getYi();
 			id=ch+m_Nchannels*istep;
 			id1=ch+m_Nchannels*istep1;
-			hToT0[id]->Fill(hit->getToT());
-			hToTCalib[id1]->Fill(hit->getToT(),step2);
+			//	hToT0[id]->Fill(hit->getToT());
+			hToTvsThr[id1]->Fill(hit->getToT(),m_TTofpetThresholdCalibration->getDAQRunThreshold(ch,step1,step2));
 		}
 	}
 
 }
 
-int TTofpetCalibrationDriver::end(){
+int TTofpetThresholdCalibrationDriver::end(){
 
-	int id;
+	int id,step1;
+	int firstBin,lastBin;
+	int thr,thr_tmp;
+	double minDrawY=30;
+	double maxDrawY=60;
+	TLine *l;
+
+	if (!m_isInteractive){
+		gROOT->SetBatch(true);
+	}
+	else{
+		gROOT->SetBatch(false);
+	}
 
 	if (m_manager->hasObject(TTofpetRun::Class())){
 		m_TTofpetRun=(TTofpetRun*)(m_manager->getObject(TTofpetRun::Class()));
 	}
 	else{
-		Error("startOfData","No TTofpetRun object in the file, should be there!");
+		Error("end","No TTofpetRun object in the file, should be there!");
 		return -1;
 	}
 
@@ -186,7 +207,14 @@ int TTofpetCalibrationDriver::end(){
 		m_TTofpetSetupHandler=(TTofpetSetupHandler*)(m_manager->getObject(TTofpetSetupHandler::Class()));
 	}
 	else{
-		Error("startOfData","No TTofpetSetup found. Have you activated (before this!) the TTofpetSetupHandlerDriver?");
+		Error("end","No TTofpetSetup found. Have you activated (before this!) the TTofpetSetupHandlerDriver?");
+		return -1;
+	}
+	if (m_manager->hasObject(TTofpetThresholdCalibration::Class())){
+		m_TTofpetThresholdCalibration=(TTofpetThresholdCalibration*)(m_manager->getObject(TTofpetThresholdCalibration::Class()));
+	}
+	else{
+		Error("end","No TTofpetThresholdCalibration found");
 		return -1;
 	}
 	m_detector=m_manager->getDetector();
@@ -199,18 +227,88 @@ int TTofpetCalibrationDriver::end(){
 	m_NhToT0=m_Nsteps*m_Nchannels;
 	m_NhToTCalib=m_Nchannels*m_TTofpetRun->getNsteps1();
 
-	hToT0=new TH1D*[m_NhToT0];
-	hToTCalib=new TH2D*[m_NhToTCalib];
+
+	hToTvsThr=new TH2D*[m_NhToTCalib];
+
+
+	//Get the hToTvsThr and save it to the TTofpetThresholdCalibration class responsible of threshold calibration
 	id=0;
 	for (int ich=0;ich<m_Nchannels;ich++){
 		for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
-			hToTCalib[id]=(TH2D*)(m_manager->GetOutputList()->FindObject(Form("hToTCalib_step1:%i_ch:%i",istep1,ich)));
+			step1=m_TTofpetRun->getStep1(istep1);
+			hToTvsThr[id]=(TH2D*)(m_manager->GetOutputList()->FindObject(Form("hToTCalib_step1:%i_ch:%i",step1,ich)));
+
+			if (hToTvsThr[id]==0){
+				Error("end","no hToTCalib for step1: %i, ch: %i",step1,ich);
+			}
+			m_TTofpetThresholdCalibration->addhToTvsThr(ich,step1,hToTvsThr[id]);
 			id++;
 		}
 	}
 
 
 
+	/*Put here the "interactive part!*/
+	if (m_isInteractive){
+		id=0;
+		for (int ich=0;ich<m_Nchannels;ich++){
+			for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
+				step1=m_TTofpetRun->getStep1(istep1);
 
+
+
+
+				/*	thr=m_TTofpetThresholdCalibration->getThreshold(ich,step1,2);
+			maxDrawY=m_TTofpetThresholdCalibration->getActualThreshold(ich,step1,0);
+			minDrawY=m_TTofpetThresholdCalibration->getActualThreshold(ich,step1,20); ///TODO: not hardcoded
+
+			c[id]=new TCanvas(Form("c_%i",id),Form("c_%i",id),1000,1000);
+			c[id]->Divide(2,2);
+
+			c[id]->cd(1);
+
+			hToTvsThr[id]->GetYaxis()->SetRangeUser(minDrawY,maxDrawY);
+			hToTvsThr[id]->Draw("colz");
+
+			l=new TLine(m_hToT0_min,thr,m_hToT0_max,thr);
+			l->SetLineColor(2);
+			l->SetLineWidth(2);
+			l->Draw("SAME");
+			thr_tmp=m_TTofpetThresholdCalibration->getTransition(ich,step1,1);
+			l=new TLine(m_hToT0_min,thr_tmp,m_hToT0_max,thr_tmp);
+			l->SetLineColor(3);
+			l->SetLineWidth(2);
+			l->Draw("SAME");
+			thr_tmp=m_TTofpetThresholdCalibration->getTransition(ich,step1,2);
+			l=new TLine(m_hToT0_min,thr_tmp,m_hToT0_max,thr_tmp);
+			l->SetLineColor(3);
+			l->SetLineWidth(2);
+			l->Draw("SAME");
+
+
+			c[id]->cd(2);
+			firstBin=thr+1;
+			lastBin=thr+1;
+			hToT0[id]=hToTvsThr[id]->ProjectionX(Form("hToT0_%i",id),firstBin,lastBin);
+			hToT0[id]->Draw();
+			c[id]->cd(3)->SetLogy();
+			m_TTofpetThresholdCalibration->gethRateRaw(ich,step1)->Draw();
+			c[id]->cd(4);
+			m_TTofpetThresholdCalibration->getgThr(ich,step1)->Draw("AP");
+			hToT0[id];
+
+			if (m_isInteractive){
+				c[id]->Update();
+				cin.get();
+			}
+			m_manager->GetOutputList()->Add(c[id]);
+			id++;*/
+			}
+		}
+	}
 
 }
+
+
+
+

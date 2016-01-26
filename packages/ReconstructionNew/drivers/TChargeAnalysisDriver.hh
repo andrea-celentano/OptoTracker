@@ -28,6 +28,8 @@ private:
 	TH1D *hPixelsMC;
 	TH1D *hPixelsModel;
 
+	TH1D *hEdep;
+	TH1D *hLength;
 	TMCTruth *m_MCTruth;
 
 public:

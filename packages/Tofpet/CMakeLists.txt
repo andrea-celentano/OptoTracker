@@ -32,12 +32,12 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 REFLEX_GENERATE_DICTIONARY(TofpetClasses include/TofpetClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 add_library(TofpetClassesDict SHARED ${sources} TofpetClasses.cpp)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO -lGui)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(TofpetClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 
 
-target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} Cintex Reflex)
+target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} Cintex Reflex)
 
 #----------------------------------------------------------------------------
 # Add the executable

@@ -23,6 +23,8 @@ TChargeAnalysisDriver::TChargeAnalysisDriver() {
 	// TODO Auto-generated constructor stub
 	hPixelsMC=0;
 	hPixelsModel=0;
+	hEdep=0;
+	hLength=0;
 	m_nPixels=0;
 	m_nDetectors=0;
 	for (int ii=0;ii<6;ii++){
@@ -44,6 +46,7 @@ int TChargeAnalysisDriver::process(TEvent *event){
 	TIter		 *digiCollectionIter;
 	OpNoviceDigi *digi;
 	TVector3 xIn,xOut,x0;
+	double L;
 	int face,detector,pixel,nPhe,nX,nY,ID;
 	double meanModel;
 	m_Q.clear();
@@ -68,8 +71,16 @@ int TChargeAnalysisDriver::process(TEvent *event){
 			m_Q.at(ID)=nPhe;
 		}
 	}
+
 	if (event->hasObject("MCTruth")){
 		m_MCTruth=(TMCTruth*)event->getObject("MCTruth");
+		hEdep->Fill(m_MCTruth->getEdep());
+		if ((m_MCTruth->getXin()!=0)&&(m_MCTruth->getXout()!=0)){
+			xIn=m_MCTruth->getXin()->Vect();
+			xOut=m_MCTruth->getXout()->Vect();
+			L=(xIn-xOut).Mag();
+			hLength->Fill(L);
+		}
 		for (int ii=0;ii<6;ii++){
 			for (int jj=0;jj<m_manager->getDetector()->getNdet(ii);jj++){
 				if (m_manager->getDetector()->isDetPresent(ii,jj)){
@@ -136,10 +147,13 @@ int TChargeAnalysisDriver::startOfData(){
 	hPixelsMC=new TH1D("hPixelsMC","hPixelsMC",m_nPixels,-0.5,m_nPixels-0.5);
 	hPixelsModel=new TH1D("hPixelsModel","hPixelsModel",m_nPixels,-0.5,m_nPixels-0.5);
 
+	hEdep=new TH1D("hEdep","hEdep",100,0,20);
+	hLength=new TH1D("hLength","hLength",100,0,10);
+
 	m_manager->GetOutputList()->Add(hPixelsMC);
 	m_manager->GetOutputList()->Add(hPixelsModel);
-
-
+	m_manager->GetOutputList()->Add(hEdep);
+	m_manager->GetOutputList()->Add(hLength);
 
 	//Histograms
 	for (int ii=0;ii<6;ii++){

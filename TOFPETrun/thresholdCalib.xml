@@ -12,19 +12,22 @@
    <execute>
      <driver name="EventMarker"/>
      <driver name="TofpetSetupHandler"/>
-     <driver name="Dummy"/>
+     <driver name="TofpetThresholdCalibration"/>
      <driver name="Save"/>
    </execute>
    <drivers>
       <driver name="EventMarker" type="TEventMarkerDriver">
-		<setInterval>100</setInterval>
+		<setInterval>1000</setInterval>
       </driver>
      <driver name="TofpetSetupHandler" type="TTofpetSetupHandlerDriver">  
 		<setSource>0</setSource>
 		<setFileName>"PrototypeSetup.dat"</setFileName>
       </driver> 
-      <driver name="Dummy" type="TTofpetDummyAnalysisDriver">  
+      <driver name="TofpetThresholdCalibration" type="TTofpetThresholdCalibrationDriver">  
 		<setCollectionRawName>"TofpetHitRaw"</setCollectionRawName>
+		<setThrFileName>"dark.root"</setThrFileName>
+		<setHToT0Min>-50</setHToT0Min>
+		<setHToT0Max>220</setHToT0Max>
       </driver>
       <driver name="Save" type="TRootSaveDriver">
 		<setOutFileName>"tofpet.root"</setOutFileName>

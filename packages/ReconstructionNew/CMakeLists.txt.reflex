@@ -61,7 +61,7 @@ REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewCla
 
 add_library(ReconstructionNewClassesDict SHARED ${sources} ${driver_sources} ReconstructionNewClasses.cpp)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(ReconstructionNewClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)

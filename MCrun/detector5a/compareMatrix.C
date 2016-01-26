@@ -5,17 +5,16 @@ void compareMatrix(int iv){
 
 	TH1D *hAnalyticModelOptics=new TH1D("hAnalyticModelOptics","hAnalyticModelOptics",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hAnalyticModelOptics2=new TH1D("hAnalyticModelOptics2","hAnalyticModelOptics2",Np,-0.5,Np-0.5);
-	ifstream fAnalyticModelOptics("./matrix1/matrix.txt");
+	ifstream fAnalyticModelOptics("/home/celentan/Dropbox/OptoTracker/risultati/test9/nominal/voxels3_3_3/matrix3-3-3.Analytic.txt");
 
 
 	TH1D *hMCpoint=new TH1D("hMCpoint","hMCpoint",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hMCpoint2=new TH1D("hMCpoint2","hMCpoint2",Np,-0.5,Np-0.5);
-	ifstream fMCpoint("matrixAnalyticModel.txt");
-
+	ifstream fMCpoint("/home/celentan/Dropbox/OptoTracker/risultati/test9/nominal/voxels4_4_4/matrix4-4-4.Analytic.txt");
 
 	TH1D *hMCvolume=new TH1D("hMCvolume","hMCvolume",Np*Nv,-0.5,Np*Nv-0.5);
 	TH1D *hMCvolume2=new TH1D("hMCvolume2","hMCvolume2",Np,-0.5,Np-0.5);
-	ifstream fMCvolume("matrixAnalyticModel2.txt");
+	ifstream fMCvolume("/home/celentan/Dropbox/OptoTracker/risultati/test9/nominal/voxels5_5_5/matrix5-5-5.Analytic.txt");
 	double val;
 	double totval,totval2,totval3;
 
