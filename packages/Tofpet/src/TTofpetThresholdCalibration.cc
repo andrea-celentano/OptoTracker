@@ -181,7 +181,7 @@ void TTofpetThresholdCalibration::computeRateDerived(int ch,int step1){
 			hRateDerived->SetBinContent(ibin,diff);
 		}
 	}
-	hRateDerived->Smooth(1);
+	//hRateDerived->Smooth(1);
 
 	this->addhRateDerived(ch,step1,hRateDerived);
 	return;
@@ -191,6 +191,7 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 	TH1D *hRateRaw=0;
 	TH1D *hRateDerived=0;
 	TGraph *gThreshold=0;
+	TGraph *gRateVsThreshold=0;
 	double data,prev_data,prev_prev_data,post_data,post_post_data,rate,max_data;
 	int iphe,imax,imax2,thr;
 	bool flag;
@@ -284,10 +285,19 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 	gThreshold->SetTitle(Form("gThreshold_step%i_ch%i",step1,ch));
 	gThreshold->SetMarkerStyle(20);
 
+	gRateVsThreshold=new TGraph();
+	gRateVsThreshold->SetName(Form("gRateVsThreshold_step%i_ch%i",step1,ch));
+	gRateVsThreshold->SetTitle(Form("gRateVsThreshold_step%i_ch%i",step1,ch));
+	gRateVsThreshold->SetMarkerStyle(20);
+
+
+
 	for (int iphe=0;iphe<m_transition_tmp.size();iphe++){
 		gThreshold->SetPoint(iphe,iphe,m_transition_tmp.at(iphe));
+		gRateVsThreshold->SetPoint(iphe,iphe+1,hRateRaw->GetBinContent(m_transition_tmp.at(iphe)+1));
 	}
 	this->addgThr(ch,step1,gThreshold);
+	this->addgRateVsThr(ch,step1,gRateVsThreshold);
 }
 
 int TTofpetThresholdCalibration::getDAQRunThreshold(int ch,int step1, int step2) const{

@@ -38,6 +38,7 @@ private:
 	std::map<std::pair<int,int>,TH1D*> m_hRateRaw;
 	std::map<std::pair<int,int>,TH1D*> m_hRateDerived;
 	std::map<std::pair<int,int>,TGraph*> m_gThr;
+	std::map<std::pair<int,int>,TGraph*> m_gRateVsThr;
 
 	//this is the histogram for the ToT vs THR
 	std::map<std::pair<int,int>,TH2D*> m_hToTvsThr;
@@ -77,6 +78,7 @@ public:
 	int addhRateRaw(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hRateRaw);}
 	int addhRateDerived(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hRateDerived);};
 	int addgThr(int ch,int step1,TGraph* g){return this->addObject(ch,step1,g,this->m_gThr);};
+	int addgRateVsThr(int ch,int step1,TGraph* g){return this->addObject(ch,step1,g,this->m_gRateVsThr);};
 	int addhToT(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hToT);};
 	int addhToTvsThr(int ch,int step1,TH2D* h){return this->addObject(ch,step1,h,this->m_hToTvsThr);};
 
@@ -85,6 +87,8 @@ public:
 	TH1D* gethRateRaw(int ch,int step1) const{return this->getObject(ch,step1,this->m_hRateRaw);}
 	TH1D* gethRateDerived(int ch,int step1) const{return this->getObject(ch,step1,this->m_hRateDerived);}
 	TGraph* getgThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_gThr);}
+	TGraph* getgRateVsThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_gRateVsThr);}
+
 	TH2D* gethToTvsThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_hToTvsThr);}
 	TH1D* gethToT(int ch,int step1)const{return this->getObject(ch,step1,this->m_hToT);}
 

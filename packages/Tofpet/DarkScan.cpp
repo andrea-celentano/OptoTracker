@@ -60,6 +60,7 @@ int main(int argc,char **argv){
 	TTree *t;
 	TH1D **hRate;
 	TH1D **hRate2;
+	TGraph **gRateVsThr;
 	TGraph **gRate;
 
 
@@ -121,6 +122,7 @@ int main(int argc,char **argv){
 	hRate=new TH1D*[Nch*Nstep1];
 	hRate2=new TH1D*[Nch*Nstep1];
 	gRate=new TGraph*[Nch*Nstep1];
+	gRateVsThr=new TGraph*[Nch*Nstep1];
 
 	/*
 	gRate2A=new TGraphErrors*[Nch*Nstep1];
@@ -198,6 +200,7 @@ int main(int argc,char **argv){
 			m_calib->computeThresholds(ich,m_step1.at(istep1));
 		}
 	}
+
 
 
 	//Now I compute the numerical derivative of the spectrum
@@ -353,7 +356,7 @@ int main(int argc,char **argv){
 			cout<<ymin<<" "<<ymax<<endl;
 			for (int iphe=0;iphe<m_calib->getNtransitions(ich,m_step1.at(istep1));iphe++){
 				int val=m_calib->getTransition(ich,m_step1.at(istep1),iphe);
-			//	cout<<iphe<<" "<<val<<endl;
+				//	cout<<iphe<<" "<<val<<endl;
 				TLine *l=new TLine(val,ymin,val,ymax);
 				l->SetLineColor(2);
 				l->SetLineWidth(2);
@@ -367,8 +370,12 @@ int main(int argc,char **argv){
 			gRate[ihisto]=m_calib->getgThr(ich,m_step1.at(istep1));
 			gRate[ihisto]->SetLineColor(istep1+1);
 			gRate[ihisto]->SetMarkerColor(istep1+1);
-
 			(istep1 == 0 ? gRate[ihisto]->Draw("ALP") : gRate[ihisto]->Draw("PLSAME"));
+			c->cd(4)->SetLogy();
+			gRateVsThr[ihisto]=m_calib->getgRateVsThr(ich,m_step1.at(istep1));
+			gRateVsThr[ihisto]->SetLineColor(istep1+1);
+			gRateVsThr[ihisto]->SetMarkerColor(istep1+1);
+			(istep1 == 0 ? gRateVsThr[ihisto]->Draw("ALP") : gRateVsThr[ihisto]->Draw("PLSAME"));
 
 
 
@@ -390,7 +397,7 @@ int main(int argc,char **argv){
 	for (istep1=0;istep1<Nstep1;istep1++){
 		(istep1==0 ? hRateSinglePhe[istep1]->Draw() : hRateSinglePhe[istep1]->Draw("SAME"));
 	}
-	*/
+	 */
 	cReport0->Print((outname+")").c_str());
 
 
@@ -415,7 +422,7 @@ int main(int argc,char **argv){
 		hRateSinglePhe[istep1]->Write();
 		hSlope[istep1]->Write();
 	}
-	*/
+	 */
 	fOut->Close();
 	cout<<"DONE"<<endl;
 }
