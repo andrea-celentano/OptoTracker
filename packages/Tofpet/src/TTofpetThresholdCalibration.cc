@@ -319,7 +319,7 @@ int TTofpetThresholdCalibration::getDAQRunThreshold(int ch,int step1, int step2)
 		Warning("getDAQRunThreshold","ch %i DAQ thr was determined with rate transition from ch %i",ch,other_ch);
 	}
 
-	thr=thr+3-step2;
+	thr=thr-step2;
 	return thr;
 
 

@@ -62,6 +62,7 @@ int TTofpetThresholdCalibrationDriver::start(){
 			if (m_file->GetListOfKeys()->Contains("TTofpetThresholdCalibration")){
 				m_TTofpetThresholdCalibration=(TTofpetThresholdCalibration*)m_file->Get("TTofpetThresholdCalibration");
 				m_manager->addObject(m_TTofpetThresholdCalibration);
+				Info("start","Got TTofpetThresholdCalibration");
 			}
 			else{
 				Error("start","No TTofpetThresholdCalibration found in ROOT file %s",m_Thrfname.c_str());
