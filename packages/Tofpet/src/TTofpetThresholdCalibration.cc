@@ -303,8 +303,22 @@ void TTofpetThresholdCalibration::computeThresholds(int ch,int step1){
 int TTofpetThresholdCalibration::getDAQRunThreshold(int ch,int step1, int step2) const{
 
 	int thr;
-
+	int other_ch;
 	thr=this->computeThresholdFromRateTransitions(ch,step1,1);
+	if (thr==0){ //if not threshold transition found - for example because dark scan was inefficient on this channel
+		if ((ch%64)==0){ //first channel in asic
+			other_ch=ch+1;
+		}
+		else if ((ch%64)==63){ //last channel in asic
+			other_ch=ch-1;
+		}
+		else{
+			other_ch=ch-1;
+		}
+		thr=this->computeThresholdFromRateTransitions(other_ch,step1,1);
+		Warning("getDAQRunThreshold","ch %i DAQ thr was determined with rate transition from ch %i",ch,other_ch);
+	}
+
 	thr=thr+3-step2;
 	return thr;
 
