@@ -74,13 +74,12 @@ m_TTofpetThresholdCalibration(TofpetThresholdCalibration),m_curChannel(0)
 }
 
 
-void TTofpetThresholdCalibrationGui::Start(int step1){
-	m_step1=step1;
+void TTofpetThresholdCalibrationGui::Start(){
 	m_curChannel=0;
-	while (m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)==0){
+	while (m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)==0){
 		m_curChannel++;
 	}
-	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel,m_step1);
+	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
 	RefreshThrWidgetValue();
 	this->Refresh();
 }
@@ -88,28 +87,28 @@ void TTofpetThresholdCalibrationGui::Start(int step1){
 void TTofpetThresholdCalibrationGui::Refresh(){
 	m_canvas = fEcanvas->GetCanvas();
 	m_canvas->cd();
-	if(m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)!=0){
+	if(m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)!=0){
 		/*Here draw the canvas*/
 		int thr_tmp;
 		double maxDrawY,minDrawY;
 		double maxDrawX,minDrawX;
 		int firstBin,lastBin;
-		maxDrawY=m_TTofpetThresholdCalibration->getDAQRunThreshold(m_curChannel,m_step1,0);
-		minDrawY=m_TTofpetThresholdCalibration->getDAQRunThreshold(m_curChannel,m_step1,20);
+		maxDrawY=m_TTofpetThresholdCalibration->getDAQRunThreshold(m_curChannel,0);
+		minDrawY=m_TTofpetThresholdCalibration->getDAQRunThreshold(m_curChannel,20);
 
 		m_canvas->cd(1);
 
-		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)->GetYaxis()->SetRangeUser(minDrawY,maxDrawY);
-		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)->Draw("colz");
+		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)->GetYaxis()->SetRangeUser(minDrawY,maxDrawY);
+		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)->Draw("colz");
 
-		minDrawX=m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)->GetXaxis()->GetXmin();
-		maxDrawX=m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)->GetXaxis()->GetXmax();
+		minDrawX=m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)->GetXaxis()->GetXmin();
+		maxDrawX=m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)->GetXaxis()->GetXmax();
 
 		if (lThr1) delete lThr1;
 
 
 
-		thr_tmp=m_TTofpetThresholdCalibration->getTransition(m_curChannel,m_step1,1);
+		thr_tmp=m_TTofpetThresholdCalibration->getTransition(m_curChannel,1);
 		if (lThr2) delete lThr2;
 
 		lThr2=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
@@ -117,7 +116,7 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 		lThr2->SetLineWidth(2);
 		lThr2->Draw("SAME");
 
-		thr_tmp=m_TTofpetThresholdCalibration->getTransition(m_curChannel,m_step1,2);
+		thr_tmp=m_TTofpetThresholdCalibration->getTransition(m_curChannel,2);
 		if (lThr3) delete lThr3;
 		lThr3=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
 		lThr3->SetLineColor(3);
@@ -125,7 +124,7 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 		lThr3->Draw("SAME");
 
 		lThr1=new TLine(minDrawX,m_curThr,maxDrawX,m_curThr);
-		if (m_TTofpetThresholdCalibration->hasFinalThreshold(m_curChannel,m_step1)){
+		if (m_TTofpetThresholdCalibration->hasFinalThreshold(m_curChannel)){
 			lThr1->SetLineColor(2);
 			lThr1->SetLineWidth(3);
 		}
@@ -141,12 +140,12 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 		m_canvas->cd(2);
 		firstBin=m_curThr+1;
 		lastBin=m_curThr+1;
-		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel,m_step1)->ProjectionX(Form("hToT0_ch:%i_step1:%i_proj",m_curChannel,m_step1),firstBin,lastBin)->Draw();
+		m_TTofpetThresholdCalibration->gethToTvsThr(m_curChannel)->ProjectionX(Form("hToT0_ch:%i_proj",m_curChannel),firstBin,lastBin)->Draw();
 
 		m_canvas->cd(3)->SetLogy();
-		maxDrawY=m_TTofpetThresholdCalibration->gethRateRaw(m_curChannel,m_step1)->GetMaximum()*1.1;
+		maxDrawY=m_TTofpetThresholdCalibration->gethRateRaw(m_curChannel)->GetMaximum()*1.1;
 		minDrawY=1;
-		m_TTofpetThresholdCalibration->gethRateRaw(m_curChannel,m_step1)->Draw();
+		m_TTofpetThresholdCalibration->gethRateRaw(m_curChannel)->Draw();
 
 		if (lThr4) delete lThr4;
 		lThr4=new TLine(m_curThr,minDrawY,m_curThr,maxDrawY);
@@ -155,7 +154,7 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 		lThr4->Draw("SAME");
 
 		m_canvas->cd(4);
-		m_TTofpetThresholdCalibration->getgThr(m_curChannel,m_step1)->Draw("AP");
+		m_TTofpetThresholdCalibration->getgThr(m_curChannel)->Draw("AP");
 
 		m_canvas->Modified();
 		m_canvas->Update();
@@ -166,8 +165,8 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 }
 void TTofpetThresholdCalibrationGui::Save(){
 	Info("Save","saving thr for ch: %i at %i",m_curChannel,m_curThr);
-	m_TTofpetThresholdCalibration->setThreshold(m_curChannel,m_step1,m_curThr);
-	m_TTofpetThresholdCalibration->dumpThresholds(m_step1);
+	m_TTofpetThresholdCalibration->setThreshold(m_curChannel,m_curThr);
+	m_TTofpetThresholdCalibration->dumpThresholds();
 }
 
 void TTofpetThresholdCalibrationGui::NextAndSave(){
@@ -178,7 +177,7 @@ void TTofpetThresholdCalibrationGui::NextAndSave(){
 void TTofpetThresholdCalibrationGui::Next(){
 
 	m_curChannel++;
-	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel,m_step1);
+	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
 	Info("Next","cur channel now is: %i",m_curChannel);
 	RefreshThrWidgetValue();
 	Refresh();
@@ -188,7 +187,7 @@ void TTofpetThresholdCalibrationGui::Next(){
 void TTofpetThresholdCalibrationGui::Prev(){
 	if (m_curChannel==0) return;
 	m_curChannel--;
-	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel,m_step1);
+	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
 	Info("Prev","cur channel now is: %i",m_curChannel);
 	RefreshThrWidgetValue();
 	Refresh();
@@ -196,7 +195,7 @@ void TTofpetThresholdCalibrationGui::Prev(){
 }
 
 void TTofpetThresholdCalibrationGui::RefreshThrWidgetValue(){
-	fThr->SetIntNumber(m_TTofpetThresholdCalibration->getThreshold(m_curChannel,m_step1));
+	fThr->SetIntNumber(m_TTofpetThresholdCalibration->getThreshold(m_curChannel));
 }
 
 void  TTofpetThresholdCalibrationGui::fThrChanged(){

@@ -35,22 +35,22 @@ class TTofpetThresholdCalibration : public TObject {
 private:
 
 	//These are the plots for the dark rate measurement
-	std::map<std::pair<int,int>,TH1D*> m_hRateRaw;
-	std::map<std::pair<int,int>,TH1D*> m_hRateDerived;
-	std::map<std::pair<int,int>,TGraph*> m_gThr;
-	std::map<std::pair<int,int>,TGraph*> m_gRateVsThr;
+	std::map<int,TH1D*> m_hRateRaw;
+	std::map<int,TH1D*> m_hRateDerived;
+	std::map<int,TGraph*> m_gThr;
+	std::map<int,TGraph*> m_gRateVsThr;
 
 	//this is the histogram for the ToT vs THR
-	std::map<std::pair<int,int>,TH2D*> m_hToTvsThr;
-	std::map<std::pair<int,int>,TH1D*> m_hToT;
+	std::map<int,TH2D*> m_hToTvsThr;
+	std::map<int,TH1D*> m_hToT;
 
-	std::map<std::pair<int,int>,std::vector<int> > m_transitions;  //each val in the vector, at the position i, corresponds to the transition i->i+1.
-	std::map<std::pair<int,int>,double> m_rateSinglePhe;
+	std::map<int,std::vector<int> > m_transitions;  //each val in the vector, at the position i, corresponds to the transition i->i+1.
+	std::map<int,double> m_rateSinglePhe;
 
-	std::map<std::pair<int,int>,int> m_RawThresholds;
-	std::map<std::pair<int,int>,int> m_Thresholds;
+	std::map<int,int> m_RawThresholds;
+	std::map<int,int> m_Thresholds;
 
-	std::map<std::pair<int,int>,std::string> m_ThresholdsDate;
+	std::map<int,std::string> m_ThresholdsDate;
 
 	TList *m_c_interactive;
 
@@ -73,56 +73,56 @@ public:
 
 
 	/*Methods to fill the maps*/
-	template <typename T> int addObject(int ch,int step1,T* obj,std::map<std::pair<int,int>,T*> &map);
+	template <typename T> int addObject(int ch,T* obj,std::map<int,T*> &map);
 
-	int addhRateRaw(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hRateRaw);}
-	int addhRateDerived(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hRateDerived);};
-	int addgThr(int ch,int step1,TGraph* g){return this->addObject(ch,step1,g,this->m_gThr);};
-	int addgRateVsThr(int ch,int step1,TGraph* g){return this->addObject(ch,step1,g,this->m_gRateVsThr);};
-	int addhToT(int ch,int step1,TH1D* h){return this->addObject(ch,step1,h,this->m_hToT);};
-	int addhToTvsThr(int ch,int step1,TH2D* h){return this->addObject(ch,step1,h,this->m_hToTvsThr);};
+	int addhRateRaw(int ch,TH1D* h){return this->addObject(ch,h,this->m_hRateRaw);}
+	int addhRateDerived(int ch,TH1D* h){return this->addObject(ch,h,this->m_hRateDerived);};
+	int addgThr(int ch,TGraph* g){return this->addObject(ch,g,this->m_gThr);};
+	int addgRateVsThr(int ch,TGraph* g){return this->addObject(ch,g,this->m_gRateVsThr);};
+	int addhToT(int ch,TH1D* h){return this->addObject(ch,h,this->m_hToT);};
+	int addhToTvsThr(int ch,TH2D* h){return this->addObject(ch,h,this->m_hToTvsThr);};
 
-	template <typename T> T* getObject(int ch,int step1,const std::map<std::pair<int,int>,T*> &map) const;
+	template <typename T> T* getObject(int ch,const std::map<int,T*> &map) const;
 
-	TH1D* gethRateRaw(int ch,int step1) const{return this->getObject(ch,step1,this->m_hRateRaw);}
-	TH1D* gethRateDerived(int ch,int step1) const{return this->getObject(ch,step1,this->m_hRateDerived);}
-	TGraph* getgThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_gThr);}
-	TGraph* getgRateVsThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_gRateVsThr);}
+	TH1D* gethRateRaw(int ch) const{return this->getObject(ch,this->m_hRateRaw);}
+	TH1D* gethRateDerived(int ch) const{return this->getObject(ch,this->m_hRateDerived);}
+	TGraph* getgThr(int ch)const{return this->getObject(ch,this->m_gThr);}
+	TGraph* getgRateVsThr(int ch)const{return this->getObject(ch,this->m_gRateVsThr);}
 
-	TH2D* gethToTvsThr(int ch,int step1)const{return this->getObject(ch,step1,this->m_hToTvsThr);}
-	TH1D* gethToT(int ch,int step1)const{return this->getObject(ch,step1,this->m_hToT);}
+	TH2D* gethToTvsThr(int ch)const{return this->getObject(ch,this->m_hToTvsThr);}
+	TH1D* gethToT(int ch)const{return this->getObject(ch,this->m_hToT);}
 
-	template <typename T> void printObject(const std::map<std::pair<int,int>,T*> &map) const;
+	template <typename T> void printObject(const std::map<int,T*> &map) const;
 	void printhRateRaw() const{return this->printObject(this->m_hRateRaw);}
 	void printhRateDerived() const{return this->printObject(this->m_hRateDerived);}
 	void printgThr()const{return this->printObject(this->m_gThr);}
 
 	/*Analysis methods*/
-	void computeRateDerived(int ch,int step1);
-	void computeThresholds(int ch,int step1);
+	void computeRateDerived(int ch);
+	void computeThresholds(int ch);
 
 
-	int getNtransitions(int ch,int step1) const;
+	int getNtransitions(int ch) const;
 	/*This method returns the threshold corresponding to the transition between nphe and nphe+1 */
-	int getTransition(int ch,int step1,int nphe) const;
-	void printTransitions(int step1,int nphe1,int nphe2) const;
+	int getTransition(int ch,int nphe) const;
+	void printTransitions(int nphe1,int nphe2) const;
 	/*This method returns the threshold corresponding to  PHE_THR phe*/
-	bool hasFinalThreshold(int ch,int step1) const;
-	int getThreshold(int ch,int step1,bool forceRaw=false) const;
-	void setThreshold(int ch,int step1,int thr);
-	void dumpThresholds(int step1,std::string fname="thr.dat") const;
+	bool hasFinalThreshold(int ch) const;
+	int getThreshold(int ch,bool forceRaw=false) const;
+	void setThreshold(int ch,int thr);
+	void dumpThresholds(std::string fname="thr.dat") const;
 
 
-	int computeThresholdFromRateTransitions(int ch,int step1,int nphe) const;
-	void printThresholds(int step1,int nphe1,int nphe2) const;
+	int computeThresholdFromRateTransitions(int ch,int nphe) const;
+	void printThresholds(int nphe1,int nphe2) const;
 
 	/*In the do_dump_sipm.thrDetermination.py script (DAQ repository) this is also used (txs to pyRoot from this class!)*/
-	int getDAQRunThreshold(int ch,int step1, int step2) const;
+	int getDAQRunThreshold(int ch, int step2) const;
 
 	/*The interactive analysis methods for a channel*/
-	TCanvas* getInteractiveCanvas(int ch,int step1);
-	int decideThresholdDummy(int ch,int step1);
-	int decideThresholds(int step1);
+	TCanvas* getInteractiveCanvas(int ch);
+	int decideThresholdDummy(int ch);
+	int decideThresholds();
 
 
 	ClassDef(TTofpetThresholdCalibration,2);
@@ -130,8 +130,8 @@ public:
 };
 
 /*These have to be here since the compiler must always see the template-implementation in order to generate the proper code*/
-template <typename T> int TTofpetThresholdCalibration::addObject(int ch,int step1,T* obj,std::map<std::pair<int,int>,T*> &map){
-	std::pair<typename std::map<std::pair<int,int>,T*>::iterator,bool> ret=map.insert(std::make_pair(std::pair<int,int>(ch,step1),obj));
+template <typename T> int TTofpetThresholdCalibration::addObject(int ch,T* obj,std::map<int,T*> &map){
+	std::pair<typename std::map<int,T*>::iterator,bool> ret=map.insert(std::make_pair(ch,obj));
 	if ((ret.second)==true) return 0;
 	else{
 		Error("addObject","something went wrong!");
@@ -139,28 +139,26 @@ template <typename T> int TTofpetThresholdCalibration::addObject(int ch,int step
 	}
 }
 
-template <typename T> T* TTofpetThresholdCalibration::getObject(int ch,int step1,const std::map<std::pair<int,int>,T*> &map) const{
-	typename std::map<std::pair<int,int>,T*>::const_iterator it;
-
-	it = map.find(std::make_pair(ch,step1));
+template <typename T> T* TTofpetThresholdCalibration::getObject(int ch,const std::map<int,T*> &map) const{
+	typename std::map<int,T*>::const_iterator it;
+	it = map.find(ch);
 	if (it==map.end()){
-		Error("gethRate","histogram with ch: %i and step1: %i not found",ch,step1);
+		Error("gethRate","histogram with ch: %i not found",ch);
 		return 0;
 	}
 	else return (it->second);
 }
 
-template <typename T> void TTofpetThresholdCalibration::printObject(const std::map<std::pair<int,int>,T*> &map) const{
-	typename std::map<std::pair<int,int>,T*>::const_iterator it;
-	int ch,step1;
+template <typename T> void TTofpetThresholdCalibration::printObject(const std::map<int,T*> &map) const{
+	typename std::map<int,T*>::const_iterator it;
+	int ch;
 	std::string name,title;
 	Info("printObject","There are %i objects",map.size());
 	for (it=map.begin();it!=map.end();it++){
-		ch=(*it).first.first;
-		step1=(*it).first.second;
+		ch=(*it).first;
 		name=(*it).second->GetName();
 		title=(*it).second->GetTitle();
-		Info("printObject","got Object: %i %i %s %s",ch,step1,name.c_str(),title.c_str());
+		Info("printObject","got Object: %i %s %s",ch,name.c_str(),title.c_str());
 	}
 	return;
 }
@@ -174,7 +172,7 @@ class TTofpetThresholdCalibrationGui:public TGCanvas{
 public:
 	TTofpetThresholdCalibrationGui(TTofpetThresholdCalibration *TofpetThresholdCalibration,const TGWindow *p,UInt_t w,UInt_t h);
 	TTofpetThresholdCalibrationGui(){Info("TTofpetThresholdCalibrationGui","Dummy creator");}
-	void Start(int step1);
+	void Start();
 
 private:
 	TTofpetThresholdCalibration *m_TTofpetThresholdCalibration;
@@ -192,7 +190,7 @@ private:
 
 	int m_curChannel;
 	int m_curThr;
-	int m_step1;
+
 
 public:
 	void Prev();

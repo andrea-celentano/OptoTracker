@@ -113,33 +113,17 @@ int TTofpetThresholdCalibrationDriver::startOfData(){
 
 	if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity) Info("startOfData","There are: %i steps and %i pixels",m_Nsteps,m_Nchannels);
 
-	m_NhToT0=m_Nsteps*m_Nchannels;
-	m_NhToTCalib=m_Nchannels*m_TTofpetRun->getNsteps1();
+	m_NhToT0=m_Nchannels;
+	m_NhToTCalib=m_Nchannels;
 
 	hToT0=new TH1D*[m_NhToTCalib];
-	id=0;
-	for (int ich=0;ich<m_Nchannels;ich++){
-		for (int istep=0;istep<m_Nsteps;istep++){
-			step1=m_TTofpetRun->getStep1(istep);
-			step2=m_TTofpetRun->getStep2(istep);
-			//	hToT0[id]=new TH1D(Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),Form("hToT0_step1:%i_step2:%i_ch:%i",step1,step2,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max);
-			//	m_manager->GetOutputList()->Add(hToT0[id]);
-			id++;
-		}
-	}
-
 	hToTvsThr=new TH2D*[m_NhToTCalib];
-	id=0;
+
 	for (int ich=0;ich<m_Nchannels;ich++){
-		for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
-			step1=m_TTofpetRun->getStep1(istep1);
-			hToTvsThr[id]=new TH2D(Form("hToTCalib_step1:%i_ch:%i",step1,ich),Form("hToTCalib_step1:%i_ch:%i",step1,ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
+			hToTvsThr[id]=new TH2D(Form("hToTCalib_ch:%i",ich),Form("hToTCalib_ch:%i",ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
 			m_manager->GetOutputList()->Add(hToTvsThr[id]);
 			id++;
-		}
 	}
-
-
 }
 
 int TTofpetThresholdCalibrationDriver::process(TEvent *event){
@@ -171,10 +155,10 @@ int TTofpetThresholdCalibrationDriver::process(TEvent *event){
 			ch=hit->getChannel();
 			ix=hit->getXi();
 			iy=hit->getYi();
-			id=ch+m_Nchannels*istep;
-			id1=ch+m_Nchannels*istep1;
+			id=ch;
+			id1=ch;
 			//	hToT0[id]->Fill(hit->getToT());
-			hToTvsThr[id1]->Fill(hit->getToT(),m_TTofpetThresholdCalibration->getDAQRunThreshold(ch,step1,step2));
+			hToTvsThr[id1]->Fill(hit->getToT(),m_TTofpetThresholdCalibration->getDAQRunThreshold(ch,step2));
 		}
 	}
 
@@ -235,16 +219,12 @@ int TTofpetThresholdCalibrationDriver::end(){
 	//Get the hToTvsThr and save it to the TTofpetThresholdCalibration class responsible of threshold calibration
 	id=0;
 	for (int ich=0;ich<m_Nchannels;ich++){
-		for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
-			step1=m_TTofpetRun->getStep1(istep1);
-			hToTvsThr[id]=(TH2D*)(m_manager->GetOutputList()->FindObject(Form("hToTCalib_step1:%i_ch:%i",step1,ich)));
-
+			hToTvsThr[id]=(TH2D*)(m_manager->GetOutputList()->FindObject(Form("hToTCalib_ch:%i",ich)));
 			if (hToTvsThr[id]==0){
-				Error("end","no hToTCalib for step1: %i, ch: %i",step1,ich);
+				Error("end","no hToTCalib for ch: %i",ich);
 			}
-			m_TTofpetThresholdCalibration->addhToTvsThr(ich,step1,hToTvsThr[id]);
+			m_TTofpetThresholdCalibration->addhToTvsThr(ich,hToTvsThr[id]);
 			id++;
-		}
 	}
 
 
@@ -253,9 +233,6 @@ int TTofpetThresholdCalibrationDriver::end(){
 	if (m_isInteractive){
 		id=0;
 		for (int ich=0;ich<m_Nchannels;ich++){
-			for (int istep1=0;istep1<m_TTofpetRun->getNsteps1();istep1++){
-				step1=m_TTofpetRun->getStep1(istep1);
-
 
 
 
@@ -304,7 +281,6 @@ int TTofpetThresholdCalibrationDriver::end(){
 			}
 			m_manager->GetOutputList()->Add(c[id]);
 			id++;*/
-			}
 		}
 	}
 

@@ -189,152 +189,22 @@ int main(int argc,char **argv){
 	//Use the TTofpetThresholdCalibration!
 
 	//1: Load histograms
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			ihisto=ich+istep1*Nch;
-			m_calib->addhRateRaw(ich,m_step1.at(istep1),hRate[ihisto]);
-		}
+
+	for (ich=0;ich<Nch;ich++){
+		ihisto=ich+istep1*Nch;
+		m_calib->addhRateRaw(ich,hRate[ihisto]);
 	}
 	//2: Compute derived histograms
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			m_calib->computeRateDerived(ich,m_step1.at(istep1));
-		}
+
+	for (ich=0;ich<Nch;ich++){
+		m_calib->computeRateDerived(ich);
 	}
+
 	//3: analysis
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			m_calib->computeThresholds(ich,m_step1.at(istep1));
-		}
+
+	for (ich=0;ich<Nch;ich++){
+		m_calib->computeThresholds(ich);
 	}
-
-
-
-	//Now I compute the numerical derivative of the spectrum
-	//	cout<<"Computing numerical derivative"<<endl;
-	/*
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			id=ich+istep1*Nch;
-
-			//Compute the derivative of the spectrum starting from the FIRST bin above max_rate
-			for (int ibin=0;ibin<hRate[id]->GetNbinsX();ibin++){
-				data=hRate[id]->GetBinContent(ibin);
-				if (data>MAX_RATE){
-					imax=ibin;
-					break;
-				}
-			}
-
-			for (int ibin=imax;ibin>=BIN_MIN;ibin--){
-				data=hRate[id]->GetBinContent(ibin);
-				//	if (data>MAX_RATE) continue; //this avoids counting at the baseline
-
-				//diff=hRate[id]->GetBinContent(ibin)-hRate[id]->GetBinContent(ibin-1);
-				diff=hRate[id]->GetBinContent(ibin+1)-hRate[id]->GetBinContent(ibin-1);
-				delta=hRate[id]->GetBinContent(ibin);
-				if (delta!=0){
-					diff=2*diff/delta;
-					hRate2[id]->SetBinContent(ibin,diff);
-				}
-			}
-			//hRate2[id]->Smooth(1); //to avoid a local maximum
-		}
-	}
-
-	cout<<"Searching maxima"<<endl;
-	//Looking for maxima
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			id=ich+istep1*Nch;
-			//Compute the derivative of the spectrum starting from the FIRST bin above max_rate
-			for (int ibin=0;ibin<hRate[id]->GetNbinsX();ibin++){
-				data=hRate[id]->GetBinContent(ibin);
-				if (data>MAX_RATE){
-					imax=ibin;
-					break;
-				}
-			}
-			iphe=0;
-			for (int ibin=imax;ibin>=BIN_MIN;ibin--){
-				data=hRate2[id]->GetBinContent(ibin);
-				prev_data=hRate2[id]->GetBinContent(ibin+1);
-				post_data=hRate2[id]->GetBinContent(ibin-1);
-				if ((data>prev_data)&&(data>post_data)){
-					m_thr[id].push_back(hRate2[id]->GetBinCenter(ibin));
-					//					gRate2[id]->SetPoint(iphe,hRate2[id]->GetBinCenter(ibin),iphe);
-					iphe++;
-				}
-			}
-		}
-	}
-	//Now compute the rate corresponding to 1 phe and save it
-	cout<<"Computing single phe rate"<<endl;
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			id=ich+istep1*Nch;
-			if (m_thr[id].size()>1)			rate=hRate[id]->GetBinContent(hRate[id]->FindBin(m_thr[id].at(1)));
-			else rate=0;
-			rateSinglePhe[id]=rate;
-		}
-	}
-
-
-	//Now it is important to do a check: the 1 phe rate should be, for sure, < 10MHz or so.
-	// If it is higher, it means there is 1 fake peak (or more)
-	//
-	cout<<"Rate correction"<<endl;
-	bool common_flag;
-	while(1){
-		common_flag=true;
-		//First, loop on all channels and check the single-phe rate
-		for (istep1=0;istep1<Nstep1;istep1++){
-			for (int ich=0;ich<Nch;ich++){
-				id=ich+istep1*Nch;
-				rate=rateSinglePhe[id];
-				if (rate>MAX_RATE){
-					cout<<"Doing correction for channel: "<<ich<<" step: "<<istep1<<endl;
-					cout<<"Before: "<<rate<<endl;
-					common_flag=false;
-					//implement the correction->translate by -1 the phe, starting from 1
-					m_thr[id].erase(m_thr[id].begin());
-					//re-compute rateSinglePhe for this
-					rate=hRate[id]->GetBinContent(hRate[id]->FindBin(m_thr[id].at(1)));
-					rateSinglePhe[id]=rate;
-					cout<<"After: "<<rate<<endl<<endl;
-
-				}
-			}
-		}
-		if (common_flag) break;
-	}
-	//
-	for (istep1=0;istep1<Nstep1;istep1++){
-		for (ich=0;ich<Nch;ich++){
-			id=ich+istep1*Nch;
-			for (int iphe=0;iphe<m_thr[id].size();iphe++){
-				gRate2[id]->SetPoint(iphe,m_thr[id].at(iphe),iphe);
-				gRate2A[id]->SetPoint(iphe,iphe,63-m_thr[id].at(iphe));
-				gRate2A[id]->SetPointError(iphe,0.,1./sqrt(12.));
-			}
-			if (gRate2A[id]->GetN()>2){
-				gRate2A[id]->Fit("pol1","FQ");
-				hSlope[istep1]->Fill(gRate2A[id]->GetFunction("pol1")->GetParameter(1));
-			}
-			rate=rateSinglePhe[id];
-			hRateSinglePhe[istep1]->Fill(ich,rate);
-		}
-
-	}
-
-	 */
-
-	/*		if (gRate2A[id]->GetN()>2){
-				gRate2A[id]->Fit("pol1","F");
-				hSlope->Fill(gRate2A[id]->GetFunction("pol1")->GetParameter(1));
-			}
-		}
-	}*/
 
 	TCanvas *c=new TCanvas();
 
@@ -353,45 +223,38 @@ int main(int argc,char **argv){
 
 
 	for (ich=0;ich<Nch;ich++){
-		for (istep1=0;istep1<Nstep1;istep1++){
-			ihisto=ich+istep1*Nch;
-			c->cd(1);
-			hRate[ihisto]->SetLineColor(istep1+1);
-			(istep1 == 0 ? hRate[ihisto]->Draw() : hRate[ihisto]->Draw("SAME"));
-			ymin=0.01;
-			ymax=hRate[ihisto]->GetMaximum();
-			cout<<ymin<<" "<<ymax<<endl;
-			for (int iphe=0;iphe<m_calib->getNtransitions(ich,m_step1.at(istep1));iphe++){
-				int val=m_calib->getTransition(ich,m_step1.at(istep1),iphe);
-				//	cout<<iphe<<" "<<val<<endl;
-				TLine *l=new TLine(val,ymin,val,ymax);
-				l->SetLineColor(2);
-				l->SetLineWidth(2);
-				l->Draw("SAME");
-			}
-			c->cd(2);
-			hRate2[ihisto]=m_calib->gethRateDerived(ich,m_step1.at(istep1));
-			hRate2[ihisto]->SetLineColor(istep1+1);
-			(istep1 == 0 ? hRate2[ihisto]->Draw() : hRate2[ihisto]->Draw("SAME"));
-			c->cd(3);
-			gRate[ihisto]=m_calib->getgThr(ich,m_step1.at(istep1));
-			gRate[ihisto]->SetLineColor(istep1+1);
-			gRate[ihisto]->SetMarkerColor(istep1+1);
-			(istep1 == 0 ? gRate[ihisto]->Draw("ALP") : gRate[ihisto]->Draw("PLSAME"));
-			c->cd(4)->SetLogy();
-			gRateVsThr[ihisto]=m_calib->getgRateVsThr(ich,m_step1.at(istep1));
-			gRateVsThr[ihisto]->SetLineColor(istep1+1);
-			gRateVsThr[ihisto]->SetMarkerColor(istep1+1);
-			(istep1 == 0 ? gRateVsThr[ihisto]->Draw("ALP") : gRateVsThr[ihisto]->Draw("PLSAME"));
-
-
-
-			if (istep1 == (Nstep1-1)) c->Print(outname.c_str());
-
-
-
-
+		ihisto=ich;
+		c->cd(1);
+		hRate[ihisto]->SetLineColor(istep1+1);
+		(istep1 == 0 ? hRate[ihisto]->Draw() : hRate[ihisto]->Draw("SAME"));
+		ymin=0.01;
+		ymax=hRate[ihisto]->GetMaximum();
+		cout<<ymin<<" "<<ymax<<endl;
+		for (int iphe=0;iphe<m_calib->getNtransitions(ich);iphe++){
+			int val=m_calib->getTransition(ich,iphe);
+			//	cout<<iphe<<" "<<val<<endl;
+			TLine *l=new TLine(val,ymin,val,ymax);
+			l->SetLineColor(2);
+			l->SetLineWidth(2);
+			l->Draw("SAME");
 		}
+		c->cd(2);
+		hRate2[ihisto]=m_calib->gethRateDerived(ich);
+		hRate2[ihisto]->SetLineColor(istep1+1);
+		hRate2[ihisto]->Draw();
+		c->cd(3);
+		gRate[ihisto]=m_calib->getgThr(ich);
+		gRate[ihisto]->SetLineColor(istep1+1);
+		gRate[ihisto]->SetMarkerColor(istep1+1);
+		gRate[ihisto]->Draw("ALP");
+		c->cd(4)->SetLogy();
+		gRateVsThr[ihisto]=m_calib->getgRateVsThr(ich);
+		gRateVsThr[ihisto]->SetLineColor(istep1+1);
+		gRateVsThr[ihisto]->SetMarkerColor(istep1+1);
+		gRateVsThr[ihisto]->Draw("ALP");
+
+
+		c->Print(outname.c_str());
 	}
 	TCanvas *cReport0=new TCanvas();/*
 	cReport0->Divide(2,2);
@@ -409,8 +272,7 @@ int main(int argc,char **argv){
 
 
 	for (ich=0;ich<Nch;ich++){
-		for (istep1=0;istep1<Nstep1;istep1++){
-			ihisto=ich+istep1*Nch;
+			ihisto=ich;
 			hRate[ihisto]->SetLineColor(1);
 			hRate2[ihisto]->SetLineColor(1);
 			gRate[ihisto]->SetLineColor(1);
@@ -418,8 +280,7 @@ int main(int argc,char **argv){
 			hRate[ihisto]->Write();
 			hRate2[ihisto]->Write();
 			gRate[ihisto]->Write();
-			cout<<"step1: "<<m_step1.at(istep1)<<" ch: "<<ich<<" Thr 2 phe: "<<m_calib->getThreshold(ich,step1,2)<<endl;
-		}
+			cout<<"step1: "<<m_step1.at(istep1)<<" ch: "<<ich<<" Thr 2 phe: "<<m_calib->getThreshold(ich,2)<<endl;
 	}
 	fOut->cd();
 	//m_calib->printhRateDerived();
