@@ -48,7 +48,7 @@ private:
 	std::map<int,double> m_rateSinglePhe;
 
 	std::map<int,int> m_RawThresholds;
-	std::map<int,int> m_Thresholds;
+	std::map<int,std::pair<int,int> > m_Thresholds; //value is : threshold - number of phe (dflt:2)
 
 	std::map<int,std::string> m_ThresholdsDate;
 
@@ -109,9 +109,10 @@ public:
 	/*This method returns the threshold corresponding to  PHE_THR phe*/
 	bool hasFinalThreshold(int ch) const;
 	int getThreshold(int ch,bool forceRaw=false) const;
-	void setThreshold(int ch,int thr);
+	void setThreshold(int ch,int thr,int nphe=2);
 	void dumpThresholds(std::string fname="thr.dat") const;
 
+	int getChannels(){return m_hToTvsThr.size();}
 
 	int computeThresholdFromRateTransitions(int ch,int nphe) const;
 	void printThresholds(int nphe1,int nphe2) const;
@@ -183,6 +184,7 @@ private:
 	TGTextButton *fNext,*fPrev,*fSave,*fNextAndSave;
 	TGHorizontalFrame *fFrame;
 	TGNumberEntry *fThr;
+	TGNumberEntry *fCh;
 
 	TLine *lThr1,*lThr2,*lThr3,*lThr4;
 
@@ -196,10 +198,13 @@ public:
 	void Prev();
 	void Next();
 	void Refresh();
-	void Save();
+	void Save(int nphe=2);
 	void NextAndSave();
 	void RefreshThrWidgetValue();
+	void RefreshChWidgetValue();
 	void fThrChanged();
+
+	void GoToChannel(Long_t ch);
 
 	ClassDef(TTofpetThresholdCalibrationGui,1);
 

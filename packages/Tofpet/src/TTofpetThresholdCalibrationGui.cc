@@ -46,13 +46,22 @@ m_TTofpetThresholdCalibration(TofpetThresholdCalibration),m_curChannel(0)
 	hframe->AddFrame(fNextAndSave, new TGLayoutHints(kLHintsCenterX,5,5,3,4));
 
 	fSave=new TGTextButton(hframe,"Save");
-	fSave->Connect("Clicked()","TTofpetThresholdCalibrationGui",this,"Save()");
+	fSave->Connect("Clicked()","TTofpetThresholdCalibrationGui",this,"Save(=2)");
 	hframe->AddFrame(fSave, new TGLayoutHints(kLHintsCenterX,5,5,3,4));
 
 	fNext=new TGTextButton(hframe,"Next");
 	fNext->Connect("Clicked()","TTofpetThresholdCalibrationGui",this,"Next()");
 	hframe->AddFrame(fNext, new TGLayoutHints(kLHintsCenterX,5,5,3,4));
 
+	fCh = new TGNumberEntry(hframe, 0, 2, 0,
+			TGNumberFormat::kNESInteger, //style
+			TGNumberFormat::kNEANonNegative, //input value filter
+			TGNumberFormat::kNELLimitMinMax, //specify limits
+			0,m_TTofpetThresholdCalibration->getChannels()); //limit values
+
+	fCh->Connect("ValueSet(Long_t)","TTofpetThresholdCalibrationGui",this,"GoToChannel(Long_t)");
+	fCh->Connect("ValueChanged(Long_t)","TTofpetThresholdCalibrationGui",this,"GoToChannel(Long_t)");
+	hframe->AddFrame(fCh, new TGLayoutHints(kLHintsCenterX,5,5,3,4));
 
 	fPrev=new TGTextButton(hframe,"&Prev");
 	fPrev->Connect("Clicked()","TTofpetThresholdCalibrationGui",this,"Prev()");
@@ -163,9 +172,9 @@ void TTofpetThresholdCalibrationGui::Refresh(){
 		Error("Refresh","no data for ch: %i",m_curChannel);
 	}
 }
-void TTofpetThresholdCalibrationGui::Save(){
-	Info("Save","saving thr for ch: %i at %i",m_curChannel,m_curThr);
-	m_TTofpetThresholdCalibration->setThreshold(m_curChannel,m_curThr);
+void TTofpetThresholdCalibrationGui::Save(int nphe){
+	Info("Save","saving thr for ch: %i at %i with %i phe",m_curChannel,m_curThr,nphe);
+	m_TTofpetThresholdCalibration->setThreshold(m_curChannel,m_curThr,nphe);
 	m_TTofpetThresholdCalibration->dumpThresholds();
 }
 
@@ -174,21 +183,39 @@ void TTofpetThresholdCalibrationGui::NextAndSave(){
 	Next();
 }
 
+void TTofpetThresholdCalibrationGui::GoToChannel(Long_t ch){
+	ch=fCh->GetIntNumber();
+	if (ch<0) return;
+	else if (ch>(m_TTofpetThresholdCalibration->getChannels()-1)) return;
+	else{
+		m_curChannel=ch;
+		m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
+		Info("GoToChannel","cur channel now is: %i",m_curChannel);
+		RefreshThrWidgetValue();
+		Refresh();
+	}
+}
+
+
 void TTofpetThresholdCalibrationGui::Next(){
 
+	if (m_curChannel==(m_TTofpetThresholdCalibration->getChannels()-1)) return;
 	m_curChannel++;
 	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
 	Info("Next","cur channel now is: %i",m_curChannel);
+	RefreshChWidgetValue();
 	RefreshThrWidgetValue();
 	Refresh();
 
 }
+
 
 void TTofpetThresholdCalibrationGui::Prev(){
 	if (m_curChannel==0) return;
 	m_curChannel--;
 	m_curThr=m_TTofpetThresholdCalibration->getThreshold(m_curChannel);
 	Info("Prev","cur channel now is: %i",m_curChannel);
+	RefreshChWidgetValue();
 	RefreshThrWidgetValue();
 	Refresh();
 
@@ -197,6 +224,10 @@ void TTofpetThresholdCalibrationGui::Prev(){
 void TTofpetThresholdCalibrationGui::RefreshThrWidgetValue(){
 	fThr->SetIntNumber(m_TTofpetThresholdCalibration->getThreshold(m_curChannel));
 }
+void TTofpetThresholdCalibrationGui::RefreshChWidgetValue(){
+	fCh->SetIntNumber(m_curChannel);
+}
+
 
 void  TTofpetThresholdCalibrationGui::fThrChanged(){
 	Info("fThrChanged","thr now: %i",m_curThr);

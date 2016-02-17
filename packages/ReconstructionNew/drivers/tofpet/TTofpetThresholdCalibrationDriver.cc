@@ -155,10 +155,14 @@ int TTofpetThresholdCalibrationDriver::process(TEvent *event){
 			ch=hit->getChannel();
 			ix=hit->getXi();
 			iy=hit->getYi();
-			id=ch;
-			id1=ch;
+			id=ch%TTofpetSetupHandler::nMPPCPixels;  //from 0 to 64
+			if ((id>=16*step1)&&(id<16*(step1+1))){
 			//	hToT0[id]->Fill(hit->getToT());
-			hToTvsThr[id1]->Fill(hit->getToT(),m_TTofpetThresholdCalibration->getDAQRunThreshold(ch,step2));
+				hToTvsThr[ch]->Fill(hit->getToT(),m_TTofpetThresholdCalibration->getDAQRunThreshold(ch,step2));
+			}
+			else{
+				hToTvsThr[ch]->Fill(hit->getToT(),10);
+			}
 		}
 	}
 

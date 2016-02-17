@@ -6,7 +6,9 @@
 	<class name="TTofpetSetupHandler"/>
 	
 	<class name="TTofpetThresholdCalibration"/>
+	<class name="std::map <std::pair <int,int> , int> "/>
 	<class name="std::map < int , int >"/>
+	<class name="std::map < int , std::pair <int,int> >"/>
 	<class name="std::map < int , double >"/>
 	<class name="std::map < int , TH1D* >"/>
 	<class name="std::map < int , TH2D* >"/>

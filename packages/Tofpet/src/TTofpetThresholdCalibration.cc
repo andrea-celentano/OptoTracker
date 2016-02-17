@@ -44,7 +44,7 @@ int TTofpetThresholdCalibration::getTransition(int ch,int nphe) const{
 
 bool TTofpetThresholdCalibration::hasFinalThreshold(int ch) const{
 	int thr;
-	std::map<int,int>::const_iterator it;
+	std::map<int,std::pair<int,int> >::const_iterator it;
 	it = m_Thresholds.find(ch);
 	if (it==m_Thresholds.end()) return false;
 	else return true;
@@ -52,15 +52,16 @@ bool TTofpetThresholdCalibration::hasFinalThreshold(int ch) const{
 
 int TTofpetThresholdCalibration::getThreshold(int ch,bool forceRaw) const{
 	int thr;
-	std::map<int,int>::const_iterator it;
+	std::map<int,int>::const_iterator it_raw;
+	std::map<int,std::pair<int,int> >::const_iterator it;
 	if (forceRaw){
-		it = m_RawThresholds.find(ch);
-		if (it==m_RawThresholds.end()){
+		it_raw = m_RawThresholds.find(ch);
+		if (it_raw==m_RawThresholds.end()){
 			Error("getThreshold","Raw threshold not found for ch: %i",ch);
 			return 0;
 		}
 		else{
-			return (it)->second;
+			return (it_raw)->second;
 		}
 	}
 	else{
@@ -70,14 +71,14 @@ int TTofpetThresholdCalibration::getThreshold(int ch,bool forceRaw) const{
 			return this->getThreshold(ch,true);
 		}
 		else{
-			return (it)->second;
+			return (it)->second.first;
 		}
 	}
 	return 0;
 }
-void TTofpetThresholdCalibration::setThreshold(int ch,int thr){
+void TTofpetThresholdCalibration::setThreshold(int ch,int thr,int nphe){
 	//here, I am not checking if the element exists or not!
-	m_Thresholds[ch]=thr;
+	m_Thresholds[ch]=std::make_pair(thr,nphe);
 
 	//save the time this was done
 	char thrTime[40];
@@ -132,10 +133,10 @@ void TTofpetThresholdCalibration::printThresholds(int nphe1,int nphe2) const{
 
 void TTofpetThresholdCalibration::dumpThresholds(string fname) const{
 	ofstream file(fname.c_str(),std::ios::trunc);
-	std::map<int,int>::const_iterator it;
-	file<<"Ch thr"<<endl;
+	std::map<int,std::pair<int,int> >::const_iterator it;
+	file<<"#Ch thr nphe"<<endl;
 	for (it=m_Thresholds.begin();it!=m_Thresholds.end();it++){
-		file<<it->first<<" "<<it->second<<endl;
+		file<<it->first<<" "<<it->second.first<<" "<<it->second.second<<endl;
 	}
 	file.close();
 }
