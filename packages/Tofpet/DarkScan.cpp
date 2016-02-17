@@ -175,7 +175,6 @@ int main(int argc,char **argv){
 	/*Now read the data!*/
 	for (int ii=0;ii<N;ii++){
 		t->GetEntry(ii);
-		if (asic>=2) continue; //TODO TEMPORARY
 		ich=(int)(channel+asic*64);
 		istep1=distance(m_step1.begin(),find(m_step1.begin(),m_step1.end(),step1));
 		ihisto=ich+istep1*Nch;
