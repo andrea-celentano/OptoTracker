@@ -40,7 +40,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include
 		    ${ROOT_INCLUDE_DIR}
 		    $ENV{OPTO}/packages/Common/include
 		    $ENV{OPTO}/packages/Simulation/include
-   	        $ENV{OPTO}/packages/Tofpet/include)
+   	        $ENV{OPTO}/packages/Tofpet/include
+   	        $ENV{OPTO}/packages/Maroc/include)
    	        
 #file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc ${PROJECT_SOURCE_DIR}/drivers/*.cc)
 #file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh ${PROJECT_SOURCE_DIR}/drivers/*.hh)
@@ -52,14 +53,16 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 file(GLOB_RECURSE driver_sources ${PROJECT_SOURCE_DIR}/drivers/*.cc)
 file(GLOB_RECURSE driver_headers ${PROJECT_SOURCE_DIR}/drivers/*.hh)
 
+file(GLOB likelihood_sources ${PROJECT_SOURCE_DIR}/likelihoodCalculators/*.cc)
+file(GLOB likelihood_headers ${PROJECT_SOURCE_DIR}/likelihoodCalculators/*.hh)
 
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 #
 REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-#REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses ${headers} ${driver_headers} SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+#REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses ${headers} ${driver_headers} ${likelihood_headers} SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 
-add_library(ReconstructionNewClassesDict SHARED ${sources} ${driver_sources} ReconstructionNewClasses.cpp)
+add_library(ReconstructionNewClassesDict SHARED ${sources} ${driver_sources} ${likelihood_sources} ReconstructionNewClasses.cpp)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
@@ -76,8 +79,8 @@ target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LI
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
 
-add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${driver_sources} ${headers} ${driver_headers})
-target_link_libraries(ReconstructionNew ReconstructionNewClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${driver_sources} ${likelihood_sources} ${headers} ${driver_headers} ${likelihood_headers})
+target_link_libraries(ReconstructionNew ReconstructionNewClassesDict MarocClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 
 #

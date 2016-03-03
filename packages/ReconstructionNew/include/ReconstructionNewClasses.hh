@@ -19,6 +19,13 @@
 #include "../drivers/tofpet/TTofpetSetupHandlerDriver.hh"
 #include "../drivers/tofpet/TTofpetThresholdCalibrationDriver.hh"
 
+#include "../drivers/maroc/TMarocSetupHandlerDriver.hh"
+#include "../drivers/maroc/TMarocBasicDriver.hh"
+
+#include "../likelihoodCalculators/TLikelihoodCalculator.hh"
+#include "../likelihoodCalculators/TLikelihoodCalculatorPoint.hh"
+#include "../likelihoodCalculators/TLikelihoodCalculatorTrack.hh"
+
 #ifdef __GCCXML__
 TJobManager object1;
 TDriver *object2;

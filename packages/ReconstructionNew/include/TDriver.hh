@@ -3,14 +3,14 @@
 
 #include "TObject.h"
 #include "TEvent.hh"
+#include "TJobManager.hh"
 
+#include "TClonesArray.h"
+#include "TCollection.h"
 #include <string>
 
 using namespace std;
 
-
-
-class TJobManager;
 
 class TDriver : public TObject{
 

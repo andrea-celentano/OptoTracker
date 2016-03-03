@@ -381,11 +381,11 @@ int TJobManager::hasObject(TClass *theClass,string name) const{
 			if (ret->InheritsFrom(theClass)) 	break;
 		}
 		if (ret==0){
-			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s not found",theClass->GetName());
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s not found - not an error, just the return of this method -",theClass->GetName());
 			return 0;
 		}
 		else{
-			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s found",theClass->GetName());
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s found  - not an error, just the return of this method -",theClass->GetName());
 			return 1;
 		}
 

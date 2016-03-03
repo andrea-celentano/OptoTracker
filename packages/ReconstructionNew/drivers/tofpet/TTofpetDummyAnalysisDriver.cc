@@ -36,8 +36,8 @@ TTofpetDummyAnalysisDriver::~TTofpetDummyAnalysisDriver() {
 }
 
 int TTofpetDummyAnalysisDriver::process(TEvent *event){
-	TClonesArray *TofpetHitCollection;
-	TIter		 *TofpetHitCollectionIter;
+	TClonesArray *TTofpetHitCollection;
+	TIter		 *TTofpetHitCollectionIter;
 	TTofpetHit   *hit;
 	TTofpetEventHeader *header=0;
 
@@ -57,13 +57,13 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 	id1=m_TofpetRun->getStep1ID(step1);
 
 	if (event->hasCollection(TTofpetHit::Class(),m_collectionRawName)){
-		TofpetHitCollection=event->getCollection(TTofpetHit::Class(),m_collectionRawName);
-		N=TofpetHitCollection->GetEntries();
-		TofpetHitCollectionIter=new TIter(TofpetHitCollection);
+		TTofpetHitCollection=event->getCollection(TTofpetHit::Class(),m_collectionRawName);
+		N=TTofpetHitCollection->GetEntries();
+		TTofpetHitCollectionIter=new TIter(TTofpetHitCollection);
 
 		hMultiplicity0[id]->Fill(N);
 
-		while (hit = (TTofpetHit*)TofpetHitCollectionIter->Next()){
+		while (hit = (TTofpetHit*)TTofpetHitCollectionIter->Next()){
 
 			ch=hit->getChannel();
 			ix=hit->getXi();
@@ -76,6 +76,7 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 			hMultiplicity2[id]->Fill(ch);
 			//cout<<hit->getChannel()<<" "<<hit->getToT()<<endl;
 		}
+		delete 	TTofpetHitCollectionIter;
 	}
 	else{
 		Error("process","no collection with class TTofpetHit and name %s was found",m_collectionRawName.c_str());
@@ -203,11 +204,6 @@ int TTofpetDummyAnalysisDriver::end(){
 		hMultiplicityAverage->Fill(step1,step2,N);
 	}
 	return 0;
-
-/*	delete hMultiplicity0;
-	delete hMultiplicity1;
-	delete hToT0;
-	delete hToT1;*/
 
 
 }

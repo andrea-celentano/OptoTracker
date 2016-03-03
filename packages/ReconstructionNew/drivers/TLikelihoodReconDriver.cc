@@ -11,15 +11,20 @@
 #include "TH1D.h"
 #include "TH2D.h"
 
-
+#include "TLikelihoodCalculator.hh"
 #include "TLikelihoodReconDriver.hh"
+
 #include "TReconDefs.hh"
 #include "TReconInput.hh"
 #include "TEvent.hh"
 
+#include "TClass.h"
+
+
 TLikelihoodReconDriver::TLikelihoodReconDriver() :
 m_fitObject(k_point),
-m_fitLikelihoodMode(k_onlyCharge)
+m_fitLikelihoodMode(k_onlyCharge),
+m_likelihoodCalculator(0)
 {
 	// TODO Auto-generated constructor stub
 	m_minimizer=0;
@@ -28,7 +33,7 @@ m_fitLikelihoodMode(k_onlyCharge)
 	for (int iface=0;iface<6;iface++){
 		m_N[iface]=0;
 		m_Q[iface]=0;
-		m_t[iface]=0;
+		m_T[iface]=0;
 	}
 
 	hX=hY=hZ=hX_1=hY_1=hZ_1=hX_2=hY_2=hZ_2=0;
@@ -43,13 +48,26 @@ m_fitLikelihoodMode(k_onlyCharge)
 		}
 	}
 	hPixel0Title=0;
-*/
+	 */
 }
 
 TLikelihoodReconDriver::~TLikelihoodReconDriver() {
 	// TODO Auto-generated destructor stub
 }
 
+void TLikelihoodReconDriver::configLikelihoodCalculator(const char* name) {
+	TClass *likelihoodClass=TClass::GetClass(name);
+	if (likelihoodClass==0){
+		Error("configLikelihoodCalculator","Error, driver class %s not in ROOT dictionary. Return");
+		return;
+	}
+	m_likelihoodCalculator=(TLikelihoodCalculator*)likelihoodClass->New();
+	if (m_likelihoodCalculator==0){
+		Error("configLikelihoodCalculator","Error, driver class %s can't be created",name);
+		return;
+	}
+
+}
 
 void TLikelihoodReconDriver::configMinimizer(){
 	if (!m_minimizer) m_minimizer=ROOT::Math::Factory::CreateMinimizer("Minuit2","Migrad"); //minimizer name: Minuit, Minuit2 //algo: Migrad, Simplex, Combined, Scan.
@@ -107,17 +125,7 @@ void  TLikelihoodReconDriver::setFitLikelihoodMode(fitLikelihoodMode_t mode){
 //double TRecon::operator()(const std::vector< double >& x) const{
 double TLikelihoodReconDriver::DoEval(const double *x) const{
 	double ret;
-	switch (m_fitObject){
-	case (k_null):
-																ret=0;
-	break;
-	case (k_point):
-																ret=PointLikelihood(x);
-	break;
-	case (k_track):
-																ret=TrackLikelihood(x);
-	break;
-	}
+	ret=m_likelihoodCalculator->CalculateLikelihood(x);
 	return ret;
 }
 
@@ -187,7 +195,6 @@ void TLikelihoodReconDriver::initParameters(){
 
 
 void TLikelihoodReconDriver::initFit(){
-	Info("initFit","InitFit was called");
 	initParameters(); /*Create all the parameters and set them*/
 	setFitObject(m_reconInput->getFitObject()); /*Set the fit object: point or track. Correspondingly, fix the parameters we are not sensitive to*/
 	setFitLikelihoodMode(m_reconInput->getFitLikelihoodMode());/*Set the fit data: charge, time, both. Correspondingly, fix the parameters we are not sensitive to*/
@@ -243,51 +250,16 @@ int TLikelihoodReconDriver::startOfData(){
 	for (int iface=0;iface<6;iface++){
 		m_N[iface]=new int*[m_manager->getDetector()->getNdet(iface)];
 		m_Q[iface]=new double*[m_manager->getDetector()->getNdet(iface)];
-		m_t[iface]=new double*[m_manager->getDetector()->getNdet(iface)];
+		m_T[iface]=new double*[m_manager->getDetector()->getNdet(iface)];
 		for (int idet=0;idet<m_manager->getDetector()->getNdet(iface);idet++){
 			m_N[iface][idet]=new int[m_manager->getDetector()->getNPixels(iface,idet)];
 			m_Q[iface][idet]=new double[m_manager->getDetector()->getNPixels(iface,idet)];
-			m_t[iface][idet]=new double[m_manager->getDetector()->getNPixels(iface,idet)];
+			m_T[iface][idet]=new double[m_manager->getDetector()->getNPixels(iface,idet)];
 		}
 	}
 
 
 
-	/*Create histograms*/
-	//Histograms
-	/*for (int ii=0;ii<6;ii++){
-		for (int jj=0;jj<m_manager->getDetector()->getNdet(ii);jj++){
-			if (m_manager->getDetector()->isDetPresent(ii,jj)){
-				hPixel0[ii][jj]=new TH2D(Form("hPixel0_%i_%i",ii,jj),Form("hPixel0_%i_%i",ii,jj),m_manager->getDetector()->getNPixelsX(ii,jj),-m_manager->getDetector()->getDetSizeX(ii,jj)/2,m_manager->getDetector()->getDetSizeX(ii,jj)/2,m_manager->getDetector()->getNPixelsY(ii,jj),-m_manager->getDetector()->getDetSizeY(ii,jj)/2,m_manager->getDetector()->getDetSizeY(ii,jj)/2);
-				hPixel0[ii][jj]->SetTitle(hPixel0Title[ii].c_str());
-				m_manager->GetOutputList()->Add(hPixel0[ii][jj]); //VERY IMPORTANT: fill output list
-
-
-				int Nx=m_manager->getDetector()->getNPixelsX(ii,jj);
-				int Ny=m_manager->getDetector()->getNPixelsY(ii,jj);
-
-				hCharge[ii+jj*6]=new vector <TH1D*>;
-				hTime[ii+jj*6]=new vector <TH1D*>;
-				hTimeVsCharge[ii+jj*6]=new vector <TH2D*>;
-
-				for (int id=0;id<Nx*Ny;id++){ //indexed in this way: ID=6*idetector + iface
-					hCharge[ii+jj*6]->push_back(new TH1D(Form("hCharge_%i_%i_%i",ii,jj,id),Form("hCharge_%i_%i_%i",ii,jj,id),1000,-0.5,999.5));m_manager->GetOutputList()->Add(hCharge[ii+jj*6]->at(id));
-					hTime[ii+jj*6]->push_back(new TH1D(Form("hTime_%i_%i_%i",ii,jj,id),Form("hTime_%i_%i_%i",ii,jj,id),400,-2.5,17.5));m_manager->GetOutputList()->Add(hTime[ii+jj*6]->at(id));
-					hTimeVsCharge[ii+jj*6]->push_back(new TH2D(Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),Form("hTimeVsCharge_%i_%i_%i",ii,jj,id),1000,-0.5,999.5,400,-2.5,17.5));m_manager->GetOutputList()->Add(hTimeVsCharge[ii+jj*6]->at(id));
-				}
-			}
-		}
-	}*/
-	/*
-	hPixel0Title=new string[6];
-
-	hPixel0Title[0]="hPixel0_0;-x;y";
-	hPixel0Title[1]="hPixel0_0;+z;+y";
-	hPixel0Title[2]="hPixel0_0;+x;+y";
-	hPixel0Title[3]="hPixel0_0;-z;+y";
-	hPixel0Title[4]="hPixel0_0;+x;+z";
-	hPixel0Title[5]="hPixel0_0;+x;-z";
-*/
 	hX=new TH1D("hX","hX;x (cm)",200,-m_manager->getDetector()->getScintSizeX()/2-1,m_manager->getDetector()->getScintSizeX()/2+1);m_manager->GetOutputList()->Add(hX);
 	hY=new TH1D("hY","hY;y (cm)",200,-m_manager->getDetector()->getScintSizeY()/2-1,m_manager->getDetector()->getScintSizeY()/2+1);m_manager->GetOutputList()->Add(hY);
 	hZ=new TH1D("hZ","hZ;z (cm)",200,-m_manager->getDetector()->getScintSizeZ()/2-1,m_manager->getDetector()->getScintSizeZ()/2+1);m_manager->GetOutputList()->Add(hZ);
@@ -321,7 +293,9 @@ int TLikelihoodReconDriver::startOfData(){
 
 
 
-
+	/*Config the likelihood calculator*/
+	m_likelihoodCalculator->setDriver(this);
+	m_likelihoodCalculator->Init(m_N,m_Q,m_T);
 	/*Config the minimizer*/
 	this->configMinimizer();
 
@@ -365,7 +339,7 @@ int TLikelihoodReconDriver::process(TEvent *event){
 		for (detector=0;detector<m_manager->getDetector()->getNdet(face);detector++){
 			for (pixel=0;pixel<m_manager->getDetector()->getNPixels(face,detector);pixel++){
 				m_N[face][detector][pixel]=-1;  /*I use a negative value, since it is possible that we do not have this data in this event. Therefore, the likelihood will ignore this pixel*/
-				m_t[face][detector][pixel]=-1;
+				m_T[face][detector][pixel]=-1;
 				m_Q[face][detector][pixel]=-1;
 			}
 		}

@@ -77,6 +77,7 @@ void TAnalysis::configure(string xmlname){
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libCommonClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libTofpetClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libOpNoviceClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libMarocClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionNewClassesDict.so\")");
 		m_proof->SetLogLevel(1, TProofDebug::kPacketizer);
 		m_proof->SetParameter("PROOF_Packetizer", "TPacketizer");

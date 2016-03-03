@@ -16,13 +16,13 @@
 #include "TDetectorLight.hh"
 #include "TJobManager.hh"
 
+
 class TH1D;
 class TH2D;
 class TEvent;
 class TReconInput;
+class TLikelihoodCalculator;
 
-#define clight 299.792  /*in mm/ns*/
-#define SMALL_MU0 1E-24;
 
 class TLikelihoodReconDriver: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
 public:
@@ -55,15 +55,18 @@ public:
 	virtual unsigned int NDim() const;
 	virtual ROOT::Math::IBaseFunctionMultiDim* Clone() const;
 
-	/*Point likelihood*/
-	double PointLikelihood(const double *x) const;
-	double PointLikelihoodCharge(int iface,int idetector,int id,const double *x) const;
-	double PointLikelihoodTime(int iface,int idetector,int id,const double *x) const;
+	/*This is the method to setup the Likelihood Calculator!*/
+	void configLikelihoodCalculator(const char* name);
 
-	/*Track likelihood*/
-	double TrackLikelihood(const double *x) const;
-	double TrackLikelihoodTime(int iface,int idetector,int id,const double *x) const;
-	double TrackLikelihoodCharge(int iface,int idetector,int id,const double *x) const;
+	TLikelihoodCalculator* getLikelihoodCalculator() const {
+		return m_likelihoodCalculator;
+	}
+
+	void setLikelihoodCalculator(TLikelihoodCalculator* likelihoodCalculator) {
+		m_likelihoodCalculator = likelihoodCalculator;
+	}
+
+
 
 
 	void setReconInputMode(const char *mode);
@@ -76,9 +79,10 @@ private:
 	fitLikelihoodMode_t m_fitLikelihoodMode;
 
 
+
 	int    **m_N[6];
 	double **m_Q[6];
-	double **m_t[6];
+	double **m_T[6];
 
 	int m_reconInputMode;
 	string m_reconInputFileName;
@@ -88,6 +92,10 @@ private:
 
 	void configReconInput();
 	void configMinimizer();
+
+	//Likelihood Calculator
+	TLikelihoodCalculator *m_likelihoodCalculator;
+
 
 	//histograms
 	TH1D *hX,*hY,*hZ,*hX_1,*hY_1,*hZ_1,*hX_2,*hY_2,*hZ_2;
@@ -100,7 +108,10 @@ private:
 	vector < TH1D* > *hTime[6*MAX_DETECTORS];
 	vector < TH2D* > *hTimeVsCharge[6*MAX_DETECTORS];
 	string *hPixel0Title;
-*/
+	 */
+
+
+
 	ClassDef(TLikelihoodReconDriver,1);
 };
 
