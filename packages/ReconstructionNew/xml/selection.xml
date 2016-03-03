@@ -12,7 +12,9 @@
 <class name="TMatrixWriterDriver"/>
 <class name="TMatrixReconDriver"/>
 <class name="TMatrixInterpreterDriver"/>
-<class name="TLikelihoodReconDriver"/>
+<class name="TLikelihoodReconDriverBase"/>
+<class name="TLikelihoodReconDriverMC"/>
+<class name="TLikelihoodReconDriverMaroc"/>
 <class name="TChargeAnalysisDriver">
 	<field name="m_writeOutFile" transient="true"/>
 </class>

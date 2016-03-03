@@ -1,5 +1,5 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/lib/libMarocClassesDict.so
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/PrintMaroc
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/MarocAnalysis
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/comparison
-/project/Gruppo3/fiber5/celentano/OptoTracker/bin/MarocConverter
+/work/OptoTracker/lib/libMarocClassesDict.so
+/work/OptoTracker/bin/PrintMaroc
+/work/OptoTracker/bin/MarocAnalysis
+/work/OptoTracker/bin/comparison
+/work/OptoTracker/bin/MarocConverter

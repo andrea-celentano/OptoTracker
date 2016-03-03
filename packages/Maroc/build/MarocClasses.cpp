@@ -1,4 +1,4 @@
-// Generated at Thu Mar  3 19:17:26 2016. Do not modify it
+// Generated at Thu Mar  3 22:03:26 2016. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -26,7 +26,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #elif defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3)) && !defined(__INTEL_COMPILER) 
 # pragma GCC diagnostic ignored "-Warray-bounds"
 #endif
-#include "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Maroc/include/MarocClasses.hh"
+#include "/work/OptoTracker/packages/Maroc/include/MarocClasses.hh"
 #ifdef CONST
 # undef CONST
 #endif

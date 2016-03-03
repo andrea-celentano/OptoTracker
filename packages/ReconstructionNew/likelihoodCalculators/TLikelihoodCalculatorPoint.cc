@@ -1,5 +1,8 @@
 #include "TLikelihoodCalculatorPoint.hh"
+#include "TDetectorLight.hh"
 #include <limits>
+
+#include "../drivers/common/TLikelihoodReconDriverBase.hh"
 
 /*This is the part for the POINT fit*/
 /*We write the general likelihood function as
@@ -20,9 +23,9 @@ double TLikelihoodCalculatorPoint::CalculateLikelihood(const double *x) const{
 	double pT=0;
 	int Nphotons;
 	for (int iface=0;iface<6;iface++){
-		for (int idetector=0;idetector<m_detector->getNdet(iface);idetector++){
-			if (m_detector->isDetPresent(iface,idetector)==0) continue;
-			for (int id=0;id<m_detector->getNPixels(iface,idetector);id++){
+		for (int idetector=0;idetector<m_driver->getManager()->getDetector()->getNdet(iface);idetector++){
+			if (m_driver->getManager()->getDetector()->isDetPresent(iface,idetector)==0) continue;
+			for (int id=0;id<m_driver->getManager()->getDetector()->getNPixels(iface,idetector);id++){
 				if (m_N[iface][idetector][id]<0){
 					pT=pQ=0;
 					if (m_driver->getManager()->getVerboseLevel()>=TJobManager::fullVerbosity){
@@ -96,13 +99,13 @@ double TLikelihoodCalculatorPoint::PointLikelihoodTime(int iface,int idetector,i
 	int Nphe=m_N[iface][idetector][id]; //hit number of photo-electrons
 	double tmeas=m_T[iface][idetector][id];     //hit time
 	double dist,p1,F1,ret;
-	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
+	TVector3 xp=m_driver->getManager()->getDetector()->getPosPixel(iface,idetector,id); //pixel position
 
 
 
 
-	sigma=m_detector->getDetTimeRes(iface,idetector);
-	n=m_detector->getRindex();
+	sigma=m_driver->getManager()->getDetector()->getDetTimeRes(iface,idetector);
+	n=m_driver->getManager()->getDetector()->getRindex();
 
 
 	/*Correct the time due to the time-of-flight propagation*/
@@ -156,7 +159,7 @@ double TLikelihoodCalculatorPoint::PointLikelihoodCharge(int iface,int idetector
 	int Nphe=m_N[iface][idetector][id];     //hit number of photo-electrons
 	double t=m_T[iface][idetector][id];     //hit time, useless here
 	double mu0,ret;
-	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
+	TVector3 xp=m_driver->getManager()->getDetector()->getPosPixel(iface,idetector,id); //pixel position
 
 	/*Compute mu. This also contains QE*/
 	mu0=m_driver->getManager()->getDetectorUtils()->SinglePixelAverageCharge(x0,iface,idetector,id);

@@ -13,7 +13,7 @@
 
 #include "TObject.h"
 
-class TLikelihoodReconDriver;
+class TLikelihoodReconDriverBase;
 
 class TLikelihoodCalculator : public TObject {
 public:
@@ -31,18 +31,18 @@ public:
 	*/
 	virtual double CalculateLikelihood(const double *x)=0;
 
-	TLikelihoodReconDriver* getDriver() const {
+	TLikelihoodReconDriverBase* getDriver() const {
 		return m_driver;
 	}
 
-	void setDriver(TLikelihoodReconDriver* driver) {
+	void setDriver(TLikelihoodReconDriverBase* driver) {
 		m_driver = driver;
 	}
 
 	void Init(int **N[6],double **T[6],double **Q[6]);
 
 protected:
-	TLikelihoodReconDriver *m_driver;
+	TLikelihoodReconDriverBase *m_driver;
 
 	/*These 3 variables are the most important. Being indexed by pixel-detector-face.*/
 	int    **m_N[6];   /*Is the pixel present in the event?*/

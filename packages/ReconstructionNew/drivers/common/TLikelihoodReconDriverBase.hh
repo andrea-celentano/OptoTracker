@@ -1,5 +1,5 @@
-#ifndef TLIKELIHOODRECONDRIVER_HH_
-#define TLIKELIHOODRECONDRIVER_HH_
+#ifndef TLIKELIHOODRECONDRIVERBASE_HH_
+#define TLIKELIHOODRECONDRIVERBASE_HH_
 
 #include <string>
 
@@ -17,17 +17,18 @@
 #include "TJobManager.hh"
 
 
-class TH1D;
-class TH2D;
+#include "TH1D.h"
+#include "TH2D.h"
+
 class TEvent;
 class TReconInput;
 class TLikelihoodCalculator;
 
 
-class TLikelihoodReconDriver: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
+class TLikelihoodReconDriverBase: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
 public:
-	TLikelihoodReconDriver();
-	virtual ~TLikelihoodReconDriver();
+	TLikelihoodReconDriverBase();
+	virtual ~TLikelihoodReconDriverBase();
 	static const int m_nPars = 10;
 
 	void initFit();
@@ -45,7 +46,7 @@ public:
 	/*These are inherited from the driver*/
 	virtual int start();
 	virtual int startOfData();
-	virtual int process(TEvent *m_event);
+	/*virtual int process(TEvent *m_event);*/
 	virtual int endOfData();
 
 
@@ -71,7 +72,7 @@ public:
 
 	void setReconInputMode(const char *mode);
 	void setReconInputFileName(const char *name){m_reconInputFileName=string(name);}
-private:
+protected:
 	ROOT::Math::Minimizer* m_minimizer;
 	TReconInput* m_reconInput; /*This can be from file or from reconstruction itself*/
 
@@ -112,7 +113,7 @@ private:
 
 
 
-	ClassDef(TLikelihoodReconDriver,1);
+	ClassDef(TLikelihoodReconDriverBase,1);
 };
 
 #endif

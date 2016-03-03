@@ -35,13 +35,16 @@ endif()
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 #
-include_directories(${PROJECT_SOURCE_DIR}/include 
+include_directories(${PROJECT_SOURCE_DIR}/include
+                    ${PROJECT_SOURCE_DIR}/drivers
+                     ${PROJECT_SOURCE_DIR}/drivers/common
+		  			${PROJECT_SOURCE_DIR}/likelihoodCalculators
                     ${Geant4_INCLUDE_DIR}
-		    ${ROOT_INCLUDE_DIR}
+		   			 ${ROOT_INCLUDE_DIR}
 		    $ENV{OPTO}/packages/Common/include
 		    $ENV{OPTO}/packages/Simulation/include
-   	        $ENV{OPTO}/packages/Tofpet/include
-   	        $ENV{OPTO}/packages/Maroc/include)
+   	       	    $ENV{OPTO}/packages/Tofpet/include
+   	            $ENV{OPTO}/packages/Maroc/include)
    	        
 #file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc ${PROJECT_SOURCE_DIR}/drivers/*.cc)
 #file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh ${PROJECT_SOURCE_DIR}/drivers/*.hh)

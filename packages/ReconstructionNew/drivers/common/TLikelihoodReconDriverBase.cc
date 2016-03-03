@@ -12,16 +12,15 @@
 #include "TH2D.h"
 
 #include "TLikelihoodCalculator.hh"
-#include "TLikelihoodReconDriver.hh"
-
 #include "TReconDefs.hh"
 #include "TReconInput.hh"
 #include "TEvent.hh"
 
 #include "TClass.h"
+#include "TLikelihoodReconDriverBase.hh"
 
 
-TLikelihoodReconDriver::TLikelihoodReconDriver() :
+TLikelihoodReconDriverBase::TLikelihoodReconDriverBase() :
 m_fitObject(k_point),
 m_fitLikelihoodMode(k_onlyCharge),
 m_likelihoodCalculator(0)
@@ -51,11 +50,11 @@ m_likelihoodCalculator(0)
 	 */
 }
 
-TLikelihoodReconDriver::~TLikelihoodReconDriver() {
+TLikelihoodReconDriverBase::~TLikelihoodReconDriverBase() {
 	// TODO Auto-generated destructor stub
 }
 
-void TLikelihoodReconDriver::configLikelihoodCalculator(const char* name) {
+void TLikelihoodReconDriverBase::configLikelihoodCalculator(const char* name) {
 	TClass *likelihoodClass=TClass::GetClass(name);
 	if (likelihoodClass==0){
 		Error("configLikelihoodCalculator","Error, driver class %s not in ROOT dictionary. Return");
@@ -69,7 +68,7 @@ void TLikelihoodReconDriver::configLikelihoodCalculator(const char* name) {
 
 }
 
-void TLikelihoodReconDriver::configMinimizer(){
+void TLikelihoodReconDriverBase::configMinimizer(){
 	if (!m_minimizer) m_minimizer=ROOT::Math::Factory::CreateMinimizer("Minuit2","Migrad"); //minimizer name: Minuit, Minuit2 //algo: Migrad, Simplex, Combined, Scan.
 
 	m_minimizer->SetFunction(*this); /*This is very important*/
@@ -81,7 +80,7 @@ void TLikelihoodReconDriver::configMinimizer(){
 }
 
 
-void TLikelihoodReconDriver::setFitObject(fitObject_t type){
+void TLikelihoodReconDriverBase::setFitObject(fitObject_t type){
 	Info("setFitObject","Set fit Object called with %i",type);
 	m_fitObject=type;
 	if (m_fitObject==k_null){
@@ -99,7 +98,7 @@ void TLikelihoodReconDriver::setFitObject(fitObject_t type){
 }
 
 
-void  TLikelihoodReconDriver::setFitLikelihoodMode(fitLikelihoodMode_t mode){
+void  TLikelihoodReconDriverBase::setFitLikelihoodMode(fitLikelihoodMode_t mode){
 	m_fitLikelihoodMode=mode;
 
 	/*If we fit only the time info, we can't get N*/
@@ -123,23 +122,23 @@ void  TLikelihoodReconDriver::setFitLikelihoodMode(fitLikelihoodMode_t mode){
 /*This is the method that computes the function, x are the variables*/
 
 //double TRecon::operator()(const std::vector< double >& x) const{
-double TLikelihoodReconDriver::DoEval(const double *x) const{
+double TLikelihoodReconDriverBase::DoEval(const double *x) const{
 	double ret;
 	ret=m_likelihoodCalculator->CalculateLikelihood(x);
 	return ret;
 }
 
 
-unsigned int TLikelihoodReconDriver::NDim() const{
+unsigned int TLikelihoodReconDriverBase::NDim() const{
 	return m_nPars;
 }
 
-ROOT::Math::IBaseFunctionMultiDim* TLikelihoodReconDriver::Clone() const{
+ROOT::Math::IBaseFunctionMultiDim* TLikelihoodReconDriverBase::Clone() const{
 	return 0;
 }
 
 
-void TLikelihoodReconDriver::doFit(){
+void TLikelihoodReconDriverBase::doFit(){
 	if (m_fitObject==k_null){
 		return;
 	}
@@ -166,7 +165,7 @@ void TLikelihoodReconDriver::doFit(){
 }
 
 
-void TLikelihoodReconDriver::initParameters(){
+void TLikelihoodReconDriverBase::initParameters(){
 	if (m_fitObject==k_null){
 		return;
 	}
@@ -194,7 +193,7 @@ void TLikelihoodReconDriver::initParameters(){
 }
 
 
-void TLikelihoodReconDriver::initFit(){
+void TLikelihoodReconDriverBase::initFit(){
 	initParameters(); /*Create all the parameters and set them*/
 	setFitObject(m_reconInput->getFitObject()); /*Set the fit object: point or track. Correspondingly, fix the parameters we are not sensitive to*/
 	setFitLikelihoodMode(m_reconInput->getFitLikelihoodMode());/*Set the fit data: charge, time, both. Correspondingly, fix the parameters we are not sensitive to*/
@@ -203,7 +202,7 @@ void TLikelihoodReconDriver::initFit(){
 
 
 
-void TLikelihoodReconDriver::setReconInputMode(const char *mode){
+void TLikelihoodReconDriverBase::setReconInputMode(const char *mode){
 	if (string(mode)=="file"){
 		m_reconInputMode=reconInputFile;
 	}
@@ -215,7 +214,7 @@ void TLikelihoodReconDriver::setReconInputMode(const char *mode){
 	}
 }
 
-void TLikelihoodReconDriver::configReconInput(){
+void TLikelihoodReconDriverBase::configReconInput(){
 	if (m_reconInputMode==reconInputFile){
 		ifstream f(m_reconInputFileName.c_str());
 		if (f.good()){
@@ -236,7 +235,7 @@ void TLikelihoodReconDriver::configReconInput(){
 }
 
 /*These are inherited from the driver*/
-int TLikelihoodReconDriver::start(){
+int TLikelihoodReconDriverBase::start(){
 
 
 	this->configReconInput();
@@ -244,7 +243,7 @@ int TLikelihoodReconDriver::start(){
 }
 
 
-int TLikelihoodReconDriver::startOfData(){
+int TLikelihoodReconDriverBase::startOfData(){
 
 	/*Set the variables*/
 	for (int iface=0;iface<6;iface++){
@@ -309,125 +308,7 @@ int TLikelihoodReconDriver::startOfData(){
 	return 0;
 }
 
-int TLikelihoodReconDriver::process(TEvent *event){
-	TClonesArray *digiCollection;
-	TIter		 *digiCollectionIter;
-	OpNoviceDigi *digi;
-
-	TVector3 rReconIN,rReconOUT,rRecon;
-	TVector3 ux,uy,uz;
-	double Ntot,theta,phi;
-	int face,detector,pixel,nPhe,nX,nY,ID;
-
-	/*First, check if the recon input was given from file or we expect it event by event from previous drivers*/
-	if (m_reconInputMode==reconInputDriver){
-		if (event->hasObject("reconInput")){
-			m_reconInput=(TReconInput*)event->getObject("reconInput");
-		}
-		else{
-			Error("process","Asked for recon input from driver, but no reconInput object present. Are you using the TMatrixReconDriver and the TMatrixInterpreterDriver?");
-			return 1;
-		}
-	}
-	else if (m_reconInput==0){
-		Error("process","something went wrong, no reconInput");
-		return 2;
-	}
-
-	/*Prepare the data*/
-	for (face=0;face<6;face++){
-		for (detector=0;detector<m_manager->getDetector()->getNdet(face);detector++){
-			for (pixel=0;pixel<m_manager->getDetector()->getNPixels(face,detector);pixel++){
-				m_N[face][detector][pixel]=-1;  /*I use a negative value, since it is possible that we do not have this data in this event. Therefore, the likelihood will ignore this pixel*/
-				m_T[face][detector][pixel]=-1;
-				m_Q[face][detector][pixel]=-1;
-			}
-		}
-	}
-
-	if (event->hasCollection(OpNoviceDigi::Class(),m_collectionName)){
-		cout<<"!!!!!!OK!!!!!!!"<<endl;
-		digiCollection=event->getCollection(OpNoviceDigi::Class(),m_collectionName);
-		digiCollectionIter=new TIter(digiCollection);
-		while (digi = (OpNoviceDigi*)digiCollectionIter->Next()){
-			face=digi->GetFaceNumber();
-			detector=digi->GetDetectorNumber();
-			pixel=digi->GetPixelNumber();
-			nPhe=digi->GetPheCount();
-			m_N[face][detector][pixel]=nPhe;
-			nX=m_manager->getDetector()->getNPixelsX(face,detector);
-			nY=m_manager->getDetector()->getNPixelsY(face,detector);
-			ID=m_manager->getDetector()->getPixelGlobalID(face,detector,pixel);
-		}
-	}
-
-
-	m_minimizer->Clear();
-	this->initParameters(); /*This defines the parameters*/
-	this->initFit();
-
-	this->doFit();
-
-	if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
-		this->getMinimizer()->PrintResults();
-		Info("Process","Fit was done");
-		cout<<m_minimizer->X()[0]<<" "<<m_minimizer->X()[1]<<" "<<m_minimizer->X()[2]<<endl;
-		cout<<m_minimizer->X()[3]<<" "<<m_minimizer->X()[4]<<" "<<m_minimizer->X()[5]<<endl;
-		cout<<m_minimizer->X()[6]<<" "<<m_minimizer->X()[7]<<" "<<m_minimizer->X()[8]<<" "<<m_minimizer->X()[9]<<endl;
-	}
-
-
-
-	rReconIN.SetXYZ(m_minimizer->X()[0],m_minimizer->X()[1],m_minimizer->X()[2]);
-	rReconOUT.SetXYZ(m_minimizer->X()[3],m_minimizer->X()[4],m_minimizer->X()[5]);
-
-
-
-	rRecon=rReconOUT-rReconIN; //full trajectory
-
-	Ntot=m_minimizer->X()[4];
-
-	hX_1->Fill( rReconIN.X());
-	hY_1->Fill( rReconIN.Y());
-	hZ_1->Fill( rReconIN.Z());
-	hXY_1->Fill( rReconIN.X(), rReconIN.Y());
-	hXZ_1->Fill( rReconIN.X(), rReconIN.Z());
-	hYZ_1->Fill( rReconIN.Y(), rReconIN.Z());
-
-	hX_2->Fill( rReconOUT.X());
-	hY_2->Fill( rReconOUT.Y());
-	hZ_2->Fill( rReconOUT.Z());
-	hXY_2->Fill( rReconOUT.X(), rReconOUT.Y());
-	hXZ_2->Fill( rReconOUT.X(), rReconOUT.Z());
-	hYZ_2->Fill( rReconOUT.Y(), rReconOUT.Z());
-
-
-
-	/*Define the angles wrt the VERTICAL direction, that is -y. Phi is in the xz plane, wrt to X*/
-	ux.SetXYZ(1.,0.,0.);uy.SetXYZ(0.,1.,0.),uz.SetXYZ(0.,0.,1.); //since we have down-going muons..
-	theta=rRecon.Angle(-1.*uy); //since we have down-going muons..
-
-	double yTMP=rRecon.Y();
-
-	rRecon.SetY(0.); //project on XZ
-	phi=rRecon.Angle(ux);
-	rRecon.SetY(yTMP);
-
-	hTheta->Fill(theta*TMath::RadToDeg());
-	hPhi->Fill(phi*TMath::RadToDeg());
-
-
-
-	hT0->Fill(m_minimizer->X()[7]);
-	hNPhotons->Fill(m_minimizer->X()[8]);
-	hTau->Fill( m_minimizer->X()[9]);
-
-
-
-
-	return 0;
-}
-int TLikelihoodReconDriver::endOfData(){
+int TLikelihoodReconDriverBase::endOfData(){
 	return 0;
 }
 
