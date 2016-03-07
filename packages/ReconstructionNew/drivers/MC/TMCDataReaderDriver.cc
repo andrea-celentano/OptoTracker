@@ -47,7 +47,9 @@ int TMCDataReaderDriver::process(TEvent* event) {
 			nPhe=digi->GetPheCount();
 			Q=digi->GetPheCount();
 			T=digi->GetFirstHitTime();
+
 			if (nPhe>0) isHit=true;
+			else isHit=false;
 
 			/*Now put it!*/
 			hit=(TReconHit*)m_reconHitCollection->ConstructedAt(jj++); //This creates a new TReconHit if necessary
@@ -60,6 +62,7 @@ int TMCDataReaderDriver::process(TEvent* event) {
 			hit->setPhe(nPhe);
 			hit->setT(T);
 			hit->setHit(isHit);
+
 		}
 
 		event->addCollection(m_reconHitCollection);

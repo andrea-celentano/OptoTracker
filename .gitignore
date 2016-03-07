@@ -20,7 +20,7 @@ packages/Common/build
 packages/ReconstructionNew/build
 packages/Tofpet/build
 packages/Simulation/build
-packages/MarocAnalysis/build
+packages/Maroc/build
 
 #eclipse
 eclipse/*

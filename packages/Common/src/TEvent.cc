@@ -109,7 +109,7 @@ void	TEvent::Clear(Option_t* opt){
 	vector < TClonesArray* >::iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
 		if (*it)		{
-			Info("Clear","Clear collection %s",(*it)->GetName());
+	//		Info("Clear","Clear collection %s",(*it)->GetName());
 			(*it)->Clear(opt);
 		}
 	}

@@ -1,7 +1,7 @@
 /OpNovice/run/setRunName center
 
 /gps/particle alpha
-/gps/energy 1 MeV
+/gps/energy 500 keV
 
 /gps/pos/type Plane
 /gps/pos/shape Circle
