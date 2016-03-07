@@ -18,7 +18,7 @@ class TH2D;
 class TEvent;
 class TTofpetRun;
 class TTofpetSetupHandler;
-class TDetectorLight;
+class TDetector;
 class TTofpetThresholdCalibration;
 
 class TTofpetThresholdCalibrationDriver: public TDriver {
@@ -49,7 +49,7 @@ private:
 	TTofpetSetupHandler *m_TTofpetSetupHandler;
 	TTofpetThresholdCalibration *m_TTofpetThresholdCalibration;
 
-	TDetectorLight 	    *m_detector;
+	TDetector 	    *m_detector;
 
 	int m_Nsteps;
 	int m_Nchannels;

@@ -891,7 +891,7 @@ static  void method_7660( void* retaddr, void* o, const std::vector<void*>&, voi
 
 static  void method_7661( void*, void* o, const std::vector<void*>& arg, void*)
 {
-  (((::TOptoSelector*)o)->setDetector)((::TDetectorLight*)arg[0]);
+  (((::TOptoSelector*)o)->setDetector)((::TDetector*)arg[0]);
 }
 
 static  void method_7662( void* retaddr, void* o, const std::vector<void*>&, void*)

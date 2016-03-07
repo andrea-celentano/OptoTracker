@@ -15,7 +15,7 @@
 #include "TDriver.hh"
 #include "TEvent.hh"
 #include "TJobManager.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 
 using namespace std;

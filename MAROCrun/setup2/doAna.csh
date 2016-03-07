@@ -1,7 +1,7 @@
 #!/bin/tcsh -f
 
 set EXE=$OPTO/bin/MarocAnalysis
-set DET=PrototypeGeometry.dat
+set DET=PrototypeGeometry.new.dat
 
 $EXE -s data/testAlpha_3_00001.root -b data/testAlpha_3_00005.root -d $DET -ss PrototypeSetup.dat -batch -o center_$1   -r ../../MCrun/detector2a/center_$1.root -XY 0 0&
 $EXE -s data/testAlpha_3_00004.root -b data/testAlpha_3_00008.root -d $DET -ss PrototypeSetup.dat -batch -o xp15yp15_$1 -r ../../MCrun/detector2a/xp15yp15_$1.root -XY 1.5 1.5&

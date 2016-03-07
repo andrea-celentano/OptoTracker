@@ -28,15 +28,15 @@ class TRecon : public ROOT::Math::IBaseFunctionMultiDim{
 	//class TRecon: public ROOT::Minuit2::FCNBase{
 
 public:
-	TRecon(TDetectorLight* detector, TReconInput* input);
+	TRecon(TDetector* detector, TReconInput* input);
 	~TRecon();
 
 	static const int m_nPars = 10;
 
 	
 	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
-	TDetectorLight* getDetector(){return m_detector;}
-	void setDetector(TDetectorLight* detector);
+	TDetector* getDetector(){return m_detector;}
+	void setDetector(TDetector* detector);
 
 	  
 	void initParameters();
@@ -70,7 +70,7 @@ public:
     
 private:
 	ROOT::Math::Minimizer* m_minimizer;
-	TDetectorLight* m_detector;
+	TDetector* m_detector;
 	TReconInput* m_reconInput;
 
 	fitObject_t m_fitObject;

@@ -13,7 +13,7 @@
 #include "TVector3.h"
 
 #include "TMarocSetupHandler.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 using namespace std;
 

@@ -40,7 +40,7 @@
 #include "G4RunManager.hh"
 #include "OpNoviceDetectorSD.hh"
 #include "OpNoviceScintSD.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 #include "H8500.h"
 
 
@@ -64,7 +64,7 @@ class OpNoviceDetectorSD;
 class OpNoviceDetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
-	OpNoviceDetectorConstruction(TDetectorLight *mDetectorLight);
+	OpNoviceDetectorConstruction(TDetector *mDetectorLight);
 	virtual ~OpNoviceDetectorConstruction();
 
 public:
@@ -229,7 +229,7 @@ private:
 	G4VPhysicalVolume* fH8500IntGlass_phys;
 	G4VPhysicalVolume* fH8500Photo_phys;
 
-	TDetectorLight*  fDetectorLight; 
+	TDetector*  fDetectorLight; 
 
 	//Sensitive Detectors
 	G4Cache<OpNoviceDetectorSD*> fDetectorSD;

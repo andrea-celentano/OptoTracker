@@ -175,7 +175,7 @@ void RootIO::FillEvent()
 }
 
 
-void RootIO::End(TDetectorLight *detector){
+void RootIO::End(TDetector *detector){
 	/// Write the Root tree in the file and close it (it is called at the end of run, 1 run == 1 file).
 	fFile->cd();
 	for (int ii=0;ii<fHistograms1D->size();ii++){

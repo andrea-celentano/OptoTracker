@@ -6,7 +6,7 @@
 #include "TMatrixD.h"
 
 #include "TDriver.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 #include <string>
 

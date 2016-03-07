@@ -1,4 +1,4 @@
-// Generated at Thu Mar  3 22:03:26 2016. Do not modify it
+// Generated at Mon Mar  7 18:03:22 2016. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -26,7 +26,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #elif defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3)) && !defined(__INTEL_COMPILER) 
 # pragma GCC diagnostic ignored "-Warray-bounds"
 #endif
-#include "/work/OptoTracker/packages/Maroc/include/MarocClasses.hh"
+#include "/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Maroc/include/MarocClasses.hh"
 #ifdef CONST
 # undef CONST
 #endif
@@ -36,38 +36,38 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 namespace {
   ::Reflex::Type type_47 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
   ::Reflex::Type type_177 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_952 = ::Reflex::TypeBuilder(Reflex::Literal("bool"));
+  ::Reflex::Type type_953 = ::Reflex::TypeBuilder(Reflex::Literal("bool"));
   ::Reflex::Type type_void = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_1628 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
-  ::Reflex::Type type_283 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
-  ::Reflex::Type type_361 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
-  ::Reflex::Type type_349 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
-  ::Reflex::Type type_978 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
-  ::Reflex::Type type_1289 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
-  ::Reflex::Type type_2209 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocHit"));
-  ::Reflex::Type type_677 = ::Reflex::TypeBuilder(Reflex::Literal("TEventHeader"));
+  ::Reflex::Type type_1629 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
+  ::Reflex::Type type_284 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
+  ::Reflex::Type type_362 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
+  ::Reflex::Type type_350 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
+  ::Reflex::Type type_979 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
+  ::Reflex::Type type_1290 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
+  ::Reflex::Type type_2211 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocHit"));
+  ::Reflex::Type type_678 = ::Reflex::TypeBuilder(Reflex::Literal("TEventHeader"));
   ::Reflex::Type type_115 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
-  ::Reflex::Type type_902 = ::Reflex::TypeBuilder(Reflex::Literal("TRealSetupHandler"));
+  ::Reflex::Type type_903 = ::Reflex::TypeBuilder(Reflex::Literal("TRealSetupHandler"));
   ::Reflex::Type type_2556 = ::Reflex::TypeBuilder(Reflex::Literal("std::map<int,int>"));
-  ::Reflex::Type type_1768 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocEventHeader"));
-  ::Reflex::Type type_1243 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocSetupHandler"));
+  ::Reflex::Type type_1769 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocEventHeader"));
+  ::Reflex::Type type_1244 = ::Reflex::TypeBuilder(Reflex::Literal("TMarocSetupHandler"));
   ::Reflex::Type type_2377 = ::Reflex::TypeBuilder(Reflex::Literal("std::basic_string<char>"));
-  ::Reflex::Type type_9118 = ::Reflex::ReferenceBuilder(type_1243);
-  ::Reflex::Type type_1243c = ::Reflex::ConstBuilder(type_1243);
-  ::Reflex::Type type_9119 = ::Reflex::ReferenceBuilder(type_1243c);
+  ::Reflex::Type type_9118 = ::Reflex::ReferenceBuilder(type_1244);
+  ::Reflex::Type type_1244c = ::Reflex::ConstBuilder(type_1244);
+  ::Reflex::Type type_9119 = ::Reflex::ReferenceBuilder(type_1244c);
   ::Reflex::Type type_2390 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("std::string"), type_2377);
-  ::Reflex::Type type_820 = ::Reflex::PointerBuilder(type_349);
-  ::Reflex::Type type_1628c = ::Reflex::ConstBuilder(type_1628);
-  ::Reflex::Type type_2794 = ::Reflex::PointerBuilder(type_1628c);
-  ::Reflex::Type type_1691 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_283);
+  ::Reflex::Type type_821 = ::Reflex::PointerBuilder(type_350);
+  ::Reflex::Type type_1629c = ::Reflex::ConstBuilder(type_1629);
+  ::Reflex::Type type_2794 = ::Reflex::PointerBuilder(type_1629c);
+  ::Reflex::Type type_1692 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_284);
   ::Reflex::Type type_8925 = ::Reflex::ReferenceBuilder(type_115);
-  ::Reflex::Type type_4279 = ::Reflex::ReferenceBuilder(type_1289);
-  ::Reflex::Type type_9182 = ::Reflex::ReferenceBuilder(type_1768);
-  ::Reflex::Type type_1768c = ::Reflex::ConstBuilder(type_1768);
-  ::Reflex::Type type_9183 = ::Reflex::ReferenceBuilder(type_1768c);
-  ::Reflex::Type type_9257 = ::Reflex::ReferenceBuilder(type_2209);
-  ::Reflex::Type type_2209c = ::Reflex::ConstBuilder(type_2209);
-  ::Reflex::Type type_9258 = ::Reflex::ReferenceBuilder(type_2209c);
+  ::Reflex::Type type_4279 = ::Reflex::ReferenceBuilder(type_1290);
+  ::Reflex::Type type_9182 = ::Reflex::ReferenceBuilder(type_1769);
+  ::Reflex::Type type_1769c = ::Reflex::ConstBuilder(type_1769);
+  ::Reflex::Type type_9183 = ::Reflex::ReferenceBuilder(type_1769c);
+  ::Reflex::Type type_9265 = ::Reflex::ReferenceBuilder(type_2211);
+  ::Reflex::Type type_2211c = ::Reflex::ConstBuilder(type_2211);
+  ::Reflex::Type type_9266 = ::Reflex::ReferenceBuilder(type_2211c);
 } // unnamed namespace
 
 #ifndef __CINT__
@@ -108,7 +108,7 @@ class __TMarocHit : public ::TObject {
   virtual ~__TMarocHit() throw();
   int marocID;
   int charge;
-  bool isHit;
+  bool Hit;
 };
 }
 
@@ -198,7 +198,7 @@ void ::TMarocHit::ShowMembers(TMemberInspector &R__insp) {
    if (R__cl || R__insp.IsA()) { }
    R__insp.Inspect(R__cl, R__insp.GetParent(), "marocID", &marocID);
    R__insp.Inspect(R__cl, R__insp.GetParent(), "charge", &charge);
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "isHit", &isHit);
+   R__insp.Inspect(R__cl, R__insp.GetParent(), "Hit", &Hit);
    TObject::ShowMembers(R__insp);
 }
 void ::TMarocHit::Streamer(TBuffer &b) {
@@ -362,7 +362,7 @@ static  void method_3947( void* retaddr, void* o, const std::vector<void*>&, voi
   else   (((::TMarocSetupHandler*)o)->DeclFileLine)();
 }
 
-static void method_newdel_1243( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_1244( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TMarocSetupHandler >::new_T;
@@ -393,13 +393,13 @@ void __TMarocSetupHandler_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TMarocSetupHandler"), typeid(::TMarocSetupHandler), sizeof(::TMarocSetupHandler), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TMarocSetupHandler::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_902, ::Reflex::BaseOffset< ::TMarocSetupHandler, ::TRealSetupHandler >::Get(), ::Reflex::PUBLIC)
+  .AddBase(type_903, ::Reflex::BaseOffset< ::TMarocSetupHandler, ::TRealSetupHandler >::Get(), ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9118, type_9119), Reflex::Literal("operator="), operator_3921, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9119), Reflex::Literal("TMarocSetupHandler"), constructor_3922, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TMarocSetupHandler"), constructor_3925, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2390), Reflex::Literal("TMarocSetupHandler"), constructor_3926, 0, "fname", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TMarocSetupHandler"), destructor_3927, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1243, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1244, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x1, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TMarocSetupHandler_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TMarocSetupHandler_funcmem_bld);
@@ -421,12 +421,12 @@ void __TMarocSetupHandler_db_funcmem(Reflex::Class* cl) {
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47, type_47), Reflex::Literal("getH8500IdFromMaroc"), method_3932, 0, "globalID", ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47, type_47), Reflex::Literal("getPixelReconId"), method_3933, 0, "globalID", ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47, type_47, type_47), Reflex::Literal("getPixelReconId"), method_3934, 0, "iRealDet;iRealPixel", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_361, type_47, type_47), Reflex::Literal("getPixelGainFromGlobal"), method_3935, 0, "globalID;igain=0", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("Class"), method_3936, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_362, type_47, type_47), Reflex::Literal("getPixelGainFromGlobal"), method_3935, 0, "globalID;igain=0", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("Class"), method_3936, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("Class_Name"), method_3937, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1691), Reflex::Literal("Class_Version"), method_3938, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1692), Reflex::Literal("Class_Version"), method_3938, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_3939, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("IsA"), method_3940, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("IsA"), method_3940, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8925), Reflex::Literal("ShowMembers"), method_3941, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("Streamer"), method_3942, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("StreamerNVirtual"), method_3943, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
@@ -534,7 +534,7 @@ static  void method_4305( void* retaddr, void* o, const std::vector<void*>&, voi
   else   (((::TMarocEventHeader*)o)->DeclFileLine)();
 }
 
-static void method_newdel_1768( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_1769( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TMarocEventHeader >::new_T;
@@ -565,12 +565,12 @@ void __TMarocEventHeader_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TMarocEventHeader"), typeid(::TMarocEventHeader), sizeof(::TMarocEventHeader), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TMarocEventHeader::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_677, ::Reflex::BaseOffset< ::TMarocEventHeader, ::TEventHeader >::Get(), ::Reflex::PUBLIC)
+  .AddBase(type_678, ::Reflex::BaseOffset< ::TMarocEventHeader, ::TEventHeader >::Get(), ::Reflex::PUBLIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9182, type_9183), Reflex::Literal("operator="), operator_4288, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9183), Reflex::Literal("TMarocEventHeader"), constructor_4289, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TMarocEventHeader"), constructor_4290, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TMarocEventHeader"), destructor_4291, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1768, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1769, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x3, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TMarocEventHeader_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TMarocEventHeader_funcmem_bld);
@@ -586,11 +586,11 @@ void __TMarocEventHeader_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getMultiplicity"), method_4292, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setMultiplicity"), method_4293, 0, "multiplicity", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("Class"), method_4294, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("Class"), method_4294, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("Class_Name"), method_4295, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1691), Reflex::Literal("Class_Version"), method_4296, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1692), Reflex::Literal("Class_Version"), method_4296, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_4297, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("IsA"), method_4298, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("IsA"), method_4298, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8925), Reflex::Literal("ShowMembers"), method_4299, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("Streamer"), method_4300, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("StreamerNVirtual"), method_4301, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
@@ -600,127 +600,127 @@ void __TMarocEventHeader_db_funcmem(Reflex::Class* cl) {
   .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_4305, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 //------Stub functions for class TMarocHit -------------------------------
-static  void operator_4679( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_4790( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TMarocHit*)o)->operator=)(*(const ::TMarocHit*)arg[0]);
   else   (((::TMarocHit*)o)->operator=)(*(const ::TMarocHit*)arg[0]);
 }
 
-static void constructor_4680( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_4791( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TMarocHit(*(const ::TMarocHit*)arg[0]);
   else ::new(mem) ::TMarocHit(*(const ::TMarocHit*)arg[0]);
 }
 
-static void constructor_4681( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+static void constructor_4792( void* retaddr, void* mem, const std::vector<void*>&, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TMarocHit();
   else ::new(mem) ::TMarocHit();
 }
 
-static void destructor_4682(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_4793(void*, void * o, const std::vector<void*>&, void *) {
 ((::TMarocHit*)o)->::TMarocHit::~TMarocHit();
 }
-static  void method_4683( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4794( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TMarocHit*)o)->getCharge)());
   else   (((const ::TMarocHit*)o)->getCharge)();
 }
 
-static  void method_4684( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4795( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TMarocHit*)o)->setCharge)(*(int*)arg[0]);
 }
 
-static  void method_4685( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4796( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
-  if (retaddr) new (retaddr) (bool)((((const ::TMarocHit*)o)->isIsHit)());
-  else   (((const ::TMarocHit*)o)->isIsHit)();
+  if (retaddr) new (retaddr) (bool)((((const ::TMarocHit*)o)->isHit)());
+  else   (((const ::TMarocHit*)o)->isHit)();
 }
 
-static  void method_4686( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4797( void*, void* o, const std::vector<void*>& arg, void*)
 {
-  (((::TMarocHit*)o)->setIsHit)(*(bool*)arg[0]);
+  (((::TMarocHit*)o)->setHit)(*(bool*)arg[0]);
 }
 
-static  void method_4687( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4798( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TMarocHit*)o)->getMarocId)());
   else   (((const ::TMarocHit*)o)->getMarocId)();
 }
 
-static  void method_4688( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4799( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TMarocHit*)o)->setMarocId)(*(int*)arg[0]);
 }
 
-static  void method_4689( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4800( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TMarocHit*)o)->Class)());
   else   (((::TMarocHit*)o)->Class)();
 }
 
-static  void method_4690( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4801( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TMarocHit*)o)->Class_Name)());
   else   (((::TMarocHit*)o)->Class_Name)();
 }
 
-static  void method_4691( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4802( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TMarocHit*)o)->Class_Version)());
   else   (((::TMarocHit*)o)->Class_Version)();
 }
 
-static  void method_4692( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4803( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TMarocHit*)o)->Dictionary)();
 }
 
-static  void method_4693( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4804( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TMarocHit*)o)->IsA)());
   else   (((const ::TMarocHit*)o)->IsA)();
 }
 
-static  void method_4694( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4805( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TMarocHit*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_4695( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4806( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TMarocHit*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4696( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4807( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TMarocHit*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4697( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4808( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TMarocHit*)o)->DeclFileName)());
   else   (((::TMarocHit*)o)->DeclFileName)();
 }
 
-static  void method_4698( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4809( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TMarocHit*)o)->ImplFileLine)());
   else   (((::TMarocHit*)o)->ImplFileLine)();
 }
 
-static  void method_4699( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4810( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TMarocHit*)o)->ImplFileName)());
   else   (((::TMarocHit*)o)->ImplFileName)();
 }
 
-static  void method_4700( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4811( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TMarocHit*)o)->DeclFileLine)());
   else   (((::TMarocHit*)o)->DeclFileLine)();
 }
 
-static void method_newdel_2209( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_2211( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TMarocHit >::new_T;
@@ -750,12 +750,12 @@ void __TMarocHit_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TMarocHit"), typeid(::TMarocHit), sizeof(::TMarocHit), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TMarocHit::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_978, ::Reflex::BaseOffset< ::TMarocHit, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9257, type_9258), Reflex::Literal("operator="), operator_4679, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9258), Reflex::Literal("TMarocHit"), constructor_4680, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TMarocHit"), constructor_4681, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TMarocHit"), destructor_4682, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_2209, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddBase(type_979, ::Reflex::BaseOffset< ::TMarocHit, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9265, type_9266), Reflex::Literal("operator="), operator_4790, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9266), Reflex::Literal("TMarocHit"), constructor_4791, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TMarocHit"), constructor_4792, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TMarocHit"), destructor_4793, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_2211, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x5, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TMarocHit_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TMarocHit_funcmem_bld);
@@ -766,29 +766,29 @@ void __TMarocHit_db_datamem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
   .AddDataMember(type_47, Reflex::Literal("marocID"), OffsetOf(__shadow__::__TMarocHit, marocID), ::Reflex::PRIVATE)
   .AddDataMember(type_47, Reflex::Literal("charge"), OffsetOf(__shadow__::__TMarocHit, charge), ::Reflex::PRIVATE)
-  .AddDataMember(type_952, Reflex::Literal("isHit"), OffsetOf(__shadow__::__TMarocHit, isHit), ::Reflex::PRIVATE);
+  .AddDataMember(type_953, Reflex::Literal("Hit"), OffsetOf(__shadow__::__TMarocHit, Hit), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TMarocHit -------------------
 void __TMarocHit_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getCharge"), method_4683, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setCharge"), method_4684, 0, "charge", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_952), Reflex::Literal("isIsHit"), method_4685, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_952), Reflex::Literal("setIsHit"), method_4686, 0, "isHit", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getMarocId"), method_4687, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setMarocId"), method_4688, 0, "marocId", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("Class"), method_4689, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("Class_Name"), method_4690, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1691), Reflex::Literal("Class_Version"), method_4691, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_4692, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_820), Reflex::Literal("IsA"), method_4693, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8925), Reflex::Literal("ShowMembers"), method_4694, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("Streamer"), method_4695, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("StreamerNVirtual"), method_4696, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("DeclFileName"), method_4697, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_4698, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("ImplFileName"), method_4699, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_4700, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getCharge"), method_4794, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setCharge"), method_4795, 0, "charge", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_953), Reflex::Literal("isHit"), method_4796, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_953), Reflex::Literal("setHit"), method_4797, 0, "Hit", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getMarocId"), method_4798, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setMarocId"), method_4799, 0, "marocId", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("Class"), method_4800, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("Class_Name"), method_4801, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1692), Reflex::Literal("Class_Version"), method_4802, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_4803, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_821), Reflex::Literal("IsA"), method_4804, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8925), Reflex::Literal("ShowMembers"), method_4805, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("Streamer"), method_4806, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4279), Reflex::Literal("StreamerNVirtual"), method_4807, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("DeclFileName"), method_4808, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_4809, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2794), Reflex::Literal("ImplFileName"), method_4810, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_4811, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 namespace {
   struct Dictionaries {
@@ -799,9 +799,9 @@ namespace {
       __TMarocHit_dict(); 
     }
     ~Dictionaries() {
-      type_1243.Unload(); // class TMarocSetupHandler 
-      type_1768.Unload(); // class TMarocEventHeader 
-      type_2209.Unload(); // class TMarocHit 
+      type_1244.Unload(); // class TMarocSetupHandler 
+      type_1769.Unload(); // class TMarocEventHeader 
+      type_2211.Unload(); // class TMarocHit 
     }
   };
   static Dictionaries instance;

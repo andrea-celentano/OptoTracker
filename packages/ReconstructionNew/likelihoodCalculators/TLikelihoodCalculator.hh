@@ -8,12 +8,14 @@
 #ifndef TLIKELIHOODCALCULATOR_HH_
 #define TLIKELIHOODCALCULATOR_HH_
 
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 #include "TDetectorUtils.hh"
 
 #include "TObject.h"
 
-class TLikelihoodReconDriverBase;
+class TLikelihoodReconDriver;
+class TDetector;
+class TDetectorUtils;
 
 class TLikelihoodCalculator : public TObject {
 public:
@@ -28,24 +30,40 @@ public:
 		x(7)       : t0
 		x(8)       : Ntot
 		x(9)       : tau
-	*/
-	virtual double CalculateLikelihood(const double *x)=0;
+	 */
+	virtual double CalculateLikelihood(const double *x)const{return 0;}; //I'd prefer to have it purely virtual, but it seems root dictionary doesn't like this??
 
-	TLikelihoodReconDriverBase* getDriver() const {
+	TLikelihoodReconDriver* getDriver() const {
 		return m_driver;
 	}
+	void setDriver(TLikelihoodReconDriver* driver);
 
-	void setDriver(TLikelihoodReconDriverBase* driver) {
-		m_driver = driver;
+	TDetector* getDetector() const {
+		return m_detector;
 	}
 
-	void Init(int **N[6],double **T[6],double **Q[6]);
+	void setDetector(TDetector* detector) {
+		m_detector = detector;
+	}
+
+	TDetectorUtils* getDetectorUtils() const {
+		return m_detectorUtils;
+	}
+
+	void setDetectorUtils(TDetectorUtils* detectorUtils) {
+		m_detectorUtils = detectorUtils;
+	}
+
+	void SetData(int **ON[6],int **disc[6],double **T[6],double **Q[6]);
 
 protected:
-	TLikelihoodReconDriverBase *m_driver;
+	TLikelihoodReconDriver *m_driver;
+	TDetector *m_detector;
+	TDetectorUtils *m_detectorUtils;
 
 	/*These 3 variables are the most important. Being indexed by pixel-detector-face.*/
-	int    **m_N[6];   /*Is the pixel present in the event?*/
+	int    **m_ON[6];   /*Is the pixel present in the event?*/
+	int    **m_disc[6];
 	double **m_Q[6]; 	/*Pixel charge*/
 	double **m_T[6];	/*Pixel time*/
 

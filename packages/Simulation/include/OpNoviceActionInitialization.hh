@@ -35,7 +35,7 @@
 
 class OpNoviceRecorderBase;
 class OpNoviceDetectorConstruction;
-class TDetectorLight;
+class TDetector;
 
 /// Action initialization class.
 ///
@@ -43,7 +43,7 @@ class TDetectorLight;
 class OpNoviceActionInitialization : public G4VUserActionInitialization
 {
   public:
-OpNoviceActionInitialization(OpNoviceRecorderBase* , TDetectorLight*);
+OpNoviceActionInitialization(OpNoviceRecorderBase* , TDetector*);
     virtual ~OpNoviceActionInitialization();
 
     virtual void BuildForMaster() const;
@@ -53,7 +53,7 @@ OpNoviceActionInitialization(OpNoviceRecorderBase* , TDetectorLight*);
 
    private:
     OpNoviceRecorderBase* fRecorder;
-    TDetectorLight*		  fDetector;
+    TDetector*		  fDetector;
 };
 
 #endif

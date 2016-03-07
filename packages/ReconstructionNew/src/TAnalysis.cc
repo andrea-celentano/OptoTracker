@@ -1,6 +1,6 @@
 #include "TAnalysis.hh"
 #include "TJobManager.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 #include "TProof.h"
 #include "TFile.h"
@@ -93,17 +93,17 @@ void TAnalysis::configure(string xmlname){
 
 	/*If the detector was specified via filename, set it*/
 	if (m_detName.length()!=0){
-		m_manager->setDetector(new TDetectorLight(m_detName));
+		m_manager->setDetector(new TDetector(m_detName));
 	}
 	/*Otherwise, check the detector existance*/
 	else{
 		for (int ii=0;ii<m_fileName->size();ii++){
 			fTMP=new TFile((m_fileName->at(ii)).c_str());
-			if (fTMP->GetListOfKeys()->Contains("TDetectorLight")){
+			if (fTMP->GetListOfKeys()->Contains("TDetector")){
 				Info("configure","Detector found in file %s",(m_fileName->at(ii)).c_str());
-				m_manager->setDetector((TDetectorLight*)fTMP->Get("TDetectorLight"));
+				m_manager->setDetector((TDetector*)fTMP->Get("TDetector"));
 				if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
-					((TDetectorLight*)fTMP->Get("TDetectorLight"))->Print();
+					((TDetector*)fTMP->Get("TDetector"))->Print();
 				}
 				fTMP->Close();
 				detFound=1;
@@ -119,7 +119,7 @@ void TAnalysis::configure(string xmlname){
 		}
 	}
 
-	/*Add all the objects found in the files, but the TTree and the TDetectorLight, to the inputList*/
+	/*Add all the objects found in the files, but the TTree and the TDetector, to the inputList*/
 	for (int ii=0;ii<m_fileName->size();ii++){
 		fTMP=new TFile((m_fileName->at(ii)).c_str());
 		TIter next (fTMP->GetListOfKeys());
@@ -127,7 +127,7 @@ void TAnalysis::configure(string xmlname){
 		while ((key = (TKey*)next())) {
 			if (string(key->GetClassName())=="TTree") continue;
 			else if (string(key->GetClassName())=="TChain") continue;
-			else if (string(key->GetClassName())=="TDetectorLight") continue;
+			else if (string(key->GetClassName())=="TDetector") continue;
 			else {
 				this->addToInputList(fTMP->Get(key->GetName()));
 				if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity){

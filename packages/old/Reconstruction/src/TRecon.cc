@@ -8,7 +8,7 @@
 
 using namespace std;
 
-TRecon::TRecon(TDetectorLight *detector,TReconInput *input):
+TRecon::TRecon(TDetector *detector,TReconInput *input):
 m_detector(detector),
 m_reconInput(input),
 m_fitObject(k_point),

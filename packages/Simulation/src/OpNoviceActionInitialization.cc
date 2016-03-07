@@ -39,10 +39,10 @@
 #include "OpNoviceSteppingVerbose.hh"
 
 #include "OpNoviceRecorderBase.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceActionInitialization::OpNoviceActionInitialization(OpNoviceRecorderBase* recorder,TDetectorLight* detector)
+OpNoviceActionInitialization::OpNoviceActionInitialization(OpNoviceRecorderBase* recorder,TDetector* detector)
 : G4VUserActionInitialization(),fRecorder(recorder),fDetector(detector)
 {}
 

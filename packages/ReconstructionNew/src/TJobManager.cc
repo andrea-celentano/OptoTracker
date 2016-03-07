@@ -164,6 +164,7 @@ Bool_t  TJobManager::Process(Long64_t entry){
 	for (int ii=0;ii<m_drivers->size();ii++){
 		m_drivers->at(ii)->process(m_event);
 	}
+	m_event->clearCollections();
 	m_eventN++;
 }
 

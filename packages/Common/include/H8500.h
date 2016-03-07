@@ -11,6 +11,6 @@
 #define H8500FULLSIZE 5.2
 
 #define H8500GLASSTHICKNESS 0.12
-
+#define H8500GLASSRINDEX    1.49
 
 #endif

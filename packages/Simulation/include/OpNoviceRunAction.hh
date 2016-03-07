@@ -45,12 +45,12 @@ class G4Timer;
 class G4Run;
 class OpNoviceRecorderBase;
 class RootIO;
-class TDetectorLight;
+class TDetector;
 
 class OpNoviceRunAction : public G4UserRunAction
 {
 public:
-	OpNoviceRunAction(OpNoviceRecorderBase*,TDetectorLight*);
+	OpNoviceRunAction(OpNoviceRecorderBase*,TDetector*);
 	virtual ~OpNoviceRunAction();
 	
 public:
@@ -68,7 +68,7 @@ private:
 	G4Timer* fTimer;
 	OpNoviceRecorderBase* fRecorder;
 	OpNoviceMessenger* fMessenger;
-	TDetectorLight* fDetector;
+	TDetector* fDetector;
 
 	G4bool fSaveScintRaw;
 	G4bool fSaveDetRaw;

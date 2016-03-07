@@ -63,7 +63,7 @@ static OpNoviceDetectorConstruction* instance = 0;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceDetectorConstruction::OpNoviceDetectorConstruction(TDetectorLight *mDetectorLight)
+OpNoviceDetectorConstruction::OpNoviceDetectorConstruction(TDetector *mDetectorLight)
 : G4VUserDetectorConstruction(),fDetectorLight(mDetectorLight)
 {
 

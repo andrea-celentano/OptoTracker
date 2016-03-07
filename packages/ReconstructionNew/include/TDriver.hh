@@ -81,7 +81,7 @@ public:
 
 	void setCollectionName(const char* name){m_collectionName=string(name);}
 	void setCollectionRawName(const char* name){m_collectionRawName=string(name);}
-	void setCollectionOutame(const char* name){m_collectionOutName=string(name);}
+	void setCollectionOutName(const char* name){m_collectionOutName=string(name);}
 
 	ClassDef(TDriver,1);
 };

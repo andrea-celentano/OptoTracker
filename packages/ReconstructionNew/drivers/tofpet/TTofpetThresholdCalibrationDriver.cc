@@ -21,7 +21,7 @@
 #include "TJobManager.hh"
 #include "TTofpetSetupHandler.hh"
 #include "TTofpetThresholdCalibration.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 
 TTofpetThresholdCalibrationDriver::TTofpetThresholdCalibrationDriver() {
@@ -101,7 +101,7 @@ int TTofpetThresholdCalibrationDriver::startOfData(){
 		m_TTofpetThresholdCalibration=(TTofpetThresholdCalibration*)(m_manager->getObject(TTofpetThresholdCalibration::Class()));
 	}
 	else{
-		Error("end","No TTofpetThresholdCalibration found");
+		Error("startOfData","No TTofpetThresholdCalibration found");
 		return -1;
 	}
 

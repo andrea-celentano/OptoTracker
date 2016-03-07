@@ -14,13 +14,13 @@ using namespace std;
  *
  */
 
-class TDetectorLight;
+class TDetector;
 class TF1;
 
 class TDetectorUtils : public TObject{
 
 private:
-	TDetectorLight* m_detector;
+	TDetector* m_detector;
 	TF1 *m_SinglePhotonTimeProbKernel;
 	TF1 *m_TrackChargeKernel;
 	double GaussianCDF(const double &x,const double &mean,const double &sigma) const;
@@ -28,10 +28,14 @@ private:
 	double SinglePhotonTimeProbKernel(double *x,double *p);
 
 	double getFresnelReflectivityCustomDetector(const TVector3& x0, int iface, int idetector, int id) const;
+	double getFresnelAbsorbanceH8500(const TVector3& x0,int iface,int idetector,int id) const;
 	double FresnelReflectivity(double n1,double ctheta1,double n2) const;
 
+	static const int nPxFluxCalculation=5;
+	static const int nPyFluxCalculation=5;
+
 public:
-	TDetectorUtils(TDetectorLight *det=0);
+	TDetectorUtils(TDetector *det=0);
 	virtual ~TDetectorUtils();
 
 	double SinglePhotonTimeProb(double t,double tau,double sigma) const;

@@ -25,7 +25,7 @@
 
 
 
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 
 using namespace std;
@@ -52,7 +52,7 @@ int main(int argc,char **argv){
   //Input file
   TFile *fin;
   //detector	
-  TDetectorLight *detector;
+  TDetector *detector;
   
   //Parse the command line, open the input file
   ParseCommandLine(argc,argv);
@@ -64,7 +64,7 @@ int main(int argc,char **argv){
     fin=new TFile(fName.c_str()); 		
     //Check if we have detector info in the ROOT file. 
     if (fin->GetListOfKeys()->Contains("TDetectorLight")){
-      detector=(TDetectorLight*)fin->Get("TDetectorLight");
+      detector=(TDetector*)fin->Get("TDetectorLight");
       cout<<"Detector found:"<<detector->getName()<<endl;
     }
     else{
@@ -74,7 +74,7 @@ int main(int argc,char **argv){
   }
   else{
     cout<<"TXT mode"<<endl;
-    detector=new TDetectorLight(fName); 
+    detector=new TDetector(fName); 
   }
   
   //OWR time resolution

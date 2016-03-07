@@ -14,7 +14,7 @@
 
 
 #include "TMarocSetupHandler.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 using namespace std;
 
@@ -46,7 +46,7 @@ int main(int argc,char **argv){
 	}
 
 
-	TDetectorLight *m_detector=new TDetectorLight(fDetName);
+	TDetector *m_detector=new TDetector(fDetName);
 	TMarocSetupHandler *m_setup=new TMarocSetupHandler(fSetupName);
 
 

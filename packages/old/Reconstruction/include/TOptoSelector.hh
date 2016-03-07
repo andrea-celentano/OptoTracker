@@ -61,8 +61,8 @@ class TOptoSelector : public TSelector {
 
 
 
-    TDetectorLight* getDetector(){return mm_detector;}
-    void setDetector(TDetectorLight* detector){mm_detector=detector;}
+    TDetector* getDetector(){return mm_detector;}
+    void setDetector(TDetector* detector){mm_detector=detector;}
     
     TReconInput* getReconInput(){return mm_reconInput;}
     void setReconInput(TReconInput* input){mm_reconInput=input;}
@@ -79,7 +79,7 @@ class TOptoSelector : public TSelector {
       virtual const char*	ClassName() const{return "TOptoSelector";} /*Stupid root.. as to be here otherwise crashes*/
 
   protected:
-    TDetectorLight *mm_detector;
+    TDetector *mm_detector;
     TRecon                 *mm_recon;
     TReconInput 	       *mm_reconInput;
     TRandom3		       *mm_rand;

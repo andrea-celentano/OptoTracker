@@ -95,9 +95,9 @@ int TEvent::hasCollection(TClonesArray *coll)const{
 
 void TEvent::printCollections()const{
 	vector < TClonesArray* >::const_iterator it;
-	cout<<"Available collections: class name - collection name"<<endl;
+	cout<<"Available collections: "<<m_collections.size()<<"class name - collection name"<<endl;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
-		cout<<(*it)->GetClass()->GetName()<<" "<<(*it)->GetName()<<endl;
+		cout<<(*it)->GetClass()->GetName()<<" "<<(*it)->GetName()<<" TClonesArrayPointer: "<<(*it)<<endl;
 	}
 }
 
@@ -108,8 +108,10 @@ void	TEvent::Clear(Option_t* opt){
 	//	Info("TEvent","TEvent::Clear called with opt %s",opt);
 	vector < TClonesArray* >::iterator it;
 	for (it=m_collections.begin();it!=m_collections.end();it++){
-		//if (*it) delete (*it);
-		if (*it)		(*it)->Clear(opt);
+		if (*it)		{
+			Info("Clear","Clear collection %s",(*it)->GetName());
+			(*it)->Clear(opt);
+		}
 	}
 	m_objects.Clear();
 	m_eventHeader=0;

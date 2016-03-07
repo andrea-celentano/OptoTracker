@@ -23,7 +23,7 @@
 
 #include "CommonMacros.hh"
 #include "TMarocSetupHandler.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 #include "TDetectorUtils.hh"
 #include "TEvent.hh"
 #include "OpNoviceDetectorHit.hh"
@@ -44,7 +44,7 @@ void ParseCommandLine(int argc,char **argv);
 void PrintHelp();
 TApplication gui("GUI",0,NULL);
 
-double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetectorLight *m_detector);
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetector *m_detector);
 
 
 int main(int argc,char **argv){
@@ -135,7 +135,7 @@ int main(int argc,char **argv){
 
 
 	int Nx,Ny;
-	TDetectorLight *m_detector=new TDetectorLight(fDetName);
+	TDetector *m_detector=new TDetector(fDetName);
 	TMarocSetupHandler *m_setup=new TMarocSetupHandler(fSetupName);
 	TDetectorUtils *m_utils=0;
 
@@ -609,12 +609,14 @@ int main(int argc,char **argv){
 			if (m_detector->isDetPresent(ii,jj)){
 				for (int kk=0;kk<m_detector->getNPixels(ii,jj);kk++){
 					F=m_utils->SinglePixelAverageCharge(vin,ii,jj,kk);
-					Corr=CorrectionPixel(vin,ii,jj,kk,m_detector);
-					fTeo[ii][jj][kk]=F*Corr;
+					//Corr=CorrectionPixel(vin,ii,jj,kk,m_detector);
+				//	cout<<"Setting: "<<F<<" "<<ii<<" "<<jj<<" "<<kk<<endl;
+				//	cin.get();
+					fTeo[ii][jj][kk]=F;
 					if (!fDoRoot) {
 						fMC[ii][jj][kk]=0;
 						for (int qq=0;qq<1000;qq++){
-							hSimChargeMC[ii][jj].at(kk)->Fill(gRandom->Poisson(F*Corr));
+							hSimChargeMC[ii][jj].at(kk)->Fill(gRandom->Poisson(F));
 						}
 					}
 				}
@@ -952,7 +954,7 @@ void PrintHelp(){
 }
 
 
-double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetectorLight *m_detector){
+double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,const TDetector *m_detector){
 	double ret=0;
 
 	double n1=1.58;

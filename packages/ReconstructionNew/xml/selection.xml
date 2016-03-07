@@ -8,19 +8,24 @@
 <class name="TDriver"/>
 <class name="TReconInput"/>
 <class name="TEventMarkerDriver"/>
+<class name="TReconHit"/>
+
 <class name="TRootSaveDriver"/>
-<class name="TMatrixWriterDriver"/>
-<class name="TMatrixReconDriver"/>
-<class name="TMatrixInterpreterDriver"/>
-<class name="TLikelihoodReconDriverBase"/>
-<class name="TLikelihoodReconDriverMC"/>
-<class name="TLikelihoodReconDriverMaroc"/>
 <class name="TChargeAnalysisDriver">
 	<field name="m_writeOutFile" transient="true"/>
 </class>
 <class name="TChargeAnalysisPoissonDriver">
 	<field name="m_writeOutFile" transient="true"/>
 </class>
+<class name="TLikelihoodReconDriver"/>
+
+<class name="TMatrixWriterDriver"/>
+<class name="TMatrixReconDriver"/>
+<class name="TMatrixInterpreterDriver"/>
+
+<class name="TMCDataReaderDriver"/>
+
+
 
 <class name="TTofpetDummyAnalysisDriver"/>
 <class name="TTofpetSetupHandlerDriver"/>
@@ -29,7 +34,8 @@
 <class name="TMarocSetupHandlerDriver"/>
 <class name="TMarocBasicDriver"/>
 
+
 <class name="TLikelihoodCalculator"/>
-<class name="TLikelihoodCalculatorPoint"/>
-<class name="TLikelihoodCalculatorTrack"/>
+<class name="TLikelihoodCalculatorIdeal"/>
+<class name="TLikelihoodCalculatorMaroc1"/>
 </lcgdict>

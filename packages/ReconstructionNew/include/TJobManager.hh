@@ -17,7 +17,7 @@
 
 class TDriver;
 class TEvent;
-class TDetectorLight;
+class TDetector;
 using namespace std;
 
 
@@ -35,7 +35,7 @@ private:
 	TXMLHandler 	  *m_xmlHandler;
 	vector <TDriver*> *m_drivers;
 
-	TDetectorLight *m_detector;
+	TDetector *m_detector;
 	TDetectorUtils *m_detectorUtils;
 
 	map < string , string > *m_variables;
@@ -195,14 +195,14 @@ public:
 		m_numberOfIterations = numberOfIterations;
 	}
 
-	TDetectorLight* getDetector() const {
+	TDetector* getDetector() const {
 		return m_detector;
 	}
 	TDetectorUtils* getDetectorUtils() const{
 		return m_detectorUtils;
 	}
 
-	void setDetector(TDetectorLight* detector) {
+	void setDetector(TDetector* detector) {
 		m_detector = detector;
 	}
 

@@ -1,16 +1,17 @@
 #include "TDetectorUtils.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 #include "TMath.h"
 #include "TF1.h"
 #include "TRandom3.h"
+#include "H8500.h"
 #include <cmath>
 
 using namespace std;
-TDetectorUtils::TDetectorUtils(TDetectorLight *detector):
-						m_detector(detector),
-						m_SinglePhotonTimeProbKernel(NULL),
-						m_TrackChargeKernel(NULL){
+TDetectorUtils::TDetectorUtils(TDetector *detector):
+												m_detector(detector),
+												m_SinglePhotonTimeProbKernel(NULL),
+												m_TrackChargeKernel(NULL){
 
 	if (m_detector){
 		Info("TDetectorUtils","Created TDetectorUtils with the detector");
@@ -154,12 +155,11 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 	 * QE : the external QE. This is related to the "internal" via QE_ext = (1-R) QE_int (in MC)
 	 * R : the reflectivity of the pixel (it is clearly wrong to have an absolute number that does not depend on the medium before)
 	 */
+	detectorR=m_detector->getDetReflectivity(iface,idetector);
+	detectorT=1-detectorR;
+	QE=m_detector->getDetQE(iface,idetector); /*This is the ''intrinsic'' one, for a photon that DID NOT GOT REFLECTED!*/
 	if (m_detector->getDetName(iface,idetector)=="custom"){
 		//case 1-a: there is no coupling at all
-		detectorR=m_detector->getDetReflectivity(iface,idetector);
-		detectorT=1-detectorR;
-		QE=m_detector->getDetQE(iface,idetector); /*This is the ''intrinsic'' one, for a photon that DID NOT GOT REFLECTED!*/
-
 		if (m_detector->getCouplingThickness(iface,idetector)<=0){
 			Ttot=1-detectorR;
 		}
@@ -170,12 +170,17 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 			Ttot=FresnelT*detectorT/(1-FresnelR*detectorR);
 		}
 	}
+	else if (m_detector->getDetName(iface,idetector)=="H8500"){
+		Ttot=this->getFresnelAbsorbanceH8500(x0,iface,idetector,id);
+		Ttot*=detectorT;  //Ok, should be the photo-cathode absorbance strictly speaking (see 4/3/2016, working on multiple-layers. But I prefer to not have it hardcoded. And at the end is a pure multiplicative number)
+
+	}
 	//cout<<Ttot<<" "<<QE<<" "<<solidAngle<<endl;
 
 
 	ret = solidAngle * Ttot * QE;
 	//ret = solidAngle * QE;
-
+//	cout<<"Returing: "<<ret<<" ( "<<solidAngle<<" "<<Ttot<<" "<<QE<<" )"<<endl;
 
 	return ret;
 }
@@ -288,7 +293,7 @@ double TDetectorUtils::TrackAverageCharge(const TVector3 &x0,const TVector3 &x1,
 		ret+=delta*m_TrackChargeKernel->Eval(x);
 	}
 
-//	ret=m_TrackChargeKernel->Integral(0.,1.);
+	//	ret=m_TrackChargeKernel->Integral(0.,1.);
 
 
 	return ret;
@@ -323,12 +328,47 @@ double TDetectorUtils::TrackChargeKernel(double *x,double *p){
 double TDetectorUtils::getFresnelReflectivityCustomDetector(const TVector3& x0, int iface, int idetector, int id) const{
 	double ret=0;
 	double n1,n2,Lx,Ly,flux,thisFlux,thisFresnel,thisCAngle,thisDistance;
-	int nPx=3;
-	int nPy=3;
+
+	TVector3 xp,tx,ty,n;
+	TVector3 point,dist;
+	xp=m_detector->getPosPixel(iface,idetector,id);
+	tx=m_detector->getDetectorT1(iface,idetector);
+	ty=m_detector->getDetectorT2(iface,idetector);
+	n=m_detector->getDetectorNormal(iface,idetector);
+
+	Lx=m_detector->getPixelSizeX(iface,idetector);  //semi-length
+	Ly=m_detector->getPixelSizeY(iface,idetector);
+	n1=m_detector->getRindex();
+	n2=m_detector->getCouplingRIndex(iface,idetector);
+
+	flux=0;
+	ret=0;
+	for(int ix=0;ix<nPxFluxCalculation;ix++){
+		for (int iy=0;iy<nPyFluxCalculation;iy++){
+			point=xp+tx*(-Lx/2+ix*Lx/nPxFluxCalculation+Lx/nPxFluxCalculation)+ty*(-Ly/2+iy*Ly/nPyFluxCalculation+Ly/nPyFluxCalculation);
+			dist=point-x0;
+			thisDistance=dist.Mag();
+			thisFlux=fabs(dist*n)/(thisDistance*thisDistance*thisDistance);
+			thisCAngle=cos(dist.Angle(n));
+			thisFresnel=FresnelReflectivity(n1,thisCAngle,n2);
+			ret+=thisFlux*thisFresnel;
+			flux+=thisFlux;
+		}
+	}
+	//cout<<"Here: "<<iface<<" "<<idetector<<" "<<id<<" "<<ret<<" "<<flux<<" "<<thisFresnel<<endl;
+	ret/=flux;
+	return ret;
+
+}
+
+double TDetectorUtils::getFresnelAbsorbanceH8500(const TVector3& x0, int iface, int idetector, int id) const{
+	double ret=0;
+	double n1,n2,n3,Lx,Ly,flux,thisFlux,thisFresnel,ctheta1,stheta1,stheta2,ctheta2,stheta3,ctheta3,thisDistance;
+	double T12,T23;
 	TVector3 xp,tx,ty,n;
 	TVector3 point,dist;
 
-	TRandom3 rand(1);
+
 
 	xp=m_detector->getPosPixel(iface,idetector,id);
 	tx=m_detector->getDetectorT1(iface,idetector);
@@ -342,7 +382,7 @@ double TDetectorUtils::getFresnelReflectivityCustomDetector(const TVector3& x0, 
 
 	n1=m_detector->getRindex();
 	n2=m_detector->getCouplingRIndex(iface,idetector);
-
+	n3=H8500GLASSRINDEX;
 	//Here we can do 2 thins:
 	//1 ->Compute everything at the pixel center
 	//2 ->Integrate over the pixel face, modulated by the incident photon flux intensity, via MC technique.
@@ -350,19 +390,31 @@ double TDetectorUtils::getFresnelReflectivityCustomDetector(const TVector3& x0, 
 
 	flux=0;
 	ret=0;
-	for(int ix=0;ix<nPx;ix++){
-		for (int iy=0;iy<nPy;iy++){
-			point=xp+tx*(-Lx/2+ix*Lx/nPx+Lx/nPx)+ty*(-Ly/2+iy*Ly/nPy+Ly/nPy);
+	for(int ix=0;ix<nPxFluxCalculation;ix++){
+		for (int iy=0;iy<nPyFluxCalculation;iy++){
+			point=xp+tx*(-Lx/2+ix*Lx/nPxFluxCalculation+Lx/nPxFluxCalculation)+ty*(-Ly/2+iy*Ly/nPyFluxCalculation+Ly/nPyFluxCalculation);
 			dist=point-x0;
 			thisDistance=dist.Mag();
 			thisFlux=fabs(dist*n)/(thisDistance*thisDistance*thisDistance);
-			thisCAngle=cos(dist.Angle(n));
-			thisFresnel=FresnelReflectivity(n1,thisCAngle,n2);
+			//compute the angle in the coupling
+			ctheta1=cos(dist.Angle(n));
+			stheta1=sqrt(1-ctheta1*ctheta1);
+			stheta2=n1*stheta1/n2;
+			if (fabs(stheta2)>=1) thisFresnel=0;  //means total internal refraction in the scintillator-coupling material
+			else{
+				ctheta2=sqrt(1-stheta2*stheta2);
+				stheta3=n2*stheta2/n3;
+				if (fabs(stheta3)>=1) thisFresnel=0; //means total internal refraction in the coupling-glass
+				else{
+					T12=(1-FresnelReflectivity(n1,ctheta1,n2));
+					T23=(1-FresnelReflectivity(n2,ctheta2,n3));
+					thisFresnel=T12*T23;
+				}
+			}
 			ret+=thisFlux*thisFresnel;
 			flux+=thisFlux;
 		}
 	}
-	//cout<<"Here: "<<iface<<" "<<idetector<<" "<<id<<" "<<ret<<" "<<flux<<" "<<thisFresnel<<endl;
 	ret/=flux;
 	return ret;
 }
@@ -378,7 +430,7 @@ double TDetectorUtils::FresnelReflectivity(double n1,double ctheta1,double n2) c
 	stheta1=sqrt(1-ctheta1*ctheta1);
 	stheta2=stheta1*(n1/n2);
 
-	if (stheta2>1){
+	if (fabs(stheta2)>=1){
 		ret=1; //full reflectivity
 	}
 	else{

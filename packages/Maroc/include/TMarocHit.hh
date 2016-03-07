@@ -18,7 +18,7 @@ class TMarocHit : public TObject{
 private:
 	int marocID;  /*The ID as reported by the MAROC measurement system!*/
 	int charge;
-	bool isHit;
+	bool Hit;
 
 public:
 	TMarocHit(){};
@@ -34,12 +34,12 @@ public:
 		this->charge = charge;
 	}
 
-	bool isIsHit() const {
-		return isHit;
+	bool isHit() const {
+		return Hit;
 	}
 
-	void setIsHit(bool isHit) {
-		this->isHit = isHit;
+	void setHit(bool Hit) {
+		this->Hit = Hit;
 	}
 
 	int getMarocId() const {

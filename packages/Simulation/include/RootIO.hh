@@ -46,7 +46,7 @@
 #include "OpNoviceDetectorHit.hh"
 #include "OpNoviceDigi.hh"
 
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 #include <string>
 
@@ -65,7 +65,7 @@ public:
 	void FillEvent();
 
 	void Init(int n);
-	void End(TDetectorLight *detector);
+	void End(TDetector *detector);
 	
 	inline void SetName(std::string s){this->fName=s;}
 	inline TString GetName(){return fName;}
@@ -81,7 +81,7 @@ public:
 
 	void fillHistogram1D(int idx,double x,double w);
 	void fillHistogram2D(int idx,double x,double y,double w);
-	void saveDetector(TDetectorLight *detector);
+	void saveDetector(TDetector *detector);
 
 private:
 	

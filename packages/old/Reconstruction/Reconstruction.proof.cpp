@@ -64,7 +64,7 @@ TApplication gui("gui",0,NULL);
 //Recon input
 TReconInput *m_reconInput=0;
 //Detector
-TDetectorLight *m_detector=0;
+TDetector *m_detector=0;
 
 int main(int argc, char **argv){
      
@@ -100,7 +100,7 @@ int main(int argc, char **argv){
 	fin=new TFile(fName.c_str()); 
 	//Check if we have detector info in the ROOT file. 
 	if (fin->GetListOfKeys()->Contains("TDetectorLight")){
-		m_detector=(TDetectorLight*)fin->Get("TDetectorLight");
+		m_detector=(TDetector*)fin->Get("TDetectorLight");
 		cout<<"Detector found:"<<m_detector->getName()<<endl;
 	}
 	else {

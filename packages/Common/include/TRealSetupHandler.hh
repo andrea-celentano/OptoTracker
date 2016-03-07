@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <string>
 #include <utility>
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 
 #include "TObject.h"
 

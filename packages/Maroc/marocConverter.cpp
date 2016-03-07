@@ -23,7 +23,7 @@
 
 #include "CommonMacros.hh"
 #include "TMarocSetupHandler.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 #include "TDetectorUtils.hh"
 #include "TEvent.hh"
 #include "TMarocHit.hh"
@@ -120,7 +120,7 @@ int main(int argc,char **argv){
 			id=jj+N0;
 			fHit->setMarocId(id);
 			fHit->setCharge(ADC[id]);
-			fHit->setIsHit(hit[id]);
+			fHit->setHit(hit[id]);
 		}
 		fTree->Fill();
 	}

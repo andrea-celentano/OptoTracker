@@ -66,7 +66,7 @@ void writeMultiVoxelMultiShot(int* index, int n_index ,string fname);
 
 //This function writes the matrix Hij, on file "fname", using the same format as in the previous MC
 void writeMatrix(string fname);
-void writeMatrix2(TDetectorLight *det, string fname);
+void writeMatrix2(TDetector *det, string fname);
 
 int main(){
   int lato=Nvx;
@@ -370,7 +370,7 @@ void writeMatrix(string fname){
     out<<endl;
   }//end voxel
 }
-void writeMatrix2(TDetectorLight *det,string fname){
+void writeMatrix2(TDetector *det,string fname){
   int ipixel,iface;
   int ivoxel;
   double val;
@@ -392,7 +392,7 @@ void writeMatrix2(TDetectorLight *det,string fname){
     out2<<endl;
   }//end voxel
 }
-void writeMatrix3(TDetectorLight *det,string fname){
+void writeMatrix3(TDetector *det,string fname){
   int ipixel,iface;
   int ivoxel;
   double val;
@@ -415,7 +415,7 @@ void writeMatrix3(TDetectorLight *det,string fname){
 
 int macro(){
   gSystem->Load("$OPTO/lib/libCommonClassesDict.so");
-  TDetectorLight *det=new TDetectorLight("PrototypeGeometry.dat");
+  TDetector *det=new TDetector("PrototypeGeometry.dat");
   
   cout<<" "<<endl;
   getPixelCenter(0,0).Print();

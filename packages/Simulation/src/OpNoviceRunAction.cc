@@ -35,10 +35,10 @@
 #include "OpNoviceRecorderBase.hh"
 #include "G4Run.hh"
 #include "RootIO.hh"
-#include "TDetectorLight.hh"
+#include "TDetector.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r,TDetectorLight *detector)
+OpNoviceRunAction::OpNoviceRunAction(OpNoviceRecorderBase* r,TDetector *detector)
 : G4UserRunAction(),
 fTimer(0),
 fRecorder(r),

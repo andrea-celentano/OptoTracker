@@ -1,6 +1,6 @@
 <lcgdict>
 <!-- <class name="CLHEP::Hep3Vector"/> -->
-<class name="TDetectorLight"/>
+<class name="TDetector"/>
 <class name="TEvent"/>
 <class name="TEventHeader"/>
 <class name="TXMLHandler"/>

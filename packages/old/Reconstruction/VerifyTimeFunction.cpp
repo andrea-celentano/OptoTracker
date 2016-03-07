@@ -73,7 +73,7 @@ int main(int argc,char **argv){
 	//Input chain
 	TChain *fChain;
 	//detector
-	TDetectorLight *m_detector;
+	TDetector *m_detector;
 	//Reconstruction
 	TRecon *m_recon;
 	//Input for the recon
@@ -88,7 +88,7 @@ int main(int argc,char **argv){
 	fin=new TFile(fName.c_str());
 	//Check if we have detector info in the ROOT file.
 	if (fin->GetListOfKeys()->Contains("TDetectorLight")){
-		m_detector=(TDetectorLight*)fin->Get("TDetectorLight");
+		m_detector=(TDetector*)fin->Get("TDetectorLight");
 		cout<<"Detector found:"<<m_detector->getName()<<endl;
 	}
 	else{
