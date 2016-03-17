@@ -34,9 +34,9 @@ double TLikelihoodCalculatorIdeal::CalculateLikelihood(const double *x) const{
 				}
 				else{
 
-					switch (m_driver->getFitObject()){
+					switch (m_fitObject){
 					case (k_point):
-									switch (m_driver->getFitLikelihoodMode()){
+									switch (m_fitLikelihoodMode){
 									case(k_onlyCharge):
 												pQ=PointLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
 									break;
@@ -60,7 +60,7 @@ double TLikelihoodCalculatorIdeal::CalculateLikelihood(const double *x) const{
 									}
 								break;
 					case (k_track):
-					switch (m_driver->getFitLikelihoodMode()){
+					switch (m_fitLikelihoodMode){
 					case(k_onlyCharge):
 											pQ=TrackLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
 					break;

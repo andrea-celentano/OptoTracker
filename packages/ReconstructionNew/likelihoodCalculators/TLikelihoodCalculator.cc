@@ -7,8 +7,8 @@
 
 #include "TLikelihoodCalculator.hh"
 
-#include "TLikelihoodReconDriver.hh"
 #include "TDriver.hh"
+#include "TLikelihoodReconDriver.hh"
 
 TLikelihoodCalculator::TLikelihoodCalculator() {
 	// TODO Auto-generated constructor stub
@@ -22,6 +22,7 @@ TLikelihoodCalculator::TLikelihoodCalculator() {
 	m_driver=0;
 	m_detector=0;
 	m_detectorUtils=0;
+	m_realSetupHandler=0;
 }
 
 TLikelihoodCalculator::~TLikelihoodCalculator() {
@@ -54,7 +55,7 @@ void TLikelihoodCalculator::SetData(int **ON[6],int **disc[6],double **T[6],doub
 
 }
 
-void TLikelihoodCalculator::setDriver(TLikelihoodReconDriver* driver) {
+void TLikelihoodCalculator::setDriver(TDriver* driver) {
 	m_driver = driver;
 	if (m_driver!=0){
 		m_detector=m_driver->getManager()->getDetector();

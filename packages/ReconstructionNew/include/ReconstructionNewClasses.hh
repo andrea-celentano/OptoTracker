@@ -16,6 +16,7 @@
 #include "../drivers/common/TChargeAnalysisDriver.hh"
 #include "../drivers/common/TChargeAnalysisPoissonDriver.hh"
 #include "../drivers/common/TLikelihoodReconDriver.hh"
+#include "../drivers/common/TLikelihoodComputationDriver.hh"
 
 #include "../drivers/tofpet/TTofpetDummyAnalysisDriver.hh"
 #include "../drivers/tofpet/TTofpetSetupHandlerDriver.hh"
@@ -23,7 +24,7 @@
 
 #include "../drivers/maroc/TMarocSetupHandlerDriver.hh"
 #include "../drivers/maroc/TMarocBasicDriver.hh"
-
+#include "../drivers/maroc/TMarocDataReaderDriver.hh"
 
 #include "../drivers/MC/TMCDataReaderDriver.hh"
 

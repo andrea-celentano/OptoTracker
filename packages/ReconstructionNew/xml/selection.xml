@@ -18,6 +18,7 @@
 	<field name="m_writeOutFile" transient="true"/>
 </class>
 <class name="TLikelihoodReconDriver"/>
+<class name="TLikelihoodComputationDriver"/>
 
 <class name="TMatrixWriterDriver"/>
 <class name="TMatrixReconDriver"/>
@@ -33,6 +34,7 @@
 
 <class name="TMarocSetupHandlerDriver"/>
 <class name="TMarocBasicDriver"/>
+<class name="TMarocDataReaderDriver"/>
 
 
 <class name="TLikelihoodCalculator"/>

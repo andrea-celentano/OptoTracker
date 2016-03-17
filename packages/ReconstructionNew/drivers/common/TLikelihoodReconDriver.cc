@@ -10,16 +10,18 @@
 #include "TVector3.h"
 #include "TH1D.h"
 #include "TH2D.h"
+#include "TTree.h"
 
 #include "TLikelihoodCalculator.hh"
 #include "TReconDefs.hh"
 #include "TReconInput.hh"
 #include "TReconHit.hh"
 #include "TEvent.hh"
+#include "TEventHeader.hh"
 
 #include "TClass.h"
 #include "TLikelihoodReconDriver.hh"
-
+#include "TRealSetupHandler.hh"
 
 TLikelihoodReconDriver::TLikelihoodReconDriver() :
 m_fitObject(k_point),
@@ -30,6 +32,7 @@ m_likelihoodCalculator(0)
 	m_minimizer=0;
 	m_reconInputMode=reconInputFile;
 	m_reconInput=0;
+	m_realSetupHandler=0;
 	for (int iface=0;iface<6;iface++){
 		m_ON[iface]=0;
 		m_disc[iface]=0;
@@ -43,6 +46,7 @@ m_likelihoodCalculator(0)
 	hTheta=hPhi=0;
 	hNPhotons=hT0=hTau=0;
 
+	tout=0;
 	/*for (int ii=0;ii<6;ii++){
 		for (int jj=0;jj<MAX_DETECTORS;jj++){
 			hPixel0[ii][jj]=0;
@@ -76,7 +80,7 @@ void TLikelihoodReconDriver::configMinimizer(){
 	m_minimizer->SetFunction(*this); /*This is very important*/
 	m_minimizer->SetPrintLevel(1);
 	//m_minimizer->SetMaxFunctionCalls(1000000);
-//	m_minimizer->SetMaxIterations(100000);
+	//	m_minimizer->SetMaxIterations(100000);
 	//m_minimizer->SetTolerance(0.01);//The minimization will stop when the estimated distance to the minimum is less than 0.001*tolerance (from ROOT FORUM)
 	m_minimizer->SetPrecision(0); //find it automatically
 }
@@ -293,10 +297,32 @@ int TLikelihoodReconDriver::startOfData(){
 	hTau=new TH1D("hTau","hTau",100,-.1,5);m_manager->GetOutputList()->Add(hTau);
 
 
+	tout=new TTree("tout","tout");
+	tout->Branch("x0",&m_x0);
+	tout->Branch("y0",&m_y0);
+	tout->Branch("z0",&m_z0);
+	tout->Branch("x1",&m_x1);
+	tout->Branch("y1",&m_y1);
+	tout->Branch("z1",&m_z1);
+	tout->Branch("N",&m_N);
+	tout->Branch("tau",&m_tau);
+	tout->Branch("beta",&m_beta);
+	tout->Branch("T0",&m_T0);
+	tout->Branch("L",&m_L);
+	tout->Branch("eventN",&m_eventN);
+	m_manager->GetOutputList()->Add(tout);
 
 	/*Config the likelihood calculator*/
 	m_likelihoodCalculator->setDriver(this);
 	m_likelihoodCalculator->SetData(m_ON,m_disc,m_Q,m_T);
+
+
+	/*Check if there is a realSetupHandler with some gains*/
+	if (m_manager->hasObject(TRealSetupHandler::Class())){
+			m_realSetupHandler=(TRealSetupHandler*)(m_manager->getObject(TRealSetupHandler::Class()));
+			m_likelihoodCalculator->setRealSetupHandler(m_realSetupHandler);
+	}
+
 	/*Config the minimizer*/
 	this->configMinimizer();
 
@@ -343,6 +369,11 @@ int TLikelihoodReconDriver::process(TEvent *event){
 		return 2;
 	}
 
+	/*Config the likelihood calculator*/
+	m_likelihoodCalculator->setFitLikelihoodMode(m_reconInput->getFitLikelihoodMode());
+	m_likelihoodCalculator->setFitObject(m_reconInput->getFitObject());
+
+
 	//Prepare the data
 	for (face=0;face<6;face++){
 		for (detector=0;detector<m_manager->getDetector()->getNdet(face);detector++){
@@ -376,71 +407,85 @@ int TLikelihoodReconDriver::process(TEvent *event){
 			m_disc[iReconFace][iReconDet][iReconPixel]=hit->isHit();
 		}
 		delete hitCollectionIter;
+
+
+
+
+		m_minimizer->Clear();
+		this->initParameters(); //This defines the parameters
+		this->initFit();
+
+		this->doFit();
+
+		if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
+			this->getMinimizer()->PrintResults();
+			Info("Process","Fit was done");
+			cout<<m_minimizer->X()[0]<<" "<<m_minimizer->X()[1]<<" "<<m_minimizer->X()[2]<<endl;
+			cout<<m_minimizer->X()[3]<<" "<<m_minimizer->X()[4]<<" "<<m_minimizer->X()[5]<<endl;
+			cout<<m_minimizer->X()[6]<<" "<<m_minimizer->X()[7]<<" "<<m_minimizer->X()[8]<<" "<<m_minimizer->X()[9]<<endl;
+		}
+
+		m_x0=m_minimizer->X()[0];
+		m_y0=m_minimizer->X()[1];
+		m_z0=m_minimizer->X()[2];
+		m_x1=m_minimizer->X()[3];
+		m_y1=m_minimizer->X()[4];
+		m_z1=m_minimizer->X()[5];
+
+		m_beta=m_minimizer->X()[6];
+		m_T0=m_minimizer->X()[7];
+		m_N=m_minimizer->X()[8];
+		m_tau=m_minimizer->X()[9];
+
+		m_eventN=header->getEventNumber();
+		m_L= m_minimizer->MinValue();
+
+		tout->Fill();
+
+		rReconIN.SetXYZ(m_x0,m_y0,m_z0);
+		rReconOUT.SetXYZ(m_x1,m_y1,m_z1);
+
+
+
+		rRecon=rReconOUT-rReconIN; //full trajectory
+
+
+
+		hX_1->Fill( rReconIN.X());
+		hY_1->Fill( rReconIN.Y());
+		hZ_1->Fill( rReconIN.Z());
+		hXY_1->Fill( rReconIN.X(), rReconIN.Y());
+		hXZ_1->Fill( rReconIN.X(), rReconIN.Z());
+		hYZ_1->Fill( rReconIN.Y(), rReconIN.Z());
+
+		hX_2->Fill( rReconOUT.X());
+		hY_2->Fill( rReconOUT.Y());
+		hZ_2->Fill( rReconOUT.Z());
+		hXY_2->Fill( rReconOUT.X(), rReconOUT.Y());
+		hXZ_2->Fill( rReconOUT.X(), rReconOUT.Z());
+		hYZ_2->Fill( rReconOUT.Y(), rReconOUT.Z());
+
+
+		//Define the angles wrt the VERTICAL direction, that is -y. Phi is in the xz plane, wrt to X
+		ux.SetXYZ(1.,0.,0.);uy.SetXYZ(0.,1.,0.),uz.SetXYZ(0.,0.,1.); //since we have down-going muons..
+		theta=rRecon.Angle(-1.*uy); //since we have down-going muons..
+
+		double yTMP=rRecon.Y();
+
+		rRecon.SetY(0.); //project on XZ
+		phi=rRecon.Angle(ux);
+		rRecon.SetY(yTMP);
+
+		hTheta->Fill(theta*TMath::RadToDeg());
+		hPhi->Fill(phi*TMath::RadToDeg());
+
+
+
+		hT0->Fill(m_T0);
+		hNPhotons->Fill(m_N);
+		hTau->Fill( m_tau);
+
 	}
-
-
-
-	m_minimizer->Clear();
-	this->initParameters(); //This defines the parameters
-	this->initFit();
-
-	this->doFit();
-
-	if (m_manager->getVerboseLevel()>=TJobManager::normalVerbosity){
-		this->getMinimizer()->PrintResults();
-		Info("Process","Fit was done");
-		cout<<m_minimizer->X()[0]<<" "<<m_minimizer->X()[1]<<" "<<m_minimizer->X()[2]<<endl;
-		cout<<m_minimizer->X()[3]<<" "<<m_minimizer->X()[4]<<" "<<m_minimizer->X()[5]<<endl;
-		cout<<m_minimizer->X()[6]<<" "<<m_minimizer->X()[7]<<" "<<m_minimizer->X()[8]<<" "<<m_minimizer->X()[9]<<endl;
-	}
-
-
-
-
-	rReconIN.SetXYZ(m_minimizer->X()[0],m_minimizer->X()[1],m_minimizer->X()[2]);
-	rReconOUT.SetXYZ(m_minimizer->X()[3],m_minimizer->X()[4],m_minimizer->X()[5]);
-
-
-
-	rRecon=rReconOUT-rReconIN; //full trajectory
-
-	Ntot=m_minimizer->X()[4];
-
-	hX_1->Fill( rReconIN.X());
-	hY_1->Fill( rReconIN.Y());
-	hZ_1->Fill( rReconIN.Z());
-	hXY_1->Fill( rReconIN.X(), rReconIN.Y());
-	hXZ_1->Fill( rReconIN.X(), rReconIN.Z());
-	hYZ_1->Fill( rReconIN.Y(), rReconIN.Z());
-
-	hX_2->Fill( rReconOUT.X());
-	hY_2->Fill( rReconOUT.Y());
-	hZ_2->Fill( rReconOUT.Z());
-	hXY_2->Fill( rReconOUT.X(), rReconOUT.Y());
-	hXZ_2->Fill( rReconOUT.X(), rReconOUT.Z());
-	hYZ_2->Fill( rReconOUT.Y(), rReconOUT.Z());
-
-
-	//Define the angles wrt the VERTICAL direction, that is -y. Phi is in the xz plane, wrt to X
-	ux.SetXYZ(1.,0.,0.);uy.SetXYZ(0.,1.,0.),uz.SetXYZ(0.,0.,1.); //since we have down-going muons..
-	theta=rRecon.Angle(-1.*uy); //since we have down-going muons..
-
-	double yTMP=rRecon.Y();
-
-	rRecon.SetY(0.); //project on XZ
-	phi=rRecon.Angle(ux);
-	rRecon.SetY(yTMP);
-
-	hTheta->Fill(theta*TMath::RadToDeg());
-	hPhi->Fill(phi*TMath::RadToDeg());
-
-
-
-	hT0->Fill(m_minimizer->X()[7]);
-	hNPhotons->Fill(m_minimizer->X()[8]);
-	hTau->Fill( m_minimizer->X()[9]);
-
-
 
 	return 0;
 }

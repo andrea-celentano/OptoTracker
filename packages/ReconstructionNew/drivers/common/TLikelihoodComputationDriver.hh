@@ -1,5 +1,5 @@
-#ifndef TLIKELIHOODRECONDRIVERBASE_HH_
-#define TLIKELIHOODRECONDRIVERBASE_HH_
+#ifndef TLIKELIHOODCOMPUTETIONDRIVER_HH_
+#define TLIKELIHOODCOMPUTETIONDRIVER_HH_
 
 #include <string>
 
@@ -17,25 +17,21 @@
 #include "TJobManager.hh"
 
 
+#include "TH1D.h"
+#include "TH2D.h"
 
 class TEvent;
 class TReconInput;
 class TLikelihoodCalculator;
 class TRealSetupHandler;
-class TTree;
-class TH1D;
-class TH2D;
 
-class TLikelihoodReconDriver: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
+class TLikelihoodComputationDriver: public TDriver{
 public:
-	TLikelihoodReconDriver();
-	virtual ~TLikelihoodReconDriver();
+	TLikelihoodComputationDriver();
+	virtual ~TLikelihoodComputationDriver();
 	static const int m_nPars = 10;
 
-	void initFit();
-	void doFit();
 
-	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
 
 
 	void initParameters();
@@ -48,14 +44,8 @@ public:
 	virtual int start();
 	virtual int startOfData();
 	virtual int process(TEvent *m_event);
-	virtual int endOfData();
+	virtual int end();
 
-
-
-	/*These are inherited from IBaseFunctionMultiDim*/
-	virtual double DoEval(const double*) const;
-	virtual unsigned int NDim() const;
-	virtual ROOT::Math::IBaseFunctionMultiDim* Clone() const;
 
 	/*This is the method to setup the Likelihood Calculator!*/
 	void configLikelihoodCalculator(const char* name);
@@ -74,9 +64,8 @@ public:
 	void setReconInputMode(const char *mode);
 	void setReconInputFileName(const char *name){m_reconInputFileName=string(name);}
 protected:
-	ROOT::Math::Minimizer* m_minimizer;
-	TReconInput* m_reconInput; /*This can be from file or from reconstruction itself*/
 
+	TReconInput* m_reconInput; /*This can be from file or from reconstruction itself*/
 	TRealSetupHandler *m_realSetupHandler;
 
 	fitObject_t m_fitObject;
@@ -95,28 +84,24 @@ protected:
 	static const int reconInputDriver=1;
 
 	void configReconInput();
-	void configMinimizer();
+
 
 	//Likelihood Calculator
 	TLikelihoodCalculator *m_likelihoodCalculator;
 
 
 	//histograms
-	TH1D *hX,*hY,*hZ,*hX_1,*hY_1,*hZ_1,*hX_2,*hY_2,*hZ_2;
-	TH2D *hXY,*hXZ,*hYZ,*hXY_1,*hXZ_1,*hYZ_1,*hXY_2,*hXZ_2,*hYZ_2;
-	TH1D *hTheta,*hPhi;
-	TH1D *hNPhotons,*hT0,*hTau;
+	TH1D *hX,*hY,*hZ;
+	TH2D *hXY,*hXZ,*hYZ;
 
-	//tree - and associated variables
-	TTree *tout;
-	double m_x0,m_y0,m_z0;
-	double m_x1,m_y1,m_z1;
-	double m_N,m_tau,m_beta,m_T0;
-	double m_L;
-	int m_eventN;
+	static const int nBinsX=100;
+	static const int nBinsY=100;
+	static const int nBinsZ=100;
 
 
-	ClassDef(TLikelihoodReconDriver,1);
+
+
+	ClassDef(TLikelihoodComputationDriver,1);
 };
 
 #endif

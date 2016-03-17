@@ -6,6 +6,7 @@
 
 #include "TObject.h"
 #include "TLikelihoodCalculator.hh"
+#include "TReconDefs.hh"
 class TLikelihoodCalculatorIdeal : public TLikelihoodCalculator{
 public:
 	TLikelihoodCalculatorIdeal(){};
@@ -17,6 +18,10 @@ public:
 	double PointLikelihoodTime(int iface,int idetector,int id,const double *para) const;
 	double TrackLikelihoodCharge(int iface,int idetector,int id,const double *para) const;
 	double TrackLikelihoodTime(int iface,int idetector,int id,const double *para) const;
+
+
+
+
 
 	ClassDef(TLikelihoodCalculatorIdeal,1);
 };

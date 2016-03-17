@@ -11,12 +11,13 @@
 #include "TLorentzVector.h"
 
 #include "TChargeAnalysisDriver.hh"
-#include "OpNoviceDigi.hh"
 #include "TDriver.hh"
 #include "TEvent.hh"
 #include "TJobManager.hh"
 #include "TDetector.hh"
 #include "TMCTruth.hh"
+#include "TReconHit.hh"
+
 using namespace std;
 
 TChargeAnalysisDriver::TChargeAnalysisDriver() {
@@ -41,10 +42,10 @@ TChargeAnalysisDriver::~TChargeAnalysisDriver() {
 }
 
 int TChargeAnalysisDriver::process(TEvent *event){
+	TClonesArray *hitCollection;
+	TIter		 *hitCollectionIter;
+	TReconHit *hit;
 
-	TClonesArray *digiCollection;
-	TIter		 *digiCollectionIter;
-	OpNoviceDigi *digi;
 	TVector3 xIn,xOut,x0;
 	double L;
 	int face,detector,pixel,nPhe,nX,nY,ID;
@@ -54,18 +55,18 @@ int TChargeAnalysisDriver::process(TEvent *event){
 
 
 
-
-	if (event->hasCollection(OpNoviceDigi::Class(),m_collectionName)){
-		digiCollection=event->getCollection(OpNoviceDigi::Class(),m_collectionName);
-		digiCollectionIter=new TIter(digiCollection);
-		while (digi = (OpNoviceDigi*)digiCollectionIter->Next()){
-			face=digi->GetFaceNumber();
-			detector=digi->GetDetectorNumber();
-			pixel=digi->GetPixelNumber();
-			nPhe=digi->GetPheCount();
+	if (event->hasCollection(TReconHit::Class(),m_collectionName)){
+		hitCollection=event->getCollection(TReconHit::Class(),m_collectionName);
+		hitCollectionIter=new TIter(hitCollection);
+		while (hit = (TReconHit*)hitCollectionIter->Next()){
+			face=hit->getFace();
+			detector=hit->getDetector();
+			pixel=hit->getPixel();
+			nPhe=hit->getQ();
 			nX=m_manager->getDetector()->getNPixelsX(face,detector);
 			nY=m_manager->getDetector()->getNPixelsY(face,detector);
 			ID=m_manager->getDetector()->getPixelGlobalID(face,detector,pixel);
+
 			hPixelsMC->Fill(ID,nPhe);
 			hPixels2D[face][detector]->Fill(pixel%nX,pixel/nX,nPhe);
 			m_Q.at(ID)=nPhe;

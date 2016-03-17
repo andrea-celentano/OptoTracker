@@ -75,6 +75,8 @@ int main(int argc,char **argv){
 	TH1D** hRateSinglePhe;
 	TTofpetThresholdCalibration *m_calib;
 
+	TH1D* hCheck;
+
 	float step1,step2,channel,asic,rate;
 	int ich,ihisto,istep1,id,imax,iphe;
 	int N,Nstep1;
@@ -131,6 +133,8 @@ int main(int argc,char **argv){
 	gRate=new TGraph*[Nch*Nstep1];
 	gRateVsThr=new TGraph*[Nch*Nstep1];
 
+	hCheck=new TH1D("hCheck","hCheck",Nch,-0.5,Nch-0.5);
+
 	/*
 	gRate2A=new TGraphErrors*[Nch*Nstep1];
 
@@ -179,7 +183,7 @@ int main(int argc,char **argv){
 		istep1=distance(m_step1.begin(),find(m_step1.begin(),m_step1.end(),step1));
 		ihisto=ich+istep1*Nch;
 		//cout<<ihisto<<" "<<ich<<" "<<asic<<" "<<istep1<<" "<<step1<<endl;
-		hRate[ihisto]->Fill(step2,rate);
+		if (rate>0) hRate[ihisto]->Fill(step2,rate);
 	}
 
 
@@ -203,9 +207,14 @@ int main(int argc,char **argv){
 
 	for (ich=0;ich<Nch;ich++){
 		m_calib->computeThresholds(ich);
+		hCheck->Fill(ich,hRate[ich]->GetEntries());
 	}
 
 	TCanvas *c=new TCanvas();
+	TCanvas *c0=new TCanvas();
+
+	hCheck->Draw();
+	c0->Print((outname+"(").c_str());
 
 	c->Divide(2,2);
 
@@ -218,7 +227,7 @@ int main(int argc,char **argv){
 	c->cd(2)->SetGridy();
 
 
-	c->Print((outname+"(").c_str());
+
 
 
 	for (ich=0;ich<Nch;ich++){
@@ -270,6 +279,7 @@ int main(int argc,char **argv){
 	cReport0->Print((outname+")").c_str());
 
 
+	hCheck->Write();
 	for (ich=0;ich<Nch;ich++){
 			ihisto=ich;
 			hRate[ihisto]->SetLineColor(1);

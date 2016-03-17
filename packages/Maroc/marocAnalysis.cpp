@@ -182,7 +182,6 @@ int main(int argc,char **argv){
 		iReconDet=m_setup->getReconstructionDetectorID(32);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0359[ii]/100.);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.718); /*This is the gain configuration PMT359 vs PMT361*/
-
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 
 		//	if (iMarocChannel<=31)			m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
@@ -197,7 +196,6 @@ int main(int argc,char **argv){
 		iReconDet=m_setup->getReconstructionDetectorID(33);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0361[ii]/100.);
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
-
 		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 		//	if (iMarocChannel<=31)			m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 		//	else if (iMarocChannel<=47)		m_setup->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.375);

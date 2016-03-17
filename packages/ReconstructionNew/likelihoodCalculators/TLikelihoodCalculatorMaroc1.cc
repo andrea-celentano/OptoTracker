@@ -3,6 +3,7 @@
 #include <limits>
 
 #include "TLikelihoodReconDriver.hh"
+#include "TRealSetupHandler.hh"
 
 /*This is the part for the POINT fit*/
 /*We write the general likelihood function as
@@ -33,7 +34,7 @@ double TLikelihoodCalculatorMaroc1::CalculateLikelihood(const double *x) const{
 					}
 				}
 				else{
-					switch (m_driver->getFitObject()){
+					switch (m_fitObject){
 					case (k_point):
 													pQ=PointLikelihoodCharge(iface,idetector,id,x);/*This already returns the log of the charge probability*/
 					break;
@@ -139,7 +140,7 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	double t0=para[7];
 	double N0=para[8];
 	double tau=para[9];
-
+	double G;
 	int disc=m_disc[iface][idetector][id];
 	int Nphe=m_Q[iface][idetector][id];     //hit number of photo-electrons
 	double t=m_T[iface][idetector][id];     //hit time, useless here
@@ -149,6 +150,12 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	/*Compute mu. This also contains QE*/
 	mu0=m_detectorUtils->SinglePixelAverageCharge(x0,iface,idetector,id);
 	mu0*=N0;
+
+	/*A.C. test!*/
+	if (m_realSetupHandler!=0){
+		G=m_realSetupHandler->getPixelGain(iface,idetector,id);
+		if (G!=0) mu0/=G;
+	}
 	if (disc==0){
 		ret=-mu0;
 	}
