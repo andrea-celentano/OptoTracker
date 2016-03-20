@@ -173,7 +173,6 @@ double TDetectorUtils::SinglePixelAverageCharge(const TVector3& x0, int iface, i
 	else if (m_detector->getDetName(iface,idetector)=="H8500"){
 		Ttot=this->getFresnelAbsorbanceH8500(x0,iface,idetector,id);
 		Ttot*=detectorT;  //Ok, should be the photo-cathode absorbance strictly speaking (see 4/3/2016, working on multiple-layers. But I prefer to not have it hardcoded. And at the end is a pure multiplicative number)
-
 	}
 	//cout<<Ttot<<" "<<QE<<" "<<solidAngle<<endl;
 

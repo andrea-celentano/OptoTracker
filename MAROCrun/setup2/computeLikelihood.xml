@@ -1,0 +1,44 @@
+<OptoTracker>
+  <Recon>
+    <control>
+      <doProof>1</doProof>
+      <doProofDiag>1</doProofDiag>
+      <numberOfWorkers>10</numberOfWorkers>
+      <numberOfIterations>1</numberOfIterations>
+      <verboseLevel>3</verboseLevel>
+      <numberOfEvents>-1</numberOfEvents>
+    </control>
+    <execute>
+      <driver name="EventMarker"/>
+      <driver name="MarocSetup"/>
+      <driver name="DataRead"/>
+      <driver name="LikelihoodCompute"/>
+      <driver name="Save"/>
+    </execute>
+    <drivers>
+      <driver name="EventMarker" type="TEventMarkerDriver">
+	<setInterval>100</setInterval>
+      </driver>
+      <driver name="MarocSetup" type="TMarocSetupHandlerDriver">
+	<setSource>0</setSource>
+	<setFileName>"PrototypeSetup.dat"</setFileName>
+      </driver>
+      <driver name="DataRead" type="TMarocDataReaderDriver">
+	<setCollectionRawName>"MarocHitRaw"</setCollectionRawName>
+	<setCollectionOutName>"ReconHit"</setCollectionOutName>
+      </driver>
+      <driver name="LikelihoodCompute" type="TLikelihoodComputationDriver"> 
+	<setCollectionName>"ReconHit"</setCollectionName>
+	<setReconInputMode>"file"</setReconInputMode>
+	<setReconInputFileName>"recon.inp"</setReconInputFileName>
+	<configLikelihoodCalculator>"TLikelihoodCalculatorMaroc1"</configLikelihoodCalculator>
+      </driver>
+      <driver name="Save" type="TRootSaveDriver">
+	<setOutFileName>"out.root"</setOutFileName>
+      </driver>
+    </drivers>
+  </Recon>
+</OptoTracker>
+ 
+ 
+ 

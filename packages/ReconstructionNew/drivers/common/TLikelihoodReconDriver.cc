@@ -309,6 +309,9 @@ int TLikelihoodReconDriver::startOfData(){
 	tout->Branch("beta",&m_beta);
 	tout->Branch("T0",&m_T0);
 	tout->Branch("L",&m_L);
+
+	tout->Branch("nON",&m_nON);
+	tout->Branch("QTOT",&m_QTOT);
 	tout->Branch("eventN",&m_eventN);
 	m_manager->GetOutputList()->Add(tout);
 
@@ -392,7 +395,8 @@ int TLikelihoodReconDriver::process(TEvent *event){
 		Error("process","no event header!");
 	}
 
-
+	m_nON=0;
+	m_QTOT=0;
 	if (event->hasCollection(TReconHit::Class(),m_collectionName)){
 		hitCollection=event->getCollection(TReconHit::Class(),m_collectionName);
 		hitCollectionIter=new TIter(hitCollection);
@@ -405,6 +409,9 @@ int TLikelihoodReconDriver::process(TEvent *event){
 			m_Q[iReconFace][iReconDet][iReconPixel]=hit->getQ();
 			m_T[iReconFace][iReconDet][iReconPixel]=hit->getT();
 			m_disc[iReconFace][iReconDet][iReconPixel]=hit->isHit();
+
+			if (hit->isHit()) m_nON++;
+			m_QTOT+=hit->getQ();
 		}
 		delete hitCollectionIter;
 
@@ -437,7 +444,9 @@ int TLikelihoodReconDriver::process(TEvent *event){
 		m_N=m_minimizer->X()[8];
 		m_tau=m_minimizer->X()[9];
 
-		m_eventN=header->getEventNumber();
+		if (header){
+			m_eventN=header->getEventNumber();
+		}
 		m_L= m_minimizer->MinValue();
 
 		tout->Fill();

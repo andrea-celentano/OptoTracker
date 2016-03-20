@@ -17,5 +17,5 @@
 
 
 /OpNovice/forceDrawNoPhotons 1
-/run/beamOn 500
+/run/beamOn 5000
 

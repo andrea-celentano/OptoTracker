@@ -109,10 +109,17 @@ protected:
 
 	//tree - and associated variables
 	TTree *tout;
+
+	/*Fit results*/
 	double m_x0,m_y0,m_z0;
 	double m_x1,m_y1,m_z1;
 	double m_N,m_tau,m_beta,m_T0;
 	double m_L;
+
+	/*Some data*/
+	int m_nON;
+	double m_QTOT;
+
 	int m_eventN;
 
 

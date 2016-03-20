@@ -1,0 +1,47 @@
+#Comment
+###ALL SIZE in CM
+###ALL TIMES in ns
+
+#Face Nface(0..5) Ndet(>=1)
+#FaceProperties Reflectivity
+#Detector id Lx Ly PixelsX PixelsY 
+#DetectorProperties QE Reflectivity TimeRes 
+#DetectorPlacement CenterX(cm) CenterY(cm) Rotation(degrees)
+#DetectorCoupling ThicknessCoupling(cm) Ncoupling
+
+ScintillatorSize 6 6 6			    #Scintillator size, cm
+ScintillatorLY 9700		      	    #LY, photon/MeV
+ScintillatorFastTau 1.8	     		    #Fast tau, ns
+ScintillatorRindex 1.65			    #Refraction index
+
+Face 0 1
+FaceProperties -1
+DetectorSpecial 0 H8500
+#By following what is done on 4/3/2016: QE is the INTERNAL QE. Reflectivity is used as 1-photocathodeAbsorbance
+DetectorProperties 0.4 0.4 0.1 
+DetectorPlacement -0.07 0.04 0
+DetectorCoupling 0.001 1
+
+Face 1 1
+FaceProperties -1
+DetectorSpecial 0 H8500
+DetectorProperties 0.4 0.4 0.1
+DetectorPlacement 0.02 0 0
+DetectorCoupling 0.001 1
+
+Face 2 0
+FaceProperties 0.05
+
+Face 3 0
+FaceProperties 0.05
+
+Face 4 0
+FaceProperties 0.05
+
+Face 5 0
+FaceProperties 0.05
+
+
+
+
+

@@ -1,7 +1,7 @@
 /OpNovice/run/setRunName xm10y0
 
 /gps/particle alpha
-/gps/energy 1 MeV
+/gps/energy 500 keV
 
 /gps/pos/type Plane
 /gps/pos/shape Circle
@@ -14,5 +14,5 @@
 /gps/direction 0 -1 0
 
 /OpNovice/forceDrawNoPhotons 1
-/run/beamOn 500
+/run/beamOn 5000
 

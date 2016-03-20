@@ -26,7 +26,7 @@ double TLikelihoodCalculatorIdeal::CalculateLikelihood(const double *x) const{
 		for (int idetector=0;idetector<m_driver->getManager()->getDetector()->getNdet(iface);idetector++){
 			if (m_driver->getManager()->getDetector()->isDetPresent(iface,idetector)==0) continue;
 			for (int id=0;id<m_driver->getManager()->getDetector()->getNPixels(iface,idetector);id++){
-				if (m_Q[iface][idetector][id]<0){
+				if (m_ON[iface][idetector][id]==0){
 					pT=pQ=0;
 					if (m_driver->getManager()->getVerboseLevel()>=TJobManager::fullVerbosity){
 						Info("PointLikelihood","skipping a pixel with no data (it is not a zero, this did not report anything)");
@@ -187,14 +187,12 @@ double TLikelihoodCalculatorIdeal::PointLikelihoodCharge(int iface,int idetector
 
 
 	int Nphe=m_Q[iface][idetector][id];     //hit number of photo-electrons
-	double t=m_T[iface][idetector][id];     //hit time, useless here
 	double mu0,ret;
-	TVector3 xp=m_driver->getManager()->getDetector()->getPosPixel(iface,idetector,id); //pixel position
 
 	/*Compute mu. This also contains QE*/
 	mu0=m_driver->getManager()->getDetectorUtils()->SinglePixelAverageCharge(x0,iface,idetector,id);
 
-	if (mu0<=0){ //work-around for those cases with 0 average (for example, because they're in the total internal reflaction zone
+	if (mu0<=SMALL_MU0){ //work-around for those cases with 0 average (for example, because they're in the total internal reflaction zone
 		mu0=SMALL_MU0;
 	}
 	mu0*=N0;

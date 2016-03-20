@@ -143,9 +143,9 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	double G;
 	int disc=m_disc[iface][idetector][id];
 	int Nphe=m_Q[iface][idetector][id];     //hit number of photo-electrons
-	double t=m_T[iface][idetector][id];     //hit time, useless here
+
 	double mu0,ret;
-	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
+
 
 	/*Compute mu. This also contains QE*/
 	mu0=m_detectorUtils->SinglePixelAverageCharge(x0,iface,idetector,id);

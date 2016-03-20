@@ -2,7 +2,7 @@
 #define _TLIKELIHOODCALCULATORIDEAL_
 
 #define clight 299.792  /*in mm/ns*/
-#define SMALL_MU0 1E-24;
+#define SMALL_MU0 1E-24
 
 #include "TObject.h"
 #include "TLikelihoodCalculator.hh"
