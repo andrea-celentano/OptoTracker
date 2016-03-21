@@ -18,6 +18,11 @@ TMarocDataReaderDriver::TMarocDataReaderDriver() {
 	m_reconHitCollection=0;
 	m_marocSetupHandler=0;
 	m_marocEventHeader=0;
+
+	m_ChargeCutMin=-1;
+	m_ChargeCutMax=9999999;
+	m_MultCutMin=-1;
+	m_MultCutMax=999;
 }
 
 TMarocDataReaderDriver::~TMarocDataReaderDriver() {
@@ -80,15 +85,16 @@ int TMarocDataReaderDriver::process(TEvent* event) {
 
 		}
 
-	//	if ((Qtot<0.18E6)||(Qtot>0.184E6)||(multiplicity<35)||(multiplicity>50)){  //alphaCenter ///TODO: temporary!!!
-	//	if ((Qtot<0.181E6)||(Qtot>0.185E6)||(multiplicity<30)||(multiplicity>45)){   //xp10y0///TODO: temporary!!!
-	//	if ((Qtot<0.1805E6)||(Qtot>0.184E6)||(multiplicity<30)||(multiplicity>50)){  //x0ym10///TODO: temporary!!!
-		if ((Qtot<0.179E6)||(Qtot>0.183E6)||(multiplicity<30)||(multiplicity>45)){  //xm15ym15 ///TODO: temporary!!!
-			return 0;
-		}
-		else{
+		//	if ((Qtot<0.18E6)||(Qtot>0.184E6)||(multiplicity<35)||(multiplicity>50)){  //alphaCenter ///TODO: temporary!!!
+		//	if ((Qtot<0.181E6)||(Qtot>0.185E6)||(multiplicity<30)||(multiplicity>45)){   //xp10y0///TODO: temporary!!!
+		//	if ((Qtot<0.1805E6)||(Qtot>0.184E6)||(multiplicity<30)||(multiplicity>50)){  //x0ym10///TODO: temporary!!!
+		//			if ((Qtot<0.179E6)||(Qtot>0.183E6)||(multiplicity<30)||(multiplicity>45)){  //xm15ym15 ///TODO: temporary!!!
+
+		if ((Qtot>m_ChargeCutMin)&&(Qtot<m_ChargeCutMax)&&(multiplicity>=m_MultCutMin)&&(multiplicity<=m_MultCutMax)){
 			event->addCollection(m_reconHitCollection);
 		}
+		return 0;
+
 	}
 
 }

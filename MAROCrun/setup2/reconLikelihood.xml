@@ -26,6 +26,10 @@
       <driver name="DataRead" type="TMarocDataReaderDriver">
 	<setCollectionRawName>"MarocHitRaw"</setCollectionRawName>
 	<setCollectionOutName>"ReconHit"</setCollectionOutName>
+	<setChargeCutMin>0.1805E6</setChargeCutMin>
+	<setChargeCutMax>0.184E6</setChargeCutMax>
+	<setMultCutMin>30</setMultCutMin>
+	<setMultCutMax>50</setMultCutMax>
       </driver>
       <driver name="Likelihood" type="TLikelihoodReconDriver"> 
 	<setCollectionName>"ReconHit"</setCollectionName>

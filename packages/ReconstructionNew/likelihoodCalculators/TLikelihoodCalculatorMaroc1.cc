@@ -154,7 +154,7 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	/*A.C. test!*/
 	if (m_realSetupHandler!=0){
 		G=m_realSetupHandler->getPixelGain(iface,idetector,id);
-		if (G!=0) mu0/=G;
+		if (G!=0) mu0*=G;
 	}
 	if (disc==0){
 		ret=-mu0;
