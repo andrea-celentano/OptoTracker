@@ -21,8 +21,12 @@ DetectorProperties 0.3 0.1 0.1
 DetectorPlacement 0 0 0
 DetectorCoupling 0.015 1.49
 
-Face 1 0
+Face 1 1
 FaceProperties 0.1
+Detector 0 4.8 2.4 16 8
+DetectorProperties 0.3 0.1 0.1
+DetectorPlacement 0 0 0
+DetectorCoupling 0.015 1.49
 
 Face 2 0
 FaceProperties 0.1
