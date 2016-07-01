@@ -47,12 +47,13 @@ int parseCommandLine(int argc,char **argv){
 	if (argc==1){
 		cout<<"-f infilename"<<endl;
 		cout<<"-o outfilename, no suffixe"<<endl;
-		cout<<"-b batch"<<endl;
+
+		exit(1);
 	}
 	for (int iarg=0;iarg<argc;iarg++){
 		if (strcmp(argv[iarg],"-f")==0) fname=string(argv[iarg+1]);
 		if (strcmp(argv[iarg],"-o")==0) {outname=string(argv[iarg+1])+".ps";outnameRoot=string(argv[iarg+1])+".root";}
-		if (strcmp(argv[iarg],"-b")==0) {gROOT->SetBatch(1);}
+
 	}
 }
 

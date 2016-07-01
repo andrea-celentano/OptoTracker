@@ -25,14 +25,14 @@ TMarocBasicDriver::~TMarocBasicDriver() {
 
 int TMarocBasicDriver::startOfData(){
 	Info("startOfData","start");
-	hMultiplicity0=new TH1D("hMultiplicity0","hMultiplicity0",129,-0.5,128.5);
+	hMultiplicity0=new TH1D("hMultiplicity0","hMultiplicity0",193,-0.5,192.5);
 	m_manager->GetOutputList()->Add(hMultiplicity0);
 
 
 	hQTot0=new TH1D("hQTot0","hQTot0",1000,0,.5E6);
 	m_manager->GetOutputList()->Add(hQTot0);
 
-	hQTotvsMultiplicity0=new TH2D("hQTotvsMultiplicity0","hQTotvsMultiplicity0",400,0,.2E6,129,-0.5,128.5);
+	hQTotvsMultiplicity0=new TH2D("hQTotvsMultiplicity0","hQTotvsMultiplicity0",400,0,.2E6,193,-0.5,192.5);
 	m_manager->GetOutputList()->Add(hQTotvsMultiplicity0);
 
 	return 0;

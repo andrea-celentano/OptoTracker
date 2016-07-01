@@ -368,11 +368,11 @@ int TJobManager::hasObject(TClass *theClass,string name) const{
 			if ((ret->InheritsFrom(theClass)) && (strcmp(ret->GetName(),name.c_str())==0)) 	break;
 		}
 		if (ret==0){
-			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s not found",theClass->GetName(),name.c_str());
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s NOT found - not an error, just the return of this method - ",theClass->GetName(),name.c_str());
 			return 0;
 		}
 		else{
-			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s found",theClass->GetName(),name.c_str());
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s with name %s found - not an error, just the return of this method - ",theClass->GetName(),name.c_str());
 			return 1;
 		}
 
@@ -382,7 +382,7 @@ int TJobManager::hasObject(TClass *theClass,string name) const{
 			if (ret->InheritsFrom(theClass)) 	break;
 		}
 		if (ret==0){
-			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s not found - not an error, just the return of this method -",theClass->GetName());
+			if (this->getVerboseLevel()>TJobManager::normalVerbosity) Info("hasObject","Object %s NOT found - not an error, just the return of this method -",theClass->GetName());
 			return 0;
 		}
 		else{

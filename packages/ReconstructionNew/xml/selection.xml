@@ -29,6 +29,7 @@
 
 
 <class name="TTofpetDummyAnalysisDriver"/>
+<class name="TTofpetTimeAnalysisDriver"/>
 <class name="TTofpetSetupHandlerDriver"/>
 <class name="TTofpetThresholdCalibrationDriver"/>
 

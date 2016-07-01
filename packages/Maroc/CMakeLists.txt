@@ -85,11 +85,19 @@ target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClas
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
 target_link_libraries(MarocAnalysis MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
+add_executable(MarocAnalysis2 marocAnalysis2.cpp ${sources} ${headers})
+target_link_libraries(MarocAnalysis2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+
+
+
 add_executable(comparison comparison.cpp ${sources} ${headers})
 target_link_libraries(comparison MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 add_executable(MarocConverter marocConverter.cpp ${sources} ${headers})
 target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+
+add_executable(MarocConverter2 marocConverter2.cpp ${sources} ${headers})
+target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
@@ -97,5 +105,7 @@ target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict Common
 install(TARGETS MarocClassesDict DESTINATION $ENV{OPTO}/lib)
 install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/bin)
 install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/bin)
+install(TARGETS MarocAnalysis2 DESTINATION $ENV{OPTO}/bin)
 install(TARGETS comparison DESTINATION $ENV{OPTO}/bin)
 install(TARGETS MarocConverter DESTINATION $ENV{OPTO}/bin)
+install(TARGETS MarocConverter2 DESTINATION $ENV{OPTO}/bin)

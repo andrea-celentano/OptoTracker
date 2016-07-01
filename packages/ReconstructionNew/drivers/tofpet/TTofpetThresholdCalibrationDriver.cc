@@ -116,14 +116,20 @@ int TTofpetThresholdCalibrationDriver::startOfData(){
 	m_NhToT0=m_Nchannels;
 	m_NhToTCalib=m_Nchannels;
 
+	if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity) Info("startOfData","before creating histograms");
+
 	hToT0=new TH1D*[m_NhToTCalib];
 	hToTvsThr=new TH2D*[m_NhToTCalib];
 
+	if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity) Info("startOfData","after creating histogram pointers");
+
+
 	for (int ich=0;ich<m_Nchannels;ich++){
-			hToTvsThr[id]=new TH2D(Form("hToTCalib_ch:%i",ich),Form("hToTCalib_ch:%i",ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
-			m_manager->GetOutputList()->Add(hToTvsThr[id]);
-			id++;
+			hToTvsThr[ich]=new TH2D(Form("hToTCalib_ch:%i",ich),Form("hToTCalib_ch:%i",ich),m_hToT0_nbins,m_hToT0_min,m_hToT0_max,64,-0.5,63.5);
+			m_manager->GetOutputList()->Add(hToTvsThr[ich]);
 	}
+
+	if (m_manager->getVerboseLevel()>TJobManager::normalVerbosity) Info("startOfData","after creating histogram");
 }
 
 int TTofpetThresholdCalibrationDriver::process(TEvent *event){

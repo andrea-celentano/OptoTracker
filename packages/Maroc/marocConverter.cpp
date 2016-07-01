@@ -41,7 +41,7 @@ void PrintHelp();
 
 
 int main(int argc,char **argv){
-	if (argc==0){
+	if (argc==1){
 		PrintHelp();
 		exit(1);
 	}

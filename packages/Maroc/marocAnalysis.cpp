@@ -48,7 +48,7 @@ double CorrectionPixel(const TVector3 &v0,int iface,int idetector,int ipixel,con
 
 
 int main(int argc,char **argv){
-	if (argc==0){
+	if (argc==1){
 		PrintHelp();
 		exit(1);
 	}

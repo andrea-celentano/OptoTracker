@@ -120,6 +120,8 @@ int TMarocDataReaderDriver::startOfData() {
 	/*A.C. terrible!*/
 	double PmtDA0359[TMarocSetupHandler::nH8500Pixels]={76,79,86,96,100,95,88,83,76,71,80,89,95,89,87,82,75,68,82,87,92,91,81,77,71,64,79,83,88,88,75,74,69,63,74,79,78,83,73,70,68,61,71,75,76,73,68,65,63,60,65,69,66,62,59,60,61,64,66,70,65,60,56,52};
 	double PmtDA0361[TMarocSetupHandler::nH8500Pixels]={56,71,76,81,89,87,78,82,61,66,72,77,82,78,76,85,60,64,72,74,75,81,80,88,61,65,70,72,73,82,82,93,63,66,71,72,73,85,86,99,68,68,77,75,82,91,89,100,73,75,83,88,95,97,92,99,60,73,80,85,92,99,90,71};
+	double PmtDA0349[TMarocSetupHandler::nH8500Pixels]={74,66,65,68,73,74,75,83,74,63,62,69,71,76,74,78,73,66,65,68,76,80,77,78,75,68,68,89,76,82,76,77,80,74,75,72,74,81,77,78,89,81,82,80,81,82,79,82,98,90,88,86,89,88,84,90,100,94,91,89,93,91,91,96};
+
 	int iReconPixel,iMarocChannel,iReconFace,iReconDet;
 
 	for (int ii=0;ii<TMarocSetupHandler::nH8500Pixels;ii++){
@@ -128,13 +130,8 @@ int TMarocDataReaderDriver::startOfData() {
 		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(32);
 		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(32);
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0359[ii]/100.);
-		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.718); /*This is the gain configuration PMT359 vs PMT361*/
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.62); /*This is the gain configuration PMT359 vs PMT361*/
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
-
-		//	if (iMarocChannel<=31)			m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
-		//	else if (iMarocChannel<=47)		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.375);
-		//	else if (iMarocChannel<=63)		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.25);
-
 
 
 		iReconPixel=m_marocSetupHandler->getPixelReconId(33,ii);
@@ -142,11 +139,16 @@ int TMarocDataReaderDriver::startOfData() {
 		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(33);
 		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(33);
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0361[ii]/100.);
-		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
-		//	if (iMarocChannel<=31)			m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
-		//	else if (iMarocChannel<=47)		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.375);
-		//	else if (iMarocChannel<=63)		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.25);
+
+		iReconPixel=m_marocSetupHandler->getPixelReconId(34,ii);
+		iMarocChannel=m_marocSetupHandler->getMarocChannelFromH8500(ii);
+		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(34);
+		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(34);
+		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0349[ii]/100.);
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,.82); /*This is the gain configuration PMT349 vs PMT361*/
+		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 
 	}
 

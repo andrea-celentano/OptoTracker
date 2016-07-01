@@ -48,6 +48,7 @@ private:
 	TTofpetRun *m_TofpetRun;
 
 	int m_Nsteps;
+	static const int m_Nch=256;
 
 	ClassDef(TTofpetDummyAnalysisDriver,1);
 

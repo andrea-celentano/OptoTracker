@@ -58,24 +58,28 @@ int TTofpetDummyAnalysisDriver::process(TEvent *event){
 
 	if (event->hasCollection(TTofpetHit::Class(),m_collectionRawName)){
 		TTofpetHitCollection=event->getCollection(TTofpetHit::Class(),m_collectionRawName);
+
 		N=TTofpetHitCollection->GetEntries();
 		TTofpetHitCollectionIter=new TIter(TTofpetHitCollection);
 
 		hMultiplicity0[id]->Fill(N);
-
+		cout<<"THIS EVNT: "<<N<<" ::: ";
 		while (hit = (TTofpetHit*)TTofpetHitCollectionIter->Next()){
 
 			ch=hit->getChannel();
 			ix=hit->getXi();
 			iy=hit->getYi();
+			cout<<ch<<" ";
 			hToT0[id]->Fill(ix,iy,hit->getToT());
 			hToT1[id]->Fill(ix,iy,hit->getToT());
 			hToTCh[id1*128+ch]->Fill(hit->getToT(),step2);
 
 			hMultiplicity1[id]->Fill(ix,iy);
 			hMultiplicity2[id]->Fill(ch);
+
 			//cout<<hit->getChannel()<<" "<<hit->getToT()<<endl;
 		}
+		cout<<endl;
 		delete 	TTofpetHitCollectionIter;
 	}
 	else{
@@ -100,7 +104,7 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 
 		hToT0=new TH2D*[m_Nsteps];
 		hToT1=new TH2D*[m_Nsteps];
-		hToTCh=new TH2D*[128*m_TofpetRun->getNsteps1()];
+		hToTCh=new TH2D*[m_Nch*m_TofpetRun->getNsteps1()];
 
 		hMultiplicity0=new TH1D*[m_Nsteps];
 		hMultiplicity1=new TH2D*[m_Nsteps];
@@ -110,13 +114,13 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 			step1=m_TofpetRun->getStep1(ii);
 			step2=m_TofpetRun->getStep2(ii);
 
-			hMultiplicity0[ii]=new TH1D(Form("hMultiplicity0_%i_%i",step1,step2),Form("hMultiplicity0_%i_%i",step1,step2),128,-0.5,128.5);
+			hMultiplicity0[ii]=new TH1D(Form("hMultiplicity0_%i_%i",step1,step2),Form("hMultiplicity0_%i_%i",step1,step2),m_Nch,-0.5,255.5);
 			m_manager->GetOutputList()->Add(hMultiplicity0[ii]);
 
 			hMultiplicity1[ii]=new TH2D(Form("hMultiplicity1_%i_%i",step1,step2),Form("hMultiplicity1_%i_%i",step1,step2),TTofpetSetupHandler::nTofpetPixelsX,-0.5,TTofpetSetupHandler::nTofpetPixelsX-0.5,TTofpetSetupHandler::nTofpetPixelsY,-.5,TTofpetSetupHandler::nTofpetPixelsY-.5);
 			m_manager->GetOutputList()->Add(hMultiplicity1[ii]);
 
-			hMultiplicity2[ii]=new TH1D(Form("hMultiplicity2_%i_%i",step1,step2),Form("hMultiplicity2_%i_%i",step1,step2),128,-0.5,128.5);
+			hMultiplicity2[ii]=new TH1D(Form("hMultiplicity2_%i_%i",step1,step2),Form("hMultiplicity2_%i_%i",step1,step2),m_Nch,-0.5,255.5);
 			m_manager->GetOutputList()->Add(hMultiplicity2[ii]);
 
 		}
@@ -133,9 +137,9 @@ int TTofpetDummyAnalysisDriver::startOfData(){
 		}
 
 		for (int ii=0;ii<m_TofpetRun->getNsteps1();ii++){
-			for (int jj=0;jj<128;jj++){
-				hToTCh[ii*128+jj]=new TH2D(Form("hToTCh_%i_%i",ii,jj),Form("hToTCh_%i_%i",ii,jj),1000,-50,200,64,-0.5,63.5);
-				m_manager->GetOutputList()->Add(hToTCh[ii*128+jj]);
+			for (int jj=0;jj<m_Nch;jj++){
+				hToTCh[ii*m_Nch+jj]=new TH2D(Form("hToTCh_%i_%i",ii,jj),Form("hToTCh_%i_%i",ii,jj),1000,-50,200,64,-0.5,63.5);
+				m_manager->GetOutputList()->Add(hToTCh[ii*m_Nch+jj]);
 			}
 		}
 	}
@@ -172,7 +176,7 @@ int TTofpetDummyAnalysisDriver::end(){
 	hMultiplicity1=new TH2D*[m_Nsteps];
 	hToT0=new TH2D*[m_Nsteps];
 	hToT1=new TH2D*[m_Nsteps];
-	hToTCh=new TH2D*[128*m_TofpetRun->getNsteps1()];
+	hToTCh=new TH2D*[m_Nch*m_TofpetRun->getNsteps1()];
 
 
 
