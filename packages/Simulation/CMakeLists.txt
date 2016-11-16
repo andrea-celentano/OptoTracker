@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(OpNovice)
 
 #Rpath
-SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
+SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 #----------------------------------------------------------------------------
@@ -38,7 +38,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include 
                     ${Geant4_INCLUDE_DIR}
 		    		${ROOT_INCLUDE_DIR}
-		    		$ENV{OPTO}/packages/Common/include)
+		    		$ENV{OPTO}/software/packages/Common/include)
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh {PROJECT_SOURCE_DIR}/build/OpNoviceDict.h)
 
@@ -59,7 +59,7 @@ target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES}
 # Add the executable, and link it to the Geant4 libraries
 #
 
-link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
+link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(OpNoviceExe OpNovice.cc ${sources} ${headers})
 target_link_libraries(OpNoviceExe OpNoviceClassesDict CommonClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex)
@@ -97,7 +97,7 @@ add_custom_target(OpNovice DEPENDS OpNoviceExe)
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS OpNoviceClassesDict DESTINATION $ENV{OPTO}/lib)
-install(TARGETS OpNoviceExe DESTINATION $ENV{OPTO}/bin)
+install(TARGETS OpNoviceClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(TARGETS OpNoviceExe DESTINATION $ENV{OPTO}/software/bin)
 
 

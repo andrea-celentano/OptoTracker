@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(MarocAnalysis)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
-SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
+SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 #----------------------------------------------------------------------------
@@ -39,8 +39,8 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include 
  					${Geant4_INCLUDE_DIR}
                     ${ROOT_INCLUDE_DIR}
-		    		$ENV{OPTO}/packages/Common/include
-		    		$ENV{OPTO}/packages/Simulation/include
+		    		$ENV{OPTO}/software/packages/Common/include
+		    		$ENV{OPTO}/software/packages/Simulation/include
 		  			)
 		    
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
@@ -77,7 +77,7 @@ target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cin
 # Add the executable, and link it to the Geant4 libraries
 #
 
-link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
+link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
 target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
@@ -102,10 +102,10 @@ target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict Commo
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS MarocClassesDict DESTINATION $ENV{OPTO}/lib)
-install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/bin)
-install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/bin)
-install(TARGETS MarocAnalysis2 DESTINATION $ENV{OPTO}/bin)
-install(TARGETS comparison DESTINATION $ENV{OPTO}/bin)
-install(TARGETS MarocConverter DESTINATION $ENV{OPTO}/bin)
-install(TARGETS MarocConverter2 DESTINATION $ENV{OPTO}/bin)
+install(TARGETS MarocClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS MarocAnalysis2 DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS comparison DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS MarocConverter DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS MarocConverter2 DESTINATION $ENV{OPTO}/software/bin)

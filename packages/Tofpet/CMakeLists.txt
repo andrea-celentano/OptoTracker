@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(Tofpet)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
-SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
+SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 #----------------------------------------------------------------------------
@@ -21,7 +21,7 @@ endif()
 #
 include_directories(${PROJECT_SOURCE_DIR}/include 
 		    ${ROOT_INCLUDE_DIR}
-		    $ENV{OPTO}/packages/Common/include
+		    $ENV{OPTO}/software/packages/Common/include
 		    )
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
@@ -43,7 +43,7 @@ target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} 
 # Add the executable
 #
 
-link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/lib)
+link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(DarkScan DarkScan.cpp)
 target_link_libraries(DarkScan TofpetClassesDict CommonClassesDict ${ROOT_LIBRARIES})
@@ -53,6 +53,6 @@ target_link_libraries(DarkScan TofpetClassesDict CommonClassesDict ${ROOT_LIBRAR
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS TofpetClassesDict DESTINATION $ENV{OPTO}/lib)
-install(TARGETS DarkScan DESTINATION $ENV{OPTO}/bin)
-#install(TARGETS TestCommon DESTINATION $ENV{OPTO}/bin)
+install(TARGETS TofpetClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(TARGETS DarkScan DESTINATION $ENV{OPTO}/software/bin)
+#install(TARGETS TestCommon DESTINATION $ENV{OPTO}/software/bin)

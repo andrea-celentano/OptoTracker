@@ -1,4 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/build/CMakeFiles/Reconstruction.proof.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/build/CMakeFiles/ReconstructionClassesDict.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/build/CMakeFiles/VerifyChargeFunction.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/packages/Reconstruction/build/CMakeFiles/VerifyTimeFunction.dir

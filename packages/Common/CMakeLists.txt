@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(Common)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
-SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/lib")
+SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 #----------------------------------------------------------------------------
@@ -51,6 +51,6 @@ target_link_libraries(TestCommon CommonClassesDict ${ROOT_LIBRARIES} Cintex)
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS CommonClassesDict DESTINATION $ENV{OPTO}/lib)
-install(TARGETS PrintDetector DESTINATION $ENV{OPTO}/bin)
-install(TARGETS TestCommon DESTINATION $ENV{OPTO}/bin)
+install(TARGETS CommonClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(TARGETS PrintDetector DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS TestCommon DESTINATION $ENV{OPTO}/software/bin)

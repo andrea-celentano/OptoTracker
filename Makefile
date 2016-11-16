@@ -1,4 +1,3 @@
-
 packages = Common Tofpet Simulation Maroc ReconstructionNew 
 
 all: $(packages) 
