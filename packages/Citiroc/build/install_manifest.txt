@@ -1,2 +1,0 @@
-/work/OptoTracker/software/lib/libCitirocClassesDict.so
-/work/OptoTracker/software/bin/CitirocEventBuilder
