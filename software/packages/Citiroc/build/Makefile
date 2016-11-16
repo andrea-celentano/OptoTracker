@@ -216,32 +216,32 @@ CitirocEventBuilder.cpp.s:
 	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.s
 .PHONY : CitirocEventBuilder.cpp.s
 
-src/TMarocSetupHandler.o: src/TMarocSetupHandler.cc.o
-.PHONY : src/TMarocSetupHandler.o
+src/TCitirocSetupHandler.o: src/TCitirocSetupHandler.cc.o
+.PHONY : src/TCitirocSetupHandler.o
 
 # target to build an object file
-src/TMarocSetupHandler.cc.o:
-	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o
-	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o
-.PHONY : src/TMarocSetupHandler.cc.o
+src/TCitirocSetupHandler.cc.o:
+	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o
+	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o
+.PHONY : src/TCitirocSetupHandler.cc.o
 
-src/TMarocSetupHandler.i: src/TMarocSetupHandler.cc.i
-.PHONY : src/TMarocSetupHandler.i
+src/TCitirocSetupHandler.i: src/TCitirocSetupHandler.cc.i
+.PHONY : src/TCitirocSetupHandler.i
 
 # target to preprocess a source file
-src/TMarocSetupHandler.cc.i:
-	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.i
-	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.i
-.PHONY : src/TMarocSetupHandler.cc.i
+src/TCitirocSetupHandler.cc.i:
+	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.i
+	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i
+.PHONY : src/TCitirocSetupHandler.cc.i
 
-src/TMarocSetupHandler.s: src/TMarocSetupHandler.cc.s
-.PHONY : src/TMarocSetupHandler.s
+src/TCitirocSetupHandler.s: src/TCitirocSetupHandler.cc.s
+.PHONY : src/TCitirocSetupHandler.s
 
 # target to generate assembly for a file
-src/TMarocSetupHandler.cc.s:
-	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.s
-	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.s
-.PHONY : src/TMarocSetupHandler.cc.s
+src/TCitirocSetupHandler.cc.s:
+	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.s
+	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s
+.PHONY : src/TCitirocSetupHandler.cc.s
 
 # Help Target
 help:
@@ -263,9 +263,9 @@ help:
 	@echo "... CitirocEventBuilder.o"
 	@echo "... CitirocEventBuilder.i"
 	@echo "... CitirocEventBuilder.s"
-	@echo "... src/TMarocSetupHandler.o"
-	@echo "... src/TMarocSetupHandler.i"
-	@echo "... src/TMarocSetupHandler.s"
+	@echo "... src/TCitirocSetupHandler.o"
+	@echo "... src/TCitirocSetupHandler.i"
+	@echo "... src/TCitirocSetupHandler.s"
 .PHONY : help
 
 

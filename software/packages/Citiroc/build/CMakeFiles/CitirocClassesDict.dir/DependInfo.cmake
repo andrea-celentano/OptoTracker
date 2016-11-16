@@ -5,7 +5,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/work/OptoTracker/software/packages/Citiroc/build/CitirocClasses.cpp" "/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o"
-  "/work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc" "/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o"
+  "/work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc" "/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,6 +1,6 @@
 #include "TCitirocSetupHandler.hh"
 #include "TCitirocEventHeader.hh"
-#include "TCitirocHit.hh"
+#include "TCitirocHitRaw.hh"
 //TTofpetEventHeader obj1;
 
 

@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o"
-  "CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o"
+  "CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o"
   "CitirocEventBuilder.pdb"
   "CitirocEventBuilder"
 )

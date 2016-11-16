@@ -75,39 +75,39 @@ CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.provides: CMakeFile
 
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.provides.build: CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o: CMakeFiles/CitirocEventBuilder.dir/flags.make
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o: ../src/TMarocSetupHandler.cc
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o: CMakeFiles/CitirocEventBuilder.dir/flags.make
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o: ../src/TCitirocSetupHandler.cc
 	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o -c /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o -c /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc > CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.i
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc > CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc -o CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.s
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.requires:
-.PHONY : CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.requires
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires:
+.PHONY : CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.provides: CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.provides.build
-.PHONY : CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.provides
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.provides: CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.provides.build
+.PHONY : CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.provides
 
-CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.provides.build: CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o
+CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.provides.build: CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o
 
 # Object files for target CitirocEventBuilder
 CitirocEventBuilder_OBJECTS = \
 "CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o" \
-"CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o"
+"CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o"
 
 # External object files for target CitirocEventBuilder
 CitirocEventBuilder_EXTERNAL_OBJECTS =
 
 CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o
-CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o
+CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o
 CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/build.make
 CitirocEventBuilder: libCitirocClassesDict.so
 CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCore.so
@@ -180,7 +180,7 @@ CMakeFiles/CitirocEventBuilder.dir/build: CitirocEventBuilder
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/build
 
 CMakeFiles/CitirocEventBuilder.dir/requires: CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.requires
-CMakeFiles/CitirocEventBuilder.dir/requires: CMakeFiles/CitirocEventBuilder.dir/src/TMarocSetupHandler.cc.o.requires
+CMakeFiles/CitirocEventBuilder.dir/requires: CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/requires
 
 CMakeFiles/CitirocEventBuilder.dir/clean:

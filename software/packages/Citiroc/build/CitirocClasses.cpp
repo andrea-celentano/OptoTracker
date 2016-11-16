@@ -1,4 +1,4 @@
-// Generated at Wed Nov 16 17:15:36 2016. Do not modify it
+// Generated at Wed Nov 16 23:37:19 2016. Do not modify it
 
 /*
 GCC-XML version 0.9.0
@@ -34,61 +34,42 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #include <typeinfo>
 
 namespace {
-  ::Reflex::Type type_48 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
-  ::Reflex::Type type_955 = ::Reflex::TypeBuilder(Reflex::Literal("bool"));
-  ::Reflex::Type type_178 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
+  ::Reflex::Type type_47 = ::Reflex::TypeBuilder(Reflex::Literal("int"));
+  ::Reflex::Type type_177 = ::Reflex::TypeBuilder(Reflex::Literal("void"));
   ::Reflex::Type type_void = ::Reflex::TypeBuilder(Reflex::Literal("void"));
-  ::Reflex::Type type_285 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
   ::Reflex::Type type_1631 = ::Reflex::TypeBuilder(Reflex::Literal("char"));
-  ::Reflex::Type type_350 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
-  ::Reflex::Type type_362 = ::Reflex::TypeBuilder(Reflex::Literal("double"));
+  ::Reflex::Type type_284 = ::Reflex::TypeBuilder(Reflex::Literal("short"));
+  ::Reflex::Type type_349 = ::Reflex::TypeBuilder(Reflex::Literal("TClass"));
   ::Reflex::Type type_981 = ::Reflex::TypeBuilder(Reflex::Literal("TObject"));
   ::Reflex::Type type_1291 = ::Reflex::TypeBuilder(Reflex::Literal("TBuffer"));
-  ::Reflex::Type type_29 = ::Reflex::TypeBuilder(Reflex::Literal("TCitirocHit"));
-  ::Reflex::Type type_679 = ::Reflex::TypeBuilder(Reflex::Literal("TEventHeader"));
-  ::Reflex::Type type_432 = ::Reflex::TypeBuilder(Reflex::Literal("unsigned char"));
-  ::Reflex::Type type_116 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
+  ::Reflex::Type type_678 = ::Reflex::TypeBuilder(Reflex::Literal("TEventHeader"));
+  ::Reflex::Type type_820 = ::Reflex::TypeBuilder(Reflex::Literal("TCitirocHitRaw"));
+  ::Reflex::Type type_115 = ::Reflex::TypeBuilder(Reflex::Literal("TMemberInspector"));
   ::Reflex::Type type_905 = ::Reflex::TypeBuilder(Reflex::Literal("TRealSetupHandler"));
   ::Reflex::Type type_2558 = ::Reflex::TypeBuilder(Reflex::Literal("std::map<int,int>"));
-  ::Reflex::Type type_374 = ::Reflex::TypeBuilder(Reflex::Literal("TCitirocSetupHandler"));
+  ::Reflex::Type type_373 = ::Reflex::TypeBuilder(Reflex::Literal("TCitirocSetupHandler"));
   ::Reflex::Type type_1563 = ::Reflex::TypeBuilder(Reflex::Literal("TCitirocEventHeader"));
-  ::Reflex::Type type_2379 = ::Reflex::TypeBuilder(Reflex::Literal("std::basic_string<char>"));
-  ::Reflex::Type type_2211 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("UChar_t"), type_432);
-  ::Reflex::Type type_1578 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Short_t"), type_285);
-  ::Reflex::Type type_8409 = ::Reflex::ReferenceBuilder(type_29);
-  ::Reflex::Type type_29c = ::Reflex::ConstBuilder(type_29);
-  ::Reflex::Type type_8410 = ::Reflex::ReferenceBuilder(type_29c);
-  ::Reflex::Type type_822 = ::Reflex::PointerBuilder(type_350);
+  ::Reflex::Type type_8489 = ::Reflex::ReferenceBuilder(type_373);
+  ::Reflex::Type type_373c = ::Reflex::ConstBuilder(type_373);
+  ::Reflex::Type type_8490 = ::Reflex::ReferenceBuilder(type_373c);
+  ::Reflex::Type type_822 = ::Reflex::PointerBuilder(type_349);
   ::Reflex::Type type_1631c = ::Reflex::ConstBuilder(type_1631);
   ::Reflex::Type type_2795 = ::Reflex::PointerBuilder(type_1631c);
-  ::Reflex::Type type_1695 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_285);
-  ::Reflex::Type type_8411 = ::Reflex::ReferenceBuilder(type_116);
-  ::Reflex::Type type_4341 = ::Reflex::ReferenceBuilder(type_1291);
-  ::Reflex::Type type_8516 = ::Reflex::ReferenceBuilder(type_374);
-  ::Reflex::Type type_374c = ::Reflex::ConstBuilder(type_374);
-  ::Reflex::Type type_8517 = ::Reflex::ReferenceBuilder(type_374c);
-  ::Reflex::Type type_2392 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("std::string"), type_2379);
-  ::Reflex::Type type_9192 = ::Reflex::ReferenceBuilder(type_1563);
+  ::Reflex::Type type_1694 = ::Reflex::TypedefTypeBuilder(Reflex::Literal("Version_t"), type_284);
+  ::Reflex::Type type_8491 = ::Reflex::ReferenceBuilder(type_115);
+  ::Reflex::Type type_4317 = ::Reflex::ReferenceBuilder(type_1291);
+  ::Reflex::Type type_8926 = ::Reflex::ReferenceBuilder(type_820);
+  ::Reflex::Type type_820c = ::Reflex::ConstBuilder(type_820);
+  ::Reflex::Type type_8927 = ::Reflex::ReferenceBuilder(type_820c);
+  ::Reflex::Type type_9168 = ::Reflex::ReferenceBuilder(type_1563);
   ::Reflex::Type type_1563c = ::Reflex::ConstBuilder(type_1563);
-  ::Reflex::Type type_9193 = ::Reflex::ReferenceBuilder(type_1563c);
+  ::Reflex::Type type_9169 = ::Reflex::ReferenceBuilder(type_1563c);
 } // unnamed namespace
 
 #ifndef __CINT__
 
 // Shadow classes to obtain the data member offsets 
 namespace __shadow__ {
-#ifdef __TCitirocHit
-#undef __TCitirocHit
-#endif
-class __TCitirocHit : public ::TObject {
-  public:
-  __TCitirocHit();
-  virtual ~__TCitirocHit() throw();
-  ::UChar_t MAC;
-  ::UChar_t channel;
-  ::Short_t charge;
-  bool Hit;
-};
 #ifdef __TCitirocSetupHandler
 #undef __TCitirocSetupHandler
 #endif
@@ -101,6 +82,14 @@ class __TCitirocSetupHandler : public ::TRealSetupHandler {
   virtual void Streamer(TBuffer&) throw();
   ::std::map<int,int> m_CitirocToH8500;
   ::std::map<int,int> m_H8500ToCitiroc;
+};
+#ifdef __TCitirocHitRaw
+#undef __TCitirocHitRaw
+#endif
+class __TCitirocHitRaw : public ::TObject {
+  public:
+  __TCitirocHitRaw();
+  virtual ~__TCitirocHitRaw() throw();
 };
 #ifdef __TCitirocEventHeader
 #undef __TCitirocEventHeader
@@ -134,35 +123,6 @@ namespace {
 #include "TVirtualMutex.h"
 #include "RtypesImp.h"
 #include "TIsAProxy.h"
-atomic_TClass_ptr TCitirocHit::fgIsA(0);
-TClass* ::TCitirocHit::Class() {
-   if (!fgIsA) {
-      R__LOCKGUARD2(gCINTMutex);      if (!fgIsA)
-         fgIsA = TClass::GetClass("TCitirocHit");
-   }
-   return fgIsA;
-}
-const char * ::TCitirocHit::Class_Name() {return "TCitirocHit";}
-void ::TCitirocHit::Dictionary() {}
-const char *::TCitirocHit::ImplFileName() {return "";}
-int ::TCitirocHit::ImplFileLine() {return 1;}
-void ::TCitirocHit::ShowMembers(TMemberInspector &R__insp) {
-   TClass *R__cl = ::TCitirocHit::IsA();
-   if (R__cl || R__insp.IsA()) { }
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "MAC", &MAC);
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "channel", &channel);
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "charge", &charge);
-   R__insp.Inspect(R__cl, R__insp.GetParent(), "Hit", &Hit);
-   TObject::ShowMembers(R__insp);
-}
-void ::TCitirocHit::Streamer(TBuffer &b) {
-   if (b.IsReading()) {
-      b.ReadClassBuffer(::TCitirocHit::Class(),this);
-   } else {
-      b.WriteClassBuffer(::TCitirocHit::Class(),this);
-   }
-}
-
 atomic_TClass_ptr TCitirocSetupHandler::fgIsA(0);
 TClass* ::TCitirocSetupHandler::Class() {
    if (!fgIsA) {
@@ -189,6 +149,31 @@ void ::TCitirocSetupHandler::Streamer(TBuffer &b) {
       b.ReadClassBuffer(::TCitirocSetupHandler::Class(),this);
    } else {
       b.WriteClassBuffer(::TCitirocSetupHandler::Class(),this);
+   }
+}
+
+atomic_TClass_ptr TCitirocHitRaw::fgIsA(0);
+TClass* ::TCitirocHitRaw::Class() {
+   if (!fgIsA) {
+      R__LOCKGUARD2(gCINTMutex);      if (!fgIsA)
+         fgIsA = TClass::GetClass("TCitirocHitRaw");
+   }
+   return fgIsA;
+}
+const char * ::TCitirocHitRaw::Class_Name() {return "TCitirocHitRaw";}
+void ::TCitirocHitRaw::Dictionary() {}
+const char *::TCitirocHitRaw::ImplFileName() {return "";}
+int ::TCitirocHitRaw::ImplFileLine() {return 1;}
+void ::TCitirocHitRaw::ShowMembers(TMemberInspector &R__insp) {
+   TClass *R__cl = ::TCitirocHitRaw::IsA();
+   if (R__cl || R__insp.IsA()) { }
+   TObject::ShowMembers(R__insp);
+}
+void ::TCitirocHitRaw::Streamer(TBuffer &b) {
+   if (b.IsReading()) {
+      b.ReadClassBuffer(::TCitirocHitRaw::Class(),this);
+   } else {
+      b.WriteClassBuffer(::TCitirocHitRaw::Class(),this);
    }
 }
 
@@ -224,363 +209,95 @@ void ::TCitirocEventHeader::Streamer(TBuffer &b) {
 
 
 namespace {
-//------Stub functions for class TCitirocHit -------------------------------
-static  void operator_2817( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) *(void**)retaddr = (void*)&(((::TCitirocHit*)o)->operator=)(*(const ::TCitirocHit*)arg[0]);
-  else   (((::TCitirocHit*)o)->operator=)(*(const ::TCitirocHit*)arg[0]);
-}
-
-static void constructor_2818( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
-  if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocHit(*(const ::TCitirocHit*)arg[0]);
-  else ::new(mem) ::TCitirocHit(*(const ::TCitirocHit*)arg[0]);
-}
-
-static void constructor_2819( void* retaddr, void* mem, const std::vector<void*>&, void*) {
-  if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocHit();
-  else ::new(mem) ::TCitirocHit();
-}
-
-static void destructor_2820(void*, void * o, const std::vector<void*>&, void *) {
-((::TCitirocHit*)o)->::TCitirocHit::~TCitirocHit();
-}
-static  void method_2821( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (Short_t)((((const ::TCitirocHit*)o)->getCharge)());
-  else   (((const ::TCitirocHit*)o)->getCharge)();
-}
-
-static  void method_2822( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->setCharge)(*(::Short_t*)arg[0]);
-}
-
-static  void method_2823( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (bool)((((const ::TCitirocHit*)o)->isHit)());
-  else   (((const ::TCitirocHit*)o)->isHit)();
-}
-
-static  void method_2824( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->setHit)(*(bool*)arg[0]);
-}
-
-static  void method_2825( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (UChar_t)((((const ::TCitirocHit*)o)->getMAC)());
-  else   (((const ::TCitirocHit*)o)->getMAC)();
-}
-
-static  void method_2826( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->setMAC)(*(::UChar_t*)arg[0]);
-}
-
-static  void method_2827( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (UChar_t)((((const ::TCitirocHit*)o)->getChannel)());
-  else   (((const ::TCitirocHit*)o)->getChannel)();
-}
-
-static  void method_2828( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->setChannel)(*(::UChar_t*)arg[0]);
-}
-
-static  void method_2829( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHit*)o)->Class)());
-  else   (((::TCitirocHit*)o)->Class)();
-}
-
-static  void method_2830( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHit*)o)->Class_Name)());
-  else   (((::TCitirocHit*)o)->Class_Name)();
-}
-
-static  void method_2831( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (Version_t)((((::TCitirocHit*)o)->Class_Version)());
-  else   (((::TCitirocHit*)o)->Class_Version)();
-}
-
-static  void method_2832( void*, void* o, const std::vector<void*>&, void*)
-{
-  (((::TCitirocHit*)o)->Dictionary)();
-}
-
-static  void method_2833( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TCitirocHit*)o)->IsA)());
-  else   (((const ::TCitirocHit*)o)->IsA)();
-}
-
-static  void method_2834( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
-}
-
-static  void method_2835( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->Streamer)(*(::TBuffer*)arg[0]);
-}
-
-static  void method_2836( void*, void* o, const std::vector<void*>& arg, void*)
-{
-  (((::TCitirocHit*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
-}
-
-static  void method_2837( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHit*)o)->DeclFileName)());
-  else   (((::TCitirocHit*)o)->DeclFileName)();
-}
-
-static  void method_2838( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocHit*)o)->ImplFileLine)());
-  else   (((::TCitirocHit*)o)->ImplFileLine)();
-}
-
-static  void method_2839( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHit*)o)->ImplFileName)());
-  else   (((::TCitirocHit*)o)->ImplFileName)();
-}
-
-static  void method_2840( void* retaddr, void* o, const std::vector<void*>&, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocHit*)o)->DeclFileLine)());
-  else   (((::TCitirocHit*)o)->DeclFileLine)();
-}
-
-static void method_newdel_29( void* retaddr, void*, const std::vector<void*>&, void*)
-{
-  static ::Reflex::NewDelFunctions s_funcs;
-  s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TCitirocHit >::new_T;
-  s_funcs.fNewArray    = ::Reflex::NewDelFunctionsT< ::TCitirocHit >::newArray_T;
-  s_funcs.fDelete      = ::Reflex::NewDelFunctionsT< ::TCitirocHit >::delete_T;
-  s_funcs.fDeleteArray = ::Reflex::NewDelFunctionsT< ::TCitirocHit >::deleteArray_T;
-  s_funcs.fDestructor  = ::Reflex::NewDelFunctionsT< ::TCitirocHit >::destruct_T;
-  if (retaddr) *(::Reflex::NewDelFunctions**)retaddr = &s_funcs;
-}
-
-static void method_x1( void* retaddr, void*, const std::vector<void*>&, void*)
-{
-  typedef std::vector<std::pair< ::Reflex::Base, int> > Bases_t;
-  static Bases_t s_bases;
-  if ( !s_bases.size() ) {
-    s_bases.push_back(std::make_pair(::Reflex::Base( ::Reflex::TypeBuilder(Reflex::Literal("TObject")), ::Reflex::BaseOffset< ::TCitirocHit,::TObject >::Get(),::Reflex::PUBLIC), 0));
-  }
-  if (retaddr) *(Bases_t**)retaddr = &s_bases;
-}
-
-//------Dictionary for class TCitirocHit -------------------------------
-void __TCitirocHit_db_datamem(Reflex::Class*);
-void __TCitirocHit_db_funcmem(Reflex::Class*);
-Reflex::GenreflexMemberBuilder __TCitirocHit_datamem_bld(&__TCitirocHit_db_datamem);
-Reflex::GenreflexMemberBuilder __TCitirocHit_funcmem_bld(&__TCitirocHit_db_funcmem);
-void __TCitirocHit_dict() {
-  ::Reflex::ClassBuilder(Reflex::Literal("TCitirocHit"), typeid(::TCitirocHit), sizeof(::TCitirocHit), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
-  .AddProperty(Reflex::Literal("ClassVersion"), ::TCitirocHit::Class_Version())
-  .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_981, ::Reflex::BaseOffset< ::TCitirocHit, ::TObject >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8409, type_8410), Reflex::Literal("operator="), operator_2817, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8410), Reflex::Literal("TCitirocHit"), constructor_2818, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocHit"), constructor_2819, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocHit"), destructor_2820, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_29, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x1, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
-  .AddOnDemandDataMemberBuilder(&__TCitirocHit_datamem_bld)
-  .AddOnDemandFunctionMemberBuilder(&__TCitirocHit_funcmem_bld);
-}
-
-//------Delayed data member builder for class TCitirocHit -------------------
-void __TCitirocHit_db_datamem(Reflex::Class* cl) {
-  ::Reflex::ClassBuilder(cl)
-  .AddDataMember(type_2211, Reflex::Literal("MAC"), OffsetOf(__shadow__::__TCitirocHit, MAC), ::Reflex::PRIVATE)
-  .AddDataMember(type_2211, Reflex::Literal("channel"), OffsetOf(__shadow__::__TCitirocHit, channel), ::Reflex::PRIVATE)
-  .AddDataMember(type_1578, Reflex::Literal("charge"), OffsetOf(__shadow__::__TCitirocHit, charge), ::Reflex::PRIVATE)
-  .AddDataMember(type_955, Reflex::Literal("Hit"), OffsetOf(__shadow__::__TCitirocHit, Hit), ::Reflex::PRIVATE);
-}
-//------Delayed function member builder for class TCitirocHit -------------------
-void __TCitirocHit_db_funcmem(Reflex::Class* cl) {
-  ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1578), Reflex::Literal("getCharge"), method_2821, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_1578), Reflex::Literal("setCharge"), method_2822, 0, "charge", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_955), Reflex::Literal("isHit"), method_2823, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_955), Reflex::Literal("setHit"), method_2824, 0, "Hit", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2211), Reflex::Literal("getMAC"), method_2825, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_2211), Reflex::Literal("setMAC"), method_2826, 0, "MAC", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2211), Reflex::Literal("getChannel"), method_2827, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_2211), Reflex::Literal("setChannel"), method_2828, 0, "channel", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_2829, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_2830, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1695), Reflex::Literal("Class_Version"), method_2831, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178), Reflex::Literal("Dictionary"), method_2832, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_2833, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_8411), Reflex::Literal("ShowMembers"), method_2834, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("Streamer"), method_2835, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("StreamerNVirtual"), method_2836, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_2837, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("ImplFileLine"), method_2838, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_2839, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("DeclFileLine"), method_2840, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
-}
 //------Stub functions for class TCitirocSetupHandler -------------------------------
-static  void operator_3108( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_3076( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TCitirocSetupHandler*)o)->operator=)(*(const ::TCitirocSetupHandler*)arg[0]);
   else   (((::TCitirocSetupHandler*)o)->operator=)(*(const ::TCitirocSetupHandler*)arg[0]);
 }
 
-static void constructor_3109( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_3077( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocSetupHandler(*(const ::TCitirocSetupHandler*)arg[0]);
   else ::new(mem) ::TCitirocSetupHandler(*(const ::TCitirocSetupHandler*)arg[0]);
 }
 
-static void constructor_3112( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+static void constructor_3080( void* retaddr, void* mem, const std::vector<void*>&, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocSetupHandler();
   else ::new(mem) ::TCitirocSetupHandler();
 }
 
-static void constructor_3113( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
-  if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocSetupHandler(*(::std::string*)arg[0]);
-  else ::new(mem) ::TCitirocSetupHandler(*(::std::string*)arg[0]);
-}
-
-static void destructor_3114(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_3081(void*, void * o, const std::vector<void*>&, void *) {
 ((::TCitirocSetupHandler*)o)->::TCitirocSetupHandler::~TCitirocSetupHandler();
 }
-static  void method_3115( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getCitirocCard)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getCitirocCard)(*(int*)arg[0]);
-}
-
-static  void method_3116( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getCitirocChannelFromGlobal)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getCitirocChannelFromGlobal)(*(int*)arg[0]);
-}
-
-static  void method_3117( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getCitirocChannelFromH8500)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getCitirocChannelFromH8500)(*(int*)arg[0]);
-}
-
-static  void method_3118( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getH8500IdFromGlobal)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getH8500IdFromGlobal)(*(int*)arg[0]);
-}
-
-static  void method_3119( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getH8500IdFromCitiroc)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getH8500IdFromCitiroc)(*(int*)arg[0]);
-}
-
-static  void method_3120( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getPixelReconId)(*(int*)arg[0]));
-  else   (((::TCitirocSetupHandler*)o)->getPixelReconId)(*(int*)arg[0]);
-}
-
-static  void method_3121( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->getPixelReconId)(*(int*)arg[0],
-    *(int*)arg[1]));
-  else   (((::TCitirocSetupHandler*)o)->getPixelReconId)(*(int*)arg[0],
-    *(int*)arg[1]);
-}
-
-static  void method_3122( void* retaddr, void* o, const std::vector<void*>& arg, void*)
-{
-  if ( arg.size() == 1 ) {
-    if (retaddr) new (retaddr) (double)((((::TCitirocSetupHandler*)o)->getPixelGainFromGlobal)(*(int*)arg[0]));
-    else     (((::TCitirocSetupHandler*)o)->getPixelGainFromGlobal)(*(int*)arg[0]);
-  }
-  else if ( arg.size() == 2 ) { 
-    if (retaddr) new (retaddr) (double)((((::TCitirocSetupHandler*)o)->getPixelGainFromGlobal)(*(int*)arg[0],
-      *(int*)arg[1]));
-    else     (((::TCitirocSetupHandler*)o)->getPixelGainFromGlobal)(*(int*)arg[0],
-      *(int*)arg[1]);
-  }
-}
-
-static  void method_3123( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3082( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocSetupHandler*)o)->Class)());
   else   (((::TCitirocSetupHandler*)o)->Class)();
 }
 
-static  void method_3124( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3083( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocSetupHandler*)o)->Class_Name)());
   else   (((::TCitirocSetupHandler*)o)->Class_Name)();
 }
 
-static  void method_3125( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3084( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TCitirocSetupHandler*)o)->Class_Version)());
   else   (((::TCitirocSetupHandler*)o)->Class_Version)();
 }
 
-static  void method_3126( void*, void* o, const std::vector<void*>&, void*)
+static  void method_3085( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TCitirocSetupHandler*)o)->Dictionary)();
 }
 
-static  void method_3127( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3086( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TCitirocSetupHandler*)o)->IsA)());
   else   (((const ::TCitirocSetupHandler*)o)->IsA)();
 }
 
-static  void method_3128( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3087( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocSetupHandler*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_3129( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3088( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocSetupHandler*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_3130( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_3089( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocSetupHandler*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_3131( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3090( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocSetupHandler*)o)->DeclFileName)());
   else   (((::TCitirocSetupHandler*)o)->DeclFileName)();
 }
 
-static  void method_3132( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3091( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->ImplFileLine)());
   else   (((::TCitirocSetupHandler*)o)->ImplFileLine)();
 }
 
-static  void method_3133( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3092( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocSetupHandler*)o)->ImplFileName)());
   else   (((::TCitirocSetupHandler*)o)->ImplFileName)();
 }
 
-static  void method_3134( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_3093( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TCitirocSetupHandler*)o)->DeclFileLine)());
   else   (((::TCitirocSetupHandler*)o)->DeclFileLine)();
 }
 
-static void method_newdel_374( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_newdel_373( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   static ::Reflex::NewDelFunctions s_funcs;
   s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TCitirocSetupHandler >::new_T;
@@ -591,7 +308,7 @@ static void method_newdel_374( void* retaddr, void*, const std::vector<void*>&, 
   if (retaddr) *(::Reflex::NewDelFunctions**)retaddr = &s_funcs;
 }
 
-static void method_x3( void* retaddr, void*, const std::vector<void*>&, void*)
+static void method_x1( void* retaddr, void*, const std::vector<void*>&, void*)
 {
   typedef std::vector<std::pair< ::Reflex::Base, int> > Bases_t;
   static Bases_t s_bases;
@@ -612,13 +329,12 @@ void __TCitirocSetupHandler_dict() {
   .AddProperty(Reflex::Literal("ClassVersion"), ::TCitirocSetupHandler::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
   .AddBase(type_905, ::Reflex::BaseOffset< ::TCitirocSetupHandler, ::TRealSetupHandler >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8516, type_8517), Reflex::Literal("operator="), operator_3108, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8517), Reflex::Literal("TCitirocSetupHandler"), constructor_3109, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocSetupHandler"), constructor_3112, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_2392), Reflex::Literal("TCitirocSetupHandler"), constructor_3113, 0, "fname", ::Reflex::PUBLIC | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocSetupHandler"), destructor_3114, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_374, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
-  .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x3, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8489, type_8490), Reflex::Literal("operator="), operator_3076, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8490), Reflex::Literal("TCitirocSetupHandler"), constructor_3077, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocSetupHandler"), constructor_3080, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocSetupHandler"), destructor_3081, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_373, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x1, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TCitirocSetupHandler_datamem_bld)
   .AddOnDemandFunctionMemberBuilder(&__TCitirocSetupHandler_funcmem_bld);
 }
@@ -632,165 +348,305 @@ void __TCitirocSetupHandler_db_datamem(Reflex::Class* cl) {
 //------Delayed function member builder for class TCitirocSetupHandler -------------------
 void __TCitirocSetupHandler_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getCitirocCard"), method_3115, 0, "globalID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getCitirocChannelFromGlobal"), method_3116, 0, "globalID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getCitirocChannelFromH8500"), method_3117, 0, "H8500ID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getH8500IdFromGlobal"), method_3118, 0, "globalID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getH8500IdFromCitiroc"), method_3119, 0, "globalID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48), Reflex::Literal("getPixelReconId"), method_3120, 0, "globalID", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48, type_48, type_48), Reflex::Literal("getPixelReconId"), method_3121, 0, "iRealDet;iRealPixel", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_362, type_48, type_48), Reflex::Literal("getPixelGainFromGlobal"), method_3122, 0, "globalID;igain=0", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_3123, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_3124, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1695), Reflex::Literal("Class_Version"), method_3125, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178), Reflex::Literal("Dictionary"), method_3126, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_3127, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_8411), Reflex::Literal("ShowMembers"), method_3128, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("Streamer"), method_3129, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("StreamerNVirtual"), method_3130, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_3131, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("ImplFileLine"), method_3132, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_3133, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("DeclFileLine"), method_3134, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_3082, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_3083, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1694), Reflex::Literal("Class_Version"), method_3084, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_3085, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_3086, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8491), Reflex::Literal("ShowMembers"), method_3087, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("Streamer"), method_3088, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("StreamerNVirtual"), method_3089, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_3090, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_3091, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_3092, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_3093, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+}
+//------Stub functions for class TCitirocHitRaw -------------------------------
+static  void operator_3533( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+{
+  if (retaddr) *(void**)retaddr = (void*)&(((::TCitirocHitRaw*)o)->operator=)(*(const ::TCitirocHitRaw*)arg[0]);
+  else   (((::TCitirocHitRaw*)o)->operator=)(*(const ::TCitirocHitRaw*)arg[0]);
+}
+
+static void constructor_3534( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+  if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocHitRaw(*(const ::TCitirocHitRaw*)arg[0]);
+  else ::new(mem) ::TCitirocHitRaw(*(const ::TCitirocHitRaw*)arg[0]);
+}
+
+static void constructor_3535( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+  if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocHitRaw();
+  else ::new(mem) ::TCitirocHitRaw();
+}
+
+static void destructor_3536(void*, void * o, const std::vector<void*>&, void *) {
+((::TCitirocHitRaw*)o)->::TCitirocHitRaw::~TCitirocHitRaw();
+}
+static  void method_3537( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHitRaw*)o)->Class)());
+  else   (((::TCitirocHitRaw*)o)->Class)();
+}
+
+static  void method_3538( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHitRaw*)o)->Class_Name)());
+  else   (((::TCitirocHitRaw*)o)->Class_Name)();
+}
+
+static  void method_3539( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (Version_t)((((::TCitirocHitRaw*)o)->Class_Version)());
+  else   (((::TCitirocHitRaw*)o)->Class_Version)();
+}
+
+static  void method_3540( void*, void* o, const std::vector<void*>&, void*)
+{
+  (((::TCitirocHitRaw*)o)->Dictionary)();
+}
+
+static  void method_3541( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TCitirocHitRaw*)o)->IsA)());
+  else   (((const ::TCitirocHitRaw*)o)->IsA)();
+}
+
+static  void method_3542( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TCitirocHitRaw*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
+}
+
+static  void method_3543( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TCitirocHitRaw*)o)->Streamer)(*(::TBuffer*)arg[0]);
+}
+
+static  void method_3544( void*, void* o, const std::vector<void*>& arg, void*)
+{
+  (((::TCitirocHitRaw*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
+}
+
+static  void method_3545( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHitRaw*)o)->DeclFileName)());
+  else   (((::TCitirocHitRaw*)o)->DeclFileName)();
+}
+
+static  void method_3546( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (int)((((::TCitirocHitRaw*)o)->ImplFileLine)());
+  else   (((::TCitirocHitRaw*)o)->ImplFileLine)();
+}
+
+static  void method_3547( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocHitRaw*)o)->ImplFileName)());
+  else   (((::TCitirocHitRaw*)o)->ImplFileName)();
+}
+
+static  void method_3548( void* retaddr, void* o, const std::vector<void*>&, void*)
+{
+  if (retaddr) new (retaddr) (int)((((::TCitirocHitRaw*)o)->DeclFileLine)());
+  else   (((::TCitirocHitRaw*)o)->DeclFileLine)();
+}
+
+static void method_newdel_820( void* retaddr, void*, const std::vector<void*>&, void*)
+{
+  static ::Reflex::NewDelFunctions s_funcs;
+  s_funcs.fNew         = ::Reflex::NewDelFunctionsT< ::TCitirocHitRaw >::new_T;
+  s_funcs.fNewArray    = ::Reflex::NewDelFunctionsT< ::TCitirocHitRaw >::newArray_T;
+  s_funcs.fDelete      = ::Reflex::NewDelFunctionsT< ::TCitirocHitRaw >::delete_T;
+  s_funcs.fDeleteArray = ::Reflex::NewDelFunctionsT< ::TCitirocHitRaw >::deleteArray_T;
+  s_funcs.fDestructor  = ::Reflex::NewDelFunctionsT< ::TCitirocHitRaw >::destruct_T;
+  if (retaddr) *(::Reflex::NewDelFunctions**)retaddr = &s_funcs;
+}
+
+static void method_x3( void* retaddr, void*, const std::vector<void*>&, void*)
+{
+  typedef std::vector<std::pair< ::Reflex::Base, int> > Bases_t;
+  static Bases_t s_bases;
+  if ( !s_bases.size() ) {
+    s_bases.push_back(std::make_pair(::Reflex::Base( ::Reflex::TypeBuilder(Reflex::Literal("TObject")), ::Reflex::BaseOffset< ::TCitirocHitRaw,::TObject >::Get(),::Reflex::PUBLIC), 0));
+  }
+  if (retaddr) *(Bases_t**)retaddr = &s_bases;
+}
+
+//------Dictionary for class TCitirocHitRaw -------------------------------
+void __TCitirocHitRaw_db_datamem(Reflex::Class*);
+void __TCitirocHitRaw_db_funcmem(Reflex::Class*);
+Reflex::GenreflexMemberBuilder __TCitirocHitRaw_datamem_bld(&__TCitirocHitRaw_db_datamem);
+Reflex::GenreflexMemberBuilder __TCitirocHitRaw_funcmem_bld(&__TCitirocHitRaw_db_funcmem);
+void __TCitirocHitRaw_dict() {
+  ::Reflex::ClassBuilder(Reflex::Literal("TCitirocHitRaw"), typeid(::TCitirocHitRaw), sizeof(::TCitirocHitRaw), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
+  .AddProperty(Reflex::Literal("ClassVersion"), ::TCitirocHitRaw::Class_Version())
+  .AddProperty(Reflex::Literal("ClassDef"), 1)
+  .AddBase(type_981, ::Reflex::BaseOffset< ::TCitirocHitRaw, ::TObject >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_8926, type_8927), Reflex::Literal("operator="), operator_3533, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_8927), Reflex::Literal("TCitirocHitRaw"), constructor_3534, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocHitRaw"), constructor_3535, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocHitRaw"), destructor_3536, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_820, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x3, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
+  .AddOnDemandFunctionMemberBuilder(&__TCitirocHitRaw_funcmem_bld);
+}
+
+//------Delayed data member builder for class TCitirocHitRaw -------------------
+void __TCitirocHitRaw_db_datamem(Reflex::Class*) {
+
+}
+//------Delayed function member builder for class TCitirocHitRaw -------------------
+void __TCitirocHitRaw_db_funcmem(Reflex::Class* cl) {
+  ::Reflex::ClassBuilder(cl)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_3537, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_3538, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1694), Reflex::Literal("Class_Version"), method_3539, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_3540, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_3541, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8491), Reflex::Literal("ShowMembers"), method_3542, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("Streamer"), method_3543, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("StreamerNVirtual"), method_3544, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_3545, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_3546, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_3547, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_3548, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 //------Stub functions for class TCitirocEventHeader -------------------------------
-static  void operator_4287( void* retaddr, void* o, const std::vector<void*>& arg, void*)
+static  void operator_4263( void* retaddr, void* o, const std::vector<void*>& arg, void*)
 {
   if (retaddr) *(void**)retaddr = (void*)&(((::TCitirocEventHeader*)o)->operator=)(*(const ::TCitirocEventHeader*)arg[0]);
   else   (((::TCitirocEventHeader*)o)->operator=)(*(const ::TCitirocEventHeader*)arg[0]);
 }
 
-static void constructor_4288( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
+static void constructor_4264( void* retaddr, void* mem, const std::vector<void*>& arg, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocEventHeader(*(const ::TCitirocEventHeader*)arg[0]);
   else ::new(mem) ::TCitirocEventHeader(*(const ::TCitirocEventHeader*)arg[0]);
 }
 
-static void constructor_4289( void* retaddr, void* mem, const std::vector<void*>&, void*) {
+static void constructor_4265( void* retaddr, void* mem, const std::vector<void*>&, void*) {
   if (retaddr) *(void**)retaddr = ::new(mem) ::TCitirocEventHeader();
   else ::new(mem) ::TCitirocEventHeader();
 }
 
-static void destructor_4290(void*, void * o, const std::vector<void*>&, void *) {
+static void destructor_4266(void*, void * o, const std::vector<void*>&, void *) {
 ((::TCitirocEventHeader*)o)->::TCitirocEventHeader::~TCitirocEventHeader();
 }
-static  void method_4291( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4267( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TCitirocEventHeader*)o)->getMultiplicity)());
   else   (((const ::TCitirocEventHeader*)o)->getMultiplicity)();
 }
 
-static  void method_4292( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4268( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->setMultiplicity)(*(int*)arg[0]);
 }
 
-static  void method_4293( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4269( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TCitirocEventHeader*)o)->getTs0)());
   else   (((const ::TCitirocEventHeader*)o)->getTs0)();
 }
 
-static  void method_4294( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4270( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->setTs0)(*(int*)arg[0]);
 }
 
-static  void method_4295( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4271( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TCitirocEventHeader*)o)->getTs0Ref)());
   else   (((const ::TCitirocEventHeader*)o)->getTs0Ref)();
 }
 
-static  void method_4296( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4272( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->setTs0Ref)(*(int*)arg[0]);
 }
 
-static  void method_4297( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4273( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TCitirocEventHeader*)o)->getTs1)());
   else   (((const ::TCitirocEventHeader*)o)->getTs1)();
 }
 
-static  void method_4298( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4274( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->setTs1)(*(int*)arg[0]);
 }
 
-static  void method_4299( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4275( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((const ::TCitirocEventHeader*)o)->getTs1Ref)());
   else   (((const ::TCitirocEventHeader*)o)->getTs1Ref)();
 }
 
-static  void method_4300( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4276( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->setTs1Ref)(*(int*)arg[0]);
 }
 
-static  void method_4301( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4277( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocEventHeader*)o)->Class)());
   else   (((::TCitirocEventHeader*)o)->Class)();
 }
 
-static  void method_4302( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4278( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocEventHeader*)o)->Class_Name)());
   else   (((::TCitirocEventHeader*)o)->Class_Name)();
 }
 
-static  void method_4303( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4279( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (Version_t)((((::TCitirocEventHeader*)o)->Class_Version)());
   else   (((::TCitirocEventHeader*)o)->Class_Version)();
 }
 
-static  void method_4304( void*, void* o, const std::vector<void*>&, void*)
+static  void method_4280( void*, void* o, const std::vector<void*>&, void*)
 {
   (((::TCitirocEventHeader*)o)->Dictionary)();
 }
 
-static  void method_4305( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4281( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((const ::TCitirocEventHeader*)o)->IsA)());
   else   (((const ::TCitirocEventHeader*)o)->IsA)();
 }
 
-static  void method_4306( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4282( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->ShowMembers)(*(::TMemberInspector*)arg[0]);
 }
 
-static  void method_4307( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4283( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->Streamer)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4308( void*, void* o, const std::vector<void*>& arg, void*)
+static  void method_4284( void*, void* o, const std::vector<void*>& arg, void*)
 {
   (((::TCitirocEventHeader*)o)->StreamerNVirtual)(*(::TBuffer*)arg[0]);
 }
 
-static  void method_4309( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4285( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocEventHeader*)o)->DeclFileName)());
   else   (((::TCitirocEventHeader*)o)->DeclFileName)();
 }
 
-static  void method_4310( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4286( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TCitirocEventHeader*)o)->ImplFileLine)());
   else   (((::TCitirocEventHeader*)o)->ImplFileLine)();
 }
 
-static  void method_4311( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4287( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) *(void**)retaddr = Reflex::FuncToVoidPtr((((::TCitirocEventHeader*)o)->ImplFileName)());
   else   (((::TCitirocEventHeader*)o)->ImplFileName)();
 }
 
-static  void method_4312( void* retaddr, void* o, const std::vector<void*>&, void*)
+static  void method_4288( void* retaddr, void* o, const std::vector<void*>&, void*)
 {
   if (retaddr) new (retaddr) (int)((((::TCitirocEventHeader*)o)->DeclFileLine)());
   else   (((::TCitirocEventHeader*)o)->DeclFileLine)();
@@ -827,11 +683,11 @@ void __TCitirocEventHeader_dict() {
   ::Reflex::ClassBuilder(Reflex::Literal("TCitirocEventHeader"), typeid(::TCitirocEventHeader), sizeof(::TCitirocEventHeader), ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::VIRTUAL, ::Reflex::CLASS)
   .AddProperty(Reflex::Literal("ClassVersion"), ::TCitirocEventHeader::Class_Version())
   .AddProperty(Reflex::Literal("ClassDef"), 1)
-  .AddBase(type_679, ::Reflex::BaseOffset< ::TCitirocEventHeader, ::TEventHeader >::Get(), ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9192, type_9193), Reflex::Literal("operator="), operator_4287, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9193), Reflex::Literal("TCitirocEventHeader"), constructor_4288, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocEventHeader"), constructor_4289, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocEventHeader"), destructor_4290, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
+  .AddBase(type_678, ::Reflex::BaseOffset< ::TCitirocEventHeader, ::TEventHeader >::Get(), ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_9168, type_9169), Reflex::Literal("operator="), operator_4263, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::OPERATOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void, type_9169), Reflex::Literal("TCitirocEventHeader"), constructor_4264, 0, "", ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("TCitirocEventHeader"), constructor_4265, 0, 0, ::Reflex::PUBLIC | ::Reflex::EXPLICIT | ::Reflex::CONSTRUCTOR)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_void), Reflex::Literal("~TCitirocEventHeader"), destructor_4266, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::DESTRUCTOR )
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getNewDelFunctions"), method_newdel_1563, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddFunctionMember<void*(void)>(Reflex::Literal("__getBasesTable"), method_x5, 0, 0, ::Reflex::PUBLIC | ::Reflex::ARTIFICIAL)
   .AddOnDemandDataMemberBuilder(&__TCitirocEventHeader_datamem_bld)
@@ -841,49 +697,49 @@ void __TCitirocEventHeader_dict() {
 //------Delayed data member builder for class TCitirocEventHeader -------------------
 void __TCitirocEventHeader_db_datamem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddDataMember(type_48, Reflex::Literal("m_multiplicity"), OffsetOf(__shadow__::__TCitirocEventHeader, m_multiplicity), ::Reflex::PRIVATE)
-  .AddDataMember(type_48, Reflex::Literal("ts0"), OffsetOf(__shadow__::__TCitirocEventHeader, ts0), ::Reflex::PRIVATE)
-  .AddDataMember(type_48, Reflex::Literal("ts1"), OffsetOf(__shadow__::__TCitirocEventHeader, ts1), ::Reflex::PRIVATE)
-  .AddDataMember(type_48, Reflex::Literal("ts0_ref"), OffsetOf(__shadow__::__TCitirocEventHeader, ts0_ref), ::Reflex::PRIVATE)
-  .AddDataMember(type_48, Reflex::Literal("ts1_ref"), OffsetOf(__shadow__::__TCitirocEventHeader, ts1_ref), ::Reflex::PRIVATE);
+  .AddDataMember(type_47, Reflex::Literal("m_multiplicity"), OffsetOf(__shadow__::__TCitirocEventHeader, m_multiplicity), ::Reflex::PRIVATE)
+  .AddDataMember(type_47, Reflex::Literal("ts0"), OffsetOf(__shadow__::__TCitirocEventHeader, ts0), ::Reflex::PRIVATE)
+  .AddDataMember(type_47, Reflex::Literal("ts1"), OffsetOf(__shadow__::__TCitirocEventHeader, ts1), ::Reflex::PRIVATE)
+  .AddDataMember(type_47, Reflex::Literal("ts0_ref"), OffsetOf(__shadow__::__TCitirocEventHeader, ts0_ref), ::Reflex::PRIVATE)
+  .AddDataMember(type_47, Reflex::Literal("ts1_ref"), OffsetOf(__shadow__::__TCitirocEventHeader, ts1_ref), ::Reflex::PRIVATE);
 }
 //------Delayed function member builder for class TCitirocEventHeader -------------------
 void __TCitirocEventHeader_db_funcmem(Reflex::Class* cl) {
   ::Reflex::ClassBuilder(cl)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("getMultiplicity"), method_4291, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_48), Reflex::Literal("setMultiplicity"), method_4292, 0, "multiplicity", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("getTs0"), method_4293, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_48), Reflex::Literal("setTs0"), method_4294, 0, "ts0", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("getTs0Ref"), method_4295, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_48), Reflex::Literal("setTs0Ref"), method_4296, 0, "ts0Ref", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("getTs1"), method_4297, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_48), Reflex::Literal("setTs1"), method_4298, 0, "ts1", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("getTs1Ref"), method_4299, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_48), Reflex::Literal("setTs1Ref"), method_4300, 0, "ts1Ref", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_4301, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_4302, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1695), Reflex::Literal("Class_Version"), method_4303, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178), Reflex::Literal("Dictionary"), method_4304, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_4305, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_8411), Reflex::Literal("ShowMembers"), method_4306, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("Streamer"), method_4307, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_178, type_4341), Reflex::Literal("StreamerNVirtual"), method_4308, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_4309, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("ImplFileLine"), method_4310, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_4311, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
-  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_48), Reflex::Literal("DeclFileLine"), method_4312, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getMultiplicity"), method_4267, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setMultiplicity"), method_4268, 0, "multiplicity", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getTs0"), method_4269, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setTs0"), method_4270, 0, "ts0", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getTs0Ref"), method_4271, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setTs0Ref"), method_4272, 0, "ts0Ref", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getTs1"), method_4273, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setTs1"), method_4274, 0, "ts1", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("getTs1Ref"), method_4275, 0, 0, ::Reflex::PUBLIC | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_47), Reflex::Literal("setTs1Ref"), method_4276, 0, "ts1Ref", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("Class"), method_4277, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("Class_Name"), method_4278, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_1694), Reflex::Literal("Class_Version"), method_4279, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177), Reflex::Literal("Dictionary"), method_4280, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_822), Reflex::Literal("IsA"), method_4281, 0, 0, ::Reflex::PUBLIC | ::Reflex::VIRTUAL | ::Reflex::CONST)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_8491), Reflex::Literal("ShowMembers"), method_4282, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("Streamer"), method_4283, 0, "", ::Reflex::PUBLIC | ::Reflex::VIRTUAL)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_177, type_4317), Reflex::Literal("StreamerNVirtual"), method_4284, 0, "ClassDef_StreamerNVirtual_b", ::Reflex::PUBLIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("DeclFileName"), method_4285, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("ImplFileLine"), method_4286, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_2795), Reflex::Literal("ImplFileName"), method_4287, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC)
+  .AddFunctionMember(::Reflex::FunctionTypeBuilder(type_47), Reflex::Literal("DeclFileLine"), method_4288, 0, 0, ::Reflex::PUBLIC | ::Reflex::STATIC);
 }
 namespace {
   struct Dictionaries {
     Dictionaries() {
       Reflex::Instance initialize_reflex;
-      __TCitirocHit_dict(); 
       __TCitirocSetupHandler_dict(); 
+      __TCitirocHitRaw_dict(); 
       __TCitirocEventHeader_dict(); 
     }
     ~Dictionaries() {
-      type_29.Unload(); // class TCitirocHit 
-      type_374.Unload(); // class TCitirocSetupHandler 
+      type_373.Unload(); // class TCitirocSetupHandler 
+      type_820.Unload(); // class TCitirocHitRaw 
       type_1563.Unload(); // class TCitirocEventHeader 
     }
   };

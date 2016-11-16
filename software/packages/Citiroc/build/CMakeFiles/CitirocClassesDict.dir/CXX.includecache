@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/TCitirocSetupHandler.hh
-iostream
--
-iomanip
--
-fstream
--
-string
--
-TRealSetupHandler.hh
-../include/TRealSetupHandler.hh
-
 /work/OptoTracker/software/packages/Citiroc/build/CitirocClasses.cpp
 /work/OptoTracker/software/packages/Citiroc/include/CitirocClasses.hh
 -
@@ -43,8 +31,8 @@ TCitirocSetupHandler.hh
 /work/OptoTracker/software/packages/Citiroc/include/TCitirocSetupHandler.hh
 TCitirocEventHeader.hh
 /work/OptoTracker/software/packages/Citiroc/include/TCitirocEventHeader.hh
-TCitirocHit.hh
-/work/OptoTracker/software/packages/Citiroc/include/TCitirocHit.hh
+TCitirocHitRaw.hh
+/work/OptoTracker/software/packages/Citiroc/include/TCitirocHitRaw.hh
 
 /work/OptoTracker/software/packages/Citiroc/include/TCitirocEventHeader.hh
 TObject.h
@@ -52,7 +40,7 @@ TObject.h
 TEventHeader.hh
 /work/OptoTracker/software/packages/Citiroc/include/TEventHeader.hh
 
-/work/OptoTracker/software/packages/Citiroc/include/TCitirocHit.hh
+/work/OptoTracker/software/packages/Citiroc/include/TCitirocHitRaw.hh
 TObject.h
 /work/OptoTracker/software/packages/Citiroc/include/TObject.h
 
@@ -67,10 +55,6 @@ string
 -
 TRealSetupHandler.hh
 /work/OptoTracker/software/packages/Citiroc/include/TRealSetupHandler.hh
-
-/work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc
-TCitirocSetupHandler.hh
-/work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.hh
 
 /work/OptoTracker/software/packages/Common/include/TDetector.hh
 TObject.h

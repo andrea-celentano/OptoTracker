@@ -58,28 +58,28 @@ CitirocClasses.cpp: ../xml/selection.xml
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating CitirocClasses.cpp"
 	/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/bin/genreflex /work/OptoTracker/software/packages/Citiroc/include/CitirocClasses.hh -o CitirocClasses.cpp --select=/work/OptoTracker/software/packages/Citiroc/xml/selection.xml --gccxmlpath=/usr/bin -I/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/include/Geant4 -I/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/include -I/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/include -I/work/OptoTracker/software/packages/Citiroc/include -I/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/include/Geant4 -I/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/include/root -I/work/OptoTracker/software/packages/Common/include -I/work/OptoTracker/software/packages/Simulation/include -DG4_STORE_TRAJECTORY -DG4VERBOSE -DG4UI_USE -DG4VIS_USE -DG4UI_USE_TCSH -DG4INTY_USE_QT -DG4UI_USE_QT -DG4VIS_USE_OPENGLQT -DG4INTY_USE_XT -DG4VIS_USE_OPENGLX -DG4VIS_USE_OPENGL
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o: CMakeFiles/CitirocClassesDict.dir/flags.make
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o: ../src/TMarocSetupHandler.cc
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o: CMakeFiles/CitirocClassesDict.dir/flags.make
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o: ../src/TCitirocSetupHandler.cc
 	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o -c /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o -c /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc > CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.i
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc > CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.i
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/src/TMarocSetupHandler.cc -o CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.s
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc -o CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.s
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.requires:
-.PHONY : CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.requires
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.requires:
+.PHONY : CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.requires
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.provides: CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.requires
-	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.provides.build
-.PHONY : CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.provides
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.provides: CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.requires
+	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.provides.build
+.PHONY : CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.provides
 
-CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.provides.build: CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o
+CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.provides.build: CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o
 
 CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o: CMakeFiles/CitirocClassesDict.dir/flags.make
 CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o: CitirocClasses.cpp
@@ -106,13 +106,13 @@ CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o.provides.build: CMakeFile
 
 # Object files for target CitirocClassesDict
 CitirocClassesDict_OBJECTS = \
-"CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o" \
+"CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o" \
 "CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o"
 
 # External object files for target CitirocClassesDict
 CitirocClassesDict_EXTERNAL_OBJECTS =
 
-libCitirocClassesDict.so: CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o
+libCitirocClassesDict.so: CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o
 libCitirocClassesDict.so: CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o
 libCitirocClassesDict.so: CMakeFiles/CitirocClassesDict.dir/build.make
 libCitirocClassesDict.so: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
@@ -201,7 +201,7 @@ libCitirocClassesDict.so: CMakeFiles/CitirocClassesDict.dir/link.txt
 CMakeFiles/CitirocClassesDict.dir/build: libCitirocClassesDict.so
 .PHONY : CMakeFiles/CitirocClassesDict.dir/build
 
-CMakeFiles/CitirocClassesDict.dir/requires: CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o.requires
+CMakeFiles/CitirocClassesDict.dir/requires: CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o.requires
 CMakeFiles/CitirocClassesDict.dir/requires: CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o.requires
 .PHONY : CMakeFiles/CitirocClassesDict.dir/requires
 

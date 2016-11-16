@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CitirocClasses.cpp"
-  "CMakeFiles/CitirocClassesDict.dir/src/TMarocSetupHandler.cc.o"
+  "CMakeFiles/CitirocClassesDict.dir/src/TCitirocSetupHandler.cc.o"
   "CMakeFiles/CitirocClassesDict.dir/CitirocClasses.cpp.o"
   "libCitirocClassesDict.pdb"
   "libCitirocClassesDict.so"
