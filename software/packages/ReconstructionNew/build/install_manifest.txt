@@ -1,0 +1,2 @@
+/work/OptoTracker/software/lib/libReconstructionNewClassesDict.so
+/work/OptoTracker/software/bin/ReconstructionNew

@@ -1,0 +1,13 @@
+/OpNovice/run/setRunName electronCenter
+
+/gps/particle e-
+/gps/energy 500 MeV
+
+/gps/position  0 30 0 cm
+/gps/direction 0 -1 0
+
+
+
+/OpNovice/forceDrawNoPhotons 1
+/run/beamOn 100
+

@@ -1,0 +1,7 @@
+/work/OptoTracker/software/lib/libMarocClassesDict.so
+/work/OptoTracker/software/bin/PrintMaroc
+/work/OptoTracker/software/bin/MarocAnalysis
+/work/OptoTracker/software/bin/MarocAnalysis2
+/work/OptoTracker/software/bin/comparison
+/work/OptoTracker/software/bin/MarocConverter
+/work/OptoTracker/software/bin/MarocConverter2

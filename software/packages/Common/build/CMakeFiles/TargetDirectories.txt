@@ -1,0 +1,3 @@
+/work/OptoTracker/software/packages/Common/build/CMakeFiles/CommonClassesDict.dir
+/work/OptoTracker/software/packages/Common/build/CMakeFiles/PrintDetector.dir
+/work/OptoTracker/software/packages/Common/build/CMakeFiles/TestCommon.dir

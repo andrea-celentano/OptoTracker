@@ -1,0 +1,3 @@
+/work/OptoTracker/software/packages/Simulation/build/CMakeFiles/OpNovice.dir
+/work/OptoTracker/software/packages/Simulation/build/CMakeFiles/OpNoviceClassesDict.dir
+/work/OptoTracker/software/packages/Simulation/build/CMakeFiles/OpNoviceExe.dir

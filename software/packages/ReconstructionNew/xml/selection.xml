@@ -1,0 +1,44 @@
+<lcgdict>
+<class name="std::vector< TDriver * >"/>
+<class name="TAnalysis"/>
+<class name="TJobManager">
+	<field name="m_xmlHandler" transient="true"/>
+	<field name="m_variables" transient="true"/>
+</class>
+<class name="TDriver"/>
+<class name="TReconInput"/>
+<class name="TEventMarkerDriver"/>
+<class name="TReconHit"/>
+
+<class name="TRootSaveDriver"/>
+<class name="TChargeAnalysisDriver">
+	<field name="m_writeOutFile" transient="true"/>
+</class>
+<class name="TChargeAnalysisPoissonDriver">
+	<field name="m_writeOutFile" transient="true"/>
+</class>
+<class name="TLikelihoodReconDriver"/>
+<class name="TLikelihoodComputationDriver"/>
+
+<class name="TMatrixWriterDriver"/>
+<class name="TMatrixReconDriver"/>
+<class name="TMatrixInterpreterDriver"/>
+
+<class name="TMCDataReaderDriver"/>
+
+
+
+<class name="TTofpetDummyAnalysisDriver"/>
+<class name="TTofpetTimeAnalysisDriver"/>
+<class name="TTofpetSetupHandlerDriver"/>
+<class name="TTofpetThresholdCalibrationDriver"/>
+
+<class name="TMarocSetupHandlerDriver"/>
+<class name="TMarocBasicDriver"/>
+<class name="TMarocDataReaderDriver"/>
+
+
+<class name="TLikelihoodCalculator"/>
+<class name="TLikelihoodCalculatorIdeal"/>
+<class name="TLikelihoodCalculatorMaroc1"/>
+</lcgdict>

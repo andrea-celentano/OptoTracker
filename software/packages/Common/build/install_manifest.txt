@@ -1,0 +1,3 @@
+/work/OptoTracker/software/lib/libCommonClassesDict.so
+/work/OptoTracker/software/bin/PrintDetector
+/work/OptoTracker/software/bin/TestCommon

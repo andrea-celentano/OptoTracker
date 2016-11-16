@@ -1,0 +1,2 @@
+/work/OptoTracker/software/packages/Tofpet/build/CMakeFiles/DarkScan.dir
+/work/OptoTracker/software/packages/Tofpet/build/CMakeFiles/TofpetClassesDict.dir

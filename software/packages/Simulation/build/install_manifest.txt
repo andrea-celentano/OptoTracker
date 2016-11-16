@@ -1,0 +1,2 @@
+/work/OptoTracker/software/lib/libOpNoviceClassesDict.so
+/work/OptoTracker/software/bin/OpNoviceExe

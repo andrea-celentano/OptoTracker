@@ -1,0 +1,39 @@
+<OptoTracker>
+  <Recon>
+    <control>
+      <doProof>1</doProof>
+      <doProofDiag>1</doProofDiag>
+      <numberOfWorkers>7</numberOfWorkers>
+      <numberOfIterations>1</numberOfIterations>
+      <verboseLevel>3</verboseLevel>
+      <numberOfEvents>50000</numberOfEvents>
+    </control>
+    <execute>
+      <driver name="EventMarker"/>
+      <driver name="DataRead"/>
+      <driver name="Likelihood"/>
+      <driver name="Save"/>
+    </execute>
+    <drivers>
+      <driver name="EventMarker" type="TEventMarkerDriver">
+	<setInterval>100</setInterval>
+      </driver>
+      <driver name="DataRead" type="TMCDataReaderDriver">
+	<setCollectionRawName>"DetDigiMC"</setCollectionRawName>
+	<setCollectionOutName>"ReconHit"</setCollectionOutName>
+      </driver>
+      <driver name="Likelihood" type="TLikelihoodReconDriver"> 
+	<setCollectionName>"ReconHit"</setCollectionName>
+	<setReconInputMode>"file"</setReconInputMode>
+	<setReconInputFileName>"recon.inp"</setReconInputFileName>
+	<configLikelihoodCalculator>"TLikelihoodCalculatorMaroc1"</configLikelihoodCalculator>
+      </driver>
+      <driver name="Save" type="TRootSaveDriver">
+	<setOutFileName>"out.root"</setOutFileName>
+      </driver>
+    </drivers>
+  </Recon>
+</OptoTracker>
+ 
+ 
+ 
