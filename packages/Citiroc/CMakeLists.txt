@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------
 # Setup the project
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-project(MarocAnalysis)
+project(Citiroc)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
 SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
@@ -30,7 +30,7 @@ include(${Geant4_USE_FILE})
 find_package(ROOT REQUIRED)
 
 if(NOT GCCXML)
-   message(FATAL_ERROR "Maroc requires GCCXML")
+   message(FATAL_ERROR "Citiroc requires GCCXML")
 endif() 
 
 #----------------------------------------------------------------------------
@@ -42,7 +42,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include
 		    		$ENV{OPTO}/software/packages/Common/include
 		    		$ENV{OPTO}/software/packages/Simulation/include
 		  			)
-		    
+		  			
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
@@ -57,54 +57,28 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
-#
-REFLEX_GENERATE_DICTIONARY(MarocClasses include/MarocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+# 
+REFLEX_GENERATE_DICTIONARY(CitirocClasses include/CitirocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 
 
-add_library(MarocClassesDict SHARED ${sources} ${driver_sources} MarocClasses.cpp)
+add_library(CitirocClassesDict SHARED ${sources} ${driver_sources} CitirocClasses.cpp)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
-set_target_properties(MarocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
-target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
-
-
-
-
-
-#----------------------------------------------------------------------------
-# Add the executable, and link it to the Geant4 libraries
-#
+set_target_properties(CitirocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
+target_link_libraries(CitirocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
-add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
-target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
-add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
-
-add_executable(MarocAnalysis2 marocAnalysis2.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+add_executable(CitirocEventBuilder CitirocEventBuilder.cpp ${sources} ${headers})
+target_link_libraries(CitirocEventBuilder CitirocClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex)
 
 
 
-add_executable(comparison comparison.cpp ${sources} ${headers})
-target_link_libraries(comparison MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
-
-add_executable(MarocConverter marocConverter.cpp ${sources} ${headers})
-target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
-
-add_executable(MarocConverter2 marocConverter2.cpp ${sources} ${headers})
-target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS MarocClassesDict DESTINATION $ENV{OPTO}/software/lib)
-install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/software/bin)
-install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/software/bin)
-install(TARGETS MarocAnalysis2 DESTINATION $ENV{OPTO}/software/bin)
-install(TARGETS comparison DESTINATION $ENV{OPTO}/software/bin)
-install(TARGETS MarocConverter DESTINATION $ENV{OPTO}/software/bin)
-install(TARGETS MarocConverter2 DESTINATION $ENV{OPTO}/software/bin)
+install(TARGETS CitirocClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(TARGETS CitirocEventBuilder DESTINATION $ENV{OPTO}/software/bin)

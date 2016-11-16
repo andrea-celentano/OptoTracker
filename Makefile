@@ -1,4 +1,4 @@
-packages = Common Tofpet Simulation Maroc ReconstructionNew 
+packages = Common Tofpet Simulation Maroc Citiroc ReconstructionNew 
 
 all: $(packages) 
 

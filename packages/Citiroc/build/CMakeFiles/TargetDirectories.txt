@@ -1,0 +1,2 @@
+/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir
+/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocEventBuilder.dir
