@@ -1,4 +1,4 @@
-# Install script for directory: /work/OptoTracker/software/packages/Tofpet
+# Install script for directory: /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,57 +33,57 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so")
+  IF(EXISTS "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so")
     FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so"
-         RPATH "/work/OptoTracker/software/lib:/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
+         FILE "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so"
+         RPATH "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib:/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
   ENDIF()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/work/OptoTracker/software/lib/libTofpetClassesDict.so")
+   "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/work/OptoTracker/software/lib" TYPE SHARED_LIBRARY FILES "/work/OptoTracker/software/packages/Tofpet/build/libTofpetClassesDict.so")
-  IF(EXISTS "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so")
+FILE(INSTALL DESTINATION "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib" TYPE SHARED_LIBRARY FILES "/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/libTofpetClassesDict.so")
+  IF(EXISTS "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so")
     FILE(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so"
-         OLD_RPATH "/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root:::::::::::::::::::::::::::::::"
-         NEW_RPATH "/work/OptoTracker/software/lib:/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
+         FILE "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so"
+         OLD_RPATH "/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+         NEW_RPATH "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib:/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
     IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/work/OptoTracker/software/lib/libTofpetClassesDict.so")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so")
     ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan")
+  IF(EXISTS "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan")
     FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan"
-         RPATH "/work/OptoTracker/software/lib:/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
+         FILE "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan"
+         RPATH "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib:/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
   ENDIF()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/work/OptoTracker/software/bin/DarkScan")
+   "/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/work/OptoTracker/software/bin" TYPE EXECUTABLE FILES "/work/OptoTracker/software/packages/Tofpet/build/DarkScan")
-  IF(EXISTS "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan")
+FILE(INSTALL DESTINATION "/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin" TYPE EXECUTABLE FILES "/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/DarkScan")
+  IF(EXISTS "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan")
     FILE(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan"
-         OLD_RPATH "/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root:/work/OptoTracker/software/packages/Tofpet/build:/work/OptoTracker/software/lib:"
-         NEW_RPATH "/work/OptoTracker/software/lib:/work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
+         FILE "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan"
+         OLD_RPATH "/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root:/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build:/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib:"
+         NEW_RPATH "/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib:/project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root")
     IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/work/OptoTracker/software/bin/DarkScan")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan")
     ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -94,7 +94,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/work/OptoTracker/software/packages/Tofpet/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/work/OptoTracker/software/packages/Tofpet/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

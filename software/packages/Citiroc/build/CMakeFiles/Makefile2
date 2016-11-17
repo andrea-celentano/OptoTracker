@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/Citiroc
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Citiroc/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/CitirocClassesDict.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Citiroc/build
 CMakeFiles/CitirocClassesDict.dir/all:
 	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/depend
 	$(MAKE) -f CMakeFiles/CitirocClassesDict.dir/build.make CMakeFiles/CitirocClassesDict.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles  1 2 3
 	@echo "Built target CitirocClassesDict"
 .PHONY : CMakeFiles/CitirocClassesDict.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/CitirocClassesDict.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CitirocClassesDict.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CitirocClassesDict.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles 0
 .PHONY : CMakeFiles/CitirocClassesDict.dir/rule
 
 # Convenience name for target.
@@ -97,7 +97,7 @@ clean: CMakeFiles/CitirocClassesDict.dir/clean
 CMakeFiles/CitirocEventBuilder.dir/all: CMakeFiles/CitirocClassesDict.dir/all
 	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/depend
 	$(MAKE) -f CMakeFiles/CitirocEventBuilder.dir/build.make CMakeFiles/CitirocEventBuilder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles  4 5
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles  4 5
 	@echo "Built target CitirocEventBuilder"
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/all
 
@@ -107,9 +107,9 @@ all: CMakeFiles/CitirocEventBuilder.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CitirocEventBuilder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CitirocEventBuilder.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles 0
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/rule
 
 # Convenience name for target.

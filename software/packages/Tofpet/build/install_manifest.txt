@@ -1,2 +1,2 @@
-/work/OptoTracker/software/lib/libTofpetClassesDict.so
-/work/OptoTracker/software/bin/DarkScan
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libTofpetClassesDict.so
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/DarkScan

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/Tofpet
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Tofpet/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DarkScan.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/DarkScan.dir/flags.make
 
 CMakeFiles/DarkScan.dir/DarkScan.cpp.o: CMakeFiles/DarkScan.dir/flags.make
 CMakeFiles/DarkScan.dir/DarkScan.cpp.o: ../DarkScan.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/DarkScan.dir/DarkScan.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DarkScan.dir/DarkScan.cpp.o -c /work/OptoTracker/software/packages/Tofpet/DarkScan.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/DarkScan.dir/DarkScan.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/DarkScan.cpp
 
 CMakeFiles/DarkScan.dir/DarkScan.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DarkScan.dir/DarkScan.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Tofpet/DarkScan.cpp > CMakeFiles/DarkScan.dir/DarkScan.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/DarkScan.cpp > CMakeFiles/DarkScan.dir/DarkScan.cpp.i
 
 CMakeFiles/DarkScan.dir/DarkScan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DarkScan.dir/DarkScan.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Tofpet/DarkScan.cpp -o CMakeFiles/DarkScan.dir/DarkScan.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/DarkScan.cpp -o CMakeFiles/DarkScan.dir/DarkScan.cpp.s
 
 CMakeFiles/DarkScan.dir/DarkScan.cpp.o.requires:
 .PHONY : CMakeFiles/DarkScan.dir/DarkScan.cpp.o.requires
@@ -85,21 +85,21 @@ DarkScan_EXTERNAL_OBJECTS =
 DarkScan: CMakeFiles/DarkScan.dir/DarkScan.cpp.o
 DarkScan: CMakeFiles/DarkScan.dir/build.make
 DarkScan: libTofpetClassesDict.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCore.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCint.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRIO.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libNet.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libHist.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf3d.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGpad.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libTree.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRint.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPostscript.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMatrix.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPhysics.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMathCore.so
-DarkScan: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libThread.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCore.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCint.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRIO.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libNet.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libHist.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf3d.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGpad.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libTree.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRint.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPostscript.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMatrix.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPhysics.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMathCore.so
+DarkScan: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libThread.so
 DarkScan: CMakeFiles/DarkScan.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable DarkScan"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DarkScan.dir/link.txt --verbose=$(VERBOSE)
@@ -116,6 +116,6 @@ CMakeFiles/DarkScan.dir/clean:
 .PHONY : CMakeFiles/DarkScan.dir/clean
 
 CMakeFiles/DarkScan.dir/depend:
-	cd /work/OptoTracker/software/packages/Tofpet/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/software/packages/Tofpet /work/OptoTracker/software/packages/Tofpet /work/OptoTracker/software/packages/Tofpet/build /work/OptoTracker/software/packages/Tofpet/build /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles/DarkScan.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles/DarkScan.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/DarkScan.dir/depend
 
