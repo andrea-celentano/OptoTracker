@@ -679,13 +679,29 @@ void FillHistos(int truncat)  // hook called by libFEBDTP when event is received
 		tt1=tt1+5; //IK: correction based on phase drift w.r.t GPS
 		NOts0=((ts0 & 0x40000000)>0); // check overflow bit
 		NOts1=((ts1 & 0x40000000)>0);
-		if((ts0 & 0x80000000)>0) {printf("T0-ref bit "); ts0=0x0; ts0_ref=tt0; ts0_ref_MEM[t->dstmac[5]]=tt0;
-		ts0_ref_AVE[t->dstmac[5]]=ts0_ref_AVE[t->dstmac[5]]+ts0_ref_MEM[t->dstmac[5]]; (ts0_ref_IND[t->dstmac[5]])++;}
-		else { ts0=tt0; ts0_ref=ts0_ref_MEM[t->dstmac[5]]; }
-		if((ts1 & 0x80000000)>0) {printf("T1-ref bit "); ts1=0x0; ts1_ref=tt1; ts1_ref_MEM[t->dstmac[5]]=tt1;} else { ts1=tt1; ts1_ref=ts1_ref_MEM[t->dstmac[5]]; }
+		if((ts0 & 0x80000000)>0) {
+		  printf("T0-ref bit "); 
+		  ts0=0x0; ts0_ref=tt0; 
+		  ts0_ref_MEM[t->dstmac[5]]=tt0;
+		  ts0_ref_AVE[t->dstmac[5]]=ts0_ref_AVE[t->dstmac[5]]+ts0_ref_MEM[t->dstmac[5]];
+		  (ts0_ref_IND[t->dstmac[5]])++;
+		}
+		else { 
+		  ts0=tt0;
+		  ts0_ref=ts0_ref_MEM[t->dstmac[5]];
+		}
+		if((ts1 & 0x80000000)>0) {
+		  printf("T1-ref bit ");
+		  ts1=0x0; ts1_ref=tt1; 
+		  ts1_ref_MEM[t->dstmac[5]]=tt1;
+		} 
+		else {
+		  ts1=tt1;
+		  ts1_ref=ts1_ref_MEM[t->dstmac[5]]; 
+		}
 
 		//	if(t->Verbose)
-		printf("T0=%u ns, T1=%u ns T0_ref=%u ns  T1_ref=%u ns \n",ts0,ts1,ts0_ref,ts1_ref);
+		//printf("T0=%u ns, T1=%u ns T0_ref=%u ns  T1_ref=%u ns \n",ts0,ts1,ts0_ref,ts1_ref);
 		//	printf(" ADC[32]:\n");
 
 		for(kk=0; kk<32; kk++) if (CHAN_MASK & (1<<kk))
