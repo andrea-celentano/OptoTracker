@@ -668,7 +668,7 @@ void FillHistos(int truncat)  // hook called by libFEBDTP when event is received
 		ts0=*(UInt_t*)(&(t->gpkt).Data[jj]); jj=jj+4;
 		ts1=*(UInt_t*)(&(t->gpkt).Data[jj]); jj=jj+4;
 		//	printf("T0=%u ns, T1=%u ns \n",ts0,ts1);
-		printf("Raw data: ts0=0x%08x , ts1=0x%08x ; ",ts0,ts1);
+		//	printf("Raw data: ts0=0x%08x , ts1=0x%08x ; ",ts0,ts1);
 		ls2b0=ts0 & 0x00000003;
 		ls2b1=ts1 & 0x00000003;
 		tt0=(ts0 & 0x3fffffff) >>2;
