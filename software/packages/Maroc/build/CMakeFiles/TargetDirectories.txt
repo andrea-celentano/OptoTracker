@@ -1,7 +1,7 @@
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocAnalysis.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocAnalysis2.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocClassesDict.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocConverter.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocConverter2.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/PrintMaroc.dir
-/work/OptoTracker/software/packages/Maroc/build/CMakeFiles/comparison.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocAnalysis.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocAnalysis2.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocClassesDict.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocConverter.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/MarocConverter2.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/PrintMaroc.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Maroc/build/CMakeFiles/comparison.dir

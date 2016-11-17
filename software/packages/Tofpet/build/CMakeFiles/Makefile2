@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/Tofpet
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Tofpet/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/DarkScan.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Tofpet/build
 CMakeFiles/DarkScan.dir/all: CMakeFiles/TofpetClassesDict.dir/all
 	$(MAKE) -f CMakeFiles/DarkScan.dir/build.make CMakeFiles/DarkScan.dir/depend
 	$(MAKE) -f CMakeFiles/DarkScan.dir/build.make CMakeFiles/DarkScan.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles  1
 	@echo "Built target DarkScan"
 .PHONY : CMakeFiles/DarkScan.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/DarkScan.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DarkScan.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/DarkScan.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles 0
 .PHONY : CMakeFiles/DarkScan.dir/rule
 
 # Convenience name for target.
@@ -97,7 +97,7 @@ clean: CMakeFiles/DarkScan.dir/clean
 CMakeFiles/TofpetClassesDict.dir/all:
 	$(MAKE) -f CMakeFiles/TofpetClassesDict.dir/build.make CMakeFiles/TofpetClassesDict.dir/depend
 	$(MAKE) -f CMakeFiles/TofpetClassesDict.dir/build.make CMakeFiles/TofpetClassesDict.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles  2 3 4 5 6 7 8 9
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles  2 3 4 5 6 7 8 9
 	@echo "Built target TofpetClassesDict"
 .PHONY : CMakeFiles/TofpetClassesDict.dir/all
 
@@ -107,9 +107,9 @@ all: CMakeFiles/TofpetClassesDict.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TofpetClassesDict.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TofpetClassesDict.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /work/OptoTracker/software/packages/Tofpet/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles 0
 .PHONY : CMakeFiles/TofpetClassesDict.dir/rule
 
 # Convenience name for target.

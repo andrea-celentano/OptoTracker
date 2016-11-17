@@ -1,2 +1,2 @@
-/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir
-/work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocEventBuilder.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocClassesDict.dir
+/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocEventBuilder.dir

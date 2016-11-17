@@ -1,13 +1,13 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/TestCommon.dir/TestCommon.cpp.o"
-  "CMakeFiles/TestCommon.dir/src/TRealSetupHandler.cc.o"
   "CMakeFiles/TestCommon.dir/src/TDetector.cc.o"
-  "CMakeFiles/TestCommon.dir/src/TNamedContainer.cc.o"
-  "CMakeFiles/TestCommon.dir/src/TMCParticle.cc.o"
   "CMakeFiles/TestCommon.dir/src/TDetectorUtils.cc.o"
-  "CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.o"
-  "CMakeFiles/TestCommon.dir/src/TMCTruth.cc.o"
   "CMakeFiles/TestCommon.dir/src/TEvent.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TMCParticle.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TMCTruth.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TNamedContainer.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TRealSetupHandler.cc.o"
+  "CMakeFiles/TestCommon.dir/src/TXMLHandler.cc.o"
   "TestCommon.pdb"
   "TestCommon"
 )

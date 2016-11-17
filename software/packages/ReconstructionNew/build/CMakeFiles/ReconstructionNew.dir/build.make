@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/ReconstructionNew
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/ReconstructionNew/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ReconstructionNew.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/ReconstructionNew.dir/flags.make
 
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o: ../Reconstruction.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o -c /work/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp
 
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp > CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp > CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.i
 
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp -o CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/Reconstruction.cpp -o CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.s
 
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o.requires
@@ -75,88 +75,19 @@ CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o.provides: CMakeFiles/Recon
 
 CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o.provides.build: CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o
 
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o: ../src/TReconHit.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc
-
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc > CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i
-
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc -o CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s
-
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o: ../src/TJobManager.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc > CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc -o CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o: ../src/TReconInput.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc > CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc -o CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o
-
 CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o: ../src/TAnalysis.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc
 
 CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc > CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc > CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.i
 
 CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc -o CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TAnalysis.cc -o CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.s
 
 CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o.requires
@@ -169,17 +100,17 @@ CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o.provides.build: CMakeFiles/R
 
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o: ../src/TDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc > CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc > CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc -o CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TDriver.cc -o CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o.requires
@@ -190,272 +121,88 @@ CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o.provides: CMakeFiles/Reconstru
 
 CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o: ../drivers/maroc/TMarocBasicDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o: ../src/TJobManager.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc > CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.i
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TJobManager.cc -o CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.s
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o: ../drivers/maroc/TMarocSetupHandlerDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc
+CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o: ../src/TReconHit.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc > CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.i
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconHit.cc -o CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.s
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o: ../drivers/maroc/TMarocDataReaderDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc
+CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o: ../src/TReconInput.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc > CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.i
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/src/TReconInput.cc -o CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.s
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
 
-CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides
 
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o: ../drivers/tofpet/TTofpetDummyAnalysisDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o: ../drivers/tofpet/TTofpetStepsEventCounter.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_11)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o: ../drivers/tofpet/TTofpetSetupHandlerDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o: ../drivers/tofpet/TTofpetTimeAnalysisDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o: ../drivers/tofpet/TTofpetThresholdCalibrationDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o: ../drivers/matrix/TMatrixInterpreterDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o: ../drivers/matrix/TMatrixWriterDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_16)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o: ../drivers/matrix/TMatrixReconDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_17)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o
+CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o
 
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o: ../drivers/MC/TMCDataReaderDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/MC/TMCDataReaderDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o.requires
@@ -466,19 +213,42 @@ CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o.provides: C
 
 CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o
 
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o: ../drivers/common/TChargeAnalysisDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o
+
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o: ../drivers/common/TChargeAnalysisPoissonDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisPoissonDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o.requires
@@ -489,42 +259,19 @@ CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o: ../drivers/common/TLikelihoodReconDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_20)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc
-
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i
-
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s
-
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o
-
 CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o: ../drivers/common/TEventMarkerDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TEventMarkerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o.requires
@@ -537,17 +284,17 @@ CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o.provides
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o: ../drivers/common/TLikelihoodComputationDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodComputationDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o.requires
@@ -558,19 +305,42 @@ CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o
 
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o: ../drivers/common/TLikelihoodReconDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TLikelihoodReconDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o
+
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o: ../drivers/common/TRootSaveDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.i
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/common/TRootSaveDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.s
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o.requires
@@ -581,42 +351,272 @@ CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o.provides: C
 
 CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o: ../drivers/common/TChargeAnalysisDriver.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_24)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o: ../drivers/maroc/TMarocBasicDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.i
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.i
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/drivers/common/TChargeAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.s
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocBasicDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.s
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides
 
-CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o: ../drivers/maroc/TMarocDataReaderDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_15)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocDataReaderDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o: ../drivers/maroc/TMarocSetupHandlerDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/maroc/TMarocSetupHandlerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o: ../drivers/matrix/TMatrixInterpreterDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixInterpreterDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o: ../drivers/matrix/TMatrixReconDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_18)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixReconDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o: ../drivers/matrix/TMatrixWriterDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/matrix/TMatrixWriterDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o: ../drivers/tofpet/TTofpetDummyAnalysisDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetDummyAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o: ../drivers/tofpet/TTofpetSetupHandlerDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetSetupHandlerDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o: ../drivers/tofpet/TTofpetStepsEventCounter.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetStepsEventCounter.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o: ../drivers/tofpet/TTofpetThresholdCalibrationDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_23)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o: ../drivers/tofpet/TTofpetTimeAnalysisDriver.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_24)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc > CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.i
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/drivers/tofpet/TTofpetTimeAnalysisDriver.cc -o CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.s
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o: ../likelihoodCalculators/TLikelihoodCalculator.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.i
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculator.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.s
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o.requires
@@ -627,42 +627,19 @@ CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o
 
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o: ../likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_26)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc
-
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i
-
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s
-
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires:
-.PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
-
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
-	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides.build
-.PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides
-
-CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o
-
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o: ../likelihoodCalculators/TLikelihoodCalculatorIdeal.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_27)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_26)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o -c /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.i
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.s
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o.requires:
 .PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o.requires
@@ -673,131 +650,154 @@ CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdea
 
 CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o
 
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o: CMakeFiles/ReconstructionNew.dir/flags.make
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o: ../likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles $(CMAKE_PROGRESS_27)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc
+
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc > CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.i
+
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc -o CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.s
+
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires:
+.PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
+
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
+	$(MAKE) -f CMakeFiles/ReconstructionNew.dir/build.make CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides.build
+.PHONY : CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides
+
+CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.provides.build: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o
+
 # Object files for target ReconstructionNew
 ReconstructionNew_OBJECTS = \
 "CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o" \
-"CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o" \
 "CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o" \
-"CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o"
+"CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o" \
+"CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o"
 
 # External object files for target ReconstructionNew
 ReconstructionNew_EXTERNAL_OBJECTS =
 
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o
-ReconstructionNew: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o
+ReconstructionNew: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/build.make
 ReconstructionNew: libReconstructionNewClassesDict.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
 ReconstructionNew: /usr/lib64/libXmu.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
 ReconstructionNew: /usr/lib64/libGLU.so
 ReconstructionNew: /usr/lib64/libGL.so
 ReconstructionNew: /usr/lib64/libSM.so
 ReconstructionNew: /usr/lib64/libICE.so
 ReconstructionNew: /usr/lib64/libX11.so
 ReconstructionNew: /usr/lib64/libXext.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
 ReconstructionNew: /usr/lib64/libexpat.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
-ReconstructionNew: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
+ReconstructionNew: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
 ReconstructionNew: CMakeFiles/ReconstructionNew.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ReconstructionNew"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ReconstructionNew.dir/link.txt --verbose=$(VERBOSE)
@@ -807,32 +807,32 @@ CMakeFiles/ReconstructionNew.dir/build: ReconstructionNew
 .PHONY : CMakeFiles/ReconstructionNew.dir/build
 
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/Reconstruction.cpp.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TAnalysis.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TJobManager.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TReconHit.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/src/TReconInput.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/MC/TMCDataReaderDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisPoissonDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TEventMarkerDriver.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodComputationDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TLikelihoodReconDriver.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TRootSaveDriver.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/common/TChargeAnalysisDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocBasicDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocDataReaderDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/maroc/TMarocSetupHandlerDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixInterpreterDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixReconDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/matrix/TMatrixWriterDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetDummyAnalysisDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetSetupHandlerDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetStepsEventCounter.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetThresholdCalibrationDriver.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/drivers/tofpet/TTofpetTimeAnalysisDriver.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculator.cc.o.requires
-CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
 CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorIdeal.cc.o.requires
+CMakeFiles/ReconstructionNew.dir/requires: CMakeFiles/ReconstructionNew.dir/likelihoodCalculators/TLikelihoodCalculatorMaroc1.cc.o.requires
 .PHONY : CMakeFiles/ReconstructionNew.dir/requires
 
 CMakeFiles/ReconstructionNew.dir/clean:
@@ -840,6 +840,6 @@ CMakeFiles/ReconstructionNew.dir/clean:
 .PHONY : CMakeFiles/ReconstructionNew.dir/clean
 
 CMakeFiles/ReconstructionNew.dir/depend:
-	cd /work/OptoTracker/software/packages/ReconstructionNew/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/software/packages/ReconstructionNew /work/OptoTracker/software/packages/ReconstructionNew /work/OptoTracker/software/packages/ReconstructionNew/build /work/OptoTracker/software/packages/ReconstructionNew/build /work/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNew.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNew.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ReconstructionNew.dir/depend
 

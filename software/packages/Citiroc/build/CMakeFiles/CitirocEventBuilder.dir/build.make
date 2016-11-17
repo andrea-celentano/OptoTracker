@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/Citiroc
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Citiroc/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CitirocEventBuilder.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/CitirocEventBuilder.dir/flags.make
 
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o: CMakeFiles/CitirocEventBuilder.dir/flags.make
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o: ../CitirocEventBuilder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o -c /work/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp
 
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp > CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp > CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.i
 
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp -o CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/CitirocEventBuilder.cpp -o CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.s
 
 CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.requires:
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.o.provides.build: CMa
 
 CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o: CMakeFiles/CitirocEventBuilder.dir/flags.make
 CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o: ../src/TCitirocSetupHandler.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o -c /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc
 
 CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc > CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc > CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.i
 
 CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/src/TCitirocSetupHandler.cc -o CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.s
 
 CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires:
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o.requires
@@ -110,67 +110,67 @@ CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/CitirocEventBuilder.cpp.
 CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/src/TCitirocSetupHandler.cc.o
 CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/build.make
 CitirocEventBuilder: libCitirocClassesDict.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCore.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCint.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRIO.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libNet.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libHist.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf3d.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGpad.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libTree.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRint.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPostscript.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMatrix.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPhysics.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMathCore.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libThread.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCore.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libCint.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRIO.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libNet.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libHist.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGraf3d.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libGpad.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libTree.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libRint.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPostscript.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMatrix.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libPhysics.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libMathCore.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/root/5.34.34/root/lib/root/libThread.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
 CitirocEventBuilder: /usr/lib64/libXmu.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
 CitirocEventBuilder: /usr/lib64/libGLU.so
 CitirocEventBuilder: /usr/lib64/libGL.so
 CitirocEventBuilder: /usr/lib64/libSM.so
 CitirocEventBuilder: /usr/lib64/libICE.so
 CitirocEventBuilder: /usr/lib64/libX11.so
 CitirocEventBuilder: /usr/lib64/libXext.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
 CitirocEventBuilder: /usr/lib64/libexpat.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
-CitirocEventBuilder: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
+CitirocEventBuilder: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
 CitirocEventBuilder: CMakeFiles/CitirocEventBuilder.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CitirocEventBuilder"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CitirocEventBuilder.dir/link.txt --verbose=$(VERBOSE)
@@ -188,6 +188,6 @@ CMakeFiles/CitirocEventBuilder.dir/clean:
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/clean
 
 CMakeFiles/CitirocEventBuilder.dir/depend:
-	cd /work/OptoTracker/software/packages/Citiroc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/software/packages/Citiroc /work/OptoTracker/software/packages/Citiroc /work/OptoTracker/software/packages/Citiroc/build /work/OptoTracker/software/packages/Citiroc/build /work/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocEventBuilder.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Citiroc/build/CMakeFiles/CitirocEventBuilder.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CitirocEventBuilder.dir/depend
 

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /work/OptoTracker/software/packages/Simulation
+CMAKE_SOURCE_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /work/OptoTracker/software/packages/Simulation/build
+CMAKE_BINARY_DIR = /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/OpNoviceExe.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/OpNoviceExe.dir/flags.make
 
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o: ../OpNovice.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o -c /work/OptoTracker/software/packages/Simulation/OpNovice.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/OpNovice.cc
 
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/OpNovice.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/OpNovice.cc > CMakeFiles/OpNoviceExe.dir/OpNovice.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/OpNovice.cc > CMakeFiles/OpNoviceExe.dir/OpNovice.cc.i
 
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/OpNovice.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/OpNovice.cc -o CMakeFiles/OpNoviceExe.dir/OpNovice.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/OpNovice.cc -o CMakeFiles/OpNoviceExe.dir/OpNovice.cc.s
 
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o.requires:
 .PHONY : CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o.requires
@@ -75,226 +75,19 @@ CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o.provides: CMakeFiles/OpNoviceExe.dir/Op
 
 CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o
 
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o: ../src/OpNoviceDetectorSD.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o: ../src/OpNovicePrimaryGeneratorAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o: ../src/OpNoviceStackingAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o: ../src/OpNoviceSteppingVerbose.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o: ../src/OpNoviceDetectorHit.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_6)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o: ../src/OpNoviceScintSD.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o: ../src/OpNoviceEventAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o: ../src/RootIO.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_9)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o -c /work/OptoTracker/software/packages/Simulation/src/RootIO.cc
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/RootIO.cc > CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/RootIO.cc -o CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o: ../src/OpNoviceDigitizer.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_10)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o
-
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o: ../src/OpNoviceActionInitialization.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.i
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceActionInitialization.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.s
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o.requires:
 .PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o.requires
@@ -305,272 +98,19 @@ CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o.provides: CMake
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o
 
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o: ../src/OpNoviceDigi.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_12)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o: ../src/OpNoviceMessenger.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_13)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o: ../src/OpNoviceSteppingAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_14)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o: ../src/OpNoviceTrackingAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_15)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o: ../src/OpNoviceUserTrackInformation.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_16)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o: ../src/OpNoviceDigitizerMessenger.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_17)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o: ../src/OpNovicePhysicsList.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_18)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o: ../src/OpNoviceUserEventInformation.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_19)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o: ../src/OpNovicePhysicsListMessenger.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_20)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o: ../src/OpNoviceRunAction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_21)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o: ../src/OpNoviceTrajectory.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_22)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires:
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
-	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides.build
-.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides
-
-CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o
-
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o: ../src/OpNoviceDetectorConstruction.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.i
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorConstruction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.s
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o.requires:
 .PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o.requires
@@ -581,19 +121,272 @@ CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o.provides: CMake
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o
 
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o: ../src/OpNoviceDetectorHit.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorHit.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o: ../src/OpNoviceDetectorSD.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDetectorSD.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o: ../src/OpNoviceDigi.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigi.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o: ../src/OpNoviceDigitizer.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizer.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o: ../src/OpNoviceDigitizerMessenger.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceDigitizerMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o: ../src/OpNoviceEventAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceEventAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o: ../src/OpNoviceMessenger.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o: ../src/OpNovicePhysicsList.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsList.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o: ../src/OpNovicePhysicsListMessenger.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_12)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePhysicsListMessenger.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o: ../src/OpNovicePrimaryGeneratorAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNovicePrimaryGeneratorAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o: ../src/OpNoviceRunAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_14)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceRunAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o
+
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o: ../src/OpNoviceScintHit.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /work/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o -c /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.i
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /work/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintHit.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.s
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o.requires:
 .PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o.requires
@@ -604,125 +397,332 @@ CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o.provides: CMakeFiles/OpNovi
 
 CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o
 
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o: ../src/OpNoviceScintSD.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_16)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceScintSD.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o: ../src/OpNoviceStackingAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceStackingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o: ../src/OpNoviceSteppingAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_18)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o: ../src/OpNoviceSteppingVerbose.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_19)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceSteppingVerbose.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o: ../src/OpNoviceTrackingAction.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_20)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrackingAction.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o: ../src/OpNoviceTrajectory.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_21)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceTrajectory.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o: ../src/OpNoviceUserEventInformation.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_22)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserEventInformation.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o: ../src/OpNoviceUserTrackInformation.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_23)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc > CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/OpNoviceUserTrackInformation.cc -o CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o: CMakeFiles/OpNoviceExe.dir/flags.make
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o: ../src/RootIO.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles $(CMAKE_PROGRESS_24)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o -c /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/RootIO.cc
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/RootIO.cc > CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.i
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/src/RootIO.cc -o CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.s
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires:
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
+	$(MAKE) -f CMakeFiles/OpNoviceExe.dir/build.make CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides.build
+.PHONY : CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides
+
+CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.provides.build: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o
+
 # Object files for target OpNoviceExe
 OpNoviceExe_OBJECTS = \
 "CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o" \
 "CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o" \
 "CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o" \
-"CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o"
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o" \
+"CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o"
 
 # External object files for target OpNoviceExe
 OpNoviceExe_EXTERNAL_OBJECTS =
 
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o
-OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o
+OpNoviceExe: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/build.make
 OpNoviceExe: libOpNoviceClassesDict.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4Tree.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4GMocren.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4visHepRep.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4RayTracer.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4VRML.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4OpenGL.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4gl2ps.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4interfaces.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4persistency.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4analysis.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4error_propagation.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4readout.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4physicslists.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4parmodels.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4FR.so
 OpNoviceExe: /usr/lib64/libXmu.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5OpenGL.so.5.4.0
 OpNoviceExe: /usr/lib64/libGLU.so
 OpNoviceExe: /usr/lib64/libGL.so
 OpNoviceExe: /usr/lib64/libSM.so
 OpNoviceExe: /usr/lib64/libICE.so
 OpNoviceExe: /usr/lib64/libX11.so
 OpNoviceExe: /usr/lib64/libXext.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4vis_management.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4modeling.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5PrintSupport.so.5.4.0
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Widgets.so.5.4.0
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Gui.so.5.4.0
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/qt/5.4.0/5.4/gcc_64/lib/libQt5Core.so.5.4.0
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/xercesc/3.1.1/lib/libxerces-c.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4run.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4event.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4tracking.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4processes.so
 OpNoviceExe: /usr/lib64/libexpat.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
-OpNoviceExe: /work/jlab_software/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4digits_hits.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4track.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4particles.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geometry.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4materials.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4graphics_reps.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4intercoms.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4global.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/clhep/2.2.0.8/lib/libCLHEP.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4zlib.so
+OpNoviceExe: /project/Gruppo3/fiber6/apps/jlab_software_20160107/1.3/Linux_Scientific6-x86_64-gcc4.4.7/geant4/4.10.01.p02/lib64/libG4geomUSolids.so
 OpNoviceExe: CMakeFiles/OpNoviceExe.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable OpNoviceExe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OpNoviceExe.dir/link.txt --verbose=$(VERBOSE)
@@ -732,29 +732,29 @@ CMakeFiles/OpNoviceExe.dir/build: OpNoviceExe
 .PHONY : CMakeFiles/OpNoviceExe.dir/build
 
 CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/OpNovice.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
 CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceActionInitialization.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
-CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
 CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorConstruction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorHit.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDetectorSD.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigi.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizer.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceDigitizerMessenger.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceEventAction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceMessenger.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsList.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePhysicsListMessenger.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNovicePrimaryGeneratorAction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceRunAction.cc.o.requires
 CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintHit.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceScintSD.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceStackingAction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingAction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceSteppingVerbose.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrackingAction.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceTrajectory.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserEventInformation.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/OpNoviceUserTrackInformation.cc.o.requires
+CMakeFiles/OpNoviceExe.dir/requires: CMakeFiles/OpNoviceExe.dir/src/RootIO.cc.o.requires
 .PHONY : CMakeFiles/OpNoviceExe.dir/requires
 
 CMakeFiles/OpNoviceExe.dir/clean:
@@ -762,6 +762,6 @@ CMakeFiles/OpNoviceExe.dir/clean:
 .PHONY : CMakeFiles/OpNoviceExe.dir/clean
 
 CMakeFiles/OpNoviceExe.dir/depend:
-	cd /work/OptoTracker/software/packages/Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /work/OptoTracker/software/packages/Simulation /work/OptoTracker/software/packages/Simulation /work/OptoTracker/software/packages/Simulation/build /work/OptoTracker/software/packages/Simulation/build /work/OptoTracker/software/packages/Simulation/build/CMakeFiles/OpNoviceExe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build /project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Simulation/build/CMakeFiles/OpNoviceExe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OpNoviceExe.dir/depend
 
