@@ -1,2 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles/DarkScan.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Tofpet/build/CMakeFiles/TofpetClassesDict.dir

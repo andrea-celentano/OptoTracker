@@ -3,6 +3,8 @@
 #ignore binaries
 lib/*
 bin/*
+#ignore build folders
+build/
 
 #sim macros and script
 macro*.run
@@ -15,12 +17,6 @@ run_*.csh
 log*.o
 log*.e
 
-#build
-packages/Common/build
-packages/ReconstructionNew/build
-packages/Tofpet/build
-packages/Simulation/build
-packages/Maroc/build
 
 #eclipse
 eclipse/*

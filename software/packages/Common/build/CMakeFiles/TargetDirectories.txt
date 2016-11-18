@@ -1,3 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Common/build/CMakeFiles/CommonClassesDict.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Common/build/CMakeFiles/PrintDetector.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/Common/build/CMakeFiles/TestCommon.dir

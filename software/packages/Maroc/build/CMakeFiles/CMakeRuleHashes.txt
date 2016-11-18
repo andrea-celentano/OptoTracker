@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-8339a43441dafe8ec2bd80948e4f1158 MarocClasses.cpp

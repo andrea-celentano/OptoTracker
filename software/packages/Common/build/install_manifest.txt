@@ -1,3 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libCommonClassesDict.so
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/PrintDetector
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/TestCommon

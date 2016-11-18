@@ -1,2 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/lib/libCitirocClassesDict.so
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/bin/CitirocEventBuilder

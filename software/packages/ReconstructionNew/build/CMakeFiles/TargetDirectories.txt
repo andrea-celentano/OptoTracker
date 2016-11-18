@@ -1,2 +1,0 @@
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNew.dir
-/project/Gruppo3/fiber5/celentano/OptoTracker/software/packages/ReconstructionNew/build/CMakeFiles/ReconstructionNewClassesDict.dir
