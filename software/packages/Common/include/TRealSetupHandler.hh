@@ -33,8 +33,8 @@ protected:
 	map < int , int > m_reconstructionDetFace;
 	map < int , int > m_reconstructionDetID;
 
-	/*The inverse map. Note that only (face/id) --> RealID has meaning*/
-	map <  pair < int , int > , int >  m_reconstructionRealDet;
+	/*The inverse map. Note that only (face/id) --> RealID has meaning. It may be possible (Citiroc-like case) that a face/id is associated with more than 1 real detector*/
+	map <  pair < int , int > , vector<int> >  m_reconstructionRealDet;
 
 	/*These maps will hold the pixels gain, for the reconstruction detector face and detectorID*/
 	map < int , double > m_PixelGain1[6][MAX_DETECTORS];
@@ -62,7 +62,7 @@ public:
 
 	int    getReconstructionDetectorFace(int idet);
 	int    getReconstructionDetectorID(int idet);
-	int    getRealDetectorID(int iface,int idet);
+	vector<int> & getRealDetectorID(int iface,int idet);
 
 	/*These are 2 functions to set and get a pixel gain.
      There are 3 gains per pixel, for convenience: 

@@ -44,6 +44,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include
 		   			 ${ROOT_INCLUDE_DIR}
 		    $ENV{OPTO}/software/packages/Common/include
 		    $ENV{OPTO}/software/packages/Simulation/include
+		     $ENV{OPTO}/software/packages/Citiroc/include
    	       	    $ENV{OPTO}/software/packages/Tofpet/include
    	            $ENV{OPTO}/software/packages/Maroc/include)
    	        

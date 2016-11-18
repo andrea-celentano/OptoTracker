@@ -3,13 +3,13 @@
 using namespace std;
 
 TRealSetupHandler::TRealSetupHandler() :
-nRealDet(0)
+		nRealDet(0)
 {
 	cout<<"RealSetupHandler::default constructor"<<endl;
 }
 
 TRealSetupHandler::TRealSetupHandler(string fname) :
-nRealDet(0)
+		nRealDet(0)
 {
 	cout<<"RealSetupHandler::file constructor"<<endl;
 	ifstream file;
@@ -44,7 +44,7 @@ void TRealSetupHandler::processLine(string line){
 		m_reconstructionDetFace.insert(pair<int,int>(m_thisRealDetID,m_thisReconFace));
 		m_reconstructionDetID.insert(pair<int,int>(m_thisRealDetID,m_thisReconDetID));
 		facedet=make_pair(m_thisReconFace,m_thisReconDetID);
-		m_reconstructionRealDet.insert(pair < pair <int,int>, int > (facedet,m_thisRealDetID));
+		m_reconstructionRealDet[facedet].push_back(m_thisRealDetID); //the [] creates a new empty vector if key does not exists
 	}
 	else if (key=="Pixel"){
 		parser>>data;m_thisPixel=atoi(data.c_str());
@@ -116,18 +116,18 @@ int     TRealSetupHandler::getReconstructionDetectorID(int idet){
 
 }
 
-int     TRealSetupHandler::getRealDetectorID(int iface,int idet){
+vector <int> & TRealSetupHandler::getRealDetectorID(int iface,int idet){
 	pair <int,int> facedet(iface,idet);
-	int ret=-1;
-	std::map<pair<int,int>,int>::iterator it;
+	vector<int> retTmp;
+	std::map<pair<int,int>,vector <int>>::iterator it;
 	it=m_reconstructionRealDet.find(facedet);
 	if (it!=m_reconstructionRealDet.end()){
-		ret=it->second;
+		return it->second;
 	}
 	else{
 		cerr<<"Error RealSetupHandler::getRealDetectorID for face / id: "<<iface<<" "<<idet<<endl;
+		return retTmp;
 	}
-	return ret;
 }
 
 
@@ -188,7 +188,8 @@ void TRealSetupHandler::setPixelGain(int iface,int idetector, int ipixel,int iga
 void TRealSetupHandler::Print(int printPixels){
 
 	std::map<int,int>::iterator itDet,itFace;
-	int iReconDetID,iReconDetFace,iDet,iDet2;
+	int iReconDetID,iReconDetFace,iDet,tmp;
+	vector<int> iDet2;
 
 
 
@@ -222,14 +223,26 @@ void TRealSetupHandler::Print(int printPixels){
 			cout<<left<<setw(Width)<<setfill(separator)<<"RealDetID";
 			cout<<left<<setw(Width)<<setfill(separator)<<"ReconDetFace";
 			cout<<left<<setw(Width)<<setfill(separator)<<"ReconDetID";
-			cout<<left<<setw(Width)<<setfill(separator)<<"RetrievRealDetId";
+			cout<<left<<setw(Width)<<setfill(separator)<<"RetrievRealDetId1";
+			cout<<left<<setw(Width)<<setfill(separator)<<"RetrievRealDetId2";
+			cout<<left<<setw(Width)<<setfill(separator)<<"RetrievRealDetId3";
+			cout<<left<<setw(Width)<<setfill(separator)<<"RetrievRealDetId4";
 			cout<<endl;
 		}
 
 		cout<<left<<setw(Width)<<setfill(separator)<<iDet;
 		cout<<left<<setw(Width)<<setfill(separator)<<iReconDetFace;
 		cout<<left<<setw(Width)<<setfill(separator)<<iReconDetID;
-		cout<<left<<setw(Width)<<setfill(separator)<<iDet2;
+		tmp=iDet2[0];
+		cout<<left<<setw(Width)<<setfill(separator)<<tmp;
+		if (iDet2.size()>=2) tmp=iDet2[1]; else tmp=-1;
+		cout<<left<<setw(Width)<<setfill(separator)<<tmp;
+		if (iDet2.size()>=3) tmp=iDet2[2]; else tmp=-1;
+		cout<<left<<setw(Width)<<setfill(separator)<<tmp;
+		if (iDet2.size()>=4) tmp=iDet2[3]; else tmp=-1;
+		cout<<left<<setw(Width)<<setfill(separator)<<tmp;
+
+
 		cout<<endl;
 		cout<<endl;
 		if (printPixels){

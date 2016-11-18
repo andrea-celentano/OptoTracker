@@ -4,15 +4,14 @@
 TCitirocSetupHandler::TCitirocSetupHandler():
 TRealSetupHandler()
 {
-	cout<<"MarocSetupHandler default constructor"<<endl;
-	//fillMaps();
+	cout<<"CitirocSetupHandler default constructor"<<endl;
 }
 
-/*
-TMarocSetupHandler::TMarocSetupHandler(string fname):
-TRealSetupHandler(fname)
+
+TCitirocSetupHandler::TCitirocSetupHandler(string fname):
+		TRealSetupHandler(fname)
 {
-	cout<<"MarocSetupHandler file constructor"<<endl;
+	cout<<"CitirocSetupHandler file constructor"<<endl;
 	ifstream file;
 	string line;
 	file.open(fname.c_str());
@@ -27,6 +26,41 @@ TRealSetupHandler(fname)
 		}
 	}
 	file.close();
-	fillMaps();
+
 }
-*/
+
+void TCitirocSetupHandler::processLine(string line){
+
+	istringstream parser;
+	string key,data;
+	int CitirocCh0,CitirocCh1,Pixel0,Pixel1;
+	pair < int , int > CitirocIDChannel;
+	parser.str(line);
+	parser>>key;
+	if (key[0]=='#') return; //comment
+	else if (key=="ChannelToPixel"){
+
+		parser>>data;CitirocCh0=atoi(data.c_str());
+		parser>>data;Pixel0=atoi(data.c_str());
+		CitirocIDChannel=make_pair(m_thisRealDetID,CitirocCh0);
+
+		m_reconstructionDetFacefromCitirocIDChannel[CitirocIDChannel]=m_thisReconFace;
+		m_reconstructionDetIDfromCitirocIDChannel[CitirocIDChannel]=m_thisReconDetID;
+		m_reconstructionDetPixelfromCitirocIDChannel[CitirocIDChannel]=Pixel0;
+
+	}
+	else if (key=="MultiChannelToPixel"){
+		parser>>data;CitirocCh0=atoi(data.c_str());
+		parser>>data;CitirocCh1=atoi(data.c_str());
+		parser>>data;Pixel0=atoi(data.c_str());
+		parser>>data;Pixel1=atoi(data.c_str());
+
+		int N=Pixel1-Pixel0+1;
+		for (int ii=0;ii<N;ii++){
+			CitirocIDChannel=make_pair(m_thisRealDetID,CitirocCh0+ii);
+			m_reconstructionDetFacefromCitirocIDChannel[CitirocIDChannel]=m_thisReconFace;
+			m_reconstructionDetIDfromCitirocIDChannel[CitirocIDChannel]=m_thisReconDetID;
+			m_reconstructionDetPixelfromCitirocIDChannel[CitirocIDChannel]=Pixel0+ii;
+		}
+	}
+}

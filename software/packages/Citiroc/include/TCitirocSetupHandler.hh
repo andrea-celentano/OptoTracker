@@ -15,9 +15,12 @@ private:
 
 	void processLine(string line);
 
-	map < int , int > m_CitirocToH8500; /*Key: the Citiroc id (0..63). Out: the H8500 Id (0..63)*/
-	map < int , int > m_H8500ToCitiroc; /*Key: the H8500id (0..63).  Out: the CitirocId (0..63)*/
-	void fillMaps();
+	/*First two maps are not so fundamental*/
+	map < std::pair<int,int>, int > m_reconstructionDetFacefromCitirocIDChannel;
+	map < std::pair<int,int>, int > m_reconstructionDetIDfromCitirocIDChannel;
+	map < std::pair<int,int>, int > m_reconstructionDetPixelfromCitirocIDChannel;
+
+
 public:
 
 
@@ -26,7 +29,7 @@ public:
 
 
 	TCitirocSetupHandler();
-	//TCitirocSetupHandler(string fname);
+	TCitirocSetupHandler(string fname);
 
 	virtual ~TCitirocSetupHandler(){};
 

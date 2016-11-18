@@ -51,7 +51,7 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 # add ROOT libraries properties
 #
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lSpectrum -lGui)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 
 

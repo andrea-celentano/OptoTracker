@@ -150,7 +150,6 @@ private:
 	int m_curID;
 
 
-
 public:
 	void Prev();
 	void Next();

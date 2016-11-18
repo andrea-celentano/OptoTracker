@@ -6,13 +6,14 @@
  */
 
 #include "TCitirocChargeCalibration.hh"
-
+#include "TCitirocSetupHandler.hh"
 #include "TRootEmbeddedCanvas.h"
 #include "TGFrame.h"
 #include "TGButton.h"
 #include "TGNumberEntry.h"
 #include "TLine.h"
-
+#include "TCanvas.h"
+#include "TH1D.h"
 TCitirocChargeCalibrationGui::TCitirocChargeCalibrationGui(TCitirocChargeCalibration *CitirocChargeCalibration,const TGWindow *p,UInt_t w,UInt_t h):
 m_TCitirocChargeCalibration(CitirocChargeCalibration),m_curChannel(0)
 {
@@ -93,94 +94,47 @@ void TCitirocChargeCalibrationGui::Start(){
 			m_curChannel=0;
 		}
 	}
-	m_curThr=m_TCitirocChargeCalibration->getCharge(m_curChannel);
-	RefreshThrWidgetValue();
 	this->Refresh();
 }
 
 void TCitirocChargeCalibrationGui::Refresh(){
 	m_canvas = fEcanvas->GetCanvas();
 	m_canvas->cd();
-	if(m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)!=0){
+	if(m_TCitirocChargeCalibration->gethChargeRaw(m_curID,m_curChannel)!=0){
 		/*Here draw the canvas*/
 		int thr_tmp;
-		double maxDrawY,minDrawY;
-		double maxDrawX,minDrawX;
+
+
 		int firstBin,lastBin;
-		maxDrawY=m_TCitirocChargeCalibration->getDAQRunCharge(m_curChannel,0);
-		minDrawY=m_TCitirocChargeCalibration->getDAQRunCharge(m_curChannel,20);
 
 		m_canvas->cd(1);
 
-		m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)->GetYaxis()->SetRangeUser(minDrawY,maxDrawY);
-		m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)->Draw("colz");
-
-		minDrawX=m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)->GetXaxis()->GetXmin();
-		maxDrawX=m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)->GetXaxis()->GetXmax();
-
-		if (lThr1) delete lThr1;
+		m_TCitirocChargeCalibration->gethChargeRaw(m_curID,m_curChannel)->Draw();
 
 
-
-		thr_tmp=m_TCitirocChargeCalibration->getTransition(m_curChannel,1);
-		if (lThr2) delete lThr2;
-
-		lThr2=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
-		lThr2->SetLineColor(3);
-		lThr2->SetLineWidth(2);
-		lThr2->Draw("SAME");
-
-		thr_tmp=m_TCitirocChargeCalibration->getTransition(m_curChannel,2);
-		if (lThr3) delete lThr3;
-		lThr3=new TLine(minDrawX,thr_tmp,maxDrawX,thr_tmp);
-		lThr3->SetLineColor(3);
-		lThr3->SetLineWidth(2);
-		lThr3->Draw("SAME");
-
-		lThr1=new TLine(minDrawX,m_curThr,maxDrawX,m_curThr);
-		if (m_TCitirocChargeCalibration->hasFinalCharge(m_curChannel)){
-			lThr1->SetLineColor(2);
-			lThr1->SetLineWidth(3);
-		}
-		else{
-			lThr1->SetLineColor(4);
-			lThr1->SetLineWidth(2);
-		}
-
-		lThr1->Draw("SAME");
 
 
 
 		m_canvas->cd(2);
-		firstBin=m_curThr+1;
-		lastBin=m_curThr+1;
-		m_TCitirocChargeCalibration->gethToTvsThr(m_curChannel)->ProjectionX(Form("hToT0_ch:%i_proj",m_curChannel),firstBin,lastBin)->Draw();
+
 
 		m_canvas->cd(3)->SetLogy();
-		maxDrawY=m_TCitirocChargeCalibration->gethRateRaw(m_curChannel)->GetMaximum()*1.1;
-		minDrawY=1;
-		m_TCitirocChargeCalibration->gethRateRaw(m_curChannel)->Draw();
 
-		if (lThr4) delete lThr4;
-		lThr4=new TLine(m_curThr,minDrawY,m_curThr,maxDrawY);
-		lThr4->SetLineColor(2);
-		lThr4->SetLineWidth(2);
-		lThr4->Draw("SAME");
 
 		m_canvas->cd(4);
-		m_TCitirocChargeCalibration->getgThr(m_curChannel)->Draw("AP");
+
 
 		m_canvas->Modified();
 		m_canvas->Update();
 	}
 	else{
-		Error("Refresh","no data for ch: %i",m_curChannel);
+		Error("Refresh","no data for board:%i ch: %i",m_curID,m_curChannel);
 	}
 }
 void TCitirocChargeCalibrationGui::Save(int nphe){
-	Info("Save","saving thr for ch: %i at %i with %i phe",m_curChannel,m_curThr,nphe);
-	m_TCitirocChargeCalibration->setCharge(m_curChannel,m_curThr,nphe);
-	m_TCitirocChargeCalibration->dumpCharges();
+	//	Info("Save","saving thr for ch: %i at %i with %i phe",m_curChannel,m_curThr,nphe);
+	//	m_TCitirocChargeCalibration->setCharge(m_curChannel,m_curThr,nphe);
+	//m_TCitirocChargeCalibration->dumpCharges();
 }
 
 void TCitirocChargeCalibrationGui::NextAndSave(){
@@ -194,7 +148,7 @@ void TCitirocChargeCalibrationGui::GoToChannel(Long_t ch){
 	else if (ch>(m_TCitirocChargeCalibration->getChannels()-1)) return;
 	else{
 		m_curChannel=ch;
-		m_curThr=m_TCitirocChargeCalibration->getCharge(m_curChannel);
+		//m_curThr=m_TCitirocChargeCalibration->getCharge(m_curChannel);
 		Info("GoToChannel","cur channel now is: %i",m_curChannel);
 		RefreshThrWidgetValue();
 		Refresh();
@@ -203,11 +157,17 @@ void TCitirocChargeCalibrationGui::GoToChannel(Long_t ch){
 
 
 void TCitirocChargeCalibrationGui::Next(){
+	int m_tmp;
+	m_tmp=m_curChannel+m_curID*TCitirocSetupHandler::nCitirocChannelsPerBoard;
+	if (m_tmp==(m_TCitirocChargeCalibration->getChannels()-1)) return; //do nothing
 
-	if (m_curChannel==(m_TCitirocChargeCalibration->getChannels()-1)) return;
 	m_curChannel++;
-	m_curThr=m_TCitirocChargeCalibration->getCharge(m_curChannel);
-	Info("Next","cur channel now is: %i",m_curChannel);
+	if (m_curChannel==TCitirocSetupHandler::nCitirocChannelsPerBoard){
+		m_curChannel=0;
+		m_curID++;
+	}
+
+	Info("Next","ID/Channel now is: %i %i",m_curID,m_curChannel);
 	RefreshChWidgetValue();
 	RefreshThrWidgetValue();
 	Refresh();
@@ -216,10 +176,15 @@ void TCitirocChargeCalibrationGui::Next(){
 
 
 void TCitirocChargeCalibrationGui::Prev(){
-	if (m_curChannel==0) return;
-	m_curChannel--;
-	m_curThr=m_TCitirocChargeCalibration->getCharge(m_curChannel);
-	Info("Prev","cur channel now is: %i",m_curChannel);
+	if ((m_curChannel==0)&&(m_curID==0)) return;
+	else if (m_curChannel==0){
+		m_curChannel=TCitirocSetupHandler::nCitirocChannelsPerBoard-1;
+		m_curID--;
+	}
+	else{
+		m_curChannel--;
+	}
+	Info("Prev","cur ID-channel  now is: %i %i",m_curID,m_curChannel);
 	RefreshChWidgetValue();
 	RefreshThrWidgetValue();
 	Refresh();
@@ -227,7 +192,7 @@ void TCitirocChargeCalibrationGui::Prev(){
 }
 
 void TCitirocChargeCalibrationGui::RefreshThrWidgetValue(){
-	fThr->SetIntNumber(m_TCitirocChargeCalibration->getCharge(m_curChannel));
+	//fThr->SetIntNumber(m_TCitirocChargeCalibration->getCharge(m_curChannel));
 }
 void TCitirocChargeCalibrationGui::RefreshChWidgetValue(){
 	fCh->SetIntNumber(m_curChannel);
@@ -235,7 +200,7 @@ void TCitirocChargeCalibrationGui::RefreshChWidgetValue(){
 
 
 void  TCitirocChargeCalibrationGui::fThrChanged(){
-	Info("fThrChanged","thr now: %i",m_curThr);
-	m_curThr=fThr->GetIntNumber();
+//	Info("fThrChanged","thr now: %i",m_curThr);
+//	m_curThr=fThr->GetIntNumber();
 	Refresh();
 }

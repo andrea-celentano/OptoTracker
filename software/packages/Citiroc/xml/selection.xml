@@ -2,4 +2,8 @@
 <class name="TCitirocSetupHandler"/>
 <class name="TCitirocEventHeader"/>
 <class name="TCitirocHitRaw"/>
+
+<class name="TCitirocChargeCalibration"/>
+<class name="std::map <std::pair <int,int> , TH1D*> "/>
+<class name="TCitirocChargeCalibrationGui"/>
 </lcgdict>
