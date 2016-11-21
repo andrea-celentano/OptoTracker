@@ -86,7 +86,7 @@ target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LI
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${driver_sources} ${likelihood_sources} ${headers} ${driver_headers} ${likelihood_headers})
-target_link_libraries(ReconstructionNew ReconstructionNewClassesDict MarocClassesDict TofpetClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(ReconstructionNew ReconstructionNewClassesDict MarocClassesDict TofpetClassesDict CitirocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
 
 
 #

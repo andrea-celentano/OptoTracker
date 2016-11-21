@@ -21,12 +21,14 @@ private:
 	map < std::pair<int,int>, int > m_reconstructionDetPixelfromCitirocIDChannel;
 
 
+
+
 public:
 
 
 	static const int nCitirocChannelsPerBoard=32;
 
-
+	int getReconstructionDetectorPixel(int ID,int ch);
 
 	TCitirocSetupHandler();
 	TCitirocSetupHandler(string fname);

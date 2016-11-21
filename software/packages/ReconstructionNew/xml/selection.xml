@@ -26,6 +26,9 @@
 
 <class name="TMCDataReaderDriver"/>
 
+<class name="TCitirocDataReaderDriver"/>
+<class name="TCitirocBasicDriver"/>
+<class name="TCitirocSetupHandlerDriver"/>
 
 
 <class name="TTofpetDummyAnalysisDriver"/>

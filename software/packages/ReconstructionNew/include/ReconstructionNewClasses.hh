@@ -29,6 +29,11 @@
 #include "../drivers/maroc/TMarocBasicDriver.hh"
 #include "../drivers/maroc/TMarocDataReaderDriver.hh"
 
+#include "../drivers/citiroc/TCitirocBasicDriver.hh"
+#include "../drivers/citiroc/TCitirocDataReaderDriver.hh"
+#include "../drivers/citiroc/TCitirocSetupHandlerDriver.hh"
+
+
 #include "../drivers/MC/TMCDataReaderDriver.hh"
 
 #include "../likelihoodCalculators/TLikelihoodCalculator.hh"

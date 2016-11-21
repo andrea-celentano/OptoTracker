@@ -17,7 +17,6 @@
 class TRootEmbeddedCanvas;
 class TGTextButton;
 class TGHorizontalFrame;
-class TTofpetThresholdCalibrationGui;
 class TGNumberEntry;
 class TLine;
 
@@ -27,6 +26,9 @@ class TH1D;
 class TGraphErrors;
 class TF1;
 class TCanvas;
+
+class TCitirocChargeCalibrationGui;
+
 class TCitirocChargeCalibration : public TObject{
 
 
@@ -36,8 +38,10 @@ private:
 
 	std::map<std::pair<int,int>,TH1D*> m_hQ; //key is boardID - chID.
 
+	TCitirocChargeCalibrationGui *m_TCitirocChargeCalibrationGui;
 
 
+	/*To fit*/
 	Float_t FitGains(TH1D *h);
 	Double_t x[50], ex[50];
 	Double_t y[50], ey[50];
@@ -51,21 +55,23 @@ private:
 
 public:
 
+	TCitirocChargeCalibration();
+	virtual ~TCitirocChargeCalibration();
+
 	template <typename T> int addObject(int ID,int ch,T* obj,std::map<std::pair<int,int>,T*> &map);
 	template <typename T> T* getObject(int ID,int ch,const std::map<std::pair<int,int>,T*> &map) const;
 	template <typename T> void printObject(const std::map<std::pair<int,int>,T*> &map) const;
 
 	int addhChargeRaw(int ID,int ch,TH1D* h){return this->addObject(ID,ch,h,this->m_hQ);}
-
 	TH1D* gethChargeRaw(int ID,int ch){return this->getObject(ID,ch,this->m_hQ);}
 
 
-	TCitirocChargeCalibration();
-	virtual ~TCitirocChargeCalibration();
+
 
 	int getChannels(){return m_hQ.size();}
 
 
+	int doCalibrationGui();
 
 	ClassDef(TCitirocChargeCalibration,1);
 

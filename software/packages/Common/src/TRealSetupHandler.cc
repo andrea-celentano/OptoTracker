@@ -119,7 +119,7 @@ int     TRealSetupHandler::getReconstructionDetectorID(int idet){
 vector <int> & TRealSetupHandler::getRealDetectorID(int iface,int idet){
 	pair <int,int> facedet(iface,idet);
 	vector<int> retTmp;
-	std::map<pair<int,int>,vector <int>>::iterator it;
+	std::map<pair<int,int>,vector <int> >::iterator it;
 	it=m_reconstructionRealDet.find(facedet);
 	if (it!=m_reconstructionRealDet.end()){
 		return it->second;

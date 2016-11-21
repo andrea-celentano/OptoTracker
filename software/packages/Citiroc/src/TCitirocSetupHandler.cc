@@ -9,7 +9,7 @@ TRealSetupHandler()
 
 
 TCitirocSetupHandler::TCitirocSetupHandler(string fname):
-		TRealSetupHandler(fname)
+				TRealSetupHandler(fname)
 {
 	cout<<"CitirocSetupHandler file constructor"<<endl;
 	ifstream file;
@@ -63,4 +63,21 @@ void TCitirocSetupHandler::processLine(string line){
 			m_reconstructionDetPixelfromCitirocIDChannel[CitirocIDChannel]=Pixel0+ii;
 		}
 	}
+}
+
+
+int TCitirocSetupHandler::getReconstructionDetectorPixel(int ID,int ch){
+	int ret=-1;
+	std::map<pair <int,int>,int>::iterator it;
+	pair < int , int > CitirocIDChannel;
+	CitirocIDChannel=make_pair(ID,ch);
+
+	it = m_reconstructionDetPixelfromCitirocIDChannel.find(CitirocIDChannel);
+	if (it!=m_reconstructionDetPixelfromCitirocIDChannel.end()){
+		ret = it->second;
+	}
+	else{
+		cerr<<"Error RealSetupHandler::getReconstructionDetectorID for ID - ch: "<<ID<<" "<<ch<<endl;
+	}
+	return ret;
 }

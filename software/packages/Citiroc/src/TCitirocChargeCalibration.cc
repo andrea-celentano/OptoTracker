@@ -1,6 +1,5 @@
 #include "TCitirocChargeCalibration.hh"
 
-
 #include <iostream>
 #include "time.h"
 #include "TH1D.h"
@@ -15,6 +14,7 @@ using namespace std;
 TCitirocChargeCalibration::TCitirocChargeCalibration() {
 	// TODO Auto-generated constructor stub
 	Info("TCitirocChargeCalibration","creator");
+	m_TCitirocChargeCalibrationGui=0;
 
 }
 
@@ -127,4 +127,10 @@ Float_t TCitirocChargeCalibration::FitGains(TH1D *hs){
 
 	return p1;
 }
+
+int TCitirocChargeCalibration::doCalibrationGui(){
+	m_TCitirocChargeCalibrationGui=new TCitirocChargeCalibrationGui(this,gClient->GetRoot(),1000,1000);
+	m_TCitirocChargeCalibrationGui->Start();
+}
+
 

@@ -422,5 +422,4 @@ int TTofpetThresholdCalibration::decideThresholdDummy(int ch){
 int TTofpetThresholdCalibration::decideThresholds(){
 	m_TTofpetThresholdCalibrationGui=new TTofpetThresholdCalibrationGui(this,gClient->GetRoot(),1000,1000);
 	m_TTofpetThresholdCalibrationGui->Start();
-
 }
