@@ -40,6 +40,7 @@ private:
 
 	std::map<std::pair<int,int>,TH1D*> m_hQ; //key is boardID - chID.
 	std::map<std::pair<int,int>,TGraphErrors*> m_gCalib; //key is boardID - chID.
+	std::map<std::pair<int,int>,std::pair<double,double> > m_CalibValues; //key is boardID - chID.
 
 	TCitirocChargeCalibrationGui *m_TCitirocChargeCalibrationGui;
 
@@ -55,7 +56,9 @@ private:
 	TGraphErrors* m_grpeaks;
 	TF1* m_fit;
 	Double_t m_xmin,m_xmax;
+	Double_t m_p0,m_p1,m_p0error,m_p1error;
 
+	int m_isCurrentFit;
 
 public:
 
@@ -73,11 +76,14 @@ public:
 	TGraphErrors* getgCalib(int ID,int ch){return this->getObject(ID,ch,this->m_gCalib);}
 
 
+	void addCalib(int ID,int ch,double ped,double gain);
+
+
 	void setFitRange(double xmin,double xmax){m_xmin=xmin;m_xmax=xmax;}
 
 	int getChannels(){return m_hQ.size();}
 
-
+	void dumpCalibration(std::string fname="calib.dat") const;
 	int doCalibrationGui();
 
 	void Fit(int ID,int ch);
@@ -151,7 +157,7 @@ private:
 	/*Graphics*/
 	TGMainFrame *fMain;
 	TRootEmbeddedCanvas *fEcanvas;
-	TGTextButton *fNext,*fPrev,*fFit,*fNextAndFit;
+	TGTextButton *fNext,*fPrev,*fFit,*fNextAndSave,*fSave,*fSaveNextFit;
 	TGVerticalFrame *fVerticalFrame;
 
 	TGNumberEntry *fBoard;
@@ -167,10 +173,11 @@ private:
 	int m_curBoard;
 
 
+
 public:
 	void Prev();
 	void Next();
-	void NextAndFit();
+	void NextAndSave();
 	void Fit();
 
 

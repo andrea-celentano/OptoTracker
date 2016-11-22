@@ -7,5 +7,6 @@
 <class name="std::map <std::pair <int,int> , TH1D*> "/>
 <class name="std::map <std::pair <int,int> , TGraphErrors*> "/>
 <class name="std::map <std::pair <int,int>,std::vector<int> > "/>
+<class name="std::map <std::pair <int,int>,std::pair<double,double> > "/>
 <class name="TCitirocChargeCalibrationGui"/>
 </lcgdict>

@@ -138,15 +138,28 @@ m_TCitirocChargeCalibration(CitirocChargeCalibration),m_curChannel(0)
 	fVerticalFrame->AddFrame(fRangeLabel, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
 	fRangeLabel->MoveResize(744,8,64,18);
 
-	/*NextAndFit button*/
-	fNextAndFit = new TGTextButton(fVerticalFrame,"NextAndFit",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
-	fNextAndFit->SetTextJustify(36);
-	fNextAndFit->SetMargins(0,0,0,0);
-	fNextAndFit->SetWrapLength(-1);
-	fNextAndFit->Resize(99,24);
-	fVerticalFrame->AddFrame(fNextAndFit, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
-	fNextAndFit->MoveResize(224,8,99,24);
-	fNextAndFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"NextAndFit()");
+	/*NextAndSave button*/
+	fSave = new TGTextButton(fVerticalFrame,"Save",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
+	fSave->SetTextJustify(36);
+	fSave->SetMargins(0,0,0,0);
+	fSave->SetWrapLength(-1);
+	fSave->Resize(99,24);
+	fVerticalFrame->AddFrame(fSave, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
+	fSave->MoveResize(224,32,99,24);
+	fSave->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"Save()");
+
+
+
+
+	/*NextAndSave button*/
+	fNextAndSave = new TGTextButton(fVerticalFrame,"NextAndSave",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
+	fNextAndSave->SetTextJustify(36);
+	fNextAndSave->SetMargins(0,0,0,0);
+	fNextAndSave->SetWrapLength(-1);
+	fNextAndSave->Resize(99,24);
+	fVerticalFrame->AddFrame(fNextAndSave, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
+	fNextAndSave->MoveResize(224,8,99,24);
+	fNextAndSave->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"NextAndSave()");
 
 
 	/*Fit button*/
@@ -156,8 +169,18 @@ m_TCitirocChargeCalibration(CitirocChargeCalibration),m_curChannel(0)
 	fFit->SetWrapLength(-1);
 	fFit->Resize(99,24);
 	fVerticalFrame->AddFrame(fFit, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
-	fFit->MoveResize(488,8,99,24);
+	fFit->MoveResize(288,8,99,24);
 	fFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"Fit()");
+
+	/*SaveNextFit*/
+	fSaveNextFit = new TGTextButton(fVerticalFrame,"fSaveNextFit",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
+	fSaveNextFit->SetTextJustify(36);
+	fSaveNextFit->SetMargins(0,0,0,0);
+	fSaveNextFit->SetWrapLength(-1);
+	fSaveNextFit->Resize(99,24);
+	fVerticalFrame->AddFrame(fSaveNextFit, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
+	fSaveNextFit->MoveResize(288,32,99,24);
+	fSaveNextFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"NextSaveFit()");
 
 	TGTextButton *fTextButton1990 = new TGTextButton(fVerticalFrame,"fTextButton1990",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
 	fTextButton1990->SetTextJustify(36);
@@ -166,13 +189,7 @@ m_TCitirocChargeCalibration(CitirocChargeCalibration),m_curChannel(0)
 	fTextButton1990->Resize(99,24);
 	fVerticalFrame->AddFrame(fTextButton1990, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
 	fTextButton1990->MoveResize(600,8,99,24);
-	TGTextButton *fTextButton2019 = new TGTextButton(fVerticalFrame,"fTextButton2019",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
-	fTextButton2019->SetTextJustify(36);
-	fTextButton2019->SetMargins(0,0,0,0);
-	fTextButton2019->SetWrapLength(-1);
-	fTextButton2019->Resize(99,24);
-	fVerticalFrame->AddFrame(fTextButton2019, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
-	fTextButton2019->MoveResize(600,32,99,24);
+
 
 	fMain->AddFrame(fVerticalFrame, new TGLayoutHints(kLHintsNormal));
 	fVerticalFrame->MoveResize(0,632,912,64);
@@ -260,9 +277,8 @@ void TCitirocChargeCalibrationGui::Refresh(){
 	}
 }
 void TCitirocChargeCalibrationGui::Save(){
-	//	Info("Save","saving thr for ch: %i at %i with %i phe",m_curChannel,m_curThr,nphe);
-	//	m_TCitirocChargeCalibration->setCharge(m_curChannel,m_curThr,nphe);
-	//m_TCitirocChargeCalibration->dumpCharges();
+	Info("Save","saving for board: %i ch: %i",m_curBoard,m_curChannel);
+	m_TCitirocChargeCalibration->dumpCalibration();
 }
 
 
@@ -335,8 +351,9 @@ void TCitirocChargeCalibrationGui::Fit(){
 
 }
 
-void TCitirocChargeCalibrationGui::NextAndFit(){
-
+void TCitirocChargeCalibrationGui::NextAndSave(){
+	Save();
+	Next();
 }
 
 

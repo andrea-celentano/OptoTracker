@@ -133,22 +133,26 @@ Float_t TCitirocChargeCalibration::FitGains(){
 
 
 
-	Double_t p1 = m_fit->GetParameter(1);
-	Double_t p1error = m_fit->GetParError(1);
-	Double_t p0 = m_fit->GetParameter(0);
-	Double_t p0error = m_fit->GetParError(0);
+	m_p1 = m_fit->GetParameter(1);
+	m_p1error = m_fit->GetParError(1);
+	m_p0 = m_fit->GetParameter(0);
+	m_p0error = m_fit->GetParError(0);
 	/*
 	cout<<"Gain "<<p1<<" error "<<p1error<<" ADC Counts/photoelectron"<<endl;
 	cout<<"Pedestal "<<p0<<" error "<<p0error<<endl;
 	 */
 	if (s) delete s;
-	return p1;
+	return m_p1;
 }
 
 void TCitirocChargeCalibration::Fit(int ID,int ch){
 	m_hfit=this->gethChargeRaw(ID,ch);
 	this->FitGains();
 	this->addgCalib(ID,ch,m_grpeaks);
+
+	this->addCalib(ID,ch,m_p0,m_p1);
+
+
 }
 
 
@@ -158,3 +162,18 @@ int TCitirocChargeCalibration::doCalibrationGui(){
 }
 
 
+void TCitirocChargeCalibration::dumpCalibration(string fname) const{
+	std::ofstream file(fname.c_str(),std::ios::trunc);
+	std::map<std::pair<int,int>,std::pair<double,double> >::const_iterator it;
+	file<<"#Board Ch p0(ped) p1(slope)"<<endl;
+	for (it=m_CalibValues.begin();it!=m_CalibValues.end();it++){
+		file<<it->first.first<<" "<<it->first.second<<" "<<it->second.first<<" "<<it->second.second<<endl;
+	}
+	file.close();
+}
+
+void TCitirocChargeCalibration::addCalib(int ID,int ch,double ped,double gain){
+	std::pair<int,int> key=std::make_pair(ID,ch);
+	std::pair<double,double> val=std::make_pair(ped,gain);
+	m_CalibValues[key]=val;
+}
