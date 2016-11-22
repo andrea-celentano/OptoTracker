@@ -27,6 +27,7 @@ public:
 
 
 	static const int nCitirocChannelsPerBoard=32;
+	static const int nCitirocMaxBoards=16;
 
 	int getReconstructionDetectorPixel(int ID,int ch);
 

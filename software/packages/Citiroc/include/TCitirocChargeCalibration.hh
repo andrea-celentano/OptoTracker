@@ -17,11 +17,13 @@
 class TRootEmbeddedCanvas;
 class TGTextButton;
 class TGHorizontalFrame;
+class TGVerticalFrame;
 class TGNumberEntry;
 class TLine;
+class TGHScrollBar;
+class TGDoubleHSlider;
 
-
-
+class TGraph;
 class TH1D;
 class TGraphErrors;
 class TF1;
@@ -37,20 +39,22 @@ private:
 
 
 	std::map<std::pair<int,int>,TH1D*> m_hQ; //key is boardID - chID.
+	std::map<std::pair<int,int>,TGraphErrors*> m_gCalib; //key is boardID - chID.
 
 	TCitirocChargeCalibrationGui *m_TCitirocChargeCalibrationGui;
 
+	TH1D *m_hfit;
 
 	/*To fit*/
-	Float_t FitGains(TH1D *h);
+	Float_t FitGains();
 	Double_t x[50], ex[50];
 	Double_t y[50], ey[50];
 
 	Double_t gx[50], gex[50];
 	Double_t gy[50], gey[50];
-	TGraphErrors* grpeaks;
-	TF1* fit;
-
+	TGraphErrors* m_grpeaks;
+	TF1* m_fit;
+	Double_t m_xmin,m_xmax;
 
 
 public:
@@ -65,13 +69,18 @@ public:
 	int addhChargeRaw(int ID,int ch,TH1D* h){return this->addObject(ID,ch,h,this->m_hQ);}
 	TH1D* gethChargeRaw(int ID,int ch){return this->getObject(ID,ch,this->m_hQ);}
 
+	int addgCalib(int ID,int ch,TGraphErrors* g){return this->addObject(ID,ch,g,this->m_gCalib);}
+	TGraphErrors* getgCalib(int ID,int ch){return this->getObject(ID,ch,this->m_gCalib);}
 
 
+	void setFitRange(double xmin,double xmax){m_xmin=xmin;m_xmax=xmax;}
 
 	int getChannels(){return m_hQ.size();}
 
 
 	int doCalibrationGui();
+
+	void Fit(int ID,int ch);
 
 	ClassDef(TCitirocChargeCalibration,1);
 
@@ -98,7 +107,6 @@ template <typename T> int TCitirocChargeCalibration::addObject(int ID,int ch,T* 
 template <typename T> T* TCitirocChargeCalibration::getObject(int ID,int ch,const std::map<std::pair<int,int>,T*> &map) const{
 	typename std::map<std::pair<int,int>,T*>::const_iterator it;
 	std::pair<int,int>  key=std::make_pair(ID,ch);
-
 	it = map.find(key);
 	if (it==map.end()){
 		Error("getObject","object with ID: %i , ch: %i not found",ID,ch);
@@ -143,30 +151,39 @@ private:
 	/*Graphics*/
 	TGMainFrame *fMain;
 	TRootEmbeddedCanvas *fEcanvas;
-	TGTextButton *fNext,*fPrev,*fSave,*fNextAndSave;
-	TGHorizontalFrame *fFrame;
-	TGNumberEntry *fThr;
+	TGTextButton *fNext,*fPrev,*fFit,*fNextAndFit;
+	TGVerticalFrame *fVerticalFrame;
+
+	TGNumberEntry *fBoard;
 	TGNumberEntry *fCh;
 
+	//TGHScrollBar *fRange;
+	TGDoubleHSlider *fRange;
 	TLine *lThr1,*lThr2,*lThr3,*lThr4;
 
 	TCanvas *m_canvas;
 
 	int m_curChannel;
-	int m_curID;
+	int m_curBoard;
 
 
 public:
 	void Prev();
 	void Next();
-	void Refresh();
-	void Save(int nphe=2);
-	void NextAndSave();
-	void RefreshThrWidgetValue();
-	void RefreshChWidgetValue();
-	void fThrChanged();
+	void NextAndFit();
+	void Fit();
 
-	void GoToChannel(Long_t ch);
+
+	void Refresh();
+	void Save();
+
+	void RefreshIDChWidgetValue();
+
+
+	void GoToChannel();
+
+	void DoSliderMoved();
+	void DrawFitBox();
 
 	ClassDef(TCitirocChargeCalibrationGui,1);
 

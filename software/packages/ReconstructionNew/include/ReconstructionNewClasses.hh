@@ -32,6 +32,7 @@
 #include "../drivers/citiroc/TCitirocBasicDriver.hh"
 #include "../drivers/citiroc/TCitirocDataReaderDriver.hh"
 #include "../drivers/citiroc/TCitirocSetupHandlerDriver.hh"
+#include "../drivers/citiroc/TCitirocChargeCalibrationDriver.hh"
 
 
 #include "../drivers/MC/TMCDataReaderDriver.hh"

@@ -74,11 +74,12 @@ void TAnalysis::configure(string xmlname){
 		m_proof=TProof::Open(Form("workers=%i",m_manager->getNumberOfWorkers()));
 		m_proof->Exec("gSystem->Load(\"libCintex\")");
 		m_proof->Exec("ROOT::Cintex::Cintex::Enable()");
-		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libCommonClassesDict.so\")");
-		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libTofpetClassesDict.so\")");
-		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libOpNoviceClassesDict.so\")");
-		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libMarocClassesDict.so\")");
-		m_proof->Exec("gSystem->Load(\"${OPTO}/lib/libReconstructionNewClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libCommonClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libTofpetClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libOpNoviceClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libMarocClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libCitirocClassesDict.so\")");
+		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libReconstructionNewClassesDict.so\")");
 		m_proof->SetLogLevel(1, TProofDebug::kPacketizer);
 		m_proof->SetParameter("PROOF_Packetizer", "TPacketizer");
 		m_chain->SetProof();
