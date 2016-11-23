@@ -24,6 +24,21 @@ TCitirocChargeCalibration::TCitirocChargeCalibration() {
 	m_xmax=4096;
 }
 
+TCitirocChargeCalibration::TCitirocChargeCalibration(std::string fname) {
+	// TODO Auto-generated constructor stub
+	Info("TCitirocChargeCalibration","creator");
+	m_TCitirocChargeCalibrationGui=0;
+
+	m_grpeaks=0;
+	m_fit=0;
+	m_hfit=0;
+
+	m_xmin=0;
+	m_xmax=4096;
+
+	this->LoadConstantsFromFile(fname);
+}
+
 
 TCitirocChargeCalibration::~TCitirocChargeCalibration() {
 	// TODO Auto-generated stub
@@ -176,4 +191,49 @@ void TCitirocChargeCalibration::addCalib(int ID,int ch,double ped,double gain){
 	std::pair<int,int> key=std::make_pair(ID,ch);
 	std::pair<double,double> val=std::make_pair(ped,gain);
 	m_CalibValues[key]=val;
+}
+
+int  TCitirocChargeCalibration::hasCalib(int ID,int ch) const{
+	std::pair<int,int> key=std::make_pair(ID,ch);
+	std::map<std::pair<int,int>,std::pair<double,double> >::const_iterator it;
+	it = m_CalibValues.find(key);
+	if (it==m_CalibValues.end()) return 0;
+	else return 1;
+}
+
+
+void  TCitirocChargeCalibration::getCalib(int ID,int ch,double &ped,double &gain) const{
+	std::pair<int,int>  key=std::make_pair(ID,ch);
+	std::map<std::pair<int,int>,std::pair<double,double> >::const_iterator it;
+	it = m_CalibValues.find(key);
+	if (it!=m_CalibValues.end()){
+		ped=it->second.first;
+		gain=it->second.second;
+	}
+	else{
+		ped=0;
+		gain=-1;
+	}
+}
+
+
+
+void TCitirocChargeCalibration::LoadConstantsFromFile(const std::string &fname){
+	std::ifstream file(fname.c_str());
+	std::string tmp;
+	int board,ch;
+	double ped,gain;
+
+	if (file.good()==0){
+		Error("LoacConstantsFromFile","Can't open file %s",fname);
+		return;
+	}
+
+	m_CalibValues.clear();
+
+	std::getline(file,tmp); /*read first line*/
+	while (file>>board>>ch>>ped>>gain){
+		this->addCalib(board,ch,ped,gain);
+	}
+	file.close();
 }

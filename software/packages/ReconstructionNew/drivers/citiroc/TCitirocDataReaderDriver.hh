@@ -14,6 +14,7 @@ class TEvent;
 class TClonesArray;
 class TCitirocSetupHandler;
 class TCitirocEventHeader;
+class TCitirocChargeCalibration;
 
 class TCitirocDataReaderDriver: public TDriver {
 public:
@@ -22,12 +23,18 @@ public:
 
 	virtual int process(TEvent *event);
 	virtual int startOfData();
+	virtual int start();
+
 
 
 private:
 	TClonesArray *m_reconHitCollection;
 	TCitirocSetupHandler *m_citirocSetupHandler;
 	TCitirocEventHeader  *m_citirocEventHeader;
+	TCitirocChargeCalibration *m_citirocChargeCalibration;
+
+	std::pair<int,int> m_CitirocKey;
+	std::string m_fname;
 
 	double m_MultCutMin,m_MultCutMax;
 
@@ -48,6 +55,8 @@ public:
 	void setMultCutMin(double multCutMin) {
 		m_MultCutMin = multCutMin;
 	}
+
+	void setChargeCalibFileName(const char* fname){this->m_fname=string(fname);}
 
 	ClassDef(TCitirocDataReaderDriver,1);
 };

@@ -30,6 +30,7 @@
 <class name="TCitirocBasicDriver"/>
 <class name="TCitirocSetupHandlerDriver"/>
 <class name="TCitirocChargeCalibrationDriver"/>
+<class name="TCitirocReconHitAnaDriver"/>
 
 <class name="TTofpetDummyAnalysisDriver"/>
 <class name="TTofpetTimeAnalysisDriver"/>

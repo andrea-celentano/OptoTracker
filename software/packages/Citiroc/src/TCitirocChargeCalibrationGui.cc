@@ -169,18 +169,18 @@ m_TCitirocChargeCalibration(CitirocChargeCalibration),m_curChannel(0)
 	fFit->SetWrapLength(-1);
 	fFit->Resize(99,24);
 	fVerticalFrame->AddFrame(fFit, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
-	fFit->MoveResize(288,8,99,24);
+	fFit->MoveResize(318,8,99,24);
 	fFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"Fit()");
 
 	/*SaveNextFit*/
-	fSaveNextFit = new TGTextButton(fVerticalFrame,"fSaveNextFit",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
+	fSaveNextFit = new TGTextButton(fVerticalFrame,"SaveNextFit",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
 	fSaveNextFit->SetTextJustify(36);
 	fSaveNextFit->SetMargins(0,0,0,0);
 	fSaveNextFit->SetWrapLength(-1);
 	fSaveNextFit->Resize(99,24);
 	fVerticalFrame->AddFrame(fSaveNextFit, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
-	fSaveNextFit->MoveResize(288,32,99,24);
-	fSaveNextFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"NextSaveFit()");
+	fSaveNextFit->MoveResize(318,32,99,24);
+	fSaveNextFit->Connect("Clicked()","TCitirocChargeCalibrationGui",this,"SaveNextFit()");
 
 	TGTextButton *fTextButton1990 = new TGTextButton(fVerticalFrame,"fTextButton1990",-1,TGTextButton::GetDefaultGC()(),TGTextButton::GetDefaultFontStruct(),kRaisedFrame);
 	fTextButton1990->SetTextJustify(36);
@@ -356,6 +356,11 @@ void TCitirocChargeCalibrationGui::NextAndSave(){
 	Next();
 }
 
+void TCitirocChargeCalibrationGui::SaveNextFit(){
+	Save();
+	Next();
+	Fit();
+}
 
 void TCitirocChargeCalibrationGui::DoSliderMoved(){
 	DrawFitBox();

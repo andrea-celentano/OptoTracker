@@ -11,7 +11,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
+#include <string>
 
 #include "TGCanvas.h"
 class TRootEmbeddedCanvas;
@@ -63,6 +63,7 @@ private:
 public:
 
 	TCitirocChargeCalibration();
+	TCitirocChargeCalibration(std::string fname);
 	virtual ~TCitirocChargeCalibration();
 
 	template <typename T> int addObject(int ID,int ch,T* obj,std::map<std::pair<int,int>,T*> &map);
@@ -77,16 +78,21 @@ public:
 
 
 	void addCalib(int ID,int ch,double ped,double gain);
-
+	int hasCalib(int ID,int ch) const;
+	void getCalib(int ID,int ch,double &ped,double &gain) const;
 
 	void setFitRange(double xmin,double xmax){m_xmin=xmin;m_xmax=xmax;}
 
 	int getChannels(){return m_hQ.size();}
 
-	void dumpCalibration(std::string fname="calib.dat") const;
+
 	int doCalibrationGui();
 
 	void Fit(int ID,int ch);
+
+	void dumpCalibration(std::string fname="calib.dat") const;
+	void LoadConstantsFromFile(const std::string &fname);
+
 
 	ClassDef(TCitirocChargeCalibration,1);
 
@@ -178,6 +184,7 @@ public:
 	void Prev();
 	void Next();
 	void NextAndSave();
+	void SaveNextFit();
 	void Fit();
 
 
@@ -191,6 +198,8 @@ public:
 
 	void DoSliderMoved();
 	void DrawFitBox();
+
+
 
 	ClassDef(TCitirocChargeCalibrationGui,1);
 

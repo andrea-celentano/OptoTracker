@@ -1,4 +1,5 @@
 #include "TCitirocSetupHandler.hh"
+#include <fstream>
 
 
 TCitirocSetupHandler::TCitirocSetupHandler():
@@ -8,12 +9,11 @@ TRealSetupHandler()
 }
 
 
-TCitirocSetupHandler::TCitirocSetupHandler(string fname):
-				TRealSetupHandler(fname)
+TCitirocSetupHandler::TCitirocSetupHandler(std::string fname)
 {
 	cout<<"CitirocSetupHandler file constructor"<<endl;
-	ifstream file;
-	string line;
+	std::ifstream file;
+	std::string line;
 	file.open(fname.c_str());
 	if (!file){
 		cerr<<"MarocSetupHandler::file not found "<<fname<<endl;
@@ -22,6 +22,7 @@ TCitirocSetupHandler::TCitirocSetupHandler(string fname):
 		while(!file.eof()){
 			getline (file,line);
 			if (line.size()==0) continue;
+			TRealSetupHandler::processLine(line);
 			this->processLine(line);
 		}
 	}
@@ -29,12 +30,12 @@ TCitirocSetupHandler::TCitirocSetupHandler(string fname):
 
 }
 
-void TCitirocSetupHandler::processLine(string line){
+void TCitirocSetupHandler::processLine(std::string line){
 
 	istringstream parser;
-	string key,data;
+	std::string key,data;
 	int CitirocCh0,CitirocCh1,Pixel0,Pixel1;
-	pair < int , int > CitirocIDChannel;
+	std::pair < int , int > CitirocIDChannel;
 	parser.str(line);
 	parser>>key;
 	if (key[0]=='#') return; //comment
@@ -69,7 +70,7 @@ void TCitirocSetupHandler::processLine(string line){
 int TCitirocSetupHandler::getReconstructionDetectorPixel(int ID,int ch){
 	int ret=-1;
 	std::map<pair <int,int>,int>::iterator it;
-	pair < int , int > CitirocIDChannel;
+	std::pair < int , int > CitirocIDChannel;
 	CitirocIDChannel=make_pair(ID,ch);
 
 	it = m_reconstructionDetPixelfromCitirocIDChannel.find(CitirocIDChannel);
@@ -77,7 +78,7 @@ int TCitirocSetupHandler::getReconstructionDetectorPixel(int ID,int ch){
 		ret = it->second;
 	}
 	else{
-		cerr<<"Error RealSetupHandler::getReconstructionDetectorID for ID - ch: "<<ID<<" "<<ch<<endl;
+		Error("getReconstructionDetectorPixel","Reconstruction pixel not found for board %i channel %i",ID,ch);
 	}
 	return ret;
 }
