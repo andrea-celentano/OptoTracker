@@ -8,7 +8,6 @@
 #include "TH1D.h"
 #include "TApplication.h"
 #include "TVectorT.h"
-#include "Cintex/Cintex.h"
 
 
 #include <iostream>
@@ -19,36 +18,6 @@ using namespace std;
 TApplication gui("gui",0,NULL);
 
 int main(){
-	//Load Cintex
-	ROOT::Cintex::Cintex::Enable();
-
-
-
-/*	TXMLHandler parser("recon.xml");
-
-	parser.GetDrivers();
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

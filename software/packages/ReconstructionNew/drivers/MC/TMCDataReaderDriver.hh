@@ -6,7 +6,7 @@
  */
 
 #ifndef TMCDATAREADERDRIVER_HH_
-#define TMCDATAREADERDRIVEr_HH_
+#define TMCDATAREADERDRIVER_HH_
 
 #include "TDriver.hh"
 

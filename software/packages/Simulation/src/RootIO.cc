@@ -35,7 +35,6 @@
 
 #include "RootIO.hh"
 //
-#include "Cintex/Cintex.h"
 #include "G4SDManager.hh"
 #include "G4HCofThisEvent.hh"
 #include "G4EventManager.hh"
@@ -55,8 +54,7 @@ RootIO::RootIO():fNevents(0),fFile(NULL),fName("")
 
 	//gSystem->Load("libOpNoviceClassesDict");
 
-	ROOT::Cintex::Cintex::SetDebug(0);
-	ROOT::Cintex::Cintex::Enable();
+
 	//gDebug = 1;
 
 	fFile=NULL;

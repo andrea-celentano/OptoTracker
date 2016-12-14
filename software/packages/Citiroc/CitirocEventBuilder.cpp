@@ -19,7 +19,7 @@
 #include "TLatex.h"
 #include "TClass.h"
 #include "TObject.h"
-#include "Cintex/Cintex.h"
+
 
 #include "CommonMacros.hh"
 #include "TCitirocSetupHandler.hh"

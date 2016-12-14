@@ -140,7 +140,7 @@ void OpNoviceDetectorHit::Draw(){
 				G4double delta=49.*mm/8; //6.125mm
 				G4double x,y;
 				G4int iPixel,iPixelX,iPixelY;
-				G4int fPhotonsPixels[64]={0.};
+				G4int fPhotonsPixels[64]={0};
 				for (int ii=0;ii<fNPhe;ii++){
 					x=GetX(ii);
 					y=GetY(ii);

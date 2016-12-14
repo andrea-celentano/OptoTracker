@@ -71,7 +71,7 @@ void OpNoviceScintSD::Initialize(G4HCofThisEvent* hitsCE){
 
 G4bool OpNoviceScintSD::ProcessHits(G4Step* aStep,G4TouchableHistory* ){
   G4double edep = aStep->GetTotalEnergyDeposit();
-  G4double edepVis = G4LossTableManager::Instance()->EmSaturation()->VisibleEnergyDeposition(aStep);
+  G4double edepVis = G4LossTableManager::Instance()->EmSaturation()->VisibleEnergyDepositionAtAStep(aStep);
 
   if(edep==0.) return false; //No edep so dont count as hit
 

@@ -5,7 +5,6 @@
 #include "TProof.h"
 #include "TFile.h"
 #include "TKey.h"
-#include "Cintex/Cintex.h"
 #include <string>
 
 
@@ -20,7 +19,6 @@ TAnalysis::TAnalysis():
 	m_chain=new TChain("Event");
 
 	m_detName="";
-	ROOT::Cintex::Cintex::Enable();
 	isConfigured=0;
 }
 

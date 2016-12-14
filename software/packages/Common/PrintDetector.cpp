@@ -14,8 +14,6 @@
 #include "TRandom3.h"
 #include "TGraph.h"
 #include "TGraph2D.h"
-#include "Cintex/Cintex.h"
-
 
 #include <iostream>
 #include <fstream>
@@ -42,10 +40,6 @@ double timeRes=-1;
 
 
 int main(int argc,char **argv){
-  //Load Cintex and the shared library
-  ROOT::Cintex::Cintex::Enable();
-  gSystem->Load("libGeometryClassesDict.so");
-  
   
   
   

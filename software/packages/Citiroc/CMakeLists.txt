@@ -19,19 +19,23 @@ else()
   find_package(Geant4 REQUIRED)
 endif()
 
-#----------------------------------------------------------------------------
-# Setup Geant4 include directories and compile definitions
-#
-include(${Geant4_USE_FILE})
 
 #----------------------------------------------------------------------------
 # Find ROOT (required package)
 #
 find_package(ROOT REQUIRED)
+find_package(GCCXML REQUIRED)
+include(${ROOT_USE_FILE})
 
 if(NOT GCCXML)
    message(FATAL_ERROR "Citiroc requires GCCXML")
 endif() 
+
+#----------------------------------------------------------------------------
+# Setup Geant4 include directories and compile definitions
+#
+include(${Geant4_USE_FILE})
+
 
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
@@ -47,13 +51,6 @@ file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 
-#----------------------------------------------------------------------------
-# add ROOT libraries properties
-#
-set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lSpectrum -lGui)
-set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
-
 
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
@@ -61,18 +58,18 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 REFLEX_GENERATE_DICTIONARY(CitirocClasses include/CitirocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 
 
-add_library(CitirocClassesDict SHARED ${sources} ${driver_sources} CitirocClasses.cpp)
+add_library(CitirocClassesDict SHARED ${sources} ${driver_sources} CitirocClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO -lSpectrum -lGui )
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(CitirocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
-target_link_libraries(CitirocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
+target_link_libraries(CitirocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 
 add_executable(CitirocEventBuilder CitirocEventBuilder.cpp ${sources} ${headers})
-target_link_libraries(CitirocEventBuilder CitirocClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex)
+target_link_libraries(CitirocEventBuilder CitirocClassesDict CommonClassesDict ${ROOT_LIBRARIES})
 
 
 

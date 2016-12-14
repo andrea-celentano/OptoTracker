@@ -19,15 +19,13 @@ else()
   find_package(Geant4 REQUIRED)
 endif()
 
-#----------------------------------------------------------------------------
-# Setup Geant4 include directories and compile definitions
-#
-include(${Geant4_USE_FILE})
 
 #----------------------------------------------------------------------------
 # Find ROOT (required package)
 #
 find_package(ROOT REQUIRED)
+find_package(GCCXML REQUIRED)
+include(${ROOT_USE_FILE})
 
 if(NOT GCCXML)
    message(FATAL_ERROR "Maroc requires GCCXML")
@@ -61,12 +59,12 @@ set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 REFLEX_GENERATE_DICTIONARY(MarocClasses include/MarocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
 
 
-add_library(MarocClassesDict SHARED ${sources} ${driver_sources} MarocClasses.cpp)
+add_library(MarocClassesDict SHARED ${sources} ${driver_sources} MarocClasses.cxx)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(MarocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
-target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
+target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 
 
@@ -79,24 +77,24 @@ target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cin
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
-target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocAnalysis MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 add_executable(MarocAnalysis2 marocAnalysis2.cpp ${sources} ${headers})
-target_link_libraries(MarocAnalysis2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocAnalysis2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 
 
 add_executable(comparison comparison.cpp ${sources} ${headers})
-target_link_libraries(comparison MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(comparison MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 add_executable(MarocConverter marocConverter.cpp ${sources} ${headers})
-target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 add_executable(MarocConverter2 marocConverter2.cpp ${sources} ${headers})
-target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} Cintex ${Geant4_LIBRARIES})
+target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX

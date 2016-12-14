@@ -17,7 +17,6 @@
 #include "TGraphErrors.h"
 #include "TGraph2D.h"
 #include "TLine.h"
-#include "Cintex/Cintex.h"
 #include "TList.h"
 #include "TROOT.h"
 
@@ -59,7 +58,7 @@ int parseCommandLine(int argc,char **argv){
 
 
 int main(int argc,char **argv){
-	ROOT::Cintex::Cintex::Enable();
+
 	const int Nch=256;
 	const int BIN_MIN=10;
 	const double MAX_RATE=5E6; //for sure the thermal single phe are less than this

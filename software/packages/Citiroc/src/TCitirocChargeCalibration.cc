@@ -56,9 +56,9 @@ Float_t TCitirocChargeCalibration::FitGains(){
 	Info("FitGains","Found %d peaks to fit\n",nfound);
 
 
-	Float_t *peaks;
+	Double_t *peaks;
 	Double_t *altpeaks;
-	peaks = s->GetPositionX();
+	peaks = (s->GetPositionX());
 	//  altpeaks = s->GetPositionY();
 
 	//Sort peaks

@@ -2,7 +2,7 @@
 # Setup the project
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(OpNovice)
-
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "$ENV{ROOTSYS}/cmake/")
 #Rpath
 SET(CMAKE_INSTALL_RPATH "$ENV{OPTO}/software/lib")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
@@ -19,18 +19,22 @@ else()
   find_package(Geant4 REQUIRED)
 endif()
 
-#----------------------------------------------------------------------------
-# Setup Geant4 include directories and compile definitions
-#
-include(${Geant4_USE_FILE})
+
 #----------------------------------------------------------------------------
 # Find ROOT (required package)
 #
 find_package(ROOT REQUIRED)
+include(${ROOT_USE_FILE})
 
+find_package(GCCXML REQUIRED)
 if(NOT GCCXML)
    message(FATAL_ERROR "OpNovice requires GCCXML")
 endif() 
+
+#----------------------------------------------------------------------------
+# Setup Geant4 include directories and compile definitions
+#
+include(${Geant4_USE_FILE})
 
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
@@ -46,12 +50,12 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh {PROJECT_SOURCE_DIR}/build/
 # Generate dictionaries, add ROOT libraries properties
 #
 REFLEX_GENERATE_DICTIONARY(OpNoviceClasses include/OpNoviceClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-add_library(OpNoviceClassesDict SHARED ${sources} OpNoviceClasses.cpp)
+add_library(OpNoviceClassesDict SHARED ${sources} OpNoviceClasses.cxx)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(OpNoviceClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
-target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex Reflex)
+target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 
 
@@ -62,7 +66,7 @@ target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES}
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 add_executable(OpNoviceExe OpNovice.cc ${sources} ${headers})
-target_link_libraries(OpNoviceExe OpNoviceClassesDict CommonClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} Cintex)
+target_link_libraries(OpNoviceExe OpNoviceClassesDict CommonClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
  
 
 

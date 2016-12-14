@@ -11,7 +11,8 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 # Find ROOT (required package)
 #
 find_package(ROOT REQUIRED)
-
+find_package(GCCXML REQUIRED)
+include(${ROOT_USE_FILE})
 if(NOT GCCXML)
    message(FATAL_ERROR "Common requires GCCXML")
 endif() 
@@ -30,14 +31,14 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 # Generate dictionaries, add ROOT libraries properties
 # 
 REFLEX_GENERATE_DICTIONARY(TofpetClasses include/TofpetClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-add_library(TofpetClassesDict SHARED ${sources} TofpetClasses.cpp)
+add_library(TofpetClassesDict SHARED ${sources} TofpetClasses.cxx)
 set(libsuffix .so)
 set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO -lGui)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(TofpetClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 
 
-target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} Cintex Reflex)
+target_link_libraries(TofpetClassesDict ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR})
 
 #----------------------------------------------------------------------------
 # Add the executable
