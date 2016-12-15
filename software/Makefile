@@ -6,17 +6,15 @@ $(packages):
 	echo Doing $@ && \
 	mkdir -p ${OPTO}/software/packages/$@/build && \
 	cd ${OPTO}/software/packages/$@/build && cmake ../ && \
-	cmake -DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/ -DCMAKE_BUILD_TYPE=Release  ../ ; \
+#	cmake -DGeant4_DIR=${G4INSTALL}/lib64/Geant4-10.1.1/ -DCMAKE_BUILD_TYPE=Release  ../ ; \
 	make -j16 install
 
 clean:
 	for package in ${packages} ; do \
 		cd ${OPTO}/software/packages/$$package/build ; \
-		rm -rf CMakeFiles ; \
-		rm -rf CMakeCache.txt ; \
-		rm -rf *Classes.cpp ; \
+		rm -rf * ; \
 	done ; \
-	cd ${OPTO}/bin ; rm * ; cd ${OPTO}/lib ; rm *
+	cd ${OPTO}/software/bin ; rm -f * ; cd ${OPTO}/software/lib ; rm -f *
 
 debug:
 	for package in ${packages} ; do \
