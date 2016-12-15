@@ -30,10 +30,12 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 # 
-REFLEX_GENERATE_DICTIONARY(TofpetClasses include/TofpetClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+#REFLEX_GENERATE_DICTIONARY(TofpetClasses include/TofpetClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(TofpetClasses include/TofpetClasses.hh LINKDEF include/LinkDef.h)
+
 add_library(TofpetClassesDict SHARED ${sources} TofpetClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lMinuit2 -lProof -lXMLIO -lGui)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -lMinuit -lProof -lXMLIO -lGui)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(TofpetClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 
@@ -55,5 +57,6 @@ target_link_libraries(DarkScan TofpetClassesDict CommonClassesDict ${ROOT_LIBRAR
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS TofpetClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libTofpetClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS DarkScan DESTINATION $ENV{OPTO}/software/bin)
-#install(TARGETS TestCommon DESTINATION $ENV{OPTO}/software/bin)
+

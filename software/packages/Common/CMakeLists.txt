@@ -29,24 +29,21 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 # 
-REFLEX_GENERATE_DICTIONARY(CommonClasses include/CommonClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-#ROOT_GENERATE_DICTIONARY(CommonClasses include/CommonClasses.hh)
+#REFLEX_GENERATE_DICTIONARY(CommonClasses include/CommonClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(CommonClasses include/CommonClasses.hh LINKDEF include/LinkDef.h)
 
 add_library(CommonClassesDict SHARED ${sources} CommonClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
-
-
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(CommonClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
+
 target_link_libraries(CommonClassesDict ${ROOT_LIBRARIES})
 
- 
-
-add_executable(PrintDetector PrintDetector.cpp ${sources} ${headers})
+add_executable(PrintDetector PrintDetector.cpp ${headers})
 target_link_libraries(PrintDetector CommonClassesDict ${ROOT_LIBRARIES})
 
-add_executable(TestCommon TestCommon.cpp ${sources} ${headers})
+add_executable(TestCommon TestCommon.cpp ${headers})
 target_link_libraries(TestCommon CommonClassesDict ${ROOT_LIBRARIES})
 
 
@@ -56,5 +53,6 @@ target_link_libraries(TestCommon CommonClassesDict ${ROOT_LIBRARIES})
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS CommonClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libCommonClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS PrintDetector DESTINATION $ENV{OPTO}/software/bin)
 install(TARGETS TestCommon DESTINATION $ENV{OPTO}/software/bin)

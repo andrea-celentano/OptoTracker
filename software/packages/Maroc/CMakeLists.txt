@@ -46,22 +46,14 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 
 #----------------------------------------------------------------------------
-# add ROOT libraries properties
-#
-set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof)
-set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
-
-
-#----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 #
-REFLEX_GENERATE_DICTIONARY(MarocClasses include/MarocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-
+#REFLEX_GENERATE_DICTIONARY(MarocClasses include/MarocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(MarocClasses include/MarocClasses.hh LINKDEF include/LinkDef.h)
 
 add_library(MarocClassesDict SHARED ${sources} ${driver_sources} MarocClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lProof -lXMLIO)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(MarocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
@@ -76,30 +68,31 @@ target_link_libraries(MarocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
-add_executable(PrintMaroc printMaroc.cpp ${sources} ${headers})
+add_executable(PrintMaroc printMaroc.cpp ${headers})
 target_link_libraries(PrintMaroc MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
-add_executable(MarocAnalysis marocAnalysis.cpp ${sources} ${headers})
+add_executable(MarocAnalysis marocAnalysis.cpp ${headers})
 target_link_libraries(MarocAnalysis MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
-add_executable(MarocAnalysis2 marocAnalysis2.cpp ${sources} ${headers})
+add_executable(MarocAnalysis2 marocAnalysis2.cpp ${headers})
 target_link_libraries(MarocAnalysis2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 
 
-add_executable(comparison comparison.cpp ${sources} ${headers})
+add_executable(comparison comparison.cpp ${headers})
 target_link_libraries(comparison MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
-add_executable(MarocConverter marocConverter.cpp ${sources} ${headers})
+add_executable(MarocConverter marocConverter.cpp ${headers})
 target_link_libraries(MarocConverter MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
-add_executable(MarocConverter2 marocConverter2.cpp ${sources} ${headers})
+add_executable(MarocConverter2 marocConverter2.cpp ${headers})
 target_link_libraries(MarocConverter2 MarocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS MarocClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libMarocClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS PrintMaroc DESTINATION $ENV{OPTO}/software/bin)
 install(TARGETS MarocAnalysis DESTINATION $ENV{OPTO}/software/bin)
 install(TARGETS MarocAnalysis2 DESTINATION $ENV{OPTO}/software/bin)

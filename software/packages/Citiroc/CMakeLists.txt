@@ -55,12 +55,12 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 # 
-REFLEX_GENERATE_DICTIONARY(CitirocClasses include/CitirocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
-
+#REFLEX_GENERATE_DICTIONARY(CitirocClasses include/CitirocClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(CitirocClasses include/CitirocClasses.hh LINKDEF include/LinkDef.h)
 
 add_library(CitirocClassesDict SHARED ${sources} ${driver_sources} CitirocClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof -lXMLIO -lSpectrum -lGui )
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lProof -lXMLIO -lSpectrum -lGui )
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(CitirocClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(CitirocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
@@ -68,7 +68,7 @@ target_link_libraries(CitirocClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
 
-add_executable(CitirocEventBuilder CitirocEventBuilder.cpp ${sources} ${headers})
+add_executable(CitirocEventBuilder CitirocEventBuilder.cpp ${headers})
 target_link_libraries(CitirocEventBuilder CitirocClassesDict CommonClassesDict ${ROOT_LIBRARIES})
 
 
@@ -78,4 +78,5 @@ target_link_libraries(CitirocEventBuilder CitirocClassesDict CommonClassesDict $
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS CitirocClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libCitirocClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS CitirocEventBuilder DESTINATION $ENV{OPTO}/software/bin)

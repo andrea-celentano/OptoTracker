@@ -1,7 +1,7 @@
 #!/bin/tcsh -f
 
-set MC = $OPTO/bin/OpNoviceExe
-set RECON = $OPTO/bin/ReconstructionNew
+set MC = $OPTO/software/bin/OpNoviceExe
+set RECON = $OPTO/software/bin/ReconstructionNew
 set DET = PrototypeGeometry.dat
 set STEERING = reconCharge.xml
 

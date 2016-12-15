@@ -68,8 +68,10 @@ file(GLOB likelihood_headers ${PROJECT_SOURCE_DIR}/likelihoodCalculators/*.hh)
 # Generate dictionaries, add ROOT libraries properties
 #
 
-REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewClasses.hh SELECTION xml/selection.xml)
+#REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewClasses.hh SELECTION xml/selection.xml)
 #REFLEX_GENERATE_DICTIONARY(ReconstructionNewClasses ${headers} ${driver_headers} ${likelihood_headers} SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(ReconstructionNewClasses include/ReconstructionNewClasses.hh LINKDEF include/LinkDef.h)
+
 
 add_library(ReconstructionNewClassesDict SHARED ${sources} ${driver_sources} ${likelihood_sources} ReconstructionNewClasses.cxx)
 set(libsuffix .so)
@@ -88,7 +90,7 @@ target_link_libraries(ReconstructionNewClassesDict ${Geant4_LIBRARIES} ${ROOT_LI
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
-add_executable(ReconstructionNew Reconstruction.cpp ${sources} ${driver_sources} ${likelihood_sources} ${headers} ${driver_headers} ${likelihood_headers})
+add_executable(ReconstructionNew Reconstruction.cpp ${headers} ${driver_headers} ${likelihood_headers})
 target_link_libraries(ReconstructionNew ReconstructionNewClassesDict MarocClassesDict TofpetClassesDict CitirocClassesDict OpNoviceClassesDict CommonClassesDict ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
 
 
@@ -98,4 +100,5 @@ target_link_libraries(ReconstructionNew ReconstructionNewClassesDict MarocClasse
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS ReconstructionNewClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libReconstructionNewClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS ReconstructionNew DESTINATION $ENV{OPTO}/software/bin)

@@ -32,13 +32,13 @@ private:
 	TBranch        *b_event;
 	TEvent         *m_event;
 
-	TXMLHandler 	  *m_xmlHandler;
+	TXMLHandler 	  *m_xmlHandler; //!;
 	vector <TDriver*> *m_drivers;
 
 	TDetector *m_detector;
 	TDetectorUtils *m_detectorUtils;
 
-	map < string , string > *m_variables;
+	map < string , string > *m_variables; //!;
 
 
 	int m_eventN;

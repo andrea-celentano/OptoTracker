@@ -49,10 +49,11 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh {PROJECT_SOURCE_DIR}/build/
 #----------------------------------------------------------------------------
 # Generate dictionaries, add ROOT libraries properties
 #
-REFLEX_GENERATE_DICTIONARY(OpNoviceClasses include/OpNoviceClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+#REFLEX_GENERATE_DICTIONARY(OpNoviceClasses include/OpNoviceClasses.hh SELECTION xml/selection.xml) # OPTIONS --gccxmlopt="--gccxml-compiler g++")
+ROOT_GENERATE_DICTIONARY(OpNoviceClasses include/OpNoviceClasses.hh LINKDEF include/LinkDef.h)
 add_library(OpNoviceClassesDict SHARED ${sources} OpNoviceClasses.cxx)
 set(libsuffix .so)
-set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lMinuit2 -lProof)
+set(ROOT_LIBRARIES ${ROOT_LIBRARIES} -L${ROOT_LIBRARY_DIR} -lMinuit -lProof)
 set(ROOT_LIBRARY_PROPERTIES ${ROOT_LIBRARY_PROPERTIES} SUFFIX ${libsuffix})
 set_target_properties(OpNoviceClassesDict PROPERTIES ${ROOT_LIBRARY_PROPERTIES})
 target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
@@ -65,7 +66,7 @@ target_link_libraries(OpNoviceClassesDict  ${Geant4_LIBRARIES} ${ROOT_LIBRARIES}
 
 link_directories(${ROOT_LIBRARY_DIR} $ENV{OPTO}/software/lib)
 
-add_executable(OpNoviceExe OpNovice.cc ${sources} ${headers})
+add_executable(OpNoviceExe OpNovice.cc ${headers})
 target_link_libraries(OpNoviceExe OpNoviceClassesDict CommonClassesDict ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
  
 
@@ -102,6 +103,7 @@ add_custom_target(OpNovice DEPENDS OpNoviceExe)
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS OpNoviceClassesDict DESTINATION $ENV{OPTO}/software/lib)
+install(FILES build/libOpNoviceClasses_rdict.pcm DESTINATION $ENV{OPTO}/software/lib)
 install(TARGETS OpNoviceExe DESTINATION $ENV{OPTO}/software/bin)
 
 

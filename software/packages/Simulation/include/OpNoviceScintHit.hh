@@ -78,7 +78,7 @@ private:
 	G4double fEdep;
 	G4double fEdepVis;
 	G4ThreeVector fPos;
-	const G4VPhysicalVolume* fPhysVol;
+	const G4VPhysicalVolume* fPhysVol; //! transient value not to be saved in Root;
 
 	/*From root TObject*/
 public:

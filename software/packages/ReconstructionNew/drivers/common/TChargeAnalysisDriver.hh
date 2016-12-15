@@ -20,7 +20,7 @@ private:
 
 	int m_writeOut;
 	std::string m_writeOutFileName;
-	std::ofstream m_writeOutFile;
+	std::ofstream m_writeOutFile; //!;
 
 	vector < double > m_Q;
 
