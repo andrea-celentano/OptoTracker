@@ -70,8 +70,6 @@ void TAnalysis::configure(string xmlname){
 
 	if (doProof){
 		m_proof=TProof::Open(Form("workers=%i",m_manager->getNumberOfWorkers()));
-		m_proof->Exec("gSystem->Load(\"libCintex\")");
-		m_proof->Exec("ROOT::Cintex::Cintex::Enable()");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libCommonClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libTofpetClassesDict.so\")");
 		m_proof->Exec("gSystem->Load(\"${OPTO}/software/lib/libOpNoviceClassesDict.so\")");

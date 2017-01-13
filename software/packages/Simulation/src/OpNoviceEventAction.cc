@@ -163,7 +163,6 @@ void OpNoviceEventAction::EndOfEventAction(const G4Event* anEvent){
 			//G4cout<<"Hit "<<i<<" energy: "<<(*scintHC)[i]->GetEdep()<<G4endl;
 			fMCTruth->addEdep((*scintHC)[i]->GetEdep());
 			fMCTruth->addEdepVis((*scintHC)[i]->GetEdepVis());
-
 			if (fSaveScintRaw){ 
 				((OpNoviceScintHit*)fRootCollectionScintRaw->ConstructedAt(i))->operator=(*((*scintHC)[i]));
 			}

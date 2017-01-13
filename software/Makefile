@@ -12,11 +12,9 @@ $(packages):
 clean:
 	for package in ${packages} ; do \
 		cd ${OPTO}/software/packages/$$package/build ; \
-		rm -rf CMakeFiles ; \
-		rm -rf CMakeCache.txt ; \
-		rm -rf *Classes.cpp ; \
+		rm -rf * ; \
 	done ; \
-	cd ${OPTO}/bin ; rm * ; cd ${OPTO}/lib ; rm *
+	cd ${OPTO}/software/bin ; rm * ; cd ${OPTO}/software/lib ; rm *
 
 debug:
 	for package in ${packages} ; do \

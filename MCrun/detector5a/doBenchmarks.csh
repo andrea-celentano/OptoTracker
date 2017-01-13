@@ -17,6 +17,6 @@ $MC -det $DET -m ${bench}.mac
 	@ length = $nchar - 11 
 	set name = `echo $file $length | awk '{print substr($1,1,$2)}'`
 	echo $name  #This is ${bench}.RunNumber
-	$RECON -s $STEERING $file -DCHARGE_TXT=\"${name}.ChargeOut.txt\" -DCHARGE_ROOT=\"${name}ChargeOut.root\"
+	$RECON -s $STEERING $file -DCHARGE_TXT=\"${name}.ChargeOut.txt\" -DCHARGE_ROOT=\"${name}.ChargeOut.root\"
     end
 end

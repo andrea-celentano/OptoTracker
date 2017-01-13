@@ -13,6 +13,8 @@ run_*.csh
 *~
 #objects
 *.o
+*so
+*.pcm
 #farm logs
 log*.o
 log*.e
