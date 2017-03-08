@@ -223,10 +223,10 @@ void TCitirocChargeCalibration::LoadConstantsFromFile(const std::string &fname){
 	std::string tmp;
 	int board,ch;
 	double ped,gain;
-
+	
 	if (file.good()==0){
-		Error("LoacConstantsFromFile","Can't open file %s",fname);
-		return;
+	  Error("LoadConstantsFromFile","Can't open file %s",fname.c_str());
+	  return;
 	}
 
 	m_CalibValues.clear();

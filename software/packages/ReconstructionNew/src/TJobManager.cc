@@ -307,7 +307,7 @@ void TJobManager::setVariable(string name, string value) {
 	map<string,string>::iterator it;
 	it = m_variables->find(name);
 	if (it!=m_variables->end()){ //This wariable is already here
-		Warning("setVariable","Variable %s already exists with value %d. Setting it at %s",name.c_str(),it->second,value.c_str());
+	  Warning("setVariable","Variable %s already exists with value %s. Setting it at %s",name.c_str(),it->second.c_str(),value.c_str());
 		m_variables->at(name)=value;
 	}
 	else{
