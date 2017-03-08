@@ -77,7 +77,7 @@ void TJobManager::Init(TTree *tree)
 	}
 	m_event->Clear("C");
 
-	Info("Init","Done");
+	Info("Init","Done. Chain has: %i events",tree->GetEntries());
 }
 
 Bool_t TJobManager::Notify()
@@ -158,6 +158,7 @@ void TJobManager::Terminate()
 
 
 Bool_t  TJobManager::Process(Long64_t entry){
+
 	m_event->Clear("C");
 	fTree->GetTree()->GetEntry(entry);  //So it works both with TChain and TTree
 	/*We need to process each driver*/

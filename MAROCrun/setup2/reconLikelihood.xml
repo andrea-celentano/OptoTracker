@@ -3,9 +3,9 @@
     <control>
       <doProof>1</doProof>
       <doProofDiag>1</doProofDiag>
-      <numberOfWorkers>10</numberOfWorkers>
+      <numberOfWorkers>14</numberOfWorkers>
       <numberOfIterations>1</numberOfIterations>
-      <verboseLevel>3</verboseLevel>
+      <verboseLevel>1</verboseLevel>
       <numberOfEvents>-1</numberOfEvents>
     </control>
     <execute>
@@ -26,8 +26,8 @@
       <driver name="DataRead" type="TMarocDataReaderDriver">
 	<setCollectionRawName>"MarocHitRaw"</setCollectionRawName>
 	<setCollectionOutName>"ReconHit"</setCollectionOutName>
-	<setChargeCutMin>0.1805E6</setChargeCutMin>
-	<setChargeCutMax>0.184E6</setChargeCutMax>
+	<setChargeCutMin>0.177E6</setChargeCutMin>
+	<setChargeCutMax>0.181E6</setChargeCutMax>
 	<setMultCutMin>30</setMultCutMin>
 	<setMultCutMax>50</setMultCutMax>
       </driver>

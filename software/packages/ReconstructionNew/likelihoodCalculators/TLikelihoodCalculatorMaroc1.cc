@@ -27,7 +27,7 @@ double TLikelihoodCalculatorMaroc1::CalculateLikelihood(const double *x) const{
 		for (int idetector=0;idetector<m_detector->getNdet(iface);idetector++){
 			if (m_detector->isDetPresent(iface,idetector)==0) continue;
 			for (int id=0;id<m_detector->getNPixels(iface,idetector);id++){
-				if (m_ON[iface][idetector][id]==0){
+				if ((m_ON[iface])[idetector][id]==0){
 					pT=pQ=0;
 					if (m_driver->getManager()->getVerboseLevel()>=TJobManager::fullVerbosity){
 						Info("PointLikelihood","skipping a pixel with no data (it is not a zero, this did not report anything)");
@@ -82,8 +82,8 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodTime(int iface,int idetector,
 	double sigma,n,t;
 
 
-	int Nphe=m_Q[iface][idetector][id]; //hit number of photo-electrons
-	double tmeas=m_T[iface][idetector][id];     //hit time
+	int Nphe=(m_Q[iface])[idetector][id]; //hit number of photo-electrons
+	double tmeas=(m_T[iface])[idetector][id];     //hit time
 	double dist,p1,F1,ret;
 	TVector3 xp=m_detector->getPosPixel(iface,idetector,id); //pixel position
 
@@ -141,8 +141,8 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	double N0=para[8];
 	double tau=para[9];
 	double G;
-	int disc=m_disc[iface][idetector][id];
-	int Nphe=m_Q[iface][idetector][id];     //hit number of photo-electrons
+	int disc=(m_disc[iface])[idetector][id];
+	int Nphe=(m_Q[iface])[idetector][id];     //hit number of photo-electrons
 
 	double mu0,ret;
 
@@ -154,7 +154,7 @@ double TLikelihoodCalculatorMaroc1::PointLikelihoodCharge(int iface,int idetecto
 	/*A.C. test!*/
 	if (m_realSetupHandler!=0){
 		G=m_realSetupHandler->getPixelGain(iface,idetector,id);
-		if (G!=0) mu0*=G;
+		if (G!=0) mu0/=G;
 	}
 	if (disc==0){
 		ret=-mu0;
@@ -211,8 +211,8 @@ double TLikelihoodCalculatorMaroc1::TrackLikelihoodTime(int iface,int idetector,
 	TVector3 k=(xp-x0); double kMag=k.Mag();
 
 
-	int Nphe=m_Q[iface][idetector][id]; //hit number of photo-electrons
-	double tmeas=m_T[iface][idetector][id];     //hit time
+	int Nphe=(m_Q[iface])[idetector][id]; //hit number of photo-electrons
+	double tmeas=(m_T[iface])[idetector][id];     //hit time
 	double p1,F1,ret;
 	double lambda,cosTheta,sin2Theta;
 	double t,tmin;
@@ -267,8 +267,8 @@ double TLikelihoodCalculatorMaroc1::TrackLikelihoodCharge(int iface,int idetecto
 	TVector3 k=(xp-x0); double kMag=k.Mag();
 
 
-	int Nphe=m_Q[iface][idetector][id]; //hit number of photo-electrons
-	double t=m_T[iface][idetector][id];     //hit time
+	int Nphe=(m_Q[iface])[idetector][id]; //hit number of photo-electrons
+
 
 	double mu0,ret;
 

@@ -72,10 +72,10 @@ protected:
 	fitLikelihoodMode_t m_fitLikelihoodMode;
 
 
-	int    **m_ON[6];  //consider hit or not
-	int    **m_disc[6];  //hit discriminator
-	double **m_Q[6];  //hit Charge
-	double **m_T[6];  //hit time
+	vector<vector<int>>    m_ON[6];  //consider hit or not
+	vector<vector<int>>    m_disc[6];  //hit discriminator
+	vector<vector<double>> m_Q[6];  //hit Charge
+	vector<vector<double>> m_T[6];  //hit time
 
 	int m_reconInputMode;
 	string m_reconInputFileName;

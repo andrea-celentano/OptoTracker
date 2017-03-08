@@ -94,7 +94,6 @@ int TMarocDataReaderDriver::process(TEvent* event) {
 			event->addCollection(m_reconHitCollection);
 		}
 		return 0;
-
 	}
 
 }
@@ -130,8 +129,8 @@ int TMarocDataReaderDriver::startOfData() {
 		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(32);
 		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(32);
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0359[ii]/100.);
-		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.62); /*This is the gain configuration PMT359 vs PMT361*/
-		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
+		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,0.72); /*This is the gain configuration PMT359 vs PMT361*/
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 
 
 		iReconPixel=m_marocSetupHandler->getPixelReconId(33,ii);
@@ -139,16 +138,16 @@ int TMarocDataReaderDriver::startOfData() {
 		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(33);
 		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(33);
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0361[ii]/100.);
-		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
-		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
+		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,1.); /*This is the gain configuration PMT359 vs PMT361*/
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
 
-		iReconPixel=m_marocSetupHandler->getPixelReconId(34,ii);
+		/*iReconPixel=m_marocSetupHandler->getPixelReconId(34,ii);
 		iMarocChannel=m_marocSetupHandler->getMarocChannelFromH8500(ii);
 		iReconFace=m_marocSetupHandler->getReconstructionDetectorFace(34);
 		iReconDet=m_marocSetupHandler->getReconstructionDetectorID(34);
 		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,1,PmtDA0349[ii]/100.);
-		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,.82); /*This is the gain configuration PMT349 vs PMT361*/
-		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);
+		//m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,3,.82); //This is the gain configuration PMT349 vs PMT361
+		m_marocSetupHandler->setPixelGain(iReconFace,iReconDet,iReconPixel,2,.5);*/
 
 	}
 

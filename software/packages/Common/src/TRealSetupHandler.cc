@@ -97,7 +97,7 @@ int    TRealSetupHandler::getReconstructionDetectorFace(int idet){
 		ret = it->second;
 	}
 	else{
-		cerr<<"Error RealSetupHandler::getReconstructionDetectorFace for det id: "<<idet<<endl;
+		cerr<<"Error RealSetupHandler::getReconstructionDetectorFace for det id: "<<idet<<"not found!!! "<<endl;
 	}
 	return ret;
 }

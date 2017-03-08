@@ -3,7 +3,7 @@
     <control>
       <doProof>1</doProof>
       <doProofDiag>1</doProofDiag>
-      <numberOfWorkers>7</numberOfWorkers>
+      <numberOfWorkers>14</numberOfWorkers>
       <numberOfIterations>1</numberOfIterations>
       <verboseLevel>3</verboseLevel>
       <numberOfEvents>50000</numberOfEvents>

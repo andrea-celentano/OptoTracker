@@ -2,6 +2,7 @@
 #define TLIKELIHOODRECONDRIVERBASE_HH_
 
 #include <string>
+#include <vector>
 
 #include "TObject.h"
 #include "Fit/ParameterSettings.h"
@@ -16,8 +17,6 @@
 #include "TDetector.hh"
 #include "TJobManager.hh"
 
-
-
 class TEvent;
 class TReconInput;
 class TLikelihoodCalculator;
@@ -26,7 +25,7 @@ class TTree;
 class TH1D;
 class TH2D;
 
-class TLikelihoodReconDriver: public TDriver , public ROOT::Math::IBaseFunctionMultiDim{
+class TLikelihoodReconDriver: public TDriver, public ROOT::Math::IBaseFunctionMultiDim {
 public:
 	TLikelihoodReconDriver();
 	virtual ~TLikelihoodReconDriver();
@@ -35,22 +34,25 @@ public:
 	void initFit();
 	void doFit();
 
-	ROOT::Math::Minimizer* getMinimizer(){return m_minimizer;}
-
+	ROOT::Math::Minimizer* getMinimizer() {
+		return m_minimizer;
+	}
 
 	void initParameters();
 	void setFitObject(fitObject_t);
 	void setFitLikelihoodMode(fitLikelihoodMode_t);
-	fitObject_t getFitObject(){return m_fitObject;}
-	fitLikelihoodMode_t getFitLikelihoodMode(){return m_fitLikelihoodMode;}
+	fitObject_t getFitObject() {
+		return m_fitObject;
+	}
+	fitLikelihoodMode_t getFitLikelihoodMode() {
+		return m_fitLikelihoodMode;
+	}
 
 	/*These are inherited from the driver*/
 	virtual int start();
 	virtual int startOfData();
 	virtual int process(TEvent *m_event);
 	virtual int endOfData();
-
-
 
 	/*These are inherited from IBaseFunctionMultiDim*/
 	virtual double DoEval(const double*) const;
@@ -68,11 +70,10 @@ public:
 		m_likelihoodCalculator = likelihoodCalculator;
 	}
 
-
-
-
 	void setReconInputMode(const char *mode);
-	void setReconInputFileName(const char *name){m_reconInputFileName=string(name);}
+	void setReconInputFileName(const char *name) {
+		m_reconInputFileName = string(name);
+	}
 protected:
 	ROOT::Math::Minimizer* m_minimizer;
 	TReconInput* m_reconInput; /*This can be from file or from reconstruction itself*/
@@ -82,17 +83,16 @@ protected:
 	fitObject_t m_fitObject;
 	fitLikelihoodMode_t m_fitLikelihoodMode;
 
-
-	int    **m_ON[6];  //consider hit or not
-	int    **m_disc[6];  //hit discriminator
-	double **m_Q[6];  //hit Charge
-	double **m_T[6];  //hit time
+	vector<vector<int> > m_ON[6];  //consider hit or not
+	vector<vector<int> > m_disc[6];  //hit discriminator
+	vector<vector<double> > m_Q[6];  //hit Charge
+	vector<vector<double> > m_T[6];  //hit time
 
 	int m_reconInputMode;
 	string m_reconInputFileName;
 
-	static const int reconInputFile=0;
-	static const int reconInputDriver=1;
+	static const int reconInputFile = 0;
+	static const int reconInputDriver = 1;
 
 	void configReconInput();
 	void configMinimizer();
@@ -100,20 +100,19 @@ protected:
 	//Likelihood Calculator
 	TLikelihoodCalculator *m_likelihoodCalculator;
 
-
 	//histograms
-	TH1D *hX,*hY,*hZ,*hX_1,*hY_1,*hZ_1,*hX_2,*hY_2,*hZ_2;
-	TH2D *hXY,*hXZ,*hYZ,*hXY_1,*hXZ_1,*hYZ_1,*hXY_2,*hXZ_2,*hYZ_2;
-	TH1D *hTheta,*hPhi;
-	TH1D *hNPhotons,*hT0,*hTau;
+	TH1D *hX, *hY, *hZ, *hX_1, *hY_1, *hZ_1, *hX_2, *hY_2, *hZ_2;
+	TH2D *hXY, *hXZ, *hYZ, *hXY_1, *hXZ_1, *hYZ_1, *hXY_2, *hXZ_2, *hYZ_2;
+	TH1D *hTheta, *hPhi;
+	TH1D *hNPhotons, *hT0, *hTau;
 
 	//tree - and associated variables
 	TTree *tout;
 
 	/*Fit results*/
-	double m_x0,m_y0,m_z0;
-	double m_x1,m_y1,m_z1;
-	double m_N,m_tau,m_beta,m_T0;
+	double m_x0, m_y0, m_z0;
+	double m_x1, m_y1, m_z1;
+	double m_N, m_tau, m_beta, m_T0;
 	double m_L;
 
 	/*Some data*/
@@ -122,8 +121,7 @@ protected:
 
 	int m_eventN;
 
-
-	ClassDef(TLikelihoodReconDriver,1);
+ClassDef(TLikelihoodReconDriver,1);
 };
 
 #endif

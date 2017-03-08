@@ -1,6 +1,6 @@
 #!/bin/tcsh -f
 
-set EXE=$OPTO/bin/OpNoviceExe
+set EXE=$OPTO/software/bin/OpNoviceExe
 set DET=PrototypeGeometry.new.dat
 
 $EXE -m center.mac -det $DET &   
